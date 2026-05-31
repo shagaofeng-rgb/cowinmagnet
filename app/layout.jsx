@@ -1,5 +1,8 @@
 import "./globals.css";
+import { Suspense } from "react";
 import { Inter, Montserrat, Noto_Sans_SC, Roboto_Mono } from "next/font/google";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { siteUrl } from "@/data/i18n";
 
 const inter = Inter({
@@ -39,7 +42,13 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${inter.variable} ${montserrat.variable} ${robotoMono.variable} ${notoSansSc.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <Suspense fallback={null}>
+          <AnalyticsTracker />
+        </Suspense>
+        <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+      </body>
     </html>
   );
 }
