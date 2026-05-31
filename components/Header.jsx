@@ -3,6 +3,7 @@ import { productCategories } from "@/data/productCatalog";
 import { withLocale } from "@/data/i18n";
 import { getMessages } from "@/messages";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import MobileNav from "@/components/MobileNav";
 import OptimizedBannerPicture from "@/components/OptimizedBannerPicture";
 import ResponsiveImage from "@/components/ResponsiveImage";
 
@@ -79,16 +80,7 @@ export default function Header({ locale = "en" }) {
         <Link href={withLocale(locale, "/contact")}>{nav.contact}</Link>
       </nav>
 
-      <details className="mobile-nav">
-        <summary>Menu</summary>
-        <div className="mobile-nav-panel">
-          {mobileLinks.map((item) => (
-            <Link href={withLocale(locale, item.href)} key={item.href}>
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      </details>
+      <MobileNav items={mobileLinks} locale={locale} />
 
       <div className="header-actions">
         <LanguageSwitcher locale={locale} />
