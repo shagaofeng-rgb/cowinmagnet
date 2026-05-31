@@ -8,6 +8,14 @@ import OptimizedBannerPicture from "@/components/OptimizedBannerPicture";
 export default function Header({ locale = "en" }) {
   const messages = getMessages(locale);
   const nav = messages.nav;
+  const mobileLinks = [
+    { href: "/products", label: nav.products },
+    { href: "/about", label: nav.about },
+    { href: "/blog", label: nav.blog },
+    { href: "/news", label: nav.news },
+    { href: "/inquiry", label: nav.inquiry },
+    { href: "/contact", label: nav.contact }
+  ];
 
   return (
     <header className="site-header">
@@ -61,6 +69,17 @@ export default function Header({ locale = "en" }) {
         <Link href={withLocale(locale, "/inquiry")}>{nav.inquiry}</Link>
         <Link href={withLocale(locale, "/contact")}>{nav.contact}</Link>
       </nav>
+
+      <details className="mobile-nav">
+        <summary>Menu</summary>
+        <div className="mobile-nav-panel">
+          {mobileLinks.map((item) => (
+            <Link href={withLocale(locale, item.href)} key={item.href}>
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </details>
 
       <div className="header-actions">
         <LanguageSwitcher locale={locale} />

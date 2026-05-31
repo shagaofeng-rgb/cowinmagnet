@@ -139,6 +139,10 @@ video {
   position: relative;
 }
 
+.mobile-nav {
+  display: none;
+}
+
 .has-mega::after {
   content: "";
   position: fixed;
@@ -2865,6 +2869,118 @@ body {
 
   .news-run-list {
     position: static;
+  }
+}
+
+/* Mobile visual QA refinements: keep the first screen cleaner and reduce fixed-button overlap. */
+@media (max-width: 640px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-nav {
+    position: relative;
+    z-index: 100;
+    display: block;
+    justify-self: end;
+  }
+
+  .mobile-nav summary {
+    display: inline-flex;
+    min-height: 42px;
+    align-items: center;
+    padding: 0 16px;
+    color: #ffffff;
+    background: linear-gradient(135deg, rgba(246, 200, 66, 0.2), rgba(255, 255, 255, 0.04));
+    border: 1px solid rgba(246, 200, 66, 0.76);
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: var(--font-title);
+    font-size: 13px;
+    font-weight: 900;
+    list-style: none;
+  }
+
+  .mobile-nav summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-nav-panel {
+    position: absolute;
+    top: calc(100% + 72px);
+    right: 0;
+    display: grid;
+    width: min(276px, calc(100vw - 36px));
+    padding: 10px;
+    color: #ffffff;
+    background:
+      radial-gradient(circle at 100% 0%, rgba(246, 200, 66, 0.18), transparent 34%),
+      linear-gradient(135deg, rgba(8, 18, 34, 0.98), rgba(4, 10, 20, 0.96));
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+  }
+
+  .mobile-nav-panel a {
+    padding: 11px 12px;
+    border-radius: 10px;
+    font-family: var(--font-title);
+    font-size: 14px;
+    font-weight: 850;
+  }
+
+  .mobile-nav-panel a:hover {
+    color: #f6c842;
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .header-actions {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr);
+  }
+
+  .header-cta {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .inquiry-hero {
+    padding-top: 72px;
+    padding-bottom: 44px;
+  }
+
+  .inquiry-hero h1,
+  .catalog-hero h1,
+  .product-summary-hero h1,
+  .simple-hero h1 {
+    font-size: clamp(32px, 9vw, 38px);
+    line-height: 1.08;
+  }
+
+  .catalog-hero,
+  .product-summary-hero,
+  .simple-hero {
+    padding-top: 72px;
+  }
+
+  .whatsapp-float {
+    right: 12px;
+    bottom: 16px;
+    width: 50px;
+    height: 50px;
+    min-height: 50px;
+    box-shadow: 0 0 0 5px rgba(37, 211, 102, 0.18), 0 14px 34px rgba(37, 211, 102, 0.3);
+  }
+
+  .whatsapp-float svg {
+    width: 27px;
+    height: 27px;
   }
 }
 
