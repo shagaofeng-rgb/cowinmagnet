@@ -16,7 +16,7 @@ export default function ContactPage() {
       <main>
         <DirectContactCard />
         <GoogleMapCard title="Visit Cowinmagnet in Quzhou, Zhejiang" kicker="Contact location" />
-        <QuoteSection title="Send your conveyor details for product recommendation." />
+        <QuoteSection title="Send your material details for product recommendation." />
       </main>
     </>
   );

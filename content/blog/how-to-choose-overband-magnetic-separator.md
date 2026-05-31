@@ -256,5 +256,4 @@ If you are planning a conveyor iron removal project, send Cowinmagnet your mater
 - Popup title: Need Help Choosing an Overband Magnetic Separator?
 - Popup copy: Send your conveyor width, material type and iron removal requirement. Our team will help you match a suitable model.
 - Fields: Name, Email, Phone required; Company, Country, Product Requirement, Message optional
-- Submit button: Send Conveyor Details
-
+- Submit button: Send Requirements

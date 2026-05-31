@@ -14,7 +14,7 @@ const es = {
     news: "Noticias",
     contact: "Contacto",
     inquiry: "Consulta",
-    quote: "Enviar datos del transportador",
+    quote: "Enviar requisitos",
     allProducts: "Todos los separadores magnéticos",
     buyerPages: "Páginas para compradores",
     featured: "Producto destacado",
@@ -107,7 +107,7 @@ const es = {
   quote: {
     ...en.quote,
     eyebrow: "Solicitud de cotización",
-    title: "Envíe los datos de su transportador y reciba una recomendación de modelo.",
+    title: "Envíe los datos de su material y reciba una recomendación de modelo.",
     text:
       "Cowinmagnet ayuda a compradores internacionales con selección, personalización y comunicación de exportación.",
     proof: ["Selección de modelo", "Soporte de exportación", "OEM / ODM"],
@@ -124,7 +124,7 @@ const es = {
     intro:
       "Los productos Cowinmagnet se agrupan por lógica de compra: separación permanente, separación electromagnética y componentes de filtración magnética.",
     categoryLabel: "Categoría Cowinmagnet",
-    officialSource: "Fuente oficial"
+    officialSource: "Solicitar catálogo"
   },
   about: {
     ...en.about,
@@ -183,7 +183,7 @@ const es = {
     ...en.productSummary,
     product: "Producto Cowinmagnet",
     send: "Enviar requisitos",
-    source: "Ver producto oficial",
+    source: "Volver al centro de productos",
     application: "Aplicación",
     useCases: "Usos típicos",
     selection: "Nota de selección",

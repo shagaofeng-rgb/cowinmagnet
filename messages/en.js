@@ -10,7 +10,7 @@ const en = {
     news: "News",
     contact: "Contact",
     inquiry: "Inquiry",
-    quote: "Send Conveyor Details",
+    quote: "Send Requirements",
     allProducts: "All Magnetic Separator Products",
     buyerPages: "Buyer Pages",
     featured: "Featured product",
@@ -52,7 +52,7 @@ const en = {
     blog: {
       title: "Magnetic Separator Blog | Cowinmagnet",
       description:
-        "Read Cowinmagnet product introductions, company articles and practical magnetic separator buying guides."
+        "Read Cowinmagnet product guides, company updates and practical magnetic separator selection articles."
     },
     news: {
       title: "Magnetic Separation Industry News | Cowinmagnet",
@@ -134,7 +134,7 @@ const en = {
   },
   quote: {
     eyebrow: "Request for quote",
-    title: "Send your conveyor details and get a suitable model recommendation.",
+    title: "Send your material details and get a suitable model recommendation.",
     text:
       "Cowinmagnet helps overseas buyers match magnetic separation equipment, coordinate customization and support export communication.",
     proof: ["Model selection", "Export support", "OEM / ODM"],
@@ -150,7 +150,7 @@ const en = {
     intro:
       "Products from Cowinmagnet are grouped by buyer decision logic: permanent magnetic separation, electromagnetic separation and magnetic filtration components.",
     categoryLabel: "Cowinmagnet category",
-    officialSource: "Official source"
+    officialSource: "Ask for Catalog"
   },
   about: {
     eyebrow: "About Cowinmagnet",
@@ -158,7 +158,7 @@ const en = {
     intro:
       "Cowinmagnet is a magnetic separation equipment brand operated by Quzhou Qiying Import & Export Co., Ltd. We help overseas buyers source suitable magnetic separators, coordinate customization, check quality and communicate export requirements.",
     cards: [
-      ["Selection", "Product matching", "Recommend equipment according to working conditions and conveyor details."],
+      ["Selection", "Product matching", "Recommend equipment according to working conditions and installation details."],
       ["Service", "Export support", "Coordinate documentation, packaging, shipment and long-term communication."],
       ["Custom", "OEM/ODM coordination", "Support size, magnetic strength, installation method, color, logo and packaging needs."]
     ]
@@ -238,9 +238,9 @@ const en = {
   },
   productSummary: {
     breadcrumb: "Products",
-    product: "Cowinmagnet product",
+    product: "Product overview",
     send: "Send Requirements",
-    source: "View Official Product",
+    source: "Back to Product Center",
     application: "Application",
     useCases: "Typical Use Cases",
     selection: "Selection note",
@@ -249,7 +249,7 @@ const en = {
       "Please prepare material type, capacity, belt width, installation height, iron size, iron content and target separation result. These details help match the right magnetic solution.",
     category: "Category",
     categoryText:
-      "This product is synchronized from the Cowinmagnet official product system and organized here for independent-site SEO and inquiry conversion."
+      "This page is organized from Cowinmagnet product data to help buyers compare applications, selection notes and quotation requirements."
   }
 };
 

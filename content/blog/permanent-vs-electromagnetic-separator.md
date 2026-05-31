@@ -215,7 +215,7 @@ The best approach is to define your application clearly, prepare conveyor and ma
 
 ## Final CTA
 
-If you are comparing permanent and electromagnetic magnetic separators, send Cowinmagnet your conveyor details and application requirements. We can help review your working condition and suggest a practical equipment direction before quotation.
+If you are comparing permanent and electromagnetic magnetic separators, send Cowinmagnet your material details and application requirements. We can help review your working condition and suggest a practical equipment direction before quotation.
 
 ## SEO Information
 
@@ -244,7 +244,7 @@ If you are comparing permanent and electromagnetic magnetic separators, send Cow
 
 ### CTA 2: Final CTA
 - Position: End of article
-- Text: Send your conveyor details and application requirements.
+- Text: Send your material details and application requirements.
 - Button: Send Your Requirements
 - Link: `/inquiry`
 
@@ -254,4 +254,3 @@ If you are comparing permanent and electromagnetic magnetic separators, send Cow
 - Popup copy: Share your belt width, material layer depth and iron removal target. Cowinmagnet will help compare suitable equipment directions.
 - Fields: Name, Email, Phone required; Country, Product Requirement, Message optional
 - Submit button: Ask for Product Recommendation
-

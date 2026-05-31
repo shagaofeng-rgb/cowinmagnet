@@ -5,7 +5,7 @@ const contactItems = [
     label: "Email",
     value: "davidsha@cowinmagnet.com",
     href: "mailto:davidsha@cowinmagnet.com",
-    note: "Send drawings, conveyor details or product requirements directly."
+    note: "Send drawings, material details or product requirements directly."
   },
   {
     label: "Phone / WhatsApp",

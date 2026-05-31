@@ -57,7 +57,7 @@ export default async function LocaleProductPage({ params }) {
               {t.send}
             </Link>
             <Link className="button ghost" href={withLocale(locale, "/products")}>
-              All magnetic separator products
+              {messages.nav.allProducts}
             </Link>
           </div>
         </div>

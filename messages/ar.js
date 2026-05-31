@@ -14,7 +14,7 @@ const ar = {
     news: "الأخبار",
     contact: "اتصل بنا",
     inquiry: "استفسار",
-    quote: "إرسال بيانات الناقل",
+    quote: "إرسال المتطلبات",
     allProducts: "جميع الفواصل المغناطيسية",
     buyerPages: "صفحات المشترين",
     featured: "منتج مميز",
@@ -65,7 +65,7 @@ const ar = {
   quote: {
     ...en.quote,
     eyebrow: "طلب عرض سعر",
-    title: "أرسل بيانات السير الناقل للحصول على توصية موديل مناسبة.",
+    title: "أرسل بيانات المادة للحصول على توصية موديل مناسبة.",
     text: "تساعد Cowinmagnet المشترين الدوليين في اختيار المعدات والتخصيص والتواصل الخاص بالتصدير.",
     proof: ["اختيار الموديل", "دعم التصدير", "OEM / ODM"],
     productRequirement: "متطلبات المنتج",
@@ -74,7 +74,7 @@ const ar = {
     emailWhatsapp: "البريد / واتساب",
     send: "إرسال الاستفسار"
   },
-  products: {...en.products, eyebrow: "مركز المنتجات", h1: "منتجات الفواصل المغناطيسية منظمة للمشترين العالميين", intro: "تم تنظيم منتجات Cowinmagnet حسب منطق الشراء: فصل بالمغناطيس الدائم، فصل كهرومغناطيسي، ومكونات ترشيح مغناطيسية.", categoryLabel: "فئة Cowinmagnet", officialSource: "المصدر الرسمي"},
+  products: {...en.products, eyebrow: "مركز المنتجات", h1: "منتجات الفواصل المغناطيسية منظمة للمشترين العالميين", intro: "تم تنظيم منتجات Cowinmagnet حسب منطق الشراء: فصل بالمغناطيس الدائم، فصل كهرومغناطيسي، ومكونات ترشيح مغناطيسية.", categoryLabel: "فئة Cowinmagnet", officialSource: "طلب الكتالوج"},
   about: {...en.about, eyebrow: "من نحن", h1: "شريك تصدير محترف لمعدات الفصل المغناطيسي", intro: "تساعد Cowinmagnet المشترين الأجانب في اختيار الفواصل المناسبة وتنسيق التخصيص ومراجعة الجودة ومتطلبات التصدير."},
   simplePages: {
     applications: {...en.simplePages.applications, eyebrow: "التطبيقات", h1: "تطبيقات الفصل المغناطيسي حسب الصناعة"},
@@ -85,7 +85,7 @@ const ar = {
   },
   map: {...en.map, title: "موقع مكتب Cowinmagnet", kicker: "موقع الشركة", button: "عرض على Google Maps"},
   footer: {...en.footer, ready: "جاهز لاختيار الموديل؟", cta: "إرسال المتطلبات", company: "الشركة", productCenter: "مركز المنتجات", follow: "تابع Cowinmagnet"},
-  productSummary: {...en.productSummary, product: "منتج Cowinmagnet", send: "إرسال المتطلبات", source: "عرض المنتج الرسمي", application: "التطبيق", useCases: "استخدامات نموذجية", selection: "ملاحظة الاختيار", dataTitle: "البيانات المطلوبة قبل عرض السعر"}
+  productSummary: {...en.productSummary, product: "نظرة عامة على المنتج", send: "إرسال المتطلبات", source: "العودة إلى مركز المنتجات", application: "التطبيق", useCases: "استخدامات نموذجية", selection: "ملاحظة الاختيار", dataTitle: "البيانات المطلوبة قبل عرض السعر"}
 };
 
 export default ar;

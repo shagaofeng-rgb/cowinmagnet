@@ -24,7 +24,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="value-grid">
-            <article><span>Selection</span><h3>Product matching</h3><p>Recommend equipment according to working conditions and conveyor details.</p></article>
+            <article><span>Selection</span><h3>Product matching</h3><p>Recommend equipment according to working conditions and installation details.</p></article>
             <article><span>Service</span><h3>Export support</h3><p>Coordinate documentation, packaging, shipment and long-term communication.</p></article>
             <article><span>Custom</span><h3>OEM/ODM coordination</h3><p>Support size, magnetic strength, installation method, color, logo and packaging needs.</p></article>
           </div>

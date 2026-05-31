@@ -14,7 +14,7 @@ const fr = {
     news: "Actualités",
     contact: "Contact",
     inquiry: "Demande",
-    quote: "Envoyer les données du convoyeur",
+    quote: "Envoyer les exigences",
     allProducts: "Tous les séparateurs magnétiques",
     buyerPages: "Pages acheteurs",
     featured: "Produit recommandé",
@@ -107,7 +107,7 @@ const fr = {
   quote: {
     ...en.quote,
     eyebrow: "Demande de devis",
-    title: "Envoyez les données de votre convoyeur pour recevoir une recommandation.",
+    title: "Envoyez les données de votre matériau pour recevoir une recommandation.",
     text:
       "Cowinmagnet aide les acheteurs internationaux à choisir, personnaliser et préparer l'export.",
     proof: ["Sélection modèle", "Support export", "OEM / ODM"],
@@ -124,7 +124,7 @@ const fr = {
     intro:
       "Les produits Cowinmagnet sont regroupés par logique d'achat : permanent, électromagnétique et composants de filtration magnétique.",
     categoryLabel: "Catégorie Cowinmagnet",
-    officialSource: "Source officielle"
+    officialSource: "Demander le catalogue"
   },
   about: {
     ...en.about,
@@ -142,7 +142,7 @@ const fr = {
   },
   map: {...en.map, title: "Adresse du bureau Cowinmagnet", kicker: "Adresse société", button: "Voir sur Google Maps"},
   footer: {...en.footer, ready: "Prêt pour la sélection ?", cta: "Envoyer les exigences", company: "Société", productCenter: "Centre produits", follow: "Suivre Cowinmagnet"},
-  productSummary: {...en.productSummary, send: "Envoyer les exigences", source: "Voir le produit officiel", application: "Application", useCases: "Cas d'utilisation", selection: "Note de sélection", dataTitle: "Données nécessaires avant devis"}
+  productSummary: {...en.productSummary, send: "Envoyer les exigences", source: "Retour au centre produits", application: "Application", useCases: "Cas d'utilisation", selection: "Note de sélection", dataTitle: "Données nécessaires avant devis"}
 };
 
 export default fr;

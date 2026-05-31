@@ -46,9 +46,9 @@ export default async function ProductSummaryPage({ params }) {
               <Link className="button primary" href="/inquiry">
                 Send Requirements
               </Link>
-              <a className="button ghost" href={product.sourceUrl} target="_blank" rel="noopener noreferrer">
-                View Official Product
-              </a>
+              <Link className="button ghost" href="/products">
+                Back to Product Center
+              </Link>
             </div>
           </div>
           {product.image && (
@@ -77,8 +77,8 @@ export default async function ProductSummaryPage({ params }) {
             <p className="eyebrow">Category</p>
             <h2>{product.categoryTitle}</h2>
             <p>
-              This product is synchronized from the Cowinmagnet official product system and organized here for
-              independent-site SEO and inquiry conversion.
+              This page is organized from Cowinmagnet product data to help buyers compare applications, selection notes
+              and quotation requirements.
             </p>
           </article>
         </section>

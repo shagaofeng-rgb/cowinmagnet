@@ -31,9 +31,9 @@ export default async function LocaleProductsPage({ params }) {
                 <h2>{category.title}</h2>
                 <p>{category.description}</p>
               </div>
-              <a href={category.sourceUrl} target="_blank" rel="noopener noreferrer">
+              <Link href={withLocale(locale, "/inquiry")}>
                 {t.officialSource}
-              </a>
+              </Link>
             </div>
 
             <div className="catalog-products">

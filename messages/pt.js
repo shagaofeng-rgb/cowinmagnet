@@ -14,7 +14,7 @@ const pt = {
     news: "Notícias",
     contact: "Contato",
     inquiry: "Consulta",
-    quote: "Enviar dados do transportador",
+    quote: "Enviar requisitos",
     allProducts: "Todos os separadores magnéticos",
     buyerPages: "Páginas para compradores",
     featured: "Produto em destaque",
@@ -65,7 +65,7 @@ const pt = {
   quote: {
     ...en.quote,
     eyebrow: "Solicitação de cotação",
-    title: "Envie os dados do transportador e receba uma recomendação de modelo.",
+    title: "Envie os dados do material e receba uma recomendação de modelo.",
     text: "Cowinmagnet ajuda compradores internacionais com seleção, personalização e comunicação de exportação.",
     proof: ["Seleção de modelo", "Suporte de exportação", "OEM / ODM"],
     productRequirement: "Requisito do produto",
@@ -74,7 +74,7 @@ const pt = {
     emailWhatsapp: "Email / WhatsApp",
     send: "Enviar consulta"
   },
-  products: {...en.products, eyebrow: "Centro de produtos", h1: "Produtos de separadores magnéticos organizados para compradores globais", intro: "Os produtos Cowinmagnet são agrupados por lógica de compra: separação permanente, eletromagnética e componentes de filtragem magnética.", categoryLabel: "Categoria Cowinmagnet", officialSource: "Fonte oficial"},
+  products: {...en.products, eyebrow: "Centro de produtos", h1: "Produtos de separadores magnéticos organizados para compradores globais", intro: "Os produtos Cowinmagnet são agrupados por lógica de compra: separação permanente, eletromagnética e componentes de filtragem magnética.", categoryLabel: "Categoria Cowinmagnet", officialSource: "Solicitar catálogo"},
   about: {...en.about, eyebrow: "Sobre a Cowinmagnet", h1: "Parceiro profissional de exportação para equipamentos de separação magnética", intro: "Cowinmagnet ajuda compradores estrangeiros a selecionar separadores adequados, coordenar personalização e comunicar requisitos de exportação."},
   simplePages: {
     applications: {...en.simplePages.applications, eyebrow: "Aplicações", h1: "Aplicações de separação magnética por indústria"},
@@ -85,7 +85,7 @@ const pt = {
   },
   map: {...en.map, title: "Localização do escritório Cowinmagnet", kicker: "Localização da empresa", button: "Ver no Google Maps"},
   footer: {...en.footer, ready: "Pronto para seleção?", cta: "Enviar requisitos", company: "Empresa", productCenter: "Centro de produtos", follow: "Seguir Cowinmagnet"},
-  productSummary: {...en.productSummary, send: "Enviar requisitos", source: "Ver produto oficial", application: "Aplicação", useCases: "Usos típicos", selection: "Nota de seleção", dataTitle: "Dados necessários antes da cotação"}
+  productSummary: {...en.productSummary, send: "Enviar requisitos", source: "Voltar ao centro de produtos", application: "Aplicação", useCases: "Usos típicos", selection: "Nota de seleção", dataTitle: "Dados necessários antes da cotação"}
 };
 
 export default pt;

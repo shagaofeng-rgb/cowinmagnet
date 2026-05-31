@@ -4,7 +4,7 @@ import InquiryForm from "@/components/InquiryForm";
 export const metadata = {
   title: "Request a Quote | Cowinmagnet",
   description:
-    "Submit your magnetic separation equipment inquiry and send conveyor details to Cowinmagnet for product recommendation."
+    "Submit your magnetic separation equipment inquiry and send material details to Cowinmagnet for product recommendation."
 };
 
 export default function InquiryPage() {

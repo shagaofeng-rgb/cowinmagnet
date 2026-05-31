@@ -31,9 +31,9 @@ export default function ProductsPage() {
                   <h2>{category.title}</h2>
                   <p>{category.description}</p>
                 </div>
-                <a href={category.sourceUrl} target="_blank" rel="noopener noreferrer">
-                  Official source
-                </a>
+                <Link href="/inquiry">
+                  Ask for Catalog
+                </Link>
               </div>
 
               <div className="catalog-products">
