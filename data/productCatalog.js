@@ -4,13 +4,11 @@ export const productCategories = [
     title: "Permanent Magnet Series",
     description:
       "Permanent magnetic separators for continuous tramp iron removal, equipment protection and recycling recovery lines.",
-    sourceUrl: "https://wtssgznc.fuwucms.com/product/PermanentMagnetSeries",
     products: [
       {
         slug: "permanent-overband-magnetic-separator",
         title: "Automatic Cleaning Magnetic Separators for Iron Scrap Waste",
         shortTitle: "Self-cleaning Permanent Magnetic Separator",
-        sourceUrl: "https://wtssgznc.fuwucms.com/product/MagneticSeparators.html",
         image: "/assets/products/automatic-cleaning-magnetic-separator.webp",
         imageAlt: "Automatic cleaning permanent magnetic separator for iron scrap waste",
         application: "Waste recycling, conveyor belt iron removal, crusher protection",
@@ -35,7 +33,6 @@ export const productCategories = [
         slug: "suspended-permanent-magnetic-separator",
         title: "Suspended Permanent Magnetic Separator",
         shortTitle: "Suspended Permanent Magnet",
-        sourceUrl: "https://wtssgznc.fuwucms.com/product/Suspendedironseparator.html",
         image: "/assets/products/suspended-permanent-magnetic-separator.webp",
         imageAlt: "Suspended permanent magnetic separator plate magnet",
         application: "Quarry, mining, coal, cement and aggregate handling",
@@ -63,13 +60,11 @@ export const productCategories = [
     title: "Electromagnetic Series",
     description:
       "Electromagnetic separators and lifting magnets for stronger magnetic fields, controlled operation and heavy-duty conditions.",
-    sourceUrl: "https://wtssgznc.fuwucms.com/product/ElectromagneticSeries",
     products: [
       {
         slug: "suspended-electromagnetic-conveyor-belt-separator",
         title: "Suspended Electromagnetic Conveyor Belt Separator",
         shortTitle: "Suspended Electromagnetic Separator",
-        sourceUrl: "https://wtssgznc.fuwucms.com/product/3.html",
         image: "/assets/products/suspended-electromagnetic-conveyor-belt-separator.webp",
         imageAlt: "Suspended electromagnetic conveyor belt separator",
         application: "High-capacity conveyors, mining, ports, coal and heavy material handling",
@@ -94,7 +89,6 @@ export const productCategories = [
         slug: "round-electromagnetic-lifting-magnet",
         title: "Round Electromagnetic Lifting Magnet",
         shortTitle: "Round Electromagnetic Lifting Magnet",
-        sourceUrl: "https://wtssgznc.fuwucms.com/product/4.html",
         image: "/assets/products/round-electromagnetic-lifting-magnet.webp",
         imageAlt: "Round electromagnetic lifting magnet for steel scrap handling",
         application: "Steel scrap lifting, metal handling, foundry and warehouse operations",
@@ -122,13 +116,11 @@ export const productCategories = [
     title: "Magnetic Rollers & Magnetic Bars",
     description:
       "Magnetic components for filtration, chute separation, hopper protection and custom magnetic separation assemblies.",
-    sourceUrl: "https://wtssgznc.fuwucms.com/product/MagneticRollersMagneticBars",
     products: [
       {
         slug: "permanent-filter-bar-magnetic-neodymium-rod",
         title: "Strong 6000-16000 Gauss Iron Absorbing Permanent Filter Bar Magnetic Neodymium Rod",
         shortTitle: "Permanent Filter Bar Magnetic Rod",
-        sourceUrl: "https://wtssgznc.fuwucms.com/product/5.html",
         image: "/assets/products/permanent-filter-bar-magnetic-rod.webp",
         imageAlt: "High gauss neodymium magnetic filter bar rod",
         application: "Powder, granule, liquid filtration, hopper and chute protection",

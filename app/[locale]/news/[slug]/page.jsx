@@ -74,7 +74,7 @@ export default async function NewsDetailPage({ params }) {
               {post.sources.map((source) => (
                 <li key={source.url}>
                   <span>{source.date}</span>
-                  <a href={source.url} target="_blank" rel="noopener noreferrer">
+                  <a href={source.url} target="_blank" rel="noopener noreferrer nofollow">
                     {source.name}: {source.title}
                   </a>
                 </li>

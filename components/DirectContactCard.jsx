@@ -34,7 +34,7 @@ export default function DirectContactCard() {
 
       <div className="direct-contact-grid">
         {contactItems.map((item) => (
-          <a className="direct-contact-card" href={item.href} key={item.label} target={item.label === "Office" ? "_blank" : undefined} rel={item.label === "Office" ? "noopener noreferrer" : undefined}>
+          <a className="direct-contact-card" href={item.href} key={item.label} target={item.label === "Office" ? "_blank" : undefined} rel={item.label === "Office" ? "noopener noreferrer nofollow" : undefined}>
             <span>{item.label}</span>
             <strong>{item.value}</strong>
             <small>{item.note}</small>
@@ -43,7 +43,7 @@ export default function DirectContactCard() {
       </div>
 
       <div className="direct-contact-actions">
-        <a href={socialLinks.whatsapp} target="_blank" rel="noopener noreferrer">
+        <a href={socialLinks.whatsapp} target="_blank" rel="noopener noreferrer nofollow">
           Message on WhatsApp
         </a>
         <a href="mailto:davidsha@cowinmagnet.com">Email Now</a>

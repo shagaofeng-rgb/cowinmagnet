@@ -7,7 +7,7 @@ export default function FloatingWhatsApp({ label = "WhatsApp" }) {
       className="whatsapp-float"
       href={socialLinks.whatsapp}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener noreferrer nofollow"
       aria-label={label}
       title={label}
     >

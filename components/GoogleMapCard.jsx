@@ -46,7 +46,7 @@ export default function GoogleMapCard({ locale = "en", title, kicker }) {
 
         <div className="map-actions">
           <p className="map-address">{address}</p>
-          <a className="map-button" href={googleNavUrl} target="_blank" rel="noopener noreferrer">
+          <a className="map-button" href={googleNavUrl} target="_blank" rel="noopener noreferrer nofollow">
             {map.button}
           </a>
         </div>

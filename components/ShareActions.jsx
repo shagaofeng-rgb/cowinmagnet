@@ -37,7 +37,7 @@ export default function ShareActions({ url, title }) {
           href={platform.buildUrl(url, title)}
           key={platform.name}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
           aria-label={`Share on ${platform.name}`}
           title={`Share on ${platform.name}`}
         >

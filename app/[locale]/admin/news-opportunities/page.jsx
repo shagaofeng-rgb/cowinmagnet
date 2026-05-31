@@ -37,7 +37,7 @@ export default async function NewsOpportunityAdminPage({ params }) {
           <h2>Daily Runs</h2>
           {runs.length ? (
             runs.map((date) => (
-              <a key={date} href={`/api/news-opportunities/${date}`} target="_blank" rel="noopener noreferrer">
+              <a key={date} href={`/api/news-opportunities/${date}`} target="_blank" rel="noopener noreferrer nofollow">
                 {date}
               </a>
             ))
@@ -73,7 +73,7 @@ export default async function NewsOpportunityAdminPage({ params }) {
                     <div>
                       <dt>Source</dt>
                       <dd>
-                        <a href={item.url} target="_blank" rel="noopener noreferrer">
+                        <a href={item.url} target="_blank" rel="noopener noreferrer nofollow">
                           {item.sourceName}
                         </a>
                       </dd>

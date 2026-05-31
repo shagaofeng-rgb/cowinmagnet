@@ -15,7 +15,7 @@ export default function SocialLinks({ variant = "footer" }) {
           key={key}
           href={socialLinks[key]}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
           aria-label={`Follow Cowinmagnet on ${label}`}
           title={label}
         >
