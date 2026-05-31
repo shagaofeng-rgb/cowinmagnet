@@ -1,4 +1,6 @@
 import { BarList, MetricCard, TrendChart } from "@/components/admin/AdminWidgets";
+import AdminDateRangeFilter from "@/components/admin/AdminDateRangeFilter";
+import { getAdminDateRange } from "@/lib/adminDateRange";
 import { getAnalyticsSnapshot } from "@/lib/analyticsStore";
 
 export const dynamic = "force-dynamic";
@@ -6,8 +8,9 @@ export const metadata = {
   title: "数据总览 | Cowinmagnet 后台"
 };
 
-export default async function AdminOverviewPage() {
-  const data = await getAnalyticsSnapshot();
+export default async function AdminOverviewPage({ searchParams }) {
+  const range = getAdminDateRange(await searchParams);
+  const data = await getAnalyticsSnapshot(range);
   const { overview, traffic, pages, searchConsole } = data;
 
   return (
@@ -19,6 +22,7 @@ export default async function AdminOverviewPage() {
           <p>集中查看 B2B 访客行为、询盘信号、SEO 搜索表现和页面转化情况。</p>
         </div>
         <div className="admin-date-pill">最近 {data.rangeDays} 天 · {data.storageMode === "database" ? "在线数据库" : "预览模式"}</div>
+        <AdminDateRangeFilter range={range} />
       </header>
 
       <section className="admin-grid four">

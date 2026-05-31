@@ -1,4 +1,6 @@
 import { CsvExportButton, MetricCard } from "@/components/admin/AdminWidgets";
+import AdminDateRangeFilter from "@/components/admin/AdminDateRangeFilter";
+import { getAdminDateRange } from "@/lib/adminDateRange";
 import { getAnalyticsSnapshot } from "@/lib/analyticsStore";
 
 export const dynamic = "force-dynamic";
@@ -6,8 +8,9 @@ export const metadata = {
   title: "页面表现 | Cowinmagnet 后台"
 };
 
-export default async function PagesPerformancePage() {
-  const { landingJourneys, pages } = await getAnalyticsSnapshot();
+export default async function PagesPerformancePage({ searchParams }) {
+  const range = getAdminDateRange(await searchParams);
+  const { landingJourneys, pages } = await getAnalyticsSnapshot(range);
   const totalViews = pages.reduce((sum, page) => sum + page.views, 0);
 
   return (
@@ -18,7 +21,10 @@ export default async function PagesPerformancePage() {
           <h1>落地页数据表现</h1>
           <p>按浏览量、访客数、停留时间和询盘事件，比较产品页、博客、新闻和询盘页的效果。</p>
         </div>
-        <CsvExportButton rows={pages} filename="cowin-pages.csv" />
+        <div className="admin-head-actions">
+          <AdminDateRangeFilter range={range} />
+          <CsvExportButton rows={pages} filename="cowin-pages.csv" />
+        </div>
       </header>
 
       <section className="admin-grid four">

@@ -1,4 +1,6 @@
 import { BarList } from "@/components/admin/AdminWidgets";
+import AdminDateRangeFilter from "@/components/admin/AdminDateRangeFilter";
+import { getAdminDateRange } from "@/lib/adminDateRange";
 import { getAnalyticsSnapshot } from "@/lib/analyticsStore";
 
 export const dynamic = "force-dynamic";
@@ -6,8 +8,9 @@ export const metadata = {
   title: "访问路径 | Cowinmagnet 后台"
 };
 
-export default async function JourneysPage() {
-  const { journeys } = await getAnalyticsSnapshot();
+export default async function JourneysPage({ searchParams }) {
+  const range = getAdminDateRange(await searchParams);
+  const { journeys } = await getAnalyticsSnapshot(range);
 
   return (
     <div className="admin-page">
@@ -17,6 +20,7 @@ export default async function JourneysPage() {
           <h1>客户浏览路径</h1>
           <p>查看客户从哪些页面进入产品详情、询盘页面和联系方式页面。</p>
         </div>
+        <AdminDateRangeFilter range={range} />
       </header>
 
       <section className="admin-panel">

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 export function MetricCard({ label, value, note }) {
   return (
@@ -31,23 +31,25 @@ function localizeLabel(label) {
     Linux: "Linux 系统",
     Indexed: "已收录",
     "Crawled - currently not indexed": "已抓取，暂未收录",
-    "Discovered - currently not indexed": "已发现，暂未收录"
+    "Discovered - currently not indexed": "已发现，暂未收录",
+    "Search Analytics Connected": "搜索数据已连接",
+    "URL Inspection can be added later": "URL 检查可后续接入"
   };
   return labels[label] || label;
 }
 
-export function BarList({ rows, label = "value" }) {
-  const max = Math.max(...rows.map((row) => row.value || row.clicks || row.impressions || 1), 1);
+export function BarList({ rows = [], label = "value" }) {
+  const max = Math.max(...rows.map((row) => row.value || row.clicks || row.impressions || row.count || 1), 1);
   return (
     <div className="admin-bar-list">
       {rows.map((row) => {
-        const value = row.value || row.clicks || row.impressions || 0;
-        const rowLabel = row.label || row.country || row.device || row.query || row.status;
+        const value = row.value || row.clicks || row.impressions || row.count || 0;
+        const rowLabel = row.label || row.country || row.device || row.query || row.status || row.title || "Unknown";
         return (
           <div className="admin-bar-row" key={rowLabel}>
             <div>
               <span>{localizeLabel(rowLabel)}</span>
-              <strong>{value.toLocaleString()}</strong>
+              <strong>{Number(value).toLocaleString()}</strong>
             </div>
             <i style={{ width: `${Math.max(7, (value / max) * 100)}%` }} aria-label={`${label}: ${value}`} />
           </div>
@@ -57,14 +59,14 @@ export function BarList({ rows, label = "value" }) {
   );
 }
 
-export function TrendChart({ rows }) {
+export function TrendChart({ rows = [] }) {
   const max = Math.max(...rows.map((row) => row.pv || 1), 1);
   return (
-    <div className="admin-trend" aria-label="流量趋势">
+    <div className="admin-trend" style={{ "--trend-count": rows.length || 1 }} aria-label="流量趋势">
       {rows.map((row) => (
         <div className="admin-trend-day" key={row.date}>
           <span style={{ height: `${Math.max(10, (row.pv / max) * 100)}%` }} />
-          <small>{row.date.slice(5)}</small>
+          <small>{String(row.date || "").slice(5)}</small>
         </div>
       ))}
     </div>

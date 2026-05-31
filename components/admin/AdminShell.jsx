@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import AdminLiveStatus from "@/components/admin/AdminLiveStatus";
 
 const links = [
@@ -16,6 +16,8 @@ const links = [
 
 export default function AdminShell({ children, email }) {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const rangeQuery = searchParams.toString();
 
   return (
     <div className="admin-dashboard">
@@ -28,7 +30,7 @@ export default function AdminShell({ children, email }) {
           {links.map((link) => (
             <Link
               className={pathname === link.href ? "is-active" : ""}
-              href={link.href}
+              href={rangeQuery ? `${link.href}?${rangeQuery}` : link.href}
               key={link.href}
             >
               {link.label}

@@ -3,6 +3,6 @@ import { searchConsoleResponse } from "@/lib/adminApi";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function GET() {
-  return searchConsoleResponse((snapshot) => snapshot.indexingStatus);
+export async function GET(request) {
+  return searchConsoleResponse((snapshot) => snapshot.indexingStatus, request);
 }

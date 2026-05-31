@@ -1,4 +1,6 @@
 import { BarList, MetricCard } from "@/components/admin/AdminWidgets";
+import AdminDateRangeFilter from "@/components/admin/AdminDateRangeFilter";
+import { getAdminDateRange } from "@/lib/adminDateRange";
 import { getSearchConsoleSnapshot } from "@/lib/analyticsStore";
 
 export const dynamic = "force-dynamic";
@@ -6,8 +8,9 @@ export const metadata = {
   title: "Search Console | Cowinmagnet 后台"
 };
 
-export default async function SearchConsolePage() {
-  const data = await getSearchConsoleSnapshot();
+export default async function SearchConsolePage({ searchParams }) {
+  const range = getAdminDateRange(await searchParams);
+  const data = await getSearchConsoleSnapshot(range);
 
   return (
     <div className="admin-page">
@@ -20,6 +23,7 @@ export default async function SearchConsolePage() {
         <div className={data.live ? "admin-status good" : "admin-status"}>
           {data.live ? "GSC 已连接" : "GSC 接口预留"}
         </div>
+        <AdminDateRangeFilter range={range} />
       </header>
 
       <section className="admin-grid four">
