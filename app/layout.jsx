@@ -1,0 +1,43 @@
+import "./globals.css";
+import { Inter, Montserrat, Noto_Sans_SC, Roboto_Mono } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter"
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-montserrat"
+});
+
+const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto-mono"
+});
+
+const notoSansSc = Noto_Sans_SC({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-noto-sans-sc"
+});
+
+export const metadata = {
+  title: "Cowinmagnet | Magnetic Separation Equipment",
+  description:
+    "Cowinmagnet helps global industrial buyers source magnetic separation equipment, match products by working conditions and coordinate export support."
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html
+      lang="en"
+      className={`${inter.variable} ${montserrat.variable} ${robotoMono.variable} ${notoSansSc.variable}`}
+    >
+      <body>{children}</body>
+    </html>
+  );
+}

@@ -1,0 +1,268 @@
+{
+  "date": "2026-05-31",
+  "generatedAt": "2026-05-31T06:07:44.626Z",
+  "brand": {
+    "name": "Cowinmagnet",
+    "company": "Quzhou Qiying Import & Export Co., Ltd",
+    "chineseCompanyName": "Quzhou Qiying Import & Export Co., Ltd",
+    "website": "https://www.cowinmagnet.com",
+    "positioning": "magnetic separation equipment sourcing and export service partner",
+    "forbiddenClaims": [
+      "own factory",
+      "source manufacturer",
+      "factory direct",
+      "production base",
+      "official partner of this project",
+      "guaranteed to solve"
+    ]
+  },
+  "sourceCount": 51,
+  "selectedCount": 2,
+  "items": [
+    {
+      "title": "Recycling operators invest in stronger sorting lines as metal contamination remains a cost issue",
+      "url": "https://example.com/recycling-metal-contamination-reference",
+      "description": "A sample industry brief for local preview. It reflects common recycling line concerns around ferrous contamination, conveyor protection and downstream equipment damage.",
+      "sourceName": "Sample Industry Reference",
+      "sourceUrl": "https://example.com",
+      "publishedDate": "2026-05-31T06:07:44.626Z",
+      "retrievedDate": "2026-05-31T06:07:44.626Z",
+      "author": "Demo item",
+      "country": "USA",
+      "provider": "local-sample",
+      "scores": {
+        "relevance_score": 35,
+        "pain_point_score": 75,
+        "industry_value_score": 88,
+        "market_value_score": 95,
+        "freshness_score": 100,
+        "authority_score": 62,
+        "content_opportunity_score": 66,
+        "final_score": 72
+      },
+      "productMatch": {
+        "category": "Permanent Magnetic Separation Equipment",
+        "recommendedProducts": [
+          "Suspended Permanent Magnetic Iron Separator",
+          "Suspended Permanent Self-Unloading Magnetic Separator",
+          "Self-Cleaning Overband Magnetic Separator"
+        ],
+        "rationale": "The topic relates to conveyor protection, tramp iron removal or recycling recovery where permanent overband separators are often used."
+      },
+      "imagePlan": {
+        "originalImageUrl": "",
+        "copyrightNote": "Use only licensed source images, embedded source previews, owned product photos, or AI-generated visuals. Do not copy news-site images without permission.",
+        "suggestedImages": [
+          {
+            "purpose": "News context hero image",
+            "placement": "Top of article",
+            "caption": "Magnetic separation equipment can support safer bulk material handling when ferrous contamination is a concern.",
+            "alt": "Permanent Magnetic Separation Equipment for industrial material handling",
+            "aiPrompt": "Professional B2B industrial website image, documentary style, no logos, no readable text. Scene: Permanent Magnetic Separation Equipment used in mining, recycling or bulk material handling. Show conveyor belts, material flow, magnetic separator equipment, realistic factory lighting, clean composition. Avoid accident exploitation, injured people, copyrighted brand marks, political imagery."
+          },
+          {
+            "purpose": "Product viewpoint image",
+            "placement": "Cowinmagnet viewpoint section",
+            "caption": "Product selection should consider belt width, burden depth, material type and cleaning method.",
+            "alt": "Overband magnetic separator selection for conveyor protection",
+            "aiPrompt": "Close-up industrial product photo of a suspended overband magnetic separator above a conveyor belt, black and yellow technology style, realistic lighting, no text, no logos."
+          }
+        ]
+      },
+      "generated": {
+        "contentTitle": "Recycling operators invest in stronger sorting lines as metal contamination remains a cost issue: What Bulk Material Operators Should Review in Magnetic Separation",
+        "originalReference": {
+          "title": "Recycling operators invest in stronger sorting lines as metal contamination remains a cost issue",
+          "source": "Sample Industry Reference",
+          "url": "https://example.com/recycling-metal-contamination-reference",
+          "publishedDate": "2026-05-31T06:07:44.626Z",
+          "author": "Demo item",
+          "retrievedDate": "2026-05-31T06:07:44.626Z",
+          "copyrightNote": "Short summary and independent analysis only. Do not republish the full source article."
+        },
+        "newsSummary": "A sample industry brief for local preview. It reflects common recycling line concerns around ferrous contamination, conveyor protection and downstream equipment damage. This item is treated as an industry signal rather than copied news content. For B2B buyers, the useful angle is whether the event points to recurring problems in material handling, such as metal contamination, conveyor damage, sorting efficiency, product purity or maintenance risk.",
+        "industryPainPointAnalysis": "Many mining, recycling, cement, coal and aggregate lines move mixed or abrasive materials through crushers, screens and conveyors. When ferrous metal enters the flow, it can damage downstream equipment, interrupt production and create extra manual sorting work. The practical purchasing question is not only magnetic strength, but also belt width, burden depth, installation height, cleaning method, duty cycle and maintenance access.",
+        "cowinmagnetViewpoint": "Cowinmagnet positions this topic as a product selection and export service question. A properly specified magnetic separator may help capture tramp iron before critical equipment, can support more stable material flow and is often used to reduce manual cleaning pressure. Final model selection should be confirmed from customer drawings, belt speed, material layer depth, particle size and site installation limits.",
+        "recommendedProductMatch": {
+          "category": "Permanent Magnetic Separation Equipment",
+          "products": [
+            "Suspended Permanent Magnetic Iron Separator",
+            "Suspended Permanent Self-Unloading Magnetic Separator",
+            "Self-Cleaning Overband Magnetic Separator"
+          ],
+          "rationale": "The topic relates to conveyor protection, tramp iron removal or recycling recovery where permanent overband separators are often used."
+        },
+        "applicationScenario": "Relevant scenarios include conveyor transfer points, crusher feed belts, recycling sorting lines, cement raw material handling, coal handling systems, quarry aggregate processing and bulk terminal loading lines.",
+        "suggestedCta": "Send Your Conveyor Details for a Magnetic Separator Recommendation",
+        "seoKeywords": [
+          "magnetic separator",
+          "overband magnetic separator",
+          "tramp iron removal",
+          "conveyor belt protection",
+          "magnetic separation equipment",
+          "recycling plant metal separation"
+        ],
+        "suggestedImages": [
+          {
+            "purpose": "News context hero image",
+            "placement": "Top of article",
+            "caption": "Magnetic separation equipment can support safer bulk material handling when ferrous contamination is a concern.",
+            "alt": "Permanent Magnetic Separation Equipment for industrial material handling",
+            "aiPrompt": "Professional B2B industrial website image, documentary style, no logos, no readable text. Scene: Permanent Magnetic Separation Equipment used in mining, recycling or bulk material handling. Show conveyor belts, material flow, magnetic separator equipment, realistic factory lighting, clean composition. Avoid accident exploitation, injured people, copyrighted brand marks, political imagery."
+          },
+          {
+            "purpose": "Product viewpoint image",
+            "placement": "Cowinmagnet viewpoint section",
+            "caption": "Product selection should consider belt width, burden depth, material type and cleaning method.",
+            "alt": "Overband magnetic separator selection for conveyor protection",
+            "aiPrompt": "Close-up industrial product photo of a suspended overband magnetic separator above a conveyor belt, black and yellow technology style, realistic lighting, no text, no logos."
+          }
+        ],
+        "complianceNote": "Manual review required before publishing. Confirm source accuracy, image license, product claims, and that no wording implies Cowinmagnet participated in the reported event.",
+        "scores": {
+          "relevance_score": 35,
+          "pain_point_score": 75,
+          "industry_value_score": 88,
+          "market_value_score": 95,
+          "freshness_score": 100,
+          "authority_score": 62,
+          "content_opportunity_score": 66,
+          "final_score": 72
+        },
+        "workflowStatus": "generated"
+      },
+      "workflow": {
+        "status": "generated",
+        "history": [
+          {
+            "status": "generated",
+            "at": "2026-05-31T06:07:44.626Z",
+            "by": "system"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Bulk material handling projects highlight conveyor belt protection in mining and cement plants",
+      "url": "https://example.com/bulk-material-handling-reference",
+      "description": "A sample industry brief for previewing the Cowinmagnet news opportunity workflow before connecting paid or authenticated news APIs.",
+      "sourceName": "Sample Industry Reference",
+      "sourceUrl": "https://example.com",
+      "publishedDate": "2026-05-31T06:07:44.626Z",
+      "retrievedDate": "2026-05-31T06:07:44.626Z",
+      "author": "Demo item",
+      "country": "Australia",
+      "provider": "local-sample",
+      "scores": {
+        "relevance_score": 38,
+        "pain_point_score": 25,
+        "industry_value_score": 88,
+        "market_value_score": 95,
+        "freshness_score": 100,
+        "authority_score": 62,
+        "content_opportunity_score": 50,
+        "final_score": 61
+      },
+      "productMatch": {
+        "category": "Permanent Magnetic Separation Equipment",
+        "recommendedProducts": [
+          "Suspended Permanent Magnetic Iron Separator",
+          "Suspended Permanent Self-Unloading Magnetic Separator",
+          "Self-Cleaning Overband Magnetic Separator"
+        ],
+        "rationale": "The topic relates to conveyor protection, tramp iron removal or recycling recovery where permanent overband separators are often used."
+      },
+      "imagePlan": {
+        "originalImageUrl": "",
+        "copyrightNote": "Use only licensed source images, embedded source previews, owned product photos, or AI-generated visuals. Do not copy news-site images without permission.",
+        "suggestedImages": [
+          {
+            "purpose": "News context hero image",
+            "placement": "Top of article",
+            "caption": "Magnetic separation equipment can support safer bulk material handling when ferrous contamination is a concern.",
+            "alt": "Permanent Magnetic Separation Equipment for industrial material handling",
+            "aiPrompt": "Professional B2B industrial website image, documentary style, no logos, no readable text. Scene: Permanent Magnetic Separation Equipment used in mining, recycling or bulk material handling. Show conveyor belts, material flow, magnetic separator equipment, realistic factory lighting, clean composition. Avoid accident exploitation, injured people, copyrighted brand marks, political imagery."
+          },
+          {
+            "purpose": "Product viewpoint image",
+            "placement": "Cowinmagnet viewpoint section",
+            "caption": "Product selection should consider belt width, burden depth, material type and cleaning method.",
+            "alt": "Overband magnetic separator selection for conveyor protection",
+            "aiPrompt": "Close-up industrial product photo of a suspended overband magnetic separator above a conveyor belt, black and yellow technology style, realistic lighting, no text, no logos."
+          }
+        ]
+      },
+      "generated": {
+        "contentTitle": "Bulk material handling projects highlight conveyor belt protection in mining and cement plants: What Bulk Material Operators Should Review in Magnetic Separation",
+        "originalReference": {
+          "title": "Bulk material handling projects highlight conveyor belt protection in mining and cement plants",
+          "source": "Sample Industry Reference",
+          "url": "https://example.com/bulk-material-handling-reference",
+          "publishedDate": "2026-05-31T06:07:44.626Z",
+          "author": "Demo item",
+          "retrievedDate": "2026-05-31T06:07:44.626Z",
+          "copyrightNote": "Short summary and independent analysis only. Do not republish the full source article."
+        },
+        "newsSummary": "A sample industry brief for previewing the Cowinmagnet news opportunity workflow before connecting paid or authenticated news APIs. This item is treated as an industry signal rather than copied news content. For B2B buyers, the useful angle is whether the event points to recurring problems in material handling, such as metal contamination, conveyor damage, sorting efficiency, product purity or maintenance risk.",
+        "industryPainPointAnalysis": "Many mining, recycling, cement, coal and aggregate lines move mixed or abrasive materials through crushers, screens and conveyors. When ferrous metal enters the flow, it can damage downstream equipment, interrupt production and create extra manual sorting work. The practical purchasing question is not only magnetic strength, but also belt width, burden depth, installation height, cleaning method, duty cycle and maintenance access.",
+        "cowinmagnetViewpoint": "Cowinmagnet positions this topic as a product selection and export service question. A properly specified magnetic separator may help capture tramp iron before critical equipment, can support more stable material flow and is often used to reduce manual cleaning pressure. Final model selection should be confirmed from customer drawings, belt speed, material layer depth, particle size and site installation limits.",
+        "recommendedProductMatch": {
+          "category": "Permanent Magnetic Separation Equipment",
+          "products": [
+            "Suspended Permanent Magnetic Iron Separator",
+            "Suspended Permanent Self-Unloading Magnetic Separator",
+            "Self-Cleaning Overband Magnetic Separator"
+          ],
+          "rationale": "The topic relates to conveyor protection, tramp iron removal or recycling recovery where permanent overband separators are often used."
+        },
+        "applicationScenario": "Relevant scenarios include conveyor transfer points, crusher feed belts, recycling sorting lines, cement raw material handling, coal handling systems, quarry aggregate processing and bulk terminal loading lines.",
+        "suggestedCta": "Send Your Conveyor Details for a Magnetic Separator Recommendation",
+        "seoKeywords": [
+          "magnetic separator",
+          "overband magnetic separator",
+          "tramp iron removal",
+          "conveyor belt protection",
+          "magnetic separation equipment"
+        ],
+        "suggestedImages": [
+          {
+            "purpose": "News context hero image",
+            "placement": "Top of article",
+            "caption": "Magnetic separation equipment can support safer bulk material handling when ferrous contamination is a concern.",
+            "alt": "Permanent Magnetic Separation Equipment for industrial material handling",
+            "aiPrompt": "Professional B2B industrial website image, documentary style, no logos, no readable text. Scene: Permanent Magnetic Separation Equipment used in mining, recycling or bulk material handling. Show conveyor belts, material flow, magnetic separator equipment, realistic factory lighting, clean composition. Avoid accident exploitation, injured people, copyrighted brand marks, political imagery."
+          },
+          {
+            "purpose": "Product viewpoint image",
+            "placement": "Cowinmagnet viewpoint section",
+            "caption": "Product selection should consider belt width, burden depth, material type and cleaning method.",
+            "alt": "Overband magnetic separator selection for conveyor protection",
+            "aiPrompt": "Close-up industrial product photo of a suspended overband magnetic separator above a conveyor belt, black and yellow technology style, realistic lighting, no text, no logos."
+          }
+        ],
+        "complianceNote": "Manual review required before publishing. Confirm source accuracy, image license, product claims, and that no wording implies Cowinmagnet participated in the reported event.",
+        "scores": {
+          "relevance_score": 38,
+          "pain_point_score": 25,
+          "industry_value_score": 88,
+          "market_value_score": 95,
+          "freshness_score": 100,
+          "authority_score": 62,
+          "content_opportunity_score": 50,
+          "final_score": 61
+        },
+        "workflowStatus": "generated"
+      },
+      "workflow": {
+        "status": "generated",
+        "history": [
+          {
+            "status": "generated",
+            "at": "2026-05-31T06:07:44.626Z",
+            "by": "system"
+          }
+        ]
+      }
+    }
+  ]
+}
