@@ -10,6 +10,11 @@ function PostCard({ post, locale }) {
 
   return (
     <article className="content-post-card">
+      {post.coverImage && (
+        <Link className="content-card-media" href={localizedHref} aria-label={post.title}>
+          <img src={post.coverImage} alt={post.coverAlt || post.title} width="1200" height="720" loading="lazy" />
+        </Link>
+      )}
       <div className="content-card-meta">
         <span>{post.categoryLabel || post.category}</span>
         <time dateTime={post.publishedAt}>{formatDisplayDate(post.publishedAt)}</time>

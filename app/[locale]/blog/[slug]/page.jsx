@@ -42,21 +42,18 @@ export default async function BlogDetailPage({ params }) {
           <ShareActions url={shareUrl} title={post.title} />
         </div>
         <p className="content-article-lead">{post.excerpt}</p>
-        <section>
-          <h2>Buyer Notes</h2>
-          <p>
-            This article is prepared for overseas buyers who need a practical starting point before selecting magnetic
-            separation equipment. Final model selection should be confirmed with conveyor width, belt speed, material
-            depth, installation height, iron size and the required cleaning method.
-          </p>
-        </section>
-        <section>
-          <h2>Cowinmagnet Viewpoint</h2>
-          <p>
-            Cowinmagnet can support product sourcing, specification communication and export coordination for magnetic
-            separator projects. Share your material details and site layout to receive a more suitable product direction.
-          </p>
-        </section>
+        {post.coverImage && (
+          <figure className="content-article-media">
+            <img src={post.coverImage} alt={post.coverAlt || post.title} width="1200" height="720" />
+            <figcaption>{post.imageCaption}</figcaption>
+          </figure>
+        )}
+        {post.sections?.map((section) => (
+          <section key={section.heading}>
+            <h2>{section.heading}</h2>
+            <p>{section.body}</p>
+          </section>
+        ))}
       </article>
     </main>
   );

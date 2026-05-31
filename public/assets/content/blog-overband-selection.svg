@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="Overband magnetic separator selection guide">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#06111f"/>
+      <stop offset="1" stop-color="#0b2546"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="78%" cy="18%" r="60%">
+      <stop offset="0" stop-color="#f6c842" stop-opacity=".34"/>
+      <stop offset=".55" stop-color="#2bb7ff" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#2bb7ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <rect width="1200" height="720" fill="url(#glow)"/>
+  <g opacity=".16" stroke="#fff">
+    <path d="M0 118h1200M0 238h1200M0 358h1200M0 478h1200M0 598h1200"/>
+    <path d="M120 0v720M300 0v720M480 0v720M660 0v720M840 0v720M1020 0v720"/>
+  </g>
+  <g transform="translate(110 220)">
+    <rect x="0" y="115" width="760" height="72" rx="36" fill="#16233a" stroke="#f6c842" stroke-opacity=".55"/>
+    <rect x="72" y="64" width="420" height="118" rx="18" fill="#0f61bd" stroke="#89cfff"/>
+    <rect x="96" y="88" width="370" height="38" rx="19" fill="#17335c"/>
+    <circle cx="136" cy="188" r="44" fill="#1d2a3b" stroke="#c7d7e9"/>
+    <circle cx="612" cy="188" r="44" fill="#1d2a3b" stroke="#c7d7e9"/>
+    <path d="M250 64 305 8h120l55 56" fill="none" stroke="#f6c842" stroke-width="8" stroke-linecap="round"/>
+    <path d="M560 110c58 24 92 58 102 102" fill="none" stroke="#2bb7ff" stroke-width="8" stroke-linecap="round"/>
+    <text x="0" y="-54" fill="#f6c842" font-family="Arial, sans-serif" font-size="34" font-weight="800">BUYER GUIDE</text>
+    <text x="0" y="-10" fill="#fff" font-family="Arial, sans-serif" font-size="48" font-weight="900">Overband Separator Selection</text>
+  </g>
+  <g transform="translate(865 206)" fill="#fff" font-family="Arial, sans-serif">
+    <rect x="0" y="0" width="230" height="248" rx="20" fill="#ffffff" opacity=".08" stroke="#ffffff" stroke-opacity=".16"/>
+    <text x="28" y="58" font-size="22" font-weight="900">Check first</text>
+    <text x="28" y="102" font-size="18" opacity=".72">Belt width</text>
+    <text x="28" y="140" font-size="18" opacity=".72">Burden depth</text>
+    <text x="28" y="178" font-size="18" opacity=".72">Iron size</text>
+    <text x="28" y="216" font-size="18" opacity=".72">Cleaning method</text>
+  </g>
+</svg>

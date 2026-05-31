@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="Magnetic separator for recycling line">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#06111f"/>
+      <stop offset="1" stop-color="#082f3d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <circle cx="1010" cy="120" r="250" fill="#2bb7ff" opacity=".12"/>
+  <circle cx="140" cy="590" r="220" fill="#f6c842" opacity=".1"/>
+  <g transform="translate(130 245)">
+    <path d="M40 280h805l-110-96H0z" fill="#111b2d" stroke="#435b78"/>
+    <path d="M120 228h625" stroke="#f6c842" stroke-width="18" stroke-linecap="round"/>
+    <rect x="330" y="28" width="330" height="132" rx="16" fill="#0d68c8" stroke="#9bd7ff"/>
+    <path d="M360 28 430 -40h130l72 68" fill="none" stroke="#c7d7e9" stroke-width="7"/>
+    <path d="M470 160c18 58 64 88 136 90" fill="none" stroke="#2bb7ff" stroke-width="8" stroke-linecap="round"/>
+    <g fill="#c9d5e3">
+      <rect x="85" y="184" width="46" height="18" rx="8" transform="rotate(14 108 193)"/>
+      <rect x="205" y="196" width="58" height="20" rx="8" transform="rotate(-10 234 206)"/>
+      <rect x="710" y="190" width="42" height="20" rx="7" transform="rotate(20 731 200)"/>
+    </g>
+  </g>
+  <text x="84" y="104" fill="#f6c842" font-family="Arial, sans-serif" font-size="34" font-weight="800">APPLICATION BLOG</text>
+  <text x="84" y="162" fill="#fff" font-family="Arial, sans-serif" font-size="56" font-weight="900">Recycling Line Ferrous Recovery</text>
+  <text x="86" y="214" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="26">Magnetic separation before sorting, crushing and downstream processing</text>
+</svg>

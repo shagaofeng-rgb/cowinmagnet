@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="Permanent vs electromagnetic separator comparison">
+  <rect width="1200" height="720" fill="#050b14"/>
+  <rect x="70" y="86" width="500" height="548" rx="32" fill="#0d1d34" stroke="#2bb7ff" stroke-opacity=".55"/>
+  <rect x="630" y="86" width="500" height="548" rx="32" fill="#1a1b22" stroke="#f6c842" stroke-opacity=".65"/>
+  <text x="104" y="148" fill="#2bb7ff" font-family="Arial, sans-serif" font-size="28" font-weight="900">PERMANENT</text>
+  <text x="664" y="148" fill="#f6c842" font-family="Arial, sans-serif" font-size="28" font-weight="900">ELECTROMAGNETIC</text>
+  <g transform="translate(130 250)">
+    <rect x="0" y="80" width="340" height="52" rx="26" fill="#16233a" stroke="#8abbe6"/>
+    <rect x="86" y="18" width="190" height="88" rx="14" fill="#0f61bd" stroke="#89cfff"/>
+    <circle cx="52" cy="134" r="32" fill="#1c2b42" stroke="#dce9f5"/>
+    <circle cx="292" cy="134" r="32" fill="#1c2b42" stroke="#dce9f5"/>
+    <text x="0" y="215" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="800">No excitation power</text>
+    <text x="0" y="252" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="18">Stable field for many lines</text>
+  </g>
+  <g transform="translate(690 238)">
+    <rect x="0" y="92" width="340" height="52" rx="26" fill="#221f25" stroke="#f6c842"/>
+    <rect x="68" y="18" width="220" height="106" rx="14" fill="#175dab" stroke="#f6c842"/>
+    <path d="M96 70h164" stroke="#fff" stroke-width="11" stroke-linecap="round" opacity=".65"/>
+    <circle cx="52" cy="146" r="32" fill="#1c2b42" stroke="#dce9f5"/>
+    <circle cx="292" cy="146" r="32" fill="#1c2b42" stroke="#dce9f5"/>
+    <text x="0" y="227" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="800">Adjustable strong field</text>
+    <text x="0" y="264" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="18">Useful for deep burdens</text>
+  </g>
+  <text x="84" y="678" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="24">Choose by burden depth, iron size, power conditions and cleaning method.</text>
+</svg>

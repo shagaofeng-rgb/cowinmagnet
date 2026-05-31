@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="Tramp metal control in quarry and aggregate conveying">
+  <rect width="1200" height="720" fill="#06111f"/>
+  <path d="M0 520h1200v200H0z" fill="#0c1828"/>
+  <path d="M80 490h1040l-180-120H0z" fill="#12243a" stroke="#526b87"/>
+  <g transform="translate(170 238)">
+    <rect x="0" y="176" width="740" height="56" rx="28" fill="#18263a" stroke="#f6c842"/>
+    <rect x="278" y="42" width="300" height="128" rx="18" fill="#0d68c8" stroke="#9bd7ff"/>
+    <path d="M322 42 398 -20h66l76 62" fill="none" stroke="#cbd5e1" stroke-width="8"/>
+    <path d="M570 114c70 26 110 64 126 122" fill="none" stroke="#2bb7ff" stroke-width="8" stroke-linecap="round"/>
+    <g fill="#8896a8">
+      <polygon points="50,166 86,146 120,166 92,190"/>
+      <polygon points="160,160 192,140 222,170 184,190"/>
+      <polygon points="650,156 690,140 726,170 684,194"/>
+    </g>
+  </g>
+  <text x="84" y="104" fill="#f6c842" font-family="Arial, sans-serif" font-size="32" font-weight="900">MINING &amp; QUARRY NEWS</text>
+  <text x="84" y="160" fill="#fff" font-family="Arial, sans-serif" font-size="54" font-weight="900">Tramp Metal Control</text>
+  <text x="84" y="212" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="26">Protect crushers, belts and transfer points before damage happens</text>
+</svg>

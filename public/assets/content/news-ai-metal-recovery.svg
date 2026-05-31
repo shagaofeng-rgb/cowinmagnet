@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="AI metal recovery and magnetic separation news cover">
+  <rect width="1200" height="720" fill="#050b14"/>
+  <path d="M0 570c190-70 380-82 575-32 210 54 400 45 625-42v224H0z" fill="#09253d"/>
+  <circle cx="962" cy="150" r="250" fill="#2bb7ff" opacity=".16"/>
+  <g transform="translate(95 240)">
+    <rect x="0" y="190" width="820" height="64" rx="32" fill="#172235" stroke="#405a76"/>
+    <rect x="280" y="60" width="300" height="124" rx="18" fill="#0f61bd" stroke="#89cfff"/>
+    <path d="M318 60 386 6h88l68 54" fill="none" stroke="#f6c842" stroke-width="7"/>
+    <path d="M580 114c85 8 145 38 186 91" stroke="#2bb7ff" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <g fill="#cbd5e1">
+      <rect x="82" y="160" width="54" height="22" rx="8" transform="rotate(-12 109 171)"/>
+      <rect x="178" y="178" width="42" height="20" rx="8" transform="rotate(18 199 188)"/>
+      <rect x="720" y="166" width="48" height="20" rx="8" transform="rotate(-8 744 176)"/>
+    </g>
+  </g>
+  <g transform="translate(850 246)" fill="none" stroke="#f6c842" stroke-width="5" opacity=".9">
+    <circle cx="82" cy="82" r="78"/>
+    <path d="M82 4v156M4 82h156M28 28l108 108M136 28 28 136"/>
+  </g>
+  <text x="82" y="104" fill="#f6c842" font-family="Arial, sans-serif" font-size="32" font-weight="900">INDUSTRY NEWS</text>
+  <text x="82" y="160" fill="#fff" font-family="Arial, sans-serif" font-size="56" font-weight="900">AI Sorting Meets Ferrous Removal</text>
+  <text x="84" y="210" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="25">A Cowinmagnet viewpoint on recycling technology news</text>
+</svg>

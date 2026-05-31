@@ -3037,6 +3037,29 @@ body {
   transform: translateY(-2px);
 }
 
+.content-card-media {
+  display: block;
+  margin: -8px -8px 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: #07111f;
+}
+
+.content-card-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #050b14;
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.content-post-card:hover .content-card-media img {
+  filter: saturate(1.08) contrast(1.04);
+  transform: scale(1.025);
+}
+
 .content-card-meta,
 .content-card-footer,
 .content-share {
@@ -3271,6 +3294,32 @@ body {
   line-height: 1.7;
 }
 
+.content-article-media {
+  margin: 30px 0 8px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035)),
+    rgba(9, 20, 37, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 30px 88px rgba(0, 0, 0, 0.2);
+}
+
+.content-article-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #050b14;
+}
+
+.content-article-media figcaption {
+  padding: 12px 16px 14px;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 13px;
+  font-weight: 800;
+}
+
 .content-article section {
   margin-top: 34px;
   padding: 24px;
@@ -3289,6 +3338,36 @@ body {
 
 .content-article section p {
   color: rgba(255, 255, 255, 0.74);
+}
+
+.content-source-box ul {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.content-source-box li {
+  display: grid;
+  gap: 5px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.content-source-box li span {
+  color: #f6c842;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.content-source-box li a {
+  color: #ffffff;
+  font-weight: 850;
+  text-decoration: underline;
+  text-decoration-color: rgba(246, 200, 66, 0.42);
+  text-underline-offset: 4px;
 }
 
 .catalog-product-card small {

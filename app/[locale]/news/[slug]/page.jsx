@@ -43,20 +43,37 @@ export default async function NewsDetailPage({ params }) {
           <ShareActions url={shareUrl} title={post.title} />
         </div>
         <p className="content-article-lead">{post.excerpt}</p>
-        <section>
-          <h2>Industry Context</h2>
-          <p>
-            This news note is organized under the Cowinmagnet industry news categories. It is written as independent
-            industry analysis for recycling, mining, quarrying, cement and bulk material handling buyers.
-          </p>
-        </section>
-        <section>
-          <h2>Cowinmagnet Product Viewpoint</h2>
-          <p>
-            Magnetic separation equipment may help reduce ferrous contamination risk and protect downstream machines.
-            Product selection should be reviewed according to working conditions, not by headline alone.
-          </p>
-        </section>
+        {post.coverImage && (
+          <figure className="content-article-media">
+            <img src={post.coverImage} alt={post.coverAlt || post.title} width="1200" height="720" />
+            <figcaption>{post.imageCaption}</figcaption>
+          </figure>
+        )}
+        {post.sections?.map((section) => (
+          <section key={section.heading}>
+            <h2>{section.heading}</h2>
+            <p>{section.body}</p>
+          </section>
+        ))}
+        {post.sources?.length > 0 && (
+          <section className="content-source-box">
+            <h2>Referenced Sources</h2>
+            <p>
+              The news above is independently summarized and interpreted by Cowinmagnet. We do not republish full
+              third-party articles or copy media images.
+            </p>
+            <ul>
+              {post.sources.map((source) => (
+                <li key={source.url}>
+                  <span>{source.date}</span>
+                  <a href={source.url} target="_blank" rel="noopener noreferrer">
+                    {source.name}: {source.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </article>
     </main>
   );
