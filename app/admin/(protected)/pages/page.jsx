@@ -3,7 +3,7 @@ import { getAnalyticsSnapshot } from "@/lib/analyticsStore";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
-  title: "Page Performance | Cowinmagnet Admin"
+  title: "页面表现 | Cowinmagnet 后台"
 };
 
 export default async function PagesPerformancePage() {
@@ -14,18 +14,18 @@ export default async function PagesPerformancePage() {
     <div className="admin-page">
       <header className="admin-page-head">
         <div>
-          <p className="eyebrow">Pages</p>
-          <h1>Landing Page Performance</h1>
-          <p>Compare product, blog, news and inquiry pages by views, visitors, time and conversion events.</p>
+          <p className="eyebrow">页面表现</p>
+          <h1>落地页数据表现</h1>
+          <p>按浏览量、访客数、停留时间和询盘事件，比较产品页、博客、新闻和询盘页的效果。</p>
         </div>
         <CsvExportButton rows={pages} filename="cowin-pages.csv" />
       </header>
 
       <section className="admin-grid four">
-        <MetricCard label="Tracked Pages" value={pages.length} note="Active URLs" />
-        <MetricCard label="Total Views" value={totalViews.toLocaleString()} note="Across pages" />
-        <MetricCard label="Best Page" value={pages[0]?.views || 0} note={pages[0]?.title || "No data"} />
-        <MetricCard label="Avg Conversion" value={`${pages[0]?.conversionRate || 0}%`} note="Top page" />
+        <MetricCard label="追踪页面" value={pages.length} note="活跃 URL" />
+        <MetricCard label="总浏览量" value={totalViews.toLocaleString()} note="所有页面" />
+        <MetricCard label="最佳页面" value={pages[0]?.views || 0} note={pages[0]?.title || "暂无数据"} />
+        <MetricCard label="转化率" value={`${pages[0]?.conversionRate || 0}%`} note="热门页面" />
       </section>
 
       <section className="admin-panel">
@@ -33,12 +33,12 @@ export default async function PagesPerformancePage() {
           <table className="admin-table">
             <thead>
               <tr>
-                <th>Page</th>
+                <th>页面</th>
                 <th>URL</th>
-                <th>Views</th>
-                <th>Visitors</th>
-                <th>Avg Time</th>
-                <th>Inquiry Rate</th>
+                <th>浏览</th>
+                <th>访客</th>
+                <th>平均停留</th>
+                <th>询盘率</th>
               </tr>
             </thead>
             <tbody>

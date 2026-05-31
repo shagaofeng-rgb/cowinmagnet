@@ -39,7 +39,13 @@ Admin API endpoints:
 - `GET /api/admin/search-console/devices`
 - `GET /api/admin/search-console/indexing-status`
 
-The current implementation stores first-party analytics events in `.data/analytics-events.jsonl` for local preview and `/tmp/cowinmagnet-analytics` on Vercel. This is useful for testing the flow, but Vercel storage is ephemeral. For production-scale reporting, replace this lightweight store with Neon Postgres, Supabase, PlanetScale, or another persistent database.
+The analytics dashboard supports online database mode through `DATABASE_URL`.
+
+When `DATABASE_URL` is configured, all first-party analytics events are written to PostgreSQL and the admin dashboard reads live online data. The database table is created automatically on first write.
+
+When `DATABASE_URL` is not configured, the app falls back to `.data/analytics-events.jsonl` for local preview and `/tmp/cowinmagnet-analytics` on Vercel. This fallback is useful for testing the flow, but Vercel storage is ephemeral.
+
+Recommended Vercel setup: add Neon from Vercel Marketplace, accept the marketplace terms, connect it to the `cowinmagnet` project, and redeploy. Vercel will inject `DATABASE_URL` automatically.
 
 ## Required Admin Environment Variables
 
@@ -47,6 +53,7 @@ The current implementation stores first-party analytics events in `.data/analyti
 ADMIN_EMAIL=davidsha@cowinmagnet.com
 ADMIN_PASSWORD_HASH=...
 ADMIN_JWT_SECRET=...
+DATABASE_URL=postgresql://user:password@host:5432/database?sslmode=require
 ```
 
 Generate the password hash with the same `ADMIN_JWT_SECRET` used in production:

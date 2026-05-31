@@ -3,7 +3,7 @@ import { getAnalyticsSnapshot } from "@/lib/analyticsStore";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
-  title: "Visitors | Cowinmagnet Admin"
+  title: "访客记录 | Cowinmagnet 后台"
 };
 
 export default async function VisitorsPage() {
@@ -13,9 +13,9 @@ export default async function VisitorsPage() {
     <div className="admin-page">
       <header className="admin-page-head">
         <div>
-          <p className="eyebrow">Visitors</p>
-          <h1>Recent Buyer Visits</h1>
-          <p>IP addresses are anonymized by default while preserving useful country, device and channel signals.</p>
+          <p className="eyebrow">访客记录</p>
+          <h1>近期客户访问记录</h1>
+          <p>系统默认匿名化 IP，同时保留国家地区、设备、浏览器和来源渠道等有用信号。</p>
         </div>
         <CsvExportButton rows={visitors} filename="cowin-visitors.csv" />
       </header>
@@ -25,12 +25,12 @@ export default async function VisitorsPage() {
           <table className="admin-table">
             <thead>
               <tr>
-                <th>Time</th>
-                <th>Country</th>
-                <th>Device</th>
-                <th>Browser</th>
-                <th>Channel</th>
-                <th>Page</th>
+                <th>时间</th>
+                <th>国家</th>
+                <th>设备</th>
+                <th>浏览器</th>
+                <th>来源</th>
+                <th>页面</th>
                 <th>IP</th>
               </tr>
             </thead>
@@ -38,7 +38,7 @@ export default async function VisitorsPage() {
               {visitors.map((visitor, index) => (
                 <tr key={`${visitor.sessionId}-${index}`}>
                   <td>{new Date(visitor.timestamp).toLocaleString()}</td>
-                  <td>{visitor.country || "Unknown"}</td>
+                  <td>{visitor.country || "未知"}</td>
                   <td>{visitor.device}</td>
                   <td>{visitor.browser}</td>
                   <td>{visitor.channel}</td>

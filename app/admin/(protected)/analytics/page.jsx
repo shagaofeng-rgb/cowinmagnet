@@ -3,7 +3,7 @@ import { getAnalyticsSnapshot } from "@/lib/analyticsStore";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
-  title: "Traffic Analytics | Cowinmagnet Admin"
+  title: "流量分析 | Cowinmagnet 后台"
 };
 
 export default async function TrafficAnalyticsPage() {
@@ -13,39 +13,39 @@ export default async function TrafficAnalyticsPage() {
     <div className="admin-page">
       <header className="admin-page-head">
         <div>
-          <p className="eyebrow">Traffic</p>
-          <h1>Traffic Sources and Devices</h1>
-          <p>Understand where overseas buyers come from and which devices they use before sending inquiries.</p>
+          <p className="eyebrow">流量分析</p>
+          <h1>来源渠道与设备分析</h1>
+          <p>了解海外客户从哪里进入网站、使用什么设备，以及询盘前关注了哪些页面。</p>
         </div>
       </header>
 
       <section className="admin-grid four">
-        <MetricCard label="Avg. Time" value={`${overview.avgDuration}s`} note="Page engagement" />
-        <MetricCard label="Bounce Rate" value={`${overview.bounceRate}%`} note="Estimated" />
-        <MetricCard label="Countries" value={traffic.countries.length} note="Active regions" />
-        <MetricCard label="Devices" value={traffic.devices.length} note="Device classes" />
+        <MetricCard label="平均停留" value={`${overview.avgDuration}s`} note="页面参与度" />
+        <MetricCard label="跳出率" value={`${overview.bounceRate}%`} note="估算值" />
+        <MetricCard label="国家地区" value={traffic.countries.length} note="活跃市场" />
+        <MetricCard label="设备类型" value={traffic.devices.length} note="访问设备" />
       </section>
 
       <section className="admin-panel">
-        <p className="eyebrow">Daily Trend</p>
-        <h2>Page Views by Day</h2>
+        <p className="eyebrow">每日趋势</p>
+        <h2>每日浏览量变化</h2>
         <TrendChart rows={traffic.series} />
       </section>
 
       <section className="admin-grid three">
         <article className="admin-panel">
-          <p className="eyebrow">Acquisition</p>
-          <h2>Channels</h2>
+          <p className="eyebrow">获客来源</p>
+          <h2>渠道分布</h2>
           <BarList rows={traffic.channels} />
         </article>
         <article className="admin-panel">
-          <p className="eyebrow">Markets</p>
-          <h2>Countries / Regions</h2>
+          <p className="eyebrow">目标市场</p>
+          <h2>国家 / 地区</h2>
           <BarList rows={traffic.countries} />
         </article>
         <article className="admin-panel">
-          <p className="eyebrow">Technology</p>
-          <h2>Devices</h2>
+          <p className="eyebrow">设备环境</p>
+          <h2>设备类型</h2>
           <BarList rows={traffic.devices} />
         </article>
       </section>

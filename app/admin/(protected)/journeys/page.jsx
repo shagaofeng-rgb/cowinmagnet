@@ -3,7 +3,7 @@ import { getAnalyticsSnapshot } from "@/lib/analyticsStore";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
-  title: "Visitor Journeys | Cowinmagnet Admin"
+  title: "访问路径 | Cowinmagnet 后台"
 };
 
 export default async function JourneysPage() {
@@ -13,9 +13,9 @@ export default async function JourneysPage() {
     <div className="admin-page">
       <header className="admin-page-head">
         <div>
-          <p className="eyebrow">Journeys</p>
-          <h1>Buyer Page Paths</h1>
-          <p>See which pages commonly lead buyers toward product details, inquiry pages and contact actions.</p>
+          <p className="eyebrow">访问路径</p>
+          <h1>客户浏览路径</h1>
+          <p>查看客户从哪些页面进入产品详情、询盘页面和联系方式页面。</p>
         </div>
       </header>
 
@@ -24,7 +24,7 @@ export default async function JourneysPage() {
           <BarList rows={journeys.map((item) => ({ label: item.route, value: item.value }))} />
         ) : (
           <div className="admin-empty">
-            More journey data will appear after visitors browse multiple pages in one session.
+            当访客在同一个会话中浏览多个页面后，这里会显示更多路径数据。
           </div>
         )}
       </section>

@@ -10,16 +10,43 @@ export function MetricCard({ label, value, note }) {
   );
 }
 
+function localizeLabel(label) {
+  const labels = {
+    Direct: "直接访问",
+    "Organic Search": "自然搜索",
+    Social: "社交媒体",
+    Referral: "外部推荐",
+    Desktop: "电脑端",
+    Mobile: "手机端",
+    Tablet: "平板",
+    Chrome: "Chrome 浏览器",
+    Safari: "Safari 浏览器",
+    Firefox: "Firefox 浏览器",
+    Edge: "Edge 浏览器",
+    Other: "其他",
+    Windows: "Windows 系统",
+    macOS: "macOS 系统",
+    Android: "Android 系统",
+    iOS: "iOS 系统",
+    Linux: "Linux 系统",
+    Indexed: "已收录",
+    "Crawled - currently not indexed": "已抓取，暂未收录",
+    "Discovered - currently not indexed": "已发现，暂未收录"
+  };
+  return labels[label] || label;
+}
+
 export function BarList({ rows, label = "value" }) {
   const max = Math.max(...rows.map((row) => row.value || row.clicks || row.impressions || 1), 1);
   return (
     <div className="admin-bar-list">
       {rows.map((row) => {
         const value = row.value || row.clicks || row.impressions || 0;
+        const rowLabel = row.label || row.country || row.device || row.query || row.status;
         return (
-          <div className="admin-bar-row" key={row.label || row.country || row.device || row.query || row.status}>
+          <div className="admin-bar-row" key={rowLabel}>
             <div>
-              <span>{row.label || row.country || row.device || row.query || row.status}</span>
+              <span>{localizeLabel(rowLabel)}</span>
               <strong>{value.toLocaleString()}</strong>
             </div>
             <i style={{ width: `${Math.max(7, (value / max) * 100)}%` }} aria-label={`${label}: ${value}`} />
@@ -33,7 +60,7 @@ export function BarList({ rows, label = "value" }) {
 export function TrendChart({ rows }) {
   const max = Math.max(...rows.map((row) => row.pv || 1), 1);
   return (
-    <div className="admin-trend" aria-label="Traffic trend">
+    <div className="admin-trend" aria-label="流量趋势">
       {rows.map((row) => (
         <div className="admin-trend-day" key={row.date}>
           <span style={{ height: `${Math.max(10, (row.pv / max) * 100)}%` }} />
@@ -68,7 +95,7 @@ export function CsvExportButton({ rows, filename = "cowin-analytics.csv" }) {
 
   return (
     <button className="admin-ghost-button" type="button" onClick={exportCsv}>
-      Export CSV
+      导出 CSV
     </button>
   );
 }

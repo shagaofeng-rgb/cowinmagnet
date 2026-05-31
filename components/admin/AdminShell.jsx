@@ -2,15 +2,16 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import AdminLiveStatus from "@/components/admin/AdminLiveStatus";
 
 const links = [
-  { href: "/admin", label: "Overview" },
-  { href: "/admin/analytics", label: "Traffic" },
-  { href: "/admin/search-console", label: "Search Console" },
-  { href: "/admin/visitors", label: "Visitors" },
-  { href: "/admin/pages", label: "Pages" },
-  { href: "/admin/journeys", label: "Journeys" },
-  { href: "/admin/settings", label: "Settings" }
+  { href: "/admin", label: "数据总览" },
+  { href: "/admin/analytics", label: "流量分析" },
+  { href: "/admin/search-console", label: "SEO 数据" },
+  { href: "/admin/visitors", label: "访客记录" },
+  { href: "/admin/pages", label: "页面表现" },
+  { href: "/admin/journeys", label: "访问路径" },
+  { href: "/admin/settings", label: "系统设置" }
 ];
 
 export default function AdminShell({ children, email }) {
@@ -21,7 +22,7 @@ export default function AdminShell({ children, email }) {
       <aside className="admin-sidebar">
         <Link className="admin-logo" href="/admin">
           <span>CY</span>
-          <strong>Cowin Analytics</strong>
+          <strong>网站数据后台</strong>
         </Link>
         <nav>
           {links.map((link) => (
@@ -35,10 +36,11 @@ export default function AdminShell({ children, email }) {
           ))}
         </nav>
         <div className="admin-sidebar-foot">
-          <small>Signed in as</small>
+          <AdminLiveStatus />
+          <small>当前账号</small>
           <span>{email}</span>
           <form action="/api/admin/logout" method="post">
-            <button type="submit">Log out</button>
+            <button type="submit">退出登录</button>
           </form>
         </div>
       </aside>
