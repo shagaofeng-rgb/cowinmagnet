@@ -67,6 +67,8 @@ export function detectLocaleFromCountry(countryCode) {
 }
 
 export function detectLocaleFromAcceptLanguage(acceptLanguage = "") {
+  if (!acceptLanguage) return null;
+
   return (
     acceptLanguage
       .split(",")
