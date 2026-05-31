@@ -1,4 +1,5 @@
 import Link from "next/link";
+import OptimizedBannerPicture from "@/components/OptimizedBannerPicture";
 import { withLocale } from "@/data/i18n";
 import { getMessages } from "@/messages";
 
@@ -37,7 +38,7 @@ export default function ProductDetail({ locale = "en" }) {
 
           <aside className="hero-stack" aria-label="Key product facts">
             <figure className="hero-visual">
-              <img src="/assets/magnetic-separator-banner.png" alt={t.imageAlt} />
+              <OptimizedBannerPicture alt={t.imageAlt} eager />
               <figcaption>{t.imageCaption}</figcaption>
             </figure>
             <div className="hero-panel">
@@ -131,7 +132,7 @@ export default function ProductDetail({ locale = "en" }) {
           <h2>{t.videoTitle}</h2>
           <p>{t.videoText}</p>
         </div>
-        <video controls preload="metadata" poster="/assets/magnetic-separator-banner.png">
+        <video controls preload="none" poster="/assets/magnetic-separator-banner-800.webp">
           <source src="/assets/self-unloading-product-video.mp4" type="video/mp4" />
         </video>
       </section>

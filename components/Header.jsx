@@ -3,6 +3,7 @@ import { productCategories } from "@/data/productCatalog";
 import { withLocale } from "@/data/i18n";
 import { getMessages } from "@/messages";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import OptimizedBannerPicture from "@/components/OptimizedBannerPicture";
 
 export default function Header({ locale = "en" }) {
   const messages = getMessages(locale);
@@ -11,7 +12,7 @@ export default function Header({ locale = "en" }) {
   return (
     <header className="site-header">
       <Link className="brand" href={withLocale(locale, "/")}>
-        <img src="/assets/logo.jpg" alt="Cowinmagnet logo" />
+        <img src="/assets/logo.jpg" alt="Cowinmagnet logo" width="52" height="52" />
         <span>Cowinmagnet</span>
       </Link>
 
@@ -23,7 +24,10 @@ export default function Header({ locale = "en" }) {
           <div className="mega-panel" role="menu" aria-label="Products mega menu">
             <div className="mega-feature">
               <span>{nav.featured}</span>
-              <img src="/assets/magnetic-separator-banner.png" alt="Permanent overband magnetic separator" />
+              <OptimizedBannerPicture
+                alt="Permanent overband magnetic separator"
+                sizes="270px"
+              />
               <h3>Permanent Overband Magnetic Separator</h3>
               <p>{nav.featuredText}</p>
               <Link href={withLocale(locale, "/products/permanent-overband-magnetic-separator")}>{nav.viewProduct}</Link>

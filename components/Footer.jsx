@@ -13,7 +13,7 @@ export default function Footer({ locale = "en" }) {
       <div className="footer-topline">
         <div className="footer-brand">
           <Link className="footer-logo" href={withLocale(locale, "/")}>
-            <img src="/assets/logo.jpg" alt="Cowinmagnet logo" />
+            <img src="/assets/logo.jpg" alt="Cowinmagnet logo" width="52" height="52" loading="lazy" decoding="async" />
             <span>Cowinmagnet</span>
           </Link>
           <p>{footer.text}</p>
