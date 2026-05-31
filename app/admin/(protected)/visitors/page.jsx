@@ -31,6 +31,8 @@ export default async function VisitorsPage() {
                 <th>浏览器</th>
                 <th>来源</th>
                 <th>页面</th>
+                <th>客户标签</th>
+                <th>访问日</th>
                 <th>IP</th>
               </tr>
             </thead>
@@ -43,6 +45,12 @@ export default async function VisitorsPage() {
                   <td>{visitor.browser}</td>
                   <td>{visitor.channel}</td>
                   <td>{visitor.page}</td>
+                  <td>
+                    <span className={`admin-customer-tag ${visitor.visitDayNumber === 1 ? "new" : "returning"}`}>
+                      {visitor.customerTypeLabel}
+                    </span>
+                  </td>
+                  <td>第 {visitor.visitDayNumber} 次访问日</td>
                   <td>{visitor.ip || "-"}</td>
                 </tr>
               ))}

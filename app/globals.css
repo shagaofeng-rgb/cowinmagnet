@@ -245,6 +245,44 @@
   gap: 14px;
 }
 
+.admin-panel-headline {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.admin-panel-headline h2 {
+  margin-bottom: 8px;
+}
+
+.admin-panel-headline p:not(.eyebrow) {
+  max-width: 760px;
+  margin: 0;
+  color: rgba(248, 250, 252, 0.66);
+}
+
+.admin-customer-tag {
+  display: inline-flex;
+  min-width: 68px;
+  justify-content: center;
+  padding: 5px 9px;
+  color: #07111f;
+  background: #f6c842;
+  border-radius: 999px;
+  font-family: var(--font-title);
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.admin-customer-tag.returning {
+  color: #dff6ff;
+  background: rgba(43, 183, 255, 0.18);
+  border: 1px solid rgba(43, 183, 255, 0.42);
+}
+
 .admin-metric-card {
   display: grid;
   gap: 8px;

@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default async function PagesPerformancePage() {
-  const { pages } = await getAnalyticsSnapshot();
+  const { landingJourneys, pages } = await getAnalyticsSnapshot();
   const totalViews = pages.reduce((sum, page) => sum + page.views, 0);
 
   return (
@@ -50,6 +50,55 @@ export default async function PagesPerformancePage() {
                   <td>{page.visitors}</td>
                   <td>{page.avgDuration}s</td>
                   <td>{page.conversionRate}%</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className="admin-panel">
+        <div className="admin-panel-headline">
+          <div>
+            <p className="eyebrow">行为轨迹标签</p>
+            <h2>新老客户与访问日次数</h2>
+            <p>
+              同一个访客在同一天多次浏览只算第 1 个访问日；隔天再次访问才累计为第 2 次访问日。
+            </p>
+          </div>
+          <CsvExportButton rows={landingJourneys} filename="cowin-landing-journeys.csv" />
+        </div>
+        <div className="admin-table-wrap">
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>时间</th>
+                <th>客户标签</th>
+                <th>访问日</th>
+                <th>当前页面</th>
+                <th>上一页</th>
+                <th>来源</th>
+                <th>国家</th>
+                <th>设备</th>
+                <th>访客ID</th>
+              </tr>
+            </thead>
+            <tbody>
+              {landingJourneys.map((item, index) => (
+                <tr key={`${item.visitorId}-${item.timestamp}-${index}`}>
+                  <td>{new Date(item.timestamp).toLocaleString()}</td>
+                  <td>
+                    <span className={`admin-customer-tag ${item.visitDayNumber === 1 ? "new" : "returning"}`}>
+                      {item.customerTypeLabel}
+                    </span>
+                  </td>
+                  <td>第 {item.visitDayNumber} 次访问日</td>
+                  <td>{item.pageTitle}</td>
+                  <td>{item.previousPage}</td>
+                  <td>{item.channel}</td>
+                  <td>{item.country || "未知"}</td>
+                  <td>{item.device}</td>
+                  <td>{item.visitorId?.slice(0, 16)}...</td>
                 </tr>
               ))}
             </tbody>
