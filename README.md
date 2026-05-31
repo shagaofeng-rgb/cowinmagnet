@@ -50,10 +50,19 @@ Recommended Vercel setup: add Neon from Vercel Marketplace, accept the marketpla
 ## Required Admin Environment Variables
 
 ```bash
+INQUIRY_TO_EMAIL=davidsha@cowinmagnet.com
+INQUIRY_BCC_EMAILS=cheryl@cowinmagnet.com
+
 ADMIN_EMAIL=davidsha@cowinmagnet.com
 ADMIN_PASSWORD_HASH=...
 ADMIN_JWT_SECRET=...
 DATABASE_URL=postgresql://user:password@host:5432/database?sslmode=require
+```
+
+`INQUIRY_BCC_EMAILS` supports multiple sales emails separated by commas, for example:
+
+```bash
+INQUIRY_BCC_EMAILS=cheryl@cowinmagnet.com,sales02@cowinmagnet.com
 ```
 
 Generate the password hash with the same `ADMIN_JWT_SECRET` used in production:

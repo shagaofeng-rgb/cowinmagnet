@@ -5,6 +5,13 @@ export const runtime = "nodejs";
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const phonePattern = /^\+?[0-9\s().-]{7,24}$/;
 
+function parseEmailList(value) {
+  return String(value || "")
+    .split(",")
+    .map((email) => email.trim())
+    .filter(Boolean);
+}
+
 function validate(payload) {
   const errors = {};
   if (!payload.name?.trim()) errors.name = "Name is required.";
@@ -75,6 +82,7 @@ export async function POST(request) {
   }
 
   const toEmail = process.env.INQUIRY_TO_EMAIL;
+  const bccEmails = parseEmailList(process.env.INQUIRY_BCC_EMAILS);
   const fromEmail = process.env.INQUIRY_FROM_EMAIL || "Cowinmagnet Website <davidsha@cowinmagnet.com>";
   const smtpHost = process.env.SMTP_HOST;
   const smtpPort = Number(process.env.SMTP_PORT || 465);
@@ -97,6 +105,7 @@ export async function POST(request) {
       await transporter.sendMail({
         from: fromEmail,
         to: [toEmail],
+        bcc: bccEmails,
         replyTo: payload.email,
         subject: `New inquiry from ${payload.name} - Cowinmagnet`,
         text: inquiryText(payload),
