@@ -14,6 +14,49 @@ const initialValues = {
   consent: false
 };
 
+const productRequirementGroups = [
+  {
+    label: "Permanent Magnetic Separation Equipment",
+    options: [
+      "Permanent overband magnetic separator",
+      "Suspended permanent magnetic separator",
+      "Self-cleaning permanent magnetic separator",
+      "Permanent magnet suspension separator"
+    ]
+  },
+  {
+    label: "Electromagnetic Separation Equipment",
+    options: [
+      "Suspended electromagnetic iron separator",
+      "Suspended electromagnetic self-unloading magnetic separator",
+      "Air-cooled electromagnetic separator",
+      "Oil-cooled electromagnetic separator",
+      "Self-cooled electromagnetic separator"
+    ]
+  },
+  {
+    label: "Magnetic Rollers, Bars & Components",
+    options: [
+      "Magnetic roller",
+      "Magnetic bar / magnetic rod",
+      "Magnetic grid / magnetic grate",
+      "Magnetic plate",
+      "Magnetic drum",
+      "Magnetic pulley",
+      "Magnetic filter"
+    ]
+  },
+  {
+    label: "Project Support",
+    options: [
+      "Not sure, need product recommendation",
+      "Custom magnetic separation solution",
+      "OEM / ODM magnetic separator",
+      "Spare parts or magnetic components"
+    ]
+  }
+];
+
 function validate(values) {
   const errors = {};
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -186,12 +229,15 @@ export default function InquiryForm() {
           onChange={updateField}
         >
           <option value="">Select a product or leave open</option>
-          <option>Permanent overband magnetic separator</option>
-          <option>Suspended permanent magnetic separator</option>
-          <option>Electromagnetic separator</option>
-          <option>Magnetic drum / pulley / roller</option>
-          <option>Magnetic bars / grids / components</option>
-          <option>Not sure, need product recommendation</option>
+          {productRequirementGroups.map((group) => (
+            <optgroup label={group.label} key={group.label}>
+              {group.options.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </optgroup>
+          ))}
         </select>
         <small>Choose the closest product if you already know it.</small>
       </div>

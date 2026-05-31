@@ -1,4 +1,5 @@
 import { getMessages } from "@/messages";
+import InquiryForm from "@/components/InquiryForm";
 
 export default function QuoteSection({ locale = "en", title }) {
   const messages = getMessages(locale);
@@ -17,32 +18,7 @@ export default function QuoteSection({ locale = "en", title }) {
           ))}
         </div>
       </div>
-      <form className="quote-form">
-        <label>
-          {quote.productRequirement}
-          <select>
-            <option>Permanent overband magnetic separator</option>
-            <option>Suspended permanent magnet</option>
-            <option>Electromagnetic separator</option>
-            <option>Magnetic pulley / drum / bar / grid</option>
-          </select>
-        </label>
-        <label>
-          {quote.conveyorWidth}
-          <input type="text" placeholder="800 mm, 1000 mm..." />
-        </label>
-        <label>
-          {quote.materialType}
-          <input type="text" placeholder="Recycling waste, ore, coal, aggregate..." />
-        </label>
-        <label>
-          {quote.emailWhatsapp}
-          <input type="text" placeholder="Your email or WhatsApp number" />
-        </label>
-        <button className="button primary full" type="button">
-          {quote.send}
-        </button>
-      </form>
+      <InquiryForm />
     </section>
   );
 }
