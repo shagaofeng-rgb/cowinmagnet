@@ -6,8 +6,8 @@ export const metadata = {
   title: "Search Console | Cowinmagnet 后台"
 };
 
-export default function SearchConsolePage() {
-  const data = getSearchConsoleSnapshot();
+export default async function SearchConsolePage() {
+  const data = await getSearchConsoleSnapshot();
 
   return (
     <div className="admin-page">
@@ -15,10 +15,10 @@ export default function SearchConsolePage() {
         <div>
           <p className="eyebrow">Google SEO</p>
           <h1>Search Console 数据</h1>
-          <p>用于查看点击量、曝光量、点击率、平均排名、收录状态和关键词表现。</p>
+          <p>用于查看点击量、曝光量、点击率、平均排名、页面和关键词搜索表现。</p>
         </div>
-        <div className={data.configured ? "admin-status good" : "admin-status"}>
-          {data.configured ? "GSC 已连接" : "GSC 接口预留"}
+        <div className={data.live ? "admin-status good" : "admin-status"}>
+          {data.live ? "GSC 已连接" : "GSC 接口预留"}
         </div>
       </header>
 
@@ -40,6 +40,7 @@ export default function SearchConsolePage() {
                   <th>搜索词</th>
                   <th>点击</th>
                   <th>曝光</th>
+                  <th>点击率</th>
                   <th>排名</th>
                 </tr>
               </thead>
@@ -49,6 +50,7 @@ export default function SearchConsolePage() {
                     <td>{row.query}</td>
                     <td>{row.clicks}</td>
                     <td>{row.impressions}</td>
+                    <td>{row.ctr}%</td>
                     <td>{row.position}</td>
                   </tr>
                 ))}
@@ -58,12 +60,15 @@ export default function SearchConsolePage() {
         </article>
 
         <article className="admin-panel">
-          <p className="eyebrow">收录情况</p>
-          <h2>页面收录状态</h2>
+          <p className="eyebrow">连接状态</p>
+          <h2>Search Console API</h2>
           <BarList rows={data.indexingStatus} />
           <p className="admin-muted">
-            连接 Google Search Console API 后，这里会替换成真实的收录和搜索表现数据。
+            {data.live
+              ? "已读取 Google Search Console 搜索表现数据。收录明细如需逐 URL 检查，可后续接入 URL Inspection API。"
+              : "连接 Google Search Console API 后，这里会替换成真实的收录和搜索表现数据。"}
           </p>
+          {data.error ? <p className="admin-alert">{data.error}</p> : null}
         </article>
       </section>
 
