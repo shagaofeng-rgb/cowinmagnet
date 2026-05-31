@@ -39,6 +39,15 @@ export default async function LocaleProductsPage({ params }) {
             <div className="catalog-products">
               {category.products.map((product) => (
                 <Link className="catalog-product-card" href={withLocale(locale, `/products/${product.slug}`)} key={product.slug}>
+                  {product.image && (
+                    <img
+                      src={product.image}
+                      alt={product.imageAlt || product.title}
+                      width="720"
+                      height="520"
+                      loading="lazy"
+                    />
+                  )}
                   <span>{product.shortTitle}</span>
                   <h3>{product.title}</h3>
                   <p>{product.summary}</p>
