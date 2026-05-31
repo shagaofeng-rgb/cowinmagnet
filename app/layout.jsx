@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Inter, Montserrat, Noto_Sans_SC, Roboto_Mono } from "next/font/google";
+import { siteUrl } from "@/data/i18n";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ const notoSansSc = Noto_Sans_SC({
 });
 
 export const metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Cowinmagnet | Magnetic Separation Equipment",
   description:
     "Cowinmagnet helps global industrial buyers source magnetic separation equipment, match products by working conditions and coordinate export support."

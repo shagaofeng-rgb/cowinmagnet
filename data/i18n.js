@@ -25,13 +25,22 @@ export function withLocale(locale, path = "/") {
   return `/${locale}${cleanPath}`;
 }
 
+export function absoluteUrl(path = "/") {
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  return `${siteUrl}${cleanPath}`;
+}
+
+export function absoluteLocalizedUrl(locale, path = "/") {
+  return absoluteUrl(withLocale(locale, path));
+}
+
 export function localizedAlternates(path = "/") {
-  const languages = Object.fromEntries(locales.map((locale) => [locale, withLocale(locale, path)]));
+  const languages = Object.fromEntries(locales.map((locale) => [locale, absoluteLocalizedUrl(locale, path)]));
   return {
-    canonical: withLocale(defaultLocale, path),
+    canonical: absoluteLocalizedUrl(defaultLocale, path),
     languages: {
       ...languages,
-      "x-default": withLocale(defaultLocale, path)
+      "x-default": absoluteLocalizedUrl(defaultLocale, path)
     }
   };
 }
@@ -42,12 +51,12 @@ export function createSeoMetadata(locale, path, seo) {
     description: seo.description,
     alternates: {
       ...localizedAlternates(path),
-      canonical: withLocale(locale, path)
+      canonical: absoluteLocalizedUrl(locale, path)
     },
     openGraph: {
       title: seo.title,
       description: seo.description,
-      url: `${siteUrl}${withLocale(locale, path)}`,
+      url: absoluteLocalizedUrl(locale, path),
       siteName: "Cowinmagnet",
       locale
     }
