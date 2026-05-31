@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import GoogleMapCard from "@/components/GoogleMapCard";
 import QuoteSection from "@/components/QuoteSection";
+import DirectContactCard from "@/components/DirectContactCard";
 
 export const metadata = {
   title: "Contact Cowinmagnet | Magnetic Separation Equipment",
@@ -13,6 +14,7 @@ export default function ContactPage() {
     <>
       <Header />
       <main>
+        <DirectContactCard />
         <GoogleMapCard title="Visit Cowinmagnet in Quzhou, Zhejiang" kicker="Contact location" />
         <QuoteSection title="Send your conveyor details for product recommendation." />
       </main>

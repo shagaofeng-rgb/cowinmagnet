@@ -980,6 +980,99 @@ video {
   box-shadow: 0 28px 90px rgba(5, 13, 26, 0.28);
 }
 
+.direct-contact-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(24px, 5vw, 64px);
+  align-items: start;
+  width: min(1240px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: clamp(82px, 10vw, 128px) 0 clamp(36px, 6vw, 72px);
+  color: #ffffff;
+}
+
+.direct-contact-copy h1 {
+  max-width: 680px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.04;
+  overflow-wrap: anywhere;
+}
+
+.direct-contact-copy p:not(.eyebrow) {
+  max-width: 620px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 18px;
+}
+
+.direct-contact-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.direct-contact-card {
+  display: grid;
+  gap: 7px;
+  padding: clamp(18px, 3vw, 24px);
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 92% 0%, rgba(246, 200, 66, 0.18), transparent 28%),
+    linear-gradient(135deg, rgba(9, 20, 37, 0.96), rgba(5, 11, 20, 0.94));
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 16px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.direct-contact-card:hover {
+  border-color: rgba(246, 200, 66, 0.55);
+  box-shadow: 0 30px 88px rgba(0, 0, 0, 0.26);
+  transform: translateY(-2px);
+}
+
+.direct-contact-card span {
+  color: #f6c842;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.direct-contact-card strong {
+  color: #ffffff;
+  font-size: clamp(22px, 3vw, 34px);
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.direct-contact-card small {
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 13px;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+.direct-contact-actions {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.direct-contact-actions a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(246, 200, 66, 0.26), rgba(246, 200, 66, 0.08));
+  border: 1px solid rgba(246, 200, 66, 0.78);
+  border-radius: 8px;
+  font-family: var(--font-title);
+  font-weight: 900;
+}
+
 .map-card-header {
   display: flex;
   justify-content: space-between;
@@ -1772,6 +1865,7 @@ video {
   .split-section,
   .selection-band,
   .media-section,
+  .direct-contact-section,
   .quote-section,
   .about-hero,
   .inquiry-hero,
@@ -1781,6 +1875,10 @@ video {
 
   .inquiry-panel-copy {
     position: static;
+  }
+
+  .direct-contact-actions {
+    grid-column: auto;
   }
 
   .site-footer {
@@ -3070,6 +3168,7 @@ body {
   }
 
   .inquiry-hero h1,
+  .direct-contact-copy h1,
   .catalog-hero h1,
   .product-summary-hero h1,
   .simple-hero h1 {
@@ -3081,6 +3180,15 @@ body {
   .product-summary-hero,
   .simple-hero {
     padding-top: 72px;
+  }
+
+  .direct-contact-section {
+    padding-top: 58px;
+  }
+
+  .direct-contact-actions,
+  .direct-contact-actions a {
+    width: 100%;
   }
 
   .whatsapp-float {
