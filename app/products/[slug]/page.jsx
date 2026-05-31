@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Link from "next/link";
+import QuoteSection from "@/components/QuoteSection";
 import { allProducts, getProductBySlug } from "@/data/productCatalog";
 import { notFound } from "next/navigation";
 
@@ -36,18 +37,26 @@ export default async function ProductSummaryPage({ params }) {
       <Header />
       <main className="product-summary-page">
         <section className="product-summary-hero">
-          <p className="breadcrumb">Products / {product.categoryTitle}</p>
-          <p className="eyebrow">Cowinmagnet product</p>
-          <h1>{product.title}</h1>
-          <p>{product.summary}</p>
-          <div className="hero-actions">
-            <Link className="button primary" href="/inquiry">
-              Send Requirements
-            </Link>
-            <a className="button ghost" href={product.sourceUrl} target="_blank" rel="noopener noreferrer">
-              View Official Product
-            </a>
+          <div className="product-summary-copy">
+            <p className="breadcrumb">Products / {product.categoryTitle}</p>
+            <p className="eyebrow">Cowinmagnet product</p>
+            <h1>{product.title}</h1>
+            <p>{product.summary}</p>
+            <div className="hero-actions">
+              <Link className="button primary" href="/inquiry">
+                Send Requirements
+              </Link>
+              <a className="button ghost" href={product.sourceUrl} target="_blank" rel="noopener noreferrer">
+                View Official Product
+              </a>
+            </div>
           </div>
+          {product.image && (
+            <figure className="product-summary-media">
+              <img src={product.image} alt={product.imageAlt || product.title} width="900" height="680" />
+              <figcaption>{product.shortTitle}</figcaption>
+            </figure>
+          )}
         </section>
 
         <section className="product-summary-content">
@@ -73,6 +82,8 @@ export default async function ProductSummaryPage({ params }) {
             </p>
           </article>
         </section>
+
+        <QuoteSection />
       </main>
     </>
   );

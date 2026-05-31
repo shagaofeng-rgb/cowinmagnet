@@ -39,10 +39,23 @@ export default function ProductsPage() {
               <div className="catalog-products">
                 {category.products.map((product) => (
                   <Link className="catalog-product-card" href={`/products/${product.slug}`} key={product.slug}>
-                    <span>{product.shortTitle}</span>
-                    <h3>{product.title}</h3>
-                    <p>{product.summary}</p>
-                    <small>{product.application}</small>
+                    {product.image && (
+                      <figure className="catalog-product-media">
+                        <img
+                          src={product.image}
+                          alt={product.imageAlt || product.title}
+                          width="720"
+                          height="520"
+                          loading="lazy"
+                        />
+                      </figure>
+                    )}
+                    <div className="catalog-product-copy">
+                      <span>{product.shortTitle}</span>
+                      <h3>{product.title}</h3>
+                      <p>{product.summary}</p>
+                      <small>{product.application}</small>
+                    </div>
                   </Link>
                 ))}
               </div>
