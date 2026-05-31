@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "next": "latest",
+    "nodemailer": "^8.0.10",
     "react": "latest",
     "react-dom": "latest"
-  },
-  "devDependencies": {}
+  }
 }

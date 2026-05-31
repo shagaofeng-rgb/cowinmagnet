@@ -1,3 +1,7 @@
+import nodemailer from "nodemailer";
+
+export const runtime = "nodejs";
+
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const phonePattern = /^\+?[0-9\s().-]{7,24}$/;
 
@@ -29,6 +33,39 @@ function inquiryText(payload) {
   ].join("\n");
 }
 
+function inquiryHtml(payload) {
+  const rows = [
+    ["Name", payload.name],
+    ["Email", payload.email],
+    ["Phone / WhatsApp", payload.phone],
+    ["Company", payload.company || "-"],
+    ["Country / Region", payload.country || "-"],
+    ["Product Requirement", payload.productRequirement || "-"]
+  ];
+
+  return `
+    <div style="font-family:Arial,sans-serif;color:#101722;line-height:1.6">
+      <h2 style="margin:0 0 16px;color:#07111f">New Cowinmagnet B2B Inquiry</h2>
+      <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse">
+        ${rows
+          .map(
+            ([label, value]) => `
+              <tr>
+                <td style="width:180px;padding:10px;border:1px solid #d9e1ea;background:#f6f8fb;font-weight:700">${label}</td>
+                <td style="padding:10px;border:1px solid #d9e1ea">${String(value).replace(/</g, "&lt;").replace(/>/g, "&gt;")}</td>
+              </tr>
+            `
+          )
+          .join("")}
+      </table>
+      <h3 style="margin:20px 0 8px">Message</h3>
+      <div style="padding:14px;border:1px solid #d9e1ea;background:#f9fbfe;white-space:pre-wrap">${String(payload.message || "-")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")}</div>
+    </div>
+  `;
+}
+
 export async function POST(request) {
   const payload = await request.json();
   const errors = validate(payload);
@@ -37,34 +74,43 @@ export async function POST(request) {
     return Response.json({ message: "Please complete the required fields.", errors }, { status: 400 });
   }
 
-  const resendKey = process.env.RESEND_API_KEY;
   const toEmail = process.env.INQUIRY_TO_EMAIL;
-  const fromEmail = process.env.INQUIRY_FROM_EMAIL || "Cowinmagnet Website <davidsha@zaihaisurfing.com>";
+  const fromEmail = process.env.INQUIRY_FROM_EMAIL || "Cowinmagnet Website <davidsha@cowinmagnet.com>";
+  const smtpHost = process.env.SMTP_HOST;
+  const smtpPort = Number(process.env.SMTP_PORT || 465);
+  const smtpUser = process.env.SMTP_USER;
+  const smtpPass = process.env.SMTP_PASS;
+  const smtpSecure = process.env.SMTP_SECURE !== "false";
 
-  if (resendKey && toEmail) {
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${resendKey}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
+  if (smtpHost && smtpUser && smtpPass && toEmail) {
+    try {
+      const transporter = nodemailer.createTransport({
+        host: smtpHost,
+        port: smtpPort,
+        secure: smtpSecure,
+        auth: {
+          user: smtpUser,
+          pass: smtpPass
+        }
+      });
+
+      await transporter.sendMail({
         from: fromEmail,
         to: [toEmail],
-        reply_to: payload.email,
+        replyTo: payload.email,
         subject: `New inquiry from ${payload.name} - Cowinmagnet`,
-        text: inquiryText(payload)
-      })
-    });
+        text: inquiryText(payload),
+        html: inquiryHtml(payload)
+      });
 
-    if (!response.ok) {
+      return Response.json({ message: "Thank you. Your inquiry has been sent successfully." });
+    } catch (error) {
+      console.error("SMTP inquiry delivery failed", error);
       return Response.json(
-        { message: "Inquiry received, but email delivery failed. Please check email API settings." },
+        { message: "Inquiry received, but email delivery failed. Please check SMTP settings." },
         { status: 502 }
       );
     }
-
-    return Response.json({ message: "Thank you. Your inquiry has been sent successfully." });
   }
 
   console.info(inquiryText(payload));
