@@ -611,7 +611,7 @@ video {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 1000;
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 24px;
@@ -666,10 +666,11 @@ video {
 .has-mega::after {
   content: "";
   position: fixed;
-  top: 64px;
+  top: 54px;
   left: 50%;
   width: min(1080px, calc(100vw - 42px));
-  height: 28px;
+  height: 54px;
+  z-index: 79;
   pointer-events: none;
   transform: translateX(-50%);
 }
@@ -700,7 +701,7 @@ video {
 
 .mega-panel {
   position: fixed;
-  top: 74px;
+  top: 68px;
   left: 50%;
   z-index: 80;
   display: grid;
@@ -868,6 +869,11 @@ video {
   cursor: default;
   font-size: 12px;
   font-weight: 900;
+  list-style: none;
+}
+
+.language-current::-webkit-details-marker {
+  display: none;
 }
 
 .language-menu {
@@ -890,7 +896,8 @@ video {
 }
 
 .language-switcher:hover .language-menu,
-.language-switcher:focus-within .language-menu {
+.language-switcher:focus-within .language-menu,
+.language-switcher[open] .language-menu {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
@@ -3746,10 +3753,12 @@ body {
 /* Mobile visual QA refinements: keep the first screen cleaner and reduce fixed-button overlap. */
 @media (max-width: 640px) {
   .site-header {
+    position: relative;
+    z-index: 1000;
     grid-template-columns: 1fr auto;
     gap: 12px;
     max-width: 100vw;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .nav-links {
@@ -3758,7 +3767,7 @@ body {
 
   .mobile-nav {
     position: relative;
-    z-index: 100;
+    z-index: 180;
     display: block;
     justify-self: end;
   }
@@ -3785,8 +3794,9 @@ body {
 
   .mobile-nav-panel {
     position: absolute;
-    top: calc(100% + 72px);
+    top: calc(100% + 82px);
     right: 0;
+    z-index: 220;
     display: grid;
     width: min(276px, calc(100vw - 36px));
     padding: 10px;
@@ -3817,7 +3827,19 @@ body {
     display: grid;
     grid-template-columns: 52px minmax(0, 1fr);
     max-width: calc(100vw - 36px);
-    overflow: hidden;
+    overflow: visible;
+  }
+
+  .language-switcher {
+    z-index: 230;
+  }
+
+  .language-menu {
+    top: calc(100% + 8px);
+    right: auto;
+    left: 0;
+    z-index: 240;
+    min-width: min(232px, calc(100vw - 36px));
   }
 
   .header-cta {

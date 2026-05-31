@@ -21,8 +21,8 @@ export default function LanguageSwitcher({ locale = "en" }) {
   }
 
   return (
-    <div className="language-switcher">
-      <span className="language-current">{locale.toUpperCase()}</span>
+    <details className="language-switcher">
+      <summary className="language-current">{locale.toUpperCase()}</summary>
       <div className="language-menu" aria-label="Language switcher">
         {locales.map((item) => (
           <a
@@ -36,6 +36,6 @@ export default function LanguageSwitcher({ locale = "en" }) {
           </a>
         ))}
       </div>
-    </div>
+    </details>
   );
 }
