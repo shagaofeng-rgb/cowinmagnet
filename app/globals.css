@@ -1799,8 +1799,11 @@ video {
   }
 
   .nav-links {
-    flex-wrap: wrap;
-    gap: 8px 16px;
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    justify-content: start;
+    gap: 10px 18px;
+    width: 100%;
     overflow: visible;
     font-size: 13px;
     line-height: 1.2;
