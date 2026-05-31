@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import ProductDetail from "@/components/ProductDetail";
 import QuoteSection from "@/components/QuoteSection";
+import ResponsiveImage from "@/components/ResponsiveImage";
 import { createSeoMetadata, locales, withLocale } from "@/data/i18n";
 import { allProducts, getProductBySlug } from "@/data/productCatalog";
 import { getMessages } from "@/messages";
@@ -63,7 +64,14 @@ export default async function LocaleProductPage({ params }) {
         </div>
         {product.image && (
           <figure className="product-summary-media">
-            <img src={product.image} alt={product.imageAlt || product.title} width="900" height="680" />
+            <ResponsiveImage
+              src={product.image}
+              alt={product.imageAlt || product.title}
+              width={900}
+              height={680}
+              sizes="(max-width: 980px) 92vw, 46vw"
+              priority
+            />
             <figcaption>{product.shortTitle}</figcaption>
           </figure>
         )}

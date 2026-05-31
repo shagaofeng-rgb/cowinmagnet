@@ -3,6 +3,7 @@ import SocialLinks from "@/components/SocialLinks";
 import { productCategories } from "@/data/productCatalog";
 import { withLocale } from "@/data/i18n";
 import { getMessages } from "@/messages";
+import ResponsiveImage from "@/components/ResponsiveImage";
 
 export default function Footer({ locale = "en" }) {
   const messages = getMessages(locale);
@@ -13,7 +14,14 @@ export default function Footer({ locale = "en" }) {
       <div className="footer-topline">
         <div className="footer-brand">
           <Link className="footer-logo" href={withLocale(locale, "/")}>
-            <img src="/assets/logo.jpg" alt="Cowinmagnet logo" width="52" height="52" loading="lazy" decoding="async" />
+            <ResponsiveImage
+              src="/assets/logo.jpg"
+              alt="Cowinmagnet logo"
+              width={52}
+              height={52}
+              sizes="52px"
+              quality={85}
+            />
             <span>Cowinmagnet</span>
           </Link>
           <p>{footer.text}</p>

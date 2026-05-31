@@ -1,4 +1,5 @@
 import { getMessages } from "@/messages";
+import ResponsiveImage from "@/components/ResponsiveImage";
 
 const address =
   "Room 110, 1st Floor, Building 1, Qushidai Future Building, Kecheng District, Quzhou, Zhejiang Province, China";
@@ -20,12 +21,22 @@ export default function GoogleMapCard({ locale = "en", title, kicker }) {
             <h2 id="map-title">{title || map.title}</h2>
             <p>{map.intro}</p>
           </div>
-          <img className="map-logo" src="/assets/logo.jpg" alt={map.alt} />
+          <ResponsiveImage
+            className="map-logo"
+            src="/assets/logo.jpg"
+            alt={map.alt}
+            width={72}
+            height={72}
+            sizes="72px"
+            quality={85}
+          />
         </div>
 
         <div className="map-frame-wrap">
           <iframe
             title="Cowinmagnet office location map"
+            width="600"
+            height="420"
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"

@@ -4,6 +4,7 @@ import { withLocale } from "@/data/i18n";
 import { getMessages } from "@/messages";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import OptimizedBannerPicture from "@/components/OptimizedBannerPicture";
+import ResponsiveImage from "@/components/ResponsiveImage";
 
 export default function Header({ locale = "en" }) {
   const messages = getMessages(locale);
@@ -20,7 +21,15 @@ export default function Header({ locale = "en" }) {
   return (
     <header className="site-header">
       <Link className="brand" href={withLocale(locale, "/")}>
-        <img src="/assets/logo.jpg" alt="Cowinmagnet logo" width="52" height="52" />
+        <ResponsiveImage
+          src="/assets/logo.jpg"
+          alt="Cowinmagnet logo"
+          width={52}
+          height={52}
+          sizes="52px"
+          priority
+          quality={85}
+        />
         <span>Cowinmagnet</span>
       </Link>
 

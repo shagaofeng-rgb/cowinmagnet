@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Link from "next/link";
+import ResponsiveImage from "@/components/ResponsiveImage";
 import { productCategories } from "@/data/productCatalog";
 
 export const metadata = {
@@ -41,12 +42,12 @@ export default function ProductsPage() {
                   <Link className="catalog-product-card" href={`/products/${product.slug}`} key={product.slug}>
                     {product.image && (
                       <figure className="catalog-product-media">
-                        <img
+                        <ResponsiveImage
                           src={product.image}
                           alt={product.imageAlt || product.title}
-                          width="720"
-                          height="520"
-                          loading="lazy"
+                          width={720}
+                          height={520}
+                          sizes="(max-width: 760px) 92vw, (max-width: 1180px) 42vw, 560px"
                         />
                       </figure>
                     )}

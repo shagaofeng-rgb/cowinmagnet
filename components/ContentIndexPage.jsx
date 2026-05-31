@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ShareActions from "@/components/ShareActions";
+import ResponsiveImage from "@/components/ResponsiveImage";
 import { formatDisplayDate, formatViews } from "@/data/contentHub";
 
 const siteUrl = "https://www.cowinmagnet.com";
@@ -12,7 +13,13 @@ function PostCard({ post, locale }) {
     <article className="content-post-card">
       {post.coverImage && (
         <Link className="content-card-media" href={localizedHref} aria-label={post.title}>
-          <img src={post.coverImage} alt={post.coverAlt || post.title} width="1200" height="720" loading="lazy" />
+          <ResponsiveImage
+            src={post.coverImage}
+            alt={post.coverAlt || post.title}
+            width={1200}
+            height={720}
+            sizes="(max-width: 760px) 92vw, (max-width: 1180px) 44vw, 380px"
+          />
         </Link>
       )}
       <div className="content-card-meta">

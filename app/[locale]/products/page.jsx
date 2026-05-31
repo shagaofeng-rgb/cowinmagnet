@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ResponsiveImage from "@/components/ResponsiveImage";
 import { createSeoMetadata, withLocale } from "@/data/i18n";
 import { productCategories } from "@/data/productCatalog";
 import { getMessages } from "@/messages";
@@ -41,12 +42,12 @@ export default async function LocaleProductsPage({ params }) {
                 <Link className="catalog-product-card" href={withLocale(locale, `/products/${product.slug}`)} key={product.slug}>
                   {product.image && (
                     <figure className="catalog-product-media">
-                      <img
+                      <ResponsiveImage
                         src={product.image}
                         alt={product.imageAlt || product.title}
-                        width="720"
-                        height="520"
-                        loading="lazy"
+                        width={720}
+                        height={520}
+                        sizes="(max-width: 760px) 92vw, (max-width: 1180px) 42vw, 560px"
                       />
                     </figure>
                   )}

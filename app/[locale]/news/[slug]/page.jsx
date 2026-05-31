@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import ShareActions from "@/components/ShareActions";
+import ResponsiveImage from "@/components/ResponsiveImage";
 import { formatDisplayDate, formatViews, newsCategories, newsPosts } from "@/data/contentHub";
 import { createSeoMetadata } from "@/data/i18n";
 
@@ -45,7 +46,14 @@ export default async function NewsDetailPage({ params }) {
         <p className="content-article-lead">{post.excerpt}</p>
         {post.coverImage && (
           <figure className="content-article-media">
-            <img src={post.coverImage} alt={post.coverAlt || post.title} width="1200" height="720" />
+            <ResponsiveImage
+              src={post.coverImage}
+              alt={post.coverAlt || post.title}
+              width={1200}
+              height={720}
+              sizes="(max-width: 980px) 92vw, 980px"
+              priority
+            />
             <figcaption>{post.imageCaption}</figcaption>
           </figure>
         )}

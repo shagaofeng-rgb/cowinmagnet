@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 31536000,
+    deviceSizes: [360, 640, 768, 1024, 1280, 1536, 1920],
+    imageSizes: [52, 72, 96, 128, 256, 320]
+  },
   async redirects() {
     return [
       {
@@ -27,6 +33,15 @@ const nextConfig = {
           {
             key: "Cache-Control",
             value: "public, max-age=31536000, immutable"
+          }
+        ]
+      },
+      {
+        source: "/:file(robots.txt|sitemap.xml)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800"
           }
         ]
       }
