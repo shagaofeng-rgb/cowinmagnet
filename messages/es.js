@@ -8,7 +8,7 @@ const es = {
     products: "Productos",
     about: "Sobre Nosotros",
     applications: "Aplicaciones",
-    factory: "Fábrica",
+    factory: "Sourcing y QC",
     cases: "Proyectos",
     blog: "Blog",
     news: "Noticias",
@@ -44,9 +44,9 @@ const es = {
         "Aplicaciones para reciclaje de residuos, minería, canteras, cemento, carbón y manejo de materiales a granel."
     },
     factory: {
-      title: "Capacidad de fábrica | Cowinmagnet",
+      title: "Soporte de sourcing y control de calidad | Cowinmagnet",
       description:
-        "Capacidad de producción, pruebas, inspección y preparación de envíos para separadores magnéticos Cowinmagnet."
+        "Soporte de sourcing, seguimiento de producción, inspección y preparación de envíos para separadores magnéticos Cowinmagnet."
     },
     cases: {
       title: "Casos y proyectos de separación magnética | Cowinmagnet",
@@ -143,8 +143,8 @@ const es = {
     },
     factory: {
       ...en.simplePages.factory,
-      eyebrow: "Capacidad de fábrica",
-      h1: "Producción, pruebas y preparación de envíos"
+      eyebrow: "Sourcing y control de calidad",
+      h1: "Seguimiento de producción, inspección y preparación de envíos"
     },
     cases: {
       ...en.simplePages.cases,

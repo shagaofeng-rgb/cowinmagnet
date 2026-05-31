@@ -8,7 +8,7 @@ const pt = {
     products: "Produtos",
     about: "Sobre nós",
     applications: "Aplicações",
-    factory: "Fábrica",
+    factory: "Sourcing e QC",
     cases: "Projetos",
     blog: "Blog",
     news: "Notícias",
@@ -27,7 +27,7 @@ const pt = {
     products: {title: "Produtos de separadores magnéticos | Cowinmagnet", description: "Veja separadores magnéticos Cowinmagnet por série permanente, eletromagnética, rolos magnéticos e barras magnéticas."},
     about: {title: "Sobre a Cowinmagnet | Parceiro de exportação", description: "Conheça o suporte da Cowinmagnet para seleção, OEM/ODM e comunicação de exportação."},
     applications: {title: "Aplicações de separadores magnéticos | Cowinmagnet", description: "Aplicações para reciclagem, mineração, pedreiras, cimento, carvão e materiais a granel."},
-    factory: {title: "Capacidade da fábrica | Cowinmagnet", description: "Produção, testes, inspeção e preparação de envio para separadores magnéticos."},
+    factory: {title: "Suporte de sourcing e controle de qualidade | Cowinmagnet", description: "Sourcing, acompanhamento de produção, inspeção e preparação de envio para separadores magnéticos."},
     cases: {title: "Casos e projetos de separação magnética | Cowinmagnet", description: "Cenários típicos para remoção de ferro em transportadores e linhas industriais."},
     blog: {title: "Blog de separadores magnéticos | Cowinmagnet", description: "Artigos de produtos, empresa e guias práticos de separação magnética."},
     news: {title: "Notícias da indústria de separação magnética | Cowinmagnet", description: "Notícias sobre reciclagem, mineração, materiais a granel e tendências de separação magnética."},
@@ -78,7 +78,7 @@ const pt = {
   about: {...en.about, eyebrow: "Sobre a Cowinmagnet", h1: "Parceiro profissional de exportação para equipamentos de separação magnética", intro: "Cowinmagnet ajuda compradores estrangeiros a selecionar separadores adequados, coordenar personalização e comunicar requisitos de exportação."},
   simplePages: {
     applications: {...en.simplePages.applications, eyebrow: "Aplicações", h1: "Aplicações de separação magnética por indústria"},
-    factory: {...en.simplePages.factory, eyebrow: "Capacidade da fábrica", h1: "Produção, testes e preparação de envio"},
+    factory: {...en.simplePages.factory, eyebrow: "Sourcing e controle de qualidade", h1: "Acompanhamento de produção, inspeção e preparação de envio"},
     cases: {...en.simplePages.cases, eyebrow: "Casos / Projetos", h1: "Cenários típicos de projetos de separação magnética"},
     blog: {...en.simplePages.blog, eyebrow: "Blog", h1: "Artigos de produtos e empresa da Cowinmagnet"},
     news: {...en.simplePages.news, eyebrow: "Notícias", h1: "Notícias da indústria para mercados de separação magnética"}

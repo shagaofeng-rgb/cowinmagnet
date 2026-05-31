@@ -33,7 +33,7 @@ export const metadata = {
   metadataBase: new URL(siteUrl),
   title: "Cowinmagnet | Magnetic Separation Equipment",
   description:
-    "Cowinmagnet helps global industrial buyers source magnetic separation equipment, match products by working conditions and coordinate export support."
+    "Cowinmagnet helps global industrial buyers source, select, inspect and export suitable magnetic separation equipment from China."
 };
 
 export default function RootLayout({ children }) {

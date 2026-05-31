@@ -8,7 +8,7 @@ const ar = {
     products: "المنتجات",
     about: "من نحن",
     applications: "التطبيقات",
-    factory: "المصنع",
+    factory: "التوريد وفحص الجودة",
     cases: "المشاريع",
     blog: "المدونة",
     news: "الأخبار",
@@ -27,7 +27,7 @@ const ar = {
     products: {title: "منتجات الفواصل المغناطيسية | Cowinmagnet", description: "تصفح منتجات Cowinmagnet حسب سلسلة المغناطيس الدائم والسلسلة الكهرومغناطيسية والبكرات والقضبان المغناطيسية."},
     about: {title: "من نحن | Cowinmagnet", description: "تعرف على دعم Cowinmagnet في اختيار المعدات والتخصيص والتواصل الخاص بالتصدير."},
     applications: {title: "تطبيقات الفواصل المغناطيسية | Cowinmagnet", description: "تطبيقات لإعادة التدوير والتعدين والمحاجر والأسمنت والفحم ومناولة المواد."},
-    factory: {title: "قدرات المصنع | Cowinmagnet", description: "الإنتاج والاختبار والفحص وتجهيز الشحن لمعدات الفصل المغناطيسي."},
+    factory: {title: "دعم التوريد وفحص الجودة | Cowinmagnet", description: "التوريد ومتابعة الإنتاج والفحص وتجهيز الشحن لمعدات الفصل المغناطيسي."},
     cases: {title: "مشاريع الفصل المغناطيسي | Cowinmagnet", description: "سيناريوهات نموذجية لإزالة الحديد من الناقلات وخطوط إعادة التدوير."},
     blog: {title: "مدونة الفواصل المغناطيسية | Cowinmagnet", description: "مقالات عن منتجات Cowinmagnet والشركة وأدلة عملية للاختيار."},
     news: {title: "أخبار صناعة الفصل المغناطيسي | Cowinmagnet", description: "أخبار عن إعادة التدوير والتعدين ومناولة المواد واتجاهات الفصل المغناطيسي."},
@@ -78,7 +78,7 @@ const ar = {
   about: {...en.about, eyebrow: "من نحن", h1: "شريك تصدير محترف لمعدات الفصل المغناطيسي", intro: "تساعد Cowinmagnet المشترين الأجانب في اختيار الفواصل المناسبة وتنسيق التخصيص ومراجعة الجودة ومتطلبات التصدير."},
   simplePages: {
     applications: {...en.simplePages.applications, eyebrow: "التطبيقات", h1: "تطبيقات الفصل المغناطيسي حسب الصناعة"},
-    factory: {...en.simplePages.factory, eyebrow: "قدرات المصنع", h1: "الإنتاج والاختبار وتجهيز الشحن"},
+    factory: {...en.simplePages.factory, eyebrow: "التوريد وفحص الجودة", h1: "متابعة الإنتاج والفحص وتجهيز الشحن"},
     cases: {...en.simplePages.cases, eyebrow: "المشاريع", h1: "سيناريوهات نموذجية لمشاريع الفصل المغناطيسي"},
     blog: {...en.simplePages.blog, eyebrow: "المدونة", h1: "مقالات المنتجات والشركة من Cowinmagnet"},
     news: {...en.simplePages.news, eyebrow: "الأخبار", h1: "أخبار الصناعة لأسواق الفصل المغناطيسي"}

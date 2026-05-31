@@ -8,7 +8,7 @@ const fr = {
     products: "Produits",
     about: "À propos",
     applications: "Applications",
-    factory: "Usine",
+    factory: "Sourcing & QC",
     cases: "Projets",
     blog: "Blog",
     news: "Actualités",
@@ -44,9 +44,9 @@ const fr = {
         "Applications pour recyclage, mines, carrières, ciment, charbon et manutention de matériaux."
     },
     factory: {
-      title: "Capacité usine | Cowinmagnet",
+      title: "Support sourcing et contrôle qualité | Cowinmagnet",
       description:
-        "Production, essais, inspection et préparation export des séparateurs magnétiques Cowinmagnet."
+        "Support sourcing, suivi de production, inspection et préparation export des séparateurs magnétiques Cowinmagnet."
     },
     cases: {
       title: "Cas et projets de séparation magnétique | Cowinmagnet",
@@ -135,7 +135,7 @@ const fr = {
   },
   simplePages: {
     applications: {...en.simplePages.applications, eyebrow: "Applications", h1: "Applications de séparation magnétique par industrie"},
-    factory: {...en.simplePages.factory, eyebrow: "Capacité usine", h1: "Production, essais et préparation d'expédition"},
+    factory: {...en.simplePages.factory, eyebrow: "Sourcing et contrôle qualité", h1: "Suivi de production, inspection et préparation d'expédition"},
     cases: {...en.simplePages.cases, eyebrow: "Cas / Projets", h1: "Scénarios typiques de projets de séparation magnétique"},
     blog: {...en.simplePages.blog, eyebrow: "Blog", h1: "Articles produits et entreprise de Cowinmagnet"},
     news: {...en.simplePages.news, eyebrow: "Actualités", h1: "Actualités industrie pour les marchés de séparation magnétique"}

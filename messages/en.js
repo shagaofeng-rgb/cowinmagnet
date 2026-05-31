@@ -4,7 +4,7 @@ const en = {
     products: "Products",
     about: "About Us",
     applications: "Applications",
-    factory: "Factory",
+    factory: "Sourcing & QC",
     cases: "Cases",
     blog: "Blog",
     news: "News",
@@ -30,9 +30,9 @@ const en = {
         "Browse Cowinmagnet magnetic separator products by permanent magnet series, electromagnetic series, magnetic rollers and magnetic bars."
     },
     about: {
-      title: "About Cowinmagnet | Magnetic Separation Export Service Partner",
+      title: "About Cowinmagnet | Magnetic Separator Sourcing & Export Service Partner",
       description:
-        "Learn how Cowinmagnet supports global buyers with magnetic separator sourcing, product matching, OEM coordination and export communication."
+        "Learn how Cowinmagnet supports global buyers with magnetic separator sourcing, product matching, quality inspection support and export coordination."
     },
     applications: {
       title: "Magnetic Separator Applications | Cowinmagnet",
@@ -40,9 +40,9 @@ const en = {
         "Explore magnetic separator applications for waste recycling, mining, quarrying, cement, coal and bulk material handling."
     },
     factory: {
-      title: "Factory Capability | Cowinmagnet",
+      title: "Sourcing & Quality Control Support | Cowinmagnet",
       description:
-        "View Cowinmagnet factory capability for magnetic separator production, testing, inspection and export preparation."
+        "View Cowinmagnet sourcing, production follow-up, quality inspection support and export preparation for magnetic separation equipment."
     },
     cases: {
       title: "Magnetic Separator Cases & Projects | Cowinmagnet",
@@ -154,9 +154,9 @@ const en = {
   },
   about: {
     eyebrow: "About Cowinmagnet",
-    h1: "Professional Magnetic Separation Equipment Export Service Partner",
+    h1: "Magnetic Separation Equipment Sourcing and Export Service Partner",
     intro:
-      "Cowinmagnet is a magnetic separation equipment brand operated by Quzhou Qiying Import & Export Co., Ltd. We help overseas buyers source suitable magnetic separators, coordinate customization, check quality and communicate export requirements.",
+      "Cowinmagnet is a service-led magnetic separation equipment brand operated by Quzhou Qiying Import & Export Co., Ltd. We help overseas buyers source suitable magnetic separators, coordinate selected production partners, support quality inspection and manage export communication.",
     cards: [
       ["Selection", "Product matching", "Recommend equipment according to working conditions and installation details."],
       ["Service", "Export support", "Coordinate documentation, packaging, shipment and long-term communication."],
@@ -176,13 +176,13 @@ const en = {
       ]
     },
     factory: {
-      eyebrow: "Factory capability",
-      h1: "Production, Testing and Shipment Preparation",
+      eyebrow: "Sourcing and QC support",
+      h1: "Production Follow-Up, Inspection Support and Shipment Preparation",
       intro:
-        "Cowinmagnet supports product matching, factory coordination, inspection communication and export preparation for overseas buyers.",
+        "Cowinmagnet supports product matching, selected production partner coordination, inspection communication and export preparation for overseas buyers.",
       cards: [
-        ["Manufacturing", "Coordinate separator dimensions, magnetic strength, paint color and installation requirements."],
-        ["Testing", "Support factory testing review before shipment when project requirements are confirmed."],
+        ["Sourcing", "Coordinate suitable production resources according to separator dimensions, magnetic strength, paint color and installation requirements."],
+        ["Inspection", "Support production photos, videos, key dimension checks and testing review before shipment when project requirements are confirmed."],
         ["Shipment", "Prepare packaging, documents and communication for international delivery."]
       ]
     },
