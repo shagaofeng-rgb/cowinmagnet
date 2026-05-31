@@ -9,6 +9,15 @@ const sharePlatforms = [
     )
   },
   {
+    name: "X",
+    buildUrl: (url, title) => `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M18.2 2.3h3.3l-7.2 8.2L22.8 22h-6.7l-5.2-6.8L4.9 22H1.6l7.7-8.8L1.2 2.3H8l4.7 6.2 5.5-6.2Zm-1.2 17.7h1.8L7 4.2H5.1L17 20Z" />
+      </svg>
+    )
+  },
+  {
     name: "LinkedIn",
     buildUrl: (url) => `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
     icon: (
@@ -28,9 +37,9 @@ const sharePlatforms = [
   }
 ];
 
-export default function ShareActions({ url, title }) {
+export default function ShareActions({ url, title, variant = "content" }) {
   return (
-    <div className="content-share" aria-label={`Share ${title}`}>
+    <div className={`content-share content-share-${variant}`} aria-label={`Share ${title}`}>
       <span>Share</span>
       {sharePlatforms.map((platform) => (
         <a

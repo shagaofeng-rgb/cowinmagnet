@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Link from "next/link";
+import ProductConversionSection, { ProductJsonLd } from "@/components/ProductConversionSection";
 import QuoteSection from "@/components/QuoteSection";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import { allProducts, getProductBySlug } from "@/data/productCatalog";
@@ -37,6 +38,7 @@ export default async function ProductSummaryPage({ params }) {
     <>
       <Header />
       <main className="product-summary-page">
+        <ProductJsonLd product={product} />
         <section className="product-summary-hero">
           <div className="product-summary-copy">
             <p className="breadcrumb">Products / {product.categoryTitle}</p>
@@ -91,6 +93,7 @@ export default async function ProductSummaryPage({ params }) {
           </article>
         </section>
 
+        <ProductConversionSection currentSlug={product.slug} />
         <QuoteSection />
       </main>
     </>

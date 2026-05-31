@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import ProductDetail from "@/components/ProductDetail";
+import ProductConversionSection, { ProductJsonLd } from "@/components/ProductConversionSection";
 import QuoteSection from "@/components/QuoteSection";
 import ResponsiveImage from "@/components/ResponsiveImage";
-import { createSeoMetadata, locales, withLocale } from "@/data/i18n";
+import { absoluteUrl, createSeoMetadata, locales, withLocale } from "@/data/i18n";
 import { allProducts, getProductBySlug } from "@/data/productCatalog";
 import { getMessages } from "@/messages";
 
@@ -19,10 +20,23 @@ export async function generateMetadata({ params }) {
     return {};
   }
 
-  return createSeoMetadata(locale, `/products/${slug}`, {
+  const metadata = createSeoMetadata(locale, `/products/${slug}`, {
     title: `${product.shortTitle} | Cowinmagnet`,
     description: product.summary
   });
+
+  if (product.image) {
+    metadata.openGraph.images = [
+      {
+        url: absoluteUrl(product.image),
+        width: 1200,
+        height: 900,
+        alt: product.imageAlt || product.title
+      }
+    ];
+  }
+
+  return metadata;
 }
 
 export default async function LocaleProductPage({ params }) {
@@ -47,6 +61,7 @@ export default async function LocaleProductPage({ params }) {
 
   return (
     <main className="product-summary-page">
+      <ProductJsonLd product={product} locale={locale} />
       <section className="product-summary-hero">
         <div className="product-summary-copy">
           <p className="breadcrumb">{t.breadcrumb} / {product.categoryTitle}</p>
@@ -131,6 +146,7 @@ export default async function LocaleProductPage({ params }) {
         </section>
       )}
 
+      <ProductConversionSection currentSlug={product.slug} locale={locale} />
       <QuoteSection locale={locale} />
     </main>
   );

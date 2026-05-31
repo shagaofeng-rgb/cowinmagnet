@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --ink: #101722;
   --muted: #627084;
   --paper: #f3f6f8;
@@ -1342,7 +1342,7 @@ video {
   color: var(--white);
   background:
     linear-gradient(90deg, rgba(3, 10, 20, 0.96), rgba(6, 33, 74, 0.82)),
-    url("/assets/magnetic-separator-banner.png") center right / cover;
+    url("/assets/magnetic-separator-banner-1600.webp") center right / cover;
 }
 
 .inquiry-hero h1 {
@@ -1923,7 +1923,7 @@ video {
   color: var(--white);
   background:
     linear-gradient(90deg, rgba(3, 10, 20, 0.96), rgba(6, 33, 74, 0.82)),
-    url("/assets/magnetic-separator-banner.png") center right / cover;
+    url("/assets/magnetic-separator-banner-1600.webp") center right / cover;
 }
 
 .inquiry-hero h1 {
@@ -2268,7 +2268,7 @@ video {
   align-items: center;
   background:
     linear-gradient(90deg, rgba(4, 9, 20, 0.98) 0%, rgba(7, 24, 47, 0.94) 48%, rgba(7, 24, 47, 0.72) 100%),
-    url("/assets/magnetic-separator-banner.png") center right / cover;
+    url("/assets/magnetic-separator-banner-1600.webp") center right / cover;
 }
 
 .inquiry-side-card,
@@ -2355,7 +2355,7 @@ video {
 .inquiry-hero {
   background:
     linear-gradient(90deg, rgba(4, 9, 20, 0.98) 0%, rgba(7, 24, 47, 0.94) 56%, rgba(7, 24, 47, 0.78) 100%),
-    url("/assets/magnetic-separator-banner.png") 78% center / cover !important;
+    url("/assets/magnetic-separator-banner-1600.webp") 78% center / cover !important;
 }
 
 .inquiry-hero .eyebrow {
@@ -2507,6 +2507,12 @@ video {
   .product-tabs {
     top: 0;
     justify-content: start;
+    gap: 18px;
+    scrollbar-width: none;
+  }
+
+  .product-tabs::-webkit-scrollbar {
+    display: none;
   }
 
   .product-hero {
@@ -2551,6 +2557,8 @@ video {
   .selection-grid,
   .application-grid,
   .product-summary-hero,
+  .product-share-panel,
+  .recommended-product-grid,
   .product-feature-grid,
   .product-spec-list,
   .quote-form,
@@ -2576,6 +2584,45 @@ video {
 
   .map-button {
     width: 100%;
+  }
+
+  .product-conversion-section {
+    width: min(100% - 28px, 1240px);
+  }
+
+  .product-share-panel {
+    gap: 18px;
+  }
+
+  .content-share-product {
+    justify-content: start;
+  }
+
+  .content-share-product span {
+    text-align: left;
+  }
+
+  .product-recommend-heading {
+    padding-right: 58px;
+  }
+
+  .recommended-product-card figure {
+    min-height: 190px;
+  }
+
+  .recommended-product-card img {
+    height: 170px;
+  }
+
+  .recommended-product-card div {
+    padding-right: 54px;
+  }
+
+  .recommended-product-card em {
+    width: 100%;
+    justify-content: center;
+    min-height: 42px;
+    font-size: 13px;
   }
 
   .whatsapp-float {
@@ -3236,6 +3283,200 @@ body {
   width: 17px;
   height: 17px;
   fill: currentColor;
+}
+
+.product-conversion-section {
+  display: grid;
+  gap: clamp(22px, 4vw, 38px);
+  width: min(1240px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 0 0 clamp(62px, 8vw, 104px);
+}
+
+.product-share-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  padding: clamp(20px, 3vw, 30px);
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 92% 0%, rgba(246, 200, 66, 0.16), transparent 34%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035)),
+    rgba(9, 20, 37, 0.94);
+  border: 1px solid rgba(246, 200, 66, 0.22);
+  border-radius: 18px;
+  box-shadow: 0 28px 78px rgba(0, 0, 0, 0.2);
+}
+
+.product-share-panel h2,
+.product-recommend-heading h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(26px, 3.4vw, 42px);
+  line-height: 1.08;
+}
+
+.product-share-panel p:not(.eyebrow),
+.product-recommend-heading p {
+  max-width: 760px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.content-share-product {
+  justify-content: end;
+  flex-wrap: wrap;
+}
+
+.content-share-product span {
+  flex-basis: 100%;
+  text-align: right;
+}
+
+.content-share-product a {
+  width: 42px;
+  height: 42px;
+  background: rgba(246, 200, 66, 0.12);
+  border-color: rgba(246, 200, 66, 0.42);
+}
+
+.content-share-product svg {
+  width: 19px;
+  height: 19px;
+}
+
+.product-recommend-heading {
+  margin-bottom: -10px;
+}
+
+.recommended-product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.recommended-product-card {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+  padding: 14px;
+  color: #ffffff;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035)),
+    rgba(9, 20, 37, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.recommended-product-card:hover {
+  border-color: rgba(246, 200, 66, 0.42);
+  box-shadow: 0 30px 88px rgba(0, 0, 0, 0.24);
+  transform: translateY(-2px);
+}
+
+.recommended-product-card figure {
+  display: grid;
+  min-height: 210px;
+  margin: 0;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 44%, rgba(255, 255, 255, 1) 0 30%, rgba(241, 247, 252, 0.98) 58%, rgba(220, 232, 242, 0.95) 100%);
+  border-radius: 12px;
+}
+
+.recommended-product-card img {
+  width: auto;
+  max-width: 92%;
+  height: 190px;
+  object-fit: contain;
+  padding: 8px;
+  mix-blend-mode: multiply;
+}
+
+.recommended-product-card div {
+  display: grid;
+  gap: 8px;
+}
+
+.recommended-product-card span {
+  color: #f6c842;
+  font-size: 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.recommended-product-card h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1.14;
+}
+
+.recommended-product-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.recommended-product-card em {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 38px;
+  align-items: center;
+  margin-top: 4px;
+  padding: 0 13px;
+  color: #061121;
+  background: #f6c842;
+  border-radius: 999px;
+  font-family: var(--font-title);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 950;
+}
+
+.recommended-product-card em::after {
+  content: ">";
+  margin-left: 8px;
+  font-size: 18px;
+}
+
+@media (max-width: 760px) {
+  .product-conversion-section {
+    width: min(100% - 28px, 1240px);
+  }
+
+  .product-share-panel,
+  .recommended-product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-share-panel {
+    gap: 18px;
+  }
+
+  .content-share-product {
+    justify-content: start;
+  }
+
+  .content-share-product span {
+    text-align: left;
+  }
+
+  .recommended-product-card figure {
+    min-height: 190px;
+  }
+
+  .recommended-product-card img {
+    height: 170px;
+  }
+
+  .recommended-product-card em {
+    width: 100%;
+    justify-content: center;
+    min-height: 42px;
+    font-size: 13px;
+  }
 }
 
 .news-group-list {

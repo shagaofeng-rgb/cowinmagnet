@@ -18,7 +18,7 @@ export default function OptimizedBannerPicture({
       />
       <img
         className={className}
-        src="/assets/magnetic-separator-banner.png"
+        src="/assets/magnetic-separator-banner-1200.webp"
         alt={alt}
         width="1983"
         height="793"

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import OptimizedBannerPicture from "@/components/OptimizedBannerPicture";
+import ProductConversionSection, { ProductJsonLd } from "@/components/ProductConversionSection";
 import { withLocale } from "@/data/i18n";
+import { getProductBySlug } from "@/data/productCatalog";
 import { getMessages } from "@/messages";
 
 const specs = [
@@ -16,9 +18,11 @@ const tabAnchors = ["#overview", "#why", "#selection", "#specs", "#video", "#quo
 export default function ProductDetail({ locale = "en" }) {
   const messages = getMessages(locale);
   const t = messages.home;
+  const product = getProductBySlug("permanent-overband-magnetic-separator");
 
   return (
     <main>
+      <ProductJsonLd product={product} locale={locale} />
       <section className="product-hero" id="overview">
         <div className="hero-inner">
           <div className="hero-copy">
@@ -166,6 +170,8 @@ export default function ProductDetail({ locale = "en" }) {
           ))}
         </div>
       </section>
+
+      <ProductConversionSection currentSlug="permanent-overband-magnetic-separator" locale={locale} />
     </main>
   );
 }
