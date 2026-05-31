@@ -56,6 +56,7 @@ export default function ProductsPage() {
                       <h3>{product.title}</h3>
                       <p>{product.summary}</p>
                       <small>{product.application}</small>
+                      <em>View product details</em>
                     </div>
                   </Link>
                 ))}

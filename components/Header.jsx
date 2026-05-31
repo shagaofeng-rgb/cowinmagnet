@@ -10,14 +10,6 @@ import ResponsiveImage from "@/components/ResponsiveImage";
 export default function Header({ locale = "en" }) {
   const messages = getMessages(locale);
   const nav = messages.nav;
-  const mobileLinks = [
-    { href: "/products", label: nav.products },
-    { href: "/about", label: nav.about },
-    { href: "/blog", label: nav.blog },
-    { href: "/news", label: nav.news },
-    { href: "/inquiry", label: nav.inquiry },
-    { href: "/contact", label: nav.contact }
-  ];
 
   return (
     <header className="site-header">
@@ -80,7 +72,7 @@ export default function Header({ locale = "en" }) {
         <Link href={withLocale(locale, "/contact")}>{nav.contact}</Link>
       </nav>
 
-      <MobileNav items={mobileLinks} locale={locale} />
+      <MobileNav locale={locale} nav={nav} />
 
       <div className="header-actions">
         <LanguageSwitcher locale={locale} />

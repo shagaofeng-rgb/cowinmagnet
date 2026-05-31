@@ -31,6 +31,9 @@ function PostCard({ post, locale }) {
       </Link>
       <p>{post.excerpt}</p>
       <div className="content-card-footer">
+        <Link className="content-read-link" href={localizedHref}>
+          Read article
+        </Link>
         <span className="content-views" aria-label={`${formatViews(post.views)} views`}>
           {formatViews(post.views)} views
         </span>

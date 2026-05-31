@@ -56,6 +56,7 @@ export default async function LocaleProductsPage({ params }) {
                     <h3>{product.title}</h3>
                     <p>{product.summary}</p>
                     <small>{product.application}</small>
+                    <em>View product details</em>
                   </div>
                 </Link>
               ))}
