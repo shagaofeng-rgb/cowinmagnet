@@ -21,7 +21,7 @@ export default async function SearchConsolePage({ searchParams }) {
           <p>用于查看点击量、曝光量、点击率、平均排名、页面和关键词搜索表现。</p>
         </div>
         <div className={data.live ? "admin-status good" : "admin-status"}>
-          {data.live ? "GSC 已连接" : "GSC 接口预留"}
+          {data.live ? "GSC 已连接" : "GSC 未连接"}
         </div>
         <AdminDateRangeFilter range={range} />
       </header>
@@ -70,11 +70,27 @@ export default async function SearchConsolePage({ searchParams }) {
           <p className="admin-muted">
             {data.live
               ? "已读取 Google Search Console 搜索表现数据。收录明细如需逐 URL 检查，可后续接入 URL Inspection API。"
-              : "连接 Google Search Console API 后，这里会替换成真实的收录和搜索表现数据。"}
+              : "尚未连接 Google Search Console API，因此当前显示 0 和空表，不再显示示例数据。"}
           </p>
           {data.error ? <p className="admin-alert">{data.error}</p> : null}
         </article>
       </section>
+
+      {!data.live ? (
+        <section className="admin-panel">
+          <p className="eyebrow">接入链路</p>
+          <h2>Google Search Console API 连接步骤</h2>
+          <ol className="admin-setup-list">
+            <li>在 Google Cloud 创建项目，并启用 <strong>Google Search Console API</strong>。</li>
+            <li>创建 Service Account，下载 JSON Key。</li>
+            <li>打开 Google Search Console，在网站资源中把 Service Account 邮箱添加为用户，权限选择“完整”。</li>
+            <li>在 Vercel 项目环境变量里配置：<code>GOOGLE_SEARCH_CONSOLE_SITE_URL</code>、<code>GOOGLE_CLIENT_EMAIL</code>、<code>GOOGLE_PRIVATE_KEY</code>。</li>
+            <li><code>GOOGLE_SEARCH_CONSOLE_SITE_URL</code> 必须和 GSC 资源完全一致，例如 <code>https://www.cowinmagnet.com/</code> 或 <code>sc-domain:cowinmagnet.com</code>。</li>
+            <li><code>GOOGLE_PRIVATE_KEY</code> 使用 JSON 里的 private_key，保留换行，或写成带 <code>\n</code> 的一行。</li>
+            <li>保存环境变量后重新部署 Vercel，后台 SEO 数据会从真实 API 读取。</li>
+          </ol>
+        </section>
+      ) : null}
 
       <section className="admin-grid two">
         <article className="admin-panel">

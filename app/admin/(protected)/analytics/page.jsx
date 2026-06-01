@@ -36,11 +36,16 @@ export default async function TrafficAnalyticsPage({ searchParams }) {
         <TrendChart rows={traffic.series} />
       </section>
 
-      <section className="admin-grid three">
+      <section className="admin-grid four">
         <article className="admin-panel">
           <p className="eyebrow">获客来源</p>
           <h2>渠道分布</h2>
           <BarList rows={traffic.channels} />
+        </article>
+        <article className="admin-panel">
+          <p className="eyebrow">来源平台</p>
+          <h2>Google / Facebook / TikTok 等</h2>
+          <BarList rows={traffic.sourcePlatforms} />
         </article>
         <article className="admin-panel">
           <p className="eyebrow">目标市场</p>

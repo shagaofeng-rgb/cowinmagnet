@@ -33,6 +33,45 @@ function parseUtm(searchParams) {
   };
 }
 
+function hasUtm(utm) {
+  return Boolean(utm.source || utm.medium || utm.campaign || utm.term || utm.content);
+}
+
+function getExternalReferrer() {
+  if (!document.referrer) return "";
+  try {
+    const referrerUrl = new URL(document.referrer);
+    return referrerUrl.origin === window.location.origin ? "" : document.referrer;
+  } catch {
+    return "";
+  }
+}
+
+function getSessionAttribution(searchParams) {
+  const key = "cowin_session_attribution";
+  const currentUtm = parseUtm(searchParams);
+  const externalReferrer = getExternalReferrer();
+  const storedValue = window.sessionStorage.getItem(key);
+  let stored = null;
+  try {
+    stored = storedValue ? JSON.parse(storedValue) : null;
+  } catch {
+    stored = null;
+  }
+
+  if (hasUtm(currentUtm) || externalReferrer || !stored) {
+    const value = {
+      referrer: externalReferrer || stored?.referrer || "",
+      utm: hasUtm(currentUtm) ? currentUtm : stored?.utm || currentUtm,
+      capturedAt: new Date().toISOString()
+    };
+    window.sessionStorage.setItem(key, JSON.stringify(value));
+    return value;
+  }
+
+  return stored;
+}
+
 function sendAnalyticsEvent(payload) {
   const body = JSON.stringify(payload);
   if (navigator.sendBeacon) {
@@ -60,14 +99,15 @@ export default function AnalyticsTracker() {
     if (pathname?.startsWith("/admin")) return;
 
     const page = `${pathname || "/"}${searchParams?.toString() ? `?${searchParams.toString()}` : ""}`;
+    const attribution = getSessionAttribution(searchParams);
     const eventBase = {
       visitorId: getVisitorId(),
       sessionId: getSessionId(),
       page,
       previousPage: previousPageRef.current,
       pageTitle: document.title,
-      referrer: document.referrer,
-      utm: parseUtm(searchParams),
+      referrer: attribution.referrer,
+      utm: attribution.utm,
       timestamp: new Date().toISOString()
     };
 

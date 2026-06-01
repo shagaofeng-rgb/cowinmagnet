@@ -84,6 +84,7 @@ export default async function PagesPerformancePage({ searchParams }) {
                 <th>当前页面</th>
                 <th>上一页</th>
                 <th>来源</th>
+                <th>来源平台</th>
                 <th>国家</th>
                 <th>设备</th>
                 <th>访客ID</th>
@@ -102,6 +103,7 @@ export default async function PagesPerformancePage({ searchParams }) {
                   <td>{item.pageTitle}</td>
                   <td>{item.previousPage}</td>
                   <td>{item.channel}</td>
+                  <td>{item.sourcePlatform || "-"}</td>
                   <td>{item.country || "未知"}</td>
                   <td>{item.device}</td>
                   <td>{item.visitorId?.slice(0, 16)}...</td>

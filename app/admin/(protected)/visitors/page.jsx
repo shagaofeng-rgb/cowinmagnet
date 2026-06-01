@@ -36,6 +36,8 @@ export default async function VisitorsPage({ searchParams }) {
                 <th>设备</th>
                 <th>浏览器</th>
                 <th>来源</th>
+                <th>来源平台</th>
+                <th>来源详情</th>
                 <th>页面</th>
                 <th>客户标签</th>
                 <th>访问日</th>
@@ -50,6 +52,8 @@ export default async function VisitorsPage({ searchParams }) {
                   <td>{visitor.device}</td>
                   <td>{visitor.browser}</td>
                   <td>{visitor.channel}</td>
+                  <td>{visitor.sourcePlatform || "-"}</td>
+                  <td>{visitor.sourceDetail || "-"}</td>
                   <td>{visitor.page}</td>
                   <td>
                     <span className={`admin-customer-tag ${visitor.visitDayNumber === 1 ? "new" : "returning"}`}>

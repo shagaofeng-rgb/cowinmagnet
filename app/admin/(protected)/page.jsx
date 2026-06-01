@@ -21,7 +21,6 @@ export default async function AdminOverviewPage({ searchParams }) {
           <h1>网站数据总览</h1>
           <p>集中查看 B2B 访客行为、询盘信号、SEO 搜索表现和页面转化情况。</p>
         </div>
-        <div className="admin-date-pill">最近 {data.rangeDays} 天 · {data.storageMode === "database" ? "在线数据库" : "预览模式"}</div>
         <AdminDateRangeFilter range={range} />
       </header>
 
@@ -52,17 +51,9 @@ export default async function AdminOverviewPage({ searchParams }) {
 
       <section className="admin-grid two">
         <article className="admin-panel">
-          <p className="eyebrow">SEO 快照</p>
-          <h2>Google Search Console</h2>
-          <div className="admin-mini-metrics">
-            <MetricCard label="点击量" value={searchConsole.overview.clicks} note="预留 GSC 字段" />
-            <MetricCard label="曝光量" value={searchConsole.overview.impressions} note="预留 GSC 字段" />
-            <MetricCard label="点击率" value={`${searchConsole.overview.ctr}%`} note="平均值" />
-            <MetricCard label="排名位置" value={searchConsole.overview.position} note="平均值" />
-          </div>
-          {!searchConsole.configured ? (
-            <p className="admin-muted">Google Search Console API 尚未连接，因此这里先显示数据结构示例。</p>
-          ) : null}
+          <p className="eyebrow">来源平台</p>
+          <h2>Google / Facebook / TikTok 等</h2>
+          <BarList rows={traffic.sourcePlatforms} />
         </article>
 
         <article className="admin-panel">
@@ -88,6 +79,22 @@ export default async function AdminOverviewPage({ searchParams }) {
               </tbody>
             </table>
           </div>
+        </article>
+      </section>
+
+      <section className="admin-grid two">
+        <article className="admin-panel">
+          <p className="eyebrow">SEO 快照</p>
+          <h2>Google Search Console</h2>
+          <div className="admin-mini-metrics">
+            <MetricCard label="点击量" value={searchConsole.overview.clicks} note="GSC" />
+            <MetricCard label="曝光量" value={searchConsole.overview.impressions} note="GSC" />
+            <MetricCard label="点击率" value={`${searchConsole.overview.ctr}%`} note="平均值" />
+            <MetricCard label="排名位置" value={searchConsole.overview.position} note="平均值" />
+          </div>
+          {!searchConsole.configured ? (
+            <p className="admin-muted">Google Search Console API 尚未连接，当前只显示 0 和空表，不再显示示例数据。</p>
+          ) : null}
         </article>
       </section>
     </div>

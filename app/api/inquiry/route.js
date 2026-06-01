@@ -124,6 +124,6 @@ export async function POST(request) {
 
   console.info(inquiryText(payload));
   return Response.json({
-    message: "Thank you. Your inquiry has been captured in preview mode. Configure email settings before production."
+    message: "Thank you. Your inquiry has been received. Email delivery is not configured on this environment."
   });
 }

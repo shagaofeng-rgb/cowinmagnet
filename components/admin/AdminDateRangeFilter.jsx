@@ -20,8 +20,8 @@ export default function AdminDateRangeFilter({ range }) {
   const isCustom = preset === "custom";
 
   const helperText = useMemo(() => {
-    if (isCustom) return "自定义时间跨度最多 2 年";
-    return `当前查看：${range?.label || "本周"}（${range?.startInput} 至 ${range?.endInput}）`;
+    if (isCustom) return "自定义查询时间最长 2 年";
+    return `当前查看：${range?.label || "本周"}，${range?.startInput} 至 ${range?.endInput}`;
   }, [isCustom, range]);
 
   function applyRange(event) {
