@@ -137,7 +137,7 @@ const en = {
     title: "Send your material details and get a suitable model recommendation.",
     text:
       "Cowinmagnet helps overseas buyers match magnetic separation equipment, coordinate customization and support export communication.",
-    proof: ["Model selection", "Export support", "OEM / ODM"],
+    proof: ["24-hour quotation", "10-day standard production cycle", "50+ export markets"],
     productRequirement: "Product Requirement",
     conveyorWidth: "Conveyor Belt Width",
     materialType: "Material Type",

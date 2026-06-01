@@ -47,6 +47,27 @@ export const aboutContent = {
     ["Production Follow-Up", "Coordinate progress updates, photos, videos and practical communication between the buyer and selected production side."],
     ["After-Sales Communication", "Keep communication open after shipment so customers have a responsible contact point for documentation, usage feedback and future purchasing needs."]
   ],
+  buyerAdvantages: [
+    ["24-Hour Quotation Response", "For clear product requirements, our team can usually provide a quotation direction within 24 hours so buyers can move faster during project comparison."],
+    ["10-Day Production Cycle for Standard Orders", "For selected standard magnetic separation products and confirmed specifications, production can be coordinated in about 10 days, subject to model, quantity and factory schedule."],
+    ["30% Deposit to Start Production", "After technical confirmation and proforma invoice approval, production can normally begin with a 30% advance payment, helping buyers manage cash flow."],
+    ["Installation Guidance", "We can coordinate installation notes, drawings, layout reminders and communication support so customers prepare the site before goods arrive."],
+    ["Magnetic Testing Report and Video", "When project requirements are confirmed, we can help arrange magnetic performance information, product testing records, inspection photos or working videos before shipment."],
+    ["After-Sales Communication", "After delivery, Cowinmagnet remains the export communication contact for usage feedback, documents, spare parts discussion and repeat orders."]
+  ],
+  exportMarkets: {
+    intro:
+      "Cowinmagnet magnetic separation equipment has been supplied to buyers in more than 50 countries and regions. Major export markets include:",
+    regions: [
+      ["Southeast Asia", "Indonesia, Philippines, Vietnam, Thailand and Malaysia"],
+      ["Middle East", "Saudi Arabia, Afghanistan, United Arab Emirates and Iraq"],
+      ["Africa", "South Africa, Kenya, Zambia, Zimbabwe, Egypt and Ethiopia"],
+      ["South America", "Chile, Peru, Colombia, Brazil and Venezuela"],
+      ["North America", "Mexico and Canada"]
+    ],
+    applicationNote:
+      "Our equipment is widely used in mining, quarrying, recycling, cement plants, power plants, foundries and bulk material conveying systems."
+  },
   productGroups: [
     ["Permanent Magnetic Separation Equipment", "Suspended permanent magnetic iron separator, suspended permanent self-unloading magnetic separator and overband magnetic separator solutions."],
     ["Electromagnetic Separation Equipment", "Suspended electromagnetic iron separator, air-cooled, oil-cooled, self-cooled and self-unloading electromagnetic separator options."],

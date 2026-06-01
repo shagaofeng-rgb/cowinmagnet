@@ -4570,7 +4570,10 @@ body {
 .about-story-grid article,
 .about-service-grid article,
 .about-scope-grid article,
+.about-advantage-grid article,
+.about-export-grid article,
 .about-industries-section,
+.about-export-section,
 .about-promise-section {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035)),
@@ -4604,6 +4607,8 @@ body {
 .about-story-grid,
 .about-service-section,
 .about-scope-section,
+.about-advantage-section,
+.about-export-section,
 .about-industries-section,
 .about-promise-section {
   width: min(1240px, calc(100% - 36px));
@@ -4619,7 +4624,9 @@ body {
 
 .about-story-grid article,
 .about-service-grid article,
-.about-scope-grid article {
+.about-scope-grid article,
+.about-advantage-grid article,
+.about-export-grid article {
   display: grid;
   gap: 12px;
   padding: clamp(20px, 3vw, 28px);
@@ -4629,6 +4636,8 @@ body {
 .about-story-grid h2,
 .about-service-section h2,
 .about-scope-section h2,
+.about-advantage-section h2,
+.about-export-section h2,
 .about-industries-section h2,
 .about-promise-section h2 {
   margin: 0;
@@ -4640,6 +4649,9 @@ body {
 .about-story-grid p,
 .about-service-grid p,
 .about-scope-grid p,
+.about-advantage-grid p,
+.about-export-grid p,
+.about-export-section p,
 .about-industries-section p,
 .about-promise-section p {
   color: rgba(255, 255, 255, 0.74);
@@ -4651,11 +4663,62 @@ body {
   gap: 14px;
 }
 
+.about-advantage-grid,
+.about-export-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.about-advantage-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.about-export-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-top: 20px;
+}
+
 .about-service-grid h3,
-.about-scope-grid h3 {
+.about-scope-grid h3,
+.about-advantage-grid h3 {
   margin: 0;
   color: #ffffff;
   font-size: 19px;
+}
+
+.about-advantage-grid article {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-advantage-grid article::before {
+  content: "";
+  width: 34px;
+  height: 3px;
+  background: linear-gradient(90deg, #f6c842, rgba(43, 183, 255, 0.72));
+  border-radius: 999px;
+}
+
+.about-export-section {
+  padding: clamp(24px, 4vw, 38px);
+  border-radius: 18px;
+}
+
+.about-export-grid article {
+  padding: 18px;
+}
+
+.about-export-grid span {
+  color: #f6c842;
+  font-size: 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.about-export-note {
+  max-width: 980px;
+  margin: 22px 0 0;
+  font-weight: 750;
 }
 
 .about-scope-grid {
@@ -4712,6 +4775,8 @@ body {
   .about-story-grid,
   .about-service-grid,
   .about-scope-grid,
+  .about-advantage-grid,
+  .about-export-grid,
   .about-industries-section,
   .about-promise-section {
     grid-template-columns: 1fr;

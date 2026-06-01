@@ -51,6 +51,25 @@ export default function AboutContent({ locale = "en" }) {
         </div>
       </section>
 
+      <section className="about-advantage-section">
+        <div className="section-heading">
+          <p className="eyebrow">Buyer Advantages</p>
+          <h2>Fast quotation, practical order support and responsible export communication.</h2>
+          <p>
+            These service points are designed for overseas buyers who need clear timing, payment coordination,
+            installation preparation and shipment confidence before placing an industrial equipment order.
+          </p>
+        </div>
+        <div className="about-advantage-grid">
+          {aboutContent.buyerAdvantages.map(([title, text]) => (
+            <article key={title}>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="about-scope-section">
         <div className="section-heading">
           <p className="eyebrow">Product Categories</p>
@@ -64,6 +83,23 @@ export default function AboutContent({ locale = "en" }) {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="about-export-section">
+        <div className="section-heading">
+          <p className="eyebrow">Export Markets</p>
+          <h2>Magnetic separation equipment supplied to buyers in 50+ countries and regions.</h2>
+          <p>{aboutContent.exportMarkets.intro}</p>
+        </div>
+        <div className="about-export-grid">
+          {aboutContent.exportMarkets.regions.map(([region, countries]) => (
+            <article key={region}>
+              <span>{region}</span>
+              <p>{countries}</p>
+            </article>
+          ))}
+        </div>
+        <p className="about-export-note">{aboutContent.exportMarkets.applicationNote}</p>
       </section>
 
       <section className="about-industries-section">
