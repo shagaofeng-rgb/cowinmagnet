@@ -479,6 +479,101 @@ body:has(.admin-login-page) main {
   color: rgba(226, 232, 240, 0.72);
 }
 
+.admin-date-filter {
+  display: grid;
+  min-width: min(100%, 430px);
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid rgba(34, 211, 238, 0.22);
+  border-radius: 15px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(34, 211, 238, 0.12), transparent 34%),
+    linear-gradient(145deg, rgba(15, 23, 42, 0.84), rgba(8, 13, 24, 0.92));
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.2);
+}
+
+.admin-date-filter-head {
+  display: grid;
+  gap: 5px;
+}
+
+.admin-date-filter-head span,
+.admin-date-native-select span,
+.admin-date-custom-fields span {
+  color: #dbeafe;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.admin-date-filter-head small {
+  color: rgba(226, 232, 240, 0.7);
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.admin-date-presets {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.admin-date-presets button,
+.admin-date-submit {
+  min-height: 38px;
+  padding: 8px 10px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 10px;
+  color: #e5edf8;
+  background: rgba(15, 23, 42, 0.74);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.admin-date-presets button:hover,
+.admin-date-presets button.is-active {
+  color: #0f172a;
+  border-color: rgba(250, 204, 21, 0.52);
+  background: linear-gradient(135deg, #fde047, #facc15);
+  box-shadow: 0 10px 24px rgba(250, 204, 21, 0.18);
+}
+
+.admin-date-native-select {
+  display: none;
+}
+
+.admin-date-custom-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.admin-date-custom-fields label {
+  display: grid;
+  gap: 6px;
+}
+
+.admin-date-native-select select,
+.admin-date-custom-fields input {
+  min-height: 40px;
+  width: 100%;
+  padding: 9px 11px;
+  color: #e5edf8;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 10px;
+  background: rgba(2, 6, 23, 0.62);
+  font: inherit;
+  font-weight: 800;
+}
+
+.admin-date-submit {
+  color: #0f172a;
+  border-color: rgba(34, 211, 238, 0.38);
+  background: linear-gradient(135deg, #67e8f9, #facc15);
+}
+
 .admin-panel {
   margin-bottom: 20px;
   padding: 22px;
@@ -902,6 +997,19 @@ body:has(.admin-login-page) main {
   .admin-page-head,
   .admin-panel-headline {
     display: block;
+  }
+
+  .admin-date-filter {
+    min-width: 0;
+    margin-top: 16px;
+  }
+
+  .admin-date-presets {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .admin-date-custom-fields {
+    grid-template-columns: 1fr;
   }
 
   .admin-grid.two,

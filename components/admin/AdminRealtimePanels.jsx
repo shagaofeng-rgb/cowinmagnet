@@ -6,6 +6,71 @@ import { BarList, CsvExportButton, MetricCard, TrendChart } from "@/components/a
 const refreshMs = 30 * 60 * 1000;
 const defaultPageSize = 10;
 const pageSizeOptions = [10, 20, 50];
+const countryNameZh = {
+  US: "美国",
+  GB: "英国",
+  UK: "英国",
+  CN: "中国",
+  ZA: "南非",
+  GM: "冈比亚",
+  ET: "埃塞俄比亚",
+  DE: "德国",
+  FR: "法国",
+  ES: "西班牙",
+  PT: "葡萄牙",
+  RU: "俄罗斯",
+  AE: "阿联酋",
+  SA: "沙特阿拉伯",
+  IN: "印度",
+  ID: "印度尼西亚",
+  MY: "马来西亚",
+  TH: "泰国",
+  VN: "越南",
+  PH: "菲律宾",
+  SG: "新加坡",
+  JP: "日本",
+  KR: "韩国",
+  AU: "澳大利亚",
+  NZ: "新西兰",
+  CA: "加拿大",
+  MX: "墨西哥",
+  BR: "巴西",
+  AR: "阿根廷",
+  CL: "智利",
+  PE: "秘鲁",
+  CO: "哥伦比亚",
+  TR: "土耳其",
+  IT: "意大利",
+  NL: "荷兰",
+  BE: "比利时",
+  PL: "波兰",
+  SE: "瑞典",
+  NO: "挪威",
+  FI: "芬兰",
+  DK: "丹麦",
+  IE: "爱尔兰",
+  CH: "瑞士",
+  AT: "奥地利",
+  CZ: "捷克",
+  HU: "匈牙利",
+  RO: "罗马尼亚",
+  GR: "希腊",
+  UA: "乌克兰",
+  IL: "以色列",
+  EG: "埃及",
+  NG: "尼日利亚",
+  KE: "肯尼亚",
+  MA: "摩洛哥",
+  DZ: "阿尔及利亚",
+  PK: "巴基斯坦",
+  BD: "孟加拉国",
+  LK: "斯里兰卡",
+  IR: "伊朗",
+  IQ: "伊拉克",
+  QA: "卡塔尔",
+  KW: "科威特",
+  OM: "阿曼"
+};
 
 function useLiveAnalytics(initialData) {
   const [data, setData] = useState(initialData);
@@ -122,6 +187,25 @@ function formatBeijingDateTime(value) {
 
 function list(rows) {
   return Array.isArray(rows) ? rows : [];
+}
+
+function displayCountry(country) {
+  const value = String(country || "").trim();
+  if (!value || value.toLowerCase() === "unknown") return "未知";
+  const code = value.toUpperCase();
+  return countryNameZh[code] || value;
+}
+
+function displayText(value) {
+  const text = String(value || "").trim();
+  return text || "-";
+}
+
+function displayCountryRows(rows) {
+  return list(rows).map((row) => ({
+    ...row,
+    displayLabel: displayCountry(row.label || row.country || row.title)
+  }));
 }
 
 function customerNumber(value) {
@@ -309,7 +393,7 @@ export function AdminTrafficRealtime({ initialData }) {
       <section className="admin-grid four">
         <article className="admin-panel"><p className="eyebrow">获客来源</p><h2>渠道分布</h2><BarList rows={list(traffic.channels)} /></article>
         <article className="admin-panel"><p className="eyebrow">来源平台</p><h2>Google / Facebook / TikTok 等</h2><BarList rows={list(traffic.sourcePlatforms)} /></article>
-        <article className="admin-panel"><p className="eyebrow">目标市场</p><h2>国家 / 地区</h2><BarList rows={list(traffic.countries)} /></article>
+        <article className="admin-panel"><p className="eyebrow">目标市场</p><h2>国家 / 地区</h2><BarList rows={displayCountryRows(traffic.countries)} /></article>
         <article className="admin-panel"><p className="eyebrow">设备环境</p><h2>设备类型</h2><BarList rows={list(traffic.devices)} /></article>
       </section>
     </>
@@ -356,12 +440,12 @@ export function AdminVisitorsRealtime({ initialData }) {
       filteredVisitors.map((item) => ({
         time: formatBeijingDateTime(item.timestamp),
         customerNumber: customerNumber(item.customerNumber),
-        country: item.country || "未知",
-        device: item.device,
-        browser: item.browser,
-        channel: item.channel,
-        sourcePlatform: item.sourcePlatform || "-",
-        sourceDetail: item.sourceDetail || "-",
+        country: displayCountry(item.country),
+        device: displayText(item.device),
+        browser: displayText(item.browser),
+        channel: displayText(item.channel),
+        sourcePlatform: displayText(item.sourcePlatform),
+        sourceDetail: displayText(item.sourceDetail),
         page: item.page,
         customerType: customerType(item),
         visitDay: visitDay(item),
@@ -401,7 +485,7 @@ export function AdminVisitorsRealtime({ initialData }) {
           <select aria-label="按国家筛选" value={filters.country} onChange={(event) => updateFilter("country", event.target.value)}>
             <option value="">全部国家</option>
             {countryOptions.map((country) => (
-              <option value={country.toLowerCase()} key={country}>{country}</option>
+              <option value={country.toLowerCase()} key={country}>{displayCountry(country)}</option>
             ))}
           </select>
           <input
@@ -426,12 +510,12 @@ export function AdminVisitorsRealtime({ initialData }) {
                     <tr key={`${visitor.sessionId}-${visitor.timestamp}-${index}`}>
                       <td>{formatBeijingDateTime(visitor.timestamp)}</td>
                       <td>{customerNumber(visitor.customerNumber)}</td>
-                      <td>{visitor.country || "未知"}</td>
-                      <td>{visitor.device}</td>
-                      <td>{visitor.browser}</td>
-                      <td>{visitor.channel}</td>
-                      <td>{visitor.sourcePlatform || "-"}</td>
-                      <td>{visitor.sourceDetail || "-"}</td>
+                      <td>{displayCountry(visitor.country)}</td>
+                      <td>{displayText(visitor.device)}</td>
+                      <td>{displayText(visitor.browser)}</td>
+                      <td>{displayText(visitor.channel)}</td>
+                      <td>{displayText(visitor.sourcePlatform)}</td>
+                      <td>{displayText(visitor.sourceDetail)}</td>
                       <td>{visitor.page}</td>
                       <td><span className={`admin-customer-tag ${visitor.visitDayNumber === 1 ? "new" : "returning"}`}>{customerType(visitor)}</span></td>
                       <td>{visitDay(visitor)}</td>
@@ -503,10 +587,10 @@ export function AdminPagesRealtime({ initialData }) {
         visitDay: visitDay(item),
         currentPage: item.pageTitle || item.page,
         previousPage: item.previousPage,
-        channel: item.channel,
-        sourcePlatform: item.sourcePlatform || "-",
-        country: item.country || "未知",
-        device: item.device,
+        channel: displayText(item.channel),
+        sourcePlatform: displayText(item.sourcePlatform),
+        country: displayCountry(item.country),
+        device: displayText(item.device),
         visitorId: item.visitorId || "-"
       })),
     [filteredLandingJourneys]
@@ -593,7 +677,7 @@ export function AdminPagesRealtime({ initialData }) {
           <select aria-label="按国家筛选访问明细" value={journeyFilters.country} onChange={(event) => updateJourneyFilter("country", event.target.value)}>
             <option value="">全部国家</option>
             {landingCountryOptions.map((country) => (
-              <option value={country.toLowerCase()} key={country}>{country}</option>
+              <option value={country.toLowerCase()} key={country}>{displayCountry(country)}</option>
             ))}
           </select>
           <input
@@ -618,10 +702,10 @@ export function AdminPagesRealtime({ initialData }) {
                       <td>{visitDay(item)}</td>
                       <td>{item.pageTitle}</td>
                       <td>{item.previousPage}</td>
-                      <td>{item.channel}</td>
-                      <td>{item.sourcePlatform || "-"}</td>
-                      <td>{item.country || "未知"}</td>
-                      <td>{item.device}</td>
+                      <td>{displayText(item.channel)}</td>
+                      <td>{displayText(item.sourcePlatform)}</td>
+                      <td>{displayCountry(item.country)}</td>
+                      <td>{displayText(item.device)}</td>
                       <td>{item.visitorId?.slice(0, 16)}...</td>
                     </tr>
                   ))}

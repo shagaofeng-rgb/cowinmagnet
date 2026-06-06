@@ -37,8 +37,25 @@ export default function AdminDateRangeFilter({ range }) {
 
   return (
     <form className="admin-date-filter" onSubmit={applyRange}>
-      <label>
+      <div className="admin-date-filter-head">
         <span>时间范围</span>
+        <small>{helperText}</small>
+      </div>
+      <div className="admin-date-presets" role="group" aria-label="选择时间范围">
+        {rangeOptions.map(([value, label]) => (
+          <button
+            type="button"
+            className={preset === value ? "is-active" : ""}
+            aria-pressed={preset === value}
+            onClick={() => setPreset(value)}
+            key={value}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+      <label className="admin-date-native-select">
+        <span>快捷选择</span>
         <select value={preset} onChange={(event) => setPreset(event.target.value)}>
           {rangeOptions.map(([value, label]) => (
             <option value={value} key={value}>
@@ -59,8 +76,7 @@ export default function AdminDateRangeFilter({ range }) {
           </label>
         </div>
       ) : null}
-      <button type="submit">查询</button>
-      <small>{helperText}</small>
+      <button className="admin-date-submit" type="submit">查询</button>
     </form>
   );
 }

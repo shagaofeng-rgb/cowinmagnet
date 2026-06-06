@@ -15,23 +15,6 @@ export function MetricCard({ label, value, note }) {
 
 function localizeLabel(label) {
   const labels = {
-    Direct: "直接访问",
-    "Organic Search": "自然搜索",
-    Social: "社交媒体",
-    Referral: "外部推荐",
-    Desktop: "电脑端",
-    Mobile: "手机端",
-    Tablet: "平板",
-    Chrome: "Chrome 浏览器",
-    Safari: "Safari 浏览器",
-    Firefox: "Firefox 浏览器",
-    Edge: "Edge 浏览器",
-    Other: "其他",
-    Windows: "Windows 系统",
-    macOS: "macOS 系统",
-    Android: "Android 系统",
-    iOS: "iOS 系统",
-    Linux: "Linux 系统",
     Indexed: "已收录",
     "Crawled - currently not indexed": "已抓取，暂未收录",
     "Discovered - currently not indexed": "已发现，暂未收录",
@@ -47,6 +30,12 @@ function numericValue(row) {
 
 function normalizePathLabel(label = "") {
   const value = String(label || "");
+  const shouldNormalizePath =
+    value.includes(" -> ") ||
+    value.startsWith("/") ||
+    /^https?:\/\//i.test(value);
+  if (!shouldNormalizePath) return value;
+
   try {
     if (value.includes(" -> ")) {
       return value
@@ -78,7 +67,7 @@ export function BarList({ rows = [], label = "value" }) {
       {rows.map((row) => {
         const value = numericValue(row);
         const percent = total ? Math.round((value / total) * 100) : 0;
-        const rowLabel = row.label || row.country || row.device || row.query || row.status || row.title || "Unknown";
+        const rowLabel = row.displayLabel || row.label || row.country || row.device || row.query || row.status || row.title || "Unknown";
         return (
           <div className="admin-bar-row" key={rowLabel}>
             <div className="admin-bar-row-head">
