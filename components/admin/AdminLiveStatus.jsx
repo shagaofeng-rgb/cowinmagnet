@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 
+const syncIntervalMs = 30 * 60 * 1000;
+
 export default function AdminLiveStatus() {
   const [status, setStatus] = useState({
     loading: true,
@@ -38,7 +40,7 @@ export default function AdminLiveStatus() {
     }
 
     sync();
-    const timer = window.setInterval(sync, 10000);
+    const timer = window.setInterval(sync, syncIntervalMs);
     return () => {
       active = false;
       window.clearInterval(timer);
@@ -47,7 +49,7 @@ export default function AdminLiveStatus() {
 
   return (
     <div className="admin-live-status">
-      <span>在线实时同步</span>
+      <span>半小时自动同步</span>
       <strong>{status.loading ? "连接中..." : `${status.pageViews} PV / ${status.inquiries} 询盘`}</strong>
       <small>最近同步：{status.syncedAt || "-"} 北京时间</small>
     </div>

@@ -3456,6 +3456,53 @@ textarea:focus {
   cursor: pointer;
 }
 
+.admin-filter-bar-journeys {
+  grid-template-columns: minmax(240px, 1fr) minmax(160px, 0.7fr) minmax(160px, 0.7fr) auto;
+}
+
+.admin-result-count {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 11px;
+  color: #dbeafe;
+  border: 1px solid rgba(147, 197, 253, 0.26);
+  border-radius: 999px;
+  background: rgba(30, 41, 59, 0.72);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.admin-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 16px;
+  color: rgba(226, 232, 240, 0.78);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.admin-pagination button {
+  min-height: 36px;
+  padding: 8px 12px;
+  color: #0f172a;
+  border: 1px solid rgba(250, 204, 21, 0.4);
+  border-radius: 8px;
+  background: #facc15;
+  font: inherit;
+  cursor: pointer;
+}
+
+.admin-pagination button:disabled {
+  color: rgba(226, 232, 240, 0.45);
+  border-color: rgba(148, 163, 184, 0.18);
+  background: rgba(30, 41, 59, 0.7);
+  cursor: not-allowed;
+}
+
 .blog-card-image img,
 .blog-hero-image img {
   width: 100%;

@@ -3,7 +3,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { BarList, CsvExportButton, MetricCard, TrendChart } from "@/components/admin/AdminWidgets";
 
-const refreshMs = 10000;
+const refreshMs = 30 * 60 * 1000;
+const journeyPageSize = 20;
 
 function useLiveAnalytics(initialData) {
   const [data, setData] = useState(initialData);
@@ -79,8 +80,8 @@ function useLiveContentStats(initialStats) {
 function LiveSyncNote({ state }) {
   return (
     <div className={`admin-live-note ${state.error ? "error" : ""}`}>
-      <span>{state.loading ? "正在同步最新数据..." : "实时刷新已开启"}</span>
-      <small>{state.error || `最近同步：${state.syncedAt || "初始化中"}（北京时间）`}</small>
+      <span>{state.loading ? "正在同步最新数据..." : "半小时自动同步已开启"}</span>
+      <small>{state.error || `最近同步：${state.syncedAt || "初始化中"}（北京时间，每 30 分钟刷新一次）`}</small>
     </div>
   );
 }
@@ -385,13 +386,104 @@ export function AdminPagesRealtime({ initialData }) {
 export function AdminJourneysRealtime({ initialData }) {
   const { data, state } = useLiveAnalytics(initialData);
   const journeys = list(data.journeys);
+  const [filters, setFilters] = useState({ keyword: "", from: "", to: "" });
+  const [page, setPage] = useState(1);
+  const filteredJourneys = useMemo(() => {
+    const keyword = filters.keyword.trim().toLowerCase();
+    const from = filters.from.trim().toLowerCase();
+    const to = filters.to.trim().toLowerCase();
+
+    return journeys.filter((item) => {
+      const route = String(item.route || "");
+      const [routeFrom = "", routeTo = ""] = route.split(" -> ");
+      const routeText = route.toLowerCase();
+      if (keyword && !routeText.includes(keyword)) return false;
+      if (from && !routeFrom.toLowerCase().includes(from)) return false;
+      if (to && !routeTo.toLowerCase().includes(to)) return false;
+      return true;
+    });
+  }, [journeys, filters]);
+  const totalPages = Math.max(1, Math.ceil(filteredJourneys.length / journeyPageSize));
+  const safePage = Math.min(page, totalPages);
+  const pageRows = filteredJourneys.slice((safePage - 1) * journeyPageSize, safePage * journeyPageSize);
+
+  function updateFilter(key, value) {
+    setFilters((current) => ({ ...current, [key]: value }));
+    setPage(1);
+  }
+
+  function clearFilters() {
+    setFilters({ keyword: "", from: "", to: "" });
+    setPage(1);
+  }
 
   return (
     <>
       <LiveSyncNote state={state} />
       <section className="admin-panel">
         {journeys.length ? (
-          <BarList rows={journeys.map((item) => ({ label: item.route, value: item.value }))} />
+          <>
+            <div className="admin-panel-headline">
+              <div>
+                <p className="eyebrow">路径筛选</p>
+                <h2>访问路径明细</h2>
+                <p>每页显示 20 条，可按完整路径、来源页或目标页快速筛选。</p>
+              </div>
+              <span className="admin-result-count">{filteredJourneys.length} / {journeys.length} 条</span>
+            </div>
+            <div className="admin-filter-bar admin-filter-bar-journeys">
+              <input
+                aria-label="按完整路径筛选"
+                value={filters.keyword}
+                onChange={(event) => updateFilter("keyword", event.target.value)}
+                placeholder="搜索完整路径，例如 products 或 contact"
+              />
+              <input
+                aria-label="按来源页面筛选"
+                value={filters.from}
+                onChange={(event) => updateFilter("from", event.target.value)}
+                placeholder="来源页"
+              />
+              <input
+                aria-label="按目标页面筛选"
+                value={filters.to}
+                onChange={(event) => updateFilter("to", event.target.value)}
+                placeholder="目标页"
+              />
+              <button type="button" onClick={clearFilters}>清空</button>
+            </div>
+            {pageRows.length ? (
+              <>
+                <BarList rows={pageRows.map((item) => ({ label: item.route, value: item.value }))} />
+                <div className="admin-table-wrap">
+                  <table className="admin-table">
+                    <thead>
+                      <tr><th>来源页面</th><th>目标页面</th><th>次数</th></tr>
+                    </thead>
+                    <tbody>
+                      {pageRows.map((item) => {
+                        const [from = "-", to = "-"] = String(item.route || "").split(" -> ");
+                        return (
+                          <tr key={item.route}>
+                            <td>{from}</td>
+                            <td>{to}</td>
+                            <td>{item.value}</td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+                <div className="admin-pagination">
+                  <button type="button" onClick={() => setPage((current) => Math.max(1, current - 1))} disabled={safePage <= 1}>上一页</button>
+                  <span>第 {safePage} / {totalPages} 页，每页 {journeyPageSize} 条</span>
+                  <button type="button" onClick={() => setPage((current) => Math.min(totalPages, current + 1))} disabled={safePage >= totalPages}>下一页</button>
+                </div>
+              </>
+            ) : (
+              <div className="admin-empty">没有符合当前筛选条件的访问路径。</div>
+            )}
+          </>
         ) : (
           <div className="admin-empty">当访客在同一个会话中浏览多个页面后，这里会自动生成访问路径数据。</div>
         )}
