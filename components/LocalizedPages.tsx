@@ -360,7 +360,7 @@ export function LocalizedContactPage({ locale }: { locale: Locale }) {
       <PageHero eyebrow={t.contact.eyebrow} title={t.contact.h1} description={t.contact.description} image="/images/generated/contact-support-cowinmagnet.png" imageAlt={t.contact.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} />
       <section className="section map-section"><GoogleMapCard title="Find COWIN MAGNET in Quzhou, China" /></section>
       <section className="section contact-layout">
-        <div className="contact-info"><h2>{t.contact.infoTitle}</h2><a href={`mailto:${site.email}`}><Mail size={18} aria-hidden />{site.email}</a><a href={`https://wa.me/${site.whatsapp}`}><MessageCircle size={18} aria-hidden />WhatsApp: {site.whatsapp}</a><a href={`tel:${site.phone.replaceAll(" ", "")}`}><Phone size={18} aria-hidden />{site.phone}</a><span><MapPin size={18} aria-hidden />{site.address}</span><p>{t.contact.fastTip}</p></div>
+        <div className="contact-info"><h2>{t.contact.infoTitle}</h2><a href={`mailto:${site.email}`}><Mail size={18} aria-hidden />{site.email}</a><a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow"><MessageCircle size={18} aria-hidden />WhatsApp: {site.whatsapp}</a><a href={`tel:${site.phone.replaceAll(" ", "")}`}><Phone size={18} aria-hidden />{site.phone}</a><span><MapPin size={18} aria-hidden />{site.address}</span><p>{t.contact.fastTip}</p></div>
         <QuoteForm />
       </section>
     </>

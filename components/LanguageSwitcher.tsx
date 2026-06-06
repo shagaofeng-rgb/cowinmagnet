@@ -10,6 +10,10 @@ export function LanguageSwitcher() {
   const currentLocale = getLocaleFromPath(pathname);
   const cleanPath = stripLocale(pathname || "/");
 
+  function rememberLocale(locale: string) {
+    document.cookie = `cowin_locale=${locale}; path=/; max-age=2592000; samesite=lax`;
+  }
+
   return (
     <div className="language-switcher">
       <button className="language-trigger" type="button" aria-label="Choose language">
@@ -23,6 +27,7 @@ export function LanguageSwitcher() {
             href={localePath(locale, cleanPath)}
             className={locale === currentLocale ? "active" : undefined}
             hrefLang={locale}
+            onClick={() => rememberLocale(locale)}
           >
             <span>{locale.toUpperCase()}</span>
             {languageLabels[locale]}

@@ -4,7 +4,7 @@ import { runNewsAutomationJob } from "@/lib/news-system/daily-runner.mjs";
 export const dynamic = "force-dynamic";
 
 function isAuthorized(request) {
-  if (!process.env.NEWS_SYSTEM_ADMIN_TOKEN) return true;
+  if (!process.env.NEWS_SYSTEM_ADMIN_TOKEN) return !process.env.VERCEL;
   const token = request.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
   return token === process.env.NEWS_SYSTEM_ADMIN_TOKEN;
 }

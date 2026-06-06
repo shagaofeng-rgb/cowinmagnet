@@ -2178,6 +2178,14 @@ p {
   font-weight: 760;
 }
 
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .field-wide {
   grid-column: 1 / -1;
 }
@@ -4056,7 +4064,7 @@ textarea:focus {
     grid-column: 2;
     grid-row: 1;
     justify-content: flex-end;
-    gap: 6px;
+    gap: 3px;
     min-width: 0;
   }
 
@@ -4085,27 +4093,24 @@ textarea:focus {
     grid-column: 1 / -1;
     grid-row: 2;
     justify-content: flex-start;
-    gap: 5px;
+    flex-wrap: wrap;
+    gap: 6px;
     width: 100%;
     min-width: 0;
     max-width: 100%;
-    overflow-x: auto;
+    overflow: visible;
     padding: 3px 0 2px;
-    scrollbar-width: none;
   }
 
-  .nav-links::-webkit-scrollbar {
-    display: none;
-  }
-
-  .nav-links a {
+  .nav-links > a,
+  .nav-links .nav-trigger {
     flex: 0 0 auto;
-    min-height: 32px;
-    padding: 6px 8px;
+    min-height: 30px;
+    padding: 4px 5px;
     border: 1px solid var(--line);
     border-radius: 999px;
     background: #f8fbff;
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .nav-item {
@@ -4564,19 +4569,18 @@ textarea:focus {
 
   .product-card {
     display: grid;
-    grid-template-columns: 104px minmax(0, 1fr);
+    grid-template-columns: 1fr;
     width: 100%;
     max-width: 100%;
-    min-height: 138px;
     border-radius: 8px;
     box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
     overflow: hidden;
   }
 
   .product-image-link {
-    height: 100%;
-    min-height: 138px;
-    aspect-ratio: auto;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
   }
 
   .product-card-body {
@@ -4784,11 +4788,12 @@ textarea:focus {
   }
 
   .product-card {
-    grid-template-columns: 92px minmax(0, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .product-image-link {
-    min-height: 132px;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
   }
 
   .product-card-body {
@@ -4797,6 +4802,10 @@ textarea:focus {
 
   .product-card h3 {
     font-size: 15px;
+  }
+
+  .product-card-body span {
+    white-space: normal;
   }
 
   .product-card-body p {

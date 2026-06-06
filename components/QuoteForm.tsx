@@ -21,6 +21,7 @@ export function QuoteForm({ compact = false, defaultProduct = "" }: QuoteFormPro
       payload.materialType = payload.material || "";
       payload.consent = "true";
       payload.sourcePath = window.location.pathname;
+      payload.sourceLanguage = document.documentElement.lang || window.location.pathname.split("/").filter(Boolean)[0] || "en";
       payload.utm = window.location.search;
 
       const response = await fetch("/api/inquiry", {
@@ -38,6 +39,10 @@ export function QuoteForm({ compact = false, defaultProduct = "" }: QuoteFormPro
   return (
     <form action={submit} className={`quote-form ${compact ? "quote-form-compact" : ""}`}>
       <div className="field-grid">
+        <label className="form-honeypot" aria-hidden="true">
+          Website
+          <input name="website" tabIndex={-1} autoComplete="off" />
+        </label>
         <label>
           Name
           <input name="name" required placeholder="Your name" />
@@ -101,10 +106,10 @@ export function QuoteForm({ compact = false, defaultProduct = "" }: QuoteFormPro
         {status === "submitting" ? "Sending..." : "Submit Inquiry"}
       </button>
       {status === "success" && (
-        <p className="form-success">Thank you. Our sales team will contact you soon.</p>
+        <p className="form-success" role="status" aria-live="polite">Thank you. Our sales team will contact you soon.</p>
       )}
       {status === "error" && (
-        <p className="form-error">The form could not be sent. Please email us directly and we will help you quickly.</p>
+        <p className="form-error" role="alert">The form could not be sent. Please email us directly and we will help you quickly.</p>
       )}
     </form>
   );

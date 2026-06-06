@@ -172,7 +172,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <li><BadgeCheck size={16} aria-hidden /> Fast reply by email or WhatsApp</li>
               </ul>
               <div className="expert-card-actions">
-                <a href={`https://wa.me/${site.whatsapp}`} className="expert-action">
+                <a href={`https://wa.me/${site.whatsapp}`} className="expert-action" target="_blank" rel="noopener noreferrer nofollow">
                   <MessageCircle size={16} aria-hidden />
                   WhatsApp
                 </a>

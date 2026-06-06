@@ -53,7 +53,7 @@ export function Header() {
             <Mail size={15} aria-hidden />
             {site.email}
           </a>
-          <a href={`https://wa.me/${site.whatsapp}`}>
+          <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow">
             <MessageCircle size={15} aria-hidden />
             WhatsApp
           </a>

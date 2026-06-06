@@ -111,7 +111,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <h2>Send your conveyor and material data</h2>
             <p>Share belt width, material layer height, installation method, and iron contamination. Our team will suggest a practical magnetic separator configuration.</p>
             <div className="blog-contact-actions">
-              <a href={`https://wa.me/${site.whatsapp}`}>
+              <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow">
                 <MessageCircle size={16} aria-hidden />
                 WhatsApp
               </a>

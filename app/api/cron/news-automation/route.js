@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 function isAuthorized(request) {
   if (request.headers.get("x-vercel-cron") === "1") return true;
   const secret = process.env.CRON_SECRET || process.env.NEWS_SYSTEM_ADMIN_TOKEN;
-  if (!secret) return true;
+  if (!secret) return !process.env.VERCEL;
   const headerSecret = request.headers.get("x-cron-secret");
   const bearer = request.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
   const querySecret = new URL(request.url).searchParams.get("secret");
