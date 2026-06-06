@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AdminPasswordField from "@/components/admin/AdminPasswordField";
 import { getConfiguredAdminEmail } from "@/lib/adminAccountStore";
 import { isAdminAuthConfigured } from "@/lib/adminAuth";
 
@@ -46,10 +47,7 @@ export default async function AdminLoginPage({ searchParams }) {
             登录邮箱
             <input name="email" type="email" defaultValue={getConfiguredAdminEmail()} required />
           </label>
-          <label>
-            登录密码
-            <input name="password" type="password" placeholder="请输入后台密码" required />
-          </label>
+          <AdminPasswordField />
           <button type="submit" disabled={!configured}>
             登录后台
           </button>
