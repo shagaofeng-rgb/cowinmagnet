@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ArrowRight, Factory, Mail, MessageCircle, Sparkles } from "lucide-react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
@@ -11,13 +12,37 @@ import { site } from "@/data/site";
 import { categoryAnchor } from "@/lib/anchors";
 import { getDictionary, getDirection, getLocaleFromPath, localizeHref } from "@/lib/i18n";
 
-const featuredProducts = products.slice(0, 4);
+const popularProductSlugs = [
+  "suspended-permanent-magnetic-separator",
+  "suspended-electromagnetic-conveyor-belt-separator",
+  "round-electromagnetic-lifting-magnet",
+  "permanent-overband-magnetic-separator"
+];
+
+const featuredProducts = popularProductSlugs
+  .map((slug) => products.find((product) => product.slug === slug))
+  .filter((product): product is (typeof products)[number] => Boolean(product));
 
 export function Header() {
   const pathname = usePathname();
   const locale = getLocaleFromPath(pathname);
   const t = getDictionary(locale);
   const dir = getDirection(locale);
+  const [activeMega, setActiveMega] = useState<"products" | "industries" | null>(null);
+
+  useEffect(() => {
+    const closeMega = () => setActiveMega(null);
+    window.addEventListener("scroll", closeMega, { passive: true });
+    window.addEventListener("resize", closeMega);
+    return () => {
+      window.removeEventListener("scroll", closeMega);
+      window.removeEventListener("resize", closeMega);
+    };
+  }, []);
+
+  useEffect(() => {
+    setActiveMega(null);
+  }, [pathname]);
 
   return (
     <header className="site-header" dir={dir}>
@@ -40,8 +65,21 @@ export function Header() {
           <span>COWIN MAGNET</span>
         </Link>
         <div className="nav-links">
-          <div className="nav-item has-mega">
-            <Link href={localizeHref("/products", locale)} className="nav-trigger">{t.nav.products}</Link>
+          <div
+            className={`nav-item has-mega${activeMega === "products" ? " mega-open" : ""}`}
+            onMouseEnter={() => setActiveMega("products")}
+            onMouseMove={() => setActiveMega("products")}
+            onMouseLeave={() => setActiveMega(null)}
+            onPointerEnter={() => setActiveMega("products")}
+            onPointerLeave={() => setActiveMega(null)}
+          >
+            <Link
+              href={localizeHref("/products", locale)}
+              className="nav-trigger"
+              aria-expanded={activeMega === "products"}
+            >
+              {t.nav.products}
+            </Link>
             <div className="mega-menu mega-products">
               <div className="mega-panel">
                 <div className="mega-intro">
@@ -56,14 +94,14 @@ export function Header() {
                   <h4>Categories</h4>
                   <div className="mega-chip-list">
                     {productCategories.map((category) => (
-                    <Link key={category} href={localizeHref(`/products#${categoryAnchor(category)}`, locale)}>{category}</Link>
+                    <Link key={category} href={localizeHref(`/products#${categoryAnchor(category)}`, locale)} onClick={() => setActiveMega(null)}>{category}</Link>
                     ))}
                   </div>
                 </div>
                 <div className="mega-section mega-link-grid">
                   <h4>Popular Products</h4>
                   {featuredProducts.map((product) => (
-                    <Link key={product.slug} href={localizeHref(`/products/${product.slug}`, locale)}>
+                    <Link key={product.slug} href={localizeHref(`/products/${product.slug}`, locale)} onClick={() => setActiveMega(null)}>
                       {product.name}
                     </Link>
                   ))}
@@ -71,8 +109,22 @@ export function Header() {
               </div>
             </div>
           </div>
-          <div className="nav-item has-mega">
-            <Link href={localizeHref("/industries", locale)} className="nav-trigger">Industries</Link>
+          <div
+            className={`nav-item has-mega${activeMega === "industries" ? " mega-open" : ""}`}
+            onMouseEnter={() => setActiveMega("industries")}
+            onMouseMove={() => setActiveMega("industries")}
+            onMouseLeave={() => setActiveMega(null)}
+            onPointerEnter={() => setActiveMega("industries")}
+            onPointerLeave={() => setActiveMega(null)}
+          >
+            <button
+              type="button"
+              className="nav-trigger nav-trigger-button"
+              aria-expanded={activeMega === "industries"}
+              onFocus={() => setActiveMega("industries")}
+            >
+              Industries
+            </button>
             <div className="mega-menu mega-applications">
               <div className="mega-panel mega-panel-compact">
                 <div className="mega-intro">
@@ -82,7 +134,7 @@ export function Header() {
                 </div>
                 <div className="mega-section mega-card-grid">
                   {applications.map((application) => (
-                    <Link key={application.industrySlug} href={localizeHref(`/industries/${application.industrySlug}`, locale)}>
+                    <Link key={application.industrySlug} href={localizeHref(`/industries/${application.industrySlug}`, locale)} onClick={() => setActiveMega(null)}>
                       <strong>{application.name}</strong>
                       <span>{application.summary}</span>
                     </Link>

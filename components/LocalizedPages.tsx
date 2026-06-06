@@ -23,10 +23,19 @@ import { getStaticInternalLinkSuggestions } from "@/lib/linkStrategy";
 
 const advantageIcons = [ShieldCheck, Settings, Headphones, Globe2];
 const serviceIcons = [Headphones, Wrench, Truck, ShieldCheck, BadgeCheck, Globe2];
+const homeFeaturedProductSlugs = [
+  "suspended-permanent-magnetic-separator",
+  "suspended-electromagnetic-conveyor-belt-separator",
+  "round-electromagnetic-lifting-magnet",
+  "electromagnet-separator",
+  "permanent-overband-magnetic-separator"
+];
 
 export function LocalizedHomePage({ locale }: { locale: Locale }) {
   const t = getDictionary(locale);
-  const featured = products.slice(0, 4);
+  const featured = homeFeaturedProductSlugs
+    .map((slug) => products.find((product) => product.slug === slug))
+    .filter((product): product is Product => Boolean(product));
   const categoryCards = productCategories.map((category) => ({
     title: category,
     count: products.filter((product) => product.category === category).length,
