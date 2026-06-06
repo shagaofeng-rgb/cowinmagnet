@@ -11,7 +11,7 @@ import { site } from "@/data/site";
 import { categoryAnchor } from "@/lib/anchors";
 import { getDictionary, getDirection, getLocaleFromPath, localizeHref } from "@/lib/i18n";
 
-const featuredProducts = products.slice(0, 6);
+const featuredProducts = products.slice(0, 4);
 
 export function Header() {
   const pathname = usePathname();

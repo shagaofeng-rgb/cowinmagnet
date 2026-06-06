@@ -26,7 +26,7 @@ const serviceIcons = [Headphones, Wrench, Truck, ShieldCheck, BadgeCheck, Globe2
 
 export function LocalizedHomePage({ locale }: { locale: Locale }) {
   const t = getDictionary(locale);
-  const featured = products.slice(0, 6);
+  const featured = products.slice(0, 4);
   const categoryCards = productCategories.map((category) => ({
     title: category,
     count: products.filter((product) => product.category === category).length,
