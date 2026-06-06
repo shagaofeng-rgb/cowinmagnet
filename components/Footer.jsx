@@ -41,11 +41,9 @@ export default function Footer({ locale = "en" }) {
             <h3>
               <Link href={withLocale(locale, `/products#${category.id}`)}>{category.title}</Link>
             </h3>
-            {category.products.map((product) => (
-              <Link key={product.slug} href={withLocale(locale, `/products/${product.slug}`)}>
-                {product.shortTitle}
-              </Link>
-            ))}
+            <Link href={withLocale(locale, `/products#${category.id}`)}>
+              {category.products.length} products
+            </Link>
           </section>
         ))}
 

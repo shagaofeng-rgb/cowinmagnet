@@ -93,14 +93,11 @@ export default function MobileNav({ locale = "en", nav = {} }) {
 
   const productLinks = [
     { href: "/products", label: nav.allProducts || "All Products", meta: "Product center" },
-    ...productCategories.flatMap((category) => [
-      { href: `/products#${category.id}`, label: category.title, meta: "Category" },
-      ...category.products.map((product) => ({
-        href: `/products/${product.slug}`,
-        label: product.shortTitle,
-        meta: category.title
-      }))
-    ])
+    ...productCategories.map((category) => ({
+      href: `/products#${category.id}`,
+      label: category.title,
+      meta: `${category.products.length} products`
+    }))
   ];
 
   const menuCards = [

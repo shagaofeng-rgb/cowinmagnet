@@ -96,6 +96,26 @@ export default async function ProductSummaryPage({ params }) {
           </article>
         </section>
 
+        {product.contentSections?.length > 0 && (
+          <section className="product-detail-band">
+            <div className="section-heading">
+              <p className="eyebrow">Source Product Details</p>
+              <h2>Original Product Information</h2>
+              <p>These details are organized from the visible content on the original product page.</p>
+            </div>
+            <div className="product-feature-grid">
+              {product.contentSections.map((section) => (
+                <article key={`${product.slug}-${section.title}`}>
+                  <span>{section.title}</span>
+                  {section.paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
         {product.features?.length > 0 && (
           <section className="product-detail-band">
             <div className="section-heading">

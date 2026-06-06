@@ -27,6 +27,7 @@ export default function Header({ locale = "en" }) {
       </Link>
 
       <nav className="nav-links" aria-label="Main navigation">
+        <Link href={withLocale(locale, "/")}>Home</Link>
         <div className="nav-item has-mega">
           <Link className="nav-trigger nav-trigger-link" href={withLocale(locale, "/products")} aria-haspopup="true">
             {nav.products}
@@ -48,11 +49,9 @@ export default function Header({ locale = "en" }) {
                   <Link className="mega-category-link" href={withLocale(locale, `/products#${category.id}`)}>
                     {category.title}
                   </Link>
-                  {category.products.map((product) => (
-                    <Link key={product.slug} href={withLocale(locale, `/products/${product.slug}`)}>
-                      {product.shortTitle}
-                    </Link>
-                  ))}
+                  <Link href={withLocale(locale, `/products#${category.id}`)}>
+                    {category.products.length} products
+                  </Link>
                 </section>
               ))}
               <section>
@@ -65,10 +64,8 @@ export default function Header({ locale = "en" }) {
             </div>
           </div>
         </div>
+        <Link href={withLocale(locale, "/applications")}>{nav.applications}</Link>
         <Link href={withLocale(locale, "/about")}>{nav.about}</Link>
-        <Link href={withLocale(locale, "/blog")}>{nav.blog}</Link>
-        <Link href={withLocale(locale, "/news")}>{nav.news}</Link>
-        <Link href={withLocale(locale, "/inquiry")}>{nav.inquiry}</Link>
         <Link href={withLocale(locale, "/contact")}>{nav.contact}</Link>
       </nav>
 
