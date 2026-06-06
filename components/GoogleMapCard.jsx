@@ -2,15 +2,15 @@ import { getMessages } from "@/messages";
 import ResponsiveImage from "@/components/ResponsiveImage";
 
 const address =
-  "Room 110, 1st Floor, Building 1, Qushidai Future Building, Kecheng District, Quzhou, Zhejiang Province, China";
+  "Room 110, 1st Floor, Building 2, Qushidai Future Building, Kecheng District, Quzhou City, Zhejiang Province, China";
 const googleEmbedUrl =
-  "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1037.8381299189082!2d118.84405914474489!3d28.96195222141102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sRoom%20110%2C%201st%20Floor%2C%20Building%201%2C%20Qushidai%20Future%20Building%2C%20Kecheng%20District%2C%20Quzhou%2C%20Zhejiang%20Province%2C%20China!5e0!3m2!1sen!2sus!4v1780204792478!5m2!1sen!2sus";
+  "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d878.1241356264704!2d118.83929087483493!3d28.96505140816817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1780393502977!5m2!1sen!2sus";
+const googleNavUrl =
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
 export default function GoogleMapCard({ locale = "en", title, kicker }) {
   const messages = getMessages(locale);
   const map = messages.map;
-  const query = encodeURIComponent(address);
-  const googleNavUrl = `https://www.google.com/maps/search/?api=1&query=${query}`;
 
   return (
     <section className="map-section" aria-labelledby="map-title">

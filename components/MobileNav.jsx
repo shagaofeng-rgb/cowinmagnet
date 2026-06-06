@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { productCategories } from "@/data/productCatalog";
 import { withLocale } from "@/data/i18n";
 
 const menuEventName = "cowin:header-menu-open";
@@ -18,16 +17,35 @@ const panels = {
     intro: "Learn how Cowinmagnet supports sourcing, inspection and export coordination.",
     links: [
       { href: "/about", label: "About Us", meta: "Company positioning" },
-      { href: "/applications", label: "Applications", meta: "Buyer use cases" },
       { href: "/factory", label: "Factory", meta: "Sourcing and QC support" },
       { href: "/cases", label: "Cases / Projects", meta: "Project references" }
     ]
   },
+  applications: {
+    title: "Industries",
+    intro: "Browse industry-specific magnetic separation solutions and recommended equipment.",
+    links: [
+      { href: "/industries", label: "All Industries", meta: "Industry solution center" },
+      { href: "/industries/recycling", label: "Recycling Industry", meta: "Ferrous recovery and waste sorting" },
+      { href: "/industries/mining", label: "Mining Industry", meta: "Tramp iron protection" },
+      { href: "/industries/cement-aggregate", label: "Cement & Aggregate", meta: "Crusher and conveyor protection" },
+      { href: "/industries/food", label: "Food Processing", meta: "Fine iron control in dry material flow" }
+    ]
+  },
+  solutions: {
+    title: "Solutions",
+    intro: "Service paths for equipment selection, sourcing coordination and export project support.",
+    links: [
+      { href: "/factory", label: "Sourcing & Quality Control", meta: "Inspection and supplier coordination" },
+      { href: "/contact", label: "OEM/ODM Coordination", meta: "Logo, color, size and packaging" },
+      { href: "/contact", label: "Export Project Support", meta: "Documents and logistics communication" },
+      { href: "/inquiry", label: "Equipment Selection Support", meta: "Send working condition details" }
+    ]
+  },
   resources: {
     title: "Resources",
-    intro: "Read product knowledge, company updates and industry news.",
+    intro: "Read industry news and market updates for magnetic separation buyers.",
     links: [
-      { href: "/blog", label: "Blog", meta: "Product and company articles" },
       { href: "/news", label: "News", meta: "Industry news categories" }
     ]
   },
@@ -41,7 +59,7 @@ const panels = {
   }
 };
 
-export default function MobileNav({ locale = "en", nav = {} }) {
+export default function MobileNav({ locale = "en", nav = {}, productCategories: menuProductCategories = [] }) {
   const detailsRef = useRef(null);
   const [activePanel, setActivePanel] = useState("main");
 
@@ -93,17 +111,22 @@ export default function MobileNav({ locale = "en", nav = {} }) {
 
   const productLinks = [
     { href: "/products", label: nav.allProducts || "All Products", meta: "Product center" },
-    ...productCategories.map((category) => ({
-      href: `/products#${category.id}`,
-      label: category.title,
-      meta: `${category.products.length} products`
-    }))
+    ...menuProductCategories.flatMap((category) => [
+      { href: `/products#${category.id}`, label: category.title, meta: "Category" },
+      ...category.products.map((product) => ({
+        href: `/products/${product.slug}`,
+        label: product.shortTitle,
+        meta: category.title
+      }))
+    ])
   ];
 
   const menuCards = [
     { key: "products", label: nav.products || "Products", meta: "Product families and detail pages" },
-    { key: "company", label: nav.about || "Company", meta: "About, applications, factory and cases" },
-    { key: "resources", label: `${nav.blog || "Blog"} / ${nav.news || "News"}`, meta: "Articles and industry updates" },
+    { key: "applications", label: "Industries", meta: "Industry solution pages" },
+    { key: "solutions", label: "Solutions", meta: "Sourcing, QC and export support" },
+    { key: "resources", label: "Resources", meta: "News, blog and guides" },
+    { key: "company", label: nav.about || "Company", meta: "About, sourcing and cases" },
     { key: "contact", label: nav.contact || "Contact", meta: "Inquiry form and direct contact" }
   ];
 

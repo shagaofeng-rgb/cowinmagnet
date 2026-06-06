@@ -1,3 +1,6 @@
+import { getCmsItems } from "@/lib/cmsStore";
+import { generatedNewsPosts } from "@/data/generatedNews";
+
 export const blogPosts = [
   {
     slug: "how-to-choose-overband-magnetic-separator",
@@ -90,19 +93,29 @@ export const blogPosts = [
 
 export const newsCategories = [
   {
-    slug: "recycling-industry-trends",
-    title: "Recycling Industry Trends",
-    description: "Market updates related to ferrous recovery, waste sorting and recycling plant efficiency."
+    slug: "industry-news",
+    title: "Industry News",
+    description: "Industry updates related to magnetic separation, recycling, mining and bulk material handling."
   },
   {
-    slug: "mining-quarry-equipment-news",
-    title: "Mining & Quarry Equipment News",
-    description: "Industry notes about conveyor protection, crusher safety and material handling operations."
+    slug: "market-trends",
+    title: "Market Trends",
+    description: "Market observations for recycling, quarrying, cement, coal and industrial equipment buyers."
   },
   {
-    slug: "magnetic-separation-technology-updates",
-    title: "Magnetic Separation Technology Updates",
-    description: "News and observations about magnetic separation applications and equipment selection trends."
+    slug: "technology-updates",
+    title: "Technology Updates",
+    description: "Technology trends, product-selection signals and process updates related to magnetic separation."
+  },
+  {
+    slug: "company-insights",
+    title: "Company Insights",
+    description: "Cowinmagnet viewpoints, sourcing observations, service notes and project communication updates."
+  },
+  {
+    slug: "global-updates",
+    title: "Global Updates",
+    description: "International policy, trade and regional market signals for global industrial buyers."
   }
 ];
 
@@ -114,9 +127,13 @@ export const newsPosts = [
       "Recent recycling technology news shows AI sorting moving quickly, but upstream magnetic protection still matters before material reaches expensive equipment.",
     publishedAt: "2026-05-31",
     views: 921,
-    category: "recycling-industry-trends",
+    category: "technology-updates",
+    categoryTitle: "Technology Updates",
+    seoTitle: "AI Metal Recovery Platforms and Upstream Ferrous Removal | Cowinmagnet News",
+    seoDescription:
+      "Industry news and Cowinmagnet viewpoint on AI metal recovery platforms and why upstream magnetic separation still matters in recycling lines.",
     href: "/news/ai-metal-recovery-platforms-recycling",
-    coverImage: "/assets/content/news-ai-metal-recovery.svg",
+    coverImage: "/images/industries/recycling-magnetic-separation-solution.webp",
     coverAlt: "AI metal recovery and magnetic separation in a recycling plant",
     imageCaption: "Local Cowinmagnet cover image based on AI sorting and metal recovery news.",
     sections: [
@@ -164,9 +181,13 @@ export const newsPosts = [
       "CONEXPO-focused equipment news again highlights a familiar problem: ferrous tramp metal can damage crushers, belts and downstream machinery.",
     publishedAt: "2026-05-30",
     views: 804,
-    category: "mining-quarry-equipment-news",
+    category: "industry-news",
+    categoryTitle: "Industry News",
+    seoTitle: "Tramp Metal Control for Aggregates and Quarry Conveyors | Cowinmagnet News",
+    seoDescription:
+      "News analysis on tramp metal control for aggregate and quarry conveyors, with Cowinmagnet notes on magnetic separator selection.",
     href: "/news/tramp-metal-control-conexpo-aggregates",
-    coverImage: "/assets/content/news-tramp-metal-control.svg",
+    coverImage: "/images/industries/cement-aggregate-magnetic-separation.webp",
     coverAlt: "Tramp metal control above an aggregate conveyor before a crusher",
     imageCaption: "Local Cowinmagnet cover image for quarry conveyor protection news.",
     sections: [
@@ -208,9 +229,13 @@ export const newsPosts = [
       "Research and business updates in May 2026 show more attention on recovering rare earths and building recycled magnet supply chains.",
     publishedAt: "2026-05-29",
     views: 877,
-    category: "magnetic-separation-technology-updates",
+    category: "market-trends",
+    categoryTitle: "Market Trends",
+    seoTitle: "Rare Earth Magnet Recycling and Magnet Supply Chain Trends | Cowinmagnet News",
+    seoDescription:
+      "Market trend analysis on rare earth magnet recycling and what it means for permanent magnet equipment buyers.",
     href: "/news/rare-earth-magnet-recycling-supply-chain",
-    coverImage: "/assets/content/news-rare-earth-magnet-recycling.svg",
+    coverImage: "/images/industries/mining-industry-magnetic-separation-cover.png",
     coverAlt: "Rare earth magnet recycling and permanent magnet supply chain",
     imageCaption: "Local Cowinmagnet cover image for rare earth magnet recycling news.",
     sections: [
@@ -263,4 +288,62 @@ export function formatDisplayDate(date) {
 
 export function formatViews(views) {
   return new Intl.NumberFormat("en", { notation: views >= 10000 ? "compact" : "standard" }).format(views);
+}
+
+async function getGeneratedNewsPosts() {
+  return generatedNewsPosts
+    .filter((post) => post.status === "published" && post.quality?.passed !== false)
+    .map((post) => ({
+      ...post,
+      type: "news",
+      href: post.href || `/news/${post.slug}`,
+      views: Number(post.views || 0),
+      category: post.category || "industry-news",
+      categoryTitle: post.categoryTitle || post.category || "Industry News",
+      seoTitle: post.seoTitle || post.title,
+      seoDescription: post.seoDescription || post.excerpt
+    }));
+}
+
+export async function getNewsPosts() {
+  const [uploadedNews, generatedNews] = await Promise.all([getCmsItems("news"), getGeneratedNewsPosts()]);
+  const merged = [
+    ...uploadedNews.map((post) => ({
+      ...post,
+      href: post.href || `/news/${post.slug}`,
+      views: Number(post.views || 0),
+      categoryTitle: post.categoryTitle || post.category,
+      seoTitle: post.seoTitle || post.title,
+      seoDescription: post.seoDescription || post.excerpt
+    })),
+    ...generatedNews,
+    ...newsPosts
+  ];
+  const bySlug = new Map();
+  merged.forEach((post) => {
+    if (!post?.slug || bySlug.has(post.slug)) return;
+    bySlug.set(post.slug, post);
+  });
+  return [...bySlug.values()].sort((a, b) => new Date(b.publishedAt || b.createdAt) - new Date(a.publishedAt || a.createdAt));
+}
+
+export async function getNewsPost(slug) {
+  const posts = await getNewsPosts();
+  return posts.find((post) => post.slug === slug);
+}
+
+export async function getNewsCategories() {
+  const [uploadedNews, generatedNews] = await Promise.all([getCmsItems("news"), getGeneratedNewsPosts()]);
+  const map = new Map(newsCategories.map((category) => [category.slug, category]));
+
+  [...uploadedNews, ...generatedNews].forEach((post) => {
+    if (!post.category || map.has(post.category)) return;
+    map.set(post.category, {
+      slug: post.category,
+      title: post.categoryTitle || post.category,
+      description: post.categoryDescription || "Industry news uploaded from the Cowinmagnet admin backend."
+    });
+  });
+
+  return [...map.values()];
 }

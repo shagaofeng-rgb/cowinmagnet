@@ -23,7 +23,13 @@ export default function AdminLiveStatus() {
           loading: false,
           pageViews: data.pageViews || 0,
           inquiries: data.inquiries || 0,
-          syncedAt: new Date().toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit", second: "2-digit" })
+          syncedAt: new Date().toLocaleTimeString("zh-CN", {
+            timeZone: "Asia/Shanghai",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false
+          })
         });
       } catch {
         if (!active) return;
@@ -32,7 +38,7 @@ export default function AdminLiveStatus() {
     }
 
     sync();
-    const timer = window.setInterval(sync, 30000);
+    const timer = window.setInterval(sync, 10000);
     return () => {
       active = false;
       window.clearInterval(timer);
@@ -43,7 +49,7 @@ export default function AdminLiveStatus() {
     <div className="admin-live-status">
       <span>在线实时同步</span>
       <strong>{status.loading ? "连接中..." : `${status.pageViews} PV / ${status.inquiries} 询盘`}</strong>
-      <small>最近同步：{status.syncedAt || "-"}</small>
+      <small>最近同步：{status.syncedAt || "-"} 北京时间</small>
     </div>
   );
 }

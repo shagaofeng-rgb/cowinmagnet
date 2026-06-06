@@ -8,7 +8,13 @@ const initialValues = {
   phone: "",
   company: "",
   country: "",
+  buyerType: "",
   productRequirement: "",
+  applicationIndustry: "",
+  materialType: "",
+  beltWidth: "",
+  installationPosition: "",
+  expectedQuantity: "",
   message: "",
   website: "",
   consent: false
@@ -21,7 +27,11 @@ const productRequirementGroups = [
       "Permanent overband magnetic separator",
       "Suspended permanent magnetic separator",
       "Self-cleaning permanent magnetic separator",
-      "Permanent magnet suspension separator"
+      "Suspended permanent self-unloading magnetic separator",
+      "Permanent magnetic drum",
+      "Permanent magnetic pulley",
+      "Permanent magnetic plate separator",
+      "Pipeline permanent magnetic separator"
     ]
   },
   {
@@ -31,7 +41,10 @@ const productRequirementGroups = [
       "Suspended electromagnetic self-unloading magnetic separator",
       "Air-cooled electromagnetic separator",
       "Oil-cooled electromagnetic separator",
-      "Self-cooled electromagnetic separator"
+      "Self-cooled electromagnetic separator",
+      "Explosion-proof electromagnetic separator",
+      "Dry-type electromagnetic separator",
+      "Electromagnetic belt pulley"
     ]
   },
   {
@@ -40,10 +53,23 @@ const productRequirementGroups = [
       "Magnetic roller",
       "Magnetic bar / magnetic rod",
       "Magnetic grid / magnetic grate",
-      "Magnetic plate",
-      "Magnetic drum",
-      "Magnetic pulley",
-      "Magnetic filter"
+      "Magnetic drawer separator",
+      "Magnetic trap / liquid line separator",
+      "Rotary pipe magnet",
+      "Fine powder magnetic separator"
+    ]
+  },
+  {
+    label: "Broader Magnetic Separation Equipment",
+    options: [
+      "Wet drum magnetic separator",
+      "Dry drum magnetic separator",
+      "Dry magnetic separator",
+      "High-intensity magnetic separator",
+      "Drum separator",
+      "Eddy current separator",
+      "Stainless steel separator",
+      "Conveyor metal detector"
     ]
   },
   {
@@ -57,6 +83,11 @@ const productRequirementGroups = [
   }
 ];
 
+const buyerTypes = ["Distributor", "Project Buyer", "End User", "EPC Contractor", "Equipment Integrator", "Consultant", "Other"];
+const applicationIndustries = ["Mining", "Recycling", "Cement", "Coal", "Power Plant", "Aggregate", "Waste Sorting", "Food & Grain", "Plastic Recycling", "Bulk Material Handling", "Other"];
+const beltWidths = ["500 mm", "650 mm", "800 mm", "1000 mm", "1200 mm", "1400 mm+", "Custom", "Not sure yet"];
+const installationPositions = ["Suspended Over Conveyor", "Cross Belt", "Inline Belt", "Head Pulley", "Drum Separation", "Not sure yet"];
+
 function validate(values) {
   const errors = {};
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -67,6 +98,7 @@ function validate(values) {
   else if (!emailPattern.test(values.email.trim())) errors.email = "Please enter a valid email address.";
   if (!values.phone.trim()) errors.phone = "Please enter your phone number.";
   else if (!phonePattern.test(values.phone.trim())) errors.phone = "Please enter a valid international phone number.";
+  if (!values.message.trim()) errors.message = "Please describe your project requirements.";
   if (values.website.trim()) errors.website = "Spam submission blocked.";
   if (!values.consent) errors.consent = "Please confirm this is a real business inquiry.";
 
@@ -197,30 +229,6 @@ export default function InquiryForm() {
       </div>
 
       <div className="inquiry-field">
-        <label htmlFor="company">Company Name</label>
-        <input
-          id="company"
-          name="company"
-          value={values.company}
-          onChange={updateField}
-          placeholder="Your company or project name"
-        />
-        <small>Optional, useful for distributors and project buyers.</small>
-      </div>
-
-      <div className="inquiry-field">
-        <label htmlFor="country">Country / Region</label>
-        <input
-          id="country"
-          name="country"
-          value={values.country}
-          onChange={updateField}
-          placeholder="United States, Germany, Saudi Arabia..."
-        />
-        <small>Helps us estimate shipping and export support.</small>
-      </div>
-
-      <div className="inquiry-field">
         <label htmlFor="productRequirement">Product Requirement</label>
         <select
           id="productRequirement"
@@ -242,18 +250,110 @@ export default function InquiryForm() {
         <small>Choose the closest product if you already know it.</small>
       </div>
 
-      <div className="inquiry-field inquiry-field-wide">
-        <label htmlFor="message">Message</label>
+      <div className={`inquiry-field inquiry-field-wide ${fieldError("message") ? "is-invalid" : ""}`}>
+        <label htmlFor="message">Message <span>*</span></label>
         <textarea
           id="message"
           name="message"
           value={values.message}
           onChange={updateField}
+          onBlur={markTouched}
           placeholder="Tell us your material type, belt width, material layer depth, iron size, installation height, quantity or target application."
           rows="5"
+          required
         />
-        <small>More working-condition details help us recommend a suitable model faster.</small>
+        <small>{fieldError("message") || "More working-condition details help us recommend a suitable model faster."}</small>
       </div>
+
+      <details className="inquiry-more-details inquiry-field-wide">
+        <summary>More Working Condition Details</summary>
+        <div className="inquiry-more-grid">
+          <div className="inquiry-field">
+            <label htmlFor="company">Company Name</label>
+            <input
+              id="company"
+              name="company"
+              value={values.company}
+              onChange={updateField}
+              placeholder="Your company or project name"
+            />
+            <small>Optional, useful for distributors and project buyers.</small>
+          </div>
+
+          <div className={`inquiry-field ${fieldError("country") ? "is-invalid" : ""}`}>
+            <label htmlFor="country">Country / Region</label>
+            <input
+              id="country"
+              name="country"
+              value={values.country}
+              onChange={updateField}
+              onBlur={markTouched}
+              placeholder="United States, Germany, Saudi Arabia..."
+            />
+            <small>{fieldError("country") || "Helps us estimate shipping and export support."}</small>
+          </div>
+
+          <div className="inquiry-field">
+            <label htmlFor="buyerType">Buyer Type</label>
+            <select id="buyerType" name="buyerType" value={values.buyerType} onChange={updateField}>
+              <option value="">Select buyer type</option>
+              {buyerTypes.map((option) => <option key={option} value={option}>{option}</option>)}
+            </select>
+            <small>Helps route your inquiry to the right support path.</small>
+          </div>
+
+          <div className="inquiry-field">
+            <label htmlFor="applicationIndustry">Application Industry</label>
+            <select id="applicationIndustry" name="applicationIndustry" value={values.applicationIndustry} onChange={updateField}>
+              <option value="">Select industry</option>
+              {applicationIndustries.map((option) => <option key={option} value={option}>{option}</option>)}
+            </select>
+            <small>Mining, recycling, cement, coal, power plant and other applications are supported.</small>
+          </div>
+
+          <div className="inquiry-field">
+            <label htmlFor="materialType">Material Type</label>
+            <input
+              id="materialType"
+              name="materialType"
+              value={values.materialType}
+              onChange={updateField}
+              placeholder="Ore, coal, aggregate, scrap, powder..."
+            />
+            <small>Tell us what material is moving through the line.</small>
+          </div>
+
+          <div className="inquiry-field">
+            <label htmlFor="beltWidth">Belt Width / Capacity</label>
+            <select id="beltWidth" name="beltWidth" value={values.beltWidth} onChange={updateField}>
+              <option value="">Select belt width</option>
+              {beltWidths.map((option) => <option key={option} value={option}>{option}</option>)}
+            </select>
+            <small>Choose the closest width or select custom.</small>
+          </div>
+
+          <div className="inquiry-field">
+            <label htmlFor="installationPosition">Installation Position</label>
+            <select id="installationPosition" name="installationPosition" value={values.installationPosition} onChange={updateField}>
+              <option value="">Select installation type</option>
+              {installationPositions.map((option) => <option key={option} value={option}>{option}</option>)}
+            </select>
+            <small>Cross belt, inline, suspended and head pulley layouts are common.</small>
+          </div>
+
+          <div className="inquiry-field">
+            <label htmlFor="expectedQuantity">Expected Quantity</label>
+            <input
+              id="expectedQuantity"
+              name="expectedQuantity"
+              value={values.expectedQuantity}
+              onChange={updateField}
+              placeholder="1 set, 2 units, monthly demand..."
+            />
+            <small>Optional, useful for project and distributor pricing.</small>
+          </div>
+        </div>
+      </details>
 
       <label className={`inquiry-check ${fieldError("consent") ? "is-invalid" : ""}`}>
         <input

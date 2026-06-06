@@ -1,5 +1,5 @@
-import { BarList } from "@/components/admin/AdminWidgets";
 import AdminDateRangeFilter from "@/components/admin/AdminDateRangeFilter";
+import { AdminJourneysRealtime } from "@/components/admin/AdminRealtimePanels";
 import { getAdminDateRange } from "@/lib/adminDateRange";
 import { getAnalyticsSnapshot } from "@/lib/analyticsStore";
 
@@ -10,7 +10,7 @@ export const metadata = {
 
 export default async function JourneysPage({ searchParams }) {
   const range = getAdminDateRange(await searchParams);
-  const { journeys } = await getAnalyticsSnapshot(range);
+  const data = await getAnalyticsSnapshot(range);
 
   return (
     <div className="admin-page">
@@ -23,15 +23,7 @@ export default async function JourneysPage({ searchParams }) {
         <AdminDateRangeFilter range={range} />
       </header>
 
-      <section className="admin-panel">
-        {journeys.length ? (
-          <BarList rows={journeys.map((item) => ({ label: item.route, value: item.value }))} />
-        ) : (
-          <div className="admin-empty">
-            当访客在同一个会话中浏览多个页面后，这里会显示更多路径数据。
-          </div>
-        )}
-      </section>
+      <AdminJourneysRealtime initialData={data} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
-import { BarList, MetricCard, TrendChart } from "@/components/admin/AdminWidgets";
 import AdminDateRangeFilter from "@/components/admin/AdminDateRangeFilter";
+import { AdminTrafficRealtime } from "@/components/admin/AdminRealtimePanels";
 import { getAdminDateRange } from "@/lib/adminDateRange";
 import { getAnalyticsSnapshot } from "@/lib/analyticsStore";
 
@@ -10,7 +10,7 @@ export const metadata = {
 
 export default async function TrafficAnalyticsPage({ searchParams }) {
   const range = getAdminDateRange(await searchParams);
-  const { overview, traffic } = await getAnalyticsSnapshot(range);
+  const data = await getAnalyticsSnapshot(range);
 
   return (
     <div className="admin-page">
@@ -23,41 +23,7 @@ export default async function TrafficAnalyticsPage({ searchParams }) {
         <AdminDateRangeFilter range={range} />
       </header>
 
-      <section className="admin-grid four">
-        <MetricCard label="平均停留" value={`${overview.avgDuration}s`} note="页面参与度" />
-        <MetricCard label="跳出率" value={`${overview.bounceRate}%`} note="估算值" />
-        <MetricCard label="国家地区" value={traffic.countries.length} note="活跃市场" />
-        <MetricCard label="设备类型" value={traffic.devices.length} note="访问设备" />
-      </section>
-
-      <section className="admin-panel">
-        <p className="eyebrow">每日趋势</p>
-        <h2>每日浏览量变化</h2>
-        <TrendChart rows={traffic.series} />
-      </section>
-
-      <section className="admin-grid four">
-        <article className="admin-panel">
-          <p className="eyebrow">获客来源</p>
-          <h2>渠道分布</h2>
-          <BarList rows={traffic.channels} />
-        </article>
-        <article className="admin-panel">
-          <p className="eyebrow">来源平台</p>
-          <h2>Google / Facebook / TikTok 等</h2>
-          <BarList rows={traffic.sourcePlatforms} />
-        </article>
-        <article className="admin-panel">
-          <p className="eyebrow">目标市场</p>
-          <h2>国家 / 地区</h2>
-          <BarList rows={traffic.countries} />
-        </article>
-        <article className="admin-panel">
-          <p className="eyebrow">设备环境</p>
-          <h2>设备类型</h2>
-          <BarList rows={traffic.devices} />
-        </article>
-      </section>
+      <AdminTrafficRealtime initialData={data} />
     </div>
   );
 }

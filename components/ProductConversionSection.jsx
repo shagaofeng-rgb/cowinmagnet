@@ -13,6 +13,12 @@ function productUrl(locale, slug) {
   return locale ? absoluteLocalizedUrl(locale, path) : absoluteUrl(path);
 }
 
+function productImageUrl(src) {
+  if (!src) return undefined;
+  if (src.startsWith("data:") || src.startsWith("http")) return src;
+  return absoluteUrl(src);
+}
+
 function getRecommendedProducts(currentSlug) {
   const current = getProductBySlug(currentSlug);
   const others = allProducts.filter((product) => product.slug !== currentSlug);
@@ -47,7 +53,7 @@ export function ProductJsonLd({ product, locale = "en" }) {
     "@type": "Product",
     name: product.title,
     description: product.summary,
-    image: product.image ? absoluteUrl(product.image) : undefined,
+    image: productImageUrl(product.image),
     brand: {
       "@type": "Brand",
       name: "Cowinmagnet"

@@ -16,8 +16,8 @@ const contactItems = [
   {
     label: "Office",
     value: "Quzhou, Zhejiang, China",
-    href: "https://www.google.com/maps/search/?api=1&query=Room%20110%2C%201st%20Floor%2C%20Building%201%2C%20Qushidai%20Future%20Building%2C%20Kecheng%20District%2C%20Quzhou%2C%20Zhejiang%20Province%2C%20China",
-    note: "Room 110, 1st Floor, Building 1, Qushidai Future Building."
+    href: "https://www.google.com/maps/search/?api=1&query=Room%20110%2C%201st%20Floor%2C%20Building%202%2C%20Qushidai%20Future%20Building%2C%20Kecheng%20District%2C%20Quzhou%20City%2C%20Zhejiang%20Province%2C%20China",
+    note: "Room 110, 1st Floor, Building 2, Qushidai Future Building."
   }
 ];
 

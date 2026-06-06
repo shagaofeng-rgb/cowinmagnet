@@ -21,7 +21,7 @@ export default function AdminDateRangeFilter({ range }) {
 
   const helperText = useMemo(() => {
     if (isCustom) return "自定义查询时间最长 2 年";
-    return `当前查看：${range?.label || "本周"}，${range?.startInput} 至 ${range?.endInput}`;
+    return `当前查看：${range?.label || "最近 7 天"}，${range?.startInput} 至 ${range?.endInput}`;
   }, [isCustom, range]);
 
   function applyRange(event) {

@@ -12,6 +12,7 @@ export default function ResponsiveImage({
   className
 }) {
   const isVector = typeof src === "string" && src.toLowerCase().endsWith(".svg");
+  const isInlineImage = typeof src === "string" && src.startsWith("data:");
 
   return (
     <Image
@@ -24,7 +25,7 @@ export default function ResponsiveImage({
       loading={priority ? undefined : loading}
       quality={quality}
       className={className}
-      unoptimized={isVector}
+      unoptimized={isVector || isInlineImage}
       decoding="async"
     />
   );

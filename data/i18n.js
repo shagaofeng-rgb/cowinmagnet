@@ -46,6 +46,8 @@ export function localizedAlternates(path = "/") {
 }
 
 export function createSeoMetadata(locale, path, seo) {
+  const ogImage = absoluteUrl("/assets/magnetic-separator-banner-1200.webp");
+
   return {
     title: seo.title,
     description: seo.description,
@@ -58,7 +60,22 @@ export function createSeoMetadata(locale, path, seo) {
       description: seo.description,
       url: absoluteLocalizedUrl(locale, path),
       siteName: "Cowinmagnet",
-      locale
+      locale,
+      type: "website",
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: "Cowinmagnet magnetic separation equipment and export support"
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: seo.title,
+      description: seo.description,
+      images: [ogImage]
     }
   };
 }

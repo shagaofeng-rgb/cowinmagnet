@@ -19,6 +19,8 @@ function validate(payload) {
   else if (!emailPattern.test(payload.email.trim())) errors.email = "Email format is invalid.";
   if (!payload.phone?.trim()) errors.phone = "Phone is required.";
   else if (!phonePattern.test(payload.phone.trim())) errors.phone = "Phone format is invalid.";
+  if (!payload.country?.trim()) errors.country = "Country / Region is required.";
+  if (!payload.message?.trim()) errors.message = "Message is required.";
   if (payload.website?.trim()) errors.website = "Spam submission blocked.";
   if (!payload.consent) errors.consent = "Business inquiry confirmation is required.";
   return errors;
@@ -33,7 +35,13 @@ function inquiryText(payload) {
     `Phone / WhatsApp: ${payload.phone}`,
     `Company: ${payload.company || "-"}`,
     `Country / Region: ${payload.country || "-"}`,
+    `Buyer Type: ${payload.buyerType || "-"}`,
     `Product Requirement: ${payload.productRequirement || "-"}`,
+    `Application Industry: ${payload.applicationIndustry || "-"}`,
+    `Material Type: ${payload.materialType || "-"}`,
+    `Belt Width / Capacity: ${payload.beltWidth || "-"}`,
+    `Installation Position: ${payload.installationPosition || "-"}`,
+    `Expected Quantity: ${payload.expectedQuantity || "-"}`,
     "",
     "Message:",
     payload.message || "-"
@@ -47,7 +55,13 @@ function inquiryHtml(payload) {
     ["Phone / WhatsApp", payload.phone],
     ["Company", payload.company || "-"],
     ["Country / Region", payload.country || "-"],
-    ["Product Requirement", payload.productRequirement || "-"]
+    ["Buyer Type", payload.buyerType || "-"],
+    ["Product Requirement", payload.productRequirement || "-"],
+    ["Application Industry", payload.applicationIndustry || "-"],
+    ["Material Type", payload.materialType || "-"],
+    ["Belt Width / Capacity", payload.beltWidth || "-"],
+    ["Installation Position", payload.installationPosition || "-"],
+    ["Expected Quantity", payload.expectedQuantity || "-"]
   ];
 
   return `
@@ -87,7 +101,7 @@ export async function POST(request) {
   const smtpHost = process.env.SMTP_HOST;
   const smtpPort = Number(process.env.SMTP_PORT || 465);
   const smtpUser = process.env.SMTP_USER;
-  const smtpPass = process.env.SMTP_PASS;
+  const smtpPass = process.env.SMTP_PASSWORD || process.env.SMTP_PASS;
   const smtpSecure = process.env.SMTP_SECURE !== "false";
 
   if (smtpHost && smtpUser && smtpPass && toEmail) {

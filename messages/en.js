@@ -20,14 +20,14 @@ const en = {
   },
   seo: {
     home: {
-      title: "Cowinmagnet | Magnetic Separation Equipment",
+      title: "Magnetic Separation Equipment & Iron Removal Solutions | Cowinmagnet",
       description:
-        "Cowinmagnet helps global industrial buyers source magnetic separation equipment, match products by working conditions and coordinate export support."
+        "Cowinmagnet helps global buyers source, select, customize, inspect, and export magnetic separation equipment from China, including permanent magnets, electromagnetic separators, magnetic drums, pulleys, rods, and components."
     },
     products: {
-      title: "Magnetic Separator Products | Cowinmagnet",
+      title: "Magnetic Separation Equipment | Permanent & Electromagnetic Separators | Cowinmagnet",
       description:
-        "Browse Cowinmagnet magnetic separator products by permanent magnet series, electromagnetic series, magnetic rollers and magnetic bars."
+        "Explore Cowinmagnet magnetic separation equipment including suspended permanent magnetic separators, electromagnetic separators, magnetic pulleys, magnetic drums, bars and components for industrial applications."
     },
     about: {
       title: "About Cowinmagnet | Magnetic Separator Sourcing & Export Service Partner",
@@ -35,7 +35,7 @@ const en = {
         "Learn how Cowinmagnet supports global buyers with magnetic separator sourcing, product matching, quality inspection support and export coordination."
     },
     applications: {
-      title: "Magnetic Separator Applications | Cowinmagnet",
+      title: "Magnetic Separator Applications for Mining, Recycling, Cement & Bulk Material Handling | Cowinmagnet",
       description:
         "Explore magnetic separator applications for waste recycling, mining, quarrying, cement, coal and bulk material handling."
     },
@@ -70,9 +70,9 @@ const en = {
     eyebrow: "Self-cleaning tramp iron removal",
     h1: "Permanent Overband Magnetic Separator for Conveyor Belt Systems",
     text:
-      "Designed to continuously remove ferrous metals from conveyed bulk materials while protecting crushers, shredders, screens and downstream processing equipment.",
-    primaryCta: "Get Product Recommendation",
-    secondaryCta: "Watch Working Video",
+      "A self-cleaning overband magnetic separator for continuous tramp iron removal above conveyor belts in recycling, mining, quarrying, cement, coal and bulk material handling projects.",
+    primaryCta: "View Products",
+    secondaryCta: "Get Equipment Recommendation",
     imageAlt: "Cowinmagnet magnetic separator for recycling line",
     imageCaption: "Waste recycling magnetic separation solution",
     quickFit: "Quick Fit Check",
@@ -137,7 +137,7 @@ const en = {
     title: "Send your material details and get a suitable model recommendation.",
     text:
       "Cowinmagnet helps overseas buyers match magnetic separation equipment, coordinate customization and support export communication.",
-    proof: ["24-hour quotation", "10-day standard production cycle", "50+ export markets"],
+    proof: ["24-hour quotation response", "Lead time confirmed by model and schedule", "50+ export markets"],
     productRequirement: "Product Requirement",
     conveyorWidth: "Conveyor Belt Width",
     materialType: "Material Type",

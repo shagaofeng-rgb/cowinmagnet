@@ -3,9 +3,12 @@
 export function MetricCard({ label, value, note }) {
   return (
     <article className="admin-metric-card">
-      <span>{label}</span>
-      <strong>{value}</strong>
-      {note ? <small>{note}</small> : null}
+      <div>
+        <span>{label}</span>
+        <strong>{value}</strong>
+        {note ? <small>{note}</small> : null}
+      </div>
+      <i aria-hidden="true" />
     </article>
   );
 }
@@ -38,20 +41,54 @@ function localizeLabel(label) {
   return labels[label] || label;
 }
 
+function numericValue(row) {
+  return Number(row.value || row.clicks || row.impressions || row.count || row.pv || 0);
+}
+
+function normalizePathLabel(label = "") {
+  const value = String(label || "");
+  try {
+    if (value.includes(" -> ")) {
+      return value
+        .split(" -> ")
+        .map((part) => normalizePathLabel(part))
+        .join(" -> ");
+    }
+    const url = value.startsWith("http") ? new URL(value) : new URL(value, "https://cowinmagnet.com");
+    ["fbclid", "gclid", "gbraid", "wbraid", "msclkid"].forEach((key) => url.searchParams.delete(key));
+    [...url.searchParams.keys()].forEach((key) => {
+      if (key.startsWith("utm_")) url.searchParams.delete(key);
+    });
+    return `${url.pathname}${url.searchParams.toString() ? `?${url.searchParams.toString()}` : ""}`;
+  } catch {
+    return value;
+  }
+}
+
 export function BarList({ rows = [], label = "value" }) {
-  const max = Math.max(...rows.map((row) => row.value || row.clicks || row.impressions || row.count || 1), 1);
+  const max = Math.max(...rows.map((row) => numericValue(row)), 1);
+  const total = rows.reduce((sum, row) => sum + numericValue(row), 0);
+
+  if (!rows.length) {
+    return <div className="admin-empty compact">暂无可展示数据，收到更多访问后这里会自动生成图表。</div>;
+  }
+
   return (
     <div className="admin-bar-list">
       {rows.map((row) => {
-        const value = row.value || row.clicks || row.impressions || row.count || 0;
+        const value = numericValue(row);
+        const percent = total ? Math.round((value / total) * 100) : 0;
         const rowLabel = row.label || row.country || row.device || row.query || row.status || row.title || "Unknown";
         return (
           <div className="admin-bar-row" key={rowLabel}>
-            <div>
-              <span>{localizeLabel(rowLabel)}</span>
+            <div className="admin-bar-row-head">
+              <span title={String(rowLabel)}>{localizeLabel(normalizePathLabel(rowLabel))}</span>
               <strong>{Number(value).toLocaleString()}</strong>
             </div>
-            <i style={{ width: `${Math.max(7, (value / max) * 100)}%` }} aria-label={`${label}: ${value}`} />
+            <div className="admin-bar-track">
+              <i style={{ width: `${Math.max(5, (value / max) * 100)}%` }} aria-label={`${label}: ${value}`} />
+            </div>
+            <small>{percent}%</small>
           </div>
         );
       })}
@@ -60,15 +97,40 @@ export function BarList({ rows = [], label = "value" }) {
 }
 
 export function TrendChart({ rows = [] }) {
-  const max = Math.max(...rows.map((row) => row.pv || 1), 1);
+  const max = Math.max(...rows.map((row) => Math.max(row.pv || 0, row.uv || 0)), 1);
+  const totalPv = rows.reduce((sum, row) => sum + Number(row.pv || 0), 0);
+  const totalUv = rows.reduce((sum, row) => sum + Number(row.uv || 0), 0);
+
+  if (!rows.length) {
+    return <div className="admin-empty compact">暂无趋势数据。</div>;
+  }
+
   return (
-    <div className="admin-trend" style={{ "--trend-count": rows.length || 1 }} aria-label="流量趋势">
-      {rows.map((row) => (
-        <div className="admin-trend-day" key={row.date}>
-          <span style={{ height: `${Math.max(10, (row.pv / max) * 100)}%` }} />
-          <small>{String(row.date || "").slice(5)}</small>
-        </div>
-      ))}
+    <div className="admin-trend-wrap">
+      <div className="admin-trend-summary">
+        <span><b>{totalPv.toLocaleString()}</b> PV</span>
+        <span><b>{totalUv.toLocaleString()}</b> UV</span>
+      </div>
+      <div className="admin-trend" style={{ "--trend-count": rows.length || 1 }} aria-label="流量趋势">
+        {rows.map((row) => {
+          const pv = Number(row.pv || 0);
+          const uv = Number(row.uv || 0);
+          return (
+            <div className="admin-trend-day" key={row.date} title={`${row.date}: ${pv} PV / ${uv} UV`}>
+              <div className="admin-trend-bars">
+                <span className="pv" style={{ height: `${Math.max(8, (pv / max) * 100)}%` }} />
+                <span className="uv" style={{ height: `${Math.max(8, (uv / max) * 100)}%` }} />
+              </div>
+              <strong>{pv}</strong>
+              <small>{String(row.date || "").slice(5)}</small>
+            </div>
+          );
+        })}
+      </div>
+      <div className="admin-trend-legend">
+        <span><i className="pv" />PV</span>
+        <span><i className="uv" />UV</span>
+      </div>
     </div>
   );
 }

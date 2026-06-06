@@ -1,4 +1,12 @@
 export const newsSystemConfig = {
+  siteUrl: process.env.SITE_URL || "https://www.cowinmagnet.com",
+  defaultLanguage: "en",
+  publishMode: process.env.NEWS_PUBLISH_MODE || "published",
+  publishInterval: "hourly",
+  maxPostsPerDay: Number(process.env.NEWS_MAX_POSTS_PER_DAY || 24),
+  minRelevanceScore: Number(process.env.NEWS_MIN_RELEVANCE_SCORE || 60),
+  timezone: process.env.NEWS_TIMEZONE || "Asia/Shanghai",
+  outputImageSize: { width: 1200, height: 630 },
   brand: {
     name: "Cowinmagnet",
     company: "Quzhou Qiying Import & Export Co., Ltd",
@@ -82,6 +90,68 @@ export const newsSystemConfig = {
     "power plant coal handling",
     "steel plant material handling"
   ],
+  newsSources: [
+    {
+      sourceName: "Recycling Today",
+      sourceType: "rss",
+      sourceUrl: "https://www.recyclingtoday.com/rss/",
+      enabled: true,
+      language: "en",
+      region: "global",
+      category: "recycling",
+      fetchInterval: "hourly",
+      allowedUseImage: false,
+      defaultAttributionText: "Recycling Today / original article"
+    },
+    {
+      sourceName: "Mining.com",
+      sourceType: "rss",
+      sourceUrl: "https://www.mining.com/feed/",
+      enabled: true,
+      language: "en",
+      region: "global",
+      category: "mining",
+      fetchInterval: "hourly",
+      allowedUseImage: false,
+      defaultAttributionText: "Mining.com / original article"
+    },
+    {
+      sourceName: "Food Safety News",
+      sourceType: "rss",
+      sourceUrl: "https://www.foodsafetynews.com/feed/",
+      enabled: true,
+      language: "en",
+      region: "global",
+      category: "food-processing",
+      fetchInterval: "daily",
+      allowedUseImage: false,
+      defaultAttributionText: "Food Safety News / original article"
+    },
+    {
+      sourceName: "Google News RSS - Magnetic Separator",
+      sourceType: "rss",
+      sourceUrl: "https://news.google.com/rss/search?q=magnetic%20separator%20OR%20magnetic%20separation%20equipment&hl=en-US&gl=US&ceid=US:en",
+      enabled: true,
+      language: "en",
+      region: "United States",
+      category: "magnetic-separation",
+      fetchInterval: "hourly",
+      allowedUseImage: false,
+      defaultAttributionText: "Google News RSS result / original publisher"
+    },
+    {
+      sourceName: "Google News RSS - Recycling Equipment",
+      sourceType: "rss",
+      sourceUrl: "https://news.google.com/rss/search?q=recycling%20equipment%20metal%20separation%20OR%20waste%20sorting&hl=en-US&gl=US&ceid=US:en",
+      enabled: true,
+      language: "en",
+      region: "global",
+      category: "recycling",
+      fetchInterval: "hourly",
+      allowedUseImage: false,
+      defaultAttributionText: "Google News RSS result / original publisher"
+    }
+  ],
   sources: {
     rss: [
       "https://www.recyclingtoday.com/rss/",
@@ -90,8 +160,9 @@ export const newsSystemConfig = {
     ],
     apiProviders: ["bing-news", "newsapi", "google-custom-search"]
   },
+  excludedKeywords: ["election", "war", "celebrity", "sports", "stock price rumor", "crypto", "entertainment"],
   scoring: {
-    minimumFinalScore: 68,
+    minimumFinalScore: Number(process.env.NEWS_MIN_RELEVANCE_SCORE || 60),
     weights: {
       relevance: 0.24,
       painPoint: 0.22,
@@ -104,7 +175,21 @@ export const newsSystemConfig = {
   },
   output: {
     directory: "data/news-opportunities",
-    maxItemsPerRun: 8
+    maxItemsPerRun: 8,
+    generatedArticlesDirectory: "data/news-generated"
+  },
+  imagePolicy: {
+    enableImageFromSource: process.env.NEWS_ENABLE_SOURCE_IMAGES !== "false",
+    enableAiGeneratedImage: false,
+    minInlineImages: Number(process.env.NEWS_MIN_INLINE_IMAGES || 3),
+    maxInlineImages: Number(process.env.NEWS_MAX_INLINE_IMAGES || 5),
+    preferRealLibraryImages: true,
+    allowSourceImages: process.env.NEWS_ENABLE_SOURCE_IMAGES !== "false",
+    allowAiGeneratedPhotorealisticImages: process.env.NEWS_ALLOW_AI_PHOTO_IMAGES !== "false",
+    imageStyle: "photorealistic-industrial",
+    avoidIllustrationStyle: true,
+    enableCompanyImageFallback: true,
+    defaultCoverTemplate: "company-library-real-industrial-photo"
   },
   workflow: {
     statuses: ["fetched", "scored", "generated", "reviewed", "approved", "rejected", "published"],

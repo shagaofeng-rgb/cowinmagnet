@@ -5,12 +5,28 @@ import { formatDisplayDate, formatViews } from "@/data/contentHub";
 
 const siteUrl = "https://www.cowinmagnet.com";
 
+function DateBadge({ date }) {
+  const value = new Date(date);
+  const day = value.toLocaleDateString("en", { day: "2-digit", timeZone: "UTC" });
+  const month = value.toLocaleDateString("en", { month: "short", timeZone: "UTC" });
+  const year = value.toLocaleDateString("en", { year: "numeric", timeZone: "UTC" });
+
+  return (
+    <time className="content-date-badge" dateTime={date} aria-label={formatDisplayDate(date)}>
+      <strong>{day}</strong>
+      <span>{month}</span>
+      <small>{year}</small>
+    </time>
+  );
+}
+
 function PostCard({ post, locale }) {
   const localizedHref = `/${locale}${post.href}`;
   const shareUrl = `${siteUrl}${localizedHref}`;
 
   return (
     <article className="content-post-card">
+      <DateBadge date={post.publishedAt} />
       {post.coverImage && (
         <Link className="content-card-media" href={localizedHref} aria-label={post.title}>
           <ResponsiveImage
@@ -84,13 +100,18 @@ export function NewsIndexPage({ page, categories, posts, locale }) {
       <section className="news-group-list" aria-label="Industry news posts">
         {categories.map((category) => {
           const categoryPosts = normalizedPosts.filter((post) => post.category === category.slug);
+          if (!categoryPosts.length) return null;
+
           return (
             <div className="news-group" id={category.slug} key={category.slug}>
               <div className="news-group-head">
-                <p className="eyebrow">News Category</p>
-                <h2>{category.title}</h2>
+                <div>
+                  <p className="eyebrow">News Category</p>
+                  <h2>{category.title}</h2>
+                </div>
+                <span>{categoryPosts.length} update{categoryPosts.length > 1 ? "s" : ""}</span>
               </div>
-              <div className="content-post-grid">
+              <div className="news-group-posts">
                 {categoryPosts.map((post) => (
                   <PostCard key={post.slug} post={post} locale={locale} />
                 ))}
