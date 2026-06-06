@@ -7,9 +7,7 @@ import { allProducts, getProductBySlug } from "@/data/productCatalog";
 import { notFound } from "next/navigation";
 
 export function generateStaticParams() {
-  return allProducts
-    .filter((product) => product.slug !== "permanent-overband-magnetic-separator")
-    .map((product) => ({ slug: product.slug }));
+  return allProducts.map((product) => ({ slug: product.slug }));
 }
 
 export async function generateMetadata({ params }) {
@@ -71,6 +69,11 @@ export default async function ProductSummaryPage({ params }) {
 
         <section className="product-summary-content">
           <article>
+            <p className="eyebrow">Overview</p>
+            <h2>Product Description</h2>
+            <p>{product.overview || product.summary}</p>
+          </article>
+          <article>
             <p className="eyebrow">Application</p>
             <h2>Typical Use Cases</h2>
             <p>{product.application}</p>
@@ -92,6 +95,93 @@ export default async function ProductSummaryPage({ params }) {
             </p>
           </article>
         </section>
+
+        {product.features?.length > 0 && (
+          <section className="product-detail-band">
+            <div className="section-heading">
+              <p className="eyebrow">Buyer Notes</p>
+              <h2>Key Features</h2>
+              <p>These points are organized from the original product page content.</p>
+            </div>
+            <div className="product-feature-grid">
+              {product.features.map((feature) => (
+                <article key={feature}>
+                  <span>Feature</span>
+                  <p>{feature}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {product.specifications?.length > 0 && (
+          <section className="product-detail-band">
+            <div className="section-heading">
+              <p className="eyebrow">Selection Data</p>
+              <h2>Basic Product Information</h2>
+              <p>These values come from the original product page fields and parameter tables.</p>
+            </div>
+            <div className="product-spec-list">
+              {product.specifications.map(([label, value]) => (
+                <div key={`${label}-${value}`}>
+                  <dt>{label}</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {product.specificationTables?.length > 0 && (
+          <section className="product-detail-band">
+            <div className="section-heading">
+              <p className="eyebrow">Original Product Tables</p>
+              <h2>Parameters From Source Product Page</h2>
+              <p>These tables keep the visible parameter content collected from the original product page.</p>
+            </div>
+            {product.specificationTables.map((table, tableIndex) => (
+              <div
+                className="spec-table"
+                role="table"
+                aria-label={`${product.title} source parameter table ${tableIndex + 1}`}
+                key={`${product.slug}-table-${tableIndex}`}
+              >
+                {table.map((row, rowIndex) => (
+                  <div role="row" key={`${product.slug}-table-${tableIndex}-row-${rowIndex}`}>
+                    {row.map((cell, cellIndex) => (
+                      <span role="cell" key={`${product.slug}-table-${tableIndex}-row-${rowIndex}-cell-${cellIndex}`}>
+                        {cell}
+                      </span>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </section>
+        )}
+
+        {product.imageGallery?.length > 1 && (
+          <section className="product-detail-band">
+            <div className="section-heading">
+              <p className="eyebrow">Product Images</p>
+              <h2>Images From Original Product Page</h2>
+              <p>All product images in this section were migrated from the source product pages.</p>
+            </div>
+            <div className="recommended-product-grid">
+              {product.imageGallery.slice(1, 7).map((image, index) => (
+                <figure className="recommended-product-card" key={`${product.slug}-image-${index}`}>
+                  <ResponsiveImage
+                    src={image}
+                    alt={`${product.title} image ${index + 2}`}
+                    width={520}
+                    height={390}
+                    sizes="(max-width: 760px) 88vw, (max-width: 1180px) 30vw, 360px"
+                  />
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
 
         <ProductConversionSection currentSlug={product.slug} />
         <QuoteSection />

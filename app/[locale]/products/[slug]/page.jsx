@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import ProductDetail from "@/components/ProductDetail";
 import ProductConversionSection, { ProductJsonLd } from "@/components/ProductConversionSection";
 import QuoteSection from "@/components/QuoteSection";
 import ResponsiveImage from "@/components/ResponsiveImage";
@@ -45,15 +44,6 @@ export default async function LocaleProductPage({ params }) {
 
   if (!product) {
     notFound();
-  }
-
-  if (slug === "permanent-overband-magnetic-separator") {
-    return (
-      <>
-        <ProductDetail locale={locale} />
-        <QuoteSection locale={locale} />
-      </>
-    );
   }
 
   const messages = getMessages(locale);
@@ -141,6 +131,57 @@ export default async function LocaleProductPage({ params }) {
                 <dt>{label}</dt>
                 <dd>{value}</dd>
               </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {product.specificationTables?.length > 0 && (
+        <section className="product-detail-band">
+          <div className="section-heading">
+            <p className="eyebrow">Original Product Tables</p>
+            <h2>Parameters From Source Product Page</h2>
+            <p>These tables keep the visible parameter content collected from the original product page.</p>
+          </div>
+          {product.specificationTables.map((table, tableIndex) => (
+            <div
+              className="spec-table"
+              role="table"
+              aria-label={`${product.title} source parameter table ${tableIndex + 1}`}
+              key={`${product.slug}-table-${tableIndex}`}
+            >
+              {table.map((row, rowIndex) => (
+                <div role="row" key={`${product.slug}-table-${tableIndex}-row-${rowIndex}`}>
+                  {row.map((cell, cellIndex) => (
+                    <span role="cell" key={`${product.slug}-table-${tableIndex}-row-${rowIndex}-cell-${cellIndex}`}>
+                      {cell}
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
+          ))}
+        </section>
+      )}
+
+      {product.imageGallery?.length > 1 && (
+        <section className="product-detail-band">
+          <div className="section-heading">
+            <p className="eyebrow">Product Images</p>
+            <h2>Images From Original Product Page</h2>
+            <p>All product images in this section were migrated from the source product pages.</p>
+          </div>
+          <div className="recommended-product-grid">
+            {product.imageGallery.slice(1, 7).map((image, index) => (
+              <figure className="recommended-product-card" key={`${product.slug}-image-${index}`}>
+                <ResponsiveImage
+                  src={image}
+                  alt={`${product.title} image ${index + 2}`}
+                  width={520}
+                  height={390}
+                  sizes="(max-width: 760px) 88vw, (max-width: 1180px) 30vw, 360px"
+                />
+              </figure>
             ))}
           </div>
         </section>
