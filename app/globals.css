@@ -3460,6 +3460,10 @@ textarea:focus {
   grid-template-columns: minmax(240px, 1fr) minmax(160px, 0.7fr) minmax(160px, 0.7fr) auto;
 }
 
+.admin-filter-bar-compact {
+  grid-template-columns: minmax(240px, 1fr) minmax(150px, 0.45fr) minmax(160px, 0.55fr) auto;
+}
+
 .admin-result-count {
   display: inline-flex;
   align-items: center;
@@ -3473,6 +3477,14 @@ textarea:focus {
   font-weight: 900;
 }
 
+.admin-panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
 .admin-pagination {
   display: flex;
   flex-wrap: wrap;
@@ -3482,6 +3494,23 @@ textarea:focus {
   margin-top: 16px;
   color: rgba(226, 232, 240, 0.78);
   font-size: 13px;
+  font-weight: 850;
+}
+
+.admin-page-size {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.admin-page-size select {
+  min-height: 36px;
+  padding: 7px 10px;
+  color: #e5edf8;
+  border: 1px solid rgba(148, 163, 184, 0.26);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.72);
+  font: inherit;
   font-weight: 850;
 }
 

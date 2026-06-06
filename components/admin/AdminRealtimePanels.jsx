@@ -4,7 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import { BarList, CsvExportButton, MetricCard, TrendChart } from "@/components/admin/AdminWidgets";
 
 const refreshMs = 30 * 60 * 1000;
-const journeyPageSize = 20;
+const defaultPageSize = 10;
+const pageSizeOptions = [10, 20, 50];
 
 function useLiveAnalytics(initialData) {
   const [data, setData] = useState(initialData);
@@ -135,6 +136,67 @@ function visitDay(item) {
   return `第 ${item.visitDayNumber || 1} 次访问日`;
 }
 
+function searchableText(...values) {
+  return values.map((value) => String(value || "").toLowerCase()).join(" ");
+}
+
+function PageSizeSelect({ pageSize, onChange }) {
+  return (
+    <label className="admin-page-size">
+      每页
+      <select value={pageSize} onChange={(event) => onChange(Number(event.target.value))}>
+        {pageSizeOptions.map((option) => (
+          <option value={option} key={option}>{option} 条</option>
+        ))}
+      </select>
+    </label>
+  );
+}
+
+function PaginationControls({ page, totalPages, totalRows, pageSize, setPage, setPageSize }) {
+  return (
+    <div className="admin-pagination">
+      <span>共 {totalRows} 条</span>
+      <PageSizeSelect pageSize={pageSize} onChange={setPageSize} />
+      <button type="button" onClick={() => setPage(Math.max(1, page - 1))} disabled={page <= 1}>上一页</button>
+      <span>第 {page} / {totalPages} 页</span>
+      <button type="button" onClick={() => setPage(Math.min(totalPages, page + 1))} disabled={page >= totalPages}>下一页</button>
+    </div>
+  );
+}
+
+function usePagedRows(rows, filteredRows) {
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(defaultPageSize);
+  const totalPages = Math.max(1, Math.ceil(filteredRows.length / pageSize));
+  const safePage = Math.min(page, totalPages);
+  const pageRows = filteredRows.slice((safePage - 1) * pageSize, safePage * pageSize);
+
+  function changePage(nextPage) {
+    setPage(Math.min(Math.max(1, nextPage), totalPages));
+  }
+
+  function changePageSize(nextPageSize) {
+    setPageSize(pageSizeOptions.includes(nextPageSize) ? nextPageSize : defaultPageSize);
+    setPage(1);
+  }
+
+  function resetPage() {
+    setPage(1);
+  }
+
+  return {
+    page: safePage,
+    pageSize,
+    totalPages,
+    pageRows,
+    totalRows: filteredRows.length,
+    setPage: changePage,
+    setPageSize: changePageSize,
+    resetPage
+  };
+}
+
 export function AdminOverviewRealtime({ initialData, contentStats }) {
   const { data, state } = useLiveAnalytics(initialData);
   const liveContentStats = useLiveContentStats(contentStats);
@@ -257,9 +319,41 @@ export function AdminTrafficRealtime({ initialData }) {
 export function AdminVisitorsRealtime({ initialData }) {
   const { data, state } = useLiveAnalytics(initialData);
   const visitors = list(data.visitors);
+  const [filters, setFilters] = useState({ keyword: "", country: "", source: "" });
+  const filteredVisitors = useMemo(() => {
+    const keyword = filters.keyword.trim().toLowerCase();
+    const country = filters.country.trim().toLowerCase();
+    const source = filters.source.trim().toLowerCase();
+
+    return visitors.filter((visitor) => {
+      const rowText = searchableText(
+        customerNumber(visitor.customerNumber),
+        visitor.country,
+        visitor.device,
+        visitor.browser,
+        visitor.channel,
+        visitor.sourcePlatform,
+        visitor.sourceDetail,
+        visitor.page,
+        visitor.ip,
+        customerType(visitor),
+        visitDay(visitor)
+      );
+      if (keyword && !rowText.includes(keyword)) return false;
+      if (country && String(visitor.country || "").toLowerCase() !== country) return false;
+      if (
+        source &&
+        !searchableText(visitor.channel, visitor.sourcePlatform, visitor.sourceDetail).includes(source)
+      ) {
+        return false;
+      }
+      return true;
+    });
+  }, [visitors, filters]);
+  const visitorPager = usePagedRows(visitors, filteredVisitors);
   const csvRows = useMemo(
     () =>
-      visitors.map((item) => ({
+      filteredVisitors.map((item) => ({
         time: formatBeijingDateTime(item.timestamp),
         customerNumber: customerNumber(item.customerNumber),
         country: item.country || "未知",
@@ -273,8 +367,17 @@ export function AdminVisitorsRealtime({ initialData }) {
         visitDay: visitDay(item),
         ip: item.ip || "-"
       })),
+    [filteredVisitors]
+  );
+  const countryOptions = useMemo(
+    () => [...new Set(visitors.map((visitor) => visitor.country).filter(Boolean))].sort(),
     [visitors]
   );
+
+  function updateFilter(key, value) {
+    setFilters((current) => ({ ...current, [key]: value }));
+    visitorPager.resetPage();
+  }
 
   return (
     <>
@@ -288,33 +391,61 @@ export function AdminVisitorsRealtime({ initialData }) {
           </div>
           <CsvExportButton rows={csvRows} filename="cowin-visitors.csv" />
         </div>
-        <div className="admin-table-wrap">
-          <table className="admin-table">
-            <thead>
-              <tr>
-                <th>时间</th><th>客户编号</th><th>国家</th><th>设备</th><th>浏览器</th><th>来源</th><th>来源平台</th><th>来源详情</th><th>页面</th><th>客户标签</th><th>访问日</th><th>IP</th>
-              </tr>
-            </thead>
-            <tbody>
-              {visitors.map((visitor, index) => (
-                <tr key={`${visitor.sessionId}-${visitor.timestamp}-${index}`}>
-                  <td>{formatBeijingDateTime(visitor.timestamp)}</td>
-                  <td>{customerNumber(visitor.customerNumber)}</td>
-                  <td>{visitor.country || "未知"}</td>
-                  <td>{visitor.device}</td>
-                  <td>{visitor.browser}</td>
-                  <td>{visitor.channel}</td>
-                  <td>{visitor.sourcePlatform || "-"}</td>
-                  <td>{visitor.sourceDetail || "-"}</td>
-                  <td>{visitor.page}</td>
-                  <td><span className={`admin-customer-tag ${visitor.visitDayNumber === 1 ? "new" : "returning"}`}>{customerType(visitor)}</span></td>
-                  <td>{visitDay(visitor)}</td>
-                  <td>{visitor.ip || "-"}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="admin-filter-bar admin-filter-bar-compact">
+          <input
+            aria-label="筛选访客记录"
+            value={filters.keyword}
+            onChange={(event) => updateFilter("keyword", event.target.value)}
+            placeholder="搜索客户编号、页面、IP、来源"
+          />
+          <select aria-label="按国家筛选" value={filters.country} onChange={(event) => updateFilter("country", event.target.value)}>
+            <option value="">全部国家</option>
+            {countryOptions.map((country) => (
+              <option value={country.toLowerCase()} key={country}>{country}</option>
+            ))}
+          </select>
+          <input
+            aria-label="按来源筛选"
+            value={filters.source}
+            onChange={(event) => updateFilter("source", event.target.value)}
+            placeholder="来源 / 平台"
+          />
+          <button type="button" onClick={() => { setFilters({ keyword: "", country: "", source: "" }); visitorPager.resetPage(); }}>清空</button>
         </div>
+        {visitorPager.pageRows.length ? (
+          <>
+            <div className="admin-table-wrap">
+              <table className="admin-table">
+                <thead>
+                  <tr>
+                    <th>时间</th><th>客户编号</th><th>国家</th><th>设备</th><th>浏览器</th><th>来源</th><th>来源平台</th><th>来源详情</th><th>页面</th><th>客户标签</th><th>访问日</th><th>IP</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {visitorPager.pageRows.map((visitor, index) => (
+                    <tr key={`${visitor.sessionId}-${visitor.timestamp}-${index}`}>
+                      <td>{formatBeijingDateTime(visitor.timestamp)}</td>
+                      <td>{customerNumber(visitor.customerNumber)}</td>
+                      <td>{visitor.country || "未知"}</td>
+                      <td>{visitor.device}</td>
+                      <td>{visitor.browser}</td>
+                      <td>{visitor.channel}</td>
+                      <td>{visitor.sourcePlatform || "-"}</td>
+                      <td>{visitor.sourceDetail || "-"}</td>
+                      <td>{visitor.page}</td>
+                      <td><span className={`admin-customer-tag ${visitor.visitDayNumber === 1 ? "new" : "returning"}`}>{customerType(visitor)}</span></td>
+                      <td>{visitDay(visitor)}</td>
+                      <td>{visitor.ip || "-"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <PaginationControls {...visitorPager} />
+          </>
+        ) : (
+          <div className="admin-empty">没有符合当前筛选条件的访客记录。</div>
+        )}
       </section>
     </>
   );
@@ -324,7 +455,76 @@ export function AdminPagesRealtime({ initialData }) {
   const { data, state } = useLiveAnalytics(initialData);
   const pages = list(data.pages);
   const landingJourneys = list(data.landingJourneys);
+  const [pageFilters, setPageFilters] = useState({ keyword: "" });
+  const [journeyFilters, setJourneyFilters] = useState({ keyword: "", country: "", source: "" });
   const totalViews = pages.reduce((sum, page) => sum + Number(page.views || 0), 0);
+  const filteredPages = useMemo(() => {
+    const keyword = pageFilters.keyword.trim().toLowerCase();
+    return pages.filter((page) => {
+      if (!keyword) return true;
+      return searchableText(page.title, page.page, page.views, page.visitors, page.conversionRate).includes(keyword);
+    });
+  }, [pages, pageFilters]);
+  const pagePager = usePagedRows(pages, filteredPages);
+  const filteredLandingJourneys = useMemo(() => {
+    const keyword = journeyFilters.keyword.trim().toLowerCase();
+    const country = journeyFilters.country.trim().toLowerCase();
+    const source = journeyFilters.source.trim().toLowerCase();
+
+    return landingJourneys.filter((item) => {
+      const rowText = searchableText(
+        formatBeijingDateTime(item.timestamp),
+        customerNumber(item.customerNumber),
+        customerType(item),
+        visitDay(item),
+        item.pageTitle,
+        item.page,
+        item.previousPage,
+        item.channel,
+        item.sourcePlatform,
+        item.sourceDetail,
+        item.country,
+        item.device,
+        item.visitorId
+      );
+      if (keyword && !rowText.includes(keyword)) return false;
+      if (country && String(item.country || "").toLowerCase() !== country) return false;
+      if (source && !searchableText(item.channel, item.sourcePlatform, item.sourceDetail).includes(source)) return false;
+      return true;
+    });
+  }, [landingJourneys, journeyFilters]);
+  const landingPager = usePagedRows(landingJourneys, filteredLandingJourneys);
+  const landingCsvRows = useMemo(
+    () =>
+      filteredLandingJourneys.map((item) => ({
+        time: formatBeijingDateTime(item.timestamp),
+        customerNumber: customerNumber(item.customerNumber),
+        customerType: customerType(item),
+        visitDay: visitDay(item),
+        currentPage: item.pageTitle || item.page,
+        previousPage: item.previousPage,
+        channel: item.channel,
+        sourcePlatform: item.sourcePlatform || "-",
+        country: item.country || "未知",
+        device: item.device,
+        visitorId: item.visitorId || "-"
+      })),
+    [filteredLandingJourneys]
+  );
+  const landingCountryOptions = useMemo(
+    () => [...new Set(landingJourneys.map((item) => item.country).filter(Boolean))].sort(),
+    [landingJourneys]
+  );
+
+  function updatePageFilter(value) {
+    setPageFilters({ keyword: value });
+    pagePager.resetPage();
+  }
+
+  function updateJourneyFilter(key, value) {
+    setJourneyFilters((current) => ({ ...current, [key]: value }));
+    landingPager.resetPage();
+  }
 
   return (
     <>
@@ -336,16 +536,40 @@ export function AdminPagesRealtime({ initialData }) {
         <MetricCard label="转化率" value={`${pages[0]?.conversionRate || 0}%`} note="热门页面" />
       </section>
       <section className="admin-panel">
-        <div className="admin-table-wrap">
-          <table className="admin-table">
-            <thead><tr><th>页面</th><th>URL</th><th>浏览</th><th>访客</th><th>平均停留</th><th>询盘率</th></tr></thead>
-            <tbody>
-              {pages.map((page) => (
-                <tr key={page.page}><td>{page.title}</td><td>{page.page}</td><td>{page.views}</td><td>{page.visitors}</td><td>{page.avgDuration}s</td><td>{page.conversionRate}%</td></tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="admin-panel-headline">
+          <div>
+            <p className="eyebrow">页面筛选</p>
+            <h2>落地页数据表现</h2>
+            <p>默认每页 10 条，可搜索页面标题、URL，并切换每页 20 或 50 条。</p>
+          </div>
+          <span className="admin-result-count">{filteredPages.length} / {pages.length} 条</span>
         </div>
+        <div className="admin-filter-bar admin-filter-bar-compact">
+          <input
+            aria-label="筛选页面表现"
+            value={pageFilters.keyword}
+            onChange={(event) => updatePageFilter(event.target.value)}
+            placeholder="搜索页面标题或 URL"
+          />
+          <button type="button" onClick={() => updatePageFilter("")}>清空</button>
+        </div>
+        {pagePager.pageRows.length ? (
+          <>
+            <div className="admin-table-wrap">
+              <table className="admin-table">
+                <thead><tr><th>页面</th><th>URL</th><th>浏览</th><th>访客</th><th>平均停留</th><th>询盘率</th></tr></thead>
+                <tbody>
+                  {pagePager.pageRows.map((page) => (
+                    <tr key={page.page}><td>{page.title}</td><td>{page.page}</td><td>{page.views}</td><td>{page.visitors}</td><td>{page.avgDuration}s</td><td>{page.conversionRate}%</td></tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <PaginationControls {...pagePager} />
+          </>
+        ) : (
+          <div className="admin-empty">没有符合当前筛选条件的页面数据。</div>
+        )}
       </section>
       <section className="admin-panel">
         <div className="admin-panel-headline">
@@ -354,30 +578,61 @@ export function AdminPagesRealtime({ initialData }) {
             <h2>新老客户与访问日次数</h2>
             <p>同一访客在同一天多次浏览只算第 1 个访问日；隔天再次访问才累计为第 2 次访问日。</p>
           </div>
-          <CsvExportButton rows={landingJourneys} filename="cowin-landing-journeys.csv" />
+          <div className="admin-panel-actions">
+            <span className="admin-result-count">{filteredLandingJourneys.length} / {landingJourneys.length} 条</span>
+            <CsvExportButton rows={landingCsvRows} filename="cowin-landing-journeys.csv" />
+          </div>
         </div>
-        <div className="admin-table-wrap">
-          <table className="admin-table">
-            <thead><tr><th>时间</th><th>客户编号</th><th>客户标签</th><th>访问日</th><th>当前页面</th><th>上一页</th><th>来源</th><th>来源平台</th><th>国家</th><th>设备</th><th>访客ID</th></tr></thead>
-            <tbody>
-              {landingJourneys.map((item, index) => (
-                <tr key={`${item.visitorId}-${item.timestamp}-${index}`}>
-                  <td>{formatBeijingDateTime(item.timestamp)}</td>
-                  <td>{customerNumber(item.customerNumber)}</td>
-                  <td><span className={`admin-customer-tag ${item.visitDayNumber === 1 ? "new" : "returning"}`}>{customerType(item)}</span></td>
-                  <td>{visitDay(item)}</td>
-                  <td>{item.pageTitle}</td>
-                  <td>{item.previousPage}</td>
-                  <td>{item.channel}</td>
-                  <td>{item.sourcePlatform || "-"}</td>
-                  <td>{item.country || "未知"}</td>
-                  <td>{item.device}</td>
-                  <td>{item.visitorId?.slice(0, 16)}...</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="admin-filter-bar admin-filter-bar-compact">
+          <input
+            aria-label="筛选访问明细"
+            value={journeyFilters.keyword}
+            onChange={(event) => updateJourneyFilter("keyword", event.target.value)}
+            placeholder="搜索客户编号、页面、访客ID"
+          />
+          <select aria-label="按国家筛选访问明细" value={journeyFilters.country} onChange={(event) => updateJourneyFilter("country", event.target.value)}>
+            <option value="">全部国家</option>
+            {landingCountryOptions.map((country) => (
+              <option value={country.toLowerCase()} key={country}>{country}</option>
+            ))}
+          </select>
+          <input
+            aria-label="按来源筛选访问明细"
+            value={journeyFilters.source}
+            onChange={(event) => updateJourneyFilter("source", event.target.value)}
+            placeholder="来源 / 平台"
+          />
+          <button type="button" onClick={() => { setJourneyFilters({ keyword: "", country: "", source: "" }); landingPager.resetPage(); }}>清空</button>
         </div>
+        {landingPager.pageRows.length ? (
+          <>
+            <div className="admin-table-wrap">
+              <table className="admin-table">
+                <thead><tr><th>时间</th><th>客户编号</th><th>客户标签</th><th>访问日</th><th>当前页面</th><th>上一页</th><th>来源</th><th>来源平台</th><th>国家</th><th>设备</th><th>访客ID</th></tr></thead>
+                <tbody>
+                  {landingPager.pageRows.map((item, index) => (
+                    <tr key={`${item.visitorId}-${item.timestamp}-${index}`}>
+                      <td>{formatBeijingDateTime(item.timestamp)}</td>
+                      <td>{customerNumber(item.customerNumber)}</td>
+                      <td><span className={`admin-customer-tag ${item.visitDayNumber === 1 ? "new" : "returning"}`}>{customerType(item)}</span></td>
+                      <td>{visitDay(item)}</td>
+                      <td>{item.pageTitle}</td>
+                      <td>{item.previousPage}</td>
+                      <td>{item.channel}</td>
+                      <td>{item.sourcePlatform || "-"}</td>
+                      <td>{item.country || "未知"}</td>
+                      <td>{item.device}</td>
+                      <td>{item.visitorId?.slice(0, 16)}...</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <PaginationControls {...landingPager} />
+          </>
+        ) : (
+          <div className="admin-empty">没有符合当前筛选条件的访问明细。</div>
+        )}
       </section>
     </>
   );
@@ -387,7 +642,6 @@ export function AdminJourneysRealtime({ initialData }) {
   const { data, state } = useLiveAnalytics(initialData);
   const journeys = list(data.journeys);
   const [filters, setFilters] = useState({ keyword: "", from: "", to: "" });
-  const [page, setPage] = useState(1);
   const filteredJourneys = useMemo(() => {
     const keyword = filters.keyword.trim().toLowerCase();
     const from = filters.from.trim().toLowerCase();
@@ -403,18 +657,16 @@ export function AdminJourneysRealtime({ initialData }) {
       return true;
     });
   }, [journeys, filters]);
-  const totalPages = Math.max(1, Math.ceil(filteredJourneys.length / journeyPageSize));
-  const safePage = Math.min(page, totalPages);
-  const pageRows = filteredJourneys.slice((safePage - 1) * journeyPageSize, safePage * journeyPageSize);
+  const journeyPager = usePagedRows(journeys, filteredJourneys);
 
   function updateFilter(key, value) {
     setFilters((current) => ({ ...current, [key]: value }));
-    setPage(1);
+    journeyPager.resetPage();
   }
 
   function clearFilters() {
     setFilters({ keyword: "", from: "", to: "" });
-    setPage(1);
+    journeyPager.resetPage();
   }
 
   return (
@@ -427,7 +679,7 @@ export function AdminJourneysRealtime({ initialData }) {
               <div>
                 <p className="eyebrow">路径筛选</p>
                 <h2>访问路径明细</h2>
-                <p>每页显示 20 条，可按完整路径、来源页或目标页快速筛选。</p>
+                <p>默认每页 10 条，可按完整路径、来源页或目标页快速筛选，并切换 20 或 50 条每页。</p>
               </div>
               <span className="admin-result-count">{filteredJourneys.length} / {journeys.length} 条</span>
             </div>
@@ -452,16 +704,16 @@ export function AdminJourneysRealtime({ initialData }) {
               />
               <button type="button" onClick={clearFilters}>清空</button>
             </div>
-            {pageRows.length ? (
+            {journeyPager.pageRows.length ? (
               <>
-                <BarList rows={pageRows.map((item) => ({ label: item.route, value: item.value }))} />
+                <BarList rows={journeyPager.pageRows.map((item) => ({ label: item.route, value: item.value }))} />
                 <div className="admin-table-wrap">
                   <table className="admin-table">
                     <thead>
                       <tr><th>来源页面</th><th>目标页面</th><th>次数</th></tr>
                     </thead>
                     <tbody>
-                      {pageRows.map((item) => {
+                      {journeyPager.pageRows.map((item) => {
                         const [from = "-", to = "-"] = String(item.route || "").split(" -> ");
                         return (
                           <tr key={item.route}>
@@ -474,11 +726,7 @@ export function AdminJourneysRealtime({ initialData }) {
                     </tbody>
                   </table>
                 </div>
-                <div className="admin-pagination">
-                  <button type="button" onClick={() => setPage((current) => Math.max(1, current - 1))} disabled={safePage <= 1}>上一页</button>
-                  <span>第 {safePage} / {totalPages} 页，每页 {journeyPageSize} 条</span>
-                  <button type="button" onClick={() => setPage((current) => Math.min(totalPages, current + 1))} disabled={safePage >= totalPages}>下一页</button>
-                </div>
+                <PaginationControls {...journeyPager} />
               </>
             ) : (
               <div className="admin-empty">没有符合当前筛选条件的访问路径。</div>
