@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { LocalizedProductDetailPage } from "@/components/LocalizedPages";
 import { products } from "@/data/products";
 import { getProductBySlugWithCms } from "@/lib/productCms";
+import { cleanProductText } from "@/lib/productDisplay";
 import { getDictionary, isLocale, locales, localizedPageAlternates, type Locale } from "@/lib/i18n";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
@@ -20,12 +21,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const current = isLocale(locale) ? locale : "en";
   const t = getDictionary(current);
   if (!product) return {};
+  const summary = cleanProductText(product.summary);
   return {
     title: `${product.name} ${t.productDetail.manufacturer}`,
-    description: product.summary,
+    description: summary,
     keywords: product.keywords,
     alternates: localizedPageAlternates(current, `/products/${product.slug}`),
-    openGraph: { title: `${product.name} | COWIN MAGNET`, description: product.summary, images: [product.image] }
+    openGraph: { title: `${product.name} | COWIN MAGNET`, description: summary, images: [product.image] }
   };
 }
 

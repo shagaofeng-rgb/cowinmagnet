@@ -1,0 +1,798 @@
+{
+  "checkedAt": "2026-06-07T02:23:03.076Z",
+  "checkedAtShanghai": "2026-06-07 10:22:55",
+  "siteUrl": "http://localhost:3010",
+  "environment": "local",
+  "timezone": "Asia/Shanghai",
+  "schedule": {
+    "beijing": [
+      "09:00",
+      "21:00"
+    ],
+    "utc": "0 1,13 * * *"
+  },
+  "health": "Healthy",
+  "counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 6
+  },
+  "categoryCounts": {
+    "seo": 6
+  },
+  "summary": {
+    "pagesChecked": 18,
+    "normalPages": 18,
+    "abnormalPages": 0,
+    "frontendErrors": 0,
+    "imageErrors": 0,
+    "apiErrors": 0,
+    "seoIssues": 6,
+    "performanceIssues": 0,
+    "dataIssues": 0
+  },
+  "pageChecks": [
+    {
+      "label": "Home",
+      "source": "config",
+      "url": "http://localhost:3010/",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "http://localhost:3010/en",
+      "responseMs": 156,
+      "htmlBytes": 113387,
+      "seo": {
+        "title": "COWIN MAGNET | Magnetic Separator Supplier | COWIN MAGNET",
+        "description": "COWIN MAGNET supplies overhead magnetic separators, suspended magnets, self-cleaning magnetic separators, magnetic pulleys, magnetic bars, grate magnets, and customized magnetic separation equipment.",
+        "canonical": "https://www.cowinmagnet.com/en",
+        "h1Count": 1,
+        "imageCount": 19,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 76,
+        "issues": []
+      },
+      "resources": {
+        "count": 30,
+        "failed": 0,
+        "bytes": 4302468,
+        "byType": {
+          "image": 19,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Products",
+      "source": "config",
+      "url": "http://localhost:3010/products",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "http://localhost:3010/en/products",
+      "responseMs": 966,
+      "htmlBytes": 339517,
+      "seo": {
+        "title": "Products | Magnetic Separators and Magnetic Components | COWIN MAGNET",
+        "description": "Explore COWIN MAGNET magnetic separation equipment, suspended magnets, electromagnetic separators, magnetic lifting magnets, magnetic rods, and custom magnetic components.",
+        "canonical": "https://www.cowinmagnet.com/en/products",
+        "h1Count": 1,
+        "imageCount": 92,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 314,
+        "issues": []
+      },
+      "resources": {
+        "count": 45,
+        "failed": 0,
+        "bytes": 647578,
+        "byType": {
+          "image": 45
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Product detail",
+      "source": "config",
+      "url": "http://localhost:3010/products/suspended-permanent-magnetic-separator",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "http://localhost:3010/en/products/suspended-permanent-magnetic-separator",
+      "responseMs": 375,
+      "htmlBytes": 68247,
+      "seo": {
+        "title": "Suspended Permanent Magnetic Separator Supplier | COWIN MAGNET",
+        "description": "A suspended permanent magnet for reliable tramp iron capture where manual or periodic cleaning is acceptable.",
+        "canonical": "https://www.cowinmagnet.com/en/products/suspended-permanent-magnetic-separator",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 55,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 0,
+        "bytes": 1195174,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Applications",
+      "source": "config",
+      "url": "http://localhost:3010/applications",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "http://localhost:3010/en/applications",
+      "responseMs": 369,
+      "htmlBytes": 43234,
+      "seo": {
+        "title": "Applications | Magnetic Separation for Cement, Recycling and Waste Processing | COWIN MAGNET",
+        "description": "COWIN MAGNET magnetic separators are used in cement, aggregates, recycling plants, waste processing plants, incineration plants, and industrial bulk material handling.",
+        "canonical": "https://www.cowinmagnet.com/en/applications",
+        "h1Count": 1,
+        "imageCount": 8,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 53,
+        "issues": []
+      },
+      "resources": {
+        "count": 19,
+        "failed": 0,
+        "bytes": 2885755,
+        "byType": {
+          "image": 8,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Application detail",
+      "source": "config",
+      "url": "http://localhost:3010/applications/recycling",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "http://localhost:3010/en/applications/recycling",
+      "responseMs": 230,
+      "htmlBytes": 72410,
+      "seo": {
+        "title": "Magnetic Separation Solutions for Recycling Industry | COWIN MAGNET",
+        "description": "Magnetic separation equipment for municipal waste, construction waste, RDF fuel, plastic recycling, scrap metal recycling, and e-waste processing lines.",
+        "canonical": "https://www.cowinmagnet.com/en/applications/recycling",
+        "h1Count": 1,
+        "imageCount": 10,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 54,
+        "issues": []
+      },
+      "resources": {
+        "count": 21,
+        "failed": 0,
+        "bytes": 2791097,
+        "byType": {
+          "image": 10,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Industries",
+      "source": "config",
+      "url": "http://localhost:3010/industries",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "http://localhost:3010/en/industries",
+      "responseMs": 17,
+      "htmlBytes": 43216,
+      "seo": {
+        "title": "Industry Magnetic Separation Solutions | COWIN MAGNET | COWIN MAGNET",
+        "description": "Explore magnetic separation solutions for recycling, mining, cement and aggregate, and food processing industries.",
+        "canonical": "https://www.cowinmagnet.com/en/industries",
+        "h1Count": 1,
+        "imageCount": 8,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 54,
+        "issues": []
+      },
+      "resources": {
+        "count": 19,
+        "failed": 0,
+        "bytes": 2885755,
+        "byType": {
+          "image": 8,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Blog",
+      "source": "config",
+      "url": "http://localhost:3010/blog",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "http://localhost:3010/en/blog",
+      "responseMs": 30,
+      "htmlBytes": 46048,
+      "seo": {
+        "title": "Blog | Magnetic Separator Selection Guides | COWIN MAGNET",
+        "description": "Read COWIN MAGNET selection guides, comparison articles, and application solutions for magnetic separators, overband magnets, magnetic pulleys, and industrial magnets.",
+        "canonical": "https://www.cowinmagnet.com/en/blog",
+        "h1Count": 1,
+        "imageCount": 7,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 59,
+        "issues": []
+      },
+      "resources": {
+        "count": 17,
+        "failed": 0,
+        "bytes": 3197285,
+        "byType": {
+          "image": 6,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Blog detail",
+      "source": "config",
+      "url": "http://localhost:3010/blog/how-to-choose-overband-magnetic-separator",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "http://localhost:3010/en/blog/how-to-choose-overband-magnetic-separator",
+      "responseMs": 33,
+      "htmlBytes": 93598,
+      "seo": {
+        "title": "How to Choose an Overband Magnetic Separator for Conveyor Belts | COWIN MAGNET",
+        "description": "Learn how to choose an overband magnetic separator by belt width, belt speed, material layer, suspension height, iron contamination, and installation method.",
+        "canonical": "https://www.cowinmagnet.com/en/blog/how-to-choose-overband-magnetic-separator",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 53,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 0,
+        "bytes": 1837992,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "News",
+      "source": "config",
+      "url": "http://localhost:3010/news",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "http://localhost:3010/en/news",
+      "responseMs": 1359,
+      "htmlBytes": 55431,
+      "seo": {
+        "title": "News | Latest Industry Updates and Company Insights | COWIN MAGNET",
+        "description": "Read the latest industry news, market updates, technology trends, and company perspectives.",
+        "canonical": "https://www.cowinmagnet.com/en/news",
+        "h1Count": 1,
+        "imageCount": 9,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 69,
+        "issues": []
+      },
+      "resources": {
+        "count": 19,
+        "failed": 0,
+        "bytes": 2988505,
+        "byType": {
+          "image": 8,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "About",
+      "source": "config",
+      "url": "http://localhost:3010/about",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "http://localhost:3010/en/about",
+      "responseMs": 15,
+      "htmlBytes": 51035,
+      "seo": {
+        "title": "About Us | COWIN MAGNET | COWIN MAGNET",
+        "description": "Learn about COWIN MAGNET, a service-first magnetic separation equipment supplier helping overseas buyers with selection, sourcing coordination, OEM/ODM communication, and delivery follow-up.",
+        "canonical": "https://www.cowinmagnet.com/en/about",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 50,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 0,
+        "bytes": 1705722,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Contact",
+      "source": "config",
+      "url": "http://localhost:3010/contact",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "http://localhost:3010/en/contact",
+      "responseMs": 15,
+      "htmlBytes": 56515,
+      "seo": {
+        "title": "Contact COWIN MAGNET | COWIN MAGNET",
+        "description": "Contact COWIN MAGNET for magnetic separator selection, product inquiries, OEM/ODM customization, and global B2B quotation support.",
+        "canonical": "https://www.cowinmagnet.com/en/contact",
+        "h1Count": 1,
+        "imageCount": 5,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 53,
+        "issues": []
+      },
+      "resources": {
+        "count": 16,
+        "failed": 0,
+        "bytes": 1707164,
+        "byType": {
+          "image": 5,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Quote",
+      "source": "config",
+      "url": "http://localhost:3010/request-quote",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "http://localhost:3010/en/request-quote",
+      "responseMs": 14,
+      "htmlBytes": 46919,
+      "seo": {
+        "title": "Request a Quote | COWIN MAGNET | COWIN MAGNET",
+        "description": "Request a custom quotation for magnetic separators, suspended magnets, self-cleaning separators, magnetic pulleys, magnetic bars, and industrial metal detection equipment.",
+        "canonical": "https://www.cowinmagnet.com/en/request-quote",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 50,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 0,
+        "bytes": 1264481,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "English home",
+      "source": "config",
+      "url": "http://localhost:3010/en",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "http://localhost:3010/en",
+      "responseMs": 9,
+      "htmlBytes": 113387,
+      "seo": {
+        "title": "COWIN MAGNET | Magnetic Separator Supplier | COWIN MAGNET",
+        "description": "COWIN MAGNET supplies overhead magnetic separators, suspended magnets, self-cleaning magnetic separators, magnetic pulleys, magnetic bars, grate magnets, and customized magnetic separation equipment.",
+        "canonical": "https://www.cowinmagnet.com/en",
+        "h1Count": 1,
+        "imageCount": 19,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 76,
+        "issues": []
+      },
+      "resources": {
+        "count": 30,
+        "failed": 0,
+        "bytes": 4302468,
+        "byType": {
+          "image": 19,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Spanish products",
+      "source": "config",
+      "url": "http://localhost:3010/es/products",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "http://localhost:3010/es/products",
+      "responseMs": 95,
+      "htmlBytes": 339749,
+      "seo": {
+        "title": "Productos | Separadores magnéticos, torres de luz y compresores de aire | COWIN MAGNET",
+        "description": "Explore equipos de separación magnética, productos electromagnéticos, barras magnéticas, torres solares móviles y compresores portátiles de COWIN MAGNET.",
+        "canonical": "https://www.cowinmagnet.com/es/products",
+        "h1Count": 1,
+        "imageCount": 92,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 314,
+        "issues": []
+      },
+      "resources": {
+        "count": 45,
+        "failed": 0,
+        "bytes": 647578,
+        "byType": {
+          "image": 45
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "French contact",
+      "source": "config",
+      "url": "http://localhost:3010/fr/contact",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "http://localhost:3010/fr/contact",
+      "responseMs": 8,
+      "htmlBytes": 56552,
+      "seo": {
+        "title": "Contact COWIN MAGNET | COWIN MAGNET",
+        "description": "Contact COWIN MAGNET for magnetic separator selection, product inquiries, OEM/ODM customization, and global B2B quotation support.",
+        "canonical": "https://www.cowinmagnet.com/fr/contact",
+        "h1Count": 1,
+        "imageCount": 5,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 53,
+        "issues": []
+      },
+      "resources": {
+        "count": 16,
+        "failed": 0,
+        "bytes": 1707164,
+        "byType": {
+          "image": 5,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Portuguese applications",
+      "source": "config",
+      "url": "http://localhost:3010/pt/applications",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "http://localhost:3010/pt/applications",
+      "responseMs": 7,
+      "htmlBytes": 43235,
+      "seo": {
+        "title": "Applications | Magnetic Separation for Mining, Recycling and Cement | COWIN MAGNET",
+        "description": "COWIN MAGNET magnetic separators are used in mining, recycling, aggregate, cement, coal handling, power plants, metallurgy, and industrial bulk material processing.",
+        "canonical": "https://www.cowinmagnet.com/pt/applications",
+        "h1Count": 1,
+        "imageCount": 8,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 53,
+        "issues": []
+      },
+      "resources": {
+        "count": 19,
+        "failed": 0,
+        "bytes": 2885755,
+        "byType": {
+          "image": 8,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Russian blog",
+      "source": "config",
+      "url": "http://localhost:3010/ru/blog",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "http://localhost:3010/ru/blog",
+      "responseMs": 7,
+      "htmlBytes": 46534,
+      "seo": {
+        "title": "Blog | Magnetic Separator Selection Guides | COWIN MAGNET",
+        "description": "Read COWIN MAGNET selection guides, comparison articles, and application solutions for magnetic separators, overband magnets, magnetic pulleys, and industrial magnets.",
+        "canonical": "https://www.cowinmagnet.com/ru/blog",
+        "h1Count": 1,
+        "imageCount": 7,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 59,
+        "issues": []
+      },
+      "resources": {
+        "count": 17,
+        "failed": 0,
+        "bytes": 3197285,
+        "byType": {
+          "image": 6,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Arabic home",
+      "source": "config",
+      "url": "http://localhost:3010/ar",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "http://localhost:3010/ar",
+      "responseMs": 15,
+      "htmlBytes": 114837,
+      "seo": {
+        "title": "COWIN MAGNET | مورد فواصل مغناطيسية | COWIN MAGNET",
+        "description": "توفر COWIN MAGNET فواصل مغناطيسية معلقة وذاتية التنظيف وبكرات مغناطيسية وقضبان وشبكات مغناطيسية ومعدات فصل مغناطيسي مخصصة.",
+        "canonical": "https://www.cowinmagnet.com/ar",
+        "h1Count": 1,
+        "imageCount": 19,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 76,
+        "issues": []
+      },
+      "resources": {
+        "count": 30,
+        "failed": 0,
+        "bytes": 4302468,
+        "byType": {
+          "image": 19,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    }
+  ],
+  "apiChecks": [
+    {
+      "label": "Analytics health API",
+      "url": "http://localhost:3010/api/analytics/health",
+      "status": 200,
+      "ok": true,
+      "responseMs": 152,
+      "json": {
+        "ok": true,
+        "storageMode": "local-file",
+        "pageViews": 0,
+        "uniqueVisitors": 0,
+        "sessions": 0,
+        "visitorRows": 0,
+        "generatedAt": "2026-06-07T02:22:55.998Z"
+      },
+      "issues": []
+    },
+    {
+      "label": "News opportunities API",
+      "url": "http://localhost:3010/api/news-opportunities",
+      "status": 200,
+      "ok": true,
+      "responseMs": 182,
+      "json": {
+        "runs": [
+          "2026-06-04",
+          "2026-05-31"
+        ],
+        "latest": {
+          "date": "2026-06-04",
+          "generatedAt": "2026-06-04T11:24:29.303Z",
+          "sourceCount": 51,
+          "selectedCount": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "robots.txt",
+      "url": "http://localhost:3010/robots.txt",
+      "status": 200,
+      "ok": true,
+      "responseMs": 26,
+      "json": null,
+      "issues": []
+    },
+    {
+      "label": "sitemap.xml",
+      "url": "http://localhost:3010/sitemap.xml",
+      "status": 200,
+      "ok": true,
+      "responseMs": 104,
+      "json": null,
+      "issues": []
+    }
+  ],
+  "visual": {
+    "enabled": false,
+    "reason": "playwright-not-installed",
+    "screenshots": []
+  },
+  "screenshots": [],
+  "issues": [
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "http://localhost:3010/",
+      "message": "Duplicate title on 2 checked pages: COWIN MAGNET | Magnetic Separator Supplier | COWIN MAGNET",
+      "suggestion": "Make titles unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "http://localhost:3010/blog",
+      "message": "Duplicate title on 2 checked pages: Blog | Magnetic Separator Selection Guides | COWIN MAGNET",
+      "suggestion": "Make titles unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "http://localhost:3010/contact",
+      "message": "Duplicate title on 2 checked pages: Contact COWIN MAGNET | COWIN MAGNET",
+      "suggestion": "Make titles unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "http://localhost:3010/",
+      "message": "Duplicate meta description on 2 checked pages.",
+      "suggestion": "Make descriptions unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "http://localhost:3010/blog",
+      "message": "Duplicate meta description on 2 checked pages.",
+      "suggestion": "Make descriptions unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "http://localhost:3010/contact",
+      "message": "Duplicate meta description on 2 checked pages.",
+      "suggestion": "Make descriptions unique for important pages."
+    }
+  ],
+  "paths": {
+    "json": "/Users/apple/Documents/cowinmagnet.com/repo-src/reports/website-monitor/cowinmagnet-monitor-2026-06-07-10-22-55.json",
+    "html": "/Users/apple/Documents/cowinmagnet.com/repo-src/reports/website-monitor/cowinmagnet-monitor-2026-06-07-10-22-55.html"
+  },
+  "notification": {
+    "email": {
+      "sent": false,
+      "reason": "not-requested"
+    }
+  }
+}

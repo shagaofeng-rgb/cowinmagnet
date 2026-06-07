@@ -6,12 +6,12 @@
   "category": "industry-news",
   "categoryTitle": "Industry News",
   "categoryDescription": "Industry news references with Cowinmagnet original analysis and buyer-focused magnetic separation viewpoints.",
-  "coverImage": "https://www.mining.com/wp-content/uploads/2026/06/AdobeStock_901202261-scaled-e1728425813994.jpeg",
-  "coverAlt": "Rare Earth Processing News Signals Magnetic Separation Demand: Cowinmagnet View source image from Mining.com",
-  "imageCaption": "Source news image from Mining.com. Cowinmagnet uses the image as a referenced news cover and adds its own industry analysis below.",
-  "imageSourceName": "Mining.com",
-  "imageSourceUrl": "https://www.mining.com/stardust-power-joins-department-of-energy-backed-lithium-extraction-program/",
-  "imageLicenseNote": "External news image from Mining.com; displayed with source attribution.",
+  "coverImage": "/images/industries/mining-scenarios/manganese-ore.jpg",
+  "coverAlt": "Cowinmagnet mining magnetic separation equipment image for rare earth processing news analysis",
+  "imageCaption": "Cowinmagnet company-library image used as an industry analysis cover. The referenced news source is credited in the article source section.",
+  "imageSourceName": "Cowinmagnet",
+  "imageSourceUrl": "https://www.cowinmagnet.com",
+  "imageLicenseNote": "Cowinmagnet company image library.",
   "bodyImages": [
     {
       "imageUrl": "/images/industries/mining-scenarios/manganese-ore.jpg",

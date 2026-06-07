@@ -20,6 +20,7 @@ import { absoluteUrl, breadcrumbSchema, faqSchema, organizationSchema } from "@/
 import type { Locale } from "@/lib/i18n";
 import { getDictionary, localizeHref } from "@/lib/i18n";
 import { getStaticInternalLinkSuggestions } from "@/lib/linkStrategy";
+import { cleanProductList, cleanProductSpecs, cleanProductText } from "@/lib/productDisplay";
 
 const advantageIcons = [ShieldCheck, Settings, Headphones, Globe2];
 const serviceIcons = [Headphones, Wrench, Truck, ShieldCheck, BadgeCheck, Globe2];
@@ -111,7 +112,7 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
               />
               {application.iconImage ? (
                 <span className="application-mini-icon" aria-hidden="true">
-                  <Image src={application.iconImage} width={80} height={80} alt="" loading="lazy" />
+                  <Image src={application.iconImage} width={80} height={80} alt={`${application.name} magnetic separation icon`} loading="lazy" />
                 </span>
               ) : null}
               <span>{application.name}</span>
@@ -181,12 +182,18 @@ export function LocalizedProductsPage({
 export function LocalizedProductDetailPage({ locale, product }: { locale: Locale; product: Product }) {
   const t = getDictionary(locale);
   const relatedInternalLinks = getStaticInternalLinkSuggestions({ type: "product", slug: product.slug, limit: 5 });
+  const summary = cleanProductText(product.summary);
+  const principle = cleanProductText(product.principle, summary);
+  const features = cleanProductList(product.features);
+  const specs = cleanProductSpecs(product.specs);
+  const applications = cleanProductList(product.applications);
+  const customization = cleanProductList(product.customization);
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
     image: absoluteUrl(product.image),
-    description: product.summary,
+    description: summary,
     brand: { "@type": "Brand", name: site.name },
     seller: { "@type": "Organization", name: site.legalName },
     category: product.category,
@@ -202,7 +209,7 @@ export function LocalizedProductDetailPage({ locale, product }: { locale: Locale
         <div>
           <span className="eyebrow">{product.category}</span>
           <h1>{product.name} {t.productDetail.manufacturer}</h1>
-          <p>{product.summary}</p>
+          <p>{summary}</p>
           <div className="hero-actions">
             <Link href={localizeHref(`/request-quote?product=${encodeURIComponent(product.name)}`, locale)} className="btn btn-primary">{t.common.getQuote}</Link>
             <Link href={localizeHref("/contact", locale)} className="btn btn-secondary">{t.common.contactSales}</Link>
@@ -212,13 +219,13 @@ export function LocalizedProductDetailPage({ locale, product }: { locale: Locale
       </section>
       <section className="section detail-layout">
         <article className="detail-main">
-          <ContentBlock title={t.productDetail.overview}><p>{product.summary}</p></ContentBlock>
-          <ContentBlock title={t.productDetail.features}><FeatureList items={product.features} /></ContentBlock>
-          <ContentBlock title={t.productDetail.principle}><p>{product.principle}</p></ContentBlock>
-          <ContentBlock title={t.productDetail.specifications}><SpecTable specs={product.specs} /></ContentBlock>
-          <ContentBlock title={t.productDetail.industries}><TagList items={product.applications} /></ContentBlock>
+          <ContentBlock title={t.productDetail.overview}><p>{summary}</p></ContentBlock>
+          <ContentBlock title={t.productDetail.features}><FeatureList items={features} /></ContentBlock>
+          <ContentBlock title={t.productDetail.principle}><p>{principle}</p></ContentBlock>
+          <ContentBlock title={t.productDetail.specifications}><SpecTable specs={specs} /></ContentBlock>
+          <ContentBlock title={t.productDetail.industries}><TagList items={applications} /></ContentBlock>
           <ContentBlock title={t.productDetail.installation}><p>{product.installation}</p></ContentBlock>
-          <ContentBlock title={t.productDetail.customization}><TagList items={product.customization} /></ContentBlock>
+          <ContentBlock title={t.productDetail.customization}><TagList items={customization} /></ContentBlock>
           <ContentBlock title={t.productDetail.faq}><FaqList faqs={product.faqs} /></ContentBlock>
         </article>
         <aside className="quote-panel">

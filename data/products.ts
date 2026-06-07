@@ -370,7 +370,7 @@ export const products: Product[] = [
       "/assets/products/dry-drum-magnetic-separator/dry-drum-magnetic-separator-10.jpg",
       "/assets/products/dry-drum-magnetic-separator/dry-drum-magnetic-separator-15.jpg"
     ],
-    "summary": "Dry Drum Magnetic Separator is high-efficiency ore concentration machine newly designed by our company which is widely used to remove, purify or separate materials, allowing them to be of higher values. Rely on our elaborate efforts, it becomes great for the",
+    "summary": "Dry Drum Magnetic Separator is a high-efficiency ore concentration machine used to remove, purify, or separate magnetic materials in dry processing lines.",
     "keywords": [
       "Dry Drum Magnetic Separator",
       "Mining Industry",
@@ -381,23 +381,11 @@ export const products: Product[] = [
       "metal recycling"
     ],
     "features": [],
-    "principle": "production cost, opening a new way for magnetite mining and utilization.\"> window.onload=function(){ // 谷歌统计 window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-162924846-5') } window.siteIsPc=true; window.foreignList= []; window.tenant = {\"cdnFlag\":\"2\",\"createTime\":null,\"domain\":\"www.chnmag.com\",\"domainInfo\":null,\"foreign\":true,\"id\":233649,\"language\":\"en\",\"mobileDomain\":\"\",\"mobileStatus\":8,\"status\":6,\"templateCode\":\"global_site_advanced\",\"tenantCode\":\"100001_2103255008\",\"unittype\":\"100001\",\"verify\":\"76abbef3d4e123bec2a172bdd904ac76\",\"mverify\":\"\"}; window.commonShortUrl = (\"http://www.ceurl.cn\" == \"\") ? \"\" : \"http://www.ceurl.cn\" + \"/\"; window.upgradeVersion=\"e4a156357c415e7bbe4f2488a327595b\"; var isxinnet = \"false\"; window.noredirectCookieName = \"_noredirect\"; var visittrack_siteId = \"100001_2103255008\"; var visittrack_url = \"\"; var gatherScripts = \"\"; var unittype=window.tenant.unittype ; window.globalObj={}; window.globalObj.isOpenSSL = false; if(!(unittype == '100009'||unittype == '100084' ||unittype == '100007' )){ window.intelligetJump={\"identification\":\"false\"};//智能跳转 } if(unittype == '100001'){ window.getMultilingual={\"website\":\"\",\"switcher\":\"off\"};//多语言和获取网站url对象 } try{ var setDomain = window.location.hostname.replace(\"http://\", \"\").replace(\"https://\", \"\"); if (setDomain.match(/[a-z]+/) != null) { var domainArr = setDomain.split(\".\"); var preDomain=domainArr[domainArr.length - 2] + \".\" + domainArr[domainArr.length - 1]; if(/(com|cn|org|net|xin|edu|ac)\\..*/.test(preDomain)){ preDomain=domainArr[domainArr.length - 3]+\".\"+domainArr[domainArr.length - 2] + \".\" + domainArr[domainArr.length - 1]; } document.domain = preDomain; } }catch(e){ console.log(e); }",
+    "principle": "The equipment separates magnetic minerals or ferrous particles from dry bulk material by using a magnetic drum. Magnetic material is attracted to the drum surface and discharged separately from non-magnetic material.",
     "specs": [
       {
         "label": "Model",
-        "value": "JSON"
-      },
-      {
-        "label": "Model",
         "value": "QJ-CGT"
-      },
-      {
-        "label": "Model",
-        "value": "QJFK"
-      },
-      {
-        "label": "Model",
-        "value": "UA-162924846"
       }
     ],
     "applications": [
@@ -410,10 +398,7 @@ export const products: Product[] = [
     ],
     "installation": "",
     "customization": [
-      "Model: JSON",
-      "Model: QJ-CGT",
-      "Model: QJFK",
-      "Model: UA-162924846"
+      "Model: QJ-CGT"
     ],
     "faqs": [],
     "sourceUrls": [

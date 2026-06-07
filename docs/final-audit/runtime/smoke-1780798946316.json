@@ -1,0 +1,455 @@
+{
+  "generatedAt": "2026-06-07T02:22:26.315Z",
+  "siteUrl": "http://localhost:3010",
+  "publicResults": [
+    {
+      "url": "http://localhost:3010/",
+      "status": 307,
+      "ok": true,
+      "contentType": "",
+      "seo": {},
+      "error": ""
+    },
+    {
+      "url": "http://localhost:3010/en",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": ""
+    },
+    {
+      "url": "http://localhost:3010/en/products",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": ""
+    },
+    {
+      "url": "http://localhost:3010/en/news",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": ""
+    },
+    {
+      "url": "http://localhost:3010/en/about",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": ""
+    },
+    {
+      "url": "http://localhost:3010/en/contact",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": ""
+    },
+    {
+      "url": "http://localhost:3010/products",
+      "status": 307,
+      "ok": true,
+      "contentType": "",
+      "seo": {},
+      "error": ""
+    },
+    {
+      "url": "http://localhost:3010/news",
+      "status": 307,
+      "ok": true,
+      "contentType": "",
+      "seo": {},
+      "error": ""
+    },
+    {
+      "url": "http://localhost:3010/sitemap.xml",
+      "status": 200,
+      "ok": true,
+      "contentType": "application/xml",
+      "seo": {},
+      "error": ""
+    },
+    {
+      "url": "http://localhost:3010/robots.txt",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/plain",
+      "seo": {},
+      "error": ""
+    },
+    {
+      "url": "http://localhost:3010/feed.xml",
+      "status": 200,
+      "ok": true,
+      "contentType": "application/rss+xml; charset=utf-8",
+      "seo": {},
+      "error": ""
+    },
+    {
+      "url": "http://localhost:3010/news-sitemap.xml",
+      "status": 200,
+      "ok": true,
+      "contentType": "application/xml; charset=utf-8",
+      "seo": {},
+      "error": ""
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/products",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/applications",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/industries",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/blog",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/news",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/about",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/projects",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/contact",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/request-quote",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/products/rcyd-type-permanent-magnet-self-dumping-iron-remover",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/products/rcyb-type-permanent-magnet-manual-iron-remover",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/products/belt-high-gradient-magnetic-separator",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/products/disc-magnetic-separator-for-tailing",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/products/dry-drum-magnetic-separator",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/products/wet-drum-magnetic-separator",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/products/cbz-type-rotary-automatic-magnetic-separator",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    },
+    {
+      "url": "https://www.cowinmagnet.com/en/products/cgb-type-rotary-semi-automatic-magnetic-separator",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/html; charset=utf-8",
+      "seo": {
+        "title": true,
+        "description": true,
+        "h1": true,
+        "canonical": true,
+        "htmlLang": true
+      },
+      "error": "",
+      "source": "sitemap"
+    }
+  ],
+  "adminResults": [
+    {
+      "url": "http://localhost:3010/admin/login",
+      "status": 200,
+      "ok": true,
+      "hasPasswordToggle": true,
+      "error": ""
+    },
+    {
+      "url": "http://localhost:3010/api/admin/login",
+      "status": 303,
+      "ok": false,
+      "location": "http://localhost:3010/admin/login?error=not-configured",
+      "sessionCookie": false,
+      "error": ""
+    }
+  ],
+  "summary": {
+    "publicTotal": 32,
+    "publicFailed": 0,
+    "adminTotal": 2,
+    "adminFailed": 1
+  }
+}

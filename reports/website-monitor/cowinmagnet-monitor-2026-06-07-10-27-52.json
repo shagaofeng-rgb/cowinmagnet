@@ -1,0 +1,1762 @@
+{
+  "checkedAt": "2026-06-07T02:29:01.271Z",
+  "checkedAtShanghai": "2026-06-07 10:27:52",
+  "siteUrl": "https://www.cowinmagnet.com",
+  "environment": "local",
+  "timezone": "Asia/Shanghai",
+  "schedule": {
+    "beijing": [
+      "09:00",
+      "21:00"
+    ],
+    "utc": "0 1,13 * * *"
+  },
+  "health": "Warning",
+  "counts": {
+    "P0": 0,
+    "P1": 11,
+    "P2": 9,
+    "P3": 16
+  },
+  "categoryCounts": {
+    "seo": 19,
+    "availability": 8,
+    "performance": 4,
+    "resource": 5
+  },
+  "summary": {
+    "pagesChecked": 36,
+    "normalPages": 29,
+    "abnormalPages": 7,
+    "frontendErrors": 0,
+    "imageErrors": 2,
+    "apiErrors": 0,
+    "seoIssues": 19,
+    "performanceIssues": 4,
+    "dataIssues": 0
+  },
+  "pageChecks": [
+    {
+      "label": "Home",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "https://www.cowinmagnet.com/en",
+      "responseMs": 1835,
+      "htmlBytes": 113032,
+      "seo": {
+        "title": "COWIN MAGNET | Magnetic Separator Supplier | COWIN MAGNET",
+        "description": "COWIN MAGNET supplies overhead magnetic separators, suspended magnets, self-cleaning magnetic separators, magnetic pulleys, magnetic bars, grate magnets, and customized magnetic separation equipment.",
+        "canonical": "https://www.cowinmagnet.com/en",
+        "h1Count": 1,
+        "imageCount": 19,
+        "missingAlt": 4,
+        "hreflangCount": 7,
+        "issues": [
+          {
+            "severity": "P2",
+            "category": "seo",
+            "url": "https://www.cowinmagnet.com/",
+            "message": "4 images are missing alt text.",
+            "suggestion": "Add meaningful alt text to product and content images."
+          }
+        ]
+      },
+      "interaction": {
+        "linkCount": 76,
+        "issues": []
+      },
+      "resources": {
+        "count": 30,
+        "failed": 0,
+        "bytes": 3194159,
+        "byType": {
+          "image": 19,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": [
+        {
+          "severity": "P2",
+          "category": "seo",
+          "url": "https://www.cowinmagnet.com/",
+          "message": "4 images are missing alt text.",
+          "suggestion": "Add meaningful alt text to product and content images."
+        }
+      ]
+    },
+    {
+      "label": "Products",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/products",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "https://www.cowinmagnet.com/en/products",
+      "responseMs": 3375,
+      "htmlBytes": 339768,
+      "seo": {
+        "title": "Products | Magnetic Separators and Magnetic Components | COWIN MAGNET",
+        "description": "Explore COWIN MAGNET magnetic separation equipment, suspended magnets, electromagnetic separators, magnetic lifting magnets, magnetic rods, and custom magnetic components.",
+        "canonical": "https://www.cowinmagnet.com/en/products",
+        "h1Count": 1,
+        "imageCount": 92,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 314,
+        "issues": []
+      },
+      "resources": {
+        "count": 45,
+        "failed": 0,
+        "bytes": 647578,
+        "byType": {
+          "image": 45
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Product detail",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/products/suspended-permanent-magnetic-separator",
+      "status": 0,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/products/suspended-permanent-magnetic-separator",
+      "responseMs": 18005,
+      "htmlBytes": 0,
+      "seo": null,
+      "interaction": null,
+      "resources": {
+        "count": 0,
+        "failed": 0,
+        "bytes": 0,
+        "byType": {}
+      },
+      "issues": [
+        {
+          "severity": "P1",
+          "category": "availability",
+          "url": "https://www.cowinmagnet.com/products/suspended-permanent-magnetic-separator",
+          "message": "Unexpected HTTP status timeout.",
+          "suggestion": "Check page availability."
+        },
+        {
+          "severity": "P1",
+          "category": "availability",
+          "url": "https://www.cowinmagnet.com/products/suspended-permanent-magnetic-separator",
+          "message": "Page timed out after 18000ms.",
+          "suggestion": "Check deployment, CDN, and origin response time."
+        },
+        {
+          "severity": "P2",
+          "category": "performance",
+          "url": "https://www.cowinmagnet.com/products/suspended-permanent-magnetic-separator",
+          "message": "Slow page response: 18005ms.",
+          "suggestion": "Review server rendering, cache, and large assets."
+        }
+      ]
+    },
+    {
+      "label": "Applications",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/applications",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "https://www.cowinmagnet.com/en/applications",
+      "responseMs": 1511,
+      "htmlBytes": 43234,
+      "seo": {
+        "title": "Applications | Magnetic Separation for Cement, Recycling and Waste Processing | COWIN MAGNET",
+        "description": "COWIN MAGNET magnetic separators are used in cement, aggregates, recycling plants, waste processing plants, incineration plants, and industrial bulk material handling.",
+        "canonical": "https://www.cowinmagnet.com/en/applications",
+        "h1Count": 1,
+        "imageCount": 8,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 53,
+        "issues": []
+      },
+      "resources": {
+        "count": 19,
+        "failed": 0,
+        "bytes": 1783997,
+        "byType": {
+          "image": 8,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Application detail",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/applications/recycling",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "https://www.cowinmagnet.com/en/applications/recycling",
+      "responseMs": 2310,
+      "htmlBytes": 72410,
+      "seo": {
+        "title": "Magnetic Separation Solutions for Recycling Industry | COWIN MAGNET",
+        "description": "Magnetic separation equipment for municipal waste, construction waste, RDF fuel, plastic recycling, scrap metal recycling, and e-waste processing lines.",
+        "canonical": "https://www.cowinmagnet.com/en/applications/recycling",
+        "h1Count": 1,
+        "imageCount": 10,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 54,
+        "issues": []
+      },
+      "resources": {
+        "count": 21,
+        "failed": 0,
+        "bytes": 1689356,
+        "byType": {
+          "image": 10,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Industries",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/industries",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "https://www.cowinmagnet.com/en/industries",
+      "responseMs": 2276,
+      "htmlBytes": 43216,
+      "seo": {
+        "title": "Industry Magnetic Separation Solutions | COWIN MAGNET | COWIN MAGNET",
+        "description": "Explore magnetic separation solutions for recycling, mining, cement and aggregate, and food processing industries.",
+        "canonical": "https://www.cowinmagnet.com/en/industries",
+        "h1Count": 1,
+        "imageCount": 8,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 54,
+        "issues": []
+      },
+      "resources": {
+        "count": 19,
+        "failed": 0,
+        "bytes": 1783997,
+        "byType": {
+          "image": 8,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Blog",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/blog",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "https://www.cowinmagnet.com/en/blog",
+      "responseMs": 2262,
+      "htmlBytes": 46048,
+      "seo": {
+        "title": "Blog | Magnetic Separator Selection Guides | COWIN MAGNET",
+        "description": "Read COWIN MAGNET selection guides, comparison articles, and application solutions for magnetic separators, overband magnets, magnetic pulleys, and industrial magnets.",
+        "canonical": "https://www.cowinmagnet.com/en/blog",
+        "h1Count": 1,
+        "imageCount": 7,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 59,
+        "issues": []
+      },
+      "resources": {
+        "count": 17,
+        "failed": 0,
+        "bytes": 2095542,
+        "byType": {
+          "image": 6,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Blog detail",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/blog/how-to-choose-overband-magnetic-separator",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "https://www.cowinmagnet.com/en/blog/how-to-choose-overband-magnetic-separator",
+      "responseMs": 2490,
+      "htmlBytes": 93598,
+      "seo": {
+        "title": "How to Choose an Overband Magnetic Separator for Conveyor Belts | COWIN MAGNET",
+        "description": "Learn how to choose an overband magnetic separator by belt width, belt speed, material layer, suspension height, iron contamination, and installation method.",
+        "canonical": "https://www.cowinmagnet.com/en/blog/how-to-choose-overband-magnetic-separator",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 53,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 0,
+        "bytes": 736264,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "News",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/news",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "https://www.cowinmagnet.com/en/news",
+      "responseMs": 833,
+      "htmlBytes": 55126,
+      "seo": {
+        "title": "News | Latest Industry Updates and Company Insights | COWIN MAGNET",
+        "description": "Read the latest industry news, market updates, technology trends, and company perspectives.",
+        "canonical": "https://www.cowinmagnet.com/en/news",
+        "h1Count": 1,
+        "imageCount": 9,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 69,
+        "issues": []
+      },
+      "resources": {
+        "count": 20,
+        "failed": 2,
+        "bytes": 1819026,
+        "byType": {
+          "image": 9,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": [
+        {
+          "severity": "P2",
+          "category": "resource",
+          "url": "https://www.cowinmagnet.com/news",
+          "message": "image failed: https://www.mining.com/wp-content/uploads/2026/06/ELementusa-1.jpg (403).",
+          "suggestion": "Fix the missing resource URL or deployment asset."
+        },
+        {
+          "severity": "P2",
+          "category": "resource",
+          "url": "https://www.cowinmagnet.com/news",
+          "message": "image failed: https://www.mining.com/wp-content/uploads/2026/06/AdobeStock_901202261-scaled-e1728425813994.jpeg (403).",
+          "suggestion": "Fix the missing resource URL or deployment asset."
+        }
+      ]
+    },
+    {
+      "label": "About",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/about",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "https://www.cowinmagnet.com/en/about",
+      "responseMs": 2385,
+      "htmlBytes": 51035,
+      "seo": {
+        "title": "About Us | COWIN MAGNET | COWIN MAGNET",
+        "description": "Learn about COWIN MAGNET, a service-first magnetic separation equipment supplier helping overseas buyers with selection, sourcing coordination, OEM/ODM communication, and delivery follow-up.",
+        "canonical": "https://www.cowinmagnet.com/en/about",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 50,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 0,
+        "bytes": 604020,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Contact",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/contact",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "https://www.cowinmagnet.com/en/contact",
+      "responseMs": 2272,
+      "htmlBytes": 56515,
+      "seo": {
+        "title": "Contact COWIN MAGNET | COWIN MAGNET",
+        "description": "Contact COWIN MAGNET for magnetic separator selection, product inquiries, OEM/ODM customization, and global B2B quotation support.",
+        "canonical": "https://www.cowinmagnet.com/en/contact",
+        "h1Count": 1,
+        "imageCount": 5,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 53,
+        "issues": []
+      },
+      "resources": {
+        "count": 16,
+        "failed": 0,
+        "bytes": 605462,
+        "byType": {
+          "image": 5,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Quote",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/request-quote",
+      "status": 200,
+      "ok": true,
+      "redirected": true,
+      "finalUrl": "https://www.cowinmagnet.com/en/request-quote",
+      "responseMs": 2346,
+      "htmlBytes": 46919,
+      "seo": {
+        "title": "Request a Quote | COWIN MAGNET | COWIN MAGNET",
+        "description": "Request a custom quotation for magnetic separators, suspended magnets, self-cleaning separators, magnetic pulleys, magnetic bars, and industrial metal detection equipment.",
+        "canonical": "https://www.cowinmagnet.com/en/request-quote",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 50,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 0,
+        "bytes": 162746,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "English home",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/en",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en",
+      "responseMs": 1260,
+      "htmlBytes": 113032,
+      "seo": {
+        "title": "COWIN MAGNET | Magnetic Separator Supplier | COWIN MAGNET",
+        "description": "COWIN MAGNET supplies overhead magnetic separators, suspended magnets, self-cleaning magnetic separators, magnetic pulleys, magnetic bars, grate magnets, and customized magnetic separation equipment.",
+        "canonical": "https://www.cowinmagnet.com/en",
+        "h1Count": 1,
+        "imageCount": 19,
+        "missingAlt": 4,
+        "hreflangCount": 7,
+        "issues": [
+          {
+            "severity": "P2",
+            "category": "seo",
+            "url": "https://www.cowinmagnet.com/en",
+            "message": "4 images are missing alt text.",
+            "suggestion": "Add meaningful alt text to product and content images."
+          }
+        ]
+      },
+      "interaction": {
+        "linkCount": 76,
+        "issues": []
+      },
+      "resources": {
+        "count": 30,
+        "failed": 0,
+        "bytes": 3194159,
+        "byType": {
+          "image": 19,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": [
+        {
+          "severity": "P2",
+          "category": "seo",
+          "url": "https://www.cowinmagnet.com/en",
+          "message": "4 images are missing alt text.",
+          "suggestion": "Add meaningful alt text to product and content images."
+        }
+      ]
+    },
+    {
+      "label": "Spanish products",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/es/products",
+      "status": 0,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/es/products",
+      "responseMs": 18003,
+      "htmlBytes": 0,
+      "seo": null,
+      "interaction": null,
+      "resources": {
+        "count": 0,
+        "failed": 0,
+        "bytes": 0,
+        "byType": {}
+      },
+      "issues": [
+        {
+          "severity": "P1",
+          "category": "availability",
+          "url": "https://www.cowinmagnet.com/es/products",
+          "message": "Unexpected HTTP status timeout.",
+          "suggestion": "Check page availability."
+        },
+        {
+          "severity": "P1",
+          "category": "availability",
+          "url": "https://www.cowinmagnet.com/es/products",
+          "message": "Page timed out after 18000ms.",
+          "suggestion": "Check deployment, CDN, and origin response time."
+        },
+        {
+          "severity": "P2",
+          "category": "performance",
+          "url": "https://www.cowinmagnet.com/es/products",
+          "message": "Slow page response: 18003ms.",
+          "suggestion": "Review server rendering, cache, and large assets."
+        }
+      ]
+    },
+    {
+      "label": "French contact",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/fr/contact",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/fr/contact",
+      "responseMs": 1207,
+      "htmlBytes": 56552,
+      "seo": {
+        "title": "Contact COWIN MAGNET | COWIN MAGNET",
+        "description": "Contact COWIN MAGNET for magnetic separator selection, product inquiries, OEM/ODM customization, and global B2B quotation support.",
+        "canonical": "https://www.cowinmagnet.com/fr/contact",
+        "h1Count": 1,
+        "imageCount": 5,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 53,
+        "issues": []
+      },
+      "resources": {
+        "count": 16,
+        "failed": 0,
+        "bytes": 605462,
+        "byType": {
+          "image": 5,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Portuguese applications",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/pt/applications",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/pt/applications",
+      "responseMs": 1184,
+      "htmlBytes": 43235,
+      "seo": {
+        "title": "Applications | Magnetic Separation for Mining, Recycling and Cement | COWIN MAGNET",
+        "description": "COWIN MAGNET magnetic separators are used in mining, recycling, aggregate, cement, coal handling, power plants, metallurgy, and industrial bulk material processing.",
+        "canonical": "https://www.cowinmagnet.com/pt/applications",
+        "h1Count": 1,
+        "imageCount": 8,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 53,
+        "issues": []
+      },
+      "resources": {
+        "count": 19,
+        "failed": 0,
+        "bytes": 1783997,
+        "byType": {
+          "image": 8,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Russian blog",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/ru/blog",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/ru/blog",
+      "responseMs": 1226,
+      "htmlBytes": 46534,
+      "seo": {
+        "title": "Blog | Magnetic Separator Selection Guides | COWIN MAGNET",
+        "description": "Read COWIN MAGNET selection guides, comparison articles, and application solutions for magnetic separators, overband magnets, magnetic pulleys, and industrial magnets.",
+        "canonical": "https://www.cowinmagnet.com/ru/blog",
+        "h1Count": 1,
+        "imageCount": 7,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 59,
+        "issues": []
+      },
+      "resources": {
+        "count": 17,
+        "failed": 0,
+        "bytes": 2095542,
+        "byType": {
+          "image": 6,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Arabic home",
+      "source": "config",
+      "url": "https://www.cowinmagnet.com/ar",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/ar",
+      "responseMs": 1204,
+      "htmlBytes": 114469,
+      "seo": {
+        "title": "COWIN MAGNET | مورد فواصل مغناطيسية | COWIN MAGNET",
+        "description": "توفر COWIN MAGNET فواصل مغناطيسية معلقة وذاتية التنظيف وبكرات مغناطيسية وقضبان وشبكات مغناطيسية ومعدات فصل مغناطيسي مخصصة.",
+        "canonical": "https://www.cowinmagnet.com/ar",
+        "h1Count": 1,
+        "imageCount": 19,
+        "missingAlt": 4,
+        "hreflangCount": 7,
+        "issues": [
+          {
+            "severity": "P2",
+            "category": "seo",
+            "url": "https://www.cowinmagnet.com/ar",
+            "message": "4 images are missing alt text.",
+            "suggestion": "Add meaningful alt text to product and content images."
+          }
+        ]
+      },
+      "interaction": {
+        "linkCount": 76,
+        "issues": []
+      },
+      "resources": {
+        "count": 30,
+        "failed": 0,
+        "bytes": 3194159,
+        "byType": {
+          "image": 19,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": [
+        {
+          "severity": "P2",
+          "category": "seo",
+          "url": "https://www.cowinmagnet.com/ar",
+          "message": "4 images are missing alt text.",
+          "suggestion": "Add meaningful alt text to product and content images."
+        }
+      ]
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/products",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/products",
+      "responseMs": 1511,
+      "htmlBytes": 339768,
+      "seo": {
+        "title": "Products | Magnetic Separators and Magnetic Components | COWIN MAGNET",
+        "description": "Explore COWIN MAGNET magnetic separation equipment, suspended magnets, electromagnetic separators, magnetic lifting magnets, magnetic rods, and custom magnetic components.",
+        "canonical": "https://www.cowinmagnet.com/en/products",
+        "h1Count": 1,
+        "imageCount": 92,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 314,
+        "issues": []
+      },
+      "resources": {
+        "count": 45,
+        "failed": 0,
+        "bytes": 647578,
+        "byType": {
+          "image": 45
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/applications",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/applications",
+      "responseMs": 1190,
+      "htmlBytes": 43234,
+      "seo": {
+        "title": "Applications | Magnetic Separation for Cement, Recycling and Waste Processing | COWIN MAGNET",
+        "description": "COWIN MAGNET magnetic separators are used in cement, aggregates, recycling plants, waste processing plants, incineration plants, and industrial bulk material handling.",
+        "canonical": "https://www.cowinmagnet.com/en/applications",
+        "h1Count": 1,
+        "imageCount": 8,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 53,
+        "issues": []
+      },
+      "resources": {
+        "count": 19,
+        "failed": 0,
+        "bytes": 1783997,
+        "byType": {
+          "image": 8,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/industries",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/industries",
+      "responseMs": 1160,
+      "htmlBytes": 43216,
+      "seo": {
+        "title": "Industry Magnetic Separation Solutions | COWIN MAGNET | COWIN MAGNET",
+        "description": "Explore magnetic separation solutions for recycling, mining, cement and aggregate, and food processing industries.",
+        "canonical": "https://www.cowinmagnet.com/en/industries",
+        "h1Count": 1,
+        "imageCount": 8,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 54,
+        "issues": []
+      },
+      "resources": {
+        "count": 19,
+        "failed": 0,
+        "bytes": 1783997,
+        "byType": {
+          "image": 8,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/blog",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/blog",
+      "responseMs": 1154,
+      "htmlBytes": 46048,
+      "seo": {
+        "title": "Blog | Magnetic Separator Selection Guides | COWIN MAGNET",
+        "description": "Read COWIN MAGNET selection guides, comparison articles, and application solutions for magnetic separators, overband magnets, magnetic pulleys, and industrial magnets.",
+        "canonical": "https://www.cowinmagnet.com/en/blog",
+        "h1Count": 1,
+        "imageCount": 7,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 59,
+        "issues": []
+      },
+      "resources": {
+        "count": 17,
+        "failed": 0,
+        "bytes": 2095542,
+        "byType": {
+          "image": 6,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/news",
+      "status": 0,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/news",
+      "responseMs": 18002,
+      "htmlBytes": 0,
+      "seo": null,
+      "interaction": null,
+      "resources": {
+        "count": 0,
+        "failed": 0,
+        "bytes": 0,
+        "byType": {}
+      },
+      "issues": [
+        {
+          "severity": "P1",
+          "category": "availability",
+          "url": "https://www.cowinmagnet.com/en/news",
+          "message": "Unexpected HTTP status timeout.",
+          "suggestion": "Check page availability."
+        },
+        {
+          "severity": "P1",
+          "category": "availability",
+          "url": "https://www.cowinmagnet.com/en/news",
+          "message": "Page timed out after 18000ms.",
+          "suggestion": "Check deployment, CDN, and origin response time."
+        },
+        {
+          "severity": "P2",
+          "category": "performance",
+          "url": "https://www.cowinmagnet.com/en/news",
+          "message": "Slow page response: 18002ms.",
+          "suggestion": "Review server rendering, cache, and large assets."
+        }
+      ]
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/about",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/about",
+      "responseMs": 1166,
+      "htmlBytes": 51035,
+      "seo": {
+        "title": "About Us | COWIN MAGNET | COWIN MAGNET",
+        "description": "Learn about COWIN MAGNET, a service-first magnetic separation equipment supplier helping overseas buyers with selection, sourcing coordination, OEM/ODM communication, and delivery follow-up.",
+        "canonical": "https://www.cowinmagnet.com/en/about",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 50,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 1,
+        "bytes": 604029,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": [
+        {
+          "severity": "P1",
+          "category": "resource",
+          "url": "https://www.cowinmagnet.com/en/about",
+          "message": "script failed: https://www.cowinmagnet.com/_next/static/chunks/3852-2244833de0abc544.js (404).",
+          "suggestion": "Fix the missing resource URL or deployment asset."
+        }
+      ]
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/projects",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/projects",
+      "responseMs": 1162,
+      "htmlBytes": 39967,
+      "seo": {
+        "title": "Projects and Cases | COWIN MAGNET | COWIN MAGNET",
+        "description": "See how magnetic separators are selected for mining, recycling, cement, aggregate, coal handling, and bulk material conveyor applications.",
+        "canonical": "https://www.cowinmagnet.com/en/projects",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 50,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 1,
+        "bytes": 805159,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": [
+        {
+          "severity": "P1",
+          "category": "resource",
+          "url": "https://www.cowinmagnet.com/en/projects",
+          "message": "script failed: https://www.cowinmagnet.com/_next/static/chunks/3852-2244833de0abc544.js (404).",
+          "suggestion": "Fix the missing resource URL or deployment asset."
+        }
+      ]
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/contact",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/contact",
+      "responseMs": 1183,
+      "htmlBytes": 56515,
+      "seo": {
+        "title": "Contact COWIN MAGNET | COWIN MAGNET",
+        "description": "Contact COWIN MAGNET for magnetic separator selection, product inquiries, OEM/ODM customization, and global B2B quotation support.",
+        "canonical": "https://www.cowinmagnet.com/en/contact",
+        "h1Count": 1,
+        "imageCount": 5,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 53,
+        "issues": []
+      },
+      "resources": {
+        "count": 16,
+        "failed": 1,
+        "bytes": 605471,
+        "byType": {
+          "image": 5,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": [
+        {
+          "severity": "P1",
+          "category": "resource",
+          "url": "https://www.cowinmagnet.com/en/contact",
+          "message": "script failed: https://www.cowinmagnet.com/_next/static/chunks/3852-2244833de0abc544.js (404).",
+          "suggestion": "Fix the missing resource URL or deployment asset."
+        }
+      ]
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/request-quote",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/request-quote",
+      "responseMs": 1677,
+      "htmlBytes": 46919,
+      "seo": {
+        "title": "Request a Quote | COWIN MAGNET | COWIN MAGNET",
+        "description": "Request a custom quotation for magnetic separators, suspended magnets, self-cleaning separators, magnetic pulleys, magnetic bars, and industrial metal detection equipment.",
+        "canonical": "https://www.cowinmagnet.com/en/request-quote",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 50,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 0,
+        "bytes": 162746,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/products/rcyd-type-permanent-magnet-self-dumping-iron-remover",
+      "status": 0,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/products/rcyd-type-permanent-magnet-self-dumping-iron-remover",
+      "responseMs": 18001,
+      "htmlBytes": 0,
+      "seo": null,
+      "interaction": null,
+      "resources": {
+        "count": 0,
+        "failed": 0,
+        "bytes": 0,
+        "byType": {}
+      },
+      "issues": [
+        {
+          "severity": "P1",
+          "category": "availability",
+          "url": "https://www.cowinmagnet.com/en/products/rcyd-type-permanent-magnet-self-dumping-iron-remover",
+          "message": "Unexpected HTTP status timeout.",
+          "suggestion": "Check page availability."
+        },
+        {
+          "severity": "P1",
+          "category": "availability",
+          "url": "https://www.cowinmagnet.com/en/products/rcyd-type-permanent-magnet-self-dumping-iron-remover",
+          "message": "Page timed out after 18000ms.",
+          "suggestion": "Check deployment, CDN, and origin response time."
+        },
+        {
+          "severity": "P2",
+          "category": "performance",
+          "url": "https://www.cowinmagnet.com/en/products/rcyd-type-permanent-magnet-self-dumping-iron-remover",
+          "message": "Slow page response: 18001ms.",
+          "suggestion": "Review server rendering, cache, and large assets."
+        }
+      ]
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover",
+      "responseMs": 3668,
+      "htmlBytes": 70729,
+      "seo": {
+        "title": "RCDD type self cooling self dumping electromagnetic iron remover Supplier | COWIN MAGNET",
+        "description": "product overview： 1、 Explanation The RCDD self cooling self dumping electromagnetic iron remover is a device used for automatically removing impurities of iron from powdered or block shaped non-magnetic materials. It is internally cast with electrical",
+        "canonical": "https://www.cowinmagnet.com/en/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 55,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 0,
+        "bytes": 88116,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/products/rcyb-type-permanent-magnet-manual-iron-remover",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/products/rcyb-type-permanent-magnet-manual-iron-remover",
+      "responseMs": 1380,
+      "htmlBytes": 75620,
+      "seo": {
+        "title": "RCYB type permanent magnet manual iron remover Supplier | COWIN MAGNET",
+        "description": "product overview： 1、 Explanation The RCYB type permanent magnet manual iron remover adopts a composite magnetic system composed of special permanent magnets such as neodymium iron boron with high coercivity and high remanence inside. Suitable for removing",
+        "canonical": "https://www.cowinmagnet.com/en/products/rcyb-type-permanent-magnet-manual-iron-remover",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 55,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 0,
+        "bytes": 81520,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover",
+      "responseMs": 2460,
+      "htmlBytes": 74872,
+      "seo": {
+        "title": "RCDB type self cooling plate electromagnetic iron remover Supplier | COWIN MAGNET",
+        "description": "product overview： 1、 Explanation The RCDB type self cooling disc electromagnetic iron remover is equivalent to the PDC series disc electromagnetic iron remover and the RCDY series electromagnetic iron remover. It is an iron removal device used to remove",
+        "canonical": "https://www.cowinmagnet.com/en/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 55,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 0,
+        "bytes": 86705,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/products/belt-high-gradient-magnetic-separator",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/products/belt-high-gradient-magnetic-separator",
+      "responseMs": 1320,
+      "htmlBytes": 64160,
+      "seo": {
+        "title": "Belt High Gradient Magnetic Separator Supplier | COWIN MAGNET",
+        "description": "Belt High Gradient Magnetic Separator is a high performance magnetic separation equipment designed for small size ore(size less than 2mm) processing and magnetic material separating from mineral.",
+        "canonical": "https://www.cowinmagnet.com/en/products/belt-high-gradient-magnetic-separator",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 55,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 0,
+        "bytes": 108784,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/products/disc-magnetic-separator-for-tailing",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/products/disc-magnetic-separator-for-tailing",
+      "responseMs": 1338,
+      "htmlBytes": 65510,
+      "seo": {
+        "title": "Disc Magnetic Separator for Tailing Supplier | COWIN MAGNET",
+        "description": "Iron ore tailing recovery machine is used in iron mine to recover magnetic minerals from the tailing and reduce ore wastage. In this way, the resource can be fully used.",
+        "canonical": "https://www.cowinmagnet.com/en/products/disc-magnetic-separator-for-tailing",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 55,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 0,
+        "bytes": 105547,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/products/dry-drum-magnetic-separator",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/products/dry-drum-magnetic-separator",
+      "responseMs": 1306,
+      "htmlBytes": 63245,
+      "seo": {
+        "title": "Dry Drum Magnetic Separator Supplier | COWIN MAGNET",
+        "description": "Dry Drum Magnetic Separator is a high-efficiency ore concentration machine used to remove, purify, or separate magnetic materials in dry processing lines.",
+        "canonical": "https://www.cowinmagnet.com/en/products/dry-drum-magnetic-separator",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 55,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 0,
+        "bytes": 104845,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/products/wet-drum-magnetic-separator",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/products/wet-drum-magnetic-separator",
+      "responseMs": 1383,
+      "htmlBytes": 65143,
+      "seo": {
+        "title": "Wet Drum Magnetic Separator Supplier | COWIN MAGNET",
+        "description": "Wet permanent Drum Magnetic Separator are used in Dense Media Separation (DMS) plants for the recovery of magnetic particles from the dilute medium. They must recover the maximum amount of magnetic particles at the highest possible density.",
+        "canonical": "https://www.cowinmagnet.com/en/products/wet-drum-magnetic-separator",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 55,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 0,
+        "bytes": 107262,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    },
+    {
+      "label": "Sitemap URL",
+      "source": "sitemap",
+      "url": "https://www.cowinmagnet.com/en/products/cbz-type-rotary-automatic-magnetic-separator",
+      "status": 200,
+      "ok": true,
+      "redirected": false,
+      "finalUrl": "https://www.cowinmagnet.com/en/products/cbz-type-rotary-automatic-magnetic-separator",
+      "responseMs": 1419,
+      "htmlBytes": 80129,
+      "seo": {
+        "title": "CBZ type rotary automatic magnetic separator Supplier | COWIN MAGNET",
+        "description": "product overview： 1、 Characteristics The CBZ rotary automatic magnetic separator can be installed in assembly lines to remove fine and very fine iron metal impurities from bulk materials. The automatic timing controller can set the cleaning time interval",
+        "canonical": "https://www.cowinmagnet.com/en/products/cbz-type-rotary-automatic-magnetic-separator",
+        "h1Count": 1,
+        "imageCount": 4,
+        "missingAlt": 0,
+        "hreflangCount": 7,
+        "issues": []
+      },
+      "interaction": {
+        "linkCount": 55,
+        "issues": []
+      },
+      "resources": {
+        "count": 15,
+        "failed": 0,
+        "bytes": 83191,
+        "byType": {
+          "image": 4,
+          "script": 10,
+          "stylesheet": 1
+        }
+      },
+      "issues": []
+    }
+  ],
+  "apiChecks": [
+    {
+      "label": "Analytics health API",
+      "url": "https://www.cowinmagnet.com/api/analytics/health",
+      "status": 200,
+      "ok": true,
+      "responseMs": 3165,
+      "json": {
+        "ok": true,
+        "storageMode": "database",
+        "pageViews": 0,
+        "uniqueVisitors": 0,
+        "sessions": 0,
+        "visitorRows": 0,
+        "generatedAt": "2026-06-07T02:27:56.321Z"
+      },
+      "issues": []
+    },
+    {
+      "label": "News opportunities API",
+      "url": "https://www.cowinmagnet.com/api/news-opportunities",
+      "status": 200,
+      "ok": true,
+      "responseMs": 2635,
+      "json": {
+        "runs": [],
+        "latest": null
+      },
+      "issues": []
+    },
+    {
+      "label": "robots.txt",
+      "url": "https://www.cowinmagnet.com/robots.txt",
+      "status": 200,
+      "ok": true,
+      "responseMs": 1148,
+      "json": null,
+      "issues": []
+    },
+    {
+      "label": "sitemap.xml",
+      "url": "https://www.cowinmagnet.com/sitemap.xml",
+      "status": 200,
+      "ok": true,
+      "responseMs": 326,
+      "json": null,
+      "issues": []
+    }
+  ],
+  "visual": {
+    "enabled": false,
+    "reason": "playwright-not-installed",
+    "screenshots": []
+  },
+  "screenshots": [],
+  "issues": [
+    {
+      "severity": "P1",
+      "category": "availability",
+      "url": "https://www.cowinmagnet.com/products/suspended-permanent-magnetic-separator",
+      "message": "Unexpected HTTP status timeout.",
+      "suggestion": "Check page availability."
+    },
+    {
+      "severity": "P1",
+      "category": "availability",
+      "url": "https://www.cowinmagnet.com/products/suspended-permanent-magnetic-separator",
+      "message": "Page timed out after 18000ms.",
+      "suggestion": "Check deployment, CDN, and origin response time."
+    },
+    {
+      "severity": "P1",
+      "category": "availability",
+      "url": "https://www.cowinmagnet.com/es/products",
+      "message": "Unexpected HTTP status timeout.",
+      "suggestion": "Check page availability."
+    },
+    {
+      "severity": "P1",
+      "category": "availability",
+      "url": "https://www.cowinmagnet.com/es/products",
+      "message": "Page timed out after 18000ms.",
+      "suggestion": "Check deployment, CDN, and origin response time."
+    },
+    {
+      "severity": "P1",
+      "category": "availability",
+      "url": "https://www.cowinmagnet.com/en/news",
+      "message": "Unexpected HTTP status timeout.",
+      "suggestion": "Check page availability."
+    },
+    {
+      "severity": "P1",
+      "category": "availability",
+      "url": "https://www.cowinmagnet.com/en/news",
+      "message": "Page timed out after 18000ms.",
+      "suggestion": "Check deployment, CDN, and origin response time."
+    },
+    {
+      "severity": "P1",
+      "category": "resource",
+      "url": "https://www.cowinmagnet.com/en/about",
+      "message": "script failed: https://www.cowinmagnet.com/_next/static/chunks/3852-2244833de0abc544.js (404).",
+      "suggestion": "Fix the missing resource URL or deployment asset."
+    },
+    {
+      "severity": "P1",
+      "category": "resource",
+      "url": "https://www.cowinmagnet.com/en/projects",
+      "message": "script failed: https://www.cowinmagnet.com/_next/static/chunks/3852-2244833de0abc544.js (404).",
+      "suggestion": "Fix the missing resource URL or deployment asset."
+    },
+    {
+      "severity": "P1",
+      "category": "resource",
+      "url": "https://www.cowinmagnet.com/en/contact",
+      "message": "script failed: https://www.cowinmagnet.com/_next/static/chunks/3852-2244833de0abc544.js (404).",
+      "suggestion": "Fix the missing resource URL or deployment asset."
+    },
+    {
+      "severity": "P1",
+      "category": "availability",
+      "url": "https://www.cowinmagnet.com/en/products/rcyd-type-permanent-magnet-self-dumping-iron-remover",
+      "message": "Unexpected HTTP status timeout.",
+      "suggestion": "Check page availability."
+    },
+    {
+      "severity": "P1",
+      "category": "availability",
+      "url": "https://www.cowinmagnet.com/en/products/rcyd-type-permanent-magnet-self-dumping-iron-remover",
+      "message": "Page timed out after 18000ms.",
+      "suggestion": "Check deployment, CDN, and origin response time."
+    },
+    {
+      "severity": "P2",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/",
+      "message": "4 images are missing alt text.",
+      "suggestion": "Add meaningful alt text to product and content images."
+    },
+    {
+      "severity": "P2",
+      "category": "performance",
+      "url": "https://www.cowinmagnet.com/products/suspended-permanent-magnetic-separator",
+      "message": "Slow page response: 18005ms.",
+      "suggestion": "Review server rendering, cache, and large assets."
+    },
+    {
+      "severity": "P2",
+      "category": "resource",
+      "url": "https://www.cowinmagnet.com/news",
+      "message": "image failed: https://www.mining.com/wp-content/uploads/2026/06/ELementusa-1.jpg (403).",
+      "suggestion": "Fix the missing resource URL or deployment asset."
+    },
+    {
+      "severity": "P2",
+      "category": "resource",
+      "url": "https://www.cowinmagnet.com/news",
+      "message": "image failed: https://www.mining.com/wp-content/uploads/2026/06/AdobeStock_901202261-scaled-e1728425813994.jpeg (403).",
+      "suggestion": "Fix the missing resource URL or deployment asset."
+    },
+    {
+      "severity": "P2",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/en",
+      "message": "4 images are missing alt text.",
+      "suggestion": "Add meaningful alt text to product and content images."
+    },
+    {
+      "severity": "P2",
+      "category": "performance",
+      "url": "https://www.cowinmagnet.com/es/products",
+      "message": "Slow page response: 18003ms.",
+      "suggestion": "Review server rendering, cache, and large assets."
+    },
+    {
+      "severity": "P2",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/ar",
+      "message": "4 images are missing alt text.",
+      "suggestion": "Add meaningful alt text to product and content images."
+    },
+    {
+      "severity": "P2",
+      "category": "performance",
+      "url": "https://www.cowinmagnet.com/en/news",
+      "message": "Slow page response: 18002ms.",
+      "suggestion": "Review server rendering, cache, and large assets."
+    },
+    {
+      "severity": "P2",
+      "category": "performance",
+      "url": "https://www.cowinmagnet.com/en/products/rcyd-type-permanent-magnet-self-dumping-iron-remover",
+      "message": "Slow page response: 18001ms.",
+      "suggestion": "Review server rendering, cache, and large assets."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/",
+      "message": "Duplicate title on 2 checked pages: COWIN MAGNET | Magnetic Separator Supplier | COWIN MAGNET",
+      "suggestion": "Make titles unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/products",
+      "message": "Duplicate title on 2 checked pages: Products | Magnetic Separators and Magnetic Components | COWIN MAGNET",
+      "suggestion": "Make titles unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/applications",
+      "message": "Duplicate title on 2 checked pages: Applications | Magnetic Separation for Cement, Recycling and Waste Processing | COWIN MAGNET",
+      "suggestion": "Make titles unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/industries",
+      "message": "Duplicate title on 2 checked pages: Industry Magnetic Separation Solutions | COWIN MAGNET | COWIN MAGNET",
+      "suggestion": "Make titles unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/blog",
+      "message": "Duplicate title on 3 checked pages: Blog | Magnetic Separator Selection Guides | COWIN MAGNET",
+      "suggestion": "Make titles unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/about",
+      "message": "Duplicate title on 2 checked pages: About Us | COWIN MAGNET | COWIN MAGNET",
+      "suggestion": "Make titles unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/contact",
+      "message": "Duplicate title on 3 checked pages: Contact COWIN MAGNET | COWIN MAGNET",
+      "suggestion": "Make titles unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/request-quote",
+      "message": "Duplicate title on 2 checked pages: Request a Quote | COWIN MAGNET | COWIN MAGNET",
+      "suggestion": "Make titles unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/",
+      "message": "Duplicate meta description on 2 checked pages.",
+      "suggestion": "Make descriptions unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/products",
+      "message": "Duplicate meta description on 2 checked pages.",
+      "suggestion": "Make descriptions unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/applications",
+      "message": "Duplicate meta description on 2 checked pages.",
+      "suggestion": "Make descriptions unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/industries",
+      "message": "Duplicate meta description on 2 checked pages.",
+      "suggestion": "Make descriptions unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/blog",
+      "message": "Duplicate meta description on 3 checked pages.",
+      "suggestion": "Make descriptions unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/about",
+      "message": "Duplicate meta description on 2 checked pages.",
+      "suggestion": "Make descriptions unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/contact",
+      "message": "Duplicate meta description on 3 checked pages.",
+      "suggestion": "Make descriptions unique for important pages."
+    },
+    {
+      "severity": "P3",
+      "category": "seo",
+      "url": "https://www.cowinmagnet.com/request-quote",
+      "message": "Duplicate meta description on 2 checked pages.",
+      "suggestion": "Make descriptions unique for important pages."
+    }
+  ],
+  "paths": {
+    "json": "/Users/apple/Documents/cowinmagnet.com/repo-src/reports/website-monitor/cowinmagnet-monitor-2026-06-07-10-27-52.json",
+    "html": "/Users/apple/Documents/cowinmagnet.com/repo-src/reports/website-monitor/cowinmagnet-monitor-2026-06-07-10-27-52.html"
+  },
+  "notification": {
+    "email": {
+      "sent": false,
+      "reason": "not-requested"
+    }
+  }
+}

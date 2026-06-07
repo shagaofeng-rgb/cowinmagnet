@@ -9,8 +9,8 @@ export const generatedNewsPosts = [
     "excerpt": "Cowinmagnet reviews this overseas industry news signal and explains what it may mean for magnetic separation equipment buyers in mining, recycling and...",
     "category": "industry-news",
     "categoryTitle": "Industry News",
-    "coverAlt": "Rare Earth Processing News Signals Magnetic Separation Demand: Cowinmagnet View source image from Mining.com",
-    "imageCaption": "Source news image from Mining.com. Cowinmagnet uses the image as a referenced news cover and adds its own industry analysis below.",
+    "coverAlt": "Cowinmagnet mining magnetic separation equipment image for rare earth processing news analysis",
+    "imageCaption": "Cowinmagnet company-library image used as an industry analysis cover. The referenced news source is credited in the article source section.",
     "sections": [
       {
         "heading": "Introduction",
@@ -186,7 +186,7 @@ export const generatedNewsPosts = [
     },
     "workflowStatus": "generated",
     "publishedAt": "2026-06-04",
-    "coverImage": "https://www.mining.com/wp-content/uploads/2026/06/ELementusa-1.jpg",
+    "coverImage": "/images/industries/mining-scenarios/manganese-ore.jpg",
     "bodyImages": [
       {
         "imageUrl": "/images/industries/mining-scenarios/manganese-ore.jpg",
@@ -276,9 +276,9 @@ export const generatedNewsPosts = [
     "href": "/news/magnetic-separation-doe-awards-67m-to-elementusa-colorado-school-of-mines-for-rare-earth-p",
     "views": 0,
     "updatedAt": "2026-06-05T05:13:17.814Z",
-    "imageSourceName": "Mining.com",
-    "imageSourceUrl": "https://www.mining.com/doe-awards-67m-to-elementusa-colorado-school-of-mines-for-rare-earth-processing-plant/",
-    "imageLicenseNote": "External news image from Mining.com; displayed with source attribution."
+    "imageSourceName": "Cowinmagnet",
+    "imageSourceUrl": "https://www.cowinmagnet.com",
+    "imageLicenseNote": "Cowinmagnet company image library."
   },
   {
     "type": "news",
@@ -288,12 +288,12 @@ export const generatedNewsPosts = [
     "category": "industry-news",
     "categoryTitle": "Industry News",
     "categoryDescription": "Industry news references with Cowinmagnet original analysis and buyer-focused magnetic separation viewpoints.",
-    "coverImage": "https://www.mining.com/wp-content/uploads/2026/06/AdobeStock_901202261-scaled-e1728425813994.jpeg",
-    "coverAlt": "Rare Earth Processing News Signals Magnetic Separation Demand: Cowinmagnet View source image from Mining.com",
-    "imageCaption": "Source news image from Mining.com. Cowinmagnet uses the image as a referenced news cover and adds its own industry analysis below.",
-    "imageSourceName": "Mining.com",
-    "imageSourceUrl": "https://www.mining.com/stardust-power-joins-department-of-energy-backed-lithium-extraction-program/",
-    "imageLicenseNote": "External news image from Mining.com; displayed with source attribution.",
+    "coverImage": "/images/industries/mining-scenarios/manganese-ore.jpg",
+    "coverAlt": "Cowinmagnet mining magnetic separation equipment image for rare earth processing news analysis",
+    "imageCaption": "Cowinmagnet company-library image used as an industry analysis cover. The referenced news source is credited in the article source section.",
+    "imageSourceName": "Cowinmagnet",
+    "imageSourceUrl": "https://www.cowinmagnet.com",
+    "imageLicenseNote": "Cowinmagnet company image library.",
     "bodyImages": [
       {
         "imageUrl": "/images/industries/mining-scenarios/manganese-ore.jpg",

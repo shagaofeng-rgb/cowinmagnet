@@ -11,6 +11,7 @@ import { getStaticInternalLinkSuggestions } from "@/lib/linkStrategy";
 import { products } from "@/data/products";
 import { site } from "@/data/site";
 import { getProductBySlugWithCms } from "@/lib/productCms";
+import { cleanProductList, cleanProductSpecs, cleanProductText } from "@/lib/productDisplay";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
@@ -31,14 +32,16 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     return {};
   }
 
+  const summary = cleanProductText(product.summary);
+
   return {
     title: `${product.name} Supplier`,
-    description: product.summary,
+    description: summary,
     keywords: product.keywords,
     alternates: { canonical: `/products/${product.slug}` },
     openGraph: {
       title: `${product.name} | COWIN MAGNET`,
-      description: product.summary,
+      description: summary,
       url: absoluteUrl(`/products/${product.slug}`),
       images: [product.image]
     }
@@ -54,13 +57,19 @@ export default async function ProductPage({ params }: ProductPageProps) {
   }
 
   const relatedInternalLinks = getStaticInternalLinkSuggestions({ type: "product", slug: product.slug, limit: 5 });
+  const summary = cleanProductText(product.summary);
+  const principle = cleanProductText(product.principle, summary);
+  const features = cleanProductList(product.features);
+  const specs = cleanProductSpecs(product.specs);
+  const applications = cleanProductList(product.applications);
+  const customization = cleanProductList(product.customization);
 
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
     image: absoluteUrl(product.image),
-    description: product.summary,
+    description: summary,
     brand: { "@type": "Brand", name: site.name },
     seller: { "@type": "Organization", name: site.legalName },
     category: product.category,
@@ -87,7 +96,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <div>
           <span className="eyebrow">{product.category}</span>
           <h1>{product.name}</h1>
-          <p>{product.summary}</p>
+          <p>{summary}</p>
           <div className="hero-actions">
             <Link href={`/request-quote?product=${encodeURIComponent(product.name)}`} className="btn btn-primary">
               Get a Quote for This Product
@@ -104,24 +113,24 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <article className="detail-main">
           <div className="content-block">
             <h2>Product Overview</h2>
-            <p>{product.summary}</p>
+            <p>{summary}</p>
           </div>
           <div className="content-block">
             <h2>Key Features</h2>
             <ul className="feature-list">
-              {product.features.map((feature: string) => (
+              {features.map((feature: string) => (
                 <li key={feature}><CheckCircle2 size={18} aria-hidden />{feature}</li>
               ))}
             </ul>
           </div>
           <div className="content-block">
             <h2>Working Principle</h2>
-            <p>{product.principle}</p>
+            <p>{principle}</p>
           </div>
           <div className="content-block">
             <h2>Specifications</h2>
             <div className="spec-table">
-              {product.specs.map((spec: { label: string; value: string }) => (
+              {specs.map((spec: { label: string; value: string }) => (
                 <div key={spec.label}>
                   <span>{spec.label}</span>
                   <strong>{spec.value}</strong>
@@ -132,7 +141,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <div className="content-block">
             <h2>Application Industries</h2>
             <div className="tag-list">
-              {product.applications.map((item: string) => <span key={item}>{item}</span>)}
+              {applications.map((item: string) => <span key={item}>{item}</span>)}
             </div>
           </div>
           <div className="content-block">
@@ -142,7 +151,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <div className="content-block">
             <h2>Customization Options</h2>
             <div className="tag-list">
-              {product.customization.map((item: string) => <span key={item}>{item}</span>)}
+              {customization.map((item: string) => <span key={item}>{item}</span>)}
             </div>
           </div>
           <div className="content-block">

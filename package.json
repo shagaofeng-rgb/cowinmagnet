@@ -12,6 +12,7 @@
     "news:job": "node scripts/run-news-system.mjs job",
     "monitor": "node scripts/monitor/run-monitor.mjs",
     "monitor:no-email": "node scripts/monitor/run-monitor.mjs --no-email",
+    "verify": "node scripts/final-audit-smoke.mjs",
     "build": "next build --webpack && node -e \"require('fs').closeSync(require('fs').openSync('.next/lock','w'))\"",
     "start": "next start"
   },

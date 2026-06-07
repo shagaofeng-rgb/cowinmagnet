@@ -117,7 +117,7 @@ export default function Home() {
               />
               {application.iconImage ? (
                 <span className="application-mini-icon" aria-hidden="true">
-                  <Image src={application.iconImage} width={80} height={80} alt="" loading="lazy" />
+                  <Image src={application.iconImage} width={80} height={80} alt={`${application.name} magnetic separation icon`} loading="lazy" />
                 </span>
               ) : null}
               <span>{application.name}</span>
