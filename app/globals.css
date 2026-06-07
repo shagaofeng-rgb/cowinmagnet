@@ -574,6 +574,14 @@ body:has(.admin-login-page) main {
   box-shadow: 0 10px 24px rgba(250, 204, 21, 0.18);
 }
 
+.admin-date-presets button:disabled,
+.admin-date-submit:disabled,
+.admin-date-native-select select:disabled,
+.admin-date-custom-fields input:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
 .admin-date-native-select {
   display: none;
 }

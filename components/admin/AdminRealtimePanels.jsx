@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { BarList, CsvExportButton, MetricCard, TrendChart } from "@/components/admin/AdminWidgets";
 
 const refreshMs = 30 * 60 * 1000;
@@ -73,8 +74,14 @@ const countryNameZh = {
 };
 
 function useLiveAnalytics(initialData) {
+  const searchParams = useSearchParams();
+  const search = searchParams.toString();
   const [data, setData] = useState(initialData);
   const [state, setState] = useState({ loading: false, error: "", syncedAt: "" });
+
+  useEffect(() => {
+    setData(initialData || {});
+  }, [initialData]);
 
   useEffect(() => {
     let active = true;
@@ -82,7 +89,7 @@ function useLiveAnalytics(initialData) {
     async function refresh() {
       try {
         setState((current) => ({ ...current, loading: true, error: "" }));
-        const response = await fetch(`/api/admin/analytics${window.location.search || ""}`, { cache: "no-store" });
+        const response = await fetch(`/api/admin/analytics${search ? `?${search}` : ""}`, { cache: "no-store" });
         if (!response.ok) throw new Error("Failed to refresh analytics data");
         const nextData = await response.json();
         if (!active) return;
@@ -110,7 +117,7 @@ function useLiveAnalytics(initialData) {
       active = false;
       window.clearInterval(timer);
     };
-  }, []);
+  }, [search]);
 
   return { data: data || {}, state };
 }
