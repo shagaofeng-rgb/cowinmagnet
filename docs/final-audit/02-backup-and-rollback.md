@@ -54,6 +54,17 @@ Generated: 2026-06-07T02:12:24.031Z
 2. If rebuilding, deploy from backup tag.
 3. Re-run smoke tests.
 
+## 2026-06-09 Production Deployment
+
+- Current verified deployment: `dpl_EnqkHC6FyBkhy7UCAmXUrUJpQzuj`
+- Current verified URL: `https://cowinmagnet-gk4r06f24-davidsha.vercel.app`
+- Local fix commit: `92be8c1 Restore admin sync automation and date filters`
+- Production cron jobs:
+  - `/api/cron/analytics-sync`: `*/30 * * * *`
+  - `/api/cron/news-automation`: `0 */3 * * *`
+- Rollback command example: `vercel rollback <previous-deployment-url> --scope davidsha --yes`
+- Forward restore command example: `vercel rollback cowinmagnet-gk4r06f24-davidsha.vercel.app --scope davidsha --yes`
+
 ## Verification Checklist
 
 - / returns 200
