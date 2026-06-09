@@ -4,6 +4,7 @@ import { defaultLocale, isLocale, locales, type Locale } from "@/lib/i18n";
 
 const PUBLIC_FILE = /\.(.*)$/;
 const localizedProductDetailPath = /^\/(en|es|ru|ar|fr|pt)\/products\/[^/]+$/;
+const blockedVisitorCountries = new Set(["CN", "IN"]);
 const countryLocale: Record<string, Locale> = {
   ES: "es",
   MX: "es",
@@ -22,16 +23,22 @@ const countryLocale: Record<string, Locale> = {
   BR: "pt"
 };
 
+function getRequestCountry(request: NextRequest) {
+  return (
+    request.headers.get("x-vercel-ip-country") ||
+    request.headers.get("cf-ipcountry") ||
+    request.headers.get("cloudfront-viewer-country") ||
+    (request as NextRequest & { geo?: { country?: string } }).geo?.country ||
+    ""
+  ).toUpperCase();
+}
+
 function detectLocale(request: NextRequest): Locale {
   const cookieLocale = request.cookies.get("cowin_locale")?.value;
   if (isLocale(cookieLocale)) return cookieLocale;
 
-  const country =
-    request.headers.get("x-vercel-ip-country") ||
-    request.headers.get("cf-ipcountry") ||
-    request.headers.get("cloudfront-viewer-country") ||
-    (request as NextRequest & { geo?: { country?: string } }).geo?.country;
-  const mapped = country ? countryLocale[country.toUpperCase()] : undefined;
+  const country = getRequestCountry(request);
+  const mapped = country ? countryLocale[country] : undefined;
   if (mapped) return mapped;
 
   const acceptLanguage = request.headers.get("accept-language") || "";
@@ -45,15 +52,21 @@ function detectLocale(request: NextRequest): Locale {
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const country =
-    request.headers.get("x-vercel-ip-country") ||
-    request.headers.get("cf-ipcountry") ||
-    request.headers.get("cloudfront-viewer-country") ||
-    (request as NextRequest & { geo?: { country?: string } }).geo?.country ||
-    "";
+  const country = getRequestCountry(request);
   const userAgent = request.headers.get("user-agent") || "";
 
-  if (localizedProductDetailPath.test(pathname) && /Googlebot/i.test(userAgent) && country.toUpperCase() === "CN") {
+  if (blockedVisitorCountries.has(country)) {
+    return new NextResponse("Access unavailable", {
+      status: 403,
+      headers: {
+        "X-Robots-Tag": "noindex, nofollow",
+        "Cache-Control": "no-store",
+        "X-Cowin-Geo-Block": country
+      }
+    });
+  }
+
+  if (localizedProductDetailPath.test(pathname) && /Googlebot/i.test(userAgent) && country === "CN") {
     return new NextResponse("Forbidden", {
       status: 403,
       headers: {
