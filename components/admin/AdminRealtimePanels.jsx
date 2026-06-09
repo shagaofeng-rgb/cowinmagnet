@@ -388,7 +388,7 @@ export function AdminOverviewRealtime({ initialData, contentStats }) {
       <section className="admin-grid two">
         <article className="admin-panel">
           <p className="eyebrow">来源平台</p>
-          <h2>Google / Facebook / TikTok 等</h2>
+          <h2>搜索 / 社媒 / AI / 直接访问</h2>
           <BarList rows={list(traffic.sourcePlatforms)} />
         </article>
         <article className="admin-panel">
@@ -450,7 +450,7 @@ export function AdminTrafficRealtime({ initialData }) {
       </section>
       <section className="admin-grid four">
         <article className="admin-panel"><p className="eyebrow">获客来源</p><h2>渠道分布</h2><BarList rows={list(traffic.channels)} /></article>
-        <article className="admin-panel"><p className="eyebrow">来源平台</p><h2>Google / Facebook / TikTok 等</h2><BarList rows={list(traffic.sourcePlatforms)} /></article>
+        <article className="admin-panel"><p className="eyebrow">来源平台</p><h2>搜索 / 社媒 / AI / 直接访问</h2><BarList rows={list(traffic.sourcePlatforms)} /></article>
         <article className="admin-panel"><p className="eyebrow">目标市场</p><h2>国家 / 地区</h2><BarList rows={displayCountryRows(traffic.countries)} /></article>
         <article className="admin-panel"><p className="eyebrow">设备环境</p><h2>设备类型</h2><BarList rows={list(traffic.devices)} /></article>
       </section>

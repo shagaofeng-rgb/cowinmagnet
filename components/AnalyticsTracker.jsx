@@ -24,9 +24,22 @@ function getSessionId() {
 }
 
 function parseUtm(searchParams) {
+  const clickSource =
+    searchParams.get("gclid") || searchParams.get("gbraid") || searchParams.get("wbraid")
+      ? "google"
+      : searchParams.get("fbclid")
+        ? "facebook"
+        : searchParams.get("ttclid")
+          ? "tiktok"
+          : searchParams.get("msclkid")
+            ? "bing"
+            : searchParams.get("li_fat_id")
+              ? "linkedin"
+              : "";
+
   return {
-    source: searchParams.get("utm_source") || "",
-    medium: searchParams.get("utm_medium") || "",
+    source: searchParams.get("utm_source") || clickSource,
+    medium: searchParams.get("utm_medium") || (clickSource ? "paid" : ""),
     campaign: searchParams.get("utm_campaign") || "",
     term: searchParams.get("utm_term") || "",
     content: searchParams.get("utm_content") || ""
@@ -92,7 +105,7 @@ export default function AnalyticsTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const previousPageRef = useRef("");
-  const startedAtRef = useRef(Date.now());
+  const startedAtRef = useRef(0);
   const scrollDepthRef = useRef(new Set());
 
   useEffect(() => {
