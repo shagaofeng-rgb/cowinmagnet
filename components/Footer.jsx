@@ -42,7 +42,7 @@ const footerProductGroups = [
       { label: "Dry Drum Magnetic Separator", href: "/products/dry-drum-magnetic-separator" },
       { label: "High-Intensity Magnetic Separator", href: "/products/high-intensity-magnetic-separator" },
       { label: "Eddy Current Separator", href: "/products/eddy-current-separator" },
-      { label: "Conveyor Metal Detector", href: "/products/conveyor-metal-detector" }
+      { label: "Conveyor Metal Detector", href: "/products/dls-type-window-metal-detector" }
     ]
   }
 ];

@@ -3,6 +3,20 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"]
   },
+  async redirects() {
+    return [
+      {
+        source: "/:locale(en|es|ru|ar|fr|pt)/products/conveyor-metal-detector",
+        destination: "/:locale/products/dls-type-window-metal-detector",
+        permanent: true
+      },
+      {
+        source: "/products/conveyor-metal-detector",
+        destination: "/products/dls-type-window-metal-detector",
+        permanent: true
+      }
+    ];
+  },
   async headers() {
     return [
       {
