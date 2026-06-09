@@ -546,14 +546,19 @@ body:has(.admin-login-page) main {
   line-height: 1.45;
 }
 
+.admin-date-filter-head small.is-error {
+  color: #fecaca;
+}
+
 .admin-date-presets {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 7px;
 }
 
 .admin-date-presets button,
-.admin-date-submit {
+.admin-date-submit,
+.admin-date-clear {
   min-height: 38px;
   padding: 8px 10px;
   border: 1px solid rgba(148, 163, 184, 0.22);
@@ -576,6 +581,7 @@ body:has(.admin-login-page) main {
 
 .admin-date-presets button:disabled,
 .admin-date-submit:disabled,
+.admin-date-clear:disabled,
 .admin-date-native-select select:disabled,
 .admin-date-custom-fields input:disabled {
   cursor: wait;
@@ -588,7 +594,8 @@ body:has(.admin-login-page) main {
 
 .admin-date-custom-fields {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+  align-items: end;
   gap: 10px;
 }
 
@@ -614,6 +621,11 @@ body:has(.admin-login-page) main {
   color: #0f172a;
   border-color: rgba(34, 211, 238, 0.38);
   background: linear-gradient(135deg, #67e8f9, #facc15);
+}
+
+.admin-date-clear {
+  color: #dbeafe;
+  background: rgba(15, 23, 42, 0.58);
 }
 
 .admin-panel {

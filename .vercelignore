@@ -1,0 +1,7 @@
+.next
+node_modules
+.tools
+.data
+reports/website-monitor
+*.zip
+npm-debug.log*

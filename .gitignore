@@ -1,5 +1,6 @@
 .next
 node_modules
+.tools
 .vercel
 .env*.local
 .DS_Store
@@ -11,3 +12,5 @@ pnpm-debug.log*
 .data
 
 tsconfig.tsbuildinfo
+
+.vercel

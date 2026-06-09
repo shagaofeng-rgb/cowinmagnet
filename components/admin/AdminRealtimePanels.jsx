@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { BarList, CsvExportButton, MetricCard, TrendChart } from "@/components/admin/AdminWidgets";
 
 const refreshMs = 30 * 60 * 1000;
+const syncStatusRefreshMs = 2 * 60 * 1000;
 const defaultPageSize = 10;
 const pageSizeOptions = [10, 20, 50];
 const countryNameZh = {
@@ -150,11 +151,61 @@ function useLiveContentStats(initialStats) {
   return stats || {};
 }
 
-function LiveSyncNote({ state }) {
+function LegacyLiveSyncNote({ state }) {
   return (
     <div className={`admin-live-note ${state.error ? "error" : ""}`}>
       <span>{state.loading ? "正在同步最新数据..." : "半小时自动同步已开启"}</span>
       <small>{state.error || `最近同步：${state.syncedAt || "初始化中"}（北京时间，每 30 分钟刷新一次）`}</small>
+    </div>
+  );
+}
+
+function useSyncStatus() {
+  const [status, setStatus] = useState(null);
+
+  useEffect(() => {
+    let active = true;
+
+    async function refresh() {
+      try {
+        const response = await fetch("/api/admin/sync-status", { cache: "no-store" });
+        if (!response.ok) return;
+        const nextStatus = await response.json();
+        if (active) setStatus(nextStatus);
+      } catch {
+        // Keep the latest visible sync status.
+      }
+    }
+
+    refresh();
+    const timer = window.setInterval(refresh, syncStatusRefreshMs);
+    return () => {
+      active = false;
+      window.clearInterval(timer);
+    };
+  }, []);
+
+  return status;
+}
+
+function formatSyncTime(value) {
+  if (!value) return "-";
+  return formatBeijingDateTime(value);
+}
+
+function LiveSyncNote({ state }) {
+  const syncStatus = useSyncStatus();
+  const latest = syncStatus?.latest;
+  const latestSuccess = syncStatus?.latestSuccess;
+  const statusText = latest?.status || "waiting";
+
+  return (
+    <div className={`admin-live-note ${state.error ? "error" : ""}`}>
+      <span>{state.loading ? "正在读取最新后台数据..." : "30 分钟自动同步已配置"}</span>
+      <small>
+        {state.error ||
+          `前端刷新：${state.syncedAt || "初始化中"}；Cron 最近执行：${formatSyncTime(latest?.finishedAt)}；最近成功：${formatSyncTime(latestSuccess?.finishedAt)}；状态：${statusText}；处理量：${latest?.processedCount ?? 0}`}
+      </small>
     </div>
   );
 }
