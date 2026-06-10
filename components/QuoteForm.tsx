@@ -15,7 +15,7 @@ export function QuoteForm({ compact = false, defaultProduct = "" }: QuoteFormPro
   async function submit(formData: FormData) {
     setStatus("submitting");
     try {
-      const payload = Object.fromEntries(formData.entries());
+      const payload: Record<string, unknown> = Object.fromEntries(formData.entries());
       payload.phone = payload.phone || payload.whatsapp || "";
       payload.productRequirement = payload.productRequirement || payload.requiredProduct || "";
       payload.materialType = payload.material || "";
@@ -23,6 +23,7 @@ export function QuoteForm({ compact = false, defaultProduct = "" }: QuoteFormPro
       payload.sourcePath = window.location.pathname;
       payload.sourceLanguage = document.documentElement.lang || window.location.pathname.split("/").filter(Boolean)[0] || "en";
       payload.utm = window.location.search;
+      payload.attribution = (window as typeof window & { __cowinAttribution?: unknown }).__cowinAttribution || null;
 
       const response = await fetch("/api/inquiry", {
         method: "POST",
@@ -30,6 +31,10 @@ export function QuoteForm({ compact = false, defaultProduct = "" }: QuoteFormPro
         body: JSON.stringify(payload)
       });
 
+      const tracker = (window as typeof window & { __cowinTrackEvent?: (type: string, extra?: Record<string, unknown>) => void }).__cowinTrackEvent;
+      if (response.ok && tracker) {
+        tracker("submit_inquiry", { page: window.location.pathname, attribution: payload.attribution });
+      }
       setStatus(response.ok ? "success" : "error");
     } catch {
       setStatus("error");

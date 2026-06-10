@@ -144,7 +144,13 @@ export default function InquiryForm() {
       const response = await fetch("/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values)
+        body: JSON.stringify({
+          ...values,
+          sourcePath: window.location.pathname,
+          sourceLanguage: document.documentElement.lang || window.location.pathname.split("/").filter(Boolean)[0] || "en",
+          utm: window.location.search,
+          attribution: window.__cowinAttribution || null
+        })
       });
       const result = await response.json();
 
@@ -154,6 +160,12 @@ export default function InquiryForm() {
 
       setValues(initialValues);
       setTouched({});
+      if (window.__cowinTrackEvent) {
+        window.__cowinTrackEvent("submit_inquiry", {
+          page: window.location.pathname,
+          attribution: window.__cowinAttribution || null
+        });
+      }
       setStatus({
         type: "success",
         message: result?.message || "Thank you. Your inquiry has been submitted successfully."

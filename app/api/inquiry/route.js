@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { appendConversionAttribution } from "@/lib/analyticsDatabase";
 
 export const runtime = "nodejs";
 
@@ -59,6 +60,7 @@ function escapeHtml(value) {
 }
 
 function inquiryText(payload) {
+  const attribution = attributionLines(payload.attribution);
   return [
     "New Cowinmagnet B2B Inquiry",
     "",
@@ -81,12 +83,16 @@ function inquiryText(payload) {
     `User Agent: ${payload.userAgent || "-"}`,
     `Submitted At: ${payload.submittedAt || "-"}`,
     "",
+    "Attribution:",
+    ...attribution,
+    "",
     "Message:",
     payload.message || "-"
   ].join("\n");
 }
 
 function inquiryHtml(payload) {
+  const attribution = payload.attribution || {};
   const rows = [
     ["Name", payload.name],
     ["Email", payload.email],
@@ -107,6 +113,11 @@ function inquiryHtml(payload) {
     ["User Agent", payload.userAgent || "-"],
     ["Submitted At", payload.submittedAt || "-"]
   ];
+  const attributionRows = [
+    ["First Touch", attributionSummary(attribution.firstTouch)],
+    ["Last Touch", attributionSummary(attribution.lastTouch)],
+    ["Session Touch", attributionSummary(attribution.sessionTouch)]
+  ];
 
   return `
     <div style="font-family:Arial,sans-serif;color:#101722;line-height:1.6">
@@ -123,10 +134,59 @@ function inquiryHtml(payload) {
           )
           .join("")}
       </table>
+      <h3 style="margin:20px 0 8px">Attribution</h3>
+      <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse">
+        ${attributionRows
+          .map(
+            ([label, value]) => `
+              <tr>
+                <td style="width:180px;padding:10px;border:1px solid #d9e1ea;background:#f6f8fb;font-weight:700">${label}</td>
+                <td style="padding:10px;border:1px solid #d9e1ea">${escapeHtml(value)}</td>
+              </tr>
+            `
+          )
+          .join("")}
+      </table>
       <h3 style="margin:20px 0 8px">Message</h3>
       <div style="padding:14px;border:1px solid #d9e1ea;background:#f9fbfe;white-space:pre-wrap">${escapeHtml(payload.message)}</div>
     </div>
   `;
+}
+
+function attributionSummary(touch = {}) {
+  return [
+    touch.source || "-",
+    touch.medium || "",
+    touch.campaign ? `campaign=${touch.campaign}` : "",
+    touch.platform ? `platform=${touch.platform}` : "",
+    touch.landingPage ? `landing=${touch.landingPage}` : ""
+  ].filter(Boolean).join(" / ");
+}
+
+function attributionLines(attribution = {}) {
+  return [
+    `First Touch: ${attributionSummary(attribution.firstTouch)}`,
+    `Last Touch: ${attributionSummary(attribution.lastTouch)}`,
+    `Session Touch: ${attributionSummary(attribution.sessionTouch)}`
+  ];
+}
+
+async function recordInquiryAttribution(payload) {
+  const conversionId = `inquiry-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  await appendConversionAttribution({
+    id: conversionId,
+    conversionType: "submit_inquiry",
+    conversionId,
+    visitorId: payload.visitorId || payload.attribution?.visitorId || "",
+    sessionId: payload.sessionId || payload.attribution?.sessionId || "",
+    attribution: payload.attribution || {},
+    sourcePath: payload.sourcePath || "",
+    email: payload.email || "",
+    country: payload.country || "",
+    convertedAt: payload.submittedAt || new Date().toISOString()
+  }).catch((error) => {
+    console.error("Inquiry attribution write failed", error);
+  });
 }
 
 export async function POST(request) {
@@ -188,6 +248,7 @@ export async function POST(request) {
         text: inquiryText(payload),
         html: inquiryHtml(payload)
       });
+      await recordInquiryAttribution(payload);
 
       return Response.json({ message: "Thank you. Your inquiry has been sent successfully." });
     } catch (error) {
@@ -200,6 +261,7 @@ export async function POST(request) {
   }
 
   console.info(`Inquiry received without SMTP delivery: ${payload.email} from ${payload.country || "-"} via ${payload.sourcePath || "-"}`);
+  await recordInquiryAttribution(payload);
   return Response.json({
     message: "Thank you. Your inquiry has been received. Email delivery is not configured on this environment."
   });

@@ -432,7 +432,9 @@ export function AdminOverviewRealtime({ initialData, contentStats }) {
 
 export function AdminTrafficRealtime({ initialData }) {
   const { data, state } = useLiveAnalytics(initialData);
-  const { overview = {}, traffic = {} } = data;
+  const { overview = {}, traffic = {}, acquisition = {} } = data;
+  const sessionRows = list(acquisition.session).slice(0, 12);
+  const campaignRows = list(acquisition.campaigns).slice(0, 12);
 
   return (
     <>
@@ -453,6 +455,60 @@ export function AdminTrafficRealtime({ initialData }) {
         <article className="admin-panel"><p className="eyebrow">来源平台</p><h2>搜索 / 社媒 / AI / 直接访问</h2><BarList rows={list(traffic.sourcePlatforms)} /></article>
         <article className="admin-panel"><p className="eyebrow">目标市场</p><h2>国家 / 地区</h2><BarList rows={displayCountryRows(traffic.countries)} /></article>
         <article className="admin-panel"><p className="eyebrow">设备环境</p><h2>设备类型</h2><BarList rows={list(traffic.devices)} /></article>
+      </section>
+      <section className="admin-panel">
+        <p className="eyebrow">营销归因</p>
+        <h2>Session Source Acquisition</h2>
+        <div className="admin-table-wrap">
+          <table className="admin-table">
+            <thead>
+              <tr><th>Source</th><th>Channel</th><th>Platform</th><th>Campaign</th><th>Visitors</th><th>Sessions</th><th>PV</th><th>Leads</th><th>CVR</th><th>Landing Page</th></tr>
+            </thead>
+            <tbody>
+              {sessionRows.map((row, index) => (
+                <tr key={`${row.source}-${row.medium}-${row.campaign}-${index}`}>
+                  <td>{displayText(row.source)}</td>
+                  <td>{displayText(row.channel || row.medium)}</td>
+                  <td>{displayText(row.platform)}</td>
+                  <td>{displayText(row.campaign || "-")}</td>
+                  <td>{row.visitors}</td>
+                  <td>{row.sessions}</td>
+                  <td>{row.pageViews}</td>
+                  <td>{row.leads}</td>
+                  <td>{row.conversionRate}%</td>
+                  <td>{displayText(row.landingPage)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section className="admin-panel">
+        <p className="eyebrow">Campaign</p>
+        <h2>UTM Campaign 表现</h2>
+        <div className="admin-table-wrap">
+          <table className="admin-table">
+            <thead>
+              <tr><th>Campaign</th><th>Source</th><th>Medium</th><th>Visitors</th><th>Sessions</th><th>PV</th><th>Leads</th><th>CVR</th></tr>
+            </thead>
+            <tbody>
+              {campaignRows.length ? campaignRows.map((row, index) => (
+                <tr key={`${row.utm_campaign}-${row.utm_source}-${index}`}>
+                  <td>{displayText(row.utm_campaign)}</td>
+                  <td>{displayText(row.utm_source)}</td>
+                  <td>{displayText(row.utm_medium)}</td>
+                  <td>{row.visitors}</td>
+                  <td>{row.sessions}</td>
+                  <td>{row.pageViews}</td>
+                  <td>{row.leads}</td>
+                  <td>{row.conversionRate}%</td>
+                </tr>
+              )) : (
+                <tr><td colSpan="8">当前时间范围内暂无 UTM Campaign 数据。</td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </section>
     </>
   );

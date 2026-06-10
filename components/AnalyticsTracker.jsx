@@ -2,6 +2,26 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import { attributionToUtm, buildAttributionState, classifyTraffic } from "@/lib/trafficAttribution";
+
+const firstTouchKey = "traffic_first_touch";
+const lastTouchKey = "traffic_last_touch";
+const sessionTouchKey = "traffic_session";
+const visitorCookieKey = "anonymous_visitor_id";
+
+function readJsonStorage(storage, key) {
+  try {
+    const value = storage.getItem(key);
+    return value ? JSON.parse(value) : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeCookie(key, value, maxAgeDays = 90) {
+  const encoded = encodeURIComponent(JSON.stringify(value));
+  document.cookie = `${key}=${encoded}; Max-Age=${maxAgeDays * 86400}; Path=/; SameSite=Lax${window.location.protocol === "https:" ? "; Secure" : ""}`;
+}
 
 function getVisitorId() {
   const key = "cowin_visitor_id";
@@ -10,6 +30,7 @@ function getVisitorId() {
     value = `v_${Date.now()}_${Math.random().toString(16).slice(2)}`;
     window.localStorage.setItem(key, value);
   }
+  document.cookie = `${visitorCookieKey}=${encodeURIComponent(value)}; Max-Age=${365 * 86400}; Path=/; SameSite=Lax${window.location.protocol === "https:" ? "; Secure" : ""}`;
   return value;
 }
 
@@ -23,33 +44,6 @@ function getSessionId() {
   return value;
 }
 
-function parseUtm(searchParams) {
-  const clickSource =
-    searchParams.get("gclid") || searchParams.get("gbraid") || searchParams.get("wbraid")
-      ? "google"
-      : searchParams.get("fbclid")
-        ? "facebook"
-        : searchParams.get("ttclid")
-          ? "tiktok"
-          : searchParams.get("msclkid")
-            ? "bing"
-            : searchParams.get("li_fat_id")
-              ? "linkedin"
-              : "";
-
-  return {
-    source: searchParams.get("utm_source") || clickSource,
-    medium: searchParams.get("utm_medium") || (clickSource ? "paid" : ""),
-    campaign: searchParams.get("utm_campaign") || "",
-    term: searchParams.get("utm_term") || "",
-    content: searchParams.get("utm_content") || ""
-  };
-}
-
-function hasUtm(utm) {
-  return Boolean(utm.source || utm.medium || utm.campaign || utm.term || utm.content);
-}
-
 function getExternalReferrer() {
   if (!document.referrer) return "";
   try {
@@ -61,28 +55,32 @@ function getExternalReferrer() {
 }
 
 function getSessionAttribution(searchParams) {
-  const key = "cowin_session_attribution";
-  const currentUtm = parseUtm(searchParams);
-  const externalReferrer = getExternalReferrer();
-  const storedValue = window.sessionStorage.getItem(key);
-  let stored = null;
-  try {
-    stored = storedValue ? JSON.parse(storedValue) : null;
-  } catch {
-    stored = null;
-  }
+  const currentTouch = classifyTraffic({
+    currentUrl: window.location.href,
+    search: searchParams?.toString() || window.location.search,
+    referrer: getExternalReferrer(),
+    locale: document.documentElement.lang || window.location.pathname.split("/").filter(Boolean)[0] || "en"
+  });
+  const state = buildAttributionState({
+    firstTouch: readJsonStorage(window.localStorage, firstTouchKey),
+    lastTouch: readJsonStorage(window.localStorage, lastTouchKey),
+    sessionTouch: readJsonStorage(window.sessionStorage, sessionTouchKey),
+    currentTouch
+  });
 
-  if (hasUtm(currentUtm) || externalReferrer || !stored) {
-    const value = {
-      referrer: externalReferrer || stored?.referrer || "",
-      utm: hasUtm(currentUtm) ? currentUtm : stored?.utm || currentUtm,
-      capturedAt: new Date().toISOString()
-    };
-    window.sessionStorage.setItem(key, JSON.stringify(value));
-    return value;
-  }
+  window.localStorage.setItem(firstTouchKey, JSON.stringify(state.firstTouch));
+  window.localStorage.setItem(lastTouchKey, JSON.stringify(state.lastTouch));
+  window.sessionStorage.setItem(sessionTouchKey, JSON.stringify(state.sessionTouch));
+  writeCookie(firstTouchKey, state.firstTouch, 365);
+  writeCookie(lastTouchKey, state.lastTouch, 90);
+  writeCookie(sessionTouchKey, state.sessionTouch, 1);
+  window.__cowinAttribution = state;
 
-  return stored;
+  return {
+    referrer: currentTouch.referrer || state.sessionTouch.referrer || "",
+    utm: attributionToUtm(currentTouch),
+    attribution: state
+  };
 }
 
 function sendAnalyticsEvent(payload) {
@@ -101,6 +99,27 @@ function sendAnalyticsEvent(payload) {
   }).catch(() => {});
 }
 
+function publicTrackEvent(type, extra = {}) {
+  const attribution = window.__cowinAttribution || {
+    firstTouch: readJsonStorage(window.localStorage, firstTouchKey),
+    lastTouch: readJsonStorage(window.localStorage, lastTouchKey),
+    sessionTouch: readJsonStorage(window.sessionStorage, sessionTouchKey)
+  };
+  sendAnalyticsEvent({
+    type,
+    visitorId: getVisitorId(),
+    sessionId: getSessionId(),
+    page: extra.page || window.location.pathname,
+    pageTitle: document.title,
+    referrer: attribution?.sessionTouch?.referrer || "",
+    utm: attributionToUtm(attribution?.sessionTouch || {}),
+    attribution,
+    targetText: extra.targetText || "",
+    outboundUrl: extra.outboundUrl || "",
+    timestamp: new Date().toISOString()
+  });
+}
+
 export default function AnalyticsTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -110,6 +129,7 @@ export default function AnalyticsTracker() {
 
   useEffect(() => {
     if (pathname?.startsWith("/admin")) return;
+    window.__cowinTrackEvent = publicTrackEvent;
 
     const page = `${pathname || "/"}${searchParams?.toString() ? `?${searchParams.toString()}` : ""}`;
     const attribution = getSessionAttribution(searchParams);
@@ -121,6 +141,7 @@ export default function AnalyticsTracker() {
       pageTitle: document.title,
       referrer: attribution.referrer,
       utm: attribution.utm,
+      attribution: attribution.attribution,
       timestamp: new Date().toISOString()
     };
 
@@ -170,12 +191,19 @@ export default function AnalyticsTracker() {
       if (!link?.href) return;
       const targetUrl = new URL(link.href);
       if (targetUrl.origin !== window.location.origin) {
+        const lowerHref = link.href.toLowerCase();
+        const eventType = lowerHref.includes("wa.me") || lowerHref.includes("whatsapp")
+          ? "click_whatsapp"
+          : lowerHref.startsWith("mailto:")
+            ? "click_email"
+            : "outbound_link_click";
         sendAnalyticsEvent({
-          type: "outbound_link_click",
+          type: eventType,
           visitorId: getVisitorId(),
           sessionId: getSessionId(),
           page: window.location.pathname,
           pageTitle: document.title,
+          attribution: window.__cowinAttribution || null,
           outboundUrl: link.href,
           targetText: link.textContent?.trim().slice(0, 120) || "",
           timestamp: new Date().toISOString()
