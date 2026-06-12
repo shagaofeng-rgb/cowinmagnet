@@ -1,10 +1,11 @@
 export const newsSystemConfig = {
   siteUrl: process.env.SITE_URL || "https://www.cowinmagnet.com",
   defaultLanguage: "en",
-  publishMode: process.env.NEWS_PUBLISH_MODE || "published",
+  publishMode: String(process.env.NEWS_PUBLISH_MODE || "published").trim(),
   publishInterval: "every-3-hours",
-  maxPostsPerDay: Number(process.env.NEWS_MAX_POSTS_PER_DAY || 24),
-  minRelevanceScore: Number(process.env.NEWS_MIN_RELEVANCE_SCORE || 60),
+  maxPostsPerRun: Number(process.env.NEWS_MAX_PUBLISH_PER_RUN || process.env.NEWS_MAX_POSTS_PER_RUN || 1),
+  maxPostsPerDay: Number(process.env.NEWS_MAX_PUBLISH_PER_DAY || process.env.NEWS_MAX_POSTS_PER_DAY || 8),
+  minRelevanceScore: Number(process.env.NEWS_MIN_RELEVANCE_SCORE || 50),
   timezone: process.env.NEWS_TIMEZONE || "Asia/Shanghai",
   outputImageSize: { width: 1200, height: 630 },
   brand: {
@@ -17,7 +18,12 @@ export const newsSystemConfig = {
       "own factory",
       "source manufacturer",
       "factory direct",
+      "direct factory",
+      "factory-direct manufacturer",
       "production base",
+      "industry-leading manufacturer",
+      "No.1 manufacturer",
+      "world-leading factory",
       "official partner of this project",
       "guaranteed to solve"
     ]
@@ -90,6 +96,74 @@ export const newsSystemConfig = {
     "power plant coal handling",
     "steel plant material handling"
   ],
+  keywordTaxonomy: {
+    core: [
+      "magnetic separator supplier",
+      "industrial magnetic separator",
+      "magnetic separation equipment",
+      "magnetic separator systems",
+      "custom magnetic separation solution",
+      "magnetic separator for conveyor belt",
+      "tramp iron removal equipment",
+      "industrial iron separator",
+      "ferrous metal separator",
+      "magnetic separation equipment supplier"
+    ],
+    permanent: [
+      "permanent magnetic separator",
+      "suspended permanent magnetic separator",
+      "permanent suspended magnet",
+      "overhead magnetic separator",
+      "overband magnetic separator",
+      "permanent overband magnet",
+      "cross belt magnetic separator",
+      "cross belt magnet",
+      "self-cleaning magnetic separator",
+      "self-cleaning overband magnet",
+      "manual-cleaning suspended magnet",
+      "conveyor belt magnetic separator",
+      "tramp iron separator",
+      "magnetic iron remover"
+    ],
+    electromagnetic: [
+      "electromagnetic separator",
+      "suspended electromagnetic separator",
+      "electromagnetic overband separator",
+      "self-cleaning electromagnetic separator",
+      "air-cooled electromagnetic separator",
+      "oil-cooled electromagnetic separator",
+      "self-cooled electromagnetic separator",
+      "electromagnetic iron separator",
+      "conveyor electromagnetic separator",
+      "high-intensity electromagnetic separator"
+    ],
+    drumsAndMineral: [
+      "magnetic drum separator",
+      "wet drum magnetic separator",
+      "dry drum magnetic separator",
+      "permanent magnetic drum",
+      "magnetic pulley",
+      "head pulley magnet",
+      "wet magnetic separator",
+      "dry magnetic separator",
+      "drum magnetic separator for mining",
+      "magnetic separator for mineral processing",
+      "magnetic separator for iron ore",
+      "dense media magnetic separator",
+      "coal washing magnetic separator",
+      "tailings recovery magnetic separator"
+    ],
+    components: [
+      "magnetic bar",
+      "magnetic rod",
+      "magnetic grate",
+      "magnetic grid separator",
+      "magnetic filter",
+      "pipeline magnetic separator",
+      "magnetic tube",
+      "magnetic roller"
+    ]
+  },
   newsSources: [
     {
       sourceName: "Recycling Today",
@@ -100,7 +174,7 @@ export const newsSystemConfig = {
       region: "global",
       category: "recycling",
       fetchInterval: "hourly",
-      allowedUseImage: false,
+      allowedUseImage: true,
       defaultAttributionText: "Recycling Today / original article"
     },
     {
@@ -112,7 +186,7 @@ export const newsSystemConfig = {
       region: "global",
       category: "mining",
       fetchInterval: "hourly",
-      allowedUseImage: false,
+      allowedUseImage: true,
       defaultAttributionText: "Mining.com / original article"
     },
     {
@@ -124,7 +198,7 @@ export const newsSystemConfig = {
       region: "global",
       category: "food-processing",
       fetchInterval: "daily",
-      allowedUseImage: false,
+      allowedUseImage: true,
       defaultAttributionText: "Food Safety News / original article"
     },
     {
@@ -136,7 +210,7 @@ export const newsSystemConfig = {
       region: "United States",
       category: "magnetic-separation",
       fetchInterval: "hourly",
-      allowedUseImage: false,
+      allowedUseImage: true,
       defaultAttributionText: "Google News RSS result / original publisher"
     },
     {
@@ -148,7 +222,43 @@ export const newsSystemConfig = {
       region: "global",
       category: "recycling",
       fetchInterval: "hourly",
-      allowedUseImage: false,
+      allowedUseImage: true,
+      defaultAttributionText: "Google News RSS result / original publisher"
+    },
+    {
+      sourceName: "Google News RSS - Critical Minerals Processing",
+      sourceType: "rss",
+      sourceUrl: "https://news.google.com/rss/search?q=critical%20minerals%20processing%20OR%20rare%20earth%20processing%20plant%20OR%20lithium%20extraction%20plant&hl=en-US&gl=US&ceid=US:en",
+      enabled: true,
+      language: "en",
+      region: "global",
+      category: "mining",
+      fetchInterval: "hourly",
+      allowedUseImage: true,
+      defaultAttributionText: "Google News RSS result / original publisher"
+    },
+    {
+      sourceName: "Google News RSS - Conveyor Protection",
+      sourceType: "rss",
+      sourceUrl: "https://news.google.com/rss/search?q=conveyor%20belt%20mining%20crusher%20OR%20quarry%20conveyor%20aggregate%20processing%20OR%20bulk%20material%20handling%20equipment&hl=en-US&gl=US&ceid=US:en",
+      enabled: true,
+      language: "en",
+      region: "global",
+      category: "bulk-material-handling",
+      fetchInterval: "hourly",
+      allowedUseImage: true,
+      defaultAttributionText: "Google News RSS result / original publisher"
+    },
+    {
+      sourceName: "Google News RSS - Metal Contamination Control",
+      sourceType: "rss",
+      sourceUrl: "https://news.google.com/rss/search?q=metal%20contamination%20food%20processing%20OR%20foreign%20material%20contamination%20food%20plant%20OR%20magnetic%20trap%20food%20processing&hl=en-US&gl=US&ceid=US:en",
+      enabled: true,
+      language: "en",
+      region: "global",
+      category: "food-processing",
+      fetchInterval: "hourly",
+      allowedUseImage: true,
       defaultAttributionText: "Google News RSS result / original publisher"
     }
   ],
@@ -162,7 +272,7 @@ export const newsSystemConfig = {
   },
   excludedKeywords: ["election", "war", "celebrity", "sports", "stock price rumor", "crypto", "entertainment"],
   scoring: {
-    minimumFinalScore: Number(process.env.NEWS_MIN_RELEVANCE_SCORE || 60),
+    minimumFinalScore: Number(process.env.NEWS_MIN_RELEVANCE_SCORE || 50),
     weights: {
       relevance: 0.24,
       painPoint: 0.22,
@@ -175,21 +285,21 @@ export const newsSystemConfig = {
   },
   output: {
     directory: "data/news-opportunities",
-    maxItemsPerRun: 8,
+    maxItemsPerRun: 20,
     generatedArticlesDirectory: "data/news-generated"
   },
   imagePolicy: {
     enableImageFromSource: process.env.NEWS_ENABLE_SOURCE_IMAGES !== "false",
     enableAiGeneratedImage: false,
-    minInlineImages: Number(process.env.NEWS_MIN_INLINE_IMAGES || 3),
+    minInlineImages: Number(process.env.NEWS_MIN_INLINE_IMAGES || 0),
     maxInlineImages: Number(process.env.NEWS_MAX_INLINE_IMAGES || 5),
     preferRealLibraryImages: true,
     allowSourceImages: process.env.NEWS_ENABLE_SOURCE_IMAGES !== "false",
-    allowAiGeneratedPhotorealisticImages: process.env.NEWS_ALLOW_AI_PHOTO_IMAGES !== "false",
+    allowAiGeneratedPhotorealisticImages: false,
     imageStyle: "photorealistic-industrial",
     avoidIllustrationStyle: true,
-    enableCompanyImageFallback: true,
-    defaultCoverTemplate: "company-library-real-industrial-photo"
+    enableCompanyImageFallback: false,
+    defaultCoverTemplate: "source-article-image-or-none"
   },
   workflow: {
     statuses: ["fetched", "scored", "generated", "reviewed", "approved", "rejected", "published"],

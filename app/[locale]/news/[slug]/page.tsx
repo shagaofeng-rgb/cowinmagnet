@@ -28,9 +28,9 @@ function NewsDisplayImage({
   priority?: boolean;
 }) {
   if (/^https?:\/\//i.test(src)) {
-    return <img src={src} width={width} height={height} alt={alt} loading={priority ? "eager" : "lazy"} referrerPolicy="no-referrer" />;
+    return <img src={src} width={width} height={height} alt={alt} loading={priority ? "eager" : "lazy"} referrerPolicy="no-referrer" style={{ objectFit: "contain" }} />;
   }
-  return <Image src={src} width={width} height={height} alt={alt} priority={priority} />;
+  return <Image src={src} width={width} height={height} alt={alt} priority={priority} style={{ objectFit: "contain" }} />;
 }
 
 export const dynamic = "force-dynamic";
@@ -48,6 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = post.seoTitle || post.title;
   const description = post.seoDescription || post.excerpt;
+  const socialImages = post.coverImage ? [absoluteUrl(post.coverImage)] : [];
 
   return {
     title,
@@ -56,8 +57,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title,
       description,
-      images: [post.coverImage || "/images/generated/recycling-application-cowinmagnet.png"],
+      images: socialImages,
       type: "article"
+    },
+    twitter: {
+      title,
+      description,
+      images: socialImages
     }
   };
 }
@@ -76,11 +82,22 @@ export default async function LocalizedNewsDetailPage({ params }: PageProps) {
   const previous = currentIndex > 0 ? posts[currentIndex - 1] : null;
   const next = currentIndex >= 0 && currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
   const related = posts.filter((item) => item.slug !== post.slug && item.category === post.category).slice(0, 3);
-  const coverImage = post.coverImage || "/images/generated/recycling-application-cowinmagnet.png";
+  const coverImage = post.coverImage || "";
   const description = post.seoDescription || post.excerpt;
   const sections = (post.sections || []) as { heading: string; body: string }[];
   const sources = (post.sources || []) as { name: string; date: string; title: string; url: string; accessedDate?: string }[];
   const relatedProducts = (post.relatedProducts || []) as string[];
+  const seoGeoProfile = (post.seoGeoProfile || {}) as {
+    productCategory?: string;
+    primaryProducts?: string[];
+    industry?: string;
+    buyerIntent?: string;
+    searchKeywords?: string[];
+    selectionParameters?: string[];
+    aiSearchSummary?: string;
+    serviceScope?: string[];
+  };
+  const geoEntities = (post.geoEntities || {}) as Record<string, unknown>;
   const bodyImages = (post.bodyImages || []) as {
     imageUrl: string;
     imageAlt: string;
@@ -92,14 +109,33 @@ export default async function LocalizedNewsDetailPage({ params }: PageProps) {
   }[];
   const faqs = (post.faqs || []) as { question: string; answer: string }[];
   const relatedInternalLinks = await getInternalLinkSuggestions({ type: "news", slug: post.slug, limit: 5 });
-  const articleImages = [coverImage, ...bodyImages.map((image) => image.imageUrl).filter(Boolean)].map((imageUrl) => absoluteUrl(imageUrl));
+  const articleImages = [coverImage, ...bodyImages.map((image) => image.imageUrl).filter(Boolean)].filter(Boolean).map((imageUrl) => absoluteUrl(imageUrl));
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     headline: post.title,
     description,
-    image: articleImages,
+    articleSection: post.categoryTitle || post.category,
+    keywords: [
+      ...((post.tags || []) as string[]),
+      ...((post.seoKeywords || []) as string[]),
+      ...(seoGeoProfile.searchKeywords || [])
+    ].filter(Boolean).slice(0, 24).join(", "),
+    about: [
+      seoGeoProfile.productCategory,
+      seoGeoProfile.industry,
+      seoGeoProfile.buyerIntent
+    ].filter(Boolean).map((name) => ({ "@type": "Thing", name })),
+    mentions: [
+      ...relatedProducts,
+      ...(seoGeoProfile.primaryProducts || []),
+      ...((geoEntities.technical_terms as string[] | undefined) || []),
+      ...((seoGeoProfile.serviceScope as string[] | undefined) || [])
+    ].filter(Boolean).slice(0, 24).map((name) => ({ "@type": "Thing", name })),
+    citation: sources.map((source) => source.url).filter(Boolean),
+    isAccessibleForFree: true,
+    ...(articleImages.length ? { image: articleImages } : {}),
     datePublished: post.publishedAt,
     dateModified: post.updatedAt || post.publishedAt,
     author: { "@type": post.author ? "Person" : "Organization", name: post.author || site.name },
@@ -133,10 +169,12 @@ export default async function LocalizedNewsDetailPage({ params }: PageProps) {
             {post.source ? <span>Source: {post.source}</span> : null}
           </div>
         </div>
-        <div className="blog-hero-image">
-          <NewsDisplayImage src={coverImage} width={980} height={620} alt={post.coverAlt || post.title} priority />
-          {post.imageCaption ? <p className="news-image-caption">{post.imageCaption}</p> : null}
-        </div>
+        {coverImage ? (
+          <div className="blog-hero-image">
+            <NewsDisplayImage src={coverImage} width={980} height={620} alt={post.coverAlt || post.title} priority />
+            {post.imageCaption ? <p className="news-image-caption">{post.imageCaption}</p> : null}
+          </div>
+        ) : null}
       </section>
 
       <section className="section blog-detail-layout">
@@ -237,7 +275,7 @@ export default async function LocalizedNewsDetailPage({ params }: PageProps) {
                 <article className="blog-card news-card" key={item.slug}>
                   <Link href={localizeHref(`/news/${item.slug}`, current)} className="blog-card-image">
                     <DateBadge date={item.publishedAt} />
-                    <NewsDisplayImage src={item.coverImage || coverImage} width={760} height={460} alt={item.coverAlt || item.title} />
+                    {item.coverImage ? <NewsDisplayImage src={item.coverImage} width={760} height={460} alt={item.coverAlt || item.title} /> : null}
                   </Link>
                   <div className="blog-card-body">
                     <div className="blog-card-meta"><span>{categoryMap.get(item.category) || item.category}</span><time>{formatDisplayDate(item.publishedAt)}</time></div>

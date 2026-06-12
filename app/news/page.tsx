@@ -8,9 +8,9 @@ import { formatDisplayDate, getNewsCategories, getNewsPosts } from "@/data/conte
 
 function NewsCardImage({ src, alt }: { src: string; alt: string }) {
   if (/^https?:\/\//i.test(src)) {
-    return <img src={src} width={760} height={460} alt={alt} loading="lazy" referrerPolicy="no-referrer" />;
+    return <img src={src} width={760} height={460} alt={alt} loading="lazy" referrerPolicy="no-referrer" style={{ objectFit: "contain" }} />;
   }
-  return <Image src={src} width={760} height={460} alt={alt} />;
+  return <Image src={src} width={760} height={460} alt={alt} style={{ objectFit: "contain" }} />;
 }
 
 export const dynamic = "force-dynamic";
@@ -59,10 +59,12 @@ export default async function NewsPage() {
         <div className="blog-grid news-card-grid">
           {posts.map((post) => (
             <article className="blog-card news-card" id={post.category} key={post.slug}>
-              <Link href={`/news/${post.slug}`} className="blog-card-image" aria-label={post.title}>
-                <DateBadge date={post.publishedAt} />
-                <NewsCardImage src={post.coverImage || "/images/generated/recycling-application-cowinmagnet.png"} alt={post.coverAlt || post.title} />
-              </Link>
+              {post.coverImage ? (
+                <Link href={`/news/${post.slug}`} className="blog-card-image" aria-label={post.title}>
+                  <DateBadge date={post.publishedAt} />
+                  <NewsCardImage src={post.coverImage} alt={post.coverAlt || post.title} />
+                </Link>
+              ) : null}
               <div className="blog-card-body">
                 <div className="blog-card-meta">
                   <span>{categoryMap.get(post.category) || post.categoryTitle || post.category}</span>

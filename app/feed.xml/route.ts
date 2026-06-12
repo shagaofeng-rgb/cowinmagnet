@@ -15,6 +15,12 @@ function rssDate(value?: string) {
   return Number.isNaN(date.getTime()) ? new Date().toUTCString() : date.toUTCString();
 }
 
+function absoluteImageUrl(value = "") {
+  if (!value) return "";
+  if (/^https?:\/\//i.test(value)) return value;
+  return `${site.url}${value.startsWith("/") ? value : `/${value}`}`;
+}
+
 export async function GET() {
   const posts = (await getNewsPosts()).slice(0, 30);
   const body = `<?xml version="1.0" encoding="UTF-8"?>
@@ -28,7 +34,7 @@ export async function GET() {
 ${posts
   .map((post) => {
     const link = `${site.url}/news/${post.slug}`;
-    const image = post.coverImage ? `${site.url}${post.coverImage}` : "";
+    const image = absoluteImageUrl(post.coverImage || "");
     return `    <item>
       <title>${escapeXml(post.title)}</title>
       <link>${escapeXml(link)}</link>

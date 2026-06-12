@@ -293,16 +293,26 @@ export function formatViews(views) {
 async function getGeneratedNewsPosts() {
   return generatedNewsPosts
     .filter((post) => post.status === "published" && post.quality?.passed !== false)
-    .map((post) => ({
-      ...post,
-      type: "news",
-      href: post.href || `/news/${post.slug}`,
-      views: Number(post.views || 0),
-      category: post.category || "industry-news",
-      categoryTitle: post.categoryTitle || post.category || "Industry News",
-      seoTitle: post.seoTitle || post.title,
-      seoDescription: post.seoDescription || post.excerpt
-    }));
+    .map((post) => {
+      const validSourceImage = post.sourceImage?.imageStatus === "valid" ? post.sourceImage : null;
+      return {
+        ...post,
+        coverImage: validSourceImage?.imageUrl || "",
+        coverAlt: validSourceImage?.imageAlt || "",
+        imageCaption: validSourceImage?.imageCaption || "",
+        imageSourceName: validSourceImage?.sourceName || "",
+        imageSourceUrl: validSourceImage?.sourcePageUrl || "",
+        imageLicenseNote: validSourceImage ? `Image source: ${validSourceImage.sourceName || "source article"}` : "",
+        bodyImages: [],
+        type: "news",
+        href: post.href || `/news/${post.slug}`,
+        views: Number(post.views || 0),
+        category: post.category || "industry-news",
+        categoryTitle: post.categoryTitle || post.category || "Industry News",
+        seoTitle: post.seoTitle || post.title,
+        seoDescription: post.seoDescription || post.excerpt
+      };
+    });
 }
 
 export async function getNewsPosts() {
@@ -310,6 +320,20 @@ export async function getNewsPosts() {
   const merged = [
     ...uploadedNews.map((post) => ({
       ...post,
+      ...(post.automation && post.sourceImage?.imageStatus !== "valid"
+        ? { coverImage: "", coverAlt: "", imageCaption: "", imageSourceName: "", imageSourceUrl: "", imageLicenseNote: "", bodyImages: [] }
+        : {}),
+      ...(post.automation && post.sourceImage?.imageStatus === "valid"
+        ? {
+            coverImage: post.sourceImage.imageUrl,
+            coverAlt: post.sourceImage.imageAlt,
+            imageCaption: post.sourceImage.imageCaption,
+            imageSourceName: post.sourceImage.sourceName || "",
+            imageSourceUrl: post.sourceImage.sourcePageUrl || "",
+            imageLicenseNote: `Image source: ${post.sourceImage.sourceName || "source article"}`,
+            bodyImages: []
+          }
+        : {}),
       href: post.href || `/news/${post.slug}`,
       views: Number(post.views || 0),
       categoryTitle: post.categoryTitle || post.category,

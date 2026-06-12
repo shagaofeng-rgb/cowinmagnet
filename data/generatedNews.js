@@ -282,6 +282,258 @@ export const generatedNewsPosts = [
   },
   {
     "type": "news",
+    "slug": "magnetic-separation-elementusa-colorado-school-of-mines-win-67m-award-for-rare-earth-proce",
+    "title": "ElementUSA Colorado School Mines: Magnetic Separation Questions for Mineral Buyers: Cowinmagnet View",
+    "excerpt": "Cowinmagnet reviews ElementUSA Colorado School Mines and explains what the news may mean for magnetic separation equipment buyers in rare earth and...",
+    "category": "industry-news",
+    "categoryTitle": "Industry News",
+    "categoryDescription": "Industry news references with Cowinmagnet original analysis and buyer-focused magnetic separation viewpoints.",
+    "coverImage": "",
+    "coverAlt": "",
+    "imageCaption": "",
+    "imageSourceName": "",
+    "imageSourceUrl": "",
+    "imageLicenseNote": "",
+    "bodyImages": [],
+    "generatedCoverPath": "",
+    "dateOverlayText": "2026-06-09",
+    "sections": [
+      {
+        "heading": "Introduction",
+        "body": "ElementUSA Colorado School Mines is a useful signal for overseas buyers watching rare earth and critical-mineral processing. Cowinmagnet treats the Mining.com report as factual background and then looks at a practical equipment question: how should operators think about ore variability, residue handling, tramp iron risk, and protection of crushers or screens? This article is not a repost of the source story. It turns the event into a magnetic separation and material-handling review for buyers who need cleaner flow, safer downstream equipment, and more predictable maintenance planning."
+      },
+      {
+        "heading": "News Background",
+        "body": "According to Mining.com, \"ElementUSA, Colorado School of Mines win $67M award for rare earth processing plant\" was published on 2026-06-03. The available source summary says: The facility, the company said, has the potential to make the Louisiana residue one of the only depleting bauxite residue waste resources in the world. The important point for Cowinmagnet readers is not only the announcement itself, but the operating environment behind it. In rare earth and critical-mineral processing, plants often need to move inconsistent materials through conveyors, chutes, crushers, screens, separators, or inspection steps. That makes suspended magnets, self-cleaning overband separators, and magnetic drums before key processing stages worth reviewing before a buyer selects a model or sends an inquiry."
+      },
+      {
+        "heading": "Why It Matters",
+        "body": "For industrial buyers, this story matters because rare earth and critical-mineral processing projects rarely depend on one machine only. They depend on a stable flow of material from feeding to discharge. If unwanted ferrous metal reaches crushers, shredders, screens, sorting machines, packing systems, or sensitive process equipment, the result can be downtime, product-quality risk, belt damage, or extra manual cleaning. The buyer question raised by ElementUSA Colorado School Mines is therefore specific: where in the line should magnetic separation be reviewed so that ore variability, residue handling, tramp iron risk, and protection of crushers or screens are controlled early enough?"
+      },
+      {
+        "heading": "Industry Perspective",
+        "body": "From an industry perspective, rare earth and critical-mineral processing is becoming more demanding because operators want higher throughput, cleaner output, and less unplanned stoppage. Magnetic separation equipment is not a universal one-size answer. A suspended permanent magnet may fit simple conveyor-protection duty. A self-cleaning overband separator is often reviewed when captured iron appears frequently. Electromagnetic separators can be considered for deeper burden or adjustable magnetic force. Magnetic bars, grids, drums, pulleys, and filters can be more relevant when the material is fine, granular, recycled, or moving through enclosed equipment. The right direction depends on ore name, belt width, burden depth, expected iron size, installation height, and crusher or screen position."
+      },
+      {
+        "heading": "Brand/Product Connection",
+        "body": "Cowinmagnet, operated by Quzhou Qiying Import & Export Co., Ltd, reads the ElementUSA Colorado School Mines update as a reminder that product selection should begin with working conditions instead of only a catalog name. For this topic, the most relevant equipment lens is Permanent Magnetic Separation Equipment. Possible product directions include Suspended Permanent Magnetic Iron Separator, Suspended Permanent Self-Unloading Magnetic Separator, Self-Cleaning Overband Magnetic Separator. These products may help capture tramp iron, protect downstream equipment, support cleaner material flow, or reduce manual sorting pressure, but the final configuration should be checked against drawings, material behavior, maintenance access, and installation limits."
+      },
+      {
+        "heading": "Practical Implications for Buyers",
+        "body": "Before sending an inquiry related to this type of news, buyers can prepare a short technical brief rather than asking for a model immediately. Useful details include ore name, belt width, burden depth, expected iron size, installation height, and crusher or screen position. Photos or drawings around the conveyor, chute, hopper, transfer point, or process inlet are also important because installation height and discharge space can decide whether a suspended magnet, self-cleaning overband separator, drum, pulley, grid, or bar is realistic. This preparation reduces the risk of choosing equipment that looks strong on paper but is difficult to install, clean, or maintain on site."
+      },
+      {
+        "heading": "Related Cowinmagnet Solutions",
+        "body": "Based on the topic, Cowinmagnet would first review Permanent Magnetic Separation Equipment. Possible related products include Suspended Permanent Magnetic Iron Separator, Suspended Permanent Self-Unloading Magnetic Separator, Self-Cleaning Overband Magnetic Separator. The topic relates to conveyor protection, tramp iron removal or recycling recovery where permanent overband separators are often used. For the ElementUSA Colorado School Mines context, this is only a starting point for technical discussion, not an automatic model selection. A buyer should still confirm site layout, material flow, environmental conditions, power requirements, cleaning method, maintenance access, and installation drawings before choosing between a suspended permanent magnet, self-cleaning overband separator, electromagnetic separator, magnetic drum, magnetic pulley, magnetic grid, or magnetic bar."
+      },
+      {
+        "heading": "FAQ",
+        "body": "Why can overseas industry news matter for magnetic separator buyers? Industry news can point to changes in material handling, recycling, mining, processing capacity, safety expectations or supply-chain planning. Buyers can use those signals to review whether their existing tramp iron removal, conveyor protection and material purity controls are still suitable. How should buyers connect this trend with Suspended Permanent Magnetic Iron Separator? Buyers should compare the trend with their own site conditions, including material type, belt width, belt speed, burden depth, installation height, iron size, iron frequency, cleaning method and available maintenance space. The product direction should come from those conditions rather than from a model name alone. What information should be prepared before requesting a magnetic separator recommendation? Useful information includes the application industry, material name and particle size, handling capacity, conveyor width and speed, material layer height, expected iron contamination, installation photos or drawings, voltage, operating hours and whether manual or self-cleaning discharge is preferred. Can one magnetic separator model fit every mining or recycling line? No. A suspended permanent magnet, self-cleaning overband separator, electromagnetic separator, magnetic drum, magnetic pulley, magnetic bar or magnetic grid can each fit different duties. The practical choice depends on material behavior, process layout, separation target and maintenance requirements."
+      },
+      {
+        "heading": "About Cowinmagnet",
+        "body": "Cowinmagnet is the brand used by Quzhou Qiying Import & Export Co., Ltd for magnetic separation equipment sourcing, product matching and export communication support. The company helps overseas buyers discuss product directions such as suspended magnetic separators, overband magnetic separators, electromagnetic separators, magnetic rollers, magnetic bars, magnetic drums, magnetic pulleys and related magnetic components for mining, recycling, cement, aggregate, coal handling, bulk material handling and industrial contamination-control applications. Cowinmagnet avoids unsupported claims and focuses on matching equipment direction with real working conditions."
+      },
+      {
+        "heading": "Call to Action",
+        "body": "If the ElementUSA Colorado School Mines topic is close to your own plant upgrade, material purity target, or conveyor protection problem, you can send Cowinmagnet ore name, belt width, burden depth, expected iron size, installation height, and crusher or screen position, plus photos around the proposed installation point. The team can help review a suitable magnetic separator direction and prepare the next discussion for export quotation."
+      },
+      {
+        "heading": "Conclusion",
+        "body": "ElementUSA Colorado School Mines becomes useful for buyers when it is translated into practical operating decisions. For magnetic separation projects, the next step is to connect the news signal with material behavior, plant layout, contamination risk, cleaning method, and separation goals. Cowinmagnet can help buyers compare suitable magnetic separator directions for export projects while keeping the final selection grounded in technical facts from the site."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Why can overseas industry news matter for magnetic separator buyers?",
+        "answer": "Industry news can point to changes in material handling, recycling, mining, processing capacity, safety expectations or supply-chain planning. Buyers can use those signals to review whether their existing tramp iron removal, conveyor protection and material purity controls are still suitable."
+      },
+      {
+        "question": "How should buyers connect this trend with Suspended Permanent Magnetic Iron Separator?",
+        "answer": "Buyers should compare the trend with their own site conditions, including material type, belt width, belt speed, burden depth, installation height, iron size, iron frequency, cleaning method and available maintenance space. The product direction should come from those conditions rather than from a model name alone."
+      },
+      {
+        "question": "What information should be prepared before requesting a magnetic separator recommendation?",
+        "answer": "Useful information includes the application industry, material name and particle size, handling capacity, conveyor width and speed, material layer height, expected iron contamination, installation photos or drawings, voltage, operating hours and whether manual or self-cleaning discharge is preferred."
+      },
+      {
+        "question": "Can one magnetic separator model fit every mining or recycling line?",
+        "answer": "No. A suspended permanent magnet, self-cleaning overband separator, electromagnetic separator, magnetic drum, magnetic pulley, magnetic bar or magnetic grid can each fit different duties. The practical choice depends on material behavior, process layout, separation target and maintenance requirements."
+      }
+    ],
+    "aboutBrand": "Cowinmagnet is the magnetic separation equipment sourcing and export service brand of Quzhou Qiying Import & Export Co., Ltd.",
+    "callToAction": "Send your conveyor details, material information and installation photos for a magnetic separator recommendation.",
+    "geoEntities": {
+      "brand_name": "Cowinmagnet",
+      "company_name": "Quzhou Qiying Import & Export Co., Ltd",
+      "product_name": "Suspended Permanent Magnetic Iron Separator",
+      "industry_keywords": [
+        "magnetic separator",
+        "overband magnetic separator",
+        "tramp iron removal",
+        "conveyor belt protection",
+        "magnetic separation equipment"
+      ],
+      "application_scenarios": [
+        "mining conveyor protection",
+        "recycling line ferrous recovery",
+        "cement and aggregate bulk handling",
+        "coal handling tramp iron removal",
+        "industrial metal contamination control"
+      ],
+      "target_market": [
+        "USA",
+        "Australia",
+        "India",
+        "Germany",
+        "UK",
+        "South Africa",
+        "UAE",
+        "Brazil",
+        "Canada",
+        "Chile",
+        "Indonesia",
+        "Vietnam",
+        "Malaysia",
+        "Thailand",
+        "Saudi Arabia"
+      ],
+      "customer_problem": "ore variability, residue handling, tramp iron risk, and protection of crushers or screens",
+      "product_solution": "Permanent Magnetic Separation Equipment for rare earth and critical-mineral processing",
+      "product_benefits": "equipment protection, cleaner material flow, reduced manual sorting pressure and better process reliability",
+      "technical_terms": [
+        "belt width",
+        "belt speed",
+        "burden depth",
+        "installation height",
+        "self-cleaning",
+        "magnetic force"
+      ],
+      "contact_or_inquiry_entry": "/request-quote"
+    },
+    "imageSuggestions": [],
+    "internalLinkSuggestions": [
+      "/products",
+      "/applications/mining",
+      "/applications/recycling",
+      "/request-quote"
+    ],
+    "content": "Introduction\nElementUSA Colorado School Mines is a useful signal for overseas buyers watching rare earth and critical-mineral processing. Cowinmagnet treats the Mining.com report as factual background and then looks at a practical equipment question: how should operators think about ore variability, residue handling, tramp iron risk, and protection of crushers or screens? This article is not a repost of the source story. It turns the event into a magnetic separation and material-handling review for buyers who need cleaner flow, safer downstream equipment, and more predictable maintenance planning.\n\nNews Background\nAccording to Mining.com, \"ElementUSA, Colorado School of Mines win $67M award for rare earth processing plant\" was published on 2026-06-03. The available source summary says: The facility, the company said, has the potential to make the Louisiana residue one of the only depleting bauxite residue waste resources in the world. The important point for Cowinmagnet readers is not only the announcement itself, but the operating environment behind it. In rare earth and critical-mineral processing, plants often need to move inconsistent materials through conveyors, chutes, crushers, screens, separators, or inspection steps. That makes suspended magnets, self-cleaning overband separators, and magnetic drums before key processing stages worth reviewing before a buyer selects a model or sends an inquiry.\n\nWhy It Matters\nFor industrial buyers, this story matters because rare earth and critical-mineral processing projects rarely depend on one machine only. They depend on a stable flow of material from feeding to discharge. If unwanted ferrous metal reaches crushers, shredders, screens, sorting machines, packing systems, or sensitive process equipment, the result can be downtime, product-quality risk, belt damage, or extra manual cleaning. The buyer question raised by ElementUSA Colorado School Mines is therefore specific: where in the line should magnetic separation be reviewed so that ore variability, residue handling, tramp iron risk, and protection of crushers or screens are controlled early enough?\n\nIndustry Perspective\nFrom an industry perspective, rare earth and critical-mineral processing is becoming more demanding because operators want higher throughput, cleaner output, and less unplanned stoppage. Magnetic separation equipment is not a universal one-size answer. A suspended permanent magnet may fit simple conveyor-protection duty. A self-cleaning overband separator is often reviewed when captured iron appears frequently. Electromagnetic separators can be considered for deeper burden or adjustable magnetic force. Magnetic bars, grids, drums, pulleys, and filters can be more relevant when the material is fine, granular, recycled, or moving through enclosed equipment. The right direction depends on ore name, belt width, burden depth, expected iron size, installation height, and crusher or screen position.\n\nBrand/Product Connection\nCowinmagnet, operated by Quzhou Qiying Import & Export Co., Ltd, reads the ElementUSA Colorado School Mines update as a reminder that product selection should begin with working conditions instead of only a catalog name. For this topic, the most relevant equipment lens is Permanent Magnetic Separation Equipment. Possible product directions include Suspended Permanent Magnetic Iron Separator, Suspended Permanent Self-Unloading Magnetic Separator, Self-Cleaning Overband Magnetic Separator. These products may help capture tramp iron, protect downstream equipment, support cleaner material flow, or reduce manual sorting pressure, but the final configuration should be checked against drawings, material behavior, maintenance access, and installation limits.\n\nPractical Implications for Buyers\nBefore sending an inquiry related to this type of news, buyers can prepare a short technical brief rather than asking for a model immediately. Useful details include ore name, belt width, burden depth, expected iron size, installation height, and crusher or screen position. Photos or drawings around the conveyor, chute, hopper, transfer point, or process inlet are also important because installation height and discharge space can decide whether a suspended magnet, self-cleaning overband separator, drum, pulley, grid, or bar is realistic. This preparation reduces the risk of choosing equipment that looks strong on paper but is difficult to install, clean, or maintain on site.\n\nRelated Cowinmagnet Solutions\nBased on the topic, Cowinmagnet would first review Permanent Magnetic Separation Equipment. Possible related products include Suspended Permanent Magnetic Iron Separator, Suspended Permanent Self-Unloading Magnetic Separator, Self-Cleaning Overband Magnetic Separator. The topic relates to conveyor protection, tramp iron removal or recycling recovery where permanent overband separators are often used. For the ElementUSA Colorado School Mines context, this is only a starting point for technical discussion, not an automatic model selection. A buyer should still confirm site layout, material flow, environmental conditions, power requirements, cleaning method, maintenance access, and installation drawings before choosing between a suspended permanent magnet, self-cleaning overband separator, electromagnetic separator, magnetic drum, magnetic pulley, magnetic grid, or magnetic bar.\n\nFAQ\nWhy can overseas industry news matter for magnetic separator buyers? Industry news can point to changes in material handling, recycling, mining, processing capacity, safety expectations or supply-chain planning. Buyers can use those signals to review whether their existing tramp iron removal, conveyor protection and material purity controls are still suitable. How should buyers connect this trend with Suspended Permanent Magnetic Iron Separator? Buyers should compare the trend with their own site conditions, including material type, belt width, belt speed, burden depth, installation height, iron size, iron frequency, cleaning method and available maintenance space. The product direction should come from those conditions rather than from a model name alone. What information should be prepared before requesting a magnetic separator recommendation? Useful information includes the application industry, material name and particle size, handling capacity, conveyor width and speed, material layer height, expected iron contamination, installation photos or drawings, voltage, operating hours and whether manual or self-cleaning discharge is preferred. Can one magnetic separator model fit every mining or recycling line? No. A suspended permanent magnet, self-cleaning overband separator, electromagnetic separator, magnetic drum, magnetic pulley, magnetic bar or magnetic grid can each fit different duties. The practical choice depends on material behavior, process layout, separation target and maintenance requirements.\n\nAbout Cowinmagnet\nCowinmagnet is the brand used by Quzhou Qiying Import & Export Co., Ltd for magnetic separation equipment sourcing, product matching and export communication support. The company helps overseas buyers discuss product directions such as suspended magnetic separators, overband magnetic separators, electromagnetic separators, magnetic rollers, magnetic bars, magnetic drums, magnetic pulleys and related magnetic components for mining, recycling, cement, aggregate, coal handling, bulk material handling and industrial contamination-control applications. Cowinmagnet avoids unsupported claims and focuses on matching equipment direction with real working conditions.\n\nCall to Action\nIf the ElementUSA Colorado School Mines topic is close to your own plant upgrade, material purity target, or conveyor protection problem, you can send Cowinmagnet ore name, belt width, burden depth, expected iron size, installation height, and crusher or screen position, plus photos around the proposed installation point. The team can help review a suitable magnetic separator direction and prepare the next discussion for export quotation.\n\nConclusion\nElementUSA Colorado School Mines becomes useful for buyers when it is translated into practical operating decisions. For magnetic separation projects, the next step is to connect the news signal with material behavior, plant layout, contamination risk, cleaning method, and separation goals. Cowinmagnet can help buyers compare suitable magnetic separator directions for export projects while keeping the final selection grounded in technical facts from the site.",
+    "sources": [
+      {
+        "name": "Mining.com",
+        "date": "2026-06-03",
+        "title": "ElementUSA, Colorado School of Mines win $67M award for rare earth processing plant",
+        "url": "https://www.mining.com/doe-awards-67m-to-elementusa-colorado-school-of-mines-for-rare-earth-processing-plant/",
+        "accessedDate": "2026-06-09"
+      }
+    ],
+    "author": "Cowinmagnet Editorial Team",
+    "source": "Mining.com",
+    "tags": [
+      "magnetic separator",
+      "overband magnetic separator",
+      "tramp iron removal",
+      "conveyor belt protection",
+      "magnetic separation equipment"
+    ],
+    "relatedProducts": [
+      "Suspended Permanent Magnetic Iron Separator",
+      "Suspended Permanent Self-Unloading Magnetic Separator",
+      "Self-Cleaning Overband Magnetic Separator"
+    ],
+    "relatedProductRationale": "The topic relates to conveyor protection, tramp iron removal or recycling recovery where permanent overband separators are often used.",
+    "seoTitle": "ElementUSA Colorado School Mines: Magnetic Separation Questions for Mineral Buyers",
+    "seoDescription": "Cowinmagnet reviews ElementUSA Colorado School Mines and explains what the news may mean for magnetic separation equipment buyers in rare earth and...",
+    "canonicalSourceUrl": "https://www.mining.com/doe-awards-67m-to-elementusa-colorado-school-of-mines-for-rare-earth-processing-plant/",
+    "sourceAttributionText": "Mining.com, \"ElementUSA, Colorado School of Mines win $67M award for rare earth processing plant\", published 2026-06-03, accessed 2026-06-09. URL: https://www.mining.com/doe-awards-67m-to-elementusa-colorado-school-of-mines-for-rare-earth-processing-plant/",
+    "quality": {
+      "passed": true,
+      "publishable": true,
+      "draftable": true,
+      "errors": [],
+      "warnings": [
+        "No valid source image was found; article can publish without an image."
+      ],
+      "wordCount": 1462
+    },
+    "views": 0,
+    "publishedAt": "2026-06-09",
+    "status": "published",
+    "href": "/news/magnetic-separation-elementusa-colorado-school-of-mines-win-67m-award-for-rare-earth-proce",
+    "automation": {
+      "provider": "rss",
+      "originalUrl": "https://www.mining.com/doe-awards-67m-to-elementusa-colorado-school-of-mines-for-rare-earth-processing-plant/",
+      "originalTitle": "ElementUSA, Colorado School of Mines win $67M award for rare earth processing plant",
+      "originalPublishedAt": "Wed, 03 Jun 2026 21:03:22 +0000",
+      "retrievedDate": "2026-06-09T11:45:34.897Z",
+      "relevanceScore": 61,
+      "publishMode": "published",
+      "regeneratedFromDraftAt": "2026-06-09T11:45:55.427Z"
+    },
+    "id": "news-magnetic-separation-elementusa-colorado-school-of-mines-win-67m-award-for-rare-earth-proce",
+    "createdAt": "2026-06-09T04:59:56.904Z",
+    "updatedAt": "2026-06-09T11:45:55.427Z",
+    "sourceImage": {
+      "imageUrl": "",
+      "originalImageUrl": "",
+      "localImageUrl": "",
+      "sourcePageUrl": "https://www.mining.com/doe-awards-67m-to-elementusa-colorado-school-of-mines-for-rare-earth-processing-plant/",
+      "sourceName": "Mining.com",
+      "imageAlt": "",
+      "imageCaption": "",
+      "imageWidth": 0,
+      "imageHeight": 0,
+      "imageMimeType": "",
+      "imageFileSize": 0,
+      "imageUsageMode": "none",
+      "imageStatus": "failed",
+      "imageFailureReason": "no-valid-source-image",
+      "imageCandidateFailures": [
+        {
+          "imageUrl": "https://www.mining.com/wp-content/uploads/2026/06/ELementusa-1.jpg",
+          "kind": "og:image",
+          "reason": "logo-ad-or-svg"
+        },
+        {
+          "imageUrl": "https://www.mining.com/doe-awards-67m-to-elementusa-colorado-school-of-mines-for-rare-earth-processing-plant/",
+          "kind": "json-ld:image",
+          "reason": "unsupported-image-mime"
+        },
+        {
+          "imageUrl": "https://www.mining.com/",
+          "kind": "json-ld:image",
+          "reason": "unsupported-image-mime"
+        },
+        {
+          "imageUrl": "https://www.mining.com/author/astutt/",
+          "kind": "json-ld:image",
+          "reason": "logo-ad-or-svg"
+        },
+        {
+          "imageUrl": "https://secure.gravatar.com/avatar/0e06b6460e23dfe003a64c88a39e9edb9b7cbb843dab8b7a94f3b43f19145346?s=96&d=mm&r=g",
+          "kind": "json-ld:image",
+          "reason": "logo-ad-or-svg"
+        },
+        {
+          "imageUrl": "https://www.mining.com/wp-content/uploads/2026/06/Screenshot-2026-06-08-131933.png",
+          "kind": "body:first-image",
+          "reason": "logo-ad-or-svg"
+        }
+      ],
+      "fetchedAt": "2026-06-09T11:45:55.426Z",
+      "createdAt": "2026-06-09T11:45:55.426Z",
+      "updatedAt": "2026-06-09T11:45:55.426Z"
+    },
+    "publishResult": {
+      "status": "published",
+      "requestedStatus": "published",
+      "published": true,
+      "reason": "existing-draft-regenerated-and-published"
+    }
+  },
+  {
+    "type": "news",
     "slug": "magnetic-separation-stardust-power-joins-department-of-energy-backed-lithium-extraction-pr",
     "title": "Rare Earth Processing News Signals Magnetic Separation Demand: Cowinmagnet View",
     "excerpt": "Cowinmagnet reviews this overseas industry news signal and explains what it may mean for magnetic separation equipment buyers in mining, recycling and...",

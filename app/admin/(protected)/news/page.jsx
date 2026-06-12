@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { newsCategories } from "@/data/contentHub";
 import { cmsStorageMode, getCmsItems } from "@/lib/cmsStore";
+import { newsSystemConfig } from "@/config/news-system.config.mjs";
+import { listRecentJobRuns } from "@/lib/news-system/storage.mjs";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -21,6 +23,44 @@ function StatusBadge({ status }) {
   return <span className={`admin-customer-tag ${published ? "new" : "returning"}`}>{published ? "Published" : "Draft"}</span>;
 }
 
+function ImageStatus({ post }) {
+  const image = post.sourceImage || {};
+  const status = image.imageStatus || (post.coverImage ? "valid" : "none");
+  const mode = image.imageUsageMode || (post.coverImage ? "remote" : "none");
+  return (
+    <div className="admin-muted">
+      <strong>{status}</strong> / {mode}
+      {image.imageWidth && image.imageHeight ? <span> - {image.imageWidth}x{image.imageHeight}</span> : null}
+      {image.sourceName ? <span> - {image.sourceName}</span> : null}
+      {image.fetchedAt ? <span> - {new Date(image.fetchedAt).toLocaleString("zh-CN")}</span> : null}
+      {image.originalImageUrl ? (
+        <>
+          <br />
+          <a href={image.originalImageUrl} target="_blank" rel="noopener noreferrer nofollow">Original image</a>
+        </>
+      ) : null}
+      {image.localImageUrl ? (
+        <>
+          {" | "}
+          <a href={image.localImageUrl} target="_blank" rel="noopener noreferrer">Local image</a>
+        </>
+      ) : null}
+      {image.sourcePageUrl ? (
+        <>
+          {" | "}
+          <a href={image.sourcePageUrl} target="_blank" rel="noopener noreferrer nofollow">Source page</a>
+        </>
+      ) : null}
+      {image.imageFailureReason ? (
+        <>
+          <br />
+          <span>Image note: {image.imageFailureReason}</span>
+        </>
+      ) : null}
+    </div>
+  );
+}
+
 function formatDate(value) {
   if (!value) return "-";
   return new Date(`${String(value).slice(0, 10)}T00:00:00Z`).toLocaleDateString("zh-CN", {
@@ -33,6 +73,7 @@ function formatDate(value) {
 export default async function AdminNewsPage({ searchParams }) {
   const params = await searchParams;
   const uploadedNews = await getCmsItems("news", { includeInactive: true });
+  const recentJobRuns = await listRecentJobRuns(10);
   const query = String(params?.q || "").trim().toLowerCase();
   const status = String(params?.status || "all");
   const category = String(params?.category || "all");
@@ -201,7 +242,10 @@ export default async function AdminNewsPage({ searchParams }) {
                 {filteredNews.map((post) => (
                   <tr key={post.slug}>
                     <td><StatusBadge status={post.status} /></td>
-                    <td>{post.title}</td>
+                    <td>
+                      {post.title}
+                      <ImageStatus post={post} />
+                    </td>
                     <td>{post.categoryTitle || post.category}</td>
                     <td>{formatDate(post.publishedAt)}</td>
                     <td>{post.slug}</td>
@@ -231,6 +275,119 @@ export default async function AdminNewsPage({ searchParams }) {
           </div>
         ) : (
           <div className="admin-empty">当前筛选条件下没有后台上传的 News。</div>
+        )}
+      </section>
+
+      <section className="admin-panel">
+        <div className="admin-panel-headline">
+          <div>
+            <p className="eyebrow">News Images</p>
+            <h2>Source image management</h2>
+            <p className="admin-muted">Review source image URLs, dimensions, status, usage mode, fetch time, and image loading notes.</p>
+          </div>
+        </div>
+
+        {filteredNews.length ? (
+          <div className="admin-table-wrap">
+            <table className="admin-table">
+              <thead>
+                <tr>
+                  <th>News</th>
+                  <th>Current Image</th>
+                  <th>Source Details</th>
+                  <th>Image Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredNews.map((post) => (
+                  <tr key={`image-${post.slug}`}>
+                    <td>{post.title}</td>
+                    <td>
+                      {post.coverImage ? <a href={post.coverImage} target="_blank" rel="noopener noreferrer nofollow">View current image</a> : <span className="admin-muted">No image</span>}
+                      <ImageStatus post={post} />
+                    </td>
+                    <td>
+                      {post.sourceImage?.sourcePageUrl ? <a href={post.sourceImage.sourcePageUrl} target="_blank" rel="noopener noreferrer nofollow">Source page</a> : <span className="admin-muted">No source page</span>}
+                      {post.sourceImage?.originalImageUrl ? <><br /><a href={post.sourceImage.originalImageUrl} target="_blank" rel="noopener noreferrer nofollow">Original image URL</a></> : null}
+                      {post.sourceImage?.localImageUrl ? <><br /><a href={post.sourceImage.localImageUrl} target="_blank" rel="noopener noreferrer">Local image URL</a></> : null}
+                    </td>
+                    <td>
+                      <div className="admin-row-actions">
+                        <form action={`/api/admin/content/news/${post.slug}`} method="post">
+                          <input type="hidden" name="action" value="refetch-image" />
+                          <button type="submit">Refetch image</button>
+                        </form>
+                        <form action={`/api/admin/content/news/${post.slug}`} method="post">
+                          <input type="hidden" name="action" value="use-remote-image" />
+                          <button type="submit">Use remote</button>
+                        </form>
+                        <form action={`/api/admin/content/news/${post.slug}`} method="post">
+                          <input type="hidden" name="action" value="save-local-image" />
+                          <button type="submit">Save local</button>
+                        </form>
+                        <form action={`/api/admin/content/news/${post.slug}`} method="post">
+                          <input type="hidden" name="action" value="remove-image" />
+                          <button className="danger" type="submit">Remove image</button>
+                        </form>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div className="admin-empty">No news images to manage.</div>
+        )}
+      </section>
+
+      <section className="admin-panel">
+        <div className="admin-panel-headline">
+          <div>
+            <p className="eyebrow">News Automation</p>
+            <h2>Cron job status</h2>
+            <p className="admin-muted">
+              Schedule: 0 */3 * * * UTC. Mode: {newsSystemConfig.publishMode}. Per run limit: {newsSystemConfig.maxPostsPerRun}. Daily limit: {newsSystemConfig.maxPostsPerDay}.
+            </p>
+          </div>
+          <form action="/api/admin/news-automation/run" method="post">
+            <button type="submit">Run once</button>
+          </form>
+        </div>
+
+        {recentJobRuns.length ? (
+          <div className="admin-table-wrap">
+            <table className="admin-table">
+              <thead>
+                <tr>
+                  <th>Started</th>
+                  <th>Status</th>
+                  <th>Sources</th>
+                  <th>Scored</th>
+                  <th>Selected</th>
+                  <th>Created</th>
+                  <th>Published</th>
+                  <th>Request ID</th>
+                </tr>
+              </thead>
+              <tbody>
+                {recentJobRuns.map((run) => (
+                  <tr key={run.requestId || run.startedAt}>
+                    <td>{run.startedAt ? new Date(run.startedAt).toLocaleString("zh-CN") : "-"}</td>
+                    <td>{run.status || "success"}</td>
+                    <td>{run.sourceCount ?? 0}</td>
+                    <td>{run.scoredCount ?? 0}</td>
+                    <td>{run.selectedCount ?? 0}</td>
+                    <td>{run.savedArticleCount ?? 0}</td>
+                    <td>{run.publishedCount ?? 0}</td>
+                    <td>{run.requestId || "-"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div className="admin-empty">No news automation runs have been recorded yet.</div>
         )}
       </section>
     </div>
