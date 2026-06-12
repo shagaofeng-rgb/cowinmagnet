@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
+import MetaPixel from "@/components/MetaPixel";
 import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
 import { organizationSchema } from "@/lib/seo";
 import { site } from "@/data/site";
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body>
         <JsonLd data={organizationSchema()} />
+        <MetaPixel pixelId={process.env.NEXT_PUBLIC_META_PIXEL_ID} />
         <Suspense fallback={null}>
           <AnalyticsTracker />
         </Suspense>
