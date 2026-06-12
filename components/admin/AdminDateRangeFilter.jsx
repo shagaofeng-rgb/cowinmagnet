@@ -14,7 +14,7 @@ export default function AdminDateRangeFilter({ range }) {
   const router = useRouter();
   const pathname = usePathname();
   const customPanelRef = useRef(null);
-  const [preset, setPreset] = useState(range?.preset || "week");
+  const [preset, setPreset] = useState(range?.preset || "day");
   const [start, setStart] = useState(range?.startInput || "");
   const [end, setEnd] = useState(range?.endInput || "");
   const [error, setError] = useState("");
@@ -22,7 +22,7 @@ export default function AdminDateRangeFilter({ range }) {
   const isCustom = preset === "custom";
 
   useEffect(() => {
-    setPreset(range?.preset || "week");
+    setPreset(range?.preset || "day");
     setStart(range?.startInput || "");
     setEnd(range?.endInput || "");
     setError("");
@@ -33,14 +33,14 @@ export default function AdminDateRangeFilter({ range }) {
 
     function closeOnEscape(event) {
       if (event.key === "Escape") {
-        setPreset(range?.preset === "custom" ? "week" : range?.preset || "week");
+        setPreset(range?.preset === "custom" ? "day" : range?.preset || "day");
         setError("");
       }
     }
 
     function closeOnOutsideClick(event) {
       if (customPanelRef.current && !customPanelRef.current.contains(event.target)) {
-        if (range?.preset !== "custom") setPreset(range?.preset || "week");
+        if (range?.preset !== "custom") setPreset(range?.preset || "day");
         setError("");
       }
     }
@@ -56,7 +56,7 @@ export default function AdminDateRangeFilter({ range }) {
   const helperText = useMemo(() => {
     if (error) return error;
     if (isCustom) return `自定义查询最长 ${range?.maxCustomDays || 731} 天`;
-    return `当前查看：${range?.label || "本周"}，${range?.startInput || "-"} 至 ${range?.endInput || "-"}`;
+    return `当前查看：${range?.label || "今日"}，${range?.startInput || "-"} 至 ${range?.endInput || "-"}`;
   }, [error, isCustom, range]);
 
   function queryRange(nextPreset = preset, nextStart = start, nextEnd = end) {
@@ -100,7 +100,7 @@ export default function AdminDateRangeFilter({ range }) {
     setStart(range?.startInput || "");
     setEnd(range?.endInput || "");
     setError("");
-    choosePreset("week");
+    choosePreset("day");
   }
 
   return (
