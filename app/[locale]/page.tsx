@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: t.home.seoTitle,
     description: t.home.metaDescription,
     alternates: localizedPageAlternates(current, "/"),
-    openGraph: { title: t.home.seoTitle, description: t.home.metaDescription, images: ["/images/generated/home-hero-cowinmagnet.png"] }
+    openGraph: { title: t.home.seoTitle, description: t.home.metaDescription, images: ["/images/generated/home-hero-cowinmagnet.webp"] }
   };
 }
 

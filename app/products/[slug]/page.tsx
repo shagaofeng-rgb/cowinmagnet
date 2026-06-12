@@ -85,7 +85,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   return (
     <>
       <JsonLd data={productSchema} />
-      <JsonLd data={faqSchema(product.faqs)} />
+      {product.faqs?.length ? <JsonLd data={faqSchema(product.faqs)} /> : null}
       <JsonLd data={breadcrumbSchema([
         { name: "Home", path: "/" },
         { name: "Products", path: "/products" },

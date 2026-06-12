@@ -40,12 +40,8 @@ export function Header() {
     };
   }, []);
 
-  useEffect(() => {
-    setActiveMega(null);
-  }, [pathname]);
-
   return (
-    <header className="site-header" dir={dir}>
+    <header className="site-header" dir={dir} key={pathname}>
       <div className="topbar">
         <span>{t.topbar}</span>
         <div className="topbar-links">
@@ -61,7 +57,7 @@ export function Header() {
       </div>
       <nav className="navbar" aria-label="Main navigation">
         <Link href={localizeHref("/", locale)} className="brand" aria-label="COWIN MAGNET home">
-          <Image src="/images/logo.jpg" width={52} height={52} alt="COWIN MAGNET logo" priority />
+          <Image src="/images/logo.jpg" width={52} height={52} alt="COWIN MAGNET logo" />
           <span>COWIN MAGNET</span>
         </Link>
         <div className="nav-links">

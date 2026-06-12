@@ -46,7 +46,7 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
   return (
     <>
       <section className="home-hero">
-        <Image src="/images/generated/home-hero-cowinmagnet.png" fill sizes="100vw" alt={t.home.heroAlt} className="hero-banner-image" priority />
+        <Image src="/images/generated/home-hero-cowinmagnet.webp" fill sizes="100vw" alt={t.home.heroAlt} className="hero-banner-image" priority />
         <div className="hero-copy">
           <span className="eyebrow">{t.home.heroEyebrow}</span>
           <h1>{t.home.h1}</h1>
@@ -203,7 +203,7 @@ export function LocalizedProductDetailPage({ locale, product }: { locale: Locale
   return (
     <>
       <JsonLd data={productSchema} />
-      <JsonLd data={faqSchema(product.faqs)} />
+      {product.faqs?.length ? <JsonLd data={faqSchema(product.faqs)} /> : null}
       <JsonLd data={breadcrumbSchema([{ name: "Home", path: `/${locale}` }, { name: t.nav.products, path: `/${locale}/products` }, { name: product.name, path: `/${locale}/products/${product.slug}` }])} />
       <section className="detail-hero">
         <div>
@@ -302,7 +302,7 @@ export function LocalizedApplicationDetailPage({ locale, application }: { locale
   const related = products.filter((product) => application.recommendedProducts.includes(product.name));
   return (
     <>
-      <JsonLd data={faqSchema(application.faqs)} />
+      {application.faqs?.length ? <JsonLd data={faqSchema(application.faqs)} /> : null}
       <section className="detail-hero">
         <div>
           <span className="eyebrow">{t.applications.eyebrow}</span>
@@ -417,7 +417,7 @@ export function LocalizedBlogDetailPage({ locale, post }: { locale: Locale; post
   const relatedInternalLinks = getStaticInternalLinkSuggestions({ type: "blog", slug: post.slug, limit: 5 });
   return (
     <>
-      <JsonLd data={{ "@context": "https://schema.org", "@type": "Article", headline: post.title, description: post.metaDescription, image: absoluteUrl(post.image), datePublished: post.publishedAt, dateModified: post.updatedAt, author: { "@type": "Organization", name: site.name }, publisher: { "@type": "Organization", name: site.name } }} />
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "Article", headline: post.title, description: post.metaDescription, image: absoluteUrl(post.image), datePublished: post.publishedAt, dateModified: post.updatedAt, author: { "@type": "Organization", name: site.name }, publisher: { "@type": "Organization", name: site.name, logo: { "@type": "ImageObject", url: absoluteUrl("/images/logo.jpg") } } }} />
       <section className="blog-hero"><div className="blog-hero-copy"><span className="eyebrow">{post.category}</span><h1>{post.h1}</h1><p>{post.excerpt}</p><div className="blog-meta"><span>{t.common.updated} {new Intl.DateTimeFormat("en", { month: "short", day: "2-digit", year: "numeric" }).format(new Date(`${post.updatedAt}T00:00:00Z`))}</span><span>{post.readingTime} {t.common.minRead}</span></div></div><div className="blog-hero-image"><Image src={post.image} width={980} height={620} alt={post.title} priority /></div></section>
       <section className="section blog-detail-layout"><article className="blog-article"><MarkdownContent content={post.content} /></article><aside className="blog-sidebar"><div className="blog-quote-card"><span className="eyebrow">{t.footer.quoteSupport}</span><h2>{t.blog.sidebarTitle}</h2><p>{t.blog.sidebarText}</p></div><div className="quote-form-shell blog-form-shell"><h3>{t.common.requestSelectionSupport}</h3><p>{t.productDetail.quoteText}</p><QuoteForm compact /></div></aside></section>
       <RelatedInternalLinks locale={locale} eyebrow="Recommended Reading" title="Related products, solutions and articles" links={relatedInternalLinks} />

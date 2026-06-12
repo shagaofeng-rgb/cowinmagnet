@@ -28,7 +28,7 @@ export default function Home() {
     <>
       <section className="home-hero">
         <Image
-          src="/images/generated/home-hero-cowinmagnet.png"
+          src="/images/generated/home-hero-cowinmagnet.webp"
           fill
           sizes="100vw"
           alt="COWIN MAGNET magnetic separator working above a conveyor line"

@@ -40,7 +40,7 @@ export default async function ApplicationPage({ params }: ApplicationPageProps) 
 
   return (
     <>
-      <JsonLd data={faqSchema(application.faqs)} />
+      {application.faqs?.length ? <JsonLd data={faqSchema(application.faqs)} /> : null}
       <JsonLd data={breadcrumbSchema([
         { name: "Home", path: "/" },
         { name: "Applications", path: "/applications" },

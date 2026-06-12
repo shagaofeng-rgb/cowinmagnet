@@ -27,18 +27,6 @@ export const metadata: Metadata = {
     "grate magnet",
     "magnetic bar"
   ],
-  alternates: {
-    canonical: "/",
-    languages: {
-      en: "/en",
-      es: "/es",
-      ru: "/ru",
-      ar: "/ar",
-      fr: "/fr",
-      pt: "/pt",
-      "x-default": "/en"
-    }
-  },
   openGraph: {
     type: "website",
     url: site.url,
