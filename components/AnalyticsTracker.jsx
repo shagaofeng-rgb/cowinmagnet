@@ -99,6 +99,11 @@ function sendAnalyticsEvent(payload) {
   }).catch(() => {});
 }
 
+function trackMetaContact() {
+  if (typeof window.fbq !== "function") return;
+  window.fbq("track", "Contact");
+}
+
 function publicTrackEvent(type, extra = {}) {
   const attribution = window.__cowinAttribution || {
     firstTouch: readJsonStorage(window.localStorage, firstTouchKey),
@@ -118,6 +123,9 @@ function publicTrackEvent(type, extra = {}) {
     outboundUrl: extra.outboundUrl || "",
     timestamp: new Date().toISOString()
   });
+  if (["click_whatsapp", "click_email", "click_phone", "submit_inquiry", "form_success"].includes(type)) {
+    trackMetaContact();
+  }
 }
 
 export default function AnalyticsTracker() {
@@ -196,7 +204,9 @@ export default function AnalyticsTracker() {
           ? "click_whatsapp"
           : lowerHref.startsWith("mailto:")
             ? "click_email"
-            : "outbound_link_click";
+            : lowerHref.startsWith("tel:")
+              ? "click_phone"
+              : "outbound_link_click";
         sendAnalyticsEvent({
           type: eventType,
           visitorId: getVisitorId(),
@@ -208,6 +218,9 @@ export default function AnalyticsTracker() {
           targetText: link.textContent?.trim().slice(0, 120) || "",
           timestamp: new Date().toISOString()
         });
+        if (["click_whatsapp", "click_email", "click_phone"].includes(eventType)) {
+          trackMetaContact();
+        }
       }
     }
 
