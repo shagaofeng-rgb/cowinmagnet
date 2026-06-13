@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import crypto from "node:crypto";
 import { runNewsAutomationJob } from "@/lib/news-system/daily-runner.mjs";
 import { newsSystemConfig } from "@/config/news-system.config.mjs";
-import { listRecentJobRuns } from "@/lib/news-system/storage.mjs";
+import { listRecentJobRuns, saveDailyRun, todayKey } from "@/lib/news-system/storage.mjs";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -20,7 +20,9 @@ function isAuthorized(request) {
 async function recentSuccessfulNewsRun() {
   const intervalMs = Number(process.env.NEWS_MIN_INTERVAL_MS || process.env.NEWS_BACKUP_MIN_INTERVAL_MS || 1000 * 60 * 60 * 3);
   const recentRuns = await listRecentJobRuns(20);
-  const lastNewsRun = recentRuns.find((run) => run?.action === "job" && run?.status === "success");
+  const lastNewsRun = recentRuns.find(
+    (run) => run?.action === "job" && run?.status === "success" && Number(run?.publishedCount || 0) > 0
+  );
   const lastFinishedAt = lastNewsRun?.finishedAt || lastNewsRun?.generatedAt || lastNewsRun?.startedAt || "";
   const ageMs = lastFinishedAt ? Date.now() - new Date(lastFinishedAt).getTime() : Number.POSITIVE_INFINITY;
   if (Number.isFinite(ageMs) && ageMs < intervalMs) {
@@ -34,8 +36,47 @@ async function recentSuccessfulNewsRun() {
   return { fresh: false, lastFinishedAt, ageMinutes: Number.isFinite(ageMs) ? Math.round(ageMs / 60000) : null };
 }
 
+function currentMode() {
+  return String(process.env.NEWS_PUBLISH_MODE || newsSystemConfig.publishMode).trim();
+}
+
+function publicErrorMessage(error) {
+  return String(error?.message || "News automation failed").slice(0, 500);
+}
+
+async function recordFailedRun({ requestId, startedAt, error }) {
+  try {
+    const finishedAt = new Date().toISOString();
+    await saveDailyRun({
+      requestId,
+      date: todayKey(new Date(startedAt)),
+      action: "job",
+      mode: currentMode(),
+      status: "failed",
+      startedAt,
+      finishedAt,
+      generatedAt: finishedAt,
+      sourceCount: 0,
+      scoredCount: 0,
+      selectedCount: 0,
+      savedArticleCount: 0,
+      publishedCount: 0,
+      skippedCount: 0,
+      rejectedCount: 0,
+      errorMessage: publicErrorMessage(error),
+      items: []
+    });
+  } catch (recordError) {
+    console.error("[news-automation] failed to record failed run", {
+      requestId,
+      message: recordError?.message || String(recordError)
+    });
+  }
+}
+
 async function handleCron(request) {
   const requestId = crypto.randomUUID();
+  const startedAt = new Date().toISOString();
   if (!isAuthorized(request)) {
     return NextResponse.json(
       { success: false, error: "Unauthorized", requestId },
@@ -52,7 +93,7 @@ async function handleCron(request) {
           requestId,
           data: {
             status: "fresh",
-            mode: String(process.env.NEWS_PUBLISH_MODE || newsSystemConfig.publishMode).trim(),
+            mode: currentMode(),
             publishedCount: 0,
             savedArticleCount: 0,
             selectedCount: 0,
@@ -66,7 +107,7 @@ async function handleCron(request) {
 
     const run = await runNewsAutomationJob({
       action: "job",
-      mode: String(process.env.NEWS_PUBLISH_MODE || newsSystemConfig.publishMode).trim(),
+      mode: currentMode(),
       publishLimit: newsSystemConfig.maxPostsPerRun,
       limit: Number(process.env.NEWS_RUN_LIMIT || 20),
       requestId
@@ -98,9 +139,15 @@ async function handleCron(request) {
       },
       { headers: { "Cache-Control": "no-store" } }
     );
-  } catch {
+  } catch (error) {
+    console.error("[news-automation] cron failed", {
+      requestId,
+      message: error?.message || String(error),
+      stack: error?.stack || ""
+    });
+    await recordFailedRun({ requestId, startedAt, error });
     return NextResponse.json(
-      { success: false, error: "News automation failed", requestId },
+      { success: false, error: "News automation failed", errorMessage: publicErrorMessage(error), requestId },
       { status: 500, headers: { "Cache-Control": "no-store" } }
     );
   }
