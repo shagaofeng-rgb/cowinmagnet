@@ -3487,19 +3487,11 @@ export const products: Product[] = [
       },
       {
         "label": "Model",
-        "value": "JSON"
-      },
-      {
-        "label": "Model",
         "value": "QJRCDB"
       },
       {
         "label": "Model",
         "value": "QJRCDD"
-      },
-      {
-        "label": "Model",
-        "value": "UA-162924846"
       },
       {
         "label": "Cross Belt Position",
@@ -3517,10 +3509,8 @@ export const products: Product[] = [
     "installation": "",
     "customization": [
       "Model: CHNMAG",
-      "Model: JSON",
       "Model: QJRCDB",
       "Model: QJRCDD",
-      "Model: UA-162924846"
     ],
     "faqs": [],
     "sourceUrls": [
@@ -3561,16 +3551,8 @@ export const products: Product[] = [
       "metal recycling"
     ],
     "features": [],
-    "principle": "product stream. Magnetic pulley or magnetic roller are installed as a replacement head pulley at the discharge end of a conveyor to separate the ferrous material away from other materials.\"> window.onload=function(){ // 谷歌统计 window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-162924846-5') } window.siteIsPc=true; window.foreignList= []; window.tenant = {\"cdnFlag\":\"2\",\"createTime\":null,\"domain\":\"www.chnmag.com\",\"domainInfo\":null,\"foreign\":true,\"id\":233649,\"language\":\"en\",\"mobileDomain\":\"\",\"mobileStatus\":8,\"status\":6,\"templateCode\":\"global_site_advanced\",\"tenantCode\":\"100001_2103255008\",\"unittype\":\"100001\",\"verify\":\"76abbef3d4e123bec2a172bdd904ac76\",\"mverify\":\"\"}; window.commonShortUrl = (\"http://www.ceurl.cn\" == \"\") ? \"\" : \"http://www.ceurl.cn\" + \"/\"; window.upgradeVersion=\"e4a156357c415e7bbe4f2488a327595b\"; var isxinnet = \"false\"; window.noredirectCookieName = \"_noredirect\"; var visittrack_siteId = \"100001_2103255008\"; var visittrack_url = \"\"; var gatherScripts = \"\"; var unittype=window.tenant.unittype ; window.globalObj={}; window.globalObj.isOpenSSL = false; if(!(unittype == '100009'||unittype == '100084' ||unittype == '100007' )){ window.intelligetJump={\"identification\":\"false\"};//智能跳转 } if(unittype == '100001'){ window.getMultilingual={\"website\":\"\",\"switcher\":\"off\"};//多语言和获取网站url对象 } try{ var setDomain = window.location.hostname.replace(\"http://\", \"\").replace(\"https://\", \"\"); if (setDomain.match(/[a-z]+/) != null) { var domainArr = setDomain.split(\".\"); var preDomain=domainArr[domainArr.length - 2] + \".\" + domainArr[domainArr.length - 1]; if(/(com|cn|org|net|xin|edu|ac)\\..*/.test(preDomain)){ preDomain=domainArr[domainArr.length - 3]+\".\"+domainArr[domainArr.length - 2] + \".\" + domainArr[domainArr.length - 1]; } document.domain = preDomain; } }catch(e){ console.log(e); }",
+    "principle": "product stream. Magnetic pulley or magnetic roller are installed as a replacement head pulley at the discharge end of a conveyor to separate the ferrous material away from other materials.",
     "specs": [
-      {
-        "label": "Model",
-        "value": "JSON"
-      },
-      {
-        "label": "Model",
-        "value": "UA-162924846"
-      }
     ],
     "applications": [
       "Metal Recycling",
@@ -3583,8 +3565,6 @@ export const products: Product[] = [
     ],
     "installation": "",
     "customization": [
-      "Model: JSON",
-      "Model: UA-162924846"
     ],
     "faqs": [],
     "sourceUrls": [
@@ -4338,12 +4318,8 @@ export const products: Product[] = [
       "metal recycling"
     ],
     "features": [],
-    "principle": "product such as sugar, grain, tea, etc. They are widely used in field of ceramics, chemicals, pharmacyfood,plastic,rubber,dyestuff,mining,environmental protection,etc.\"> window.onload=function(){ // 谷歌统计 window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-162924846-5') } window.siteIsPc=true; window.foreignList= []; window.tenant = {\"cdnFlag\":\"2\",\"createTime\":null,\"domain\":\"www.chnmag.com\",\"domainInfo\":null,\"foreign\":true,\"id\":233649,\"language\":\"en\",\"mobileDomain\":\"\",\"mobileStatus\":8,\"status\":6,\"templateCode\":\"global_site_advanced\",\"tenantCode\":\"100001_2103255008\",\"unittype\":\"100001\",\"verify\":\"76abbef3d4e123bec2a172bdd904ac76\",\"mverify\":\"\"}; window.commonShortUrl = (\"http://www.ceurl.cn\" == \"\") ? \"\" : \"http://www.ceurl.cn\" + \"/\"; window.upgradeVersion=\"e4a156357c415e7bbe4f2488a327595b\"; var isxinnet = \"false\"; window.noredirectCookieName = \"_noredirect\"; var visittrack_siteId = \"100001_2103255008\"; var visittrack_url = \"\"; var gatherScripts = \"\"; var unittype=window.tenant.unittype ; window.globalObj={}; window.globalObj.isOpenSSL = false; if(!(unittype == '100009'||unittype == '100084' ||unittype == '100007' )){ window.intelligetJump={\"identification\":\"false\"};//智能跳转 } if(unittype == '100001'){ window.getMultilingual={\"website\":\"\",\"switcher\":\"off\"};//多语言和获取网站url对象 } try{ var setDomain = window.location.hostname.replace(\"http://\", \"\").replace(\"https://\", \"\"); if (setDomain.match(/[a-z]+/) != null) { var domainArr = setDomain.split(\".\"); var preDomain=domainArr[domainArr.length - 2] + \".\" + domainArr[domainArr.length - 1]; if(/(com|cn|org|net|xin|edu|ac)\\..*/.test(preDomain)){ preDomain=domainArr[domainArr.length - 3]+\".\"+domainArr[domainArr.length - 2] + \".\" + domainArr[domainArr.length - 1]; } document.domain = preDomain; } }catch(e){ console.log(e); }",
+    "principle": "product such as sugar, grain, tea, etc. They are widely used in field of ceramics, chemicals, pharmacyfood,plastic,rubber,dyestuff,mining,environmental protection,etc.",
     "specs": [
-      {
-        "label": "Model",
-        "value": "JSON"
-      },
       {
         "label": "Model",
         "value": "SS304"
@@ -4352,10 +4328,6 @@ export const products: Product[] = [
         "label": "Model",
         "value": "SS316"
       },
-      {
-        "label": "Model",
-        "value": "UA-162924846"
-      }
     ],
     "applications": [
       "Food Industry",
@@ -4369,10 +4341,8 @@ export const products: Product[] = [
     ],
     "installation": "",
     "customization": [
-      "Model: JSON",
       "Model: SS304",
       "Model: SS316",
-      "Model: UA-162924846"
     ],
     "faqs": [],
     "sourceUrls": [
@@ -4547,14 +4517,6 @@ export const products: Product[] = [
     ],
     "principle": "Magnetic Liquid Traps or Magnetic Liquid Filters are designed for liquid or semi-liquid flow systems to remove ferrous contamination from liquid with different viscosity level. They preserve product purity by removing small contaminants , provide magnetic protection for liquid lines and processing requirements. Features: 1. Many different styles are available for different materials. 2. The max magnetic strength can reach 12,000GS for N style, 8000GS for E style. 3. Standard working temperature ≤ 80°c, max working temperature can be chosen from 80°c to 350°c as the same with magnetic bars if needed. 4. Connection can be through ferrule, bolt plate, flange or uneven head, etc. 5. Stainless steel 304 or316L is available for shell material. 6. Properly designed magnetic configuration ensures Maximum magnetic effect without impeding liquid flow. 7. Pressure design or other special requirement can be custom made. N Style Magnetic Liquid Trap Magnetic Strength: Up to the highest 12,000 GS (1.2T) Fast Connection Style Magnetic Liquid Trap Good sealing results by using rubber seal washer and special shape pipe wall designing, save cost and installation time. Easy-Clean Magnetic Liquid Trap Magnetic strength: The highest is 8000GS (0.8T) Insulation Style Magnetic Liquid Trap Insulation Style Liquid Traps or Filters have a jacket filled with hot water or oil that keep liquid warm enough when it pass through the taps. Ideal choice for chocolate, syrups , jams and sauces to removing ferrous contamination.",
     "specs": [
-      {
-        "label": "Model",
-        "value": "JSON"
-      },
-      {
-        "label": "Model",
-        "value": "UA-162924846"
-      }
     ],
     "applications": [
       "Food Industry",
@@ -4566,8 +4528,6 @@ export const products: Product[] = [
     ],
     "installation": "",
     "customization": [
-      "Model: JSON",
-      "Model: UA-162924846"
     ],
     "faqs": [],
     "sourceUrls": [
