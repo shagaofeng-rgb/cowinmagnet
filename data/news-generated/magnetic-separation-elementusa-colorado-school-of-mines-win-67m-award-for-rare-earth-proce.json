@@ -6,12 +6,12 @@
   "category": "industry-news",
   "categoryTitle": "Industry News",
   "categoryDescription": "Industry news references with Cowinmagnet original analysis and buyer-focused magnetic separation viewpoints.",
-  "coverImage": "",
-  "coverAlt": "",
-  "imageCaption": "",
-  "imageSourceName": "",
-  "imageSourceUrl": "",
-  "imageLicenseNote": "",
+  "coverImage": "/api/news-image?src=https%3A%2F%2Fwww.mining.com%2Fwp-content%2Fuploads%2F2026%2F06%2FELementusa-1.jpg&ref=https%3A%2F%2Fwww.mining.com%2Fdoe-awards-67m-to-elementusa-colorado-school-of-mines-for-rare-earth-processing-plant%2F&w=980",
+  "coverAlt": "ElementUSA, Colorado School of Mines win $67M award for rare earth processing plant - source image from Mining.com",
+  "imageCaption": "Article image. Image source: Mining.com.",
+  "imageSourceName": "Mining.com",
+  "imageSourceUrl": "https://www.mining.com/doe-awards-67m-to-elementusa-colorado-school-of-mines-for-rare-earth-processing-plant/",
+  "imageLicenseNote": "Image source: Mining.com.",
   "bodyImages": [],
   "generatedCoverPath": "",
   "dateOverlayText": "2026-06-09",
@@ -177,7 +177,7 @@
   },
   "views": 0,
   "publishedAt": "2026-06-09",
-  "status": "published",
+  "status": "draft",
   "href": "/news/magnetic-separation-elementusa-colorado-school-of-mines-win-67m-award-for-rare-earth-proce",
   "automation": {
     "provider": "rss",
@@ -191,62 +191,40 @@
   },
   "id": "news-magnetic-separation-elementusa-colorado-school-of-mines-win-67m-award-for-rare-earth-proce",
   "createdAt": "2026-06-09T04:59:56.904Z",
-  "updatedAt": "2026-06-09T11:45:55.427Z",
+  "updatedAt": "2026-06-13T12:08:07.284Z",
   "sourceImage": {
-    "imageUrl": "",
-    "originalImageUrl": "",
+    "imageUrl": "https://www.mining.com/wp-content/uploads/2026/06/ELementusa-1.jpg",
+    "originalImageUrl": "https://www.mining.com/wp-content/uploads/2026/06/ELementusa-1.jpg",
     "localImageUrl": "",
     "sourcePageUrl": "https://www.mining.com/doe-awards-67m-to-elementusa-colorado-school-of-mines-for-rare-earth-processing-plant/",
     "sourceName": "Mining.com",
-    "imageAlt": "",
-    "imageCaption": "",
-    "imageWidth": 0,
-    "imageHeight": 0,
-    "imageMimeType": "",
-    "imageFileSize": 0,
-    "imageUsageMode": "none",
-    "imageStatus": "failed",
-    "imageFailureReason": "no-valid-source-image",
-    "imageCandidateFailures": [
-      {
-        "imageUrl": "https://www.mining.com/wp-content/uploads/2026/06/ELementusa-1.jpg",
-        "kind": "og:image",
-        "reason": "logo-ad-or-svg"
-      },
-      {
-        "imageUrl": "https://www.mining.com/doe-awards-67m-to-elementusa-colorado-school-of-mines-for-rare-earth-processing-plant/",
-        "kind": "json-ld:image",
-        "reason": "unsupported-image-mime"
-      },
-      {
-        "imageUrl": "https://www.mining.com/",
-        "kind": "json-ld:image",
-        "reason": "unsupported-image-mime"
-      },
-      {
-        "imageUrl": "https://www.mining.com/author/astutt/",
-        "kind": "json-ld:image",
-        "reason": "logo-ad-or-svg"
-      },
-      {
-        "imageUrl": "https://secure.gravatar.com/avatar/0e06b6460e23dfe003a64c88a39e9edb9b7cbb843dab8b7a94f3b43f19145346?s=96&d=mm&r=g",
-        "kind": "json-ld:image",
-        "reason": "logo-ad-or-svg"
-      },
-      {
-        "imageUrl": "https://www.mining.com/wp-content/uploads/2026/06/Screenshot-2026-06-08-131933.png",
-        "kind": "body:first-image",
-        "reason": "logo-ad-or-svg"
-      }
-    ],
-    "fetchedAt": "2026-06-09T11:45:55.426Z",
-    "createdAt": "2026-06-09T11:45:55.426Z",
-    "updatedAt": "2026-06-09T11:45:55.426Z"
+    "imageAlt": "ElementUSA, Colorado School of Mines win $67M award for rare earth processing plant - source image from Mining.com",
+    "imageCaption": "Article image. Image source: Mining.com.",
+    "imageWidth": 275,
+    "imageHeight": 183,
+    "imageMimeType": "image/jpeg",
+    "imageFileSize": 11703,
+    "imageUsageMode": "processed-proxy",
+    "imageStatus": "valid",
+    "imageKind": "og:image",
+    "imageHash": "7e4bfd6780886815cf91f5b82859ef5b8dab840a07d1b083c210be7af20025b7",
+    "fetchedAt": "2026-06-13T12:06:20.796Z",
+    "createdAt": "2026-06-13T12:06:20.796Z",
+    "updatedAt": "2026-06-13T12:06:20.796Z",
+    "geoImageContext": {
+      "event": "ElementUSA, Colorado School of Mines win $67M award for rare earth processing plant",
+      "source": "Mining.com",
+      "description": "Article image. Image source: Mining.com.",
+      "subject": "ElementUSA, Colorado School of Mines win $67M award for rare earth processing plant",
+      "imageType": "Source image",
+      "fetchedAt": "2026-06-13T12:06:20.796Z"
+    }
   },
   "publishResult": {
     "status": "published",
     "requestedStatus": "published",
     "published": true,
     "reason": "existing-draft-regenerated-and-published"
-  }
+  },
+  "offlineReason": "duplicate-cms-news-version"
 }

@@ -278,69 +278,34 @@ export const newsPosts = [
   }
 ];
 
-const AUTOMATED_NEWS_FALLBACK_IMAGES = [
-  {
-    topic: "recycling",
-    terms: ["recycling", "waste", "scrap", "battery", "e-waste", "sorting", "metal recovery"],
-    coverImage: "/images/industries/recycling-magnetic-separation-solution.webp",
-    coverAlt: "Cowinmagnet magnetic separation equipment for recycling and ferrous metal recovery",
-    imageCaption: "Cowinmagnet company-library image matched to recycling and metal recovery news analysis."
-  },
-  {
-    topic: "cement-aggregate",
-    terms: ["aggregate", "cement", "quarry", "crusher", "limestone"],
-    coverImage: "/images/industries/cement-aggregate-magnetic-separation.webp",
-    coverAlt: "Cowinmagnet magnetic separation equipment for aggregate and cement conveyor protection",
-    imageCaption: "Cowinmagnet company-library image matched to aggregate, cement and quarry conveyor news analysis."
-  },
-  {
-    topic: "mining",
-    terms: ["mining", "mine", "ore", "mineral", "rare earth", "critical mineral", "lithium", "coal", "beneficiation", "tailings"],
-    coverImage: "/images/industries/mining-scenarios/manganese-ore.jpg",
-    coverAlt: "Cowinmagnet magnetic separation equipment for mining and mineral processing",
-    imageCaption: "Cowinmagnet company-library image matched to mining and mineral processing news analysis."
-  },
-  {
-    topic: "equipment",
-    terms: ["magnetic separator", "overband", "suspended", "electromagnetic", "permanent", "conveyor"],
-    coverImage: "/images/industries/mining-industry-magnetic-separation-cover.png",
-    coverAlt: "Cowinmagnet industrial magnetic separator equipment for bulk material handling",
-    imageCaption: "Cowinmagnet company-library image matched to industrial magnetic separation equipment news analysis."
-  }
-];
-
 function isRemoteImage(value = "") {
   return /^https?:\/\//i.test(String(value));
 }
 
-function fallbackNewsImage(post = {}) {
-  const text = [
-    post.title,
-    post.excerpt,
-    post.category,
-    post.categoryTitle,
-    post.source,
-    post.canonicalSourceUrl,
-    post.automation?.originalTitle,
-    post.automation?.originalUrl,
-    ...(post.tags || []),
-    ...(post.relatedProducts || [])
-  ].filter(Boolean).join(" ").toLowerCase();
-
-  return AUTOMATED_NEWS_FALLBACK_IMAGES.find((image) => image.terms.some((term) => text.includes(term))) || AUTOMATED_NEWS_FALLBACK_IMAGES[3];
+function processedNewsImageUrl(imageUrl = "", sourcePageUrl = "", width = 980) {
+  if (!isRemoteImage(imageUrl)) return "";
+  const query = new URLSearchParams({ src: imageUrl, ref: sourcePageUrl || "", w: String(width) });
+  return `/api/news-image?${query.toString()}`;
 }
 
 function stableAutomationImages(post = {}) {
-  const fallback = fallbackNewsImage(post);
-  const coverImage = post.coverImage && !isRemoteImage(post.coverImage) ? post.coverImage : fallback.coverImage;
+  const sourcePageUrl = post.canonicalSourceUrl || post.automation?.originalUrl || post.sourceImage?.sourcePageUrl || "";
+  const sourceImageUrl =
+    post.sourceImage?.originalImageUrl ||
+    post.sourceImage?.imageUrl ||
+    (isRemoteImage(post.coverImage) ? post.coverImage : "");
+  const coverImage = processedNewsImageUrl(sourceImageUrl, sourcePageUrl);
   return {
     coverImage,
-    coverAlt: post.coverAlt || fallback.coverAlt,
-    imageCaption: post.imageCaption && !isRemoteImage(post.coverImage) ? post.imageCaption : fallback.imageCaption,
-    imageSourceName: "Cowinmagnet",
-    imageSourceUrl: "https://www.cowinmagnet.com",
-    imageLicenseNote: "Image source: Cowinmagnet company image library.",
-    bodyImages: (post.bodyImages || []).filter((image) => image?.imageUrl && !isRemoteImage(image.imageUrl))
+    coverAlt: post.sourceImage?.imageAlt || post.coverAlt || post.title || "",
+    imageCaption:
+      post.sourceImage?.imageCaption ||
+      post.imageCaption ||
+      (post.source || post.sources?.[0]?.name ? `Article image. Image source: ${post.source || post.sources?.[0]?.name}.` : ""),
+    imageSourceName: post.sourceImage?.sourceName || post.source || post.sources?.[0]?.name || "",
+    imageSourceUrl: sourcePageUrl,
+    imageLicenseNote: post.imageLicenseNote || (post.source || post.sources?.[0]?.name ? `Image source: ${post.source || post.sources?.[0]?.name}.` : ""),
+    bodyImages: []
   };
 }
 

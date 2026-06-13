@@ -7,7 +7,7 @@ import { PageHero } from "@/components/PageHero";
 import { formatDisplayDate, getNewsCategories, getNewsPosts } from "@/data/contentHub";
 
 function NewsCardImage({ src, alt }: { src: string; alt: string }) {
-  if (/^https?:\/\//i.test(src)) {
+  if (/^https?:\/\//i.test(src) || src.startsWith("/api/")) {
     return <img src={src} width={760} height={460} alt={alt} loading="lazy" referrerPolicy="no-referrer" style={{ objectFit: "contain" }} />;
   }
   return <Image src={src} width={760} height={460} alt={alt} style={{ objectFit: "contain" }} />;

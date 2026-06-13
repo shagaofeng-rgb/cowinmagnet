@@ -27,7 +27,7 @@ function NewsDisplayImage({
   height: number;
   priority?: boolean;
 }) {
-  if (/^https?:\/\//i.test(src)) {
+  if (/^https?:\/\//i.test(src) || src.startsWith("/api/")) {
     return <img src={src} width={width} height={height} alt={alt} loading={priority ? "eager" : "lazy"} referrerPolicy="no-referrer" style={{ objectFit: "contain" }} />;
   }
   return <Image src={src} width={width} height={height} alt={alt} priority={priority} style={{ objectFit: "contain" }} />;
