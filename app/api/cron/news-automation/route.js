@@ -44,6 +44,48 @@ function publicErrorMessage(error) {
   return String(error?.message || "News automation failed").slice(0, 500);
 }
 
+async function recordSkippedRun({ requestId, startedAt, reason, data = {} }) {
+  const finishedAt = new Date().toISOString();
+  const run = {
+    requestId,
+    date: todayKey(new Date(startedAt)),
+    action: "job",
+    mode: currentMode(),
+    status: "skipped",
+    skipReason: reason,
+    startedAt,
+    finishedAt,
+    generatedAt: finishedAt,
+    sourceCount: 0,
+    scoredCount: 0,
+    selectedCount: 0,
+    savedArticleCount: 0,
+    publishedCount: 0,
+    skippedCount: 1,
+    rejectedCount: 0,
+    duplicateSummary: { [reason]: 1 },
+    diversityLog: {
+      selected_source: [],
+      rejected_sources: [
+        {
+          source: "cron",
+          domain: "cowinmagnet.com",
+          url: "/api/cron/news-automation",
+          reason,
+          duplication_score: null,
+          topic_cluster_id: null,
+          information_gain_score: null
+        }
+      ],
+      source_pool: null
+    },
+    items: [],
+    ...data
+  };
+  await saveDailyRun(run);
+  return run;
+}
+
 async function recordFailedRun({ requestId, startedAt, error }) {
   try {
     const finishedAt = new Date().toISOString();
@@ -87,16 +129,24 @@ async function handleCron(request) {
   try {
     const freshRun = await recentSuccessfulNewsRun();
     if (freshRun.fresh) {
+      const skippedRun = await recordSkippedRun({
+        requestId,
+        startedAt,
+        reason: "recent-successful-news-run",
+        data: freshRun
+      });
       return NextResponse.json(
         {
           success: true,
           requestId,
           data: {
+            date: skippedRun.date,
             status: "fresh",
             mode: currentMode(),
             publishedCount: 0,
             savedArticleCount: 0,
             selectedCount: 0,
+            skippedCount: 1,
             reason: "recent-successful-news-run",
             ...freshRun
           }
@@ -127,6 +177,7 @@ async function handleCron(request) {
           savedArticleCount: run.savedArticleCount,
           publishedCount: run.publishedCount,
           duplicateSummary: run.duplicateSummary,
+          diversityLog: run.diversityLog,
           items: run.items.map((item) => ({
             title: item.generated?.title || item.title,
             source: item.sourceName,

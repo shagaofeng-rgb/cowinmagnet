@@ -954,6 +954,18 @@ body:has(.admin-login-page) main {
   font-weight: 850;
 }
 
+.admin-run-reason {
+  max-width: 360px;
+  color: rgba(226, 232, 240, 0.86);
+  font-size: 12px;
+  line-height: 1.45;
+  white-space: normal;
+}
+
+.admin-run-reason span {
+  color: rgba(148, 163, 184, 0.95);
+}
+
 .admin-row-actions {
   display: flex;
   flex-wrap: wrap;

@@ -61,6 +61,43 @@ function ImageStatus({ post }) {
   );
 }
 
+function formatRunReason(run) {
+  if (run.errorMessage) return run.errorMessage;
+  if (run.skipReason) return run.skipReason;
+  const duplicateSummary = run.duplicateSummary || {};
+  const reasons = Object.entries(duplicateSummary)
+    .filter(([, count]) => Number(count || 0) > 0)
+    .map(([reason, count]) => `${reason}: ${count}`);
+  if (reasons.length) return reasons.slice(0, 3).join("; ");
+  if (Number(run.publishedCount || 0) > 0) return "published";
+  if (run.status === "skipped_due_to_lock") return "job lock active";
+  if (run.status === "success") return "no publishable item selected";
+  return "-";
+}
+
+function formatSelectedSources(run) {
+  const selected = run.diversityLog?.selected_source || [];
+  if (!selected.length) return "-";
+  return selected
+    .slice(0, 3)
+    .map((source) => `${source.name || source.domain || "source"} (${source.group || "group"})`)
+    .join("; ");
+}
+
+function formatRejectedSummary(run) {
+  const rejected = run.diversityLog?.rejected_sources || [];
+  if (!rejected.length) return "";
+  const counts = rejected.reduce((acc, item) => {
+    const reason = item.reason || "rejected";
+    acc[reason] = (acc[reason] || 0) + 1;
+    return acc;
+  }, {});
+  return Object.entries(counts)
+    .slice(0, 3)
+    .map(([reason, count]) => `${reason}: ${count}`)
+    .join("; ");
+}
+
 function formatDate(value) {
   if (!value) return "-";
   return new Date(`${String(value).slice(0, 10)}T00:00:00Z`).toLocaleDateString("zh-CN", {
@@ -367,6 +404,8 @@ export default async function AdminNewsPage({ searchParams }) {
                   <th>Selected</th>
                   <th>Created</th>
                   <th>Published</th>
+                  <th>Reason</th>
+                  <th>Diversity</th>
                   <th>Request ID</th>
                 </tr>
               </thead>
@@ -380,6 +419,20 @@ export default async function AdminNewsPage({ searchParams }) {
                     <td>{run.selectedCount ?? 0}</td>
                     <td>{run.savedArticleCount ?? 0}</td>
                     <td>{run.publishedCount ?? 0}</td>
+                    <td>
+                      <div className="admin-run-reason">{formatRunReason(run)}</div>
+                    </td>
+                    <td>
+                      <div className="admin-run-reason">
+                        <strong>Selected:</strong> {formatSelectedSources(run)}
+                        {formatRejectedSummary(run) ? (
+                          <>
+                            <br />
+                            <span>Rejected: {formatRejectedSummary(run)}</span>
+                          </>
+                        ) : null}
+                      </div>
+                    </td>
                     <td>{run.requestId || "-"}</td>
                   </tr>
                 ))}
