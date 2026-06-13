@@ -278,6 +278,72 @@ export const newsPosts = [
   }
 ];
 
+const AUTOMATED_NEWS_FALLBACK_IMAGES = [
+  {
+    topic: "recycling",
+    terms: ["recycling", "waste", "scrap", "battery", "e-waste", "sorting", "metal recovery"],
+    coverImage: "/images/industries/recycling-magnetic-separation-solution.webp",
+    coverAlt: "Cowinmagnet magnetic separation equipment for recycling and ferrous metal recovery",
+    imageCaption: "Cowinmagnet company-library image matched to recycling and metal recovery news analysis."
+  },
+  {
+    topic: "cement-aggregate",
+    terms: ["aggregate", "cement", "quarry", "crusher", "limestone"],
+    coverImage: "/images/industries/cement-aggregate-magnetic-separation.webp",
+    coverAlt: "Cowinmagnet magnetic separation equipment for aggregate and cement conveyor protection",
+    imageCaption: "Cowinmagnet company-library image matched to aggregate, cement and quarry conveyor news analysis."
+  },
+  {
+    topic: "mining",
+    terms: ["mining", "mine", "ore", "mineral", "rare earth", "critical mineral", "lithium", "coal", "beneficiation", "tailings"],
+    coverImage: "/images/industries/mining-scenarios/manganese-ore.jpg",
+    coverAlt: "Cowinmagnet magnetic separation equipment for mining and mineral processing",
+    imageCaption: "Cowinmagnet company-library image matched to mining and mineral processing news analysis."
+  },
+  {
+    topic: "equipment",
+    terms: ["magnetic separator", "overband", "suspended", "electromagnetic", "permanent", "conveyor"],
+    coverImage: "/images/industries/mining-industry-magnetic-separation-cover.png",
+    coverAlt: "Cowinmagnet industrial magnetic separator equipment for bulk material handling",
+    imageCaption: "Cowinmagnet company-library image matched to industrial magnetic separation equipment news analysis."
+  }
+];
+
+function isRemoteImage(value = "") {
+  return /^https?:\/\//i.test(String(value));
+}
+
+function fallbackNewsImage(post = {}) {
+  const text = [
+    post.title,
+    post.excerpt,
+    post.category,
+    post.categoryTitle,
+    post.source,
+    post.canonicalSourceUrl,
+    post.automation?.originalTitle,
+    post.automation?.originalUrl,
+    ...(post.tags || []),
+    ...(post.relatedProducts || [])
+  ].filter(Boolean).join(" ").toLowerCase();
+
+  return AUTOMATED_NEWS_FALLBACK_IMAGES.find((image) => image.terms.some((term) => text.includes(term))) || AUTOMATED_NEWS_FALLBACK_IMAGES[3];
+}
+
+function stableAutomationImages(post = {}) {
+  const fallback = fallbackNewsImage(post);
+  const coverImage = post.coverImage && !isRemoteImage(post.coverImage) ? post.coverImage : fallback.coverImage;
+  return {
+    coverImage,
+    coverAlt: post.coverAlt || fallback.coverAlt,
+    imageCaption: post.imageCaption && !isRemoteImage(post.coverImage) ? post.imageCaption : fallback.imageCaption,
+    imageSourceName: "Cowinmagnet",
+    imageSourceUrl: "https://www.cowinmagnet.com",
+    imageLicenseNote: "Image source: Cowinmagnet company image library.",
+    bodyImages: (post.bodyImages || []).filter((image) => image?.imageUrl && !isRemoteImage(image.imageUrl))
+  };
+}
+
 export function formatDisplayDate(date) {
   return new Intl.DateTimeFormat("en", {
     month: "short",
@@ -294,16 +360,10 @@ async function getGeneratedNewsPosts() {
   return generatedNewsPosts
     .filter((post) => post.status === "published" && post.quality?.passed !== false)
     .map((post) => {
-      const validSourceImage = post.sourceImage?.imageStatus === "valid" ? post.sourceImage : null;
+      const stableImages = stableAutomationImages(post);
       return {
         ...post,
-        coverImage: validSourceImage?.imageUrl || "",
-        coverAlt: validSourceImage?.imageAlt || "",
-        imageCaption: validSourceImage?.imageCaption || "",
-        imageSourceName: validSourceImage?.sourceName || "",
-        imageSourceUrl: validSourceImage?.sourcePageUrl || "",
-        imageLicenseNote: validSourceImage ? `Image source: ${validSourceImage.sourceName || "source article"}` : "",
-        bodyImages: [],
+        ...stableImages,
         type: "news",
         href: post.href || `/news/${post.slug}`,
         views: Number(post.views || 0),
@@ -320,20 +380,7 @@ export async function getNewsPosts() {
   const merged = [
     ...uploadedNews.map((post) => ({
       ...post,
-      ...(post.automation && post.sourceImage?.imageStatus !== "valid"
-        ? { coverImage: "", coverAlt: "", imageCaption: "", imageSourceName: "", imageSourceUrl: "", imageLicenseNote: "", bodyImages: [] }
-        : {}),
-      ...(post.automation && post.sourceImage?.imageStatus === "valid"
-        ? {
-            coverImage: post.sourceImage.imageUrl,
-            coverAlt: post.sourceImage.imageAlt,
-            imageCaption: post.sourceImage.imageCaption,
-            imageSourceName: post.sourceImage.sourceName || "",
-            imageSourceUrl: post.sourceImage.sourcePageUrl || "",
-            imageLicenseNote: `Image source: ${post.sourceImage.sourceName || "source article"}`,
-            bodyImages: []
-          }
-        : {}),
+      ...(post.automation ? stableAutomationImages(post) : {}),
       href: post.href || `/news/${post.slug}`,
       views: Number(post.views || 0),
       categoryTitle: post.categoryTitle || post.category,
