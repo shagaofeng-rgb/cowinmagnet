@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  serverExternalPackages: ["sharp"],
+  outputFileTracingIncludes: {
+    "/api/news-image": ["./node_modules/sharp/**/*", "./node_modules/@img/**/*"]
+  },
   images: {
     formats: ["image/avif", "image/webp"]
   },
