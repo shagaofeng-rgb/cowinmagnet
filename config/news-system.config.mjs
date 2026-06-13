@@ -169,6 +169,7 @@ export const newsSystemConfig = {
       sourceName: "Recycling Today",
       sourceType: "rss",
       sourceUrl: "https://www.recyclingtoday.com/rss/",
+      sourceGroup: "trade-publications",
       enabled: true,
       language: "en",
       region: "global",
@@ -181,6 +182,7 @@ export const newsSystemConfig = {
       sourceName: "Mining.com",
       sourceType: "rss",
       sourceUrl: "https://www.mining.com/feed/",
+      sourceGroup: "industry-news",
       enabled: true,
       language: "en",
       region: "global",
@@ -193,6 +195,7 @@ export const newsSystemConfig = {
       sourceName: "Food Safety News",
       sourceType: "rss",
       sourceUrl: "https://www.foodsafetynews.com/feed/",
+      sourceGroup: "trade-publications",
       enabled: true,
       language: "en",
       region: "global",
@@ -202,9 +205,75 @@ export const newsSystemConfig = {
       defaultAttributionText: "Food Safety News / original article"
     },
     {
+      sourceName: "Waste360",
+      sourceType: "rss",
+      sourceUrl: "https://www.waste360.com/rss.xml",
+      sourceGroup: "trade-publications",
+      enabled: true,
+      language: "en",
+      region: "United States",
+      category: "recycling",
+      fetchInterval: "hourly",
+      allowedUseImage: true,
+      defaultAttributionText: "Waste360 / original article"
+    },
+    {
+      sourceName: "Powder & Bulk Solids",
+      sourceType: "rss",
+      sourceUrl: "https://www.powderbulksolids.com/rss.xml",
+      sourceGroup: "engineering-forums",
+      enabled: true,
+      language: "en",
+      region: "global",
+      category: "bulk-material-handling",
+      fetchInterval: "hourly",
+      allowedUseImage: true,
+      defaultAttributionText: "Powder & Bulk Solids / original article"
+    },
+    {
+      sourceName: "Australian Mining",
+      sourceType: "rss",
+      sourceUrl: "https://www.australianmining.com.au/feed/",
+      sourceGroup: "industry-news",
+      enabled: true,
+      language: "en",
+      region: "Australia",
+      category: "mining",
+      fetchInterval: "hourly",
+      allowedUseImage: true,
+      defaultAttributionText: "Australian Mining / original article"
+    },
+    {
+      sourceName: "NIST News",
+      sourceType: "rss",
+      sourceUrl: "https://www.nist.gov/news-events/news/rss.xml",
+      sourceGroup: "government-standards",
+      enabled: true,
+      language: "en",
+      region: "United States",
+      category: "standards",
+      fetchInterval: "daily",
+      allowedUseImage: true,
+      defaultAttributionText: "NIST / original article"
+    },
+    {
+      sourceName: "OSHA News Releases",
+      sourceType: "rss",
+      sourceUrl: "https://www.osha.gov/news/newsreleases.xml",
+      sourceGroup: "government-standards",
+      enabled: true,
+      language: "en",
+      region: "United States",
+      category: "industrial-safety",
+      fetchInterval: "daily",
+      allowedUseImage: true,
+      defaultAttributionText: "OSHA / original article"
+    },
+    {
       sourceName: "Google News RSS - Magnetic Separator",
       sourceType: "rss",
       sourceUrl: "https://news.google.com/rss/search?q=magnetic%20separator%20OR%20magnetic%20separation%20equipment&hl=en-US&gl=US&ceid=US:en",
+      sourceGroup: "industry-news",
       enabled: true,
       language: "en",
       region: "United States",
@@ -217,6 +286,7 @@ export const newsSystemConfig = {
       sourceName: "Google News RSS - Recycling Equipment",
       sourceType: "rss",
       sourceUrl: "https://news.google.com/rss/search?q=recycling%20equipment%20metal%20separation%20OR%20waste%20sorting&hl=en-US&gl=US&ceid=US:en",
+      sourceGroup: "trade-publications",
       enabled: true,
       language: "en",
       region: "global",
@@ -229,6 +299,7 @@ export const newsSystemConfig = {
       sourceName: "Google News RSS - Critical Minerals Processing",
       sourceType: "rss",
       sourceUrl: "https://news.google.com/rss/search?q=critical%20minerals%20processing%20OR%20rare%20earth%20processing%20plant%20OR%20lithium%20extraction%20plant&hl=en-US&gl=US&ceid=US:en",
+      sourceGroup: "government-standards",
       enabled: true,
       language: "en",
       region: "global",
@@ -241,6 +312,7 @@ export const newsSystemConfig = {
       sourceName: "Google News RSS - Conveyor Protection",
       sourceType: "rss",
       sourceUrl: "https://news.google.com/rss/search?q=conveyor%20belt%20mining%20crusher%20OR%20quarry%20conveyor%20aggregate%20processing%20OR%20bulk%20material%20handling%20equipment&hl=en-US&gl=US&ceid=US:en",
+      sourceGroup: "engineering-forums",
       enabled: true,
       language: "en",
       region: "global",
@@ -253,6 +325,7 @@ export const newsSystemConfig = {
       sourceName: "Google News RSS - Metal Contamination Control",
       sourceType: "rss",
       sourceUrl: "https://news.google.com/rss/search?q=metal%20contamination%20food%20processing%20OR%20foreign%20material%20contamination%20food%20plant%20OR%20magnetic%20trap%20food%20processing&hl=en-US&gl=US&ceid=US:en",
+      sourceGroup: "manufacturer-blogs",
       enabled: true,
       language: "en",
       region: "global",
@@ -262,6 +335,27 @@ export const newsSystemConfig = {
       defaultAttributionText: "Google News RSS result / original publisher"
     }
   ],
+  sourcePool: {
+    requiredGroupsPerRun: 3,
+    requiredNewDomainsPerRun: 2,
+    groups: [
+      "industry-news",
+      "manufacturer-blogs",
+      "trade-publications",
+      "government-standards",
+      "engineering-forums"
+    ]
+  },
+  diversity: {
+    semanticSimilarityRejectThreshold: 0.85,
+    minimumInformationGainScore: 5,
+    maxSameDomainInRecent10: 2,
+    preferUnusedSourceHours: 72,
+    topicLimits: {
+      per24h: 1,
+      per7d: 3
+    }
+  },
   sources: {
     rss: [
       "https://www.recyclingtoday.com/rss/",

@@ -37,6 +37,9 @@ console.log(
       savedArticleCount: run.savedArticleCount,
       publishedCount: run.publishedCount,
       duplicateSummary: run.duplicateSummary,
+      selected_source: run.diversityLog?.selected_source || [],
+      rejected_sources: run.diversityLog?.rejected_sources || [],
+      source_pool: run.diversityLog?.source_pool || null,
       jsonPath: run.paths?.jsonPath,
       markdownPath: run.paths?.markdownPath
     },
