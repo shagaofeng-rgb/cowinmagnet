@@ -3437,12 +3437,77 @@ textarea:focus {
   background: var(--blue);
 }
 
+.news-list-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 0 0 20px;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 760;
+}
+
+.news-list-toolbar p {
+  margin: 0;
+}
+
+.news-page-size {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.news-page-size a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  min-height: 34px;
+  padding: 6px 10px;
+  color: #0b5cad;
+  border: 1px solid rgba(11, 92, 173, 0.18);
+  border-radius: 8px;
+  background: #ffffff;
+  font-weight: 850;
+}
+
+.news-page-size a.active,
+.news-page-size a:hover {
+  color: #ffffff;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.news-card-image {
+  background: #f8fbff;
+}
+
+.news-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
+}
+
 .news-card .blog-card-meta > span:first-child {
   color: #0b5cad;
 }
 
 .news-detail-hero {
   background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+}
+
+.news-detail-hero .blog-hero-image {
+  background: #f8fbff;
+}
+
+.news-detail-hero .blog-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .news-content-section + .news-content-section {
@@ -3563,6 +3628,50 @@ textarea:focus {
   display: block;
   margin-top: 3px;
   color: #7c8a9b;
+}
+
+.news-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.news-pagination a,
+.news-pagination span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.news-pagination a {
+  color: #0b5cad;
+  border: 1px solid rgba(11, 92, 173, 0.2);
+  background: #ffffff;
+}
+
+.news-pagination a:hover {
+  color: #ffffff;
+  background: var(--blue);
+}
+
+.news-pagination a.disabled {
+  color: #94a3b8;
+  border-color: rgba(148, 163, 184, 0.25);
+  background: #f1f5f9;
+  pointer-events: none;
+}
+
+.news-pagination span {
+  color: #475569;
+  background: #f7fbff;
 }
 
 .article-prev-next {

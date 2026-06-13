@@ -6,11 +6,30 @@ import { DateBadge } from "@/components/DateBadge";
 import { PageHero } from "@/components/PageHero";
 import { formatDisplayDate, getNewsCategories, getNewsPosts } from "@/data/contentHub";
 
+type NewsPageProps = {
+  searchParams?: Promise<{ page?: string; perPage?: string }>;
+};
+
+const pageSizeOptions = [15, 30, 45];
+
+function parsePositiveInteger(value: string | undefined, fallback: number) {
+  const number = Number(value);
+  return Number.isFinite(number) && number > 0 ? Math.floor(number) : fallback;
+}
+
+function newsPageHref(page: number, perPage: number) {
+  const params = new URLSearchParams();
+  if (page > 1) params.set("page", String(page));
+  if (perPage !== pageSizeOptions[0]) params.set("perPage", String(perPage));
+  const query = params.toString();
+  return query ? `/news?${query}` : "/news";
+}
+
 function NewsCardImage({ src, alt }: { src: string; alt: string }) {
   if (/^https?:\/\//i.test(src) || src.startsWith("/api/")) {
-    return <img src={src} width={760} height={460} alt={alt} loading="lazy" referrerPolicy="no-referrer" style={{ objectFit: "contain" }} />;
+    return <img src={src} width={760} height={460} alt={alt} loading="lazy" referrerPolicy="no-referrer" />;
   }
-  return <Image src={src} width={760} height={460} alt={alt} style={{ objectFit: "contain" }} />;
+  return <Image src={src} width={760} height={460} alt={alt} />;
 }
 
 export const dynamic = "force-dynamic";
@@ -22,9 +41,18 @@ export const metadata: Metadata = {
   alternates: { canonical: "/news" }
 };
 
-export default async function NewsPage() {
+export default async function NewsPage({ searchParams }: NewsPageProps) {
+  const query = await searchParams;
   const [categories, posts] = await Promise.all([getNewsCategories(), getNewsPosts()]);
   const categoryMap = new Map(categories.map((category) => [category.slug, category.title]));
+  const perPageCandidate = parsePositiveInteger(query?.perPage, pageSizeOptions[0]);
+  const perPage = pageSizeOptions.includes(perPageCandidate) ? perPageCandidate : pageSizeOptions[0];
+  const totalPages = Math.max(1, Math.ceil(posts.length / perPage));
+  const requestedPage = parsePositiveInteger(query?.page, 1);
+  const currentPage = Math.min(Math.max(1, requestedPage), totalPages);
+  const pagePosts = posts.slice((currentPage - 1) * perPage, currentPage * perPage);
+  const startItem = posts.length ? (currentPage - 1) * perPage + 1 : 0;
+  const endItem = Math.min(posts.length, currentPage * perPage);
 
   return (
     <>
@@ -56,11 +84,23 @@ export default async function NewsPage() {
           ))}
         </div>
 
+        <div className="news-list-toolbar">
+          <p>{startItem}-{endItem} of {posts.length} news posts</p>
+          <div className="news-page-size" aria-label="News posts per page">
+            <span>Per page</span>
+            {pageSizeOptions.map((option) => (
+              <Link key={option} href={newsPageHref(1, option)} className={option === perPage ? "active" : ""}>
+                {option}
+              </Link>
+            ))}
+          </div>
+        </div>
+
         <div className="blog-grid news-card-grid">
-          {posts.map((post) => (
+          {pagePosts.map((post) => (
             <article className="blog-card news-card" id={post.category} key={post.slug}>
               {post.coverImage ? (
-                <Link href={`/news/${post.slug}`} className="blog-card-image" aria-label={post.title}>
+                <Link href={`/news/${post.slug}`} className="blog-card-image news-card-image" aria-label={post.title}>
                   <DateBadge date={post.publishedAt} />
                   <NewsCardImage src={post.coverImage} alt={post.coverAlt || post.title} />
                 </Link>
@@ -79,6 +119,18 @@ export default async function NewsPage() {
             </article>
           ))}
         </div>
+
+        {totalPages > 1 ? (
+          <nav className="news-pagination" aria-label="News pagination">
+            <Link className={currentPage === 1 ? "disabled" : ""} href={newsPageHref(Math.max(1, currentPage - 1), perPage)} aria-disabled={currentPage === 1}>
+              Previous
+            </Link>
+            <span>Page {currentPage} of {totalPages}</span>
+            <Link className={currentPage === totalPages ? "disabled" : ""} href={newsPageHref(Math.min(totalPages, currentPage + 1), perPage)} aria-disabled={currentPage === totalPages}>
+              Next
+            </Link>
+          </nav>
+        ) : null}
       </section>
     </>
   );
