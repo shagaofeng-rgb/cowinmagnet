@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import sharp from "sharp";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -80,15 +79,26 @@ export async function GET(request) {
     }
 
     const sourceBytes = await readLimitedBytes(response);
-    const output = await sharp(sourceBytes, { failOn: "none" })
-      .rotate()
-      .resize({ width, withoutEnlargement: true })
-      .webp({ quality: 82, effort: 4 })
-      .toBuffer();
+    let output = sourceBytes;
+    let outputType = contentType;
+
+    try {
+      const sharp = (await import("sharp")).default;
+      output = await sharp(sourceBytes, { failOn: "none" })
+        .rotate()
+        .resize({ width, withoutEnlargement: true })
+        .webp({ quality: 82, effort: 4 })
+        .toBuffer();
+      outputType = "image/webp";
+    } catch (error) {
+      console.warn("[news-image] sharp unavailable, serving source image", {
+        message: error?.message || String(error)
+      });
+    }
 
     return new NextResponse(output, {
       headers: {
-        "Content-Type": "image/webp",
+        "Content-Type": outputType,
         "Cache-Control": "no-store",
         "X-Content-Type-Options": "nosniff"
       }
