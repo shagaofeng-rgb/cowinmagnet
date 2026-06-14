@@ -18,7 +18,7 @@ function isAuthorized(request) {
 }
 
 async function recentSuccessfulNewsRun() {
-  const intervalMs = Number(process.env.NEWS_MIN_INTERVAL_MS || process.env.NEWS_BACKUP_MIN_INTERVAL_MS || 1000 * 60 * 60 * 3);
+  const intervalMs = Number(process.env.NEWS_MIN_INTERVAL_MS || process.env.NEWS_BACKUP_MIN_INTERVAL_MS || 1000 * 60 * 60 * 6);
   const recentRuns = await listRecentJobRuns(20);
   const lastNewsRun = recentRuns.find(
     (run) => run?.action === "job" && run?.status === "success" && Number(run?.publishedCount || 0) > 0

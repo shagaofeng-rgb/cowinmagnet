@@ -2,7 +2,7 @@ export const newsSystemConfig = {
   siteUrl: process.env.SITE_URL || "https://www.cowinmagnet.com",
   defaultLanguage: "en",
   publishMode: String(process.env.NEWS_PUBLISH_MODE || "published").trim(),
-  publishInterval: "every-3-hours",
+  publishInterval: "every-6-hours",
   maxPostsPerRun: Number(process.env.NEWS_MAX_PUBLISH_PER_RUN || process.env.NEWS_MAX_POSTS_PER_RUN || 1),
   maxPostsPerDay: Number(process.env.NEWS_MAX_PUBLISH_PER_DAY || process.env.NEWS_MAX_POSTS_PER_DAY || 8),
   minRelevanceScore: Number(process.env.NEWS_MIN_RELEVANCE_SCORE || 50),

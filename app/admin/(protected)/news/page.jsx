@@ -384,7 +384,7 @@ export default async function AdminNewsPage({ searchParams }) {
             <p className="eyebrow">News Automation</p>
             <h2>Cron job status</h2>
             <p className="admin-muted">
-              Schedule: 0 */3 * * * UTC. Mode: {newsSystemConfig.publishMode}. Per run limit: {newsSystemConfig.maxPostsPerRun}. Daily limit: {newsSystemConfig.maxPostsPerDay}.
+              Schedule: 0 */6 * * * UTC. Mode: {newsSystemConfig.publishMode}. Per run limit: {newsSystemConfig.maxPostsPerRun}. Daily limit: {newsSystemConfig.maxPostsPerDay}.
             </p>
           </div>
           <form action="/api/admin/news-automation/run" method="post">
