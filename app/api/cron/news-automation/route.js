@@ -10,11 +10,11 @@ export const dynamic = "force-dynamic";
 function isAuthorized(request) {
   if (request.headers.get("x-vercel-cron") === "1") return true;
   if (/vercel-cron/i.test(request.headers.get("user-agent") || "")) return true;
-  const secret = process.env.CRON_SECRET || process.env.NEWS_SYSTEM_ADMIN_TOKEN;
-  if (!secret) return process.env.NODE_ENV !== "production" && !process.env.VERCEL;
+  const secrets = [process.env.CRON_SECRET, process.env.NEWS_SYSTEM_ADMIN_TOKEN].filter(Boolean);
+  if (!secrets.length) return process.env.NODE_ENV !== "production" && !process.env.VERCEL;
   const headerSecret = request.headers.get("x-cron-secret");
   const bearer = request.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
-  return [headerSecret, bearer].includes(secret);
+  return secrets.includes(headerSecret) || secrets.includes(bearer);
 }
 
 async function recentSuccessfulNewsRun() {
