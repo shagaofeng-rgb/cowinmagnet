@@ -17,33 +17,46 @@ function isAuthorized(request) {
   return secrets.includes(headerSecret) || secrets.includes(bearer);
 }
 
-async function recentSuccessfulNewsRun() {
-  const intervalMs = Number(process.env.NEWS_MIN_INTERVAL_MS || process.env.NEWS_BACKUP_MIN_INTERVAL_MS || 1000 * 60 * 60 * 6);
-  const graceMs = Number(process.env.NEWS_CRON_GRACE_MS || 1000 * 60 * 20);
-  const freshThresholdMs = Math.max(0, intervalMs - graceMs);
-  const recentRuns = await listRecentJobRuns(20);
-  const lastNewsRun = recentRuns.find(
-    (run) => run?.action === "job" && run?.status === "success" && Number(run?.publishedCount || 0) > 0
-  );
-  const lastFinishedAt = lastNewsRun?.finishedAt || lastNewsRun?.generatedAt || lastNewsRun?.startedAt || "";
-  const ageMs = lastFinishedAt ? Date.now() - new Date(lastFinishedAt).getTime() : Number.POSITIVE_INFINITY;
-  if (Number.isFinite(ageMs) && ageMs < freshThresholdMs) {
-    return {
-      fresh: true,
-      lastFinishedAt,
-      ageMinutes: Math.round(ageMs / 60000),
-      intervalMinutes: Math.round(intervalMs / 60000),
-      graceMinutes: Math.round(graceMs / 60000),
-      eligibleAfterMinutes: Math.round(freshThresholdMs / 60000)
-    };
+function normalizedTimezone(value = newsSystemConfig.timezone || "Asia/Shanghai") {
+  const candidate = String(value || "").trim() || "Asia/Shanghai";
+  try {
+    new Intl.DateTimeFormat("en-CA", { timeZone: candidate }).format(new Date());
+    return candidate;
+  } catch {
+    return "Asia/Shanghai";
   }
+}
+
+function zonedDateKey(date = new Date(), timeZone = newsSystemConfig.timezone || "Asia/Shanghai") {
+  const timezone = normalizedTimezone(timeZone);
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: timezone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).format(date);
+}
+
+async function dailyPublishQuotaStatus() {
+  const dailyLimit = Number(newsSystemConfig.maxPostsPerDay || 4);
+  const timezone = normalizedTimezone(newsSystemConfig.timezone || "Asia/Shanghai");
+  const today = zonedDateKey(new Date(), timezone);
+  const recentRuns = await listRecentJobRuns(200);
+  const publishedToday = recentRuns.reduce((sum, run) => {
+    const publishedCount = Number(run?.publishedCount || 0);
+    if (run?.action !== "job" || run?.status !== "success" || publishedCount <= 0) return sum;
+    const finishedAt = run?.finishedAt || run?.generatedAt || run?.startedAt;
+    if (!finishedAt || zonedDateKey(new Date(finishedAt), timezone) !== today) return sum;
+    return sum + publishedCount;
+  }, 0);
+
   return {
-    fresh: false,
-    lastFinishedAt,
-    ageMinutes: Number.isFinite(ageMs) ? Math.round(ageMs / 60000) : null,
-    intervalMinutes: Math.round(intervalMs / 60000),
-    graceMinutes: Math.round(graceMs / 60000),
-    eligibleAfterMinutes: Math.round(freshThresholdMs / 60000)
+    quotaReached: publishedToday >= dailyLimit,
+    today,
+    timezone,
+    publishedToday,
+    dailyLimit,
+    remainingToday: Math.max(0, dailyLimit - publishedToday)
   };
 }
 
@@ -138,13 +151,13 @@ async function handleCron(request) {
   }
 
   try {
-    const freshRun = await recentSuccessfulNewsRun();
-    if (freshRun.fresh) {
+    const quota = await dailyPublishQuotaStatus();
+    if (quota.quotaReached) {
       const skippedRun = await recordSkippedRun({
         requestId,
         startedAt,
-        reason: "recent-successful-news-run",
-        data: freshRun
+        reason: "daily-news-quota-reached",
+        data: quota
       });
       return NextResponse.json(
         {
@@ -152,14 +165,14 @@ async function handleCron(request) {
           requestId,
           data: {
             date: skippedRun.date,
-            status: "fresh",
+            status: "quota_reached",
             mode: currentMode(),
             publishedCount: 0,
             savedArticleCount: 0,
             selectedCount: 0,
             skippedCount: 1,
-            reason: "recent-successful-news-run",
-            ...freshRun
+            reason: "daily-news-quota-reached",
+            ...quota
           }
         },
         { headers: { "Cache-Control": "no-store" } }
