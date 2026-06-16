@@ -19,21 +19,32 @@ function isAuthorized(request) {
 
 async function recentSuccessfulNewsRun() {
   const intervalMs = Number(process.env.NEWS_MIN_INTERVAL_MS || process.env.NEWS_BACKUP_MIN_INTERVAL_MS || 1000 * 60 * 60 * 6);
+  const graceMs = Number(process.env.NEWS_CRON_GRACE_MS || 1000 * 60 * 20);
+  const freshThresholdMs = Math.max(0, intervalMs - graceMs);
   const recentRuns = await listRecentJobRuns(20);
   const lastNewsRun = recentRuns.find(
     (run) => run?.action === "job" && run?.status === "success" && Number(run?.publishedCount || 0) > 0
   );
   const lastFinishedAt = lastNewsRun?.finishedAt || lastNewsRun?.generatedAt || lastNewsRun?.startedAt || "";
   const ageMs = lastFinishedAt ? Date.now() - new Date(lastFinishedAt).getTime() : Number.POSITIVE_INFINITY;
-  if (Number.isFinite(ageMs) && ageMs < intervalMs) {
+  if (Number.isFinite(ageMs) && ageMs < freshThresholdMs) {
     return {
       fresh: true,
       lastFinishedAt,
       ageMinutes: Math.round(ageMs / 60000),
-      intervalMinutes: Math.round(intervalMs / 60000)
+      intervalMinutes: Math.round(intervalMs / 60000),
+      graceMinutes: Math.round(graceMs / 60000),
+      eligibleAfterMinutes: Math.round(freshThresholdMs / 60000)
     };
   }
-  return { fresh: false, lastFinishedAt, ageMinutes: Number.isFinite(ageMs) ? Math.round(ageMs / 60000) : null };
+  return {
+    fresh: false,
+    lastFinishedAt,
+    ageMinutes: Number.isFinite(ageMs) ? Math.round(ageMs / 60000) : null,
+    intervalMinutes: Math.round(intervalMs / 60000),
+    graceMinutes: Math.round(graceMs / 60000),
+    eligibleAfterMinutes: Math.round(freshThresholdMs / 60000)
+  };
 }
 
 function currentMode() {
