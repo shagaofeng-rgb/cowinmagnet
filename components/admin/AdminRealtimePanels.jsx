@@ -112,7 +112,6 @@ function useLiveAnalytics(initialData) {
       }
     }
 
-    refresh();
     const timer = window.setInterval(refresh, refreshMs);
     return () => {
       active = false;
