@@ -37,10 +37,49 @@ function zonedDateKey(date = new Date(), timeZone = newsSystemConfig.timezone ||
   }).format(date);
 }
 
+function zonedTimeParts(date = new Date(), timeZone = newsSystemConfig.timezone || "Asia/Shanghai") {
+  const timezone = normalizedTimezone(timeZone);
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: timezone,
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false
+  }).formatToParts(date);
+  const partValue = (type) => Number(parts.find((part) => part.type === type)?.value || 0);
+  return { hour: partValue("hour"), minute: partValue("minute") };
+}
+
+function seededNumber(seed) {
+  const hash = crypto.createHash("sha256").update(seed).digest();
+  return hash.readUInt32BE(0);
+}
+
+function dailyRandomPublishSlots(dateKey, dailyLimit) {
+  const slotsPerDay = 48;
+  const count = Math.max(1, Math.min(Number(dailyLimit || 4), slotsPerDay));
+  const slots = new Set();
+  let index = 0;
+  while (slots.size < count && index < slotsPerDay * 4) {
+    slots.add(seededNumber(`${dateKey}:${index}`) % slotsPerDay);
+    index += 1;
+  }
+  return [...slots].sort((a, b) => a - b);
+}
+
+function formatSlot(slot) {
+  const hour = Math.floor(slot / 2);
+  const minute = slot % 2 ? 30 : 0;
+  return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
+}
+
 async function dailyPublishQuotaStatus() {
   const dailyLimit = Number(newsSystemConfig.maxPostsPerDay || 4);
   const timezone = normalizedTimezone(newsSystemConfig.timezone || "Asia/Shanghai");
   const today = zonedDateKey(new Date(), timezone);
+  const nowParts = zonedTimeParts(new Date(), timezone);
+  const currentSlot = nowParts.hour * 2 + (nowParts.minute >= 30 ? 1 : 0);
+  const publishSlots = dailyRandomPublishSlots(today, dailyLimit);
+  const dueSlotCount = publishSlots.filter((slot) => slot <= currentSlot).length;
   const recentRuns = await listRecentJobRuns(200);
   const publishedToday = recentRuns.reduce((sum, run) => {
     const publishedCount = Number(run?.publishedCount || 0);
@@ -56,7 +95,13 @@ async function dailyPublishQuotaStatus() {
     timezone,
     publishedToday,
     dailyLimit,
-    remainingToday: Math.max(0, dailyLimit - publishedToday)
+    remainingToday: Math.max(0, dailyLimit - publishedToday),
+    publishSlots,
+    publishSlotTimes: publishSlots.map(formatSlot),
+    currentSlot,
+    currentSlotTime: formatSlot(currentSlot),
+    dueSlotCount,
+    dueNow: publishedToday < dueSlotCount
   };
 }
 
@@ -172,6 +217,34 @@ async function handleCron(request) {
             selectedCount: 0,
             skippedCount: 1,
             reason: "daily-news-quota-reached",
+            ...quota
+          }
+        },
+        { headers: { "Cache-Control": "no-store" } }
+      );
+    }
+
+    if (!quota.dueNow) {
+      const reason = quota.dueSlotCount <= quota.publishedToday ? "daily-random-window-already-filled" : "daily-random-window-not-due";
+      const skippedRun = await recordSkippedRun({
+        requestId,
+        startedAt,
+        reason,
+        data: quota
+      });
+      return NextResponse.json(
+        {
+          success: true,
+          requestId,
+          data: {
+            date: skippedRun.date,
+            status: "skipped",
+            mode: currentMode(),
+            publishedCount: 0,
+            savedArticleCount: 0,
+            selectedCount: 0,
+            skippedCount: 1,
+            reason,
             ...quota
           }
         },
