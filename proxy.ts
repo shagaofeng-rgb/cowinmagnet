@@ -55,6 +55,19 @@ export function proxy(request: NextRequest) {
   const country = getRequestCountry(request);
   const userAgent = request.headers.get("user-agent") || "";
 
+  if (
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/api") ||
+    pathname.startsWith("/admin") ||
+    pathname.startsWith("/assets") ||
+    pathname.startsWith("/images") ||
+    pathname === "/robots.txt" ||
+    pathname === "/sitemap.xml" ||
+    PUBLIC_FILE.test(pathname)
+  ) {
+    return NextResponse.next();
+  }
+
   if (blockedVisitorCountries.has(country)) {
     return new NextResponse("Access unavailable", {
       status: 403,
@@ -76,18 +89,6 @@ export function proxy(request: NextRequest) {
     });
   }
 
-  if (
-    pathname.startsWith("/_next") ||
-    pathname.startsWith("/api") ||
-    pathname.startsWith("/admin") ||
-    pathname.startsWith("/images") ||
-    pathname === "/robots.txt" ||
-    pathname === "/sitemap.xml" ||
-    PUBLIC_FILE.test(pathname)
-  ) {
-    return NextResponse.next();
-  }
-
   const firstSegment = pathname.split("/").filter(Boolean)[0];
   if (isLocale(firstSegment)) {
     return NextResponse.next();
@@ -106,5 +107,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next|api|admin|images|favicon.ico).*)"]
+  matcher: ["/((?!_next|api|admin|assets|images|favicon.ico).*)"]
 };
