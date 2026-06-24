@@ -68,7 +68,6 @@ export default function AdminDateRangeFilter({ range }) {
     }
     startTransition(() => {
       router.push(`${pathname}?${params.toString()}`);
-      router.refresh();
     });
   }
 
