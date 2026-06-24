@@ -33,7 +33,16 @@ export const metadata: Metadata = {
     title: "COWIN MAGNET | Magnetic Separator Supplier",
     description: site.description,
     images: ["/images/catalog/page-1-image-9-2546x1532.jpg"]
-  }
+  },
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" }
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/favicon-32x32.png"]
+  },
+  manifest: "/site.webmanifest"
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
