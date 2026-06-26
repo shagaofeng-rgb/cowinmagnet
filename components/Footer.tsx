@@ -9,6 +9,7 @@ import { getDictionary, getDirection, getLocaleFromPath, localizeHref } from "@/
 
 const whatsappChatUrl = "https://wa.me/message/FROFUJEVUZDOC1";
 const whatsappQrUrl = "/images/qr-whatsapp-cowinmagnet.png";
+const wechatQrUrl = "/images/qr-wechat-david.png";
 
 export function Footer() {
   const pathname = usePathname();
@@ -105,6 +106,10 @@ export function Footer() {
             <figure>
               <img src={whatsappQrUrl} width={168} height={168} alt="WhatsApp QR code for COWIN MAGNET" loading="lazy" />
               <figcaption>WhatsApp</figcaption>
+            </figure>
+            <figure>
+              <img src={wechatQrUrl} width={168} height={168} alt="WeChat QR code for David at COWIN MAGNET" loading="lazy" />
+              <figcaption>WeChat</figcaption>
             </figure>
           </div>
           <div className="footer-social-buttons" aria-label="Social links">
