@@ -2,6 +2,13 @@
 
 Date: 2026-06-09
 
+Superseded cron note, updated 2026-06-27:
+
+- Current production Cron configuration must contain exactly one Vercel Cron entry: `/api/cron/analytics-sync` at `0 */3 * * *`.
+- `/api/cron/analytics-sync` runs analytics sync and triggers the news automation backup when the last successful news job is older than 3 hours.
+- `/api/cron/news-automation` remains available for authorized manual/admin runs, but it must not be restored as a separate Vercel Cron entry.
+- Do not restore the older three-cron configuration documented in early June reports.
+
 ## Project Identification
 
 - Repository: `C:\Users\Administrator\Documents\cowinmagnet.com主站`
@@ -10,7 +17,7 @@ Date: 2026-06-09
 - Production domain in code/config: `https://www.cowinmagnet.com`
 - Framework: Next.js 16 App Router
 - Database: PostgreSQL when `DATABASE_URL` is configured; local `.data` JSON fallback otherwise
-- Existing Cron: `/api/cron/news-automation` at `0 */3 * * *`
+- Existing Cron: `/api/cron/analytics-sync` at `0 */3 * * *`, with news backup logic inside the same route
 
 ## Industry Identification
 
@@ -77,8 +84,8 @@ Production deployment completed.
 - Formal domains aliased:
   - `https://www.cowinmagnet.com`
   - `https://cowinmagnet.com`
-- Vercel Cron route present: `/api/cron/news-automation`
-- Production Cron schedule in `vercel.json`: `0 */3 * * *`
+- Vercel Cron route present: `/api/cron/analytics-sync`
+- Production Cron schedule in `vercel.json`: exactly one entry, `/api/cron/analytics-sync` at `0 */3 * * *`
 - `CRON_SECRET`: configured in Vercel Production environment
 - `DATABASE_URL`: configured in Vercel Production/Preview/Development environments
 - `NEWS_MAX_PUBLISH_PER_RUN`: configured as `1` in Production
