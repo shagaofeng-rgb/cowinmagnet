@@ -17,9 +17,9 @@ Status: PRODUCTION_VERIFIED_SOURCE_COMMITTED_LOCALLY
 
 ## Completed Changes
 
-- Added production cron endpoint `/api/cron/analytics-sync`.
-- Set analytics sync schedule to `*/30 * * * *`.
-- Set news automation schedule to `0 */3 * * *`.
+- Current production Cron uses a single endpoint: `/api/cron/analytics-sync`.
+- Current schedule is `0 */3 * * *`.
+- News automation is triggered from the analytics-sync backup logic when the last successful news job is older than 3 hours.
 - Added sync run persistence in `sync_job_runs`.
 - Added PostgreSQL advisory-lock protection for sync jobs.
 - Added admin sync status API at `/api/admin/sync-status`.
@@ -36,7 +36,7 @@ Status: PRODUCTION_VERIFIED_SOURCE_COMMITTED_LOCALLY
 - `npx eslint .`: passed with 0 errors and existing warnings only.
 - `npm run verify`: public 32/32 passed, admin smoke 2/2 passed.
 - Vercel production status: Ready.
-- Vercel cron list: two jobs present, `analytics-sync` every 30 minutes and `news-automation` every 3 hours.
+- Vercel cron list must contain one job only: `analytics-sync` every 3 hours. Do not restore the older separate `news-automation` cron.
 - Manual production sync trigger: `200 OK`.
 - Latest production sync result: `storageMode=database`, `processedCount=18`.
 - Final smoke report: `docs/final-audit/runtime/smoke-1780979322107.json`.
