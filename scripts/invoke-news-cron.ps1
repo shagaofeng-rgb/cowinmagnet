@@ -6,6 +6,10 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+$scriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
+$projectRoot = Resolve-Path (Join-Path $scriptRoot "..")
+Set-Location -LiteralPath $projectRoot
+
 function Read-EnvFile {
   param([string]$Path)
   $values = @{}
@@ -42,13 +46,14 @@ if ($logDir) {
 }
 
 $startedAt = (Get-Date).ToUniversalTime().ToString("o")
-$uri = $SiteUrl.TrimEnd("/") + "/api/cron/news-automation"
+$uri = $SiteUrl.TrimEnd("/") + "/api/cron/analytics-sync"
 
 try {
   $response = Invoke-WebRequest `
     -Uri $uri `
-    -Method POST `
-    -Headers @{ Authorization = "Bearer $token" } `
+    -Method GET `
+    -Headers @{ Authorization = "Bearer $token"; "x-vercel-cron" = "1" } `
+    -UserAgent "vercel-cron/1.0 cowinmagnet-local-fallback" `
     -UseBasicParsing `
     -TimeoutSec 300
 
