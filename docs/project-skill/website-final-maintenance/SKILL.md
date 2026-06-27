@@ -17,7 +17,7 @@ Use this skill for Cowinmagnet maintenance, launch checks, regression testing, S
 - Deployment: Vercel project `cowinmagnet`
 - Production domains: `www.cowinmagnet.com`, `cowinmagnet.com`
 - Admin auth: cookie session via `/api/admin/login`
-- News automation: `/api/cron/news-automation`
+- News automation: Vercel Cron calls `/api/cron/analytics-sync` every 3 hours; that endpoint runs the news backup when the last successful news job is older than 3 hours. `/api/cron/news-automation` is kept for authorized manual/admin triggering only.
 
 Do not store or reveal passwords, tokens, database URLs, or environment-variable values.
 
@@ -38,8 +38,8 @@ Do not store or reveal passwords, tokens, database URLs, or environment-variable
 - Never delete products, inquiries, analytics records, admin accounts, media, or generated news without backup and explicit reason.
 - Do not commit `.env`, passwords, database URLs, Vercel tokens, email secrets, or backups containing secrets.
 - Do not run destructive CRUD tests on production unless the user specifically approves and cleanup is guaranteed.
-- If Vercel Hobby rejects cron frequency above daily, record it as a platform limitation and deploy with a supported schedule.
-- Generated news must not use third-party article images unless licensing is verified; prefer Cowinmagnet company-library images.
+- Keep `vercel.json` to a single Vercel Cron entry: `/api/cron/analytics-sync` with `0 */3 * * *`. Do not re-add separate `news-automation`, `monthly-inquiry-test`, or `*/30` analytics cron entries.
+- Generated news must use validated source-article images when available, must not use AI-generated images, and must not fall back to unrelated company-library or stock images.
 - Product content must not expose old scraped scripts such as `window.onload`, `UA-162924846`, or `products_details.css`.
 
 ## Common Commands
