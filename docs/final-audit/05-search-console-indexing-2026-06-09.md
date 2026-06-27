@@ -31,8 +31,8 @@ Google Search Console reported new non-indexing reasons for `cowinmagnet.com`:
 - `https://www.cowinmagnet.com/fr/products/conveyor-metal-detector` follows to `https://www.cowinmagnet.com/fr/products/dls-type-window-metal-detector` and returns 200.
 - `https://www.cowinmagnet.com/en/products/dls-type-window-metal-detector` returns 200.
 - Vercel cron list remains correct:
-  - `/api/cron/analytics-sync`: `*/30 * * * *`
-  - `/api/cron/news-automation`: `0 */3 * * *`
+  - Current production Cron: `/api/cron/analytics-sync` at `0 */3 * * *`
+  - `/api/cron/news-automation` is manual/admin only and must not be restored as a separate Vercel Cron entry
 
 ## Search Console Follow-up
 
