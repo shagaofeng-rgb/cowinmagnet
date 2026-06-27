@@ -10,20 +10,22 @@ Flow:
 
 Important files:
 
-- `app/api/cron/news-automation/route.js`
+- `app/api/cron/analytics-sync/route.js` is the only Vercel Cron entry. It runs analytics sync and triggers the news automation backup when the latest successful news job is older than 3 hours.
+- `app/api/cron/news-automation/route.js` remains available for authorized manual/admin triggering, but it must not be added back to `vercel.json` as a separate Vercel Cron job.
 - `lib/news-system/*`
 - `config/news-system.config.mjs`
 - `scripts/build-generated-news-index.mjs`
 - `data/news-generated/*.json`
 - `data/generatedNews.js`
 
-Cron limitation:
+Cron rule:
 
-- Vercel Hobby only supports daily cron. It rejects `0 */3 * * *`.
-- For every-3-hour automation, either upgrade to Vercel Pro or use an external scheduler that calls `/api/cron/news-automation` with `CRON_SECRET`.
+- `vercel.json` must contain exactly one cron entry: `/api/cron/analytics-sync` at `0 */3 * * *`.
+- Do not restore the old three-cron configuration with `analytics-sync */30`, `news-automation 0 */3`, and `monthly-inquiry-test 0 1 1 * *`.
+- The local Windows Scheduled Task `CowinmagnetNewsAutomation` is only a fallback and calls `/api/cron/analytics-sync`.
 
 Compliance:
 
-- Do not use third-party news images unless licensing is verified.
+- Automated news should use validated source-article images when available. Do not generate AI news images and do not use unrelated stock/company-library images as replacement news photos.
 - Keep source title, source name, source link, and date.
 - Do not copy full articles.
