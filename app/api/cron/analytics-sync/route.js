@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { getAnalyticsStorageMode, readAnalyticsEvents } from "@/lib/analyticsStore";
+import { getAdminDateRange } from "@/lib/adminDateRange";
+import { getAnalyticsStorageMode, readAnalyticsEvents, refreshStoredAnalyticsSnapshots } from "@/lib/analyticsStore";
 import { recordSyncJobRun, withSyncJobLock } from "@/lib/syncStatusStore";
 import { newsSystemConfig } from "@/config/news-system.config.mjs";
 import { runNewsAutomationJob } from "@/lib/news-system/daily-runner.mjs";
@@ -85,6 +86,9 @@ export async function GET(request) {
     try {
       const events = await readAnalyticsEvents({ days: 1, limit: 50000 });
       const processedCount = events.length;
+      const snapshotRefresh = await refreshStoredAnalyticsSnapshots(
+        ["day", "week", "month"].map((range) => getAdminDateRange(new URLSearchParams({ range })))
+      );
       const newsBackup = await maybeRunNewsAutomationBackup();
       const finishedAt = new Date();
 
@@ -101,6 +105,7 @@ export async function GET(request) {
           userAgent: request.headers.get("user-agent") || "",
           storageMode: getAnalyticsStorageMode(),
           eventTypes: [...new Set(events.map((event) => event.type).filter(Boolean))],
+          snapshotRefresh,
           newsBackup
         }
       });
@@ -110,6 +115,7 @@ export async function GET(request) {
         status: "success",
         storageMode,
         processedCount,
+        snapshotRefresh,
         newsBackup,
         startedAt,
         finishedAt
