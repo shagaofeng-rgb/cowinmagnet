@@ -3,8 +3,7 @@ import type { NextRequest } from "next/server";
 import { defaultLocale, isLocale, locales, type Locale } from "@/lib/i18n";
 
 const PUBLIC_FILE = /\.(.*)$/;
-const localizedProductDetailPath = /^\/(en|es|ru|ar|fr|pt)\/products\/[^/]+$/;
-const blockedVisitorCountries = new Set(["CN", "IN"]);
+const blockedVisitorCountries = new Set(["IN"]);
 const countryLocale: Record<string, Locale> = {
   ES: "es",
   MX: "es",
@@ -75,16 +74,6 @@ export function proxy(request: NextRequest) {
         "X-Robots-Tag": "noindex, nofollow",
         "Cache-Control": "no-store",
         "X-Cowin-Geo-Block": country
-      }
-    });
-  }
-
-  if (localizedProductDetailPath.test(pathname) && /Googlebot/i.test(userAgent) && country === "CN") {
-    return new NextResponse("Forbidden", {
-      status: 403,
-      headers: {
-        "X-Robots-Tag": "noindex, nofollow",
-        "Cache-Control": "no-store"
       }
     });
   }
