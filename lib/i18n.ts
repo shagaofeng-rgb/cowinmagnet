@@ -11,6 +11,7 @@ export const defaultLocale: Locale = "en";
 export const rtlLocales: Locale[] = ["ar"];
 
 export const dictionaries = { en, es, ru, ar, fr, pt } as const;
+export const siteUrl = "https://www.cowinmagnet.com";
 
 export const languageLabels: Record<Locale, string> = {
   en: "English",
@@ -52,6 +53,10 @@ export function localePath(locale: Locale, path = "/") {
   return cleanPath === "/" ? `/${locale}` : `/${locale}${cleanPath}`;
 }
 
+export function absoluteLocalizedUrl(locale: Locale, path = "/") {
+  return `${siteUrl}${localePath(locale, path)}`;
+}
+
 export function localizeHref(path: string, locale: Locale) {
   if (path.startsWith("http") || path.startsWith("mailto:") || path.startsWith("tel:") || path.startsWith("#")) {
     return path;
@@ -61,13 +66,25 @@ export function localizeHref(path: string, locale: Locale) {
 }
 
 export function localizedAlternates(path: string) {
+  const languages = Object.fromEntries(locales.map((locale) => [locale, absoluteLocalizedUrl(locale, path)]));
+
   return {
-    canonical: localePath(defaultLocale, path)
+    canonical: absoluteLocalizedUrl(defaultLocale, path),
+    languages: {
+      ...languages,
+      "x-default": absoluteLocalizedUrl(defaultLocale, path)
+    }
   };
 }
 
 export function localizedPageAlternates(locale: Locale, path: string) {
+  const languages = Object.fromEntries(locales.map((item) => [item, absoluteLocalizedUrl(item, path)]));
+
   return {
-    canonical: localePath(locale, path)
+    canonical: absoluteLocalizedUrl(locale, path),
+    languages: {
+      ...languages,
+      "x-default": absoluteLocalizedUrl(defaultLocale, path)
+    }
   };
 }

@@ -8,7 +8,7 @@ import { localePath, locales } from "@/lib/i18n";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [newsPosts, products] = await Promise.all([getNewsPosts(), getProductsWithCms()]);
-  const staticRoutes = ["/", "/products", "/applications", "/industries", "/blog", "/news", "/about", "/projects", "/contact", "/request-quote"];
+  const staticRoutes = ["/", "/products", "/applications", "/industries", "/blog", "/news", "/about", "/factory", "/projects", "/contact", "/request-quote"];
   const productRoutes = products.map((product) => `/products/${product.slug}`);
   const applicationRoutes = applications.map((application) => `/applications/${application.slug}`);
   const industryRoutes = applications.map((application) => `/industries/${application.industrySlug}`);

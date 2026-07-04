@@ -8,7 +8,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const current = isLocale(locale) ? locale : "en";
   const t = getDictionary(current);
-  return { title: t.factory.seoTitle, description: t.factory.metaDescription, alternates: localizedPageAlternates(current, "/factory"), robots: { index: false, follow: true } };
+  return { title: t.factory.seoTitle, description: t.factory.metaDescription, alternates: localizedPageAlternates(current, "/factory") };
 }
 
 export default async function Page({ params }: PageProps) {
