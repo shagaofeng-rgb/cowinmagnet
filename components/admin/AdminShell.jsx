@@ -10,6 +10,7 @@ const links = [
   { href: "/admin/search-console", label: "SEO 数据" },
   { href: "/admin/products", label: "产品管理" },
   { href: "/admin/news", label: "新闻管理" },
+  { href: "/admin/inquiries", label: "客户表单" },
   { href: "/admin/link-audit", label: "内外链审计" },
   { href: "/admin/visitors", label: "访客记录" },
   { href: "/admin/pages", label: "页面表现" },
@@ -26,8 +27,8 @@ export default function AdminShell({ children, email }) {
     <div className="admin-dashboard">
       <aside className="admin-sidebar">
         <Link className="admin-logo" href="/admin">
-          <span>CY</span>
-          <strong>网站数据后台</strong>
+          <img src="/assets/logo.jpg" alt="COWIN MAGNET" />
+          <strong>COWIN 后台</strong>
         </Link>
         <nav>
           {links.map((link) => (

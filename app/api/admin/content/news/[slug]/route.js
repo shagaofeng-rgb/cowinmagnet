@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { requireAdminApi } from "@/lib/adminApi";
-import { deleteCmsItem, getCmsItems, saveCmsItem, updateCmsItemStatus } from "@/lib/cmsStore";
+import { getCmsItems, saveCmsItem, updateCmsItemStatus } from "@/lib/cmsStore";
 import { buildImagePlan } from "@/lib/news-system/image-handler.mjs";
 
 export const runtime = "nodejs";
@@ -24,7 +24,7 @@ export async function POST(request, { params }) {
   const action = String(formData.get("action") || "");
 
   if (action === "delete") {
-    await deleteCmsItem("news", slug);
+    await updateCmsItemStatus("news", slug, "archived");
     revalidateNews(slug);
     redirect("/admin/news?deleted=news");
   }

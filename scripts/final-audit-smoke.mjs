@@ -65,6 +65,15 @@ function extractSitemapUrls(xml, limit = 20) {
   return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]).slice(0, limit);
 }
 
+function urlOnCurrentSite(url) {
+  try {
+    const parsed = new URL(url);
+    return `${siteUrl}${parsed.pathname}${parsed.search}`;
+  } catch {
+    return url;
+  }
+}
+
 async function checkPublic() {
   const results = [];
   for (const pathName of publicPaths) {
@@ -87,7 +96,8 @@ async function checkPublic() {
   const sitemap = results.find((item) => item.url.endsWith("/sitemap.xml"));
   if (sitemap?.ok) {
     const sitemapText = (await fetchWithTimeout(`${siteUrl}/sitemap.xml`)).text;
-    for (const url of extractSitemapUrls(sitemapText, 20)) {
+    for (const rawUrl of extractSitemapUrls(sitemapText, 20)) {
+      const url = urlOnCurrentSite(rawUrl);
       const result = await fetchWithTimeout(url);
       results.push({
         url,

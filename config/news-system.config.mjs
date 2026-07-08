@@ -336,8 +336,8 @@ export const newsSystemConfig = {
     }
   ],
   sourcePool: {
-    requiredGroupsPerRun: Number(process.env.NEWS_REQUIRED_SOURCE_GROUPS || 2),
-    requiredNewDomainsPerRun: Number(process.env.NEWS_REQUIRED_NEW_DOMAINS || 1),
+    requiredGroupsPerRun: Number(process.env.NEWS_REQUIRED_SOURCE_GROUPS || 3),
+    requiredNewDomainsPerRun: Number(process.env.NEWS_REQUIRED_NEW_DOMAINS || 2),
     groups: [
       "industry-news",
       "manufacturer-blogs",
@@ -347,13 +347,13 @@ export const newsSystemConfig = {
     ]
   },
   diversity: {
-    semanticSimilarityRejectThreshold: Number(process.env.NEWS_SEMANTIC_REJECT_THRESHOLD || 0.9),
-    minimumInformationGainScore: Number(process.env.NEWS_MIN_INFORMATION_GAIN_SCORE || 1),
-    maxSameDomainInRecent10: Number(process.env.NEWS_MAX_SAME_DOMAIN_RECENT_10 || 4),
+    semanticSimilarityRejectThreshold: Number(process.env.NEWS_SEMANTIC_REJECT_THRESHOLD || 0.85),
+    minimumInformationGainScore: Number(process.env.NEWS_MIN_INFORMATION_GAIN_SCORE || 5),
+    maxSameDomainInRecent10: Number(process.env.NEWS_MAX_SAME_DOMAIN_RECENT_10 || 2),
     preferUnusedSourceHours: 72,
     topicLimits: {
-      per24h: Number(process.env.NEWS_TOPIC_LIMIT_24H || 2),
-      per7d: Number(process.env.NEWS_TOPIC_LIMIT_7D || 6)
+      per24h: Number(process.env.NEWS_TOPIC_LIMIT_24H || 1),
+      per7d: Number(process.env.NEWS_TOPIC_LIMIT_7D || 3)
     }
   },
   sources: {

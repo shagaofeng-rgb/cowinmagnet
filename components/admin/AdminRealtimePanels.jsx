@@ -6,8 +6,8 @@ import { BarList, CsvExportButton, MetricCard, TrendChart } from "@/components/a
 
 const refreshMs = 30 * 60 * 1000;
 const syncStatusRefreshMs = 2 * 60 * 1000;
-const defaultPageSize = 10;
-const pageSizeOptions = [10, 20, 50];
+const defaultPageSize = 20;
+const pageSizeOptions = [10, 20, 50, 100];
 const countryNameZh = {
   US: "美国",
   GB: "英国",

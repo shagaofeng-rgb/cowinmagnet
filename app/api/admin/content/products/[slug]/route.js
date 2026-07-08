@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { requireAdminApi } from "@/lib/adminApi";
-import { deleteCmsItem, updateCmsItemStatus } from "@/lib/cmsStore";
+import { updateCmsItemStatus } from "@/lib/cmsStore";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -23,7 +23,7 @@ export async function POST(request, { params }) {
   const action = String(formData.get("action") || "");
 
   if (action === "delete") {
-    await deleteCmsItem("product", slug);
+    await updateCmsItemStatus("product", slug, "archived");
     revalidateProduct(slug);
     redirect("/admin/products?deleted=product");
   }

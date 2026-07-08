@@ -12,7 +12,7 @@ import { PageHero } from "@/components/PageHero";
 import { QuoteForm } from "@/components/QuoteForm";
 import { RelatedInternalLinks } from "@/components/RelatedInternalLinks";
 import { applications, type Application } from "@/data/applications";
-import { blogPosts } from "@/data/blogs";
+import type { BlogPost } from "@/data/blogs";
 import { productCategories, products, type Product } from "@/data/products";
 import { categoryAnchor } from "@/lib/anchors";
 import { site } from "@/data/site";
@@ -399,20 +399,20 @@ export function LocalizedSimplePage({ locale, page }: { locale: Locale; page: "f
   );
 }
 
-export function LocalizedBlogListPage({ locale }: { locale: Locale }) {
+export function LocalizedBlogListPage({ locale, posts }: { locale: Locale; posts: BlogPost[] }) {
   const t = getDictionary(locale);
   return (
     <>
       <PageHero eyebrow={t.blog.eyebrow} title={t.blog.h1} description={t.blog.description} image="/images/generated/recycling-application-cowinmagnet.png" imageAlt={t.blog.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/request-quote", locale)} secondaryLabel={t.common.sendRequirements} />
       <section className="section blog-list-section">
         <div className="section-heading align-left"><span className="eyebrow">{t.blog.hubEyebrow}</span><h2>{t.blog.hubTitle}</h2><p>{t.blog.hubText}</p></div>
-        <div className="blog-grid">{blogPosts.map((post) => <article className="blog-card" key={post.slug}><Link href={localizeHref(`/blog/${post.slug}`, locale)} className="blog-card-image"><DateBadge date={post.publishedAt} /><Image src={post.image} width={760} height={460} alt={post.title} /></Link><div className="blog-card-body"><div className="blog-card-meta"><span>{post.category}</span><span>{post.readingTime} {t.common.minRead}</span></div><h3><Link href={localizeHref(`/blog/${post.slug}`, locale)}>{post.title}</Link></h3><p>{post.excerpt}</p><Link href={localizeHref(`/blog/${post.slug}`, locale)} className="text-link">{t.common.readArticle} <ArrowRight size={16} aria-hidden /></Link></div></article>)}</div>
+        <div className="blog-grid">{posts.map((post) => <article className="blog-card" key={post.slug}><Link href={localizeHref(`/blog/${post.slug}`, locale)} className="blog-card-image"><DateBadge date={post.publishedAt} /><Image src={post.image} width={760} height={460} alt={post.title} /></Link><div className="blog-card-body"><div className="blog-card-meta"><span>{post.category}</span><span>{post.readingTime} {t.common.minRead}</span></div><h3><Link href={localizeHref(`/blog/${post.slug}`, locale)}>{post.title}</Link></h3><p>{post.excerpt}</p><Link href={localizeHref(`/blog/${post.slug}`, locale)} className="text-link">{t.common.readArticle} <ArrowRight size={16} aria-hidden /></Link></div></article>)}</div>
       </section>
     </>
   );
 }
 
-export function LocalizedBlogDetailPage({ locale, post }: { locale: Locale; post: (typeof blogPosts)[number] }) {
+export function LocalizedBlogDetailPage({ locale, post }: { locale: Locale; post: BlogPost }) {
   const t = getDictionary(locale);
   const relatedInternalLinks = getStaticInternalLinkSuggestions({ type: "blog", slug: post.slug, limit: 5 });
   return (

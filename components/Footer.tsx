@@ -22,8 +22,11 @@ export function Footer() {
     { label: "Industries", href: "/industries" },
     { label: t.nav.blog, href: "/blog" },
     { label: t.nav.news || "News", href: "/news" },
+    { label: "Search", href: "/search" },
     { label: t.nav.about, href: "/about" },
-    { label: t.nav.contact, href: "/contact" }
+    { label: t.nav.contact, href: "/contact" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms of Use", href: "/terms" }
   ];
   const productLinks = [
     "Permanent Magnet Series",

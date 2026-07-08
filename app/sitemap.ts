@@ -1,14 +1,28 @@
 import type { MetadataRoute } from "next";
 import { applications } from "@/data/applications";
-import { blogPosts } from "@/data/blogs";
+import { getBlogPostsWithCms } from "@/lib/blogCms";
 import { getNewsPosts } from "@/data/contentHub";
 import { getProductsWithCms } from "@/lib/productCms";
 import { site } from "@/data/site";
 import { localePath, locales } from "@/lib/i18n";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [newsPosts, products] = await Promise.all([getNewsPosts(), getProductsWithCms()]);
-  const staticRoutes = ["/", "/products", "/applications", "/industries", "/blog", "/news", "/about", "/factory", "/projects", "/contact", "/request-quote"];
+  const [newsPosts, products, blogPosts] = await Promise.all([getNewsPosts(), getProductsWithCms(), getBlogPostsWithCms()]);
+  const staticRoutes = [
+    "/",
+    "/products",
+    "/applications",
+    "/industries",
+    "/blog",
+    "/news",
+    "/about",
+    "/factory",
+    "/projects",
+    "/contact",
+    "/request-quote",
+    "/privacy-policy",
+    "/terms"
+  ];
   const productRoutes = products.map((product) => `/products/${product.slug}`);
   const applicationRoutes = applications.map((application) => `/applications/${application.slug}`);
   const industryRoutes = applications.map((application) => `/industries/${application.industrySlug}`);

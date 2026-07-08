@@ -13,14 +13,51 @@ function statusMessage(searchParams) {
   if (searchParams?.saved === "news") return "新闻已保存。Published 状态会同步到前台 News 页面，Draft 状态仅后台保留。";
   if (searchParams?.status === "draft" || searchParams?.status === "offline") return "新闻已设为草稿，前台不再显示。";
   if (searchParams?.status === "publish") return "新闻已发布，前台 News 页面会自动读取。";
-  if (searchParams?.deleted === "news") return "新闻已删除。";
+  if (searchParams?.deleted === "news") return "新闻已归档，前台不再显示，历史内容仍保留在后台数据库。";
   if (searchParams?.error) return "请至少填写新闻标题，系统会自动生成 URL Slug。";
   return "";
 }
 
 function StatusBadge({ status }) {
+  if (status === "archived") return <span className="admin-customer-tag returning">Archived</span>;
   const published = status === "published";
   return <span className={`admin-customer-tag ${published ? "new" : "returning"}`}>{published ? "Published" : "Draft"}</span>;
+}
+
+const pageSizeOptions = [10, 20, 50, 100];
+
+function pageSizeValue(value) {
+  const size = Number(value || 20);
+  return pageSizeOptions.includes(size) ? size : 20;
+}
+
+function pageValue(value) {
+  return Math.max(1, Number(value || 1) || 1);
+}
+
+function queryString(params, overrides = {}) {
+  const next = new URLSearchParams();
+  Object.entries({ ...params, ...overrides }).forEach(([key, value]) => {
+    if (value !== undefined && value !== null && String(value) !== "") next.set(key, String(value));
+  });
+  return `?${next.toString()}`;
+}
+
+function Pagination({ params, page, totalPages, total, pageSize }) {
+  return (
+    <div className="admin-pagination">
+      <span>共 {total} 条</span>
+      <label className="admin-page-size">
+        每页
+        <select name="pageSize" defaultValue={pageSize} form="news-filter-form">
+          {pageSizeOptions.map((option) => <option value={option} key={option}>{option} 条</option>)}
+        </select>
+      </label>
+      <a className={page <= 1 ? "is-disabled" : ""} href={queryString(params, { page: Math.max(1, page - 1) })}>上一页</a>
+      <span>第 {page} / {totalPages} 页</span>
+      <a className={page >= totalPages ? "is-disabled" : ""} href={queryString(params, { page: Math.min(totalPages, page + 1) })}>下一页</a>
+    </div>
+  );
 }
 
 function ImageStatus({ post }) {
@@ -114,6 +151,8 @@ export default async function AdminNewsPage({ searchParams }) {
   const query = String(params?.q || "").trim().toLowerCase();
   const status = String(params?.status || "all");
   const category = String(params?.category || "all");
+  const pageSize = pageSizeValue(params?.pageSize);
+  const page = pageValue(params?.page);
 
   const filteredNews = uploadedNews
     .filter((post) => (status === "all" ? true : post.status === status))
@@ -127,6 +166,10 @@ export default async function AdminNewsPage({ searchParams }) {
         .includes(query);
     })
     .sort((a, b) => new Date(b.publishedAt || b.createdAt) - new Date(a.publishedAt || a.createdAt));
+  const totalPages = Math.max(1, Math.ceil(filteredNews.length / pageSize));
+  const safePage = Math.min(page, totalPages);
+  const pageNews = filteredNews.slice((safePage - 1) * pageSize, safePage * pageSize);
+  const filterParams = { q: params?.q || "", status, category, pageSize };
 
   return (
     <div className="admin-page">
@@ -241,16 +284,18 @@ export default async function AdminNewsPage({ searchParams }) {
           <div>
             <p className="eyebrow">News 列表</p>
             <h2>已上传新闻</h2>
-            <p>支持搜索、状态筛选、分类筛选和按发布时间倒序展示。</p>
+            <p>支持搜索、状态筛选、分类筛选、服务端分页和按发布时间倒序展示。归档不会删除历史数据。</p>
           </div>
+          <span className="admin-result-count">{filteredNews.length} / {uploadedNews.length} 条</span>
         </div>
 
-        <form className="admin-filter-bar" method="get">
+        <form id="news-filter-form" className="admin-filter-bar" method="get">
           <input name="q" defaultValue={params?.q || ""} placeholder="搜索标题、摘要、作者、来源" />
           <select name="status" defaultValue={status}>
             <option value="all">全部状态</option>
             <option value="published">Published</option>
             <option value="draft">Draft</option>
+            <option value="archived">Archived</option>
           </select>
           <select name="category" defaultValue={category}>
             <option value="all">全部分类</option>
@@ -258,58 +303,62 @@ export default async function AdminNewsPage({ searchParams }) {
               <option value={item.slug} key={item.slug}>{item.title}</option>
             ))}
           </select>
+          <input type="hidden" name="page" value="1" />
           <button type="submit">查询</button>
         </form>
 
-        {filteredNews.length ? (
-          <div className="admin-table-wrap">
-            <table className="admin-table">
-              <thead>
-                <tr>
-                  <th>状态</th>
-                  <th>新闻标题</th>
-                  <th>分类</th>
-                  <th>发布时间</th>
-                  <th>Slug</th>
-                  <th>前台链接</th>
-                  <th>操作</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredNews.map((post) => (
-                  <tr key={post.slug}>
-                    <td><StatusBadge status={post.status} /></td>
-                    <td>
-                      {post.title}
-                      <ImageStatus post={post} />
-                    </td>
-                    <td>{post.categoryTitle || post.category}</td>
-                    <td>{formatDate(post.publishedAt)}</td>
-                    <td>{post.slug}</td>
-                    <td>
-                      {post.status === "published" ? (
-                        <Link href={`/en/news/${post.slug}`} target="_blank">打开</Link>
-                      ) : (
-                        <span className="admin-muted">草稿未展示</span>
-                      )}
-                    </td>
-                    <td>
-                      <div className="admin-row-actions">
-                        <form action={`/api/admin/content/news/${post.slug}`} method="post">
-                          <input type="hidden" name="action" value={post.status === "published" ? "draft" : "publish"} />
-                          <button type="submit">{post.status === "published" ? "设为草稿" : "发布"}</button>
-                        </form>
-                        <form action={`/api/admin/content/news/${post.slug}`} method="post">
-                          <input type="hidden" name="action" value="delete" />
-                          <button className="danger" type="submit">删除</button>
-                        </form>
-                      </div>
-                    </td>
+        {pageNews.length ? (
+          <>
+            <div className="admin-table-wrap">
+              <table className="admin-table">
+                <thead>
+                  <tr>
+                    <th>状态</th>
+                    <th>新闻标题</th>
+                    <th>分类</th>
+                    <th>发布时间</th>
+                    <th>Slug</th>
+                    <th>前台链接</th>
+                    <th>操作</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {pageNews.map((post) => (
+                    <tr key={post.slug}>
+                      <td><StatusBadge status={post.status} /></td>
+                      <td>
+                        {post.title}
+                        <ImageStatus post={post} />
+                      </td>
+                      <td>{post.categoryTitle || post.category}</td>
+                      <td>{formatDate(post.publishedAt)}</td>
+                      <td>{post.slug}</td>
+                      <td>
+                        {post.status === "published" ? (
+                          <Link href={`/en/news/${post.slug}`} target="_blank">打开</Link>
+                        ) : (
+                          <span className="admin-muted">前台隐藏</span>
+                        )}
+                      </td>
+                      <td>
+                        <div className="admin-row-actions">
+                          <form action={`/api/admin/content/news/${post.slug}`} method="post">
+                            <input type="hidden" name="action" value={post.status === "published" ? "draft" : "publish"} />
+                            <button type="submit">{post.status === "published" ? "设为草稿" : "发布"}</button>
+                          </form>
+                          <form action={`/api/admin/content/news/${post.slug}`} method="post">
+                            <input type="hidden" name="action" value="delete" />
+                            <button className="danger" type="submit">归档</button>
+                          </form>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <Pagination params={filterParams} page={safePage} totalPages={totalPages} total={filteredNews.length} pageSize={pageSize} />
+          </>
         ) : (
           <div className="admin-empty">当前筛选条件下没有后台上传的 News。</div>
         )}
@@ -324,7 +373,7 @@ export default async function AdminNewsPage({ searchParams }) {
           </div>
         </div>
 
-        {filteredNews.length ? (
+        {pageNews.length ? (
           <div className="admin-table-wrap">
             <table className="admin-table">
               <thead>
@@ -336,7 +385,7 @@ export default async function AdminNewsPage({ searchParams }) {
                 </tr>
               </thead>
               <tbody>
-                {filteredNews.map((post) => (
+                {pageNews.map((post) => (
                   <tr key={`image-${post.slug}`}>
                     <td>{post.title}</td>
                     <td>

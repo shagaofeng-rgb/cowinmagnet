@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { ArrowRight, Factory, Mail, MessageCircle, Sparkles } from "lucide-react";
+import { ArrowRight, Factory, Mail, MessageCircle, Search, Sparkles } from "lucide-react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { applications } from "@/data/applications";
 import { productCategories, products } from "@/data/products";
@@ -141,6 +141,10 @@ export function Header() {
           </div>
           <Link href={localizeHref("/blog", locale)}>{t.nav.blog}</Link>
           <Link href={localizeHref("/news", locale)}>{t.nav.news || "News"}</Link>
+          <Link href={localizeHref("/search", locale)} className="nav-search-link" aria-label="Search COWIN MAGNET">
+            <Search size={16} aria-hidden />
+            <span>Search</span>
+          </Link>
           <Link href={localizeHref("/about", locale)}>{t.nav.about}</Link>
           <Link href={localizeHref("/contact", locale)}>{t.nav.contact}</Link>
         </div>

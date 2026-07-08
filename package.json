@@ -10,6 +10,7 @@
     "news:generate": "node scripts/run-news-system.mjs generate --mode=draft",
     "news:publish": "node scripts/run-news-system.mjs publish --mode=auto",
     "news:job": "node scripts/run-news-system.mjs job",
+    "blog:daily": "node scripts/run-blog-automation.mjs",
     "monitor": "node scripts/monitor/run-monitor.mjs",
     "monitor:no-email": "node scripts/monitor/run-monitor.mjs --no-email",
     "verify": "node scripts/final-audit-smoke.mjs",

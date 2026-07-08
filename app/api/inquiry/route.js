@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { appendConversionAttribution } from "@/lib/analyticsDatabase";
+import { saveInquirySubmission } from "@/lib/inquiryStore";
 
 export const runtime = "nodejs";
 
@@ -218,6 +219,11 @@ export async function POST(request) {
     );
   }
 
+  const savedInquiry = await saveInquirySubmission(payload).catch((error) => {
+    console.error("Inquiry database write failed", error);
+    return null;
+  });
+
   const toEmail = process.env.INQUIRY_TO_EMAIL;
   const bccEmails = parseEmailList(process.env.INQUIRY_BCC_EMAILS);
   const fromEmail = process.env.INQUIRY_FROM_EMAIL || "Cowinmagnet Website <davidsha@cowinmagnet.com>";
@@ -250,11 +256,17 @@ export async function POST(request) {
       });
       await recordInquiryAttribution(payload);
 
-      return Response.json({ message: "Thank you. Your inquiry has been sent successfully." });
+      return Response.json({
+        message: "Thank you. Your inquiry has been sent successfully.",
+        inquiryId: savedInquiry?.id
+      });
     } catch (error) {
       console.error("SMTP inquiry delivery failed", error);
       return Response.json(
-        { message: "Inquiry received, but email delivery failed. Please check SMTP settings." },
+        {
+          message: "Inquiry received, but email delivery failed. Please check SMTP settings.",
+          inquiryId: savedInquiry?.id
+        },
         { status: 502 }
       );
     }
@@ -263,6 +275,7 @@ export async function POST(request) {
   console.info(`Inquiry received without SMTP delivery: ${payload.email} from ${payload.country || "-"} via ${payload.sourcePath || "-"}`);
   await recordInquiryAttribution(payload);
   return Response.json({
-    message: "Thank you. Your inquiry has been received. Email delivery is not configured on this environment."
+    message: "Thank you. Your inquiry has been received. Email delivery is not configured on this environment.",
+    inquiryId: savedInquiry?.id
   });
 }

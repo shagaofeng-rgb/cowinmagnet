@@ -4,7 +4,10 @@ import Link from "next/link";
 import { ArrowRight, Clock } from "lucide-react";
 import { DateBadge } from "@/components/DateBadge";
 import { PageHero } from "@/components/PageHero";
-import { blogPosts } from "@/data/blogs";
+import { getBlogPostsWithCms } from "@/lib/blogCms";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Blog | Magnetic Separator Selection Guides",
@@ -13,7 +16,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blog" }
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const blogPosts = await getBlogPostsWithCms();
+
   return (
     <>
       <PageHero

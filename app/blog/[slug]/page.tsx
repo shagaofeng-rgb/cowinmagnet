@@ -7,7 +7,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { MarkdownContent } from "@/components/MarkdownContent";
 import { QuoteForm } from "@/components/QuoteForm";
 import { RelatedInternalLinks } from "@/components/RelatedInternalLinks";
-import { blogPosts, getBlogPost } from "@/data/blogs";
+import { blogPosts } from "@/data/blogs";
+import { getBlogPostWithCms } from "@/lib/blogCms";
 import { site } from "@/data/site";
 import { getStaticInternalLinkSuggestions } from "@/lib/linkStrategy";
 import { absoluteUrl, breadcrumbSchema } from "@/lib/seo";
@@ -16,13 +17,16 @@ type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
 };
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = getBlogPost(slug);
+  const post = await getBlogPostWithCms(slug);
 
   if (!post) {
     return {};
@@ -45,7 +49,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
-  const post = getBlogPost(slug);
+  const post = await getBlogPostWithCms(slug);
 
   if (!post) {
     notFound();

@@ -11,19 +11,74 @@ function statusMessage(searchParams) {
   if (searchParams?.saved === "product") return "产品已保存并上架，前台产品中心会自动读取。";
   if (searchParams?.status === "offline") return "产品已下架，前台不再显示。";
   if (searchParams?.status === "publish") return "产品已重新上架。";
-  if (searchParams?.deleted === "product") return "产品已删除。";
+  if (searchParams?.deleted === "product") return "产品已归档，前台不再显示，历史数据仍保留在后台数据库。";
   if (searchParams?.error) return "请至少填写产品标题，系统会自动生成链接。";
   return "";
 }
 
 function StatusBadge({ status }) {
+  if (status === "archived") return <span className="admin-customer-tag returning">已归档</span>;
   const offline = status === "offline";
   return <span className={`admin-customer-tag ${offline ? "returning" : "new"}`}>{offline ? "已下架" : "已上架"}</span>;
+}
+
+const pageSizeOptions = [10, 20, 50, 100];
+
+function pageSizeValue(value) {
+  const size = Number(value || 20);
+  return pageSizeOptions.includes(size) ? size : 20;
+}
+
+function pageValue(value) {
+  return Math.max(1, Number(value || 1) || 1);
+}
+
+function queryString(params, overrides = {}) {
+  const next = new URLSearchParams();
+  Object.entries({ ...params, ...overrides }).forEach(([key, value]) => {
+    if (value !== undefined && value !== null && String(value) !== "") next.set(key, String(value));
+  });
+  return `?${next.toString()}`;
+}
+
+function Pagination({ params, page, totalPages, total, pageSize }) {
+  return (
+    <div className="admin-pagination">
+      <span>共 {total} 条</span>
+      <label className="admin-page-size">
+        每页
+        <select name="pageSize" defaultValue={pageSize} form="product-filter-form">
+          {pageSizeOptions.map((option) => <option value={option} key={option}>{option} 条</option>)}
+        </select>
+      </label>
+      <a className={page <= 1 ? "is-disabled" : ""} href={queryString(params, { page: Math.max(1, page - 1) })}>上一页</a>
+      <span>第 {page} / {totalPages} 页</span>
+      <a className={page >= totalPages ? "is-disabled" : ""} href={queryString(params, { page: Math.min(totalPages, page + 1) })}>下一页</a>
+    </div>
+  );
 }
 
 export default async function AdminProductsPage({ searchParams }) {
   const params = await searchParams;
   const uploadedProducts = await getCmsItems("product", { includeInactive: true });
+  const query = String(params?.q || "").trim().toLowerCase();
+  const status = String(params?.status || "all");
+  const pageSize = pageSizeValue(params?.pageSize);
+  const page = pageValue(params?.page);
+  const filteredProducts = uploadedProducts
+    .filter((product) => (status === "all" ? true : product.status === status))
+    .filter((product) => {
+      if (!query) return true;
+      return [product.title, product.shortTitle, product.categoryTitle, product.slug, product.summary]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase()
+        .includes(query);
+    });
+  const totalPages = Math.max(1, Math.ceil(filteredProducts.length / pageSize));
+  const safePage = Math.min(page, totalPages);
+  const pageProducts = filteredProducts.slice((safePage - 1) * pageSize, safePage * pageSize);
+  const filterParams = { q: params?.q || "", status, pageSize };
 
   return (
     <div className="admin-page">
@@ -111,53 +166,68 @@ export default async function AdminProductsPage({ searchParams }) {
           <div>
             <p className="eyebrow">已上传产品</p>
             <h2>产品列表</h2>
-            <p>只展示后台上传的产品。原始产品库仍由代码维护。</p>
+            <p>只展示后台上传的产品。原始产品库仍由代码维护；归档不会删除历史数据。</p>
           </div>
+          <span className="admin-result-count">{filteredProducts.length} / {uploadedProducts.length} 条</span>
         </div>
-        {uploadedProducts.length ? (
-          <div className="admin-table-wrap">
-            <table className="admin-table">
-              <thead>
-                <tr>
-                  <th>状态</th>
-                  <th>产品</th>
-                  <th>分类</th>
-                  <th>前台链接</th>
-                  <th>操作</th>
-                </tr>
-              </thead>
-              <tbody>
-                {uploadedProducts.map((product) => (
-                  <tr key={product.slug}>
-                    <td><StatusBadge status={product.status} /></td>
-                    <td>{product.title}</td>
-                    <td>{product.categoryTitle}</td>
-                    <td>
-                      {product.status === "offline" ? (
-                        <span className="admin-muted">已下架</span>
-                      ) : (
-                        <Link href={`/en/products/${product.slug}`} target="_blank">打开</Link>
-                      )}
-                    </td>
-                    <td>
-                      <div className="admin-row-actions">
-                        <form action={`/api/admin/content/products/${product.slug}`} method="post">
-                          <input type="hidden" name="action" value={product.status === "offline" ? "publish" : "offline"} />
-                          <button type="submit">{product.status === "offline" ? "上架" : "下架"}</button>
-                        </form>
-                        <form action={`/api/admin/content/products/${product.slug}`} method="post">
-                          <input type="hidden" name="action" value="delete" />
-                          <button className="danger" type="submit">删除</button>
-                        </form>
-                      </div>
-                    </td>
+        <form id="product-filter-form" className="admin-filter-bar" method="get">
+          <input name="q" defaultValue={params?.q || ""} placeholder="搜索产品名称、分类、Slug、摘要" />
+          <select name="status" defaultValue={status}>
+            <option value="all">全部状态</option>
+            <option value="published">已上架</option>
+            <option value="offline">已下架</option>
+            <option value="archived">已归档</option>
+          </select>
+          <input type="hidden" name="page" value="1" />
+          <button type="submit">查询</button>
+        </form>
+        {pageProducts.length ? (
+          <>
+            <div className="admin-table-wrap">
+              <table className="admin-table">
+                <thead>
+                  <tr>
+                    <th>状态</th>
+                    <th>产品</th>
+                    <th>分类</th>
+                    <th>前台链接</th>
+                    <th>操作</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {pageProducts.map((product) => (
+                    <tr key={product.slug}>
+                      <td><StatusBadge status={product.status} /></td>
+                      <td>{product.title}</td>
+                      <td>{product.categoryTitle}</td>
+                      <td>
+                        {product.status === "offline" || product.status === "archived" ? (
+                          <span className="admin-muted">前台隐藏</span>
+                        ) : (
+                          <Link href={`/en/products/${product.slug}`} target="_blank">打开</Link>
+                        )}
+                      </td>
+                      <td>
+                        <div className="admin-row-actions">
+                          <form action={`/api/admin/content/products/${product.slug}`} method="post">
+                            <input type="hidden" name="action" value={product.status === "published" ? "offline" : "publish"} />
+                            <button type="submit">{product.status === "published" ? "下架" : "上架"}</button>
+                          </form>
+                          <form action={`/api/admin/content/products/${product.slug}`} method="post">
+                            <input type="hidden" name="action" value="delete" />
+                            <button className="danger" type="submit">归档</button>
+                          </form>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <Pagination params={filterParams} page={safePage} totalPages={totalPages} total={filteredProducts.length} pageSize={pageSize} />
+          </>
         ) : (
-          <div className="admin-empty">还没有从后台上传的新产品。</div>
+          <div className="admin-empty">当前筛选条件下没有后台上传产品。</div>
         )}
       </section>
     </div>
