@@ -14,3 +14,11 @@ pnpm-debug.log*
 tsconfig.tsbuildinfo
 
 .vercel
+
+# Local audit/runtime outputs
+reports/
+docs/final-audit/runtime/
+
+# Local skill/plugin export artifacts
+skill-export/
+*.zip
