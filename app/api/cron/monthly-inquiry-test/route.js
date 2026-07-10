@@ -1,21 +1,11 @@
 import { NextResponse } from "next/server";
 import { recordSyncJobRun } from "@/lib/syncStatusStore";
+import { isCronAuthorized } from "@/lib/cronAuth";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const jobName = "monthly-inquiry-test";
-
-function isAuthorized(request) {
-  if (request.headers.get("x-vercel-cron") === "1") return true;
-  if (/vercel-cron/i.test(request.headers.get("user-agent") || "")) return true;
-  const secret = process.env.CRON_SECRET;
-  if (!secret) return !process.env.VERCEL;
-  const bearer = request.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
-  const headerSecret = request.headers.get("x-cron-secret");
-  const querySecret = new URL(request.url).searchParams.get("secret");
-  return [bearer, headerSecret, querySecret].includes(secret);
-}
 
 function siteUrlFromRequest(request) {
   const configured = process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL;
@@ -83,7 +73,7 @@ function testPayload() {
 }
 
 export async function GET(request) {
-  if (!isAuthorized(request)) {
+  if (!isCronAuthorized(request)) {
     return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
   }
 

@@ -3,6 +3,7 @@ import { revalidatePath } from "next/cache";
 import { requireAdminApi } from "@/lib/adminApi";
 import { getCmsItems, saveCmsItem, updateCmsItemStatus } from "@/lib/cmsStore";
 import { buildImagePlan } from "@/lib/news-system/image-handler.mjs";
+import { resolveOriginalArticleUrl } from "@/lib/news-system/fetcher.mjs";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -88,17 +89,19 @@ export async function POST(request, { params }) {
     }
 
     if (action === "refetch-image") {
+      const sourceItem = await resolveOriginalArticleUrl({
+        title: post.originalReference?.title || post.automation?.originalTitle || post.title,
+        url: post.canonicalSourceUrl || post.automation?.originalUrl,
+        sourceName: post.source || post.sources?.[0]?.name || "Original source"
+      });
       const plan = await buildImagePlan(
-        {
-          title: post.originalReference?.title || post.automation?.originalTitle || post.title,
-          url: post.canonicalSourceUrl || post.automation?.originalUrl,
-          sourceName: post.source || post.sources?.[0]?.name || "Original source"
-        },
+        sourceItem,
         { category: "", recommendedProducts: [] },
         post
       );
       await saveCmsItem({
         ...post,
+        canonicalSourceUrl: sourceItem.url || post.canonicalSourceUrl,
         coverImage: plan.coverImage?.imageUrl || "",
         coverAlt: plan.coverImage?.imageAlt || "",
         imageCaption: plan.coverImage?.imageCaption || "",

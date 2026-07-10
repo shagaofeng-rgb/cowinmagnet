@@ -1,5 +1,5 @@
-import { getCmsItems } from "@/lib/cmsStore";
-import { generatedNewsPosts } from "@/data/generatedNews";
+import { getCmsItems } from "../lib/cmsStore.js";
+import { generatedNewsPosts } from "./generatedNews.js";
 
 export const blogPosts = [
   {

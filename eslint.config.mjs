@@ -4,8 +4,11 @@ const eslintConfig = [
   {
     ignores: [
       ".next/**",
+      ".tools/**",
+      ".data/**",
       "node_modules/**",
       "reports/**",
+      "skill-export/**",
       "docs/final-audit/runtime/**"
     ]
   },

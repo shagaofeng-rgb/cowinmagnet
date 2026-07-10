@@ -3,19 +3,10 @@ import crypto from "node:crypto";
 import { runNewsAutomationJob } from "@/lib/news-system/daily-runner.mjs";
 import { newsSystemConfig } from "@/config/news-system.config.mjs";
 import { listRecentJobRuns, saveDailyRun, todayKey } from "@/lib/news-system/storage.mjs";
+import { isCronAuthorized } from "@/lib/cronAuth";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-
-function isAuthorized(request) {
-  if (request.headers.get("x-vercel-cron") === "1") return true;
-  if (/vercel-cron/i.test(request.headers.get("user-agent") || "")) return true;
-  const secrets = [process.env.CRON_SECRET, process.env.NEWS_SYSTEM_ADMIN_TOKEN].filter(Boolean);
-  if (!secrets.length) return process.env.NODE_ENV !== "production" && !process.env.VERCEL;
-  const headerSecret = request.headers.get("x-cron-secret");
-  const bearer = request.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
-  return secrets.includes(headerSecret) || secrets.includes(bearer);
-}
 
 function normalizedTimezone(value = newsSystemConfig.timezone || "Asia/Shanghai") {
   const candidate = String(value || "").trim() || "Asia/Shanghai";
@@ -188,7 +179,7 @@ async function recordFailedRun({ requestId, startedAt, error }) {
 async function handleCron(request) {
   const requestId = crypto.randomUUID();
   const startedAt = new Date().toISOString();
-  if (!isAuthorized(request)) {
+  if (!isCronAuthorized(request, { additionalSecrets: [process.env.NEWS_SYSTEM_ADMIN_TOKEN] })) {
     return NextResponse.json(
       { success: false, error: "Unauthorized", requestId },
       { status: 401, headers: { "Cache-Control": "no-store" } }

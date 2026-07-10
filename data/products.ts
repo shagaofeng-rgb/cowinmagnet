@@ -15,6 +15,9 @@ export type Product = {
   faqs: { question: string; answer: string }[];
   sourceUrls?: string[];
   sourceSite?: string;
+  status?: "published" | "draft" | "offline" | "archived";
+  publishedAt?: string;
+  updatedAt?: string;
 };
 
 export const productCategories = [

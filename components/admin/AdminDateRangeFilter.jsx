@@ -22,13 +22,6 @@ export default function AdminDateRangeFilter({ range }) {
   const isCustom = preset === "custom";
 
   useEffect(() => {
-    setPreset(range?.preset || "day");
-    setStart(range?.startInput || "");
-    setEnd(range?.endInput || "");
-    setError("");
-  }, [range?.preset, range?.startInput, range?.endInput]);
-
-  useEffect(() => {
     if (!isCustom) return undefined;
 
     function closeOnEscape(event) {

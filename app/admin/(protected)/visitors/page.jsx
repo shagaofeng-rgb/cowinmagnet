@@ -10,6 +10,7 @@ export const metadata = {
 
 export default async function VisitorsPage({ searchParams }) {
   const range = getAdminDateRange(await searchParams);
+  const rangeKey = `${range.preset}:${range.startInput}:${range.endInput}`;
   const data = await getAnalyticsSnapshot(range);
 
   return (
@@ -20,10 +21,10 @@ export default async function VisitorsPage({ searchParams }) {
           <h1>近期客户访问记录</h1>
           <p>系统默认匿名化 IP，同时保留国家地区、设备、浏览器和来源渠道等有用信号。</p>
         </div>
-        <AdminDateRangeFilter range={range} />
+        <AdminDateRangeFilter key={rangeKey} range={range} />
       </header>
 
-      <AdminVisitorsRealtime initialData={data} />
+      <AdminVisitorsRealtime key={rangeKey} initialData={data} />
     </div>
   );
 }

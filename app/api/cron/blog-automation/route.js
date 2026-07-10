@@ -3,26 +3,16 @@ import crypto from "node:crypto";
 import { revalidatePath } from "next/cache";
 import { runDailyBlogPublisher } from "@/lib/blog-system/daily-publisher.mjs";
 import { recordSyncJobRun, withSyncJobLock } from "@/lib/syncStatusStore";
+import { isCronAuthorized } from "@/lib/cronAuth";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-
-function isAuthorized(request) {
-  if (request.headers.get("x-vercel-cron") === "1") return true;
-  if (/vercel-cron/i.test(request.headers.get("user-agent") || "")) return true;
-  const secrets = [process.env.CRON_SECRET, process.env.BLOG_AUTOMATION_TOKEN].filter(Boolean);
-  if (!secrets.length) return process.env.NODE_ENV !== "production" && !process.env.VERCEL;
-  const bearer = request.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
-  const headerSecret = request.headers.get("x-cron-secret");
-  const querySecret = new URL(request.url).searchParams.get("secret");
-  return [bearer, headerSecret, querySecret].some((value) => secrets.includes(value));
-}
 
 async function handleCron(request) {
   const requestId = crypto.randomUUID();
   const startedAt = new Date();
 
-  if (!isAuthorized(request)) {
+  if (!isCronAuthorized(request, { additionalSecrets: [process.env.BLOG_AUTOMATION_TOKEN] })) {
     return NextResponse.json({ success: false, error: "Unauthorized", requestId }, { status: 401 });
   }
 

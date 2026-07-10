@@ -81,10 +81,6 @@ function useLiveAnalytics(initialData) {
   const [state, setState] = useState({ loading: false, error: "", syncedAt: "" });
 
   useEffect(() => {
-    setData(initialData || {});
-  }, [initialData]);
-
-  useEffect(() => {
     let active = true;
 
     async function refresh() {
@@ -655,13 +651,11 @@ export function AdminPagesRealtime({ initialData }) {
   const [pageFilters, setPageFilters] = useState({ keyword: "" });
   const [journeyFilters, setJourneyFilters] = useState({ keyword: "", country: "", source: "" });
   const totalViews = pages.reduce((sum, page) => sum + Number(page.views || 0), 0);
-  const filteredPages = useMemo(() => {
-    const keyword = pageFilters.keyword.trim().toLowerCase();
-    return pages.filter((page) => {
-      if (!keyword) return true;
-      return searchableText(page.title, page.page, page.views, page.visitors, page.conversionRate).includes(keyword);
-    });
-  }, [pages, pageFilters]);
+  const pageKeyword = pageFilters.keyword.trim().toLowerCase();
+  const filteredPages = pages.filter((page) => {
+    if (!pageKeyword) return true;
+    return searchableText(page.title, page.page, page.views, page.visitors, page.conversionRate).includes(pageKeyword);
+  });
   const pagePager = usePagedRows(pages, filteredPages);
   const filteredLandingJourneys = useMemo(() => {
     const keyword = journeyFilters.keyword.trim().toLowerCase();

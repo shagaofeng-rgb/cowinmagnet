@@ -10,6 +10,7 @@ export const metadata = {
 
 export default async function SearchConsolePage({ searchParams }) {
   const range = getAdminDateRange(await searchParams);
+  const rangeKey = `${range.preset}:${range.startInput}:${range.endInput}`;
   const data = await getSearchConsoleSnapshot(range);
 
   return (
@@ -23,7 +24,7 @@ export default async function SearchConsolePage({ searchParams }) {
         <div className={data.live ? "admin-status good" : "admin-status"}>
           {data.live ? "GSC 已连接" : "GSC 未连接"}
         </div>
-        <AdminDateRangeFilter range={range} />
+        <AdminDateRangeFilter key={rangeKey} range={range} />
       </header>
 
       <section className="admin-grid four">

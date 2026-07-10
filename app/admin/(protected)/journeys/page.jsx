@@ -10,6 +10,7 @@ export const metadata = {
 
 export default async function JourneysPage({ searchParams }) {
   const range = getAdminDateRange(await searchParams);
+  const rangeKey = `${range.preset}:${range.startInput}:${range.endInput}`;
   const data = await getAnalyticsSnapshot(range);
 
   return (
@@ -20,10 +21,10 @@ export default async function JourneysPage({ searchParams }) {
           <h1>客户浏览路径</h1>
           <p>查看客户从哪些页面进入产品详情、询盘页面和联系方式页面。</p>
         </div>
-        <AdminDateRangeFilter range={range} />
+        <AdminDateRangeFilter key={rangeKey} range={range} />
       </header>
 
-      <AdminJourneysRealtime initialData={data} />
+      <AdminJourneysRealtime key={rangeKey} initialData={data} />
     </div>
   );
 }

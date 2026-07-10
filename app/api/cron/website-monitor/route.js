@@ -1,16 +1,11 @@
 import { NextResponse } from "next/server";
+import { isCronAuthorized } from "@/lib/cronAuth";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-function isAuthorized(request) {
-  const secret = process.env.CRON_SECRET;
-  if (!secret) return !process.env.VERCEL;
-  return request.headers.get("authorization") === `Bearer ${secret}`;
-}
-
 export async function GET(request) {
-  if (!isAuthorized(request)) {
+  if (!isCronAuthorized(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

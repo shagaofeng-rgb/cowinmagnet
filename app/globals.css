@@ -1246,6 +1246,24 @@ p {
   height: 16px;
 }
 
+.mobile-nav-toggle,
+.mobile-site-nav {
+  display: none;
+}
+
+.mobile-nav-toggle {
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  color: var(--navy);
+  background: #f8fbff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
 .nav-trigger-button {
   border: 0;
   background: transparent;
@@ -5310,14 +5328,14 @@ textarea:focus {
   }
 
   .whatsapp-float {
-    right: max(26px, env(safe-area-inset-right));
-    bottom: max(82px, env(safe-area-inset-bottom));
+    right: max(18px, env(safe-area-inset-right));
+    bottom: max(18px, env(safe-area-inset-bottom));
     width: 52px;
     height: 52px;
   }
 
   .whatsapp-float-wave {
-    inset: -6px;
+    display: none;
   }
 
   .map-card-glow {
@@ -5380,6 +5398,86 @@ textarea:focus {
 
   .product-card-body p {
     -webkit-line-clamp: 2;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 10px clamp(12px, 4vw, 24px);
+  }
+
+  .navbar > .nav-links,
+  .navbar > .nav-actions {
+    display: none !important;
+  }
+
+  .mobile-nav-toggle {
+    display: inline-flex;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .mobile-site-nav {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    width: 100%;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+  }
+
+  .mobile-site-nav > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 42px;
+    padding: 9px 11px;
+    color: #23324a;
+    background: #f8fbff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .mobile-site-actions {
+    display: flex;
+    grid-column: 1 / -1;
+    align-items: stretch;
+    gap: 8px;
+    padding-top: 4px;
+  }
+
+  .mobile-site-actions .language-switcher {
+    flex: 0 0 auto;
+  }
+
+  .mobile-site-actions .btn {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 430px) {
+  .whatsapp-float {
+    display: none;
+  }
+
+  .global-network-grid {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
+  }
+
+  .global-network-grid > *,
+  .global-network-copy,
+  .network-map-panel {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 }
 

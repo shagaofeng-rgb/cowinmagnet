@@ -5,20 +5,10 @@ import { recordSyncJobRun, withSyncJobLock } from "@/lib/syncStatusStore";
 import { newsSystemConfig } from "@/config/news-system.config.mjs";
 import { runNewsAutomationJob } from "@/lib/news-system/daily-runner.mjs";
 import { listRecentJobRuns } from "@/lib/news-system/storage.mjs";
+import { isCronAuthorized } from "@/lib/cronAuth";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-
-function isAuthorized(request) {
-  if (request.headers.get("x-vercel-cron") === "1") return true;
-  if (/vercel-cron/i.test(request.headers.get("user-agent") || "")) return true;
-  const secret = process.env.CRON_SECRET;
-  if (!secret) return !process.env.VERCEL;
-  const bearer = request.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
-  const headerSecret = request.headers.get("x-cron-secret");
-  const querySecret = new URL(request.url).searchParams.get("secret");
-  return [bearer, headerSecret, querySecret].includes(secret);
-}
 
 async function maybeRunNewsAutomationBackup() {
   if (process.env.NEWS_BACKUP_FROM_ANALYTICS_SYNC === "false") {
@@ -68,7 +58,7 @@ async function maybeRunNewsAutomationBackup() {
 }
 
 export async function GET(request) {
-  if (!isAuthorized(request)) {
+  if (!isCronAuthorized(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

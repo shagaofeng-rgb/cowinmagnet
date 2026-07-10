@@ -10,6 +10,7 @@ export const metadata = {
 
 export default async function PagesPerformancePage({ searchParams }) {
   const range = getAdminDateRange(await searchParams);
+  const rangeKey = `${range.preset}:${range.startInput}:${range.endInput}`;
   const data = await getAnalyticsSnapshot(range);
 
   return (
@@ -20,10 +21,10 @@ export default async function PagesPerformancePage({ searchParams }) {
           <h1>落地页数据表现</h1>
           <p>按浏览量、访客数、停留时间和询盘事件，比较产品页、博客、新闻和询盘页的效果。</p>
         </div>
-        <AdminDateRangeFilter range={range} />
+        <AdminDateRangeFilter key={rangeKey} range={range} />
       </header>
 
-      <AdminPagesRealtime initialData={data} />
+      <AdminPagesRealtime key={rangeKey} initialData={data} />
     </div>
   );
 }

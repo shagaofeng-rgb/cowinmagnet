@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { ArrowRight, Factory, Mail, MessageCircle, Search, Sparkles } from "lucide-react";
+import { ArrowRight, Factory, Mail, Menu, MessageCircle, Search, Sparkles, X } from "lucide-react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { applications } from "@/data/applications";
 import { productCategories, products } from "@/data/products";
@@ -28,7 +28,9 @@ export function Header() {
   const locale = getLocaleFromPath(pathname);
   const t = getDictionary(locale);
   const dir = getDirection(locale);
+  const headerRef = useRef<HTMLElement>(null);
   const [activeMega, setActiveMega] = useState<"products" | "industries" | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const closeMega = () => setActiveMega(null);
@@ -40,8 +42,27 @@ export function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    function closeMobileMenu(event: PointerEvent) {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) setMobileOpen(false);
+    }
+
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") setMobileOpen(false);
+    }
+
+    document.addEventListener("pointerdown", closeMobileMenu);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("pointerdown", closeMobileMenu);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, []);
+
+  const closeMobile = () => setMobileOpen(false);
+
   return (
-    <header className="site-header" dir={dir} key={pathname}>
+    <header className="site-header" dir={dir} key={pathname} ref={headerRef}>
       <div className="topbar">
         <span>{t.topbar}</span>
         <div className="topbar-links">
@@ -60,6 +81,17 @@ export function Header() {
           <Image src="/images/logo.jpg" width={52} height={52} alt="COWIN MAGNET logo" />
           <span>COWIN MAGNET</span>
         </Link>
+        <button
+          type="button"
+          className="mobile-nav-toggle"
+          aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-site-navigation"
+          title={mobileOpen ? "Close navigation" : "Open navigation"}
+          onClick={() => setMobileOpen((open) => !open)}
+        >
+          {mobileOpen ? <X size={22} aria-hidden /> : <Menu size={22} aria-hidden />}
+        </button>
         <div className="nav-links">
           <div
             className={`nav-item has-mega${activeMega === "products" ? " mega-open" : ""}`}
@@ -154,6 +186,26 @@ export function Header() {
             {t.common.getQuote}
           </Link>
         </div>
+        {mobileOpen ? (
+          <div className="mobile-site-nav" id="mobile-site-navigation">
+            <Link href={localizeHref("/products", locale)} onClick={closeMobile}>{t.nav.products}</Link>
+            <Link href={localizeHref("/industries", locale)} onClick={closeMobile}>Industries</Link>
+            <Link href={localizeHref("/blog", locale)} onClick={closeMobile}>{t.nav.blog}</Link>
+            <Link href={localizeHref("/news", locale)} onClick={closeMobile}>{t.nav.news || "News"}</Link>
+            <Link href={localizeHref("/search", locale)} onClick={closeMobile}><Search size={16} aria-hidden /> Search</Link>
+            <Link href={localizeHref("/about", locale)} onClick={closeMobile}>{t.nav.about}</Link>
+            <Link href={localizeHref("/contact", locale)} onClick={closeMobile}>{t.nav.contact}</Link>
+            <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow" onClick={closeMobile}>
+              <MessageCircle size={16} aria-hidden /> WhatsApp
+            </a>
+            <div className="mobile-site-actions">
+              <LanguageSwitcher />
+              <Link href={localizeHref("/request-quote", locale)} className="btn btn-primary" onClick={closeMobile}>
+                {t.common.getQuote}
+              </Link>
+            </div>
+          </div>
+        ) : null}
       </nav>
     </header>
   );

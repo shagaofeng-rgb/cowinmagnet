@@ -15,6 +15,7 @@ export const metadata = {
 
 export default async function AdminOverviewPage({ searchParams }) {
   const range = getAdminDateRange(await searchParams);
+  const rangeKey = `${range.preset}:${range.startInput}:${range.endInput}`;
   const [data, allProducts, allNews, cmsProducts, cmsNews] = await Promise.all([
     getAnalyticsSnapshot(range),
     getProductsWithCms(),
@@ -31,10 +32,11 @@ export default async function AdminOverviewPage({ searchParams }) {
           <h1>网站数据总览</h1>
           <p>集中查看 B2B 访客行为、询盘信号、SEO 搜索表现、页面转化和前台内容同步状态。</p>
         </div>
-        <AdminDateRangeFilter range={range} />
+        <AdminDateRangeFilter key={rangeKey} range={range} />
       </header>
 
       <AdminOverviewRealtime
+        key={rangeKey}
         initialData={data}
         contentStats={{
           products: allProducts.length,
