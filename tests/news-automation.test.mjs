@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { parseRss, resolveOriginalArticleUrl } from "../lib/news-system/fetcher.mjs";
 import { buildDiversityContext, evaluateNewsDiversity, topicClusterId } from "../lib/news-system/diversity.mjs";
+import { recentNoImageContext } from "../lib/news-system/daily-runner.mjs";
 import { isApprovedSourceImageUrl } from "../lib/news-system/image-handler.mjs";
 
 test("Google News RSS items preserve the publisher and source image", () => {
@@ -59,4 +60,22 @@ test("direct publisher URLs do not invoke Google News decoding", async () => {
 test("aggregator thumbnails are rejected as news source images", () => {
   assert.equal(isApprovedSourceImageUrl("https://lh3.googleusercontent.com/example.jpg"), false);
   assert.equal(isApprovedSourceImageUrl("https://publisher.example/article-photo.jpg"), true);
+});
+
+test("temporarily blocks a source domain after repeated image failures", () => {
+  const finishedAt = new Date().toISOString();
+  const context = recentNoImageContext([
+    {
+      finishedAt,
+      items: [
+        { url: "https://blocked.example/story-a", workflow: { status: "skipped_no_source_image" } },
+        { url: "https://blocked.example/story-b", workflow: { status: "skipped_no_source_image" } },
+        { url: "https://healthy.example/story", workflow: { status: "skipped_no_source_image" } }
+      ]
+    }
+  ]);
+
+  assert.equal(context.urls.has("https://blocked.example/story-a"), true);
+  assert.equal(context.domains.has("blocked.example"), true);
+  assert.equal(context.domains.has("healthy.example"), false);
 });
