@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getAdminDateRange } from "@/lib/adminDateRange";
-import { getAnalyticsStorageMode, readAnalyticsEvents, refreshStoredAnalyticsSnapshots } from "@/lib/analyticsStore";
+import { countAnalyticsEvents, getAnalyticsStorageMode, refreshStoredAnalyticsSnapshots } from "@/lib/analyticsStore";
 import { recordSyncJobRun, withSyncJobLock } from "@/lib/syncStatusStore";
 import { newsSystemConfig } from "@/config/news-system.config.mjs";
 import { runNewsAutomationJob } from "@/lib/news-system/daily-runner.mjs";
@@ -74,10 +74,9 @@ export async function GET(request) {
     }
 
     try {
-      const events = await readAnalyticsEvents({ days: 1, limit: 50000 });
-      const processedCount = events.length;
+      const processedCount = await countAnalyticsEvents({ days: 1 });
       const snapshotRefresh = await refreshStoredAnalyticsSnapshots(
-        ["day", "week", "month"].map((range) => getAdminDateRange(new URLSearchParams({ range })))
+        ["day"].map((range) => getAdminDateRange(new URLSearchParams({ range })))
       );
       const newsBackup = await maybeRunNewsAutomationBackup();
       const finishedAt = new Date();
@@ -94,7 +93,7 @@ export async function GET(request) {
           cronHeader: request.headers.get("x-vercel-cron") || "",
           userAgent: request.headers.get("user-agent") || "",
           storageMode: getAnalyticsStorageMode(),
-          eventTypes: [...new Set(events.map((event) => event.type).filter(Boolean))],
+          snapshotStrategy: "daily-prewarm; week-and-month-on-demand",
           snapshotRefresh,
           newsBackup
         }
