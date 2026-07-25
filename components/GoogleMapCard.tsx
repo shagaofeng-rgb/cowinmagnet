@@ -38,7 +38,7 @@ export function GoogleMapCard({
       </div>
       <div className="map-frame-wrap">
         <div className="map-logo-marker" aria-hidden>
-          <Image src="/images/logo.jpg" width={42} height={42} alt="COWIN MAGNET map marker logo" />
+          <Image src="/images/cowin-logo.png" width={42} height={42} alt="COWIN MAGNET map marker logo" />
         </div>
         <iframe
           title={`${site.name} location map`}

@@ -74,7 +74,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       name: site.name,
       logo: {
         "@type": "ImageObject",
-        url: absoluteUrl("/images/logo.jpg")
+        url: absoluteUrl("/images/cowin-logo.png")
       }
     },
     mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`)

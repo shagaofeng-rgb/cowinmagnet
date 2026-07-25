@@ -90,7 +90,7 @@ export default function HomePage({ locale = "en" }) {
             name: "Quzhou Qiying Import & Export Co., Ltd.",
             alternateName: "Cowinmagnet",
             url: "https://www.cowinmagnet.com",
-            logo: "https://www.cowinmagnet.com/assets/logo.jpg",
+            logo: "https://www.cowinmagnet.com/images/cowin-logo.png",
             address: {
               "@type": "PostalAddress",
               streetAddress: "Room 110, 1st Floor, Building 2, Qushidai Future Building, Kecheng District",

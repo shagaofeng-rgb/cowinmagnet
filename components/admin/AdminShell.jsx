@@ -27,7 +27,7 @@ export default function AdminShell({ children, email }) {
     <div className="admin-dashboard">
       <aside className="admin-sidebar">
         <Link className="admin-logo" href="/admin">
-          <img src="/assets/logo.jpg" alt="COWIN MAGNET" />
+          <img src="/images/cowin-logo.png" alt="COWIN MAGNET" />
           <strong>COWIN 后台</strong>
         </Link>
         <nav>

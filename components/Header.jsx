@@ -31,7 +31,7 @@ export default async function Header({ locale = "en" }) {
     <header className="site-header">
       <Link className="brand" href={withLocale(locale, "/")}>
         <ResponsiveImage
-          src="/assets/logo.jpg"
+            src="/images/cowin-logo.png"
           alt="Cowinmagnet logo"
           width={52}
           height={52}

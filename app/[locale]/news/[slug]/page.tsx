@@ -142,7 +142,7 @@ export default async function LocalizedNewsDetailPage({ params }: PageProps) {
     publisher: {
       "@type": "Organization",
       name: site.name,
-      logo: { "@type": "ImageObject", url: absoluteUrl("/images/logo.jpg") }
+      logo: { "@type": "ImageObject", url: absoluteUrl("/images/cowin-logo.png") }
     },
     mainEntityOfPage: absoluteUrl(localizeHref(`/news/${post.slug}`, current))
   };

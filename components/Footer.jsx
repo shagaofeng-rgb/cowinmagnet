@@ -66,7 +66,7 @@ export default function Footer({ locale = "en" }) {
         <div className="footer-brand">
           <Link className="footer-logo" href={withLocale(locale, "/")}>
             <ResponsiveImage
-              src="/assets/logo.jpg"
+              src="/images/cowin-logo.png"
               alt="Cowinmagnet logo"
               width={52}
               height={52}

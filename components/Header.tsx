@@ -78,7 +78,7 @@ export function Header() {
       </div>
       <nav className="navbar" aria-label="Main navigation">
         <Link href={localizeHref("/", locale)} className="brand" aria-label="COWIN MAGNET home">
-          <Image src="/images/logo.jpg" width={52} height={52} alt="COWIN MAGNET logo" />
+          <Image src="/images/cowin-logo.png" width={52} height={52} alt="COWIN MAGNET logo" />
           <span>COWIN MAGNET</span>
         </Link>
         <button

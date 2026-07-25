@@ -23,7 +23,7 @@ export default function GoogleMapCard({ locale = "en", title, kicker }) {
           </div>
           <ResponsiveImage
             className="map-logo"
-            src="/assets/logo.jpg"
+            src="/images/cowin-logo.png"
             alt={map.alt}
             width={72}
             height={72}

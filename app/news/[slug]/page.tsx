@@ -147,7 +147,7 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
       name: site.name,
       logo: {
         "@type": "ImageObject",
-        url: absoluteUrl("/images/logo.jpg")
+        url: absoluteUrl("/images/cowin-logo.png")
       }
     },
     mainEntityOfPage: absoluteUrl(`/news/${post.slug}`)

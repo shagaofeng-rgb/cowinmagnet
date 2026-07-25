@@ -50,7 +50,7 @@ export function Footer() {
       <div className="footer-grid">
         <div className="footer-brand">
           <Link href={localizeHref("/", locale)} className="footer-brand-mark" aria-label="COWIN MAGNET home">
-            <img src="/images/logo.jpg" width={82} height={82} alt="COWIN MAGNET logo" />
+            <img src="/images/cowin-logo.png" width={82} height={82} alt="COWIN MAGNET logo" />
             <span>COWIN MAGNET</span>
           </Link>
           <p>{site.tagline}</p>

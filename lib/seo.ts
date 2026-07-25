@@ -12,7 +12,7 @@ export function organizationSchema() {
     name: site.name,
     legalName: site.legalName,
     url: site.url,
-    logo: absoluteUrl("/images/logo.jpg"),
+    logo: absoluteUrl("/images/cowin-logo.png"),
     email: site.email,
     telephone: site.phone,
     address: {
