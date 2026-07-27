@@ -74,6 +74,29 @@ function excerptFromContent(content) {
     .slice(0, 220);
 }
 
+function htmlToMarkdown(content) {
+  if (!/<\/?[a-z][^>]*>/i.test(content)) return content;
+
+  return content
+    .replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/gi, "")
+    .replace(/<h1[^>]*>/gi, "## ")
+    .replace(/<h2[^>]*>/gi, "## ")
+    .replace(/<h3[^>]*>/gi, "### ")
+    .replace(/<\/h[1-3]>/gi, "\n\n")
+    .replace(/<li[^>]*>/gi, "- ")
+    .replace(/<\/li>/gi, "\n")
+    .replace(/<(br|\/p|\/div|\/section|\/article)[^>]*>/gi, "\n\n")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
 function stableSlug(title) {
   return slugify(title) || `external-blog-${crypto.createHash("sha256").update(title).digest("hex").slice(0, 16)}`;
 }
@@ -110,7 +133,7 @@ export async function POST(request) {
   }
 
   const title = value(formData, "title", MAX_TITLE_LENGTH);
-  const content = value(formData, "content", MAX_CONTENT_LENGTH);
+  const content = htmlToMarkdown(value(formData, "content", MAX_CONTENT_LENGTH));
   const classId = value(formData, "class_id", 80) || "31";
   const authorId = value(formData, "author_id", 160);
   const imageUrl = value(formData, "image_url", MAX_FIELD_LENGTH);
