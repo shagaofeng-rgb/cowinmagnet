@@ -8,18 +8,6 @@
       "schedule": "*/30 * * * *"
     },
     {
-      "path": "/api/cron/blog-automation",
-      "schedule": "20 1 * * *"
-    },
-    {
-      "path": "/api/cron/blog-automation-watchdog",
-      "schedule": "20 4 * * *"
-    },
-    {
-      "path": "/api/cron/blog-automation-evening",
-      "schedule": "20 10 * * *"
-    },
-    {
       "path": "/api/cron/analytics-sync",
       "schedule": "0 */3 * * *"
     },
