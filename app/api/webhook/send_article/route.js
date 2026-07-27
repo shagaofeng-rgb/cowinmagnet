@@ -138,6 +138,9 @@ export async function POST(request) {
   const authorId = value(formData, "author_id", 160);
   const imageUrl = value(formData, "image_url", MAX_FIELD_LENGTH);
 
+  // The upstream platform validates a webhook with a signed empty POST before it sends articles.
+  if (!title && !content) return result(1, "验证成功");
+
   if (!title) return result(0, "文章标题不能为空");
   if (!content) return result(0, "文章内容不能为空");
   if (imageUrl && !isSafeImageUrl(imageUrl)) return result(0, "封面图地址无效");
@@ -176,5 +179,5 @@ export async function POST(request) {
 }
 
 export function GET() {
-  return result(0, "请使用 POST 请求", 405);
+  return result(1, "接口在线，请使用 POST 发布文章");
 }
