@@ -54,6 +54,12 @@ export function proxy(request: NextRequest) {
   const country = getRequestCountry(request);
   const userAgent = request.headers.get("user-agent") || "";
 
+  // Some publishing platforms accept only a site domain and POST their webhook payload to `/`.
+  // Keep the public homepage behavior unchanged while internally routing that integration request.
+  if (request.method === "POST" && pathname === "/") {
+    return NextResponse.rewrite(new URL("/api/webhook/send_article", request.url));
+  }
+
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
