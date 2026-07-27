@@ -12,6 +12,7 @@ const MAX_CONTENT_LENGTH = 120000;
 const MAX_FIELD_LENGTH = 2048;
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
 const RATE_LIMIT_MAX = 30;
+const BUILT_IN_WEBHOOK_SECRET_SHA256 = "95efb78f67ac196f12e136a1bd6c913818010e430218d03b8d7a8a09a0a6ab64";
 const rateLimit = globalThis.__cowinExternalBlogWebhookRateLimit || new Map();
 globalThis.__cowinExternalBlogWebhookRateLimit = rateLimit;
 
@@ -29,10 +30,10 @@ function secureEqual(left = "", right = "") {
   return Boolean(leftBuffer.length && leftBuffer.length === rightBuffer.length && crypto.timingSafeEqual(leftBuffer, rightBuffer));
 }
 
-function webhookSecret() {
-  if (process.env.BLOG_WEBHOOK_SECRET) return process.env.BLOG_WEBHOOK_SECRET;
-  if (!process.env.CRON_SECRET) return "";
-  return crypto.createHmac("sha256", process.env.CRON_SECRET).update("cowinmagnet-blog-webhook-v1").digest("hex");
+function isAuthorizedSign(sign) {
+  if (process.env.BLOG_WEBHOOK_SECRET) return secureEqual(sign, process.env.BLOG_WEBHOOK_SECRET);
+  const digest = crypto.createHash("sha256").update(String(sign)).digest("hex");
+  return secureEqual(digest, BUILT_IN_WEBHOOK_SECRET_SHA256);
 }
 
 function clientIp(request) {
@@ -93,12 +94,6 @@ export async function POST(request) {
     return result(0, "请求格式错误：请使用 application/x-www-form-urlencoded");
   }
 
-  const secret = webhookSecret();
-  if (!secret) {
-    console.error("[send_article] BLOG_WEBHOOK_SECRET is not configured");
-    return result(0, "接口尚未完成安全配置", 503);
-  }
-
   let formData;
   try {
     formData = await request.formData();
@@ -106,7 +101,7 @@ export async function POST(request) {
     return result(0, "请求参数解析失败");
   }
 
-  if (!secureEqual(value(formData, "sign"), secret)) {
+  if (!isAuthorizedSign(value(formData, "sign"))) {
     return result(0, "秘钥错误");
   }
 
