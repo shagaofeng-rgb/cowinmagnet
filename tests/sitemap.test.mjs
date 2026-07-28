@@ -10,7 +10,7 @@ import {
   escapeXml,
   validateSitemapXml
 } from "../lib/sitemap/core.js";
-import { isPublicSitemapContent } from "../lib/sitemap/source.js";
+import { canonicalEntries, isPublicSitemapContent } from "../lib/sitemap/source.js";
 import { atomicWriteJson, withSitemapGenerationLock } from "../lib/sitemap/storage.js";
 import {
   maybeSubmitSitemap,
@@ -42,6 +42,16 @@ test("filters drafts, archived and noindex content", () => {
   assert.equal(isPublicSitemapContent({ status: "draft" }), false);
   assert.equal(isPublicSitemapContent({ status: "archived" }), false);
   assert.equal(isPublicSitemapContent({ status: "published", noindex: true }), false);
+});
+
+test("submits only the English canonical URL while retaining locale hreflang hints", () => {
+  const entries = canonicalEntries("/products/test-separator", "2026-07-28", siteUrl);
+  assert.equal(entries.length, 1);
+  assert.equal(entries[0].loc, `${siteUrl}/en/products/test-separator`);
+  assert.deepEqual(
+    entries[0].alternates.map((item) => item.hreflang),
+    ["en", "es", "ru", "ar", "fr", "pt", "x-default"]
+  );
 });
 
 test("reports deleted URLs in manifest diff", () => {
