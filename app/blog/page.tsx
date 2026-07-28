@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Clock } from "lucide-react";
 import { DateBadge } from "@/components/DateBadge";
+import { BlogImage } from "@/components/BlogImage";
 import { PageHero } from "@/components/PageHero";
 import { getBlogPostsWithCms } from "@/lib/blogCms";
 
@@ -42,7 +42,7 @@ export default async function BlogPage() {
             <article className="blog-card" key={post.slug}>
               <Link href={`/blog/${post.slug}`} className="blog-card-image" aria-label={post.title}>
                 <DateBadge date={post.publishedAt} />
-                <Image src={post.image} width={760} height={460} alt={post.title} />
+                <BlogImage src={post.image} width={760} height={460} alt={post.title} />
               </Link>
               <div className="blog-card-body">
                 <div className="blog-card-meta">

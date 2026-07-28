@@ -5,11 +5,7 @@ const nextConfig = {
     "/api/news-image": ["./node_modules/sharp/**/*", "./node_modules/@img/**/*"]
   },
   images: {
-    formats: ["image/avif", "image/webp"],
-    // News and externally published Blog posts use this validated local proxy
-    // for source images. The proxy requires query parameters, so allow only
-    // this pathname rather than broadly allowing local API image URLs.
-    localPatterns: [{ pathname: "/api/news-image" }]
+    formats: ["image/avif", "image/webp"]
   },
   async redirects() {
     return [

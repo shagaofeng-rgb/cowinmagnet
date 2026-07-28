@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, CalendarDays, Clock, Mail, MessageCircle } from "lucide-react";
 import { JsonLd } from "@/components/JsonLd";
+import { BlogImage } from "@/components/BlogImage";
 import { MarkdownContent } from "@/components/MarkdownContent";
 import { QuoteForm } from "@/components/QuoteForm";
 import { RelatedInternalLinks } from "@/components/RelatedInternalLinks";
@@ -100,7 +100,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </div>
         <div className="blog-hero-image">
-          <Image src={post.image} width={980} height={620} alt={post.title} priority />
+          <BlogImage src={post.image} width={980} height={620} alt={post.title} priority />
         </div>
       </section>
 
