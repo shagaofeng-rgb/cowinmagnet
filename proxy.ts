@@ -3,7 +3,9 @@ import type { NextRequest } from "next/server";
 import { defaultLocale, isLocale, locales, type Locale } from "@/lib/i18n";
 
 const PUBLIC_FILE = /\.(.*)$/;
-const blockedVisitorCountries = new Set(["IN"]);
+// Geo blocking is intentionally limited to public document routes. Admin, API,
+// cron, sitemap and static asset requests are handled by the allow-list below.
+const blockedVisitorCountries = new Set(["CN", "IN"]);
 const countryLocale: Record<string, Locale> = {
   ES: "es",
   MX: "es",
@@ -79,6 +81,7 @@ export function proxy(request: NextRequest) {
       headers: {
         "X-Robots-Tag": "noindex, nofollow",
         "Cache-Control": "no-store",
+        "Vary": "x-vercel-ip-country",
         "X-Cowin-Geo-Block": country
       }
     });
