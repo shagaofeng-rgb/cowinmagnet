@@ -12,7 +12,7 @@ const rangeOptions = [
 
 export default function AdminDateRangeFilter({ range }) {
   const pathname = usePathname();
-  const customPanelRef = useRef(null);
+  const filterRef = useRef(null);
   const [preset, setPreset] = useState(range?.preset || "day");
   const [start, setStart] = useState(range?.startInput || "");
   const [end, setEnd] = useState(range?.endInput || "");
@@ -38,7 +38,7 @@ export default function AdminDateRangeFilter({ range }) {
     }
 
     function closeOnOutsideClick(event) {
-      if (customPanelRef.current && !customPanelRef.current.contains(event.target)) {
+      if (filterRef.current && !filterRef.current.contains(event.target)) {
         if (range?.preset !== "custom") setPreset(range?.preset || "day");
         setError("");
       }
@@ -98,7 +98,7 @@ export default function AdminDateRangeFilter({ range }) {
   }
 
   return (
-    <form className="admin-date-filter" action={pathname} method="get" onSubmit={applyRange}>
+    <form ref={filterRef} className="admin-date-filter" action={pathname} method="get" onSubmit={applyRange}>
       <input type="hidden" name="range" value={preset} />
       <div className="admin-date-filter-head">
         <span>时间范围</span>
@@ -131,7 +131,7 @@ export default function AdminDateRangeFilter({ range }) {
         </select>
       </label>
       {isCustom ? (
-        <div className="admin-date-custom-fields" ref={customPanelRef}>
+        <div className="admin-date-custom-fields">
           <label>
             <span>开始</span>
             <input
