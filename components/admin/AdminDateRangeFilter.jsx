@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, useTransition } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const rangeOptions = [
   ["day", "日"],
@@ -11,14 +11,13 @@ const rangeOptions = [
 ];
 
 export default function AdminDateRangeFilter({ range }) {
-  const router = useRouter();
   const pathname = usePathname();
   const customPanelRef = useRef(null);
   const [preset, setPreset] = useState(range?.preset || "day");
   const [start, setStart] = useState(range?.startInput || "");
   const [end, setEnd] = useState(range?.endInput || "");
   const [error, setError] = useState("");
-  const [isPending, startTransition] = useTransition();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const isCustom = preset === "custom";
 
   useEffect(() => {
@@ -59,17 +58,10 @@ export default function AdminDateRangeFilter({ range }) {
     return `当前查看：${range?.label || "今日"}，${range?.startInput || "-"} 至 ${range?.endInput || "-"}`;
   }, [error, isCustom, range]);
 
-  function queryRange(nextPreset = preset, nextStart = start, nextEnd = end) {
+  function goToPreset(nextPreset) {
     const params = new URLSearchParams();
     params.set("range", nextPreset);
-    if (nextPreset === "custom") {
-      params.set("start", nextStart || range?.startInput || "");
-      params.set("end", nextEnd || range?.endInput || "");
-    }
-    startTransition(() => {
-      router.replace(`${pathname}?${params.toString()}`);
-      router.refresh();
-    });
+    window.location.assign(`${pathname}?${params.toString()}`);
   }
 
   function validateCustomRange() {
@@ -80,35 +72,38 @@ export default function AdminDateRangeFilter({ range }) {
   }
 
   function applyRange(event) {
-    event.preventDefault();
     if (preset === "custom") {
       const nextError = validateCustomRange();
       setError(nextError);
-      if (nextError) return;
+      if (nextError) {
+        event.preventDefault();
+        return;
+      }
     }
-    queryRange();
+    setIsSubmitting(true);
   }
 
   function choosePreset(value) {
     setPreset(value);
     setError("");
     if (value === "custom") return;
-    queryRange(value);
+    goToPreset(value);
   }
 
   function clearCustomRange() {
     setStart(range?.startInput || "");
     setEnd(range?.endInput || "");
     setError("");
-    choosePreset("day");
+    goToPreset("day");
   }
 
   return (
-    <form className="admin-date-filter" onSubmit={applyRange}>
+    <form className="admin-date-filter" action={pathname} method="get" onSubmit={applyRange}>
+      <input type="hidden" name="range" value={preset} />
       <div className="admin-date-filter-head">
         <span>时间范围</span>
         <small className={error ? "is-error" : ""}>
-          {isPending ? "正在查询最新数据..." : helperText}
+          {isSubmitting ? "正在查询最新数据..." : helperText}
         </small>
       </div>
       <div className="admin-date-presets" role="group" aria-label="选择时间范围">
@@ -118,7 +113,7 @@ export default function AdminDateRangeFilter({ range }) {
             className={preset === value ? "is-active" : ""}
             aria-pressed={preset === value}
             onClick={() => choosePreset(value)}
-            disabled={isPending}
+            disabled={isSubmitting}
             key={value}
           >
             {label}
@@ -127,7 +122,7 @@ export default function AdminDateRangeFilter({ range }) {
       </div>
       <label className="admin-date-native-select">
         <span>快捷选择</span>
-        <select value={preset} onChange={(event) => choosePreset(event.target.value)} disabled={isPending}>
+        <select value={preset} onChange={(event) => choosePreset(event.target.value)} disabled={isSubmitting}>
           {rangeOptions.map(([value, label]) => (
             <option value={value} key={value}>
               {label}
@@ -141,36 +136,38 @@ export default function AdminDateRangeFilter({ range }) {
             <span>开始</span>
             <input
               type="date"
+              name="start"
               value={start}
-              max={end || range?.endInput}
+              max={end || range?.todayInput}
               onChange={(event) => {
                 setStart(event.target.value);
                 setError("");
               }}
-              disabled={isPending}
+              disabled={isSubmitting}
             />
           </label>
           <label>
             <span>结束</span>
             <input
               type="date"
+              name="end"
               value={end}
               min={start || undefined}
-              max={range?.endInput}
+              max={range?.todayInput}
               onChange={(event) => {
                 setEnd(event.target.value);
                 setError("");
               }}
-              disabled={isPending}
+              disabled={isSubmitting}
             />
           </label>
-          <button type="button" className="admin-date-clear" onClick={clearCustomRange} disabled={isPending}>
+          <button type="button" className="admin-date-clear" onClick={clearCustomRange} disabled={isSubmitting}>
             清除
           </button>
         </div>
       ) : null}
-      <button className="admin-date-submit" type="submit" disabled={isPending}>
-        {isPending ? "查询中..." : isCustom ? "应用自定义时间" : "刷新当前范围"}
+      <button className="admin-date-submit" type="submit" disabled={isSubmitting}>
+        {isSubmitting ? "查询中..." : isCustom ? "应用自定义时间" : "刷新当前范围"}
       </button>
     </form>
   );
