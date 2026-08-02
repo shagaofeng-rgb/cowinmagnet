@@ -45,7 +45,7 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
   }));
 
   return (
-    <>
+    <main className="localized-home">
       <section className="home-hero">
         <Image src="/images/generated/home-hero-cowinmagnet.webp" fill sizes="100vw" alt={t.home.heroAlt} className="hero-banner-image" priority />
         <div className="hero-copy">
@@ -149,7 +149,7 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
         </div>
         <QuoteForm compact />
       </section>
-    </>
+    </main>
   );
 }
 
