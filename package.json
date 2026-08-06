@@ -11,7 +11,6 @@
     "news:publish": "node scripts/run-news-system.mjs publish --mode=auto",
     "news:job": "node scripts/run-news-system.mjs job",
     "news:repair-images": "node scripts/repair-news-source-images.mjs --only-overrides",
-    "blog:daily": "node scripts/run-blog-automation.mjs",
     "monitor": "node scripts/monitor/run-monitor.mjs",
     "monitor:no-email": "node scripts/monitor/run-monitor.mjs --no-email",
     "visual:qa": "node scripts/visual-qa-capture.mjs",

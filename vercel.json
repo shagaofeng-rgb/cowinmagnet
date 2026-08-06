@@ -4,8 +4,20 @@
   "outputDirectory": ".next",
   "crons": [
     {
+      "path": "/api/cron/news-automation",
+      "schedule": "*/30 * * * *"
+    },
+    {
       "path": "/api/cron/analytics-sync",
-      "schedule": "0 */3 * * *"
+      "schedule": "*/30 * * * *"
+    },
+    {
+      "path": "/api/cron/sitemap-maintenance",
+      "schedule": "35 2 */3 * *"
+    },
+    {
+      "path": "/api/cron/monthly-inquiry-test",
+      "schedule": "15 1 1 * *"
     }
   ]
 }
