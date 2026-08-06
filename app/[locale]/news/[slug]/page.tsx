@@ -11,6 +11,7 @@ import { site } from "@/data/site";
 import { isLocale, locales, localizedPageAlternates, localizeHref, type Locale } from "@/lib/i18n";
 import { getInternalLinkSuggestions } from "@/lib/linkStrategy";
 import { absoluteUrl, breadcrumbSchema, faqSchema, organizationSchema } from "@/lib/seo";
+import { assessNewsContent } from "@/lib/newsContentPolicy";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
@@ -49,14 +50,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const title = post.seoTitle || post.title;
   const description = post.seoDescription || post.excerpt;
   const socialImages = post.coverImage ? [absoluteUrl(post.coverImage)] : [];
+  const visibility = assessNewsContent(post);
 
   return {
     title,
     description,
+    robots: current === "en" && visibility.indexable ? { index: true, follow: true } : { index: false, follow: true },
     alternates: localizedPageAlternates(current, `/news/${post.slug}`),
     openGraph: {
       title,
       description,
+      url: absoluteUrl(`/${current}/news/${post.slug}`),
       images: socialImages,
       type: "article"
     },

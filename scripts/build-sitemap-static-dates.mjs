@@ -17,17 +17,21 @@ function gitOutput(args) {
   return execFileSync(git, args, { cwd, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim();
 }
 
-function groupDate(paths) {
+function groupDate(paths, fallback = "") {
   try {
     const dirty = gitOutput(["status", "--porcelain", "--", ...paths]);
-    if (dirty) return new Date().toISOString().slice(0, 10);
+    // A local build must never refresh all lastmod values merely because the
+    // worktree is dirty. Preserve the last verified value until the content
+    // change is committed and can be dated from Git history.
+    if (dirty) return fallback;
     const committed = gitOutput(["log", "-1", "--format=%cI", "--", ...paths]);
     if (committed) return new Date(committed).toISOString().slice(0, 10);
   } catch {}
-  return new Date().toISOString().slice(0, 10);
+  return fallback;
 }
 
-const dates = Object.fromEntries(Object.entries(groups).map(([group, paths]) => [group, groupDate(paths)]));
+const existing = fs.existsSync(outputPath) ? JSON.parse(fs.readFileSync(outputPath, "utf8")) : {};
+const dates = Object.fromEntries(Object.entries(groups).map(([group, paths]) => [group, groupDate(paths, existing[group] || "1970-01-01")]));
 const next = `${JSON.stringify(dates, null, 2)}\n`;
 const current = fs.existsSync(outputPath) ? fs.readFileSync(outputPath, "utf8") : "";
 if (current !== next) fs.writeFileSync(outputPath, next, "utf8");

@@ -29,7 +29,7 @@ export default function ApplicationsPage() {
               <div>
                 <h2>{application.name}</h2>
                 <p>{application.summary}</p>
-                <Link href={`/applications/${application.slug}`} className="text-link">
+                <Link href={`/industries/${application.industrySlug || application.slug}`} className="text-link">
                   View solution <ArrowRight size={16} aria-hidden />
                 </Link>
               </div>

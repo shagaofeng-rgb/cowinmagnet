@@ -17,10 +17,10 @@ export async function POST(request) {
   const body = await request.json().catch(() => ({}));
   const run = await runNewsAutomationJob({
     limit: body.limit,
-    publishLimit: body.publishLimit,
+    publishLimit: 0,
     dryRun: body.dryRun,
-    mode: body.mode,
-    action: body.action || "job"
+    mode: "draft",
+    action: "generate"
   });
 
   return NextResponse.json({

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { ProductCard } from "@/components/ProductCard";
 import { PageHero } from "@/components/PageHero";
 import { getProductCategoryNamesWithCms, getProductsWithCms } from "@/lib/productCms";
+import { getProductCategoryPage } from "@/lib/productCategories";
+import { categoryAnchor } from "@/lib/anchors";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -31,7 +33,7 @@ export default async function ProductsPage() {
           <div className="product-category-block" key={category}>
             <div className="section-heading align-left">
               <span className="eyebrow">{category}</span>
-              <h2>{category}</h2>
+              <h2>{getProductCategoryPage(categoryAnchor(category)) ? <a href={`/products/${getProductCategoryPage(categoryAnchor(category))?.slug}`}>{category}</a> : category}</h2>
             </div>
             <div className="product-grid">
               {products

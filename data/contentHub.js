@@ -1,5 +1,6 @@
 import { getCmsItems } from "../lib/cmsStore.js";
 import { generatedNewsPosts } from "./generatedNews.js";
+import { isIndexableNews } from "../lib/newsContentPolicy.js";
 
 export const blogPosts = [
   {
@@ -340,7 +341,7 @@ async function getGeneratedNewsPosts() {
     });
 }
 
-export async function getNewsPosts() {
+export async function getAllNewsPosts() {
   const [uploadedNews, generatedNews] = await Promise.all([getCmsItems("news"), getGeneratedNewsPosts()]);
   const merged = [
     ...uploadedNews.map((post) => ({
@@ -363,8 +364,12 @@ export async function getNewsPosts() {
   return [...bySlug.values()].sort((a, b) => new Date(b.publishedAt || b.createdAt) - new Date(a.publishedAt || a.createdAt));
 }
 
+export async function getNewsPosts() {
+  return (await getAllNewsPosts()).filter(isIndexableNews);
+}
+
 export async function getNewsPost(slug) {
-  const posts = await getNewsPosts();
+  const posts = await getAllNewsPosts();
   return posts.find((post) => post.slug === slug);
 }
 

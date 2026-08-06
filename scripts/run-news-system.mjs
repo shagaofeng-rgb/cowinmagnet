@@ -18,7 +18,9 @@ const actionMap = {
 
 const action = actionMap[command] || "job";
 const dryRun = process.argv.includes("--dry-run");
-const mode = argValue("mode", process.env.NEWS_PUBLISH_MODE || newsSystemConfig.publishMode);
+// Command-line collection is review-only as well. A published status may only
+// be set by an editor in the CMS after the article has been reviewed.
+const mode = "draft";
 const limit = Number(argValue("limit", process.env.NEWS_RUN_LIMIT || "8"));
 const publishLimit = Number(argValue("publish-limit", "1"));
 

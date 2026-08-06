@@ -158,6 +158,15 @@ export async function POST(request) {
       content,
       image: externalImagePath(imageUrl),
       sourceImageUrl: imageUrl,
+      contentOrigin: "external-webhook",
+      sourceUrl: "",
+      sourcePublisher: "External webhook",
+      relevanceStatus: "pending-editorial-review",
+      duplicateFingerprint: crypto.createHash("sha256").update(`${title}\n${content.slice(0, 1000)}`).digest("hex"),
+      editorialStatus: "pending-review",
+      technicalReviewer: "",
+      translationComplete: { en: true },
+      seoIndexable: false,
       categoryId: classId,
       category: "External Blog",
       categoryTitle: "External Blog",
@@ -166,7 +175,9 @@ export async function POST(request) {
       keywords: ["external-webhook", `class-${classId}`],
       readingTime: Math.max(1, Math.ceil(content.split(/\s+/).filter(Boolean).length / 230)),
       publishedAt: new Date().toISOString(),
-      status: "published",
+      // External systems may submit content, but Blog publication remains a
+      // deliberate admin review action.
+      status: "draft",
       href: `/blog/${slug}`
     });
 

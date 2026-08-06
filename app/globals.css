@@ -1925,6 +1925,29 @@ p {
   object-fit: contain;
 }
 
+.video-load-button {
+  position: absolute;
+  inset: auto 16px 16px auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+  background: rgba(11, 24, 44, 0.92);
+  color: #ffffff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.video-load-button:hover,
+.video-load-button:focus-visible {
+  background: #0b5fb8;
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
 .section,
 .page-hero,
 .detail-hero {

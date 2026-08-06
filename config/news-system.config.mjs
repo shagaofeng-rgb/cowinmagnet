@@ -1,8 +1,10 @@
 export const newsSystemConfig = {
   siteUrl: process.env.SITE_URL || "https://www.cowinmagnet.com",
   defaultLanguage: "en",
-  publishMode: String(process.env.NEWS_PUBLISH_MODE || "published").trim(),
-  publishInterval: "four-randomized-daily-slots",
+  // Automated collection is intentionally review-only. Publishing is a human
+  // editorial action performed in the admin, never a cron side effect.
+  publishMode: "draft",
+  publishInterval: "every-3-hours-draft-review",
   maxPostsPerRun: Number(process.env.NEWS_MAX_PUBLISH_PER_RUN || process.env.NEWS_MAX_POSTS_PER_RUN || 1),
   maxPostsPerDay: Number(process.env.NEWS_MAX_PUBLISH_PER_DAY || process.env.NEWS_MAX_POSTS_PER_DAY || 4),
   minRelevanceScore: Number(process.env.NEWS_MIN_RELEVANCE_SCORE || 35),
@@ -196,7 +198,9 @@ export const newsSystemConfig = {
       sourceType: "rss",
       sourceUrl: "https://www.foodsafetynews.com/feed/",
       sourceGroup: "trade-publications",
-      enabled: true,
+      // General food-recall coverage is not sufficiently specific to magnetic
+      // filtration or separation. Keep the source documented but disabled.
+      enabled: false,
       language: "en",
       region: "global",
       category: "food-processing",

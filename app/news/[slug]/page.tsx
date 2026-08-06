@@ -10,6 +10,7 @@ import { formatDisplayDate, getNewsCategories, getNewsPost, getNewsPosts, newsPo
 import { site } from "@/data/site";
 import { getInternalLinkSuggestions } from "@/lib/linkStrategy";
 import { absoluteUrl, breadcrumbSchema, faqSchema, organizationSchema } from "@/lib/seo";
+import { assessNewsContent } from "@/lib/newsContentPolicy";
 
 type NewsPageProps = {
   params: Promise<{ slug: string }>;
@@ -50,10 +51,12 @@ export async function generateMetadata({ params }: NewsPageProps): Promise<Metad
   const title = post.seoTitle || post.title;
   const description = post.seoDescription || post.excerpt;
   const socialImages = post.coverImage ? [absoluteUrl(post.coverImage)] : [];
+  const visibility = assessNewsContent(post);
 
   return {
     title,
     description,
+    robots: visibility.indexable ? { index: true, follow: true } : { index: false, follow: true },
     alternates: { canonical: `/news/${post.slug}` },
     openGraph: {
       title,

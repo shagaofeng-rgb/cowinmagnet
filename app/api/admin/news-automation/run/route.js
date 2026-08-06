@@ -16,8 +16,10 @@ export async function POST(request) {
 
   try {
     const run = await runNewsAutomationJob({
-      action: "job",
-      mode: String(process.env.NEWS_PUBLISH_MODE || newsSystemConfig.publishMode).trim(),
+      action: "generate",
+      // Running collection from the dashboard is review-only. Publication is
+      // an explicit CMS action after editorial and technical review.
+      mode: "draft",
       publishLimit: newsSystemConfig.maxPostsPerRun,
       limit: Number(process.env.NEWS_RUN_LIMIT || 20),
       requestId

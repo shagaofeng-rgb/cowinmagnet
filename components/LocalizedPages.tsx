@@ -183,7 +183,7 @@ export function LocalizedProductsPage({
 export function LocalizedProductDetailPage({ locale, product }: { locale: Locale; product: Product }) {
   const t = getDictionary(locale);
   const relatedInternalLinks = getStaticInternalLinkSuggestions({ type: "product", slug: product.slug, limit: 5 });
-  const summary = cleanProductText(product.summary);
+  const summary = cleanProductText(product.summary, "Contact us for verified specifications and selection support.");
   const principle = cleanProductText(product.principle, summary);
   const features = cleanProductList(product.features);
   const specs = cleanProductSpecs(product.specs);
@@ -220,14 +220,14 @@ export function LocalizedProductDetailPage({ locale, product }: { locale: Locale
       </section>
       <section className="section detail-layout">
         <article className="detail-main">
-          <ContentBlock title={t.productDetail.overview}><p>{summary}</p></ContentBlock>
-          <ContentBlock title={t.productDetail.features}><FeatureList items={features} /></ContentBlock>
-          <ContentBlock title={t.productDetail.principle}><p>{principle}</p></ContentBlock>
-          <ContentBlock title={t.productDetail.specifications}><SpecTable specs={specs} /></ContentBlock>
-          <ContentBlock title={t.productDetail.industries}><TagList items={applications} /></ContentBlock>
-          <ContentBlock title={t.productDetail.installation}><p>{product.installation}</p></ContentBlock>
-          <ContentBlock title={t.productDetail.customization}><TagList items={customization} /></ContentBlock>
-          <ContentBlock title={t.productDetail.faq}><FaqList faqs={product.faqs} /></ContentBlock>
+          {summary ? <ContentBlock title={t.productDetail.overview}><p>{summary}</p></ContentBlock> : null}
+          {features.length ? <ContentBlock title={t.productDetail.features}><FeatureList items={features} /></ContentBlock> : null}
+          {principle && principle !== summary ? <ContentBlock title={t.productDetail.principle}><p>{principle}</p></ContentBlock> : null}
+          {specs.length ? <ContentBlock title={t.productDetail.specifications}><SpecTable specs={specs} /></ContentBlock> : null}
+          {applications.length ? <ContentBlock title={t.productDetail.industries}><TagList items={applications} /></ContentBlock> : null}
+          {cleanProductText(product.installation) ? <ContentBlock title={t.productDetail.installation}><p>{cleanProductText(product.installation)}</p></ContentBlock> : null}
+          {customization.length ? <ContentBlock title={t.productDetail.customization}><TagList items={customization} /></ContentBlock> : null}
+          {product.faqs?.length ? <ContentBlock title={t.productDetail.faq}><FaqList faqs={product.faqs} /></ContentBlock> : null}
         </article>
         <aside className="quote-panel">
           <h2>{t.productDetail.quoteTitle}</h2>
@@ -255,7 +255,7 @@ export function LocalizedApplicationsPage({ locale }: { locale: Locale }) {
           {applications.map((application) => (
             <article key={application.slug} className="application-card">
               <Image src={application.image} width={620} height={390} alt={`${application.name} ${t.applications.heroAlt}`} />
-              <div><h2>{application.name}</h2><p>{application.summary}</p><Link href={localizeHref(`/applications/${application.slug}`, locale)} className="text-link">{t.common.viewSolution} <ArrowRight size={16} aria-hidden /></Link></div>
+              <div><h2>{application.name}</h2><p>{application.summary}</p><Link href={localizeHref(`/industries/${application.industrySlug || application.slug}`, locale)} className="text-link">{t.common.viewSolution} <ArrowRight size={16} aria-hidden /></Link></div>
             </article>
           ))}
         </div>

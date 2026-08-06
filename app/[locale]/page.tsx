@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LocalizedHomePage } from "@/components/LocalizedPages";
 import { getDictionary, isLocale, localizedPageAlternates, type Locale } from "@/lib/i18n";
+import { absoluteUrl } from "@/lib/seo";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -12,7 +13,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: t.home.seoTitle,
     description: t.home.metaDescription,
     alternates: localizedPageAlternates(current, "/"),
-    openGraph: { title: t.home.seoTitle, description: t.home.metaDescription, images: ["/images/generated/home-hero-cowinmagnet.webp"] }
+    openGraph: {
+      title: t.home.seoTitle,
+      description: t.home.metaDescription,
+      url: absoluteUrl(`/${current}`),
+      images: ["/images/generated/home-hero-cowinmagnet.webp"]
+    }
   };
 }
 

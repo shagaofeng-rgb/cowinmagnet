@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { defaultLocale, isLocale, locales, type Locale } from "@/lib/i18n";
+import { defaultLocale, isLocale } from "@/lib/i18n";
 
 const PUBLIC_FILE = /\.(.*)$/;
 // Geo blocking is intentionally limited to public document routes. Admin, API,
@@ -8,23 +8,7 @@ const PUBLIC_FILE = /\.(.*)$/;
 // Keep public content reachable. A broad country block previously made News and
 // Blog look offline for legitimate visitors and operators.
 const blockedVisitorCountries = new Set<string>();
-const countryLocale: Record<string, Locale> = {
-  ES: "es",
-  MX: "es",
-  AR: "es",
-  CL: "es",
-  CO: "es",
-  PE: "es",
-  RU: "ru",
-  AE: "ar",
-  SA: "ar",
-  EG: "ar",
-  FR: "fr",
-  BE: "fr",
-  CA: "fr",
-  PT: "pt",
-  BR: "pt"
-};
+const PRIMARY_HOST = "www.cowinmagnet.com";
 
 function getRequestCountry(request: NextRequest) {
   return (
@@ -36,32 +20,22 @@ function getRequestCountry(request: NextRequest) {
   ).toUpperCase();
 }
 
-function detectLocale(request: NextRequest): Locale {
-  const cookieLocale = request.cookies.get("cowin_locale")?.value;
-  if (isLocale(cookieLocale)) return cookieLocale;
-
-  const country = getRequestCountry(request);
-  const mapped = country ? countryLocale[country] : undefined;
-  if (mapped) return mapped;
-
-  const acceptLanguage = request.headers.get("accept-language") || "";
-  const accepted = acceptLanguage
-    .split(",")
-    .map((part) => part.trim().split(";")[0]?.split("-")[0])
-    .find((lang) => isLocale(lang));
-
-  return (accepted as Locale | undefined) || defaultLocale;
-}
-
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const country = getRequestCountry(request);
-  const userAgent = request.headers.get("user-agent") || "";
 
   // Some publishing platforms accept only a site domain and POST their webhook payload to `/`.
   // Keep the public homepage behavior unchanged while internally routing that integration request.
   if (request.method === "POST" && pathname === "/") {
     return NextResponse.rewrite(new URL("/api/webhook/send_article", request.url));
+  }
+
+  const requestHost = request.headers.get("host")?.split(":")[0]?.toLowerCase();
+  if (requestHost === "cowinmagnet.com") {
+    const url = request.nextUrl.clone();
+    url.protocol = "https:";
+    url.host = PRIMARY_HOST;
+    return NextResponse.redirect(url, 308);
   }
 
   if (
@@ -91,19 +65,17 @@ export function proxy(request: NextRequest) {
 
   const firstSegment = pathname.split("/").filter(Boolean)[0];
   if (isLocale(firstSegment)) {
-    return NextResponse.next();
+    // Only English has been editorially verified site-wide. Other locales stay
+    // accessible for users, but are not offered to crawlers as full locales
+    // until their main content is actually translated and reviewed.
+    return firstSegment === defaultLocale
+      ? NextResponse.next()
+      : NextResponse.next({ headers: { "X-Robots-Tag": "noindex, follow" } });
   }
 
-  const locale = detectLocale(request);
   const url = request.nextUrl.clone();
-  url.pathname = pathname === "/" ? `/${locale}` : `/${locale}${pathname}`;
-  const response = NextResponse.redirect(url);
-  response.cookies.set("cowin_locale", locale, {
-    maxAge: 60 * 60 * 24 * 30,
-    sameSite: "lax",
-    path: "/"
-  });
-  return response;
+  url.pathname = pathname === "/" ? `/${defaultLocale}` : `/${defaultLocale}${pathname}`;
+  return NextResponse.redirect(url, 308);
 }
 
 export const config = {

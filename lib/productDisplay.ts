@@ -21,9 +21,13 @@ function hasScriptArtifact(value: string) {
   return SCRIPT_ARTIFACT_PATTERNS.some((pattern) => value.includes(pattern));
 }
 
+function hasEncodingArtifact(value: string) {
+  return /[\uFFFD]|锛|銆|鈥|閿|�/.test(value);
+}
+
 export function cleanProductText(value: string | undefined, fallback = "") {
   const text = String(value || "").trim();
-  if (!text || hasScriptArtifact(text)) {
+  if (!text || hasScriptArtifact(text) || hasEncodingArtifact(text)) {
     return fallback;
   }
   return text;

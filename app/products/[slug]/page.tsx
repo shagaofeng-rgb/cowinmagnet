@@ -12,6 +12,9 @@ import { products } from "@/data/products";
 import { site } from "@/data/site";
 import { getProductBySlugWithCms } from "@/lib/productCms";
 import { cleanProductList, cleanProductSpecs, cleanProductText } from "@/lib/productDisplay";
+import { getProductCategoryPage, productCategoryPages } from "@/lib/productCategories";
+import { ProductCategoryPage } from "@/components/ProductCategoryPage";
+import { getProductsWithCms } from "@/lib/productCms";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
@@ -21,23 +24,27 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export async function generateStaticParams() {
-  return products.map((product) => ({ slug: product.slug }));
+  return [...products.map((product) => ({ slug: product.slug })), ...productCategoryPages.map((category) => ({ slug: category.slug }))];
 }
 
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const { slug } = await params;
   const product = await getProductBySlugWithCms(slug);
+  const category = getProductCategoryPage(slug);
+
+  if (category) {
+    return { title: category.category, description: category.description, alternates: { canonical: `/products/${category.slug}` }, openGraph: { title: `${category.category} | COWIN MAGNET`, description: category.description, url: absoluteUrl(`/products/${category.slug}`) } };
+  }
 
   if (!product) {
     return {};
   }
 
-  const summary = cleanProductText(product.summary);
+  const summary = cleanProductText(product.summary, "Contact us for verified specifications and selection support.");
 
   return {
-    title: `${product.name} Supplier`,
+    title: product.name,
     description: summary,
-    keywords: product.keywords,
     alternates: { canonical: `/products/${product.slug}` },
     openGraph: {
       title: `${product.name} | COWIN MAGNET`,
@@ -51,13 +58,19 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params;
   const product = await getProductBySlugWithCms(slug);
+  const category = getProductCategoryPage(slug);
+
+  if (category) {
+    const catalogue = await getProductsWithCms();
+    return <ProductCategoryPage category={category} products={catalogue.filter((item) => item.category === category.category)} />;
+  }
 
   if (!product) {
     notFound();
   }
 
   const relatedInternalLinks = getStaticInternalLinkSuggestions({ type: "product", slug: product.slug, limit: 5 });
-  const summary = cleanProductText(product.summary);
+  const summary = cleanProductText(product.summary, "Contact us for verified specifications and selection support.");
   const principle = cleanProductText(product.principle, summary);
   const features = cleanProductList(product.features);
   const specs = cleanProductSpecs(product.specs);
@@ -74,12 +87,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
     seller: { "@type": "Organization", name: site.legalName },
     category: product.category,
     url: absoluteUrl(`/products/${product.slug}`),
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: absoluteUrl("/request-quote")
-    }
   };
 
   return (
@@ -115,56 +122,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <h2>Product Overview</h2>
             <p>{summary}</p>
           </div>
-          <div className="content-block">
-            <h2>Key Features</h2>
-            <ul className="feature-list">
-              {features.map((feature: string) => (
-                <li key={feature}><CheckCircle2 size={18} aria-hidden />{feature}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="content-block">
-            <h2>Working Principle</h2>
-            <p>{principle}</p>
-          </div>
-          <div className="content-block">
-            <h2>Specifications</h2>
-            <div className="spec-table">
-              {specs.map((spec: { label: string; value: string }) => (
-                <div key={spec.label}>
-                  <span>{spec.label}</span>
-                  <strong>{spec.value}</strong>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="content-block">
-            <h2>Application Industries</h2>
-            <div className="tag-list">
-              {applications.map((item: string) => <span key={item}>{item}</span>)}
-            </div>
-          </div>
-          <div className="content-block">
-            <h2>Installation Method</h2>
-            <p>{product.installation}</p>
-          </div>
-          <div className="content-block">
-            <h2>Customization Options</h2>
-            <div className="tag-list">
-              {customization.map((item: string) => <span key={item}>{item}</span>)}
-            </div>
-          </div>
-          <div className="content-block">
-            <h2>FAQ</h2>
-            <div className="faq-list">
-              {product.faqs.map((faq: { question: string; answer: string }) => (
-                <details key={faq.question}>
-                  <summary>{faq.question}</summary>
-                  <p>{faq.answer}</p>
-                </details>
-              ))}
-            </div>
-          </div>
+          {features.length ? <div className="content-block"><h2>Key Features</h2><ul className="feature-list">{features.map((feature: string) => <li key={feature}><CheckCircle2 size={18} aria-hidden />{feature}</li>)}</ul></div> : null}
+          {principle && principle !== summary ? <div className="content-block"><h2>Working Principle</h2><p>{principle}</p></div> : null}
+          {specs.length ? <div className="content-block"><h2>Specifications</h2><div className="spec-table">{specs.map((spec: { label: string; value: string }) => <div key={spec.label}><span>{spec.label}</span><strong>{spec.value}</strong></div>)}</div></div> : null}
+          {applications.length ? <div className="content-block"><h2>Application Industries</h2><div className="tag-list">{applications.map((item: string) => <span key={item}>{item}</span>)}</div></div> : null}
+          {cleanProductText(product.installation) ? <div className="content-block"><h2>Installation Method</h2><p>{cleanProductText(product.installation)}</p></div> : null}
+          {customization.length ? <div className="content-block"><h2>Customization Options</h2><div className="tag-list">{customization.map((item: string) => <span key={item}>{item}</span>)}</div></div> : null}
+          {product.faqs?.length ? <div className="content-block"><h2>FAQ</h2><div className="faq-list">{product.faqs.map((faq: { question: string; answer: string }) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div></div> : null}
         </article>
         <aside className="quote-panel expert-quote-panel">
           <div className="expert-card">

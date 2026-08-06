@@ -46,7 +46,7 @@ if ($logDir) {
 }
 
 $startedAt = (Get-Date).ToUniversalTime().ToString("o")
-$uri = $SiteUrl.TrimEnd("/") + "/api/cron/analytics-sync"
+$uri = $SiteUrl.TrimEnd("/") + "/api/cron/news-automation"
 
 try {
   $response = Invoke-WebRequest `

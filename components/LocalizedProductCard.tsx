@@ -11,7 +11,7 @@ export function LocalizedProductCard({ product, locale }: { product: Product; lo
   return (
     <article className="product-card">
       <Link href={localizeHref(`/products/${product.slug}`, locale)} className="product-image-link">
-        <Image src={product.image} width={560} height={360} alt={`${product.name} ${t.productDetail.manufacturer}`} />
+        <Image src={product.image} width={560} height={360} alt={product.name} />
       </Link>
       <div className="product-card-body">
         <span>{product.category}</span>

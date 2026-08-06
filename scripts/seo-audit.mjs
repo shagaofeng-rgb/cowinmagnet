@@ -1,0 +1,73 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+import { getAllNewsPosts } from "../data/contentHub.js";
+import { assessNewsContent } from "../lib/newsContentPolicy.js";
+
+const outputDir = path.join(process.cwd(), "docs", "seo-audit");
+const csvCell = (value = "") => `"${String(value).replaceAll('"', '""').replaceAll("\n", " ")}"`;
+const canonicalUrl = (pathName) => `https://www.cowinmagnet.com${pathName}`;
+
+async function write(name, content) {
+  await fs.mkdir(outputDir, { recursive: true });
+  await fs.writeFile(path.join(outputDir, name), content, "utf8");
+}
+
+const posts = await getAllNewsPosts();
+const rows = posts.map((post) => {
+  const assessment = assessNewsContent(post);
+  return {
+    url: canonicalUrl(`/en/news/${post.slug}`),
+    title: post.title || "",
+    publishedAt: post.publishedAt || post.createdAt || "",
+    source: post.sourcePublisher || post.source || post.sources?.[0]?.name || "",
+    automated: assessment.automated,
+    relevance: assessment.offTopicHits.length ? "off-topic-or-unverified" : assessment.templateHits.length >= 2 ? "template-like" : assessment.indexable ? "editorially-eligible" : "needs-review",
+    duplicateGroup: post.duplicateFingerprint || post.automation?.topicClusterId || "",
+    indexStatus: assessment.indexable ? "index,follow" : "noindex,follow",
+    action: assessment.indexable ? "retain" : "archive-from-listings-and-request-editorial-review",
+    reason: assessment.reason
+  };
+});
+
+const header = ["URL", "Title", "Published at", "Source", "Automated", "Relevance", "Duplicate group", "Index status", "Recommended action", "Reason"];
+await write(
+  "news-content-audit.csv",
+  [header.map(csvCell).join(","), ...rows.map((row) => [row.url, row.title, row.publishedAt, row.source, row.automated, row.relevance, row.duplicateGroup, row.indexStatus, row.action, row.reason].map(csvCell).join(","))].join("\n") + "\n"
+);
+
+const noindexRows = rows.filter((row) => row.indexStatus === "noindex,follow");
+await write(
+  "news-content-audit.md",
+  `# News Content Audit\n\nGenerated: ${new Date().toISOString()}\n\n- Total News records reviewed: ${rows.length}\n- Marked noindex and excluded from listings/sitemaps: ${noindexRows.length}\n- Eligible to remain indexable: ${rows.length - noindexRows.length}\n\nThis report is generated from real configured content sources. No records were deleted. Automated records require an approved editorial status and a named technical reviewer before they can return to indexable listings.\n\n## Review rules\n\n- Automated News without editorial approval: archive from public listings, noindex,follow.\n- Template-like or off-topic signals: archive from public listings, noindex,follow.\n- A manual reviewer may correct, approve and republish an eligible article through the CMS.\n`
+);
+
+const redirects = [
+  ["/applications", "/en/industries", "301", "Duplicate overview"],
+  ["/applications/recycling", "/en/industries/recycling", "301", "Duplicate industry page"],
+  ["/applications/mining", "/en/industries/mining", "301", "Duplicate industry page"],
+  ["/applications/aggregate-cement", "/en/industries/cement-aggregate", "301", "Duplicate industry page"],
+  ["/applications/food-processing", "/en/industries/food", "301", "Duplicate industry page"]
+];
+await write("redirect-map.csv", [["Source", "Destination", "Status", "Reason"], ...redirects].map((row) => row.map(csvCell).join(",")).join("\n") + "\n");
+
+await write(
+  "product-duplicate-audit.csv",
+  "Candidate group,Decision,Reason,Required human verification\n" +
+    [
+      "CQZ fully automatic online magnetic separator / magnetic separation,Do not merge automatically,Model and parameter evidence not verified,Compare model numbers images and parameter sheets",
+      "CTN wet full countercurrent / CTN type full countercurrent,Do not merge automatically,May be variants of one series,Confirm model and magnetic circuit",
+      "DCZ dry fully automatic separator / separation,Do not merge automatically,Name similarity is insufficient,Confirm actual product documentation",
+      "RCYZ vertical pipeline iron remover / pipeline magnetic filter,Do not merge automatically,May have different process interfaces,Confirm drawings and material path",
+      "CTB wet semi-countercurrent variants,Do not merge automatically,May be variants,Confirm product series and specifications",
+      "HJLH wet vertical ring variants,Do not merge automatically,May be variants,Confirm model and parameters",
+      "CLC wet slot magnetic filter variants,Do not merge automatically,May be variants,Confirm model and parameters"
+    ].join("\n") + "\n"
+);
+
+await write("baseline.md", `# SEO Remediation Baseline\n\nGenerated: ${new Date().toISOString()}\n\n- Repository baseline recorded before remediation in .backups/seo-remediation-20260806-204147.\n- News records discovered: ${rows.length}.\n- Existing automated News publishing was configured to default to public publication before this change.\n- Existing sitemap generated application URLs and alternate locale links before this change.\n- Performance results must be generated by an actual browser/Lighthouse run; this document does not invent a score.\n`);
+await write("data-required.md", "# Data Required\n\n- Verified product model-to-parameter mappings for duplicate product review.\n- Real technical specifications before any product parameter table is expanded.\n- Verified technical reviewer names before public author/reviewer fields or Person schema.\n- Real datasheet PDFs before download buttons are displayed.\n- Verified public pricing, reviews, ratings or stock only if Product rich-result fields are desired.\n- Verified social profiles and company address details before adding Organization sameAs or additional address fields.\n");
+await write("external-dependencies.md", "# External Dependencies\n\n- Non-www to www redirect is implemented in application proxy code. DNS/CDN-level HTTP-to-HTTPS enforcement should also be confirmed in Vercel domain settings.\n- `bzmagnet.com` and `cowinmagnet.co.za` are outside this repository unless separately linked to this deployment. Map each legacy URL to its matching canonical page, or return 410 where no replacement exists. Do not redirect all legacy URLs to an unrelated homepage.\n");
+await write("search-console-export-checklist.md", "# Search Console Export Checklist\n\nExport from the www-domain property: Performance queries/pages/countries/devices for 16 months; Page indexing reasons and examples; Sitemaps; Core Web Vitals; Crawl stats; Links; Manual actions; Security issues. Use the exports to prioritise queries with positions 8-30 and low-CTR high-impression pages.\n");
+await write("rollback.md", "# Rollback\n\n1. Restore tracked files from `.backups/seo-remediation-20260806-204147` or revert the remediation commit.\n2. Rebuild and validate sitemap before deployment.\n3. No CMS rows are deleted by this remediation. Automated News visibility is computed from stored fields and can be restored after documented editorial approval.\n4. Revert redirect rules only after checking Search Console and internal-link impact.\n");
+
+console.log(JSON.stringify({ newsRecords: rows.length, noindex: noindexRows.length, outputDir }, null, 2));

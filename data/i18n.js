@@ -35,11 +35,10 @@ export function absoluteLocalizedUrl(locale, path = "/") {
 }
 
 export function localizedAlternates(path = "/") {
-  const languages = Object.fromEntries(locales.map((locale) => [locale, absoluteLocalizedUrl(locale, path)]));
   return {
     canonical: absoluteLocalizedUrl(defaultLocale, path),
     languages: {
-      ...languages,
+      en: absoluteLocalizedUrl(defaultLocale, path),
       "x-default": absoluteLocalizedUrl(defaultLocale, path)
     }
   };

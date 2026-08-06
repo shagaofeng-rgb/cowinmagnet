@@ -66,24 +66,20 @@ export function localizeHref(path: string, locale: Locale) {
 }
 
 export function localizedAlternates(path: string) {
-  const languages = Object.fromEntries(locales.map((locale) => [locale, absoluteLocalizedUrl(locale, path)]));
-
   return {
     canonical: absoluteLocalizedUrl(defaultLocale, path),
     languages: {
-      ...languages,
+      en: absoluteLocalizedUrl(defaultLocale, path),
       "x-default": absoluteLocalizedUrl(defaultLocale, path)
     }
   };
 }
 
 export function localizedPageAlternates(locale: Locale, path: string) {
-  const languages = Object.fromEntries(locales.map((item) => [item, absoluteLocalizedUrl(item, path)]));
-
   return {
     canonical: absoluteLocalizedUrl(locale, path),
     languages: {
-      ...languages,
+      en: absoluteLocalizedUrl(defaultLocale, path),
       "x-default": absoluteLocalizedUrl(defaultLocale, path)
     }
   };

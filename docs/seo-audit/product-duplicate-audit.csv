@@ -1,0 +1,8 @@
+Candidate group,Decision,Reason,Required human verification
+CQZ fully automatic online magnetic separator / magnetic separation,Do not merge automatically,Model and parameter evidence not verified,Compare model numbers images and parameter sheets
+CTN wet full countercurrent / CTN type full countercurrent,Do not merge automatically,May be variants of one series,Confirm model and magnetic circuit
+DCZ dry fully automatic separator / separation,Do not merge automatically,Name similarity is insufficient,Confirm actual product documentation
+RCYZ vertical pipeline iron remover / pipeline magnetic filter,Do not merge automatically,May have different process interfaces,Confirm drawings and material path
+CTB wet semi-countercurrent variants,Do not merge automatically,May be variants,Confirm product series and specifications
+HJLH wet vertical ring variants,Do not merge automatically,May be variants,Confirm model and parameters
+CLC wet slot magnetic filter variants,Do not merge automatically,May be variants,Confirm model and parameters

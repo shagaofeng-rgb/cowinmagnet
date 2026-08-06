@@ -17,16 +17,6 @@ export const metadata: Metadata = {
     template: "%s | COWIN MAGNET"
   },
   description: site.description,
-  keywords: [
-    "magnetic separator supplier",
-    "overhead magnetic separator",
-    "suspended magnetic separator",
-    "self-cleaning magnetic separator",
-    "magnetic pulley",
-    "magnetic drum separator",
-    "grate magnet",
-    "magnetic bar"
-  ],
   openGraph: {
     type: "website",
     url: site.url,

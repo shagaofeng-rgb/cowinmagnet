@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { PlayCircle } from "lucide-react";
+import { useState } from "react";
 
 type HomeVideoShowcaseProps = {
   eyebrow: string;
@@ -10,6 +13,7 @@ type HomeVideoShowcaseProps = {
 };
 
 export function HomeVideoShowcase({ eyebrow, title, text, quoteHref, quoteLabel }: HomeVideoShowcaseProps) {
+  const [loadVideo, setLoadVideo] = useState(false);
   return (
     <section className="section video-showcase" aria-labelledby="home-video-title">
       <div className="video-showcase-copy">
@@ -32,17 +36,27 @@ export function HomeVideoShowcase({ eyebrow, title, text, quoteHref, quoteLabel 
         </div>
         <div className="home-video-frame">
           <video
-            src="/videos/cowinmagnet-home-product-showcase-2026.mp4"
+            {...(loadVideo ? { src: "/videos/cowinmagnet-home-product-showcase-2026.mp4" } : {})}
             controls
-            autoPlay
-            muted
-            loop
             playsInline
-            preload="metadata"
+            preload="none"
+            poster="/assets/magnetic-separator-banner-800.webp"
             aria-label="COWIN MAGNET product and service showcase video"
           >
+            <track
+              kind="captions"
+              src="/videos/cowinmagnet-home-product-showcase-2026.en.vtt"
+              srcLang="en"
+              label="English"
+              default
+            />
             Your browser does not support the video tag.
           </video>
+          {!loadVideo ? (
+            <button type="button" className="video-load-button" onClick={() => setLoadVideo(true)}>
+              <PlayCircle size={20} aria-hidden /> Load product showcase video
+            </button>
+          ) : null}
         </div>
       </div>
     </section>

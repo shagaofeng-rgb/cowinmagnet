@@ -1,5 +1,6 @@
 import { getNewsPosts } from "@/data/contentHub";
 import { site } from "@/data/site";
+import { isIndexableNews } from "@/lib/newsContentPolicy";
 
 function escapeXml(value = "") {
   return String(value)
@@ -19,6 +20,7 @@ function validDate(value?: string) {
 export async function GET() {
   const cutoff = Date.now() - 2 * 24 * 60 * 60 * 1000;
   const posts = (await getNewsPosts())
+    .filter(isIndexableNews)
     .map((post) => ({ post, publishedDate: validDate(post.publishedAt), updatedDate: validDate(post.updatedAt || post.publishedAt) }))
     .filter((item): item is typeof item & { publishedDate: Date } => Boolean(item.publishedDate && item.publishedDate.getTime() >= cutoff))
     .slice(0, 1000);

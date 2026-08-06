@@ -9,6 +9,8 @@ const publicPaths = [
   "/",
   "/en",
   "/en/products",
+  "/en/products/suspended-self-unloading-iron-removers",
+  "/en/products/magnetic-separation-equipment",
   "/en/news",
   "/en/about",
   "/en/contact",
@@ -61,6 +63,17 @@ function hasBasicSeo(html) {
   };
 }
 
+function hasExpectedCanonical(url, html) {
+  const expected = new URL(url).pathname;
+  const match = html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)/i);
+  if (!match) return false;
+  try {
+    return new URL(match[1], siteUrl).pathname === expected;
+  } catch {
+    return false;
+  }
+}
+
 function extractSitemapUrls(xml, limit = 20) {
   return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]).slice(0, limit);
 }
@@ -81,10 +94,11 @@ async function checkPublic() {
     const result = await fetchWithTimeout(url);
     const contentType = result.headers?.get?.("content-type") || "";
     const seo = contentType.includes("text/html") ? hasBasicSeo(result.text) : {};
+    if (contentType.includes("text/html")) seo.canonicalMatchesPath = hasExpectedCanonical(url, result.text);
     results.push({
       url,
       status: result.status,
-      ok: result.ok || [301, 302, 307, 308].includes(result.status) || isExpectedGeoBlock(result),
+      ok: (result.ok && (!contentType.includes("text/html") || seo.canonicalMatchesPath)) || [301, 302, 307, 308].includes(result.status) || isExpectedGeoBlock(result),
       contentType,
       seo,
       geoBlocked: isExpectedGeoBlock(result),
@@ -99,12 +113,15 @@ async function checkPublic() {
     for (const rawUrl of extractSitemapUrls(sitemapText, 20)) {
       const url = urlOnCurrentSite(rawUrl);
       const result = await fetchWithTimeout(url);
+      const contentType = result.headers?.get?.("content-type") || "";
+      const seo = contentType.includes("text/html") ? hasBasicSeo(result.text) : {};
+      if (contentType.includes("text/html")) seo.canonicalMatchesPath = hasExpectedCanonical(url, result.text);
       results.push({
         url,
         status: result.status,
-        ok: result.ok || [301, 302, 307, 308].includes(result.status) || isExpectedGeoBlock(result),
-        contentType: result.headers?.get?.("content-type") || "",
-        seo: (result.headers?.get?.("content-type") || "").includes("text/html") ? hasBasicSeo(result.text) : {},
+        ok: (result.ok && (!contentType.includes("text/html") || seo.canonicalMatchesPath)) || [301, 302, 307, 308].includes(result.status) || isExpectedGeoBlock(result),
+        contentType,
+        seo,
         geoBlocked: isExpectedGeoBlock(result),
         edgeId: result.headers?.get?.("x-vercel-id") || "",
         error: result.error || "",
