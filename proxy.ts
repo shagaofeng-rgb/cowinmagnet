@@ -5,7 +5,9 @@ import { defaultLocale, isLocale, locales, type Locale } from "@/lib/i18n";
 const PUBLIC_FILE = /\.(.*)$/;
 // Geo blocking is intentionally limited to public document routes. Admin, API,
 // cron, sitemap and static asset requests are handled by the allow-list below.
-const blockedVisitorCountries = new Set(["CN", "IN"]);
+// Keep public content reachable. A broad country block previously made News and
+// Blog look offline for legitimate visitors and operators.
+const blockedVisitorCountries = new Set<string>();
 const countryLocale: Record<string, Locale> = {
   ES: "es",
   MX: "es",

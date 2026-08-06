@@ -2,10 +2,10 @@ export const newsSystemConfig = {
   siteUrl: process.env.SITE_URL || "https://www.cowinmagnet.com",
   defaultLanguage: "en",
   publishMode: String(process.env.NEWS_PUBLISH_MODE || "published").trim(),
-  publishInterval: "daily-4-posts",
+  publishInterval: "every-3-hours",
   maxPostsPerRun: Number(process.env.NEWS_MAX_PUBLISH_PER_RUN || process.env.NEWS_MAX_POSTS_PER_RUN || 1),
   maxPostsPerDay: Number(process.env.NEWS_MAX_PUBLISH_PER_DAY || process.env.NEWS_MAX_POSTS_PER_DAY || 4),
-  minRelevanceScore: Number(process.env.NEWS_MIN_RELEVANCE_SCORE || 50),
+  minRelevanceScore: Number(process.env.NEWS_MIN_RELEVANCE_SCORE || 35),
   timezone: process.env.NEWS_TIMEZONE || "Asia/Shanghai",
   outputImageSize: { width: 1200, height: 630 },
   brand: {
@@ -336,8 +336,8 @@ export const newsSystemConfig = {
     }
   ],
   sourcePool: {
-    requiredGroupsPerRun: Number(process.env.NEWS_REQUIRED_SOURCE_GROUPS || 3),
-    requiredNewDomainsPerRun: Number(process.env.NEWS_REQUIRED_NEW_DOMAINS || 2),
+    requiredGroupsPerRun: Number(process.env.NEWS_REQUIRED_SOURCE_GROUPS || 1),
+    requiredNewDomainsPerRun: Number(process.env.NEWS_REQUIRED_NEW_DOMAINS || 0),
     groups: [
       "industry-news",
       "manufacturer-blogs",
@@ -348,12 +348,12 @@ export const newsSystemConfig = {
   },
   diversity: {
     semanticSimilarityRejectThreshold: Number(process.env.NEWS_SEMANTIC_REJECT_THRESHOLD || 0.85),
-    minimumInformationGainScore: Number(process.env.NEWS_MIN_INFORMATION_GAIN_SCORE || 5),
-    maxSameDomainInRecent10: Number(process.env.NEWS_MAX_SAME_DOMAIN_RECENT_10 || 2),
+    minimumInformationGainScore: Number(process.env.NEWS_MIN_INFORMATION_GAIN_SCORE || -5),
+    maxSameDomainInRecent10: Number(process.env.NEWS_MAX_SAME_DOMAIN_RECENT_10 || 8),
     preferUnusedSourceHours: 72,
     topicLimits: {
-      per24h: Number(process.env.NEWS_TOPIC_LIMIT_24H || 1),
-      per7d: Number(process.env.NEWS_TOPIC_LIMIT_7D || 3)
+      per24h: Number(process.env.NEWS_TOPIC_LIMIT_24H || 8),
+      per7d: Number(process.env.NEWS_TOPIC_LIMIT_7D || 40)
     }
   },
   sources: {
@@ -366,7 +366,7 @@ export const newsSystemConfig = {
   },
   excludedKeywords: ["election", "war", "celebrity", "sports", "stock price rumor", "crypto", "entertainment"],
   scoring: {
-    minimumFinalScore: Number(process.env.NEWS_MIN_RELEVANCE_SCORE || 50),
+    minimumFinalScore: Number(process.env.NEWS_MIN_RELEVANCE_SCORE || 35),
     weights: {
       relevance: 0.24,
       painPoint: 0.22,
