@@ -2,14 +2,21 @@
 
 import { useState } from "react";
 import { Send } from "lucide-react";
-import { products } from "@/data/products";
+
+type ProductInquiryContext = {
+  name: string;
+  model?: string;
+  family?: string;
+  selectionFields?: { name: string; label: string; placeholder: string }[];
+};
 
 type QuoteFormProps = {
   compact?: boolean;
   defaultProduct?: string;
+  productContext?: ProductInquiryContext;
 };
 
-export function QuoteForm({ compact = false, defaultProduct = "" }: QuoteFormProps) {
+export function QuoteForm({ compact = false, defaultProduct = "", productContext }: QuoteFormProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   async function submit(formData: FormData) {
@@ -17,10 +24,17 @@ export function QuoteForm({ compact = false, defaultProduct = "" }: QuoteFormPro
     try {
       const payload: Record<string, unknown> = Object.fromEntries(formData.entries());
       payload.phone = payload.phone || payload.whatsapp || "";
-      payload.productRequirement = payload.productRequirement || payload.requiredProduct || "";
+      payload.productRequirement = payload.productRequirement || payload.requiredProduct || payload.productName || "";
       payload.materialType = payload.material || "";
+      payload.applicationIndustry = payload.applicationIndustry || payload.industry || "";
+      payload.installationPosition = payload.installationPosition || payload.installation || "";
+      payload.selectionDetails = Object.entries(payload)
+        .filter(([key, value]) => key.startsWith("selection") && value)
+        .map(([key, value]) => `${key.replace(/^selection/, "")}: ${value}`)
+        .join(" | ");
       payload.consent = "true";
       payload.sourcePath = window.location.pathname;
+      payload.sourceUrl = window.location.href;
       payload.sourceLanguage = document.documentElement.lang || window.location.pathname.split("/").filter(Boolean)[0] || "en";
       payload.utm = window.location.search;
       payload.attribution = (window as typeof window & { __cowinAttribution?: unknown }).__cowinAttribution || null;
@@ -43,6 +57,14 @@ export function QuoteForm({ compact = false, defaultProduct = "" }: QuoteFormPro
 
   return (
     <form action={submit} className={`quote-form ${compact ? "quote-form-compact" : ""}`}>
+      {productContext ? (
+        <>
+          <input type="hidden" name="productName" value={productContext.name} />
+          <input type="hidden" name="productModel" value={productContext.model || ""} />
+          <input type="hidden" name="productFamily" value={productContext.family || ""} />
+          <input type="hidden" name="requiredProduct" value={productContext.name} />
+        </>
+      ) : null}
       <div className="field-grid">
         <label className="form-honeypot" aria-hidden="true">
           Website
@@ -64,7 +86,7 @@ export function QuoteForm({ compact = false, defaultProduct = "" }: QuoteFormPro
           Phone / WhatsApp
           <input name="phone" required placeholder="+1 555 000 0000" />
         </label>
-        {!compact && (
+        {!compact && !productContext && (
           <>
             <label>
               Industry
@@ -84,17 +106,23 @@ export function QuoteForm({ compact = false, defaultProduct = "" }: QuoteFormPro
             </label>
           </>
         )}
-        <label className="field-wide">
-          Required Product
-          <select name="requiredProduct" defaultValue={defaultProduct}>
-            <option value="">Select product</option>
-            {products.map((product) => (
-              <option key={product.slug} value={product.name}>
-                {product.name}
-              </option>
-            ))}
-          </select>
-        </label>
+        {productContext ? (
+          <label className="field-wide">
+            Product selected
+            <input value={productContext.name} readOnly aria-readonly="true" />
+          </label>
+        ) : (
+          <label className="field-wide">
+            Product of interest
+            <input name="requiredProduct" defaultValue={defaultProduct} placeholder="Product name or equipment type" />
+          </label>
+        )}
+        {productContext?.selectionFields?.map((field) => (
+          <label key={field.name}>
+            {field.label}
+            <input name={field.name} placeholder={field.placeholder} />
+          </label>
+        ))}
         <label className="field-wide">
           Product Requirement / Message
           <textarea name="message" required placeholder="Tell us your material, belt width, capacity, installation height, and target iron removal result." rows={compact ? 4 : 6} />

@@ -1,0 +1,4124 @@
+[
+  {
+    "productName": "RCYD type permanent magnet self dumping iron remover",
+    "model": "RCYC | RCYD",
+    "family": "suspended",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RCYC"
+      },
+      {
+        "label": "Model",
+        "value": "RCYD"
+      }
+    ],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/60.html"
+    ],
+    "contentStatus": "sample-approved / ready for deployment"
+  },
+  {
+    "productName": "RCDD type self cooling self dumping electromagnetic iron remover",
+    "model": "RCDD",
+    "family": "suspended",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RCDD"
+      }
+    ],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/49.html"
+    ],
+    "contentStatus": "sample-approved / ready for deployment"
+  },
+  {
+    "productName": "RCYB type permanent magnet manual iron remover",
+    "model": "JB/T8711 | RCYB",
+    "family": "suspended",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "JB/T8711"
+      },
+      {
+        "label": "Model",
+        "value": "RCYB"
+      }
+    ],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/58.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RCDB type self cooling plate electromagnetic iron remover",
+    "model": "PDC | RCDB | RCDB-10 | RCDB-18 | RCDB-3 | RCDB-8 | RCDY",
+    "family": "suspended",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "PDC"
+      },
+      {
+        "label": "Model",
+        "value": "RCDB"
+      },
+      {
+        "label": "Model",
+        "value": "RCDB-10"
+      },
+      {
+        "label": "Model",
+        "value": "RCDB-18"
+      },
+      {
+        "label": "Model",
+        "value": "RCDB-3"
+      },
+      {
+        "label": "Model",
+        "value": "RCDB-8"
+      },
+      {
+        "label": "Model",
+        "value": "RCDY"
+      }
+    ],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/57.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "Belt High Gradient Magnetic Separator",
+    "model": "",
+    "family": "mineral-processing",
+    "verifiedSpecs": [],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Mining Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "mineral",
+      "metal recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.chnmag.com/product/Belt-High-Gradient-Magnetic-Separator-26.html"
+    ],
+    "contentStatus": "sample-approved / ready for deployment"
+  },
+  {
+    "productName": "Disc Magnetic Separator for Tailing",
+    "model": "",
+    "family": "mineral-processing",
+    "verifiedSpecs": [],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Mining Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "mineral",
+      "metal recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.chnmag.com/product/Disc-Magnetic-Separator-for-Tailing-28.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "Dry Drum Magnetic Separator",
+    "model": "QJ-CGT",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "QJ-CGT"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Mining Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.chnmag.com/product/Dry-Drum-Magnetic-Separator-24.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "Wet Drum Magnetic Separator",
+    "model": "CTB | CTN | CTS | DMS | QJ-CT(S",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CTB"
+      },
+      {
+        "label": "Model",
+        "value": "CTN"
+      },
+      {
+        "label": "Model",
+        "value": "CTS"
+      },
+      {
+        "label": "Model",
+        "value": "DMS"
+      },
+      {
+        "label": "Model",
+        "value": "QJ-CT(S"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Mining Industry",
+      "mining",
+      "recycling",
+      "coal",
+      "food",
+      "ore",
+      "mineral",
+      "metal recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.chnmag.com/product/Wet-Drum-Magnetic-Separator-25.html"
+    ],
+    "contentStatus": "sample-approved / ready for deployment"
+  },
+  {
+    "productName": "CBZ type rotary automatic magnetic separator",
+    "model": "CBZ",
+    "family": "filtering",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CBZ"
+      }
+    ],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "chemical",
+      "food",
+      "ore",
+      "pharmaceutical",
+      "recycling",
+      "wood"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/23.html",
+      "https://www.cnmagnetics.com/n-15/66.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CGB type rotary semi-automatic magnetic separator",
+    "model": "CGB",
+    "family": "filtering",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CGB"
+      }
+    ],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "chemical",
+      "food",
+      "pharmaceutical",
+      "recycling",
+      "wood"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/25.html",
+      "https://www.cnmagnetics.com/n-15/63.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CQZ type fully automatic online magnetic separator",
+    "model": "CQZ",
+    "family": "suspended",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CQZ"
+      }
+    ],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "recycling",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "wood",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-15/65.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CTN wet full countercurrent magnetic separator",
+    "model": "CTN",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CTN"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "mineral",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/18.html",
+      "https://www.cnmagnetics.com/n-15/68.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CTS type wet co current magnetic separator",
+    "model": "CTS",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CTS"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "chemical",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/22.html",
+      "https://www.cnmagnetics.com/n-15/72.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CXJ drum type automatic magnetic separator",
+    "model": "CXJ",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CXJ"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "chemical",
+      "mineral",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/24.html",
+      "https://www.cnmagnetics.com/n-15/73.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "DCZ type dry fully automatic magnetic separator",
+    "model": "DCZ | HV1200",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "DCZ"
+      },
+      {
+        "label": "Model",
+        "value": "HV1200"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "coal",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "ceramic",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-15/74.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "GLS type integral channel metal separator",
+    "model": "HACCP | IFS | IP65 | IP67",
+    "family": "metal-detection",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "HACCP"
+      },
+      {
+        "label": "Model",
+        "value": "IFS"
+      },
+      {
+        "label": "Model",
+        "value": "IP65"
+      },
+      {
+        "label": "Model",
+        "value": "IP67"
+      }
+    ],
+    "specsToConfirm": [
+      "Window size",
+      "Material condition",
+      "Detection target",
+      "Belt speed",
+      "Alarm or reject interface"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Metal detection and separation equipment for the food",
+      "pharmaceutical",
+      "and chemical industries"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-15/62.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CGT type super strong full magnetic drum",
+    "model": "CGT",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CGT"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment",
+      "Metal industry magnetic separation equipment",
+      "ceramic",
+      "chemical",
+      "food",
+      "mining",
+      "ore",
+      "pharmaceutical"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-12/11.html",
+      "https://www.cnmagnetics.com/n-14/54.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CTZ type midfield strong semi magnetic drum",
+    "model": "CTZ | RCT | TD-75",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CTZ"
+      },
+      {
+        "label": "Model",
+        "value": "RCT"
+      },
+      {
+        "label": "Model",
+        "value": "TD-75"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment",
+      "Metal industry magnetic separation equipment",
+      "ceramic",
+      "chemical",
+      "food",
+      "glass",
+      "mineral",
+      "mining",
+      "recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-12/12.html",
+      "https://www.cnmagnetics.com/n-14/56.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RCDA type air-cooled electromagnetic iron remover",
+    "model": "RCDA | RCDA-T",
+    "family": "suspended",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RCDA"
+      },
+      {
+        "label": "Model",
+        "value": "RCDA-T"
+      }
+    ],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/41.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RCDC type air-cooled self dumping electromagnetic iron remover",
+    "model": "RCDA | RCDC",
+    "family": "suspended",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RCDA"
+      },
+      {
+        "label": "Model",
+        "value": "RCDC"
+      }
+    ],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/42.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RCDE type oil cooled electromagnetic iron remover",
+    "model": "RCDE",
+    "family": "suspended",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RCDE"
+      }
+    ],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/55.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RCDF oil cooled self dumping electromagnetic iron remover",
+    "model": "RCDE | RCDF",
+    "family": "suspended",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RCDE"
+      },
+      {
+        "label": "Model",
+        "value": "RCDF"
+      }
+    ],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/40.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RCDFJ type forced oil circulation self dumping electromagnetic iron remover",
+    "model": "RCDFJ",
+    "family": "suspended",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RCDFJ"
+      }
+    ],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment",
+      "coal",
+      "power plant"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/52.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RCPS self dumping disc type permanent magnet iron remover",
+    "model": "RCPS",
+    "family": "suspended",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RCPS"
+      }
+    ],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/39.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RCT type fully magnetic drum",
+    "model": "AD-80 | RCT | RCTG | TD-75",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "AD-80"
+      },
+      {
+        "label": "Model",
+        "value": "RCT"
+      },
+      {
+        "label": "Model",
+        "value": "RCTG"
+      },
+      {
+        "label": "Model",
+        "value": "TD-75"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment",
+      "Metal industry magnetic separation equipment",
+      "cement",
+      "chemical",
+      "mining"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-12/14.html",
+      "https://www.cnmagnetics.com/n-14/51.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RCYA type inclined pipeline permanent magnet iron remover",
+    "model": "RCYA | RCYA1 | RCYA2",
+    "family": "filtering",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RCYA"
+      },
+      {
+        "label": "Model",
+        "value": "RCYA1"
+      },
+      {
+        "label": "Model",
+        "value": "RCYA2"
+      }
+    ],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment",
+      "cement",
+      "coal",
+      "chemical"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/48.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RCYDII type permanent magnet self dumping iron remover",
+    "model": "RCYD | RCYDII",
+    "family": "suspended",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RCYD"
+      },
+      {
+        "label": "Model",
+        "value": "RCYDII"
+      }
+    ],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/43.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RCYE type permanent magnet self dumping iron remover",
+    "model": "",
+    "family": "suspended",
+    "verifiedSpecs": [],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment",
+      "Metal industry magnetic separation equipment",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-12/5.html",
+      "https://www.cnmagnetics.com/n-14/61.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RCYF type vertical pipeline permanent magnet iron remover",
+    "model": "RCYF",
+    "family": "filtering",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RCYF"
+      }
+    ],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment",
+      "cement",
+      "coal",
+      "chemical"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/46.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RCYG type pipeline self dumping permanent magnet iron remover",
+    "model": "RCYG",
+    "family": "filtering",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RCYG"
+      }
+    ],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment",
+      "cement",
+      "food",
+      "chemical",
+      "ceramic",
+      "glass",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/59.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RCYP type permanent magnet manual self dumping iron remover",
+    "model": "RCYP",
+    "family": "suspended",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RCYP"
+      }
+    ],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/44.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RCYZ type vertical pipeline permanent magnet iron remover",
+    "model": "RCYZ",
+    "family": "filtering",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RCYZ"
+      }
+    ],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment",
+      "cement",
+      "food",
+      "chemical",
+      "ceramic"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/47.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CQZ type fully automatic online magnetic separation",
+    "model": "CQZ",
+    "family": "suspended",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CQZ"
+      }
+    ],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "recycling",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "wood",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/19.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CTB wet semi countercurrent magnetic separator",
+    "model": "CTB",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CTB"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/20.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "DCX wet fully automatic magnetic separator",
+    "model": "DCX",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "DCX"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "mining",
+      "food",
+      "chemical",
+      "ceramic"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/36.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "DCZ type dry fully automatic magnetic separation",
+    "model": "DCZ | HV1200",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "DCZ"
+      },
+      {
+        "label": "Model",
+        "value": "HV1200"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "coal",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "ceramic",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/31.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "GTC wet plate magnetic separator",
+    "model": "GTC",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "GTC"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "coal",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/35.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "HJLH wet vertical ring high gradient magnetic separator",
+    "model": "HJLH",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "HJLH"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/34.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "HJPC wet disc magnetic separation",
+    "model": "HJPC",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "HJPC"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "ceramic",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/28.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CLT type magnetic desliming tank",
+    "model": "CLT",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CLT"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-12/9.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CTB type semi countercurrent wet selection machine",
+    "model": "CTB",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CTB"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-12/4.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CTDG type permanent magnet bulk dry magnetic separator",
+    "model": "CTDG",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CTDG"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "mining",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-12/10.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CTN type full countercurrent wet magnetic separator",
+    "model": "CTN",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CTN"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-12/17.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CTS type downstream wet pre selection machine",
+    "model": "CTS",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CTS"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-12/3.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CTZS type upward suction magnetic separator",
+    "model": "CTZS",
+    "family": "suspended",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CTZS"
+      }
+    ],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "cement"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-12/15.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "HCG type dry pre selection machine",
+    "model": "HCG | HRA | HRA92",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "HCG"
+      },
+      {
+        "label": "Model",
+        "value": "HRA"
+      },
+      {
+        "label": "Model",
+        "value": "HRA92"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "ceramic",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-12/6.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "HJLH type vertical ring high gradient magnetic separation",
+    "model": "HJLH",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "HJLH"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-12/13.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "LJK type magnetic ore special iron remover",
+    "model": "LJK",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "LJK"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-12/2.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "NCT type concentrated magnetic separator",
+    "model": "NCT",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "NCT"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "recycling",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-12/8.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "WBC semi magnetic tailings recovery machine",
+    "model": "WBC",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "WBC"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "mineral",
+      "aggregate"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-12/7.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CTN type specialized magnetic separator for coal washing",
+    "model": "CTN",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CTN"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "coal",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-16/78.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "HMDN coal washing special magnetic separator",
+    "model": "HMDN",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "HMDN"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "coal",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-16/79.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "Suspended Permanent Magnetic Separator",
+    "model": "",
+    "family": "suspended",
+    "verifiedSpecs": [],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Quarry",
+      "mining",
+      "coal",
+      "cement and aggregate handling",
+      "Permanent Magnet Series"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "Suspended Electromagnetic Conveyor Belt Separator",
+    "model": "",
+    "family": "suspended",
+    "verifiedSpecs": [],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "High-capacity conveyors",
+      "mining",
+      "ports",
+      "coal and heavy material handling",
+      "Electromagnetic Series"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "DLS type window metal detector",
+    "model": "DLS | RS232 | RS485",
+    "family": "metal-detection",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "DLS"
+      },
+      {
+        "label": "Model",
+        "value": "RS232"
+      },
+      {
+        "label": "Model",
+        "value": "RS485"
+      }
+    ],
+    "specsToConfirm": [
+      "Window size",
+      "Material condition",
+      "Detection target",
+      "Belt speed",
+      "Alarm or reject interface"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment",
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "ceramic",
+      "recycling",
+      "wood"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/37.html",
+      "https://www.cnmagnetics.com/n-15/64.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "GJT type window metal detector",
+    "model": "GJT",
+    "family": "metal-detection",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "GJT"
+      }
+    ],
+    "specsToConfirm": [
+      "Window size",
+      "Material condition",
+      "Detection target",
+      "Belt speed",
+      "Alarm or reject interface"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment",
+      "mining",
+      "cement",
+      "food",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/38.html"
+    ],
+    "contentStatus": "sample-approved / ready for deployment"
+  },
+  {
+    "productName": "HECP eddy current metal sorting machine",
+    "model": "CNC | HECP | HECS",
+    "family": "recycling-sorting",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CNC"
+      },
+      {
+        "label": "Model",
+        "value": "HECP"
+      },
+      {
+        "label": "Model",
+        "value": "HECS"
+      }
+    ],
+    "specsToConfirm": [
+      "Feed size range",
+      "Material mix",
+      "Throughput",
+      "Ferrous pre-separation",
+      "Target fraction",
+      "Downstream discharge arrangement"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "recycling",
+      "glass",
+      "wood",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-12/16.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "HECS type eddy current metal sorting machine",
+    "model": "HECS",
+    "family": "recycling-sorting",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "HECS"
+      }
+    ],
+    "specsToConfirm": [
+      "Feed size range",
+      "Material mix",
+      "Throughput",
+      "Ferrous pre-separation",
+      "Target fraction",
+      "Downstream discharge arrangement"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "recycling",
+      "glass",
+      "wood",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-12/1.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "Drum Magnet",
+    "model": "CHNMAG",
+    "family": "mineral-processing",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CHNMAG"
+      }
+    ],
+    "specsToConfirm": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "mineral",
+      "metal recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.chnmag.com/product/Drum-Magnet-15.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "Eccentric Eddy Current Separator",
+    "model": "ASR | CHNMAG | MSW | PET | SEW | SKF | WEEE | WTE",
+    "family": "recycling-sorting",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "ASR"
+      },
+      {
+        "label": "Model",
+        "value": "CHNMAG"
+      },
+      {
+        "label": "Model",
+        "value": "MSW"
+      },
+      {
+        "label": "Model",
+        "value": "PET"
+      },
+      {
+        "label": "Model",
+        "value": "SEW"
+      },
+      {
+        "label": "Model",
+        "value": "SKF"
+      },
+      {
+        "label": "Model",
+        "value": "WEEE"
+      },
+      {
+        "label": "Model",
+        "value": "WTE"
+      }
+    ],
+    "specsToConfirm": [
+      "Feed size range",
+      "Material mix",
+      "Throughput",
+      "Ferrous pre-separation",
+      "Target fraction",
+      "Downstream discharge arrangement"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "food",
+      "glass",
+      "wood",
+      "municipal waste",
+      "electronic scrap",
+      "foundry sand",
+      "ore",
+      "metal recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.chnmag.com/product/Eccentric-Eddy-Current-Separator-14.html"
+    ],
+    "contentStatus": "sample-approved / ready for deployment"
+  },
+  {
+    "productName": "Electromagnet Separator",
+    "model": "CHNMAG | QJRCDB | QJRCDD",
+    "family": "suspended",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CHNMAG"
+      },
+      {
+        "label": "Model",
+        "value": "QJRCDB"
+      },
+      {
+        "label": "Model",
+        "value": "QJRCDD"
+      }
+    ],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.chnmag.com/product/Electromagnet-Separator-29.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "Magnetic Head Pulley",
+    "model": "",
+    "family": "suspended",
+    "verifiedSpecs": [],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "cement",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.chnmag.com/product/Magnetic-Head-Pulley-30.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "Permanent Overband Magnetic Separator",
+    "model": "QJRCY-HL | QJRCY-KL | QJRCY-L | QJRCY-PL",
+    "family": "suspended",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "QJRCY-HL"
+      },
+      {
+        "label": "Model",
+        "value": "QJRCY-KL"
+      },
+      {
+        "label": "Model",
+        "value": "QJRCY-L"
+      },
+      {
+        "label": "Model",
+        "value": "QJRCY-PL"
+      }
+    ],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "coal",
+      "food",
+      "wood",
+      "ore",
+      "metal recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.chnmag.com/product/Permanent-Overband-Magnetic-Separator-16.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "Stainless Steel Separation Conveyor",
+    "model": "ASR | CHNMAG | ICW | QJSS | VFD | WEEE",
+    "family": "recycling-sorting",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "ASR"
+      },
+      {
+        "label": "Model",
+        "value": "CHNMAG"
+      },
+      {
+        "label": "Model",
+        "value": "ICW"
+      },
+      {
+        "label": "Model",
+        "value": "QJSS"
+      },
+      {
+        "label": "Model",
+        "value": "VFD"
+      },
+      {
+        "label": "Model",
+        "value": "WEEE"
+      }
+    ],
+    "specsToConfirm": [
+      "Feed size range",
+      "Material mix",
+      "Throughput",
+      "Ferrous pre-separation",
+      "Target fraction",
+      "Downstream discharge arrangement"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.chnmag.com/product/Stainless-Steel-Separation-Conveyor-17.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CBS drawer type magnetic filter",
+    "model": "CBS",
+    "family": "filtering",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CBS"
+      }
+    ],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "ceramic",
+      "chemical",
+      "food",
+      "pharmaceutical",
+      "recycling",
+      "wood"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/26.html",
+      "https://www.cnmagnetics.com/n-15/67.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CLC type wet slot magnetic filter",
+    "model": "CLC | SUS304",
+    "family": "filtering",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CLC"
+      },
+      {
+        "label": "Model",
+        "value": "SUS304"
+      }
+    ],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "mining",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "ceramic",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-15/70.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CTQ type roller automatic magnetic separator",
+    "model": "",
+    "family": "filtering",
+    "verifiedSpecs": [],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "mineral",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/29.html",
+      "https://www.cnmagnetics.com/n-15/75.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CYG wet pipeline magnetic filter",
+    "model": "CYG | SUS304",
+    "family": "filtering",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CYG"
+      },
+      {
+        "label": "Model",
+        "value": "SUS304"
+      }
+    ],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "ceramic",
+      "chemical",
+      "food",
+      "ore",
+      "pharmaceutical"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/27.html",
+      "https://www.cnmagnetics.com/n-15/71.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RCYZ type pipeline magnetic filter",
+    "model": "RCYZ",
+    "family": "filtering",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RCYZ"
+      }
+    ],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "cement",
+      "food",
+      "chemical",
+      "ceramic"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-15/69.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "CLC type slot magnetic filter",
+    "model": "CLC | SUS304",
+    "family": "filtering",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "CLC"
+      },
+      {
+        "label": "Model",
+        "value": "SUS304"
+      }
+    ],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "mining",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "ceramic",
+      "ore"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/32.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "DHD type roller type automatic magnetic separator",
+    "model": "DHD",
+    "family": "filtering",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "DHD"
+      }
+    ],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/33.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "DHJ type strong roller automatic magnetic separator",
+    "model": "DHJ",
+    "family": "filtering",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "DHJ"
+      }
+    ],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/30.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "QCG wet roller magnetic separator",
+    "model": "QCG",
+    "family": "filtering",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "QCG"
+      }
+    ],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-13/21.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "Drawer Magnet",
+    "model": "SS304 | SS316",
+    "family": "filtering",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "SS304"
+      },
+      {
+        "label": "Model",
+        "value": "SS316"
+      }
+    ],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "food",
+      "chemical",
+      "ceramic",
+      "ore",
+      "metal recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.chnmag.com/product/Drawer-Magnet-18.html"
+    ],
+    "contentStatus": "sample-approved / ready for deployment"
+  },
+  {
+    "productName": "Hump Magnet",
+    "model": "",
+    "family": "filtering",
+    "verifiedSpecs": [],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.chnmag.com/product/Hump-Magnet-19.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "Magnetic Grid",
+    "model": "",
+    "family": "filtering",
+    "verifiedSpecs": [],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.chnmag.com/product/Magnetic-Grid-20.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "Magnetic Rod",
+    "model": "",
+    "family": "filtering",
+    "verifiedSpecs": [],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.chnmag.com/product/Magnetic-Rod-21.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "Magnetic Trap",
+    "model": "",
+    "family": "filtering",
+    "verifiedSpecs": [],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.chnmag.com/product/Magnetic-Trap-22.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "Rotary Pipe Magnet",
+    "model": "",
+    "family": "filtering",
+    "verifiedSpecs": [],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "coal",
+      "food",
+      "chemical",
+      "ore",
+      "metal recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.chnmag.com/product/Rotary-Pipe-Magnet-23.html"
+    ],
+    "contentStatus": "sample-approved / ready for deployment"
+  },
+  {
+    "productName": "Strong 6000-16000 Gauss Iron Absorbing Permanent Filter Bar Magnetic Neodymium Rod",
+    "model": "",
+    "family": "filtering",
+    "verifiedSpecs": [],
+    "specsToConfirm": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Powder",
+      "granule",
+      "liquid filtration",
+      "hopper and chute protection",
+      "Magnetic Rollers & Magnetic Bars"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "High Frequency Screen",
+    "model": "",
+    "family": "suspended",
+    "verifiedSpecs": [],
+    "specsToConfirm": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "materials": [],
+    "industries": [
+      "Mining Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.chnmag.com/product/27.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "KGLA series rectifier control box",
+    "model": "KGLA",
+    "family": "explosion-control",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "KGLA"
+      }
+    ],
+    "specsToConfirm": [
+      "Connected equipment",
+      "Electrical supply",
+      "Control mode",
+      "Interlocks",
+      "Installation environment",
+      "Verified project documents"
+    ],
+    "materials": [],
+    "industries": [
+      "General iron removal equipment"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-14/50.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "KXB mining explosion-proof electromagnetic iron remover control box",
+    "model": "LCD | RS-485",
+    "family": "explosion-control",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "LCD"
+      },
+      {
+        "label": "Model",
+        "value": "RS-485"
+      }
+    ],
+    "specsToConfirm": [
+      "Connected equipment",
+      "Electrical supply",
+      "Control mode",
+      "Interlocks",
+      "Installation environment",
+      "Verified project documents"
+    ],
+    "materials": [],
+    "industries": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "mining",
+      "coal"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-16/81.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "QJZ mining explosion-proof permanent magnet iron remover control box",
+    "model": "",
+    "family": "explosion-control",
+    "verifiedSpecs": [],
+    "specsToConfirm": [
+      "Connected equipment",
+      "Electrical supply",
+      "Control mode",
+      "Interlocks",
+      "Installation environment",
+      "Verified project documents"
+    ],
+    "materials": [],
+    "industries": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "mining",
+      "coal"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-16/82.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RBCDB explosion-proof disc type electromagnetic iron remover",
+    "model": "RBCDB",
+    "family": "explosion-control",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RBCDB"
+      }
+    ],
+    "specsToConfirm": [
+      "Connected equipment",
+      "Electrical supply",
+      "Control mode",
+      "Interlocks",
+      "Installation environment",
+      "Verified project documents"
+    ],
+    "materials": [],
+    "industries": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "mining",
+      "coal",
+      "chemical"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-16/80.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RBCDD explosion-proof electromagnetic self dumping iron remover",
+    "model": "RBCDD",
+    "family": "explosion-control",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RBCDD"
+      }
+    ],
+    "specsToConfirm": [
+      "Connected equipment",
+      "Electrical supply",
+      "Control mode",
+      "Interlocks",
+      "Installation environment",
+      "Verified project documents"
+    ],
+    "materials": [],
+    "industries": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "mining",
+      "coal",
+      "chemical"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-16/77.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "RBCYD explosion-proof permanent magnet self dumping iron remover",
+    "model": "RBCYD",
+    "family": "explosion-control",
+    "verifiedSpecs": [
+      {
+        "label": "Model",
+        "value": "RBCYD"
+      }
+    ],
+    "specsToConfirm": [
+      "Connected equipment",
+      "Electrical supply",
+      "Control mode",
+      "Interlocks",
+      "Installation environment",
+      "Verified project documents"
+    ],
+    "materials": [],
+    "industries": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "mining",
+      "coal",
+      "chemical"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts",
+      "https://www.cnmagnetics.com/n-16/76.html"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  },
+  {
+    "productName": "Round Electromagnetic Lifting Magnet",
+    "model": "",
+    "family": "lifting",
+    "verifiedSpecs": [],
+    "specsToConfirm": [
+      "Load shape and condition",
+      "Lifting duty",
+      "Power and control",
+      "Suspension arrangement",
+      "Site safety and inspection requirement"
+    ],
+    "materials": [],
+    "industries": [
+      "Steel scrap lifting",
+      "metal handling",
+      "foundry and warehouse operations",
+      "Electromagnetic Series"
+    ],
+    "installationPositions": [],
+    "realAdvantages": [],
+    "limitations": [
+      "No performance, certification, capacity or configuration commitment without a current technical source-of-truth."
+    ],
+    "options": [],
+    "allowedClaims": [
+      "Product name and model reference from the current static product record.",
+      "Existing primary product image pending media review."
+    ],
+    "forbiddenClaims": [
+      "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
+    ],
+    "sourceOfTruth": [
+      "data/products.ts"
+    ],
+    "contentStatus": "detail-template-live / technical-review-needed"
+  }
+]

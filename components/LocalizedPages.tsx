@@ -11,6 +11,7 @@ import { LocalizedProductCard } from "@/components/LocalizedProductCard";
 import { MarkdownContent } from "@/components/MarkdownContent";
 import { PageHero } from "@/components/PageHero";
 import { QuoteForm } from "@/components/QuoteForm";
+import { ProductDetailExperience } from "@/components/ProductDetailExperience";
 import { RelatedInternalLinks } from "@/components/RelatedInternalLinks";
 import { applications, type Application } from "@/data/applications";
 import type { BlogPost } from "@/data/blogs";
@@ -181,68 +182,7 @@ export function LocalizedProductsPage({
 }
 
 export function LocalizedProductDetailPage({ locale, product }: { locale: Locale; product: Product }) {
-  const t = getDictionary(locale);
-  const relatedInternalLinks = getStaticInternalLinkSuggestions({ type: "product", slug: product.slug, limit: 5 });
-  const summary = cleanProductText(product.summary, "Contact us for verified specifications and selection support.");
-  const principle = cleanProductText(product.principle, summary);
-  const features = cleanProductList(product.features);
-  const specs = cleanProductSpecs(product.specs);
-  const applications = cleanProductList(product.applications);
-  const customization = cleanProductList(product.customization);
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: product.name,
-    image: absoluteUrl(product.image),
-    description: summary,
-    brand: { "@type": "Brand", name: site.name },
-    seller: { "@type": "Organization", name: site.legalName },
-    category: product.category,
-    url: absoluteUrl(localizeHref(`/products/${product.slug}`, locale))
-  };
-
-  return (
-    <>
-      <JsonLd data={productSchema} />
-      {product.faqs?.length ? <JsonLd data={faqSchema(product.faqs)} /> : null}
-      <JsonLd data={breadcrumbSchema([{ name: "Home", path: `/${locale}` }, { name: t.nav.products, path: `/${locale}/products` }, { name: product.name, path: `/${locale}/products/${product.slug}` }])} />
-      <section className="detail-hero">
-        <div>
-          <span className="eyebrow">{product.category}</span>
-          <h1>{product.name} {t.productDetail.manufacturer}</h1>
-          <p>{summary}</p>
-          <div className="hero-actions">
-            <Link href={localizeHref(`/request-quote?product=${encodeURIComponent(product.name)}`, locale)} className="btn btn-primary">{t.common.getQuote}</Link>
-            <Link href={localizeHref("/contact", locale)} className="btn btn-secondary">{t.common.contactSales}</Link>
-          </div>
-        </div>
-        <div className="detail-image"><Image src={product.image} width={820} height={560} alt={`${product.name} ${t.productDetail.manufacturer}`} priority /></div>
-      </section>
-      <section className="section detail-layout">
-        <article className="detail-main">
-          {summary ? <ContentBlock title={t.productDetail.overview}><p>{summary}</p></ContentBlock> : null}
-          {features.length ? <ContentBlock title={t.productDetail.features}><FeatureList items={features} /></ContentBlock> : null}
-          {principle && principle !== summary ? <ContentBlock title={t.productDetail.principle}><p>{principle}</p></ContentBlock> : null}
-          {specs.length ? <ContentBlock title={t.productDetail.specifications}><SpecTable specs={specs} /></ContentBlock> : null}
-          {applications.length ? <ContentBlock title={t.productDetail.industries}><TagList items={applications} /></ContentBlock> : null}
-          {cleanProductText(product.installation) ? <ContentBlock title={t.productDetail.installation}><p>{cleanProductText(product.installation)}</p></ContentBlock> : null}
-          {customization.length ? <ContentBlock title={t.productDetail.customization}><TagList items={customization} /></ContentBlock> : null}
-          {product.faqs?.length ? <ContentBlock title={t.productDetail.faq}><FaqList faqs={product.faqs} /></ContentBlock> : null}
-        </article>
-        <aside className="quote-panel">
-          <h2>{t.productDetail.quoteTitle}</h2>
-          <p>{t.productDetail.quoteText}</p>
-          <QuoteForm compact defaultProduct={product.name} />
-        </aside>
-      </section>
-      <RelatedInternalLinks
-        locale={locale}
-        eyebrow="Product Path"
-        title="Related products, applications and buying guides"
-        links={relatedInternalLinks}
-      />
-    </>
-  );
+  return <ProductDetailExperience locale={locale} product={product} />;
 }
 
 export function LocalizedApplicationsPage({ locale }: { locale: Locale }) {

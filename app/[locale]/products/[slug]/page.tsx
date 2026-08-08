@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { LocalizedProductDetailPage } from "@/components/LocalizedPages";
+import { ProductDetailExperience, productSeoDescription, productSeoTitle } from "@/components/ProductDetailExperience";
 import { ProductCategoryPage } from "@/components/ProductCategoryPage";
 import { products } from "@/data/products";
 import { getProductBySlugWithCms } from "@/lib/productCms";
-import { cleanProductText } from "@/lib/productDisplay";
 import { getDictionary, isLocale, locales, localizedPageAlternates, type Locale } from "@/lib/i18n";
 import { getProductCategoryPage, productCategoryPages } from "@/lib/productCategories";
 import { getProductsWithCms } from "@/lib/productCms";
@@ -38,17 +37,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
   if (!product) return {};
-  const summary = cleanProductText(product.summary, "Contact us for verified specifications and selection support.");
   return {
-    title: product.name,
-    description: summary,
+    title: productSeoTitle(product),
+    description: productSeoDescription(product),
     alternates: localizedPageAlternates(current, `/products/${product.slug}`),
     openGraph: {
-      title: `${product.name} | COWIN MAGNET`,
-      description: summary,
+      title: productSeoTitle(product),
+      description: productSeoDescription(product),
       url: absoluteUrl(`/${current}/products/${product.slug}`),
       images: [product.image]
-    }
+    },
+    twitter: { card: "summary_large_image", title: productSeoTitle(product), description: productSeoDescription(product), images: [product.image] }
   };
 }
 export default async function Page({ params }: PageProps) {
@@ -61,5 +60,5 @@ export default async function Page({ params }: PageProps) {
     return <ProductCategoryPage locale={locale as Locale} category={category} products={catalogue.filter((item) => item.category === category.category)} />;
   }
   if (!product) notFound();
-  return <LocalizedProductDetailPage locale={locale as Locale} product={product} />;
+  return <ProductDetailExperience locale={locale as Locale} product={product} />;
 }

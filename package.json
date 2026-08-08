@@ -16,6 +16,8 @@
     "sitemap:generate": "node scripts/run-sitemap.mjs",
     "sitemap:audit": "node scripts/audit-sitemap-http.mjs",
     "seo:audit": "node scripts/seo-audit.mjs",
+    "product:audit": "node scripts/generate-product-content-audit.mjs",
+    "product:verify": "node scripts/verify-product-detail-pages.mjs",
     "test": "node --test tests/*.test.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",

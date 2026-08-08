@@ -8,7 +8,7 @@ const git = process.env.GIT_BINARY || (fs.existsSync(portableGit) ? portableGit 
 const outputPath = path.join(cwd, "data", "sitemapStaticDates.json");
 const groups = {
   pages: ["app", "components", "data/site.ts", "messages"],
-  products: ["data/products.ts", "lib/productCms.js", "components/ProductDetail.jsx", "components/ProductCard.tsx"],
+  products: ["data/products.ts", "data/productDetailProfiles.ts", "lib/productCms.js", "components/ProductDetailExperience.tsx", "components/ProductCard.tsx"],
   categories: ["data/applications.ts", "components/ApplicationsPageContent.jsx"],
   posts: ["data/blogs.ts", "data/contentHub.js", "data/generatedNews.js", "content/blog"]
 };
