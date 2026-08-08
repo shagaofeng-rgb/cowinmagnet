@@ -313,11 +313,14 @@ function normalizeLegacyNewsImages(post = {}) {
 }
 
 export function formatDisplayDate(date) {
+  const value = String(date || "").includes("T") ? String(date) : `${date}T00:00:00Z`;
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return "Date unavailable";
   return new Intl.DateTimeFormat("en", {
     month: "short",
     day: "2-digit",
     year: "numeric"
-  }).format(new Date(`${date}T00:00:00Z`));
+  }).format(parsed);
 }
 
 export function formatViews(views) {
