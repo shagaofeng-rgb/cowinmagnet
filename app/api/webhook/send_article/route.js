@@ -62,7 +62,7 @@ function isSafeImageUrl(value) {
 }
 
 function externalImagePath(imageUrl) {
-  return imageUrl ? `/api/news-image?src=${encodeURIComponent(imageUrl)}&w=980` : "";
+  return imageUrl || "";
 }
 
 function excerptFromContent(content) {

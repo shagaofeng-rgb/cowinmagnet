@@ -3,13 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prebuild": "node scripts/build-sitemap-static-dates.mjs && node scripts/build-generated-news-index.mjs",
+    "prebuild": "node scripts/build-sitemap-static-dates.mjs",
     "dev": "next dev",
-    "news:daily": "node scripts/run-news-system.mjs job",
-    "news:fetch": "node scripts/run-news-system.mjs fetch",
-    "news:generate": "node scripts/run-news-system.mjs generate --mode=draft",
-    "news:job": "node scripts/run-news-system.mjs job",
-    "news:repair-images": "node scripts/repair-news-source-images.mjs --only-overrides",
     "monitor": "node scripts/monitor/run-monitor.mjs",
     "monitor:no-email": "node scripts/monitor/run-monitor.mjs --no-email",
     "visual:qa": "node scripts/visual-qa-capture.mjs",
@@ -26,7 +21,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "google-news-url-decoder": "1.2.2",
     "lucide-react": "0.468.0",
     "next": "16.2.10",
     "nodemailer": "^9.0.3",

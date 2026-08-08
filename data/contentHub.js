@@ -1,5 +1,5 @@
 import { getCmsItems } from "../lib/cmsStore.js";
-import { generatedNewsPosts } from "./generatedNews.js";
+import { generatedNewsPosts as legacyNewsPosts } from "./generatedNews.js";
 import { isIndexableNews } from "../lib/newsContentPolicy.js";
 
 export const blogPosts = [
@@ -283,21 +283,23 @@ function isRemoteImage(value = "") {
   return /^https?:\/\//i.test(String(value));
 }
 
-function processedNewsImageUrl(imageUrl = "", sourcePageUrl = "", width = 980) {
-  if (!isRemoteImage(imageUrl)) return "";
-  const query = new URLSearchParams({ src: imageUrl, ref: sourcePageUrl || "", w: String(width) });
-  return `/api/news-image?${query.toString()}`;
+function directLegacyImageUrl(value = "") {
+  if (!String(value).startsWith("/api/news-image?")) return value;
+  try {
+    return new URL(value, "https://www.cowinmagnet.com").searchParams.get("src") || "";
+  } catch {
+    return "";
+  }
 }
 
-function stableAutomationImages(post = {}) {
-  const sourcePageUrl = post.canonicalSourceUrl || post.automation?.originalUrl || post.sourceImage?.sourcePageUrl || "";
+function normalizeLegacyNewsImages(post = {}) {
+  const sourcePageUrl = post.canonicalSourceUrl || post.sourceImage?.sourcePageUrl || "";
   const sourceImageUrl =
     post.sourceImage?.originalImageUrl ||
     post.sourceImage?.imageUrl ||
     (isRemoteImage(post.coverImage) ? post.coverImage : "");
-  const coverImage = processedNewsImageUrl(sourceImageUrl, sourcePageUrl);
   return {
-    coverImage,
+    coverImage: sourceImageUrl || post.coverImage || "",
     coverAlt: post.sourceImage?.imageAlt || post.coverAlt || post.title || "",
     imageCaption:
       post.sourceImage?.imageCaption ||
@@ -322,11 +324,11 @@ export function formatViews(views) {
   return new Intl.NumberFormat("en", { notation: views >= 10000 ? "compact" : "standard" }).format(views);
 }
 
-async function getGeneratedNewsPosts() {
-  return generatedNewsPosts
+async function getLegacyNewsPosts() {
+  return legacyNewsPosts
     .filter((post) => post.status === "published" && post.quality?.passed !== false)
     .map((post) => {
-      const stableImages = stableAutomationImages(post);
+      const stableImages = normalizeLegacyNewsImages(post);
       return {
         ...post,
         ...stableImages,
@@ -342,18 +344,18 @@ async function getGeneratedNewsPosts() {
 }
 
 export async function getAllNewsPosts() {
-  const [uploadedNews, generatedNews] = await Promise.all([getCmsItems("news"), getGeneratedNewsPosts()]);
+  const [uploadedNews, legacyNews] = await Promise.all([getCmsItems("news"), getLegacyNewsPosts()]);
   const merged = [
     ...uploadedNews.map((post) => ({
       ...post,
-      ...(post.automation ? stableAutomationImages(post) : {}),
+      coverImage: directLegacyImageUrl(post.coverImage || ""),
       href: post.href || `/news/${post.slug}`,
       views: Number(post.views || 0),
       categoryTitle: post.categoryTitle || post.category,
       seoTitle: post.seoTitle || post.title,
       seoDescription: post.seoDescription || post.excerpt
     })),
-    ...generatedNews,
+    ...legacyNews,
     ...newsPosts
   ];
   const bySlug = new Map();
@@ -374,10 +376,10 @@ export async function getNewsPost(slug) {
 }
 
 export async function getNewsCategories() {
-  const [uploadedNews, generatedNews] = await Promise.all([getCmsItems("news"), getGeneratedNewsPosts()]);
+  const [uploadedNews, legacyNews] = await Promise.all([getCmsItems("news"), getLegacyNewsPosts()]);
   const map = new Map(newsCategories.map((category) => [category.slug, category]));
 
-  [...uploadedNews, ...generatedNews].forEach((post) => {
+  [...uploadedNews, ...legacyNews].forEach((post) => {
     if (!post.category || map.has(post.category)) return;
     map.set(post.category, {
       slug: post.category,

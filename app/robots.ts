@@ -10,8 +10,6 @@ const privatePaths = [
   "/api/cron/",
   "/api/analytics",
   "/api/analytics/",
-  "/api/news-opportunities",
-  "/api/news-opportunities/"
 ];
 
 export default function robots(): MetadataRoute.Robots {

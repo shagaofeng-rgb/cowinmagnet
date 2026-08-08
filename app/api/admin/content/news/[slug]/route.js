@@ -2,8 +2,6 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { requireAdminApi } from "@/lib/adminApi";
 import { getCmsItems, saveCmsItem, updateCmsItemStatus } from "@/lib/cmsStore";
-import { buildImagePlan } from "@/lib/news-system/image-handler.mjs";
-import { resolveOriginalArticleUrl } from "@/lib/news-system/fetcher.mjs";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -36,7 +34,7 @@ export async function POST(request, { params }) {
     redirect(`/admin/news?status=${action}`);
   }
 
-  if (["remove-image", "use-remote-image", "save-local-image", "refetch-image"].includes(action)) {
+  if (["remove-image", "use-remote-image", "save-local-image"].includes(action)) {
     const posts = await getCmsItems("news", { includeInactive: true });
     const post = posts.find((item) => item.slug === slug);
     if (!post) redirect("/admin/news?error=news-not-found");
@@ -85,29 +83,6 @@ export async function POST(request, { params }) {
           imageFailureReason: "local-object-storage-not-configured",
           updatedAt: new Date().toISOString()
         }
-      });
-    }
-
-    if (action === "refetch-image") {
-      const sourceItem = await resolveOriginalArticleUrl({
-        title: post.originalReference?.title || post.automation?.originalTitle || post.title,
-        url: post.canonicalSourceUrl || post.automation?.originalUrl,
-        sourceName: post.source || post.sources?.[0]?.name || "Original source"
-      });
-      const plan = await buildImagePlan(
-        sourceItem,
-        { category: "", recommendedProducts: [] },
-        post
-      );
-      await saveCmsItem({
-        ...post,
-        canonicalSourceUrl: sourceItem.url || post.canonicalSourceUrl,
-        coverImage: plan.coverImage?.imageUrl || "",
-        coverAlt: plan.coverImage?.imageAlt || "",
-        imageCaption: plan.coverImage?.imageCaption || "",
-        imageSourceName: plan.coverImage?.sourceName || plan.sourceImage?.sourceName || "",
-        imageSourceUrl: plan.sourceImage?.sourcePageUrl || "",
-        sourceImage: plan.sourceImage || post.sourceImage || null
       });
     }
 

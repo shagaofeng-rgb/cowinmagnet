@@ -8,13 +8,15 @@ type BlogImageProps = {
   priority?: boolean;
 };
 
-// The editorial image proxy needs query parameters, which Next's local image
-// optimizer intentionally restricts. Its route validates source URLs itself.
 export function BlogImage({ src, width, height, alt, priority = false }: BlogImageProps) {
-  if (src.startsWith("/api/news-image?")) {
+  const directSource = src.startsWith("/api/news-image?")
+    ? new URL(src, "https://www.cowinmagnet.com").searchParams.get("src") || ""
+    : src;
+
+  if (/^https?:\/\//i.test(directSource)) {
     return (
       <img
-        src={src}
+        src={directSource}
         width={width}
         height={height}
         alt={alt}
@@ -25,5 +27,5 @@ export function BlogImage({ src, width, height, alt, priority = false }: BlogIma
     );
   }
 
-  return <Image src={src} width={width} height={height} alt={alt} priority={priority} />;
+  return <Image src={directSource} width={width} height={height} alt={alt} priority={priority} />;
 }

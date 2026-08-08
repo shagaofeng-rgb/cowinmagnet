@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { newsCategories } from "@/data/contentHub";
 import { cmsStorageMode, getCmsItems } from "@/lib/cmsStore";
-import { newsSystemConfig } from "@/config/news-system.config.mjs";
-import { listRecentJobRuns } from "@/lib/news-system/storage.mjs";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -98,43 +96,6 @@ function ImageStatus({ post }) {
   );
 }
 
-function formatRunReason(run) {
-  if (run.errorMessage) return run.errorMessage;
-  if (run.skipReason) return run.skipReason;
-  const duplicateSummary = run.duplicateSummary || {};
-  const reasons = Object.entries(duplicateSummary)
-    .filter(([, count]) => Number(count || 0) > 0)
-    .map(([reason, count]) => `${reason}: ${count}`);
-  if (reasons.length) return reasons.slice(0, 3).join("; ");
-  if (Number(run.publishedCount || 0) > 0) return "published";
-  if (run.status === "skipped_due_to_lock") return "job lock active";
-  if (run.status === "success") return "no publishable item selected";
-  return "-";
-}
-
-function formatSelectedSources(run) {
-  const selected = run.diversityLog?.selected_source || [];
-  if (!selected.length) return "-";
-  return selected
-    .slice(0, 3)
-    .map((source) => `${source.name || source.domain || "source"} (${source.group || "group"})`)
-    .join("; ");
-}
-
-function formatRejectedSummary(run) {
-  const rejected = run.diversityLog?.rejected_sources || [];
-  if (!rejected.length) return "";
-  const counts = rejected.reduce((acc, item) => {
-    const reason = item.reason || "rejected";
-    acc[reason] = (acc[reason] || 0) + 1;
-    return acc;
-  }, {});
-  return Object.entries(counts)
-    .slice(0, 3)
-    .map(([reason, count]) => `${reason}: ${count}`)
-    .join("; ");
-}
-
 function formatDate(value) {
   if (!value) return "-";
   return new Date(`${String(value).slice(0, 10)}T00:00:00Z`).toLocaleDateString("zh-CN", {
@@ -147,7 +108,6 @@ function formatDate(value) {
 export default async function AdminNewsPage({ searchParams }) {
   const params = await searchParams;
   const uploadedNews = await getCmsItems("news", { includeInactive: true });
-  const recentJobRuns = await listRecentJobRuns(10);
   const query = String(params?.q || "").trim().toLowerCase();
   const status = String(params?.status || "all");
   const category = String(params?.category || "all");
@@ -400,10 +360,6 @@ export default async function AdminNewsPage({ searchParams }) {
                     <td>
                       <div className="admin-row-actions">
                         <form action={`/api/admin/content/news/${post.slug}`} method="post">
-                          <input type="hidden" name="action" value="refetch-image" />
-                          <button type="submit">Refetch image</button>
-                        </form>
-                        <form action={`/api/admin/content/news/${post.slug}`} method="post">
                           <input type="hidden" name="action" value="use-remote-image" />
                           <button type="submit">Use remote</button>
                         </form>
@@ -427,71 +383,6 @@ export default async function AdminNewsPage({ searchParams }) {
         )}
       </section>
 
-      <section className="admin-panel">
-        <div className="admin-panel-headline">
-          <div>
-            <p className="eyebrow">News Automation</p>
-            <h2>Cron job status</h2>
-            <p className="admin-muted">
-              Schedule: best-effort daily automation. Mode: {newsSystemConfig.publishMode}. Per run limit: {newsSystemConfig.maxPostsPerRun}. Daily target/limit: {newsSystemConfig.maxPostsPerDay}.
-            </p>
-          </div>
-          <form action="/api/admin/news-automation/run" method="post">
-            <button type="submit">Run once</button>
-          </form>
-        </div>
-
-        {recentJobRuns.length ? (
-          <div className="admin-table-wrap">
-            <table className="admin-table">
-              <thead>
-                <tr>
-                  <th>Started</th>
-                  <th>Status</th>
-                  <th>Sources</th>
-                  <th>Scored</th>
-                  <th>Selected</th>
-                  <th>Created</th>
-                  <th>Published</th>
-                  <th>Reason</th>
-                  <th>Diversity</th>
-                  <th>Request ID</th>
-                </tr>
-              </thead>
-              <tbody>
-                {recentJobRuns.map((run) => (
-                  <tr key={run.requestId || run.startedAt}>
-                    <td>{run.startedAt ? new Date(run.startedAt).toLocaleString("zh-CN") : "-"}</td>
-                    <td>{run.status || "success"}</td>
-                    <td>{run.sourceCount ?? 0}</td>
-                    <td>{run.scoredCount ?? 0}</td>
-                    <td>{run.selectedCount ?? 0}</td>
-                    <td>{run.savedArticleCount ?? 0}</td>
-                    <td>{run.publishedCount ?? 0}</td>
-                    <td>
-                      <div className="admin-run-reason">{formatRunReason(run)}</div>
-                    </td>
-                    <td>
-                      <div className="admin-run-reason">
-                        <strong>Selected:</strong> {formatSelectedSources(run)}
-                        {formatRejectedSummary(run) ? (
-                          <>
-                            <br />
-                            <span>Rejected: {formatRejectedSummary(run)}</span>
-                          </>
-                        ) : null}
-                      </div>
-                    </td>
-                    <td>{run.requestId || "-"}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        ) : (
-          <div className="admin-empty">No news automation runs have been recorded yet.</div>
-        )}
-      </section>
     </div>
   );
 }
