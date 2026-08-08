@@ -20,7 +20,7 @@ const rows = posts.map((post) => {
     title: post.title || "",
     publishedAt: post.publishedAt || post.createdAt || "",
     source: post.sourcePublisher || post.source || post.sources?.[0]?.name || "",
-    publicationStatus: assessment.indexable ? "published-manual-news" : "excluded-from-indexing",
+    publicationStatus: assessment.indexable ? "published-news" : "excluded-from-indexing",
     duplicateGroup: post.duplicateFingerprint || "",
     indexStatus: assessment.indexable ? "index,follow" : "noindex,follow",
     action: assessment.indexable ? "retain" : "keep-draft-or-archived",

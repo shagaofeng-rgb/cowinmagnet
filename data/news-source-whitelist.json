@@ -1,0 +1,10 @@
+[
+  {"domain":"wastetodaymagazine.com","name":"Waste Today","priority":2,"rssUrl":"https://www.wastetodaymagazine.com/rss"},
+  {"domain":"recyclingtoday.com","name":"Recycling Today","priority":2,"rssUrl":"https://www.recyclingtoday.com/rss"},
+  {"domain":"internationalmining.com","name":"International Mining","priority":2,"rssUrl":"https://im-mining.com/feed/"},
+  {"domain":"globalcement.com","name":"Global Cement","priority":2,"rssUrl":"https://www.globalcement.com/news/itemlist?format=feed&type=rss"},
+  {"domain":"aggregatesbusiness.com","name":"Aggregates Business","priority":2,"rssUrl":"https://www.aggregatesbusiness.com/rss.xml"},
+  {"domain":"foodengineeringmag.com","name":"Food Engineering","priority":2,"rssUrl":"https://www.foodengineeringmag.com/rss"},
+  {"domain":"gov.uk","name":"UK Government","priority":1,"rssUrl":"https://www.gov.uk/search/news-and-communications.atom"},
+  {"domain":"energy.gov","name":"US Department of Energy","priority":1,"rssUrl":"https://www.energy.gov/rss.xml"}
+]

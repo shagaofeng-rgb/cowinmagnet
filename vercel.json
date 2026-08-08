@@ -4,6 +4,14 @@
   "outputDirectory": ".next",
   "crons": [
     {
+      "path": "/api/automation/news-discovery",
+      "schedule": "5 1 * * *"
+    },
+    {
+      "path": "/api/automation/news-publish",
+      "schedule": "15 2 */2 * *"
+    },
+    {
       "path": "/api/cron/analytics-sync",
       "schedule": "*/30 * * * *"
     },

@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "brand": "COWIN MAGNET",
+  "families": [
+    {
+      "id": "suspended-iron-removal",
+      "productSlugs": ["rcyd-type-permanent-magnet-self-dumping-iron-remover", "rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover"],
+      "keywords": ["permanent overband magnet", "self-cleaning permanent magnetic separator", "suspended electromagnetic separator", "tramp iron remover"],
+      "industries": ["recycling", "mining", "cement-aggregate", "coal", "biomass"],
+      "materials": ["bulk ore", "aggregate", "coal", "recycling feed", "wood waste"],
+      "processStages": ["before crusher", "conveyor transfer", "before shredder", "discharge point"],
+      "allowedClaims": ["removes ferromagnetic tramp material", "can protect downstream equipment", "self-cleaning configurations support continuous iron discharge"],
+      "forbiddenClaims": ["removes all metals", "guaranteed recovery rate", "certified for hazardous areas without verified documentation"],
+      "selectionFields": ["belt width", "belt speed", "burden depth", "suspension height", "largest tramp iron", "cleaning requirement"]
+    },
+    {
+      "id": "mineral-processing",
+      "productSlugs": ["wet-drum-magnetic-separator", "dry-drum-magnetic-separator", "belt-high-gradient-magnetic-separator"],
+      "keywords": ["wet drum magnetic separator", "dry magnetic separator", "high intensity magnetic separator", "tailings recovery"],
+      "industries": ["mining", "coal"],
+      "materials": ["magnetite-bearing ore", "mineral concentrates", "tailings", "dense media"],
+      "processStages": ["pre-concentration", "wet separation", "tailings recovery", "dense media recovery"],
+      "allowedClaims": ["separates according to magnetic response", "selection depends on mineral, size and feed condition"],
+      "forbiddenClaims": ["guaranteed grade improvement", "unverified recovery percentage"],
+      "selectionFields": ["mineral", "particle size", "feed condition", "slurry concentration", "throughput", "separation target"]
+    },
+    {
+      "id": "recycling-sorting",
+      "productSlugs": ["eccentric-eddy-current-separator", "magnetic-head-pulley", "drum-magnet"],
+      "keywords": ["eddy current separator", "non-ferrous metal separator", "magnetic head pulley", "magnetic drum"],
+      "industries": ["recycling", "waste", "e-waste"],
+      "materials": ["C&D waste", "RDF", "mixed recyclables", "aluminum-bearing feed"],
+      "processStages": ["after ferrous pre-separation", "non-ferrous sorting", "conveyor discharge"],
+      "allowedClaims": ["eddy current separation is used for non-ferrous recovery", "ferrous pre-separation should be considered upstream"],
+      "forbiddenClaims": ["magnetic separators recover aluminum", "all-metal removal"],
+      "selectionFields": ["feed size", "belt width", "belt speed", "feed preparation", "target fraction", "throughput"]
+    },
+    {
+      "id": "magnetic-filters",
+      "productSlugs": ["drawer-magnet", "magnetic-grid", "magnetic-rod", "rotary-pipe-magnet", "rcyz-type-pipeline-magnetic-filter"],
+      "keywords": ["drawer magnet", "magnetic grid", "magnetic bar", "magnetic liquid filter", "rotary grate magnet"],
+      "industries": ["food-processing", "plastics", "chemical", "ceramics"],
+      "materials": ["free-flowing powder", "granules", "liquid", "slurry"],
+      "processStages": ["hopper", "gravity chute", "pipeline", "before packaging"],
+      "allowedClaims": ["captures ferromagnetic contamination", "selection depends on material flow and cleaning access"],
+      "forbiddenClaims": ["food grade without verified materials", "detects non-ferrous metals"],
+      "selectionFields": ["material", "particle size", "flow rate", "temperature", "viscosity", "connection size", "cleaning frequency"]
+    },
+    {
+      "id": "metal-detection",
+      "productSlugs": ["gjt-type-window-metal-detector", "dls-type-window-metal-detector", "gls-type-integral-channel-metal-separator"],
+      "keywords": ["conveyor metal detector", "tunnel metal detector", "industrial metal detector"],
+      "industries": ["recycling", "food-processing", "bulk-material-handling"],
+      "materials": ["bulk material", "conveyor feed", "granules"],
+      "processStages": ["before crusher", "before packaging", "conveyor inspection"],
+      "allowedClaims": ["detects configured metal contaminants", "can complement magnetic separation"],
+      "forbiddenClaims": ["automatically removes metal without a reject system", "replaces all magnetic separation"],
+      "selectionFields": ["aperture", "material effect", "belt speed", "detection target", "alarm or reject method", "power"]
+    }
+  ]
+}
