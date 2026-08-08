@@ -1,11 +1,15 @@
 import type { ReactNode } from "react";
+import { sanitizeArticleContent } from "@/lib/articleContent";
 
 type MarkdownContentProps = {
   content: string;
+  className?: string;
 };
 
 function renderInline(text: string): ReactNode[] {
-  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  const parts = text
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    .split(/(\*\*[^*]+\*\*)/g);
 
   return parts.map((part, index) => {
     if (part.startsWith("**") && part.endsWith("**")) {
@@ -46,11 +50,12 @@ function renderTable(lines: string[], key: string) {
   );
 }
 
-export function MarkdownContent({ content }: MarkdownContentProps) {
+export function MarkdownContent({ content, className = "" }: MarkdownContentProps) {
   const blocks: ReactNode[] = [];
-  const lines = content.split("\n");
+  const lines = sanitizeArticleContent(content).split("\n");
   let paragraph: string[] = [];
   let list: string[] = [];
+  let orderedList: string[] = [];
   let table: string[] = [];
 
   const flushParagraph = () => {
@@ -72,6 +77,17 @@ export function MarkdownContent({ content }: MarkdownContentProps) {
     }
   };
 
+  const flushOrderedList = () => {
+    if (orderedList.length) {
+      blocks.push(
+        <ol key={`ol-${blocks.length}`}>
+          {orderedList.map((item, index) => <li key={`${item}-${index}`}>{renderInline(item)}</li>)}
+        </ol>
+      );
+      orderedList = [];
+    }
+  };
+
   const flushTable = () => {
     if (table.length) {
       blocks.push(renderTable(table, `table-${blocks.length}`));
@@ -82,6 +98,7 @@ export function MarkdownContent({ content }: MarkdownContentProps) {
   const flushAll = () => {
     flushParagraph();
     flushList();
+    flushOrderedList();
     flushTable();
   };
 
@@ -102,8 +119,18 @@ export function MarkdownContent({ content }: MarkdownContentProps) {
 
     if (line.startsWith("- ")) {
       flushParagraph();
+      flushOrderedList();
       flushTable();
       list.push(line.slice(2));
+      return;
+    }
+
+    const orderedMatch = line.match(/^\d+[.)]\s+(.+)/);
+    if (orderedMatch) {
+      flushParagraph();
+      flushList();
+      flushTable();
+      orderedList.push(orderedMatch[1]);
       return;
     }
 
@@ -120,11 +147,12 @@ export function MarkdownContent({ content }: MarkdownContentProps) {
     }
 
     flushList();
+    flushOrderedList();
     flushTable();
     paragraph.push(line);
   });
 
   flushAll();
 
-  return <div className="markdown-content">{blocks}</div>;
+  return <div className={`markdown-content ${className}`.trim()}>{blocks}</div>;
 }

@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, CalendarDays, ExternalLink } from "lucide-react"
 import { DateBadge } from "@/components/DateBadge";
 import { JsonLd } from "@/components/JsonLd";
 import { RelatedInternalLinks } from "@/components/RelatedInternalLinks";
+import { MarkdownContent } from "@/components/MarkdownContent";
 import { formatDisplayDate, getNewsCategories, getNewsPost, getNewsPosts, newsPosts } from "@/data/contentHub";
 import { site } from "@/data/site";
 import { isLocale, locales, localizedPageAlternates, localizeHref, type Locale } from "@/lib/i18n";
@@ -188,7 +189,7 @@ export default async function LocalizedNewsDetailPage({ params }: PageProps) {
             return (
               <section className="news-content-section" key={section.heading}>
                 <h2>{section.heading}</h2>
-                <p>{section.body}</p>
+                <MarkdownContent content={section.body} className="news-article-content" />
                 {sectionImages.map((image) => (
                   <figure className="news-inline-image" key={`${section.heading}-${image.imageUrl || image.displayOrder}`}>
                     {image.imageUrl ? (

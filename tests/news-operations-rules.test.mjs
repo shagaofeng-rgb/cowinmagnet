@@ -38,3 +38,15 @@ test("quality gate rejects a diagram plan without a local media path", () => {
   assert.equal(result.passed, false);
   assert.ok(result.errors.includes("requires-local-licensed-industry-media-or-self-made-diagram"));
 });
+
+test("quality gate rejects code fences and raw markup", () => {
+  const words = Array.from({ length: 1210 }, () => "engineering").join(" ");
+  const article = {
+    title: "C&D recycling conveyor protection", metaTitle: "C&D Conveyor Protection | COWIN MAGNET", metaDescription: "Selection notes for a self-cleaning magnet before a recycling crusher, with source-based process context and an inquiry checklist.", slug: "cd-recycling-conveyor-protection-markup",
+    primaryProductId: "rcyd-type-permanent-magnet-self-dumping-iron-remover", productIds: ["rcyd-type-permanent-magnet-self-dumping-iron-remover"], articleMarkdown: `${words}\n\n\`\`\`html\n<script>alert('bad')</script>\n\`\`\``,
+    sourceClaims: [{ sourceUrl: "https://source-one.example/article" }, { sourceUrl: "https://source-two.example/article" }], mediaPlan: [{ kind: "product-image", url: "/assets/products/rcyd.jpg" }, { kind: "self-made-process-diagram", url: "/images/news/process.svg" }]
+  };
+  const result = validateNewsArticle(article, { catalog });
+  assert.equal(result.passed, false);
+  assert.ok(result.errors.includes("contains-code-or-raw-markup"));
+});

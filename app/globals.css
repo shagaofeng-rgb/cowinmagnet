@@ -3949,6 +3949,33 @@ textarea:focus {
   object-fit: contain;
 }
 
+.news-detail-hero .blog-hero-copy,
+.news-detail-hero .blog-hero-image,
+.news-article,
+.news-content-section,
+.news-source-box,
+.news-inline-image {
+  min-width: 0;
+}
+
+.news-detail-hero .blog-hero-image {
+  display: grid;
+  align-content: center;
+}
+
+.news-detail-hero .blog-hero-image .news-image-caption {
+  padding: 0 14px 12px;
+}
+
+.news-article :where(h2, h3, p, li, a, figcaption, span) {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.news-article :where(img, video, iframe) {
+  max-width: 100%;
+}
+
 .news-content-section + .news-content-section {
   margin-top: 34px;
 }
@@ -3964,6 +3991,28 @@ textarea:focus {
 .news-source-box li {
   color: #475569;
   font-size: 17px;
+}
+
+.news-article-content {
+  max-width: 72ch;
+}
+
+.news-article-content p {
+  margin-bottom: 18px;
+  line-height: 1.75;
+}
+
+.news-article-content ul,
+.news-article-content ol {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 20px;
+  padding-left: 22px;
+}
+
+.news-article-content h2,
+.news-article-content h3 {
+  margin-top: 30px;
 }
 
 .news-source-box {
@@ -3985,6 +4034,7 @@ textarea:focus {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  max-width: 100%;
   color: var(--blue);
   font-weight: 760;
 }
@@ -4067,6 +4117,52 @@ textarea:focus {
   display: block;
   margin-top: 3px;
   color: #7c8a9b;
+}
+
+@media (max-width: 760px) {
+  .news-detail-hero .blog-hero-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .news-detail-hero .blog-hero-image img {
+    height: auto;
+    max-height: min(68vh, 440px);
+  }
+
+  .news-content-section + .news-content-section {
+    margin-top: 28px;
+  }
+
+  .news-content-section h2,
+  .news-source-box h2 {
+    font-size: clamp(22px, 6vw, 28px);
+    line-height: 1.25;
+  }
+
+  .news-content-section p,
+  .news-source-box p,
+  .news-source-box li {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .news-source-box,
+  .news-faq-item {
+    padding: 18px;
+  }
+
+  .news-related-products ul,
+  .article-prev-next {
+    grid-template-columns: 1fr;
+  }
+
+  .news-source-box a {
+    align-items: flex-start;
+  }
+
+  .news-inline-image {
+    margin: 18px 0 24px;
+  }
 }
 
 .news-pagination {
