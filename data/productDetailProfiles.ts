@@ -34,6 +34,12 @@ export type ProductDetailProfile = {
   contentStatus: "sample-ready" | "template-ready";
 };
 
+type ProductDisplayInput = Pick<Product, "slug"> & Partial<Pick<Product, "name" | "category">> & {
+  title?: string;
+  shortTitle?: string;
+  categoryTitle?: string;
+};
+
 const baseSelection = [
   { name: "selectionMaterial", label: "Material", placeholder: "Material, particle size and bulk density" },
   { name: "selectionCapacity", label: "Capacity / flow", placeholder: "t/h, m3/h or line throughput" },
@@ -372,11 +378,19 @@ const displayNames: Record<string, string> = {
   "gjt-type-window-metal-detector": "GJT Window Metal Detector"
 };
 
-function normalizedName(product: Product) {
-  return `${product.name} ${product.category}`.toLowerCase();
+function productName(product: ProductDisplayInput) {
+  return String(product.name || product.title || product.shortTitle || product.slug);
 }
 
-export function getProductFamily(product: Product): ProductFamily {
+function productCategory(product: ProductDisplayInput) {
+  return String(product.category || product.categoryTitle || "");
+}
+
+function normalizedName(product: ProductDisplayInput) {
+  return `${productName(product)} ${productCategory(product)}`.toLowerCase();
+}
+
+export function getProductFamily(product: ProductDisplayInput): ProductFamily {
   const text = normalizedName(product);
   if (/(metal detector|window metal|channel metal)/.test(text)) return "metal-detection";
   if (/(eddy current|stainless steel separation)/.test(text)) return "recycling-sorting";
@@ -387,12 +401,12 @@ export function getProductFamily(product: Product): ProductFamily {
   return "suspended";
 }
 
-export function getProductDetailProfile(product: Product): ProductDetailProfile {
+export function getProductDetailProfile(product: ProductDisplayInput): ProductDetailProfile {
   const family = getProductFamily(product);
   const base = familyProfiles[family];
   const override = sampleOverrides[product.slug] || {};
   const defaultOverview = [
-    `${product.name} is presented as a ${base.primaryKeyword} option for ${base.primaryIndustry}. Its final configuration should be based on the actual material, process position, operating conditions and the technical information available for the requested project.`,
+    `${productName(product)} is presented as a ${base.primaryKeyword} option for ${base.primaryIndustry}. Its final configuration should be based on the actual material, process position, operating conditions and the technical information available for the requested project.`,
     `COWIN MAGNET supports selection discussions, OEM/ODM configuration, sourcing coordination, inspection communication and export follow-up for industrial buyers. Product-specific values are confirmed from the selected configuration rather than assumed from a generic catalog description.`
   ];
 
@@ -404,8 +418,15 @@ export function getProductDetailProfile(product: Product): ProductDetailProfile 
   };
 }
 
-export function getProductDisplayName(product: Product) {
-  return displayNames[product.slug] || product.name;
+export function getProductDisplayName(product: ProductDisplayInput) {
+  return displayNames[product.slug] || productName(product);
+}
+
+// Public cards use the reviewed product-family profile instead of legacy import text.
+// The original source fields remain retained for audit and CMS remediation.
+export function getProductCardSummary(product: ProductDisplayInput) {
+  const profile = getProductDetailProfile(product);
+  return `${getProductDisplayName(product)} is a ${profile.primaryKeyword} option for ${profile.primaryIndustry}. Configuration is confirmed from material and site conditions.`;
 }
 
 function titleCase(value: string) {

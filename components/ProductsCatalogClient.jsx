@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import { withLocale } from "@/data/i18n";
+import { getProductCardSummary, getProductDisplayName } from "@/data/productDetailProfiles";
 
 const filters = {
   type: {
@@ -126,9 +127,9 @@ export default function ProductsCatalogClient({ categories, locale = "en", label
               <div className="catalog-product-copy">
                 <span>{product.categoryTitle}</span>
                 <h3>
-                  <Link href={withLocale(locale, `/products/${product.slug}`)}>{product.title}</Link>
+                  <Link href={withLocale(locale, `/products/${product.slug}`)}>{getProductDisplayName(product)}</Link>
                 </h3>
-                <p>{product.summary}</p>
+                <p>{getProductCardSummary(product)}</p>
                 <small>{product.application}</small>
                 <ul className="catalog-feature-list">
                   {(product.features || []).slice(0, 3).map((feature) => <li key={feature}>{feature}</li>)}

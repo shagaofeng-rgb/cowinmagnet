@@ -2,6 +2,7 @@ import Link from "next/link";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import { allProducts } from "@/data/productCatalog";
 import { withLocale } from "@/data/i18n";
+import { getProductCardSummary, getProductDisplayName } from "@/data/productDetailProfiles";
 
 const heroStats = [
   ["50+", "export markets and regions"],
@@ -235,8 +236,8 @@ export default function HomePage({ locale = "en" }) {
                 sizes="(max-width: 760px) 88vw, (max-width: 1180px) 30vw, 280px"
               />
               <span>{product.categoryTitle}</span>
-              <h3>{product.shortTitle}</h3>
-              <p>{product.summary}</p>
+              <h3>{getProductDisplayName(product)}</h3>
+              <p>{getProductCardSummary(product)}</p>
             </Link>
           ))}
         </div>
