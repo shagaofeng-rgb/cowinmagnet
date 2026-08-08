@@ -33,6 +33,11 @@ CREATE TABLE IF NOT EXISTS generated_articles (
   rollback_snapshot JSONB, created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(), updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 CREATE INDEX IF NOT EXISTS generated_articles_status_date_idx ON generated_articles (status, published_at DESC);
+
+-- Retain historic candidates while deactivating overly broad legacy feeds.
+UPDATE news_sources
+SET active = FALSE, allowed = FALSE, updated_at = NOW()
+WHERE domain IN ('gov.uk', 'energy.gov');
 CREATE TABLE IF NOT EXISTS article_sources (
   article_id TEXT NOT NULL REFERENCES generated_articles(id) ON DELETE CASCADE,
   candidate_id TEXT REFERENCES news_candidates(id) ON DELETE SET NULL, source_url TEXT NOT NULL,

@@ -20,9 +20,21 @@ test("quality gate accepts a valid original article envelope", () => {
   const article = {
     title: "C&D recycling conveyor protection", metaTitle: "C&D Conveyor Protection | COWIN MAGNET", metaDescription: "Selection notes for a self-cleaning magnet before a recycling crusher, with source-based process context and an inquiry checklist.", slug: "cd-recycling-conveyor-protection",
     primaryProductId: "rcyd-type-permanent-magnet-self-dumping-iron-remover", productIds: ["rcyd-type-permanent-magnet-self-dumping-iron-remover"], articleMarkdown: words,
-    sourceClaims: [{ sourceUrl: "https://source-one.example/article" }, { sourceUrl: "https://source-two.example/article" }], mediaPlan: [{ kind: "product-image", url: "/assets/products/rcyd.jpg" }, { kind: "self-made-process-diagram" }]
+    sourceClaims: [{ sourceUrl: "https://source-one.example/article" }, { sourceUrl: "https://source-two.example/article" }], mediaPlan: [{ kind: "product-image", url: "/assets/products/rcyd.jpg" }, { kind: "self-made-process-diagram", url: "/images/news/process.svg" }]
   };
   const result = validateNewsArticle(article, { catalog });
   assert.equal(result.passed, true);
   assert.equal(result.contentFingerprint, newsFingerprint(`${article.title}\n${words}`));
+});
+
+test("quality gate rejects a diagram plan without a local media path", () => {
+  const words = Array.from({ length: 1210 }, () => "engineering").join(" ");
+  const article = {
+    title: "C&D recycling conveyor protection", metaTitle: "C&D Conveyor Protection | COWIN MAGNET", metaDescription: "Selection notes for a self-cleaning magnet before a recycling crusher, with source-based process context and an inquiry checklist.", slug: "cd-recycling-conveyor-protection-no-diagram",
+    primaryProductId: "rcyd-type-permanent-magnet-self-dumping-iron-remover", productIds: ["rcyd-type-permanent-magnet-self-dumping-iron-remover"], articleMarkdown: words,
+    sourceClaims: [{ sourceUrl: "https://source-one.example/article" }, { sourceUrl: "https://source-two.example/article" }], mediaPlan: [{ kind: "product-image", url: "/assets/products/rcyd.jpg" }, { kind: "self-made-process-diagram" }]
+  };
+  const result = validateNewsArticle(article, { catalog });
+  assert.equal(result.passed, false);
+  assert.ok(result.errors.includes("requires-local-licensed-industry-media-or-self-made-diagram"));
 });
