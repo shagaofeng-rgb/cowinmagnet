@@ -6,22 +6,32 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ArrowRight, Factory, Mail, Menu, MessageCircle, Search, Sparkles, X } from "lucide-react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { applications } from "@/data/applications";
-import { productCategories, products } from "@/data/products";
 import { site } from "@/data/site";
 import { categoryAnchor } from "@/lib/anchors";
 import { getDictionary, getDirection, getLocaleFromPath, localizeHref } from "@/lib/i18n";
 
-const popularProductSlugs = [
-  "suspended-permanent-magnetic-separator",
-  "suspended-electromagnetic-conveyor-belt-separator",
-  "round-electromagnetic-lifting-magnet",
-  "permanent-overband-magnetic-separator"
+// Keep the interactive header bundle independent from the full product and industry datasets.
+const productCategories = [
+  "Suspended & Self-Unloading Iron Removers",
+  "Magnetic Separation Equipment",
+  "Metal Detection & Recycling Sorting",
+  "Magnetic Components & Filters",
+  "Industry Application Equipment"
 ];
 
-const featuredProducts = popularProductSlugs
-  .map((slug) => products.find((product) => product.slug === slug))
-  .filter((product): product is (typeof products)[number] => Boolean(product));
+const featuredProducts = [
+  { slug: "suspended-permanent-magnetic-separator", name: "Suspended Permanent Magnetic Separator" },
+  { slug: "suspended-electromagnetic-conveyor-belt-separator", name: "Suspended Electromagnetic Conveyor Belt Separator" },
+  { slug: "round-electromagnetic-lifting-magnet", name: "Round Electromagnetic Lifting Magnet" },
+  { slug: "permanent-overband-magnetic-separator", name: "Permanent Overband Magnetic Separator" }
+];
+
+const industryMenuItems = [
+  { slug: "recycling", name: "Recycling Industry", summary: "Recover ferrous material and protect sorting equipment." },
+  { slug: "mining", name: "Mining Industry", summary: "Protect crushers and support magnetic mineral recovery." },
+  { slug: "cement-aggregate", name: "Cement & Aggregates", summary: "Remove tramp iron from conveyors and process lines." },
+  { slug: "food", name: "Food & Grain Processing", summary: "Control ferrous contamination in dry and flowing materials." }
+];
 
 export function Header() {
   const pathname = usePathname();
@@ -161,10 +171,10 @@ export function Header() {
                   <p>Choose your industry to review problems, recommended equipment and application scenarios.</p>
                 </div>
                 <div className="mega-section mega-card-grid">
-                  {applications.map((application) => (
-                    <Link key={application.industrySlug} href={localizeHref(`/industries/${application.industrySlug}`, locale)} onClick={() => setActiveMega(null)}>
-                      <strong>{application.name}</strong>
-                      <span>{application.summary}</span>
+                  {industryMenuItems.map((industry) => (
+                    <Link key={industry.slug} href={localizeHref(`/industries/${industry.slug}`, locale)} onClick={() => setActiveMega(null)}>
+                      <strong>{industry.name}</strong>
+                      <span>{industry.summary}</span>
                     </Link>
                   ))}
                 </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
@@ -50,7 +51,7 @@ export function Footer() {
       <div className="footer-grid">
         <div className="footer-brand">
           <Link href={localizeHref("/", locale)} className="footer-brand-mark" aria-label="COWIN MAGNET home">
-            <img src="/images/cowin-logo.png" width={82} height={82} alt="COWIN MAGNET logo" />
+            <Image src="/images/cowin-logo.png" width={82} height={82} alt="COWIN MAGNET logo" />
             <span>COWIN MAGNET</span>
           </Link>
           <p>{site.tagline}</p>
@@ -107,11 +108,11 @@ export function Footer() {
           <h3>Connect</h3>
           <div className="footer-qr-grid">
             <figure>
-              <img src={whatsappQrUrl} width={168} height={168} alt="WhatsApp QR code for COWIN MAGNET" loading="lazy" />
+              <Image src={whatsappQrUrl} width={168} height={168} alt="WhatsApp QR code for COWIN MAGNET" />
               <figcaption>WhatsApp</figcaption>
             </figure>
             <figure>
-              <img src={wechatQrUrl} width={168} height={168} alt="WeChat QR code for David at COWIN MAGNET" loading="lazy" />
+              <Image src={wechatQrUrl} width={168} height={168} alt="WeChat QR code for David at COWIN MAGNET" />
               <figcaption>WeChat</figcaption>
             </figure>
           </div>

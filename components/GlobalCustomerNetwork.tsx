@@ -1,5 +1,5 @@
+import Image from "next/image";
 import Link from "next/link";
-import type { CSSProperties } from "react";
 
 type Category = {
   title: string;
@@ -64,33 +64,25 @@ export function GlobalCustomerNetwork({ categories }: GlobalCustomerNetworkProps
           </div>
         </div>
 
-        <div className="network-map-panel" aria-label="Animated global customer distribution map">
+        <div className="network-map-panel" aria-label="Global customer distribution map">
           <div className="network-map-title">
             <span>China hub</span>
             <strong>Active partner locations</strong>
           </div>
           <div className="network-map-stage">
-            <img
+            <Image
               src="/images/global-customer-map-template.jpg"
               alt="World map template for Cowinmagnet customer distribution"
+              width={1000}
+              height={560}
+              sizes="(max-width: 1080px) 100vw, 48vw"
+              loading="lazy"
             />
             <svg className="network-route-layer" viewBox="0 0 1000 560" aria-hidden="true">
-              <defs>
-                <filter id="routeGlow" x="-40%" y="-40%" width="180%" height="180%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur" />
-                  <feMerge>
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
-              {routes.map((route, index) => (
-                <g key={route} style={{ "--route-delay": `${index * 0.42}s` } as CSSProperties}>
+              {routes.map((route) => (
+                <g key={route}>
                   <path className="network-route-base" d={route} />
                   <path className="network-route-flow" d={route} />
-                  <circle className="network-route-dot" r="4.8" filter="url(#routeGlow)">
-                    <animateMotion dur="4.8s" begin={`${index * 0.42}s`} repeatCount="indefinite" path={route} />
-                  </circle>
                 </g>
               ))}
             </svg>
