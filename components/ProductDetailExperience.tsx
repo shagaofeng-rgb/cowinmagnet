@@ -7,6 +7,7 @@ import { products, type Product } from "@/data/products";
 import { site } from "@/data/site";
 import { getProductDetailProfile, getProductDisplayName, getProductFamily, productSeoDescription, productSeoTitle } from "@/data/productDetailProfiles";
 import { cleanProductSpecs } from "@/lib/productDisplay";
+import { productCategoryPages } from "@/lib/productCategories";
 import { absoluteUrl, breadcrumbSchema, faqSchema } from "@/lib/seo";
 import { localizeHref, type Locale } from "@/lib/i18n";
 
@@ -71,6 +72,10 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
   // Only the primary product image is published until each extra image is editorially verified.
   const gallery = [product.image];
   const related = relatedProducts(product);
+  const productCategories = productCategoryPages.map((category) => ({
+    ...category,
+    count: products.filter((item) => item.category === category.category).length
+  }));
   const shareMessage = encodeURIComponent(`Hello COWIN MAGNET, I am reviewing ${displayName}. Product page: ${absoluteUrl(pagePath)}. Please help with configuration.`);
   const productSchema = {
     "@context": "https://schema.org",
@@ -144,7 +149,39 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
         </section>
 
-        <section className="product-detail-section product-overview-section">
+        <div className="product-detail-workspace">
+          <aside className="product-detail-catalog" aria-label="Product category navigation">
+            <div className="product-detail-catalog-head">
+              <span>Product catalogue</span>
+              <h2>Browse by equipment group</h2>
+            </div>
+            <nav>
+              <Link href={routeFor(locale, "/products")} className="product-detail-catalog-all">All products</Link>
+              {productCategories.map((category) => {
+                const active = category.category === product.category;
+                return (
+                  <Link
+                    href={routeFor(locale, `/products/${category.slug}`)}
+                    className={active ? "is-active" : ""}
+                    key={category.slug}
+                  >
+                    <span>{category.category}</span>
+                    <small>{category.count}</small>
+                  </Link>
+                );
+              })}
+            </nav>
+          </aside>
+
+          <div className="product-detail-content">
+            <nav className="product-section-nav" aria-label="Product section navigation">
+              <a href="#overview">Product overview</a>
+              <a href="#selection">Selection logic</a>
+              <a href="#applications">Applications</a>
+              <a href="#technical-data">Technical data</a>
+            </nav>
+
+        <section id="overview" className="product-detail-section product-overview-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Product role</span>
             <h2>Overview and how it fits the process</h2>
@@ -154,7 +191,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
         </section>
 
-        <section className="product-detail-section product-configuration-section">
+        <section id="selection" className="product-detail-section product-configuration-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Selection logic</span>
             <h2>Why this configuration needs site information</h2>
@@ -179,7 +216,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           <ProductProcess steps={profile.processSteps} />
         </section>
 
-        <section className="product-detail-section product-materials-section">
+        <section id="applications" className="product-detail-section product-materials-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Applications</span>
             <h2>Typical materials and industry contexts</h2>
@@ -198,7 +235,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
         </section>
 
-        <section className="product-detail-section product-specification-section">
+        <section id="technical-data" className="product-detail-section product-specification-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Technical information</span>
             <h2>Technical specifications and confirmation basis</h2>
@@ -273,6 +310,8 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
             <QuoteForm compact productContext={{ name: product.name, model: models.join(" / "), family: profile.family, selectionFields: profile.selectionFields }} />
           </div>
         </section>
+          </div>
+        </div>
       </main>
       <div className="product-mobile-actions" aria-label="Product contact actions">
         <Link href={quotePath}>Request a Quote</Link>
