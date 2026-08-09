@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { getClientTrackingIdentity } from "@/lib/clientTrackingIdentity";
 
 const initialValues = {
   name: "",
@@ -141,6 +142,7 @@ export default function InquiryForm() {
     setStatus({ type: "loading", message: "Sending your inquiry..." });
 
     try {
+      const trackingIdentity = getClientTrackingIdentity();
       const response = await fetch("/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -149,7 +151,9 @@ export default function InquiryForm() {
           sourcePath: window.location.pathname,
           sourceLanguage: document.documentElement.lang || window.location.pathname.split("/").filter(Boolean)[0] || "en",
           utm: window.location.search,
-          attribution: window.__cowinAttribution || null
+          attribution: window.__cowinAttribution || null,
+          visitorId: trackingIdentity.visitorId,
+          sessionId: trackingIdentity.sessionId
         })
       });
       const result = await response.json();

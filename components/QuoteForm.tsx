@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Send } from "lucide-react";
+import { getClientTrackingIdentity } from "@/lib/clientTrackingIdentity";
 
 type ProductInquiryContext = {
   name: string;
@@ -38,6 +39,9 @@ export function QuoteForm({ compact = false, defaultProduct = "", productContext
       payload.sourceLanguage = document.documentElement.lang || window.location.pathname.split("/").filter(Boolean)[0] || "en";
       payload.utm = window.location.search;
       payload.attribution = (window as typeof window & { __cowinAttribution?: unknown }).__cowinAttribution || null;
+      const trackingIdentity = getClientTrackingIdentity();
+      payload.visitorId = trackingIdentity.visitorId;
+      payload.sessionId = trackingIdentity.sessionId;
 
       const response = await fetch("/api/inquiry", {
         method: "POST",

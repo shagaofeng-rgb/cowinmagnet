@@ -7529,6 +7529,202 @@ body:not(:has(.admin-dashboard)):not(:has(.admin-login-page)) {
   border-radius: 6px;
 }
 
+.admin-inquiry-link {
+  color: #0a6cca;
+  text-decoration: none;
+}
+
+.admin-inquiry-link:hover,
+.admin-inquiry-link:focus-visible {
+  color: #075aa8;
+  text-decoration: underline;
+}
+
+.admin-detail-link,
+.admin-back-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  color: #0a6cca;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.admin-detail-link {
+  margin-top: 8px;
+}
+
+.admin-back-link:hover,
+.admin-back-link:focus-visible,
+.admin-detail-link:hover,
+.admin-detail-link:focus-visible {
+  color: #075aa8;
+  text-decoration: underline;
+}
+
+.admin-detail-head {
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.admin-detail-status {
+  display: grid;
+  justify-items: end;
+  gap: 10px;
+  min-width: 220px;
+}
+
+.admin-detail-status-form {
+  display: flex;
+  gap: 8px;
+}
+
+.admin-detail-status-form select,
+.admin-detail-status-form button {
+  min-height: 38px;
+  padding: 8px 10px;
+  font: inherit;
+  font-weight: 800;
+  border: 1px solid #c4d3e2;
+  border-radius: 6px;
+}
+
+.admin-detail-status-form select {
+  color: #213c57;
+  background: #ffffff;
+}
+
+.admin-detail-status-form button {
+  color: #ffffff;
+  cursor: pointer;
+  border-color: var(--preview-blue);
+  background: var(--preview-blue);
+}
+
+.admin-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.85fr);
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.admin-detail-section {
+  min-width: 0;
+}
+
+.admin-detail-field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.admin-detail-field-grid > div {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #d7e2ec;
+  border-radius: 6px;
+  background: #f8fbfd;
+}
+
+.admin-detail-field-grid span,
+.admin-detail-definition-list dt {
+  color: #5b7188;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.admin-detail-field-grid strong,
+.admin-detail-definition-list dd {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: #203952;
+}
+
+.admin-detail-subheading {
+  margin: 26px 0 12px;
+  color: #24415f;
+  font-size: 17px;
+}
+
+.admin-detail-message,
+.admin-history-empty {
+  padding: 14px;
+  color: #314d67;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  border: 1px solid #d7e2ec;
+  border-radius: 6px;
+  background: #f8fbfd;
+}
+
+.admin-detail-definition-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.admin-detail-definition-list > div {
+  display: grid;
+  gap: 4px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e0e8ef;
+}
+
+.admin-detail-definition-list > div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.admin-detail-definition-list dd {
+  margin: 0;
+}
+
+.admin-detail-history-section {
+  margin-top: 18px;
+}
+
+.admin-visitor-history {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-visitor-event {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid #d7e2ec;
+  border-radius: 6px;
+  background: #f8fbfd;
+}
+
+.admin-visitor-event-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  color: #24415f;
+}
+
+.admin-visitor-event-head time,
+.admin-visitor-event-meta {
+  color: #5b7188;
+  font-size: 13px;
+}
+
+.admin-visitor-event p {
+  margin: 0;
+  color: #203952;
+  overflow-wrap: anywhere;
+}
+
+.admin-visitor-event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 12px;
+}
+
 @media (max-width: 900px) {
   .admin-dashboard {
     grid-template-columns: 1fr;
@@ -7549,6 +7745,10 @@ body:not(:has(.admin-dashboard)):not(:has(.admin-login-page)) {
 
   .admin-page-head {
     display: grid;
+  }
+
+  .admin-detail-layout {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -7610,5 +7810,25 @@ body:not(:has(.admin-dashboard)):not(:has(.admin-login-page)) {
 
   .admin-panel {
     padding: 16px;
+  }
+
+  .admin-detail-head,
+  .admin-detail-status {
+    justify-items: stretch;
+  }
+
+  .admin-detail-status-form {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .admin-detail-field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-visitor-event-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
   }
 }

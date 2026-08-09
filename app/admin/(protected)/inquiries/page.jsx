@@ -140,7 +140,9 @@ export default async function AdminInquiriesPage({ searchParams }) {
                       <td>{formatDateTime(item.submittedAt)}</td>
                       <td><span className={`admin-customer-tag ${item.status === "new" ? "new" : "returning"}`}>{statusLabels[item.status] || item.status}</span></td>
                       <td>
-                        <strong>{text(item.name)}</strong>
+                        <a className="admin-inquiry-link" href={`/admin/inquiries/${encodeURIComponent(item.id)}`}>
+                          <strong>{text(item.name)}</strong>
+                        </a>
                         <br />
                         <span className="admin-muted">{text(item.company)}</span>
                       </td>
@@ -165,6 +167,7 @@ export default async function AdminInquiriesPage({ searchParams }) {
                           </select>
                           <button type="submit">保存</button>
                         </form>
+                        <a className="admin-detail-link" href={`/admin/inquiries/${encodeURIComponent(item.id)}`}>查看详情</a>
                       </td>
                     </tr>
                   ))}
@@ -180,4 +183,3 @@ export default async function AdminInquiriesPage({ searchParams }) {
     </div>
   );
 }
-

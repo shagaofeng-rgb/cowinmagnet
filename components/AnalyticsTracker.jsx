@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { attributionToUtm, buildAttributionState, classifyTraffic } from "@/lib/trafficAttribution";
+import { getClientTrackingIdentity } from "@/lib/clientTrackingIdentity";
 
 const firstTouchKey = "traffic_first_touch";
 const lastTouchKey = "traffic_last_touch";
@@ -24,24 +25,13 @@ function writeCookie(key, value, maxAgeDays = 90) {
 }
 
 function getVisitorId() {
-  const key = "cowin_visitor_id";
-  let value = window.localStorage.getItem(key);
-  if (!value) {
-    value = `v_${Date.now()}_${Math.random().toString(16).slice(2)}`;
-    window.localStorage.setItem(key, value);
-  }
+  const { visitorId: value } = getClientTrackingIdentity();
   document.cookie = `${visitorCookieKey}=${encodeURIComponent(value)}; Max-Age=${365 * 86400}; Path=/; SameSite=Lax${window.location.protocol === "https:" ? "; Secure" : ""}`;
   return value;
 }
 
 function getSessionId() {
-  const key = "cowin_session_id";
-  let value = window.sessionStorage.getItem(key);
-  if (!value) {
-    value = `s_${Date.now()}_${Math.random().toString(16).slice(2)}`;
-    window.sessionStorage.setItem(key, value);
-  }
-  return value;
+  return getClientTrackingIdentity().sessionId;
 }
 
 function getExternalReferrer() {

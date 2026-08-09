@@ -13,6 +13,7 @@ export async function POST(request, { params }) {
   const formData = await request.formData();
   const status = String(formData.get("status") || "new");
   await updateInquiryStatus(id, status);
-  redirect("/admin/inquiries?updated=1");
+  const detailPath = `/admin/inquiries/${encodeURIComponent(String(id))}`;
+  const returnTo = String(formData.get("returnTo") || "");
+  redirect(returnTo === detailPath ? `${detailPath}?updated=1` : "/admin/inquiries?updated=1");
 }
-
