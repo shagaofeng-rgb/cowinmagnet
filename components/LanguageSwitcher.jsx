@@ -35,7 +35,7 @@ export default function LanguageSwitcher({ locale = "en" }) {
   }
 
   function rememberLocale(nextLocale) {
-    document.cookie = `cowin_locale=${nextLocale}; path=/; max-age=2592000; samesite=lax`;
+    window.document.cookie = `cowin_locale=${nextLocale}; path=/; max-age=2592000; samesite=lax`;
     closeMenu();
   }
 

@@ -19,7 +19,7 @@ export default function TermsPage() {
       <h2>Product Information</h2>
       <p>
         Product pages and technical descriptions are for general selection reference. Final equipment configuration, dimensions, magnetic strength,
-        installation method, and quotation details must be confirmed according to the buyer's actual working conditions.
+        installation method, and quotation details must be confirmed according to the buyer&apos;s actual working conditions.
       </p>
       <h2>News and External Sources</h2>
       <p>

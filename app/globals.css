@@ -4739,8 +4739,7 @@ textarea:focus {
   transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
 }
 
-.language-switcher:hover .language-menu,
-.language-switcher:focus-within .language-menu {
+.language-switcher.is-open .language-menu {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);

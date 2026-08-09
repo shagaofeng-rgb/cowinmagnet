@@ -227,10 +227,16 @@ export async function POST(request) {
     );
   }
 
-  const savedInquiry = await saveInquirySubmission(payload).catch((error) => {
+  let savedInquiry;
+  try {
+    savedInquiry = await saveInquirySubmission(payload);
+  } catch (error) {
     console.error("Inquiry database write failed", error);
-    return null;
-  });
+    return Response.json(
+      { message: "We could not securely record your inquiry. Please try again in a moment." },
+      { status: 503 }
+    );
+  }
 
   const toEmail = process.env.INQUIRY_TO_EMAIL;
   const bccEmails = parseEmailList(process.env.INQUIRY_BCC_EMAILS);

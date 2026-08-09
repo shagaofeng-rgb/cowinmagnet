@@ -95,7 +95,7 @@ export default function AboutContent({ locale = "en" }) {
       <section className="about-service-section">
         <div className="section-heading">
           <p className="eyebrow">Our Service Value</p>
-          <h2>Magnetic separator sourcing, selection and export coordination from the buyer's perspective.</h2>
+          <h2>Magnetic separator sourcing, selection and export coordination from the buyer&apos;s perspective.</h2>
         </div>
         <div className="about-service-grid">
           {aboutContent.values.map(([title, text], index) => (

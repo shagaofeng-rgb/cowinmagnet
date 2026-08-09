@@ -25,7 +25,7 @@
     "minRead": "min de lectura"
   },
   "home": {
-    "seoTitle": "COWIN MAGNET | Proveedor de separadores magnéticos",
+    "seoTitle": "Proveedor de separadores magnéticos",
     "metaDescription": "COWIN MAGNET suministra separadores magnéticos suspendidos, autolimpiantes, poleas magnéticas, barras magnéticas, rejillas magnéticas y equipos personalizados de separación magnética.",
     "heroEyebrow": "Proveedor de equipos de separación magnética",
     "h1": "COWIN MAGNET",
@@ -70,7 +70,7 @@
     ]
   ],
   "products": {
-    "seoTitle": "Productos | Separadores magnéticos, torres de luz y compresores de aire",
+    "seoTitle": "Productos | Separadores magnéticos y componentes magnéticos",
     "metaDescription": "Explore equipos de separación magnética, productos electromagnéticos, barras magnéticas, torres solares móviles y compresores portátiles de COWIN MAGNET.",
     "eyebrow": "Productos",
     "h1": "Gama de productos industriales para separación magnética y soporte en obra",
@@ -106,7 +106,7 @@
     "quoteText": "Indique material, ancho de banda, capacidad y riesgo para equipos posteriores."
   },
   "about": {
-    "seoTitle": "Nosotros | COWIN MAGNET",
+    "seoTitle": "Nosotros",
     "metaDescription": "Conozca COWIN MAGNET, proveedor de servicio primero para equipos de separación magnética, selección, coordinación de suministro, comunicación OEM/ODM y seguimiento de entrega.",
     "eyebrow": "Sobre COWIN MAGNET",
     "h1": "Proveedor de equipos de separación magnética con servicio primero",
@@ -130,7 +130,7 @@
     ]
   },
   "contact": {
-    "seoTitle": "Contactar COWIN MAGNET",
+    "seoTitle": "Contactar",
     "metaDescription": "Contacte a COWIN MAGNET para selección de separadores magnéticos, consultas de producto, personalización OEM/ODM y cotizaciones B2B globales.",
     "eyebrow": "Contacto",
     "h1": "Envíe su requisito de separación magnética",
@@ -140,7 +140,7 @@
     "fastTip": "Para una selección más rápida, incluya ancho de banda, material, velocidad, altura de suspensión y nivel de contaminación férrica."
   },
   "requestQuote": {
-    "seoTitle": "Solicitar cotización | COWIN MAGNET",
+    "seoTitle": "Solicitar cotización",
     "metaDescription": "Solicite cotización personalizada para separadores magnéticos, imanes suspendidos, autolimpiantes, poleas, barras magnéticas y equipos industriales.",
     "eyebrow": "Cotización",
     "h1": "Obtenga una recomendación personalizada de separación magnética",
@@ -151,7 +151,7 @@
     "formText": "La información detallada del transportador y material evita recomendaciones genéricas."
   },
   "factory": {
-    "seoTitle": "Service Capability | COWIN MAGNET",
+    "seoTitle": "Capacidad de servicio",
     "metaDescription": "Review COWIN MAGNET service capability, product selection support, OEM/ODM communication, inspection follow-up, and delivery coordination.",
     "eyebrow": "Service Capability",
     "h1": "Service capability for magnetic separation equipment buyers",
@@ -159,7 +159,7 @@
     "heroAlt": "COWIN MAGNET service capability"
   },
   "projects": {
-    "seoTitle": "Proyectos y casos | COWIN MAGNET",
+    "seoTitle": "Proyectos y casos",
     "metaDescription": "Vea cómo se seleccionan separadores magnéticos para minería, reciclaje, cemento, áridos, carbón y aplicaciones de transportadores a granel.",
     "eyebrow": "Proyectos",
     "h1": "Casos de aplicación para separación magnética industrial",

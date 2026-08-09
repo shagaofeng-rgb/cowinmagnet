@@ -5,6 +5,7 @@ node_modules
 .backups
 .learnings
 .visual-check
+.logs
 .env*.local
 .DS_Store
 npm-debug.log*

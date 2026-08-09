@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useSearchParams } from "next/navigation";
 import AdminLiveStatus from "@/components/admin/AdminLiveStatus";
 
@@ -28,7 +29,7 @@ export default function AdminShell({ children, email }) {
     <div className="admin-dashboard">
       <aside className="admin-sidebar">
         <Link className="admin-logo" href="/admin">
-          <img src="/images/cowin-logo.png" alt="COWIN MAGNET" />
+          <Image src="/images/cowin-logo.png" alt="COWIN MAGNET" width={38} height={38} priority />
           <strong>COWIN 后台</strong>
         </Link>
         <nav>
