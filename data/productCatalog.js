@@ -1,6 +1,6 @@
 import { getCmsItems, getCmsProductCategories } from "@/lib/cmsStore";
 
-export const productCategories = [
+const rawProductCategories = [
   {
     "id": "suspended-self-unloading-iron-removers",
     "title": "Suspended & Self-Unloading Iron Removers",
@@ -44,10 +44,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/60.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -84,10 +80,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/49.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -131,10 +123,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/58.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -196,10 +184,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/57.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -236,10 +220,6 @@ export const productCategories = [
         "features": [],
         "specifications": [],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.chnmag.com/product/Belt-High-Gradient-Magnetic-Separator-26.html"
-        ],
-        "sourceSite": "chnmag.com",
         "allCategories": [
           "Mining Industry"
         ],
@@ -268,10 +248,6 @@ export const productCategories = [
         "features": [],
         "specifications": [],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.chnmag.com/product/Disc-Magnetic-Separator-for-Tailing-28.html"
-        ],
-        "sourceSite": "chnmag.com",
         "allCategories": [
           "Mining Industry"
         ],
@@ -313,10 +289,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.chnmag.com/product/Dry-Drum-Magnetic-Separator-24.html"
-        ],
-        "sourceSite": "chnmag.com",
         "allCategories": [
           "Mining Industry"
         ],
@@ -367,10 +339,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.chnmag.com/product/Wet-Drum-Magnetic-Separator-25.html"
-        ],
-        "sourceSite": "chnmag.com",
         "allCategories": [
           "Mining Industry"
         ],
@@ -435,11 +403,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/23.html",
-          "https://www.cnmagnetics.com/n-15/66.html"
-        ],
-        "sourceSite": "merged",
         "allCategories": [
           "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
           "Non metallic industry magnetic separation equipment"
@@ -494,11 +457,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/25.html",
-          "https://www.cnmagnetics.com/n-15/63.html"
-        ],
-        "sourceSite": "merged",
         "allCategories": [
           "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
           "Non metallic industry magnetic separation equipment"
@@ -536,10 +494,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-15/65.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries"
         ],
@@ -580,11 +534,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/18.html",
-          "https://www.cnmagnetics.com/n-15/68.html"
-        ],
-        "sourceSite": "merged",
         "allCategories": [
           "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
           "Non metallic industry magnetic separation equipment"
@@ -630,11 +579,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/22.html",
-          "https://www.cnmagnetics.com/n-15/72.html"
-        ],
-        "sourceSite": "merged",
         "allCategories": [
           "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
           "Non metallic industry magnetic separation equipment"
@@ -679,11 +623,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/24.html",
-          "https://www.cnmagnetics.com/n-15/73.html"
-        ],
-        "sourceSite": "merged",
         "allCategories": [
           "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
           "Non metallic industry magnetic separation equipment"
@@ -722,10 +661,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-15/74.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries"
         ],
@@ -776,10 +711,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-15/62.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries"
         ],
@@ -822,11 +753,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-12/11.html",
-          "https://www.cnmagnetics.com/n-14/54.html"
-        ],
-        "sourceSite": "merged",
         "allCategories": [
           "General iron removal equipment",
           "Metal industry magnetic separation equipment"
@@ -876,11 +802,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-12/12.html",
-          "https://www.cnmagnetics.com/n-14/56.html"
-        ],
-        "sourceSite": "merged",
         "allCategories": [
           "General iron removal equipment",
           "Metal industry magnetic separation equipment"
@@ -923,10 +844,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/41.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -968,10 +885,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/42.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -1008,10 +921,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/55.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -1053,10 +962,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/40.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -1094,10 +999,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/52.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -1136,10 +1037,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/39.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -1191,11 +1088,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-12/14.html",
-          "https://www.cnmagnetics.com/n-14/51.html"
-        ],
-        "sourceSite": "merged",
         "allCategories": [
           "General iron removal equipment",
           "Metal industry magnetic separation equipment"
@@ -1246,10 +1138,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/48.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -1290,10 +1178,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/43.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -1327,11 +1211,6 @@ export const productCategories = [
         ],
         "specifications": [],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-12/5.html",
-          "https://www.cnmagnetics.com/n-14/61.html"
-        ],
-        "sourceSite": "merged",
         "allCategories": [
           "General iron removal equipment",
           "Metal industry magnetic separation equipment"
@@ -1368,10 +1247,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/46.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -1418,10 +1293,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/59.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -1459,10 +1330,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/44.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -1499,10 +1366,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/47.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -1539,10 +1402,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/19.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Non metallic industry magnetic separation equipment"
         ],
@@ -1580,10 +1439,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/20.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Non metallic industry magnetic separation equipment"
         ],
@@ -1621,10 +1476,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/36.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Non metallic industry magnetic separation equipment"
         ],
@@ -1665,10 +1516,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/31.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Non metallic industry magnetic separation equipment"
         ],
@@ -1706,10 +1553,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/35.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Non metallic industry magnetic separation equipment"
         ],
@@ -1751,10 +1594,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/34.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Non metallic industry magnetic separation equipment"
         ],
@@ -1796,10 +1635,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/28.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Non metallic industry magnetic separation equipment"
         ],
@@ -1840,10 +1675,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-12/9.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal industry magnetic separation equipment"
         ],
@@ -1882,10 +1713,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-12/4.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal industry magnetic separation equipment"
         ],
@@ -1921,10 +1748,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-12/10.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal industry magnetic separation equipment"
         ],
@@ -1961,10 +1784,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-12/17.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal industry magnetic separation equipment"
         ],
@@ -2001,10 +1820,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-12/3.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal industry magnetic separation equipment"
         ],
@@ -2040,10 +1855,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-12/15.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal industry magnetic separation equipment"
         ],
@@ -2084,10 +1895,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-12/6.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal industry magnetic separation equipment"
         ],
@@ -2129,10 +1936,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-12/13.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal industry magnetic separation equipment"
         ],
@@ -2167,10 +1970,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-12/2.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal industry magnetic separation equipment"
         ],
@@ -2206,10 +2005,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-12/8.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal industry magnetic separation equipment"
         ],
@@ -2246,10 +2041,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-12/7.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal industry magnetic separation equipment"
         ],
@@ -2291,10 +2082,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-16/78.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Coal industry iron removal and magnetic separation equipment"
         ],
@@ -2331,10 +2118,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-16/79.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Coal industry iron removal and magnetic separation equipment"
         ],
@@ -2378,8 +2161,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [],
-        "sourceSite": "",
         "allCategories": [],
         "categoryId": "magnetic-separation-equipment",
         "categoryTitle": "Magnetic Separation Equipment"
@@ -2421,8 +2202,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [],
-        "sourceSite": "",
         "allCategories": [],
         "categoryId": "magnetic-separation-equipment",
         "categoryTitle": "Magnetic Separation Equipment"
@@ -2481,11 +2260,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/37.html",
-          "https://www.cnmagnetics.com/n-15/64.html"
-        ],
-        "sourceSite": "merged",
         "allCategories": [
           "General iron removal equipment",
           "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries"
@@ -2530,10 +2304,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/38.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -2584,10 +2354,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-12/16.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal industry magnetic separation equipment"
         ],
@@ -2626,10 +2392,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-12/1.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal industry magnetic separation equipment"
         ],
@@ -2675,10 +2437,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.chnmag.com/product/Drum-Magnet-15.html"
-        ],
-        "sourceSite": "chnmag.com",
         "allCategories": [
           "Metal Recycling"
         ],
@@ -2764,10 +2522,6 @@ export const productCategories = [
             ]
           ]
         ],
-        "sourceUrls": [
-          "https://www.chnmag.com/product/Eccentric-Eddy-Current-Separator-14.html"
-        ],
-        "sourceSite": "chnmag.com",
         "allCategories": [
           "Metal Recycling"
         ],
@@ -2835,10 +2589,6 @@ export const productCategories = [
             ]
           ]
         ],
-        "sourceUrls": [
-          "https://www.chnmag.com/product/Electromagnet-Separator-29.html"
-        ],
-        "sourceSite": "chnmag.com",
         "allCategories": [
           "Metal Recycling"
         ],
@@ -2871,8 +2621,7 @@ export const productCategories = [
         "summary": "Magnetic Head Pulley also know as magnetic roller is a reliable solution for the continuous extraction of ferrous metals from a product stream. Magnetic pulley or magnetic roller are installed as a replacement head pulley at the discharge end of a conveyor to",
         "overview": "product stream. Magnetic pulley or magnetic roller are installed as a replacement head pulley at the discharge end of a conveyor to separate the ferrous material away from other materials.",
         "features": [],
-        "specifications": [
-        ],
+        "specifications": [],
         "specificationTables": [
           [
             [
@@ -2880,10 +2629,6 @@ export const productCategories = [
             ]
           ]
         ],
-        "sourceUrls": [
-          "https://www.chnmag.com/product/Magnetic-Head-Pulley-30.html"
-        ],
-        "sourceSite": "chnmag.com",
         "allCategories": [
           "Metal Recycling"
         ],
@@ -2958,10 +2703,6 @@ export const productCategories = [
             ]
           ]
         ],
-        "sourceUrls": [
-          "https://www.chnmag.com/product/Permanent-Overband-Magnetic-Separator-16.html"
-        ],
-        "sourceSite": "chnmag.com",
         "allCategories": [
           "Metal Recycling"
         ],
@@ -3023,10 +2764,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.chnmag.com/product/Stainless-Steel-Separation-Conveyor-17.html"
-        ],
-        "sourceSite": "chnmag.com",
         "allCategories": [
           "Metal Recycling"
         ],
@@ -3092,11 +2829,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/26.html",
-          "https://www.cnmagnetics.com/n-15/67.html"
-        ],
-        "sourceSite": "merged",
         "allCategories": [
           "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
           "Non metallic industry magnetic separation equipment"
@@ -3136,10 +2868,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-15/70.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries"
         ],
@@ -3179,11 +2907,6 @@ export const productCategories = [
         ],
         "specifications": [],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/29.html",
-          "https://www.cnmagnetics.com/n-15/75.html"
-        ],
-        "sourceSite": "merged",
         "allCategories": [
           "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
           "Non metallic industry magnetic separation equipment"
@@ -3241,11 +2964,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/27.html",
-          "https://www.cnmagnetics.com/n-15/71.html"
-        ],
-        "sourceSite": "merged",
         "allCategories": [
           "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
           "Non metallic industry magnetic separation equipment"
@@ -3283,10 +3001,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-15/69.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries"
         ],
@@ -3326,10 +3040,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/32.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Non metallic industry magnetic separation equipment"
         ],
@@ -3368,10 +3078,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/33.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Non metallic industry magnetic separation equipment"
         ],
@@ -3413,10 +3119,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/30.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Non metallic industry magnetic separation equipment"
         ],
@@ -3458,10 +3160,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-13/21.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Non metallic industry magnetic separation equipment"
         ],
@@ -3496,13 +3194,9 @@ export const productCategories = [
           [
             "Model",
             "SS316"
-          ],
+          ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.chnmag.com/product/Drawer-Magnet-18.html"
-        ],
-        "sourceSite": "chnmag.com",
         "allCategories": [
           "Food Industry"
         ],
@@ -3531,10 +3225,6 @@ export const productCategories = [
         "features": [],
         "specifications": [],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.chnmag.com/product/Hump-Magnet-19.html"
-        ],
-        "sourceSite": "chnmag.com",
         "allCategories": [
           "Food Industry"
         ],
@@ -3563,10 +3253,6 @@ export const productCategories = [
         "features": [],
         "specifications": [],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.chnmag.com/product/Magnetic-Grid-20.html"
-        ],
-        "sourceSite": "chnmag.com",
         "allCategories": [
           "Food Industry"
         ],
@@ -3595,10 +3281,6 @@ export const productCategories = [
         "features": [],
         "specifications": [],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.chnmag.com/product/Magnetic-Rod-21.html"
-        ],
-        "sourceSite": "chnmag.com",
         "allCategories": [
           "Food Industry"
         ],
@@ -3632,13 +3314,8 @@ export const productCategories = [
           "Stainless steel 304 or316L is available for shell material.",
           "Properly designed magnetic configuration ensures Maximum magnetic effect without impeding liquid flow."
         ],
-        "specifications": [
-        ],
+        "specifications": [],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.chnmag.com/product/Magnetic-Trap-22.html"
-        ],
-        "sourceSite": "chnmag.com",
         "allCategories": [
           "Food Industry"
         ],
@@ -3667,10 +3344,6 @@ export const productCategories = [
         "features": [],
         "specifications": [],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.chnmag.com/product/Rotary-Pipe-Magnet-23.html"
-        ],
-        "sourceSite": "chnmag.com",
         "allCategories": [
           "Food Industry"
         ],
@@ -3714,8 +3387,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [],
-        "sourceSite": "",
         "allCategories": [],
         "categoryId": "magnetic-components-filters",
         "categoryTitle": "Magnetic Components & Filters"
@@ -3752,10 +3423,6 @@ export const productCategories = [
         "features": [],
         "specifications": [],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.chnmag.com/product/27.html"
-        ],
-        "sourceSite": "chnmag.com",
         "allCategories": [
           "Mining Industry"
         ],
@@ -3790,10 +3457,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-14/50.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "General iron removal equipment"
         ],
@@ -3831,10 +3494,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-16/81.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Coal industry iron removal and magnetic separation equipment"
         ],
@@ -3863,10 +3522,6 @@ export const productCategories = [
         "features": [],
         "specifications": [],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-16/82.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Coal industry iron removal and magnetic separation equipment"
         ],
@@ -3904,10 +3559,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-16/80.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Coal industry iron removal and magnetic separation equipment"
         ],
@@ -3948,10 +3599,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-16/77.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Coal industry iron removal and magnetic separation equipment"
         ],
@@ -3991,10 +3638,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [
-          "https://www.cnmagnetics.com/n-16/76.html"
-        ],
-        "sourceSite": "cnmagnetics.com",
         "allCategories": [
           "Coal industry iron removal and magnetic separation equipment"
         ],
@@ -4038,8 +3681,6 @@ export const productCategories = [
           ]
         ],
         "specificationTables": [],
-        "sourceUrls": [],
-        "sourceSite": "",
         "allCategories": [],
         "categoryId": "industry-application-equipment",
         "categoryTitle": "Industry Application Equipment"
@@ -4048,13 +3689,46 @@ export const productCategories = [
   }
 ];
 
-export const allProducts = productCategories.flatMap((category) =>
-  category.products.map((product) => ({
+function publicApplication(product) {
+  const text = `${product.title || ""} ${product.categoryTitle || ""}`.toLowerCase();
+  if (/(wet|dry|drum|gradient|tailing|ore|coal washing|desliming)/.test(text)) return "Mining and mineral processing";
+  if (/(eddy current|stainless steel|metal detector|recycling)/.test(text)) return "Recycling and metal recovery";
+  if (/(drawer|grid|grate|rod|filter|pipeline|trap|hump|rotary)/.test(text)) return "Powder, granule and process filtration";
+  return "Conveyor and bulk material handling";
+}
+
+function publicCatalogueProduct(product, category) {
+  const title = String(product.title || product.shortTitle || product.slug || "Industrial magnetic equipment");
+  const categoryTitle = String(product.categoryTitle || category.title || "Magnetic separation equipment");
+  const application = publicApplication({ ...product, categoryTitle });
+  const summary = `${title} is a COWIN MAGNET equipment option for ${application.toLowerCase()}. Final configuration is reviewed against material, installation and supplier-confirmed technical requirements.`;
+  return {
     ...product,
     categoryId: product.categoryId || category.id,
-    categoryTitle: product.categoryTitle || category.title
-  }))
-);
+    categoryTitle,
+    imageAlt: `${title} product image`,
+    imageGallery: product.image ? [product.image] : [],
+    application,
+    summary,
+    overview: summary,
+    features: [
+      "Configuration review for the actual process duty",
+      "Technical data confirmed for the requested project",
+      "OEM/ODM coordination and export follow-up"
+    ],
+    specifications: [],
+    specificationTables: []
+  };
+}
+
+// Legacy import records remain in the repository backup and private research registry.
+// Every normal public/admin catalogue reader receives only this approved display projection.
+export const productCategories = rawProductCategories.map((category) => ({
+  ...category,
+  products: category.products.map((product) => publicCatalogueProduct(product, category))
+}));
+
+export const allProducts = productCategories.flatMap((category) => category.products);
 
 export function getProductBySlug(slug) {
   return allProducts.find((product) => product.slug === slug);

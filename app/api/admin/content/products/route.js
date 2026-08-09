@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { requireAdminApi } from "@/lib/adminApi";
 import { fileToDataUrl, parseLines, parseSpecifications, saveCmsItem, slugify } from "@/lib/cmsStore";
+import { saveProductResearchReview } from "@/lib/productResearch";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -28,6 +29,7 @@ export async function POST(request) {
   const imageFile = formData.get("image");
   const image = await fileToDataUrl(imageFile);
 
+  const candidateSpecifications = parseSpecifications(value(formData, "specifications"));
   await saveCmsItem({
     type: "product",
     slug,
@@ -42,15 +44,32 @@ export async function POST(request) {
     image,
     imageAlt: value(formData, "imageAlt") || `${title} product image`,
     features: parseLines(value(formData, "features")),
-    specifications: parseSpecifications(value(formData, "specifications")),
+    specifications: [],
     publishedAt: value(formData, "publishedAt") || new Date().toISOString().slice(0, 10),
-    status: "published",
+    status: "draft",
     href: `/products/${slug}`
+  });
+
+  // Candidate figures remain private until a supplier-approved research review confirms them.
+  await saveProductResearchReview(slug, {
+    publicName: title,
+    series: categoryTitle,
+    productType: "unclassified",
+    proposedFacts: candidateSpecifications.map(([label, specValue]) => ({ label, value: specValue })),
+    supplierConfirmed: false,
+    publicContentStatus: "draft",
+    confirmedFacts: [],
+    approvedBy: "",
+    approvedDatasheetUrl: "",
+    approvedDrawingUrl: ""
+  }).catch(async (error) => {
+    console.error("[products] private research card initialization failed", { slug, message: error?.message || String(error), candidates: candidateSpecifications.length });
+    throw error;
   });
 
   revalidatePath("/products");
   revalidatePath(`/products/${slug}`);
   revalidatePath("/en/products");
   revalidatePath(`/en/products/${slug}`);
-  redirect("/admin/products?saved=product");
+  redirect("/admin/products?saved=draft");
 }

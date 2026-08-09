@@ -323,6 +323,76 @@ const sampleOverrides: Record<string, Partial<ProductDetailProfile>> = {
     ],
     contentStatus: "sample-ready"
   },
+  "rcyb-type-permanent-magnet-manual-iron-remover": {
+    overview: [
+      "The RCYB permanent magnetic iron remover is considered for conveyor, chute or feeder positions where ferromagnetic tramp material needs to be captured and periodic manual cleaning can be planned safely. The permanent magnetic system does not rely on an electrical excitation supply to create its magnetic field, while the installation and cleaning method still need to suit the real material path.",
+      "It is not described as a continuous self-discharge solution. The decision depends on contamination frequency, safe service access, belt width, material depth, suspension height and the largest anticipated tramp item. Where uninterrupted discharge is needed, a self-cleaning arrangement should be reviewed instead."
+    ],
+    contentStatus: "sample-ready"
+  },
+  "rcdb-type-self-cooling-plate-electromagnetic-iron-remover": {
+    overview: [
+      "The RCDB self-cooling plate electromagnetic iron remover is an overhead electromagnetic option for a defined conveyor duty. It is selected when the material burden, suspension position or expected ferromagnetic risk needs an electrically energized magnetic stage, with the equipment placed around a known material trajectory and maintenance access route.",
+      "This page does not assume a self-cleaning discharge belt or a special environmental rating. Power supply, working duty, cooling conditions, cleaning procedure, ambient environment and any control arrangement are confirmed against the final project requirements."
+    ],
+    contentStatus: "sample-ready"
+  },
+  "rcda-type-air-cooled-electromagnetic-iron-remover": {
+    overview: [
+      "The RCDA air-cooled electromagnetic iron remover is a suspended electromagnetic configuration whose cooling arrangement is reviewed together with the planned operating duty and site environment. It is intended to remove ferromagnetic tramp material from a defined bulk-material stream before sensitive downstream equipment.",
+      "Its selection starts with the conveyor layout, suspension height, burden depth, expected metal, available electrical supply and airflow or ambient conditions. Air cooling does not remove the need to confirm duty cycle, servicing access and the required cleaning method."
+    ],
+    contentStatus: "sample-ready"
+  },
+  "rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover": {
+    overview: [
+      "The RCDC air-cooled self-dumping electromagnetic iron remover combines an electromagnetic capture stage with a separate continuous discharge arrangement for ferromagnetic material. It is reviewed for conveyor lines where the process needs captured metal moved to a planned discharge point rather than held for a manual cleaning stop.",
+      "The electromagnetic duty and the discharge drive are assessed as separate parts of the configuration. Belt width, burden, suspension height, discharge space, electrical supply, ambient conditions and maintenance access must be confirmed before a final unit is proposed."
+    ],
+    contentStatus: "sample-ready"
+  },
+  "rcde-type-oil-cooled-electromagnetic-iron-remover": {
+    overview: [
+      "The RCDE oil-cooled electromagnetic iron remover is a suspended electromagnetic option for project duties that require a cooling arrangement to be reviewed with the expected magnetic duty and operating environment. It is placed above a defined material path to capture ferromagnetic tramp material before downstream processing equipment.",
+      "The product is not presented as a universal replacement for every electromagnetic separator. Required working distance, material burden, electrical supply, cooling service considerations and cleaning plan should be verified with the supplier-approved configuration."
+    ],
+    contentStatus: "sample-ready"
+  },
+  "rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover": {
+    overview: [
+      "The RCDF oil-cooled self-dumping electromagnetic iron remover is considered for bulk-material conveyor duties that combine electromagnetic capture with continuous ferromagnetic discharge. Its process role is to remove captured tramp material to a designated area while the main material stream continues to downstream equipment.",
+      "Oil cooling, excitation, discharge drive and access for routine maintenance are distinct parts of the selection review. The project should provide belt geometry, burden, suspension height, tramp iron description, power conditions and the available discharge and service space."
+    ],
+    contentStatus: "sample-ready"
+  },
+  "dry-drum-magnetic-separator": {
+    overview: [
+      "The Dry Drum Magnetic Separator is used in a dry material flow where magnetic response is used to split a feed into defined fractions or remove ferromagnetic contamination. Its outcome depends on the material trajectory over the drum, feed consistency, particle size, moisture and the process target rather than on a catalogue claim alone.",
+      "It may be reviewed for mineral pre-concentration, dry bulk purification or a prepared recycling stream. The project should identify the feed preparation, the intended magnetic and non-magnetic outlets, the required capacity and how the equipment integrates with the upstream conveyor or feeder."
+    ],
+    contentStatus: "sample-ready"
+  },
+  "magnetic-head-pulley": {
+    overview: [
+      "A Magnetic Head Pulley is installed at the discharge end of a conveyor so the material trajectory separates as the belt turns around the pulley. Ferromagnetic material follows the magnetic route while the remaining material takes its normal discharge path, subject to the actual feed condition and conveyor geometry.",
+      "It is not a substitute for a high-suspension overhead magnet in every layout. Selection depends on the belt interface, pulley dimensions, feed depth, particle size, material trajectory, desired split and the available space at the conveyor discharge."
+    ],
+    contentStatus: "sample-ready"
+  },
+  "permanent-overband-magnetic-separator": {
+    overview: [
+      "The Permanent Overband Magnetic Separator is an overhead conveyor magnet used to capture ferromagnetic tramp material from a bulk stream. A final arrangement may use manual cleaning or a continuous discharge option according to the contamination load, line availability and the safe area available for collected metal.",
+      "Correct selection is based on the actual conveyor width, speed, material burden, suspension distance, installation direction and tramp iron risk. The permanent magnetic system should not be represented as an electromagnetic unit or as a guarantee for non-ferrous separation."
+    ],
+    contentStatus: "sample-ready"
+  },
+  "dls-type-window-metal-detector": {
+    overview: [
+      "The DLS window metal detector monitors material passing through a defined detection opening. It can be configured as part of an alarm, stop or reject response, but the final performance depends on the actual metal target, its size and orientation, opening dimensions, material effect, belt speed and installation isolation.",
+      "A metal detector does not physically remove detected material on its own, and it is not the same as a magnetic separator. Where ferromagnetic material must be removed, the line may also require a suitable magnetic separation stage."
+    ],
+    contentStatus: "sample-ready"
+  },
   "wet-drum-magnetic-separator": {
     overview: [
       "A Wet Drum Magnetic Separator is used in wet mineral-processing circuits where magnetic particles are separated from a slurry stream. Material enters the separation zone, magnetic particles are retained by the magnetic field and directed to a magnetic product outlet, while the non-magnetic portion follows its own discharge path. The exact process role may be recovery, cleaning, concentration or another defined stage in the flow sheet.",
@@ -370,11 +440,21 @@ const sampleOverrides: Record<string, Partial<ProductDetailProfile>> = {
 const displayNames: Record<string, string> = {
   "rcyd-type-permanent-magnet-self-dumping-iron-remover": "RCYD Permanent Self-Cleaning Iron Remover",
   "rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover": "RCDD Self-Cooling Electromagnetic Iron Remover",
+  "rcyb-type-permanent-magnet-manual-iron-remover": "RCYB Permanent Magnetic Iron Remover",
+  "rcdb-type-self-cooling-plate-electromagnetic-iron-remover": "RCDB Self-Cooling Electromagnetic Iron Remover",
+  "rcda-type-air-cooled-electromagnetic-iron-remover": "RCDA Air-Cooled Electromagnetic Iron Remover",
+  "rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover": "RCDC Air-Cooled Self-Cleaning Electromagnetic Iron Remover",
+  "rcde-type-oil-cooled-electromagnetic-iron-remover": "RCDE Oil-Cooled Electromagnetic Iron Remover",
+  "rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover": "RCDF Oil-Cooled Self-Cleaning Electromagnetic Iron Remover",
   "belt-high-gradient-magnetic-separator": "Belt High-Gradient Magnetic Separator",
+  "dry-drum-magnetic-separator": "Dry Drum Magnetic Separator",
   "wet-drum-magnetic-separator": "Wet Drum Magnetic Separator",
   "eccentric-eddy-current-separator": "Eccentric Eddy Current Separator",
+  "magnetic-head-pulley": "Magnetic Head Pulley",
+  "permanent-overband-magnetic-separator": "Permanent Overband Magnetic Separator",
   "drawer-magnet": "Drawer Magnet",
   "rotary-pipe-magnet": "Rotary Pipe Magnet",
+  "dls-type-window-metal-detector": "DLS Window Metal Detector",
   "gjt-type-window-metal-detector": "GJT Window Metal Detector"
 };
 
@@ -423,7 +503,7 @@ export function getProductDisplayName(product: ProductDisplayInput) {
 }
 
 // Public cards use the reviewed product-family profile instead of legacy import text.
-// The original source fields remain retained for audit and CMS remediation.
+// Public profiles intentionally exclude private research and supplier-review fields.
 export function getProductCardSummary(product: ProductDisplayInput) {
   const profile = getProductDetailProfile(product);
   return `${getProductDisplayName(product)} is a ${profile.primaryKeyword} option for ${profile.primaryIndustry}. Configuration is confirmed from material and site conditions.`;

@@ -1,7 +1,8 @@
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { requireAdminApi } from "@/lib/adminApi";
-import { updateCmsItemStatus } from "@/lib/cmsStore";
+import { getCmsItemBySlug, updateCmsItemStatus } from "@/lib/cmsStore";
+import { canPublishCmsProduct, getProductResearchCard } from "@/lib/productResearch";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -29,6 +30,13 @@ export async function POST(request, { params }) {
   }
 
   if (action === "offline" || action === "publish") {
+    if (action === "publish") {
+      const product = await getCmsItemBySlug("product", slug, { includeInactive: true });
+      const researchCard = await getProductResearchCard(slug);
+      if (!product || !canPublishCmsProduct(researchCard)) {
+        redirect(`/admin/products?error=product-review-required&slug=${encodeURIComponent(slug)}`);
+      }
+    }
     await updateCmsItemStatus("product", slug, action === "offline" ? "offline" : "published");
     revalidateProduct(slug);
     redirect(`/admin/products?status=${action}`);

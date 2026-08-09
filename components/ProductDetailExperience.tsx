@@ -27,11 +27,31 @@ function routeFor(locale: Locale | undefined, path: string) {
   return locale ? localizeHref(path, locale) : path;
 }
 
-function modelReferences(product: Product) {
+function modelDesignations(product: Product) {
   const models = cleanProductSpecs(product.specs)
     .filter((spec) => spec.label.trim().toLowerCase() === "model")
     .map((spec) => spec.value.trim());
   return [...new Set(models)];
+}
+
+function technicalRows(product: Product, technicalFields: string[]) {
+  const confirmed = cleanProductSpecs(product.specs).filter((spec) => spec.label.trim() && spec.value.trim());
+  const consumed = new Set<number>();
+  const rows = technicalFields.map((field) => {
+    const fieldKey = field.trim().toLowerCase();
+    const matchIndex = confirmed.findIndex((spec, index) => !consumed.has(index) && spec.label.trim().toLowerCase() === fieldKey);
+    if (matchIndex >= 0) {
+      consumed.add(matchIndex);
+      return { label: field, value: confirmed[matchIndex].value.trim(), confirmed: true };
+    }
+    return { label: field, value: "Available on request", confirmed: false };
+  });
+
+  return rows.concat(
+    confirmed
+      .filter((_, index) => !consumed.has(index))
+      .map((spec) => ({ label: spec.label.trim(), value: spec.value.trim(), confirmed: true }))
+  );
 }
 
 function relatedProducts(product: Product) {
@@ -67,7 +87,8 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
   const displayName = getProductDisplayName(product);
   const pagePath = routeFor(locale, `/products/${product.slug}`);
   const quotePath = `${routeFor(locale, "/request-quote")}?product=${encodeURIComponent(product.name)}&family=${encodeURIComponent(profile.family)}`;
-  const models = modelReferences(product);
+  const models = modelDesignations(product);
+  const specs = technicalRows(product, profile.technicalFields);
   // Legacy gallery imports may contain a third-party logo, QR code or unrelated visual.
   // Only the primary product image is published until each extra image is editorially verified.
   const gallery = [product.image];
@@ -87,7 +108,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
     seller: { "@type": "Organization", name: site.legalName },
     category: product.category,
     url: absoluteUrl(pagePath),
-    ...(models.length ? { additionalProperty: models.map((model) => ({ "@type": "PropertyValue", name: "Model reference", value: model })) } : {})
+    ...(models.length ? { additionalProperty: models.map((model) => ({ "@type": "PropertyValue", name: "Model designation", value: model })) } : {})
   };
   const breadcrumbs = [
     { name: "Home", path: locale ? `/${locale}` : "/" },
@@ -132,7 +153,6 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
             <div className="product-hero-meta">
               <span>{product.category}</span>
               {models.length ? <span>Model: {models.join(" / ")}</span> : null}
-              <span className={`product-content-status ${profile.contentStatus}`}>{profile.contentStatus === "sample-ready" ? "Technical content sample" : "Technical review in progress"}</span>
             </div>
             <h1>{displayName}</h1>
             <p>{profile.overview[0]}</p>
@@ -239,12 +259,11 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           <div className="product-detail-section-heading">
             <span className="eyebrow">Technical information</span>
             <h2>Technical specifications and confirmation basis</h2>
-            <p>Only model references found in the current product record are displayed as values. The remaining fields are confirmed against the selected configuration and site conditions.</p>
+            <p>Only supplier-confirmed product details are shown as values. Remaining selection fields are confirmed for the requested configuration and site conditions.</p>
           </div>
           <div className="product-specification-table" role="table" aria-label={`${product.name} technical specifications`}>
             <div className="product-specification-head" role="row"><span>Parameter</span><span>Published record</span><span>Selection confirmation</span></div>
-            {models.length ? models.map((model) => <div role="row" key={model}><span>Model reference</span><strong>{model}</strong><span>Confirm the requested configuration.</span></div>) : null}
-            {profile.technicalFields.filter((field) => field !== "Model").map((field) => <div role="row" key={field}><span>{field}</span><strong>Available on request</strong><span>To be confirmed based on material and site conditions.</span></div>)}
+            {specs.map((spec) => <div role="row" key={`${spec.label}-${spec.value}`}><span>{spec.label === "Model" ? "Model designation" : spec.label}</span><strong>{spec.value}</strong><span>{spec.confirmed ? "Supplier-confirmed product record." : "To be confirmed based on material and site conditions."}</span></div>)}
           </div>
         </section>
 

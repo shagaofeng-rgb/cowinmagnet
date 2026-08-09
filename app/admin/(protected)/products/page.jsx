@@ -8,6 +8,8 @@ export const metadata = {
 };
 
 function statusMessage(searchParams) {
+  if (searchParams?.saved === "draft") return "Product saved as a draft. Complete the private supplier review before publishing it.";
+  if (searchParams?.error === "product-review-required") return "Publishing is blocked until a private supplier confirmation and published research review are recorded.";
   if (searchParams?.saved === "product") return "产品已保存并上架，前台产品中心会自动读取。";
   if (searchParams?.status === "offline") return "产品已下架，前台不再显示。";
   if (searchParams?.status === "publish") return "产品已重新上架。";
@@ -90,6 +92,7 @@ export default async function AdminProductsPage({ searchParams }) {
         </div>
         <div className={cmsStorageMode() === "database" ? "admin-status good" : "admin-status"}>
           {cmsStorageMode() === "database" ? "数据库持久化" : "本地文件模式"}
+          <Link href="/admin/products/research" className="admin-inline-link">Private product research</Link>
         </div>
       </header>
 

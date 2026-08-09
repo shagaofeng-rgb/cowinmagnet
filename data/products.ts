@@ -13,8 +13,6 @@ export type Product = {
   installation: string;
   customization: string[];
   faqs: { question: string; answer: string }[];
-  sourceUrls?: string[];
-  sourceSite?: string;
   status?: "published" | "draft" | "offline" | "archived";
   publishedAt?: string;
   updatedAt?: string;
@@ -78,11 +76,7 @@ export const products: Product[] = [
       "Model: RCYC",
       "Model: RCYD"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/60.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover",
@@ -122,11 +116,7 @@ export const products: Product[] = [
     "customization": [
       "Model: RCDD"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/49.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "rcyb-type-permanent-magnet-manual-iron-remover",
@@ -176,11 +166,7 @@ export const products: Product[] = [
       "Model: JB/T8711",
       "Model: RCYB"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/58.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "rcdb-type-self-cooling-plate-electromagnetic-iron-remover",
@@ -251,11 +237,7 @@ export const products: Product[] = [
       "Model: RCDB-8",
       "Model: RCDY"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/57.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "belt-high-gradient-magnetic-separator",
@@ -298,11 +280,7 @@ export const products: Product[] = [
     ],
     "installation": "",
     "customization": [],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.chnmag.com/product/Belt-High-Gradient-Magnetic-Separator-26.html"
-    ],
-    "sourceSite": "chnmag.com"
+    "faqs": []
   },
   {
     "slug": "disc-magnetic-separator-for-tailing",
@@ -344,11 +322,7 @@ export const products: Product[] = [
     ],
     "installation": "",
     "customization": [],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.chnmag.com/product/Disc-Magnetic-Separator-for-Tailing-28.html"
-    ],
-    "sourceSite": "chnmag.com"
+    "faqs": []
   },
   {
     "slug": "dry-drum-magnetic-separator",
@@ -403,11 +377,7 @@ export const products: Product[] = [
     "customization": [
       "Model: QJ-CGT"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.chnmag.com/product/Dry-Drum-Magnetic-Separator-24.html"
-    ],
-    "sourceSite": "chnmag.com"
+    "faqs": []
   },
   {
     "slug": "wet-drum-magnetic-separator",
@@ -479,11 +449,7 @@ export const products: Product[] = [
       "Model: DMS",
       "Model: QJ-CT(S"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.chnmag.com/product/Wet-Drum-Magnetic-Separator-25.html"
-    ],
-    "sourceSite": "chnmag.com"
+    "faqs": []
   },
   {
     "slug": "cbz-type-rotary-automatic-magnetic-separator",
@@ -568,12 +534,7 @@ export const products: Product[] = [
       "Product Description: The CBZ rotary automatic magnetic separator is mainly used to separate ferromagnetic impurities in materials that are prone to clumping or adhesion. The rotating magnetic rod driven by the motor can prevent material blockage, ensuring that the product can fully contact the magnet during the flow process.",
       "Model: CBZ"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/23.html",
-      "https://www.cnmagnetics.com/n-15/66.html"
-    ],
-    "sourceSite": "merged"
+    "faqs": []
   },
   {
     "slug": "cgb-type-rotary-semi-automatic-magnetic-separator",
@@ -643,12 +604,7 @@ export const products: Product[] = [
       "Installation method: free fall, pipeline series for conveying materials, single machine use for bulk materials.",
       "Model: CGB"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/25.html",
-      "https://www.cnmagnetics.com/n-15/63.html"
-    ],
-    "sourceSite": "merged"
+    "faqs": []
   },
   {
     "slug": "cqz-type-fully-automatic-online-magnetic-separator",
@@ -700,11 +656,7 @@ export const products: Product[] = [
     "customization": [
       "Model: CQZ"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-15/65.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "ctn-wet-full-countercurrent-magnetic-separator",
@@ -754,12 +706,7 @@ export const products: Product[] = [
     "customization": [
       "Model: CTN"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/18.html",
-      "https://www.cnmagnetics.com/n-15/68.html"
-    ],
-    "sourceSite": "merged"
+    "faqs": []
   },
   {
     "slug": "cts-type-wet-co-current-magnetic-separator",
@@ -813,12 +760,7 @@ export const products: Product[] = [
     "customization": [
       "Model: CTS"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/22.html",
-      "https://www.cnmagnetics.com/n-15/72.html"
-    ],
-    "sourceSite": "merged"
+    "faqs": []
   },
   {
     "slug": "cxj-drum-type-automatic-magnetic-separator",
@@ -873,12 +815,7 @@ export const products: Product[] = [
     "customization": [
       "Model: CXJ"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/24.html",
-      "https://www.cnmagnetics.com/n-15/73.html"
-    ],
-    "sourceSite": "merged"
+    "faqs": []
   },
   {
     "slug": "dcz-type-dry-fully-automatic-magnetic-separator",
@@ -934,11 +871,7 @@ export const products: Product[] = [
       "Model: DCZ",
       "Model: HV1200"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-15/74.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "gls-type-integral-channel-metal-separator",
@@ -1001,11 +934,7 @@ export const products: Product[] = [
       "Model: IP65",
       "Model: IP67"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-15/62.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "cgt-type-super-strong-full-magnetic-drum",
@@ -1065,12 +994,7 @@ export const products: Product[] = [
     "customization": [
       "Model: CGT"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-12/11.html",
-      "https://www.cnmagnetics.com/n-14/54.html"
-    ],
-    "sourceSite": "merged"
+    "faqs": []
   },
   {
     "slug": "ctz-type-midfield-strong-semi-magnetic-drum",
@@ -1140,12 +1064,7 @@ export const products: Product[] = [
       "Model: RCT",
       "Model: TD-75"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-12/12.html",
-      "https://www.cnmagnetics.com/n-14/56.html"
-    ],
-    "sourceSite": "merged"
+    "faqs": []
   },
   {
     "slug": "rcda-type-air-cooled-electromagnetic-iron-remover",
@@ -1191,11 +1110,7 @@ export const products: Product[] = [
       "Model: RCDA",
       "Model: RCDA-T"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/41.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover",
@@ -1241,11 +1156,7 @@ export const products: Product[] = [
       "Model: RCDA",
       "Model: RCDC"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/42.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "rcde-type-oil-cooled-electromagnetic-iron-remover",
@@ -1285,11 +1196,7 @@ export const products: Product[] = [
     "customization": [
       "Model: RCDE"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/55.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover",
@@ -1335,11 +1242,7 @@ export const products: Product[] = [
       "Model: RCDE",
       "Model: RCDF"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/40.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover",
@@ -1384,11 +1287,7 @@ export const products: Product[] = [
     "customization": [
       "Model: RCDFJ"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/52.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "rcps-self-dumping-disc-type-permanent-magnet-iron-remover",
@@ -1432,11 +1331,7 @@ export const products: Product[] = [
     "customization": [
       "Model: RCPS"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/39.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "rct-type-fully-magnetic-drum",
@@ -1502,12 +1397,7 @@ export const products: Product[] = [
       "Model: RCTG",
       "Model: TD-75"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-12/14.html",
-      "https://www.cnmagnetics.com/n-14/51.html"
-    ],
-    "sourceSite": "merged"
+    "faqs": []
   },
   {
     "slug": "rcya-type-inclined-pipeline-permanent-magnet-iron-remover",
@@ -1568,11 +1458,7 @@ export const products: Product[] = [
       "Model: RCYA1",
       "Model: RCYA2"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/48.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "rcydii-type-permanent-magnet-self-dumping-iron-remover",
@@ -1619,11 +1505,7 @@ export const products: Product[] = [
       "Model: RCYD",
       "Model: RCYDII"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/43.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "rcye-type-permanent-magnet-self-dumping-iron-remover",
@@ -1662,12 +1544,7 @@ export const products: Product[] = [
     ],
     "installation": "",
     "customization": [],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-12/5.html",
-      "https://www.cnmagnetics.com/n-14/61.html"
-    ],
-    "sourceSite": "merged"
+    "faqs": []
   },
   {
     "slug": "rcyf-type-vertical-pipeline-permanent-magnet-iron-remover",
@@ -1712,11 +1589,7 @@ export const products: Product[] = [
     "customization": [
       "Model: RCYF"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/46.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover",
@@ -1778,11 +1651,7 @@ export const products: Product[] = [
     "customization": [
       "Model: RCYG"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/59.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "rcyp-type-permanent-magnet-manual-self-dumping-iron-remover",
@@ -1823,11 +1692,7 @@ export const products: Product[] = [
     "customization": [
       "Model: RCYP"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/44.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "rcyz-type-vertical-pipeline-permanent-magnet-iron-remover",
@@ -1875,11 +1740,7 @@ export const products: Product[] = [
     "customization": [
       "Model: RCYZ"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/47.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "cqz-type-fully-automatic-online-magnetic-separation",
@@ -1931,11 +1792,7 @@ export const products: Product[] = [
     "customization": [
       "Model: CQZ"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/19.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "ctb-wet-semi-countercurrent-magnetic-separator",
@@ -1980,11 +1837,7 @@ export const products: Product[] = [
     "customization": [
       "Model: CTB"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/20.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "dcx-wet-fully-automatic-magnetic-separator",
@@ -2033,11 +1886,7 @@ export const products: Product[] = [
     "customization": [
       "Model: DCX"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/36.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "dcz-type-dry-fully-automatic-magnetic-separation",
@@ -2096,11 +1945,7 @@ export const products: Product[] = [
       "Model: DCZ",
       "Model: HV1200"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/31.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "gtc-wet-plate-magnetic-separator",
@@ -2147,11 +1992,7 @@ export const products: Product[] = [
     "customization": [
       "Model: GTC"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/35.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "hjlh-wet-vertical-ring-high-gradient-magnetic-separator",
@@ -2200,11 +2041,7 @@ export const products: Product[] = [
     "customization": [
       "Model: HJLH"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/34.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "hjpc-wet-disc-magnetic-separation",
@@ -2255,11 +2092,7 @@ export const products: Product[] = [
     "customization": [
       "Model: HJPC"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/28.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "clt-type-magnetic-desliming-tank",
@@ -2307,11 +2140,7 @@ export const products: Product[] = [
     "customization": [
       "Model: CLT"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-12/9.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "ctb-type-semi-countercurrent-wet-selection-machine",
@@ -2357,11 +2186,7 @@ export const products: Product[] = [
     "customization": [
       "Model: CTB"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-12/4.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "ctdg-type-permanent-magnet-bulk-dry-magnetic-separator",
@@ -2406,11 +2231,7 @@ export const products: Product[] = [
     "customization": [
       "Model: CTDG"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-12/10.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "ctn-type-full-countercurrent-wet-magnetic-separator",
@@ -2454,11 +2275,7 @@ export const products: Product[] = [
     "customization": [
       "Model: CTN"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-12/17.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "cts-type-downstream-wet-pre-selection-machine",
@@ -2502,11 +2319,7 @@ export const products: Product[] = [
     "customization": [
       "Model: CTS"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-12/3.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "ctzs-type-upward-suction-magnetic-separator",
@@ -2547,11 +2360,7 @@ export const products: Product[] = [
     "customization": [
       "Model: CTZS"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-12/15.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "hcg-type-dry-pre-selection-machine",
@@ -2601,11 +2410,7 @@ export const products: Product[] = [
       "Model: HRA",
       "Model: HRA92"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-12/6.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "hjlh-type-vertical-ring-high-gradient-magnetic-separation",
@@ -2654,11 +2459,7 @@ export const products: Product[] = [
     "customization": [
       "Model: HJLH"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-12/13.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "ljk-type-magnetic-ore-special-iron-remover",
@@ -2698,11 +2499,7 @@ export const products: Product[] = [
     "customization": [
       "Model: LJK"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-12/2.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "nct-type-concentrated-magnetic-separator",
@@ -2747,11 +2544,7 @@ export const products: Product[] = [
     "customization": [
       "Model: NCT"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-12/8.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "wbc-semi-magnetic-tailings-recovery-machine",
@@ -2795,11 +2588,7 @@ export const products: Product[] = [
     "customization": [
       "Model: WBC"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-12/7.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "ctn-type-specialized-magnetic-separator-for-coal-washing",
@@ -2850,11 +2639,7 @@ export const products: Product[] = [
     "customization": [
       "Model: CTN"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-16/78.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "hmdn-coal-washing-special-magnetic-separator",
@@ -2900,11 +2685,7 @@ export const products: Product[] = [
     "customization": [
       "Model: HMDN"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-16/79.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "suspended-permanent-magnetic-separator",
@@ -2958,9 +2739,7 @@ export const products: Product[] = [
     ],
     "installation": "Mounting: Eye bolts, chain, cable or threaded bolts",
     "customization": [],
-    "faqs": [],
-    "sourceUrls": [],
-    "sourceSite": ""
+    "faqs": []
   },
   {
     "slug": "suspended-electromagnetic-conveyor-belt-separator",
@@ -3014,9 +2793,7 @@ export const products: Product[] = [
     ],
     "installation": "",
     "customization": [],
-    "faqs": [],
-    "sourceUrls": [],
-    "sourceSite": ""
+    "faqs": []
   },
   {
     "slug": "dls-type-window-metal-detector",
@@ -3083,12 +2860,7 @@ export const products: Product[] = [
       "Model: RS232",
       "Model: RS485"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/37.html",
-      "https://www.cnmagnetics.com/n-15/64.html"
-    ],
-    "sourceSite": "merged"
+    "faqs": []
   },
   {
     "slug": "gjt-type-window-metal-detector",
@@ -3143,11 +2915,7 @@ export const products: Product[] = [
     "customization": [
       "Model: GJT"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/38.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "hecp-eddy-current-metal-sorting-machine",
@@ -3211,11 +2979,7 @@ export const products: Product[] = [
       "Model: HECP",
       "Model: HECS"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-12/16.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "hecs-type-eddy-current-metal-sorting-machine",
@@ -3265,11 +3029,7 @@ export const products: Product[] = [
     "customization": [
       "Model: HECS"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-12/1.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "drum-magnet",
@@ -3330,11 +3090,7 @@ export const products: Product[] = [
     "customization": [
       "Model: CHNMAG"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.chnmag.com/product/Drum-Magnet-15.html"
-    ],
-    "sourceSite": "chnmag.com"
+    "faqs": []
   },
   {
     "slug": "eccentric-eddy-current-separator",
@@ -3440,11 +3196,7 @@ export const products: Product[] = [
       "Model: WEEE",
       "Model: WTE"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.chnmag.com/product/Eccentric-Eddy-Current-Separator-14.html"
-    ],
-    "sourceSite": "chnmag.com"
+    "faqs": []
   },
   {
     "slug": "electromagnet-separator",
@@ -3513,13 +3265,9 @@ export const products: Product[] = [
     "customization": [
       "Model: CHNMAG",
       "Model: QJRCDB",
-      "Model: QJRCDD",
+      "Model: QJRCDD"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.chnmag.com/product/Electromagnet-Separator-29.html"
-    ],
-    "sourceSite": "chnmag.com"
+    "faqs": []
   },
   {
     "slug": "magnetic-head-pulley",
@@ -3555,8 +3303,7 @@ export const products: Product[] = [
     ],
     "features": [],
     "principle": "product stream. Magnetic pulley or magnetic roller are installed as a replacement head pulley at the discharge end of a conveyor to separate the ferrous material away from other materials.",
-    "specs": [
-    ],
+    "specs": [],
     "applications": [
       "Metal Recycling",
       "mining",
@@ -3567,13 +3314,8 @@ export const products: Product[] = [
       "metal recycling"
     ],
     "installation": "",
-    "customization": [
-    ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.chnmag.com/product/Magnetic-Head-Pulley-30.html"
-    ],
-    "sourceSite": "chnmag.com"
+    "customization": [],
+    "faqs": []
   },
   {
     "slug": "permanent-overband-magnetic-separator",
@@ -3661,11 +3403,7 @@ export const products: Product[] = [
       "Model: QJRCY-L",
       "Model: QJRCY-PL"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.chnmag.com/product/Permanent-Overband-Magnetic-Separator-16.html"
-    ],
-    "sourceSite": "chnmag.com"
+    "faqs": []
   },
   {
     "slug": "stainless-steel-separation-conveyor",
@@ -3745,11 +3483,7 @@ export const products: Product[] = [
       "Model: VFD",
       "Model: WEEE"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.chnmag.com/product/Stainless-Steel-Separation-Conveyor-17.html"
-    ],
-    "sourceSite": "chnmag.com"
+    "faqs": []
   },
   {
     "slug": "cbs-drawer-type-magnetic-filter",
@@ -3827,12 +3561,7 @@ export const products: Product[] = [
       "Application industries: Food industry, chemical industry, pharmaceutical industry, plastic industry, wood industry, recycling industry, packaging industry, quartz sand iron removal, potassium feldspar iron removal, mica iron removal, micro powder iron removal, fly ash iron removal, and all 10-500 mesh fine powder materials for iron removal.",
       "Model: CBS"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/26.html",
-      "https://www.cnmagnetics.com/n-15/67.html"
-    ],
-    "sourceSite": "merged"
+    "faqs": []
   },
   {
     "slug": "clc-type-wet-slot-magnetic-filter",
@@ -3887,11 +3616,7 @@ export const products: Product[] = [
       "Model: CLC",
       "Model: SUS304"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-15/70.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "ctq-type-roller-automatic-magnetic-separator",
@@ -3938,12 +3663,7 @@ export const products: Product[] = [
     ],
     "installation": "",
     "customization": [],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/29.html",
-      "https://www.cnmagnetics.com/n-15/75.html"
-    ],
-    "sourceSite": "merged"
+    "faqs": []
   },
   {
     "slug": "cyg-wet-pipeline-magnetic-filter",
@@ -4018,12 +3738,7 @@ export const products: Product[] = [
       "Model: CYG",
       "Model: SUS304"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/27.html",
-      "https://www.cnmagnetics.com/n-15/71.html"
-    ],
-    "sourceSite": "merged"
+    "faqs": []
   },
   {
     "slug": "rcyz-type-pipeline-magnetic-filter",
@@ -4071,11 +3786,7 @@ export const products: Product[] = [
     "customization": [
       "Model: RCYZ"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-15/69.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "clc-type-slot-magnetic-filter",
@@ -4131,11 +3842,7 @@ export const products: Product[] = [
       "Model: CLC",
       "Model: SUS304"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/32.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "dhd-type-roller-type-automatic-magnetic-separator",
@@ -4181,11 +3888,7 @@ export const products: Product[] = [
     "customization": [
       "Model: DHD"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/33.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "dhj-type-strong-roller-automatic-magnetic-separator",
@@ -4234,11 +3937,7 @@ export const products: Product[] = [
     "customization": [
       "Model: DHJ"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/30.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "qcg-wet-roller-magnetic-separator",
@@ -4287,11 +3986,7 @@ export const products: Product[] = [
     "customization": [
       "Model: QCG"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-13/21.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "drawer-magnet",
@@ -4330,7 +4025,7 @@ export const products: Product[] = [
       {
         "label": "Model",
         "value": "SS316"
-      },
+      }
     ],
     "applications": [
       "Food Industry",
@@ -4345,13 +4040,9 @@ export const products: Product[] = [
     "installation": "",
     "customization": [
       "Model: SS304",
-      "Model: SS316",
+      "Model: SS316"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.chnmag.com/product/Drawer-Magnet-18.html"
-    ],
-    "sourceSite": "chnmag.com"
+    "faqs": []
   },
   {
     "slug": "hump-magnet",
@@ -4391,11 +4082,7 @@ export const products: Product[] = [
     ],
     "installation": "",
     "customization": [],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.chnmag.com/product/Hump-Magnet-19.html"
-    ],
-    "sourceSite": "chnmag.com"
+    "faqs": []
   },
   {
     "slug": "magnetic-grid",
@@ -4435,11 +4122,7 @@ export const products: Product[] = [
     ],
     "installation": "",
     "customization": [],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.chnmag.com/product/Magnetic-Grid-20.html"
-    ],
-    "sourceSite": "chnmag.com"
+    "faqs": []
   },
   {
     "slug": "magnetic-rod",
@@ -4479,11 +4162,7 @@ export const products: Product[] = [
     ],
     "installation": "",
     "customization": [],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.chnmag.com/product/Magnetic-Rod-21.html"
-    ],
-    "sourceSite": "chnmag.com"
+    "faqs": []
   },
   {
     "slug": "magnetic-trap",
@@ -4519,8 +4198,7 @@ export const products: Product[] = [
       "Properly designed magnetic configuration ensures Maximum magnetic effect without impeding liquid flow."
     ],
     "principle": "Magnetic Liquid Traps or Magnetic Liquid Filters are designed for liquid or semi-liquid flow systems to remove ferrous contamination from liquid with different viscosity level. They preserve product purity by removing small contaminants , provide magnetic protection for liquid lines and processing requirements. Features: 1. Many different styles are available for different materials. 2. The max magnetic strength can reach 12,000GS for N style, 8000GS for E style. 3. Standard working temperature ≤ 80°c, max working temperature can be chosen from 80°c to 350°c as the same with magnetic bars if needed. 4. Connection can be through ferrule, bolt plate, flange or uneven head, etc. 5. Stainless steel 304 or316L is available for shell material. 6. Properly designed magnetic configuration ensures Maximum magnetic effect without impeding liquid flow. 7. Pressure design or other special requirement can be custom made. N Style Magnetic Liquid Trap Magnetic Strength: Up to the highest 12,000 GS (1.2T) Fast Connection Style Magnetic Liquid Trap Good sealing results by using rubber seal washer and special shape pipe wall designing, save cost and installation time. Easy-Clean Magnetic Liquid Trap Magnetic strength: The highest is 8000GS (0.8T) Insulation Style Magnetic Liquid Trap Insulation Style Liquid Traps or Filters have a jacket filled with hot water or oil that keep liquid warm enough when it pass through the taps. Ideal choice for chocolate, syrups , jams and sauces to removing ferrous contamination.",
-    "specs": [
-    ],
+    "specs": [],
     "applications": [
       "Food Industry",
       "mining",
@@ -4530,13 +4208,8 @@ export const products: Product[] = [
       "metal recycling"
     ],
     "installation": "",
-    "customization": [
-    ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.chnmag.com/product/Magnetic-Trap-22.html"
-    ],
-    "sourceSite": "chnmag.com"
+    "customization": [],
+    "faqs": []
   },
   {
     "slug": "rotary-pipe-magnet",
@@ -4580,11 +4253,7 @@ export const products: Product[] = [
     ],
     "installation": "",
     "customization": [],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.chnmag.com/product/Rotary-Pipe-Magnet-23.html"
-    ],
-    "sourceSite": "chnmag.com"
+    "faqs": []
   },
   {
     "slug": "permanent-filter-bar-magnetic-neodymium-rod",
@@ -4641,9 +4310,7 @@ export const products: Product[] = [
       "Magnet Material: Neodymium iron boron",
       "Tube Material: 304 or 316L stainless steel"
     ],
-    "faqs": [],
-    "sourceUrls": [],
-    "sourceSite": ""
+    "faqs": []
   },
   {
     "slug": "high-frequency-screen",
@@ -4686,11 +4353,7 @@ export const products: Product[] = [
     ],
     "installation": "",
     "customization": [],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.chnmag.com/product/27.html"
-    ],
-    "sourceSite": "chnmag.com"
+    "faqs": []
   },
   {
     "slug": "kgla-series-rectifier-control-box",
@@ -4728,11 +4391,7 @@ export const products: Product[] = [
     "customization": [
       "Model: KGLA"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-14/50.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box",
@@ -4778,11 +4437,7 @@ export const products: Product[] = [
       "Model: LCD",
       "Model: RS-485"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-16/81.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box",
@@ -4816,11 +4471,7 @@ export const products: Product[] = [
     ],
     "installation": "",
     "customization": [],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-16/82.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover",
@@ -4867,11 +4518,7 @@ export const products: Product[] = [
     "customization": [
       "Model: RBCDB"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-16/80.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover",
@@ -4921,11 +4568,7 @@ export const products: Product[] = [
     "customization": [
       "Model: RBCDD"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-16/77.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover",
@@ -4974,11 +4617,7 @@ export const products: Product[] = [
     "customization": [
       "Model: RBCYD"
     ],
-    "faqs": [],
-    "sourceUrls": [
-      "https://www.cnmagnetics.com/n-16/76.html"
-    ],
-    "sourceSite": "cnmagnetics.com"
+    "faqs": []
   },
   {
     "slug": "round-electromagnetic-lifting-magnet",
@@ -5031,8 +4670,6 @@ export const products: Product[] = [
     "customization": [
       "Material Handled: Steel scrap, cast iron, ferrous metal pieces"
     ],
-    "faqs": [],
-    "sourceUrls": [],
-    "sourceSite": ""
+    "faqs": []
   }
 ];
