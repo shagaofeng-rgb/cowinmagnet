@@ -76,8 +76,17 @@ export function localizedAlternates(path: string) {
 }
 
 export function localizedPageAlternates(locale: Locale, path: string) {
+  // Non-English routes remain available to visitors but are intentionally
+  // noindex until their full body content has passed editorial review. Do not
+  // advertise a noindex route as an hreflang alternate of the English URL.
+  if (locale !== defaultLocale) {
+    return {
+      canonical: absoluteLocalizedUrl(locale, path)
+    };
+  }
+
   return {
-    canonical: absoluteLocalizedUrl(locale, path),
+    canonical: absoluteLocalizedUrl(defaultLocale, path),
     languages: {
       en: absoluteLocalizedUrl(defaultLocale, path),
       "x-default": absoluteLocalizedUrl(defaultLocale, path)

@@ -60,6 +60,36 @@ const nextConfig = {
         permanent: true
       },
       {
+        source: "/:locale(en|es|ru|ar|fr|pt)/industries/food-processing",
+        destination: "/:locale/industries/food",
+        permanent: true
+      },
+      {
+        source: "/industries/food-processing",
+        destination: "/en/industries/food",
+        permanent: true
+      },
+      {
+        source: "/:locale(en|es|ru|ar|fr|pt)/applications/waste-processing",
+        destination: "/:locale/industries/recycling",
+        permanent: true
+      },
+      {
+        source: "/applications/waste-processing",
+        destination: "/en/industries/recycling",
+        permanent: true
+      },
+      {
+        source: "/:locale(en|es|ru|ar|fr|pt)/applications/incineration-plant",
+        destination: "/:locale/industries/recycling",
+        permanent: true
+      },
+      {
+        source: "/applications/incineration-plant",
+        destination: "/en/industries/recycling",
+        permanent: true
+      },
+      {
         source: "/:locale(en|es|ru|ar|fr|pt)/products/conveyor-metal-detector",
         destination: "/:locale/products/dls-type-window-metal-detector",
         permanent: true
@@ -67,6 +97,36 @@ const nextConfig = {
       {
         source: "/products/conveyor-metal-detector",
         destination: "/en/products/dls-type-window-metal-detector",
+        permanent: true
+      },
+      {
+        source: "/:locale(en|es|ru|ar|fr|pt)/products/electromagnetic-control-cabinet",
+        destination: "/:locale/products/kgla-series-rectifier-control-box",
+        permanent: true
+      },
+      {
+        source: "/products/electromagnetic-control-cabinet",
+        destination: "/en/products/kgla-series-rectifier-control-box",
+        permanent: true
+      },
+      {
+        source: "/:locale(en|es|ru|ar|fr|pt)/products/automatic-cleaning-magnetic-separators-for-iron-scrap-waste",
+        destination: "/:locale/products/rcyd-type-permanent-magnet-self-dumping-iron-remover",
+        permanent: true
+      },
+      {
+        source: "/products/automatic-cleaning-magnetic-separators-for-iron-scrap-waste",
+        destination: "/en/products/rcyd-type-permanent-magnet-self-dumping-iron-remover",
+        permanent: true
+      },
+      {
+        source: "/:locale(en|es|ru|ar|fr|pt)/blog/magnetic-separator-for-waste-recycling-lines",
+        destination: "/:locale/news/magnetic-separator-for-waste-recycling-lines",
+        permanent: true
+      },
+      {
+        source: "/blog/magnetic-separator-for-waste-recycling-lines",
+        destination: "/en/news/magnetic-separator-for-waste-recycling-lines",
         permanent: true
       }
     ];
