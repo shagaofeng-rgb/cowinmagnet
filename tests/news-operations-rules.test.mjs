@@ -16,7 +16,7 @@ test("quality gate rejects a short article without independent evidence", () => 
 });
 
 test("quality gate accepts a valid original article envelope", () => {
-  const words = Array.from({ length: 1210 }, () => "engineering").join(" ");
+  const words = `A process change leading to a different selection basis. ${Array.from({ length: 1200 }, () => "engineering").join(" ")}`;
   const article = {
     title: "C&D recycling conveyor protection", metaTitle: "C&D Conveyor Protection | COWIN MAGNET", metaDescription: "Selection notes for a self-cleaning magnet before a recycling crusher, with source-based process context and an inquiry checklist.", slug: "cd-recycling-conveyor-protection",
     primaryProductId: "rcyd-type-permanent-magnet-self-dumping-iron-remover", productIds: ["rcyd-type-permanent-magnet-self-dumping-iron-remover"], articleMarkdown: words,
@@ -25,6 +25,17 @@ test("quality gate accepts a valid original article envelope", () => {
   const result = validateNewsArticle(article, { catalog });
   assert.equal(result.passed, true);
   assert.equal(result.contentFingerprint, newsFingerprint(`${article.title}\n${words}`));
+});
+
+test("quality gate rejects promotional leadership claims", () => {
+  const words = `A world-leading equipment claim. ${Array.from({ length: 1200 }, () => "engineering").join(" ")}`;
+  const article = {
+    title: "C&D recycling conveyor protection", metaTitle: "C&D Conveyor Protection | COWIN MAGNET", metaDescription: "Selection notes for a self-cleaning magnet before a recycling crusher, with source-based process context and an inquiry checklist.", slug: "cd-recycling-promotional-claim",
+    primaryProductId: "rcyd-type-permanent-magnet-self-dumping-iron-remover", productIds: ["rcyd-type-permanent-magnet-self-dumping-iron-remover"], articleMarkdown: words,
+    sourceClaims: [{ sourceUrl: "https://source-one.example/article" }, { sourceUrl: "https://source-two.example/article" }], mediaPlan: [{ kind: "product-image", url: "/assets/products/rcyd.jpg" }, { kind: "self-made-process-diagram", url: "/images/news/process.svg" }]
+  };
+
+  assert.ok(validateNewsArticle(article, { catalog }).errors.includes("contains-unverified-or-prohibited-claim"));
 });
 
 test("quality gate rejects a diagram plan without a local media path", () => {
