@@ -17,7 +17,7 @@ Use this skill for Cowinmagnet maintenance, launch checks, regression testing, S
 - Deployment: Vercel project `cowinmagnet`
 - Production domains: `www.cowinmagnet.com`, `cowinmagnet.com`
 - Admin auth: cookie session via `/api/admin/login`
-- News operations: PostgreSQL-backed source discovery runs daily. A quality-gated autonomous publishing cycle runs at most once per 48 hours only when `NEWS_AUTOPUBLISH_ENABLED=true`; existing News and manual CMS publishing remain supported.
+- News operations: PostgreSQL-backed candidate ingestion runs every 12 hours and cannot publish. A frontend-verified publishing cycle runs at most once per 48 hours only when `NEWS_AUTOMATION_PRODUCTION_ENABLED=true`; existing News and manual CMS publishing remain supported.
 
 Do not store or reveal passwords, tokens, database URLs, or environment-variable values.
 

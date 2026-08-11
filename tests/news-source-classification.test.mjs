@@ -3,24 +3,28 @@ import test from "node:test";
 
 import { classifyNewsFamily } from "../lib/newsSourceClassifier.js";
 
-test("classifies mining trade coverage using source and engineering context", () => {
+const scope = ["mining", "ore", "tailings", "recycling", "metal recovery", "magnetic separation"];
+
+test("classifies mining trade coverage using configured industry scope", () => {
   const family = classifyNewsFamily(
     "A mine updates its ore processing and tailings circuit for the next project stage.",
-    "mining-technology.com"
+    "mining-technology.com",
+    scope
   );
 
-  assert.equal(family?.id, "mineral-processing");
+  assert.match(family?.id || "", /mining|ore|tailings/);
 });
 
 test("classifies recycling coverage without requiring an exact product phrase", () => {
   const family = classifyNewsFamily(
     "The recycling facility processes mixed scrap and improves metal recovery from the waste stream.",
-    "recyclingtoday.com"
+    "recyclingtoday.com",
+    scope
   );
 
-  assert.equal(family?.id, "recycling-sorting");
+  assert.match(family?.id || "", /recycling|metal-recovery/);
 });
 
 test("rejects unrelated general coverage without a trusted industry source hint", () => {
-  assert.equal(classifyNewsFamily("A company announced a general executive appointment.", "example.com"), null);
+  assert.equal(classifyNewsFamily("A company announced a general executive appointment.", "example.com", scope), null);
 });

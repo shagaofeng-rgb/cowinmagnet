@@ -1,5 +1,5 @@
 import { requireAdminApi } from "@/lib/adminApi";
-import { getNewsOperationsDashboard, runDailyNewsDiscovery, runNewsPublishCycle, seedInitialEditorialPlans } from "@/lib/newsOperations";
+import { getNewsOperationsDashboard, runNewsIngestCycle, runNewsPublishCycle } from "@/lib/newsOperations";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -19,8 +19,8 @@ export async function POST(request) {
   if (unauthorized) return unauthorized;
   const body = await request.json().catch(() => ({}));
   try {
-    if (body.action === "discover") return Response.json({ success: true, data: await runDailyNewsDiscovery(), error: null });
-    if (body.action === "seed-plans") return Response.json({ success: true, data: { created: (await seedInitialEditorialPlans()).length }, error: null });
+    if (body.action === "discover") return Response.json({ success: true, data: await runNewsIngestCycle(), error: null });
+    if (body.action === "seed-plans") return Response.json({ success: true, data: { status: "retired", reason: "Product-plan seeding is not part of News ingestion." }, error: null });
     if (body.action === "publish") return Response.json({ success: true, data: await runNewsPublishCycle(), error: null });
     return Response.json({ success: false, data: null, error: "Unsupported action" }, { status: 400 });
   } catch (error) {

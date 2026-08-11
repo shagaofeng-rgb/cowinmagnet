@@ -4,32 +4,59 @@ import { getNewsOperationsDashboard } from "@/lib/newsOperations";
 export const dynamic = "force-dynamic";
 
 function date(value) {
-  return value ? new Date(value).toLocaleString("zh-CN") : "-";
+  return value ? new Date(value).toLocaleString("zh-CN", { hour12: false }) : "-";
 }
 
 export default async function NewsOperationsPage() {
-  let dashboard;
-  let error = "";
+  let dashboard = null;
+  let storageError = null;
   try {
     dashboard = await getNewsOperationsDashboard();
-  } catch (reason) {
-    error = reason instanceof Error ? reason.message : "新闻运营数据库不可用";
+  } catch (error) {
+    storageError = error instanceof Error ? error.message : "News operations storage is unavailable";
   }
 
-  if (error) {
-    return <div className="admin-page"><header className="admin-page-head"><div><p className="eyebrow">NEWS OPERATIONS</p><h1>自主新闻运营</h1><p>当前模块需要 PostgreSQL 持久化存储，未使用临时文件或内存代替。</p></div></header><div className="admin-alert">{error}</div></div>;
+  if (!dashboard) {
+    return <div className="admin-page"><header className="admin-page-head"><div><p className="eyebrow">NEWS OPERATIONS</p><h1>News automatic operations</h1><p>The News operations store is unavailable. No fallback data is shown for this private administrative view.</p></div></header><div className="admin-alert">{storageError}</div></div>;
   }
 
   return (
     <div className="admin-page">
       <header className="admin-page-head">
-        <div><p className="eyebrow">NEWS OPERATIONS</p><h1>自主新闻运营</h1><p>每日采集线索；每 48 小时最多发布一篇。自动发布只在环境变量开启且所有自动质量闸门通过时执行。</p></div>
-        <div className={`admin-status ${dashboard.config.enabled ? "good" : ""}`}>{dashboard.config.enabled ? "自动发布已开启" : "自动发布已暂停"}</div>
+        <div>
+          <p className="eyebrow">NEWS OPERATIONS</p>
+          <h1>News automatic operations</h1>
+          <p>12-hour candidate ingestion and 48-hour frontend-verified publication are isolated from Blog automation.</p>
+        </div>
+        <div className="admin-status good">{dashboard.storageMode}</div>
       </header>
-      <section className="admin-panel"><h2>运行状态</h2><p className="admin-muted">存储：PostgreSQL | 时区：{dashboard.config.timezone} | 生成器：{dashboard.config.hasGenerator ? dashboard.config.model : "未配置"} | 发布间隔：48 小时</p><p className="admin-muted">首批 10 个选题仅作为排期草稿。只有设置 <code>NEWS_AUTOPUBLISH_ENABLED=true</code> 后，系统才会尝试自动发布；无需每篇人工审核，但所有质量门必须通过。</p><Link href="/admin/news">打开 News 内容管理</Link></section>
-      <section className="admin-panel"><h2>来源白名单</h2><div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>来源</th><th>优先级</th><th>RSS</th><th>状态</th></tr></thead><tbody>{dashboard.sources.map((source) => <tr key={source.id}><td>{source.name}<br /><small>{source.domain}</small></td><td>{source.priority}</td><td>{source.rssUrl || "-"}</td><td>{source.active && source.allowed ? "Active" : "Disabled"}</td></tr>)}</tbody></table></div></section>
-      <section className="admin-panel"><h2>选题排期</h2><div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>行业</th><th>主产品</th><th>角度</th><th>状态</th></tr></thead><tbody>{dashboard.plans.map((plan) => <tr key={plan.id}><td>{plan.industry}</td><td>{plan.primary_product_id || plan.primaryProductId}</td><td>{plan.angle}<br /><small>{plan.reason}</small></td><td>{plan.status}</td></tr>)}</tbody></table></div></section>
-      <section className="admin-panel"><h2>最近候选与发布记录</h2><p className="admin-muted">候选、质量拒绝原因和发布运行日志均保存在数据库。管理动作可通过受保护 API 发起：<code>/api/admin/news-operations</code>。</p><div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>候选</th><th>来源</th><th>日期</th><th>状态</th></tr></thead><tbody>{dashboard.candidates.map((candidate) => <tr key={candidate.id}><td>{candidate.title}</td><td>{candidate.publisher}</td><td>{date(candidate.published_at || candidate.publishedAt)}</td><td>{candidate.status}</td></tr>)}</tbody></table></div></section>
+
+      <section className="admin-panel">
+        <h2>Active site</h2>
+        <p className="admin-muted">site_id: <code>{dashboard.siteId}</code>. Candidates remain private until a publication run verifies the public News list, detail page and News sitemap.</p>
+        <Link href="/admin/news">Open News content management</Link>
+      </section>
+
+      <section className="admin-panel">
+        <h2>Approved sources</h2>
+        <div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>Source</th><th>Type</th><th>Trust</th><th>Status</th></tr></thead><tbody>
+          {dashboard.sources.map((source) => <tr key={source.id}><td>{source.name}<br /><small>{source.domain}</small></td><td>{source.source_type}</td><td>{source.source_trust_score}</td><td>{source.active && source.allowed ? "Active" : "Disabled"}</td></tr>)}
+        </tbody></table></div>
+      </section>
+
+      <section className="admin-panel">
+        <h2>Recent candidate decisions</h2>
+        <div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>Candidate</th><th>Source</th><th>Score</th><th>State</th></tr></thead><tbody>
+          {dashboard.candidates.map((candidate) => <tr key={candidate.id}><td>{candidate.title}</td><td>{candidate.publisher}</td><td>{candidate.candidateScore ?? candidate.candidate_score}</td><td>{candidate.status}{candidate.rejectionReason ? `: ${candidate.rejectionReason}` : ""}</td></tr>)}
+        </tbody></table></div>
+      </section>
+
+      <section className="admin-panel">
+        <h2>Run history</h2>
+        <div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>Run</th><th>Started</th><th>Status</th><th>Details</th></tr></thead><tbody>
+          {dashboard.runs.map((run) => <tr key={run.id}><td>{run.run_type}</td><td>{date(run.started_at)}</td><td>{run.status}</td><td>{run.error_summary || "-"}</td></tr>)}
+        </tbody></table></div>
+      </section>
     </div>
   );
 }

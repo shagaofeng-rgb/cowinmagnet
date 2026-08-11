@@ -12,7 +12,8 @@ async function handle(request) {
   if (!isCronAuthorized(request)) return NextResponse.json({ success: false, data: null, error: "Unauthorized", requestId }, { status: 401 });
   try {
     const data = await runNewsPublishCycle();
-    return NextResponse.json({ success: data.status === "published" || data.status === "skipped", data, error: data.status === "needs_review" ? data.reason || "Automatic quality gate rejected this cycle" : null, requestId }, { status: data.status === "needs_review" ? 422 : 200, headers: { "Cache-Control": "no-store" } });
+    const successful = ["published_success", "not_due", "paused"].includes(data.status);
+    return NextResponse.json({ success: successful, data, error: successful ? null : data.reason || "News publishing is retrying after a delivery failure", requestId }, { status: data.status === "retry_pending" ? 503 : 200, headers: { "Cache-Control": "no-store" } });
   } catch (error) {
     return NextResponse.json({ success: false, data: null, error: error instanceof Error ? error.message : "News publishing failed", requestId }, { status: 500, headers: { "Cache-Control": "no-store" } });
   }

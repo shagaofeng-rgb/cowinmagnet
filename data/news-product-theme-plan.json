@@ -1,0 +1,20 @@
+[
+  {
+    "site_id": "cowinmagnet-production",
+    "theme_id": "recycling-magnetic-separation",
+    "product_url": "/en/products/permanent-overband-magnetic-separator",
+    "product_name": "Permanent Overband Magnetic Separator",
+    "start_at": "2026-08-01T00:00:00.000Z",
+    "end_at": "2026-08-31T23:59:59.999Z",
+    "status": "active"
+  },
+  {
+    "site_id": "cowinmagnet-production",
+    "theme_id": "mineral-processing-magnetic-separation",
+    "product_url": "/en/products/wet-drum-magnetic-separator",
+    "product_name": "Wet Drum Magnetic Separator",
+    "start_at": "2026-09-01T00:00:00.000Z",
+    "end_at": "2026-09-30T23:59:59.999Z",
+    "status": "active"
+  }
+]

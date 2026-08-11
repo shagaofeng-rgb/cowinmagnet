@@ -62,17 +62,15 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
         description="Latest industry updates, market insights, and company perspectives."
         image="/images/generated/recycling-application-cowinmagnet.png"
         imageAlt="Cowinmagnet industry news and magnetic separation market insights"
-        primaryHref="/request-quote"
-        primaryLabel="Send Requirements"
       />
 
       <section className="section news-index-section">
         <div className="section-heading align-left">
           <span className="eyebrow">Industry Updates</span>
-          <h2>Market signals and Cowinmagnet viewpoints</h2>
+          <h2>Verified industry updates and editorial analysis</h2>
           <p>
-            News is used for industry news, market dynamics, technology trends, company insights, project updates and global observations.
-            Blog remains focused on product knowledge, technical guides and application solutions.
+            News summarizes attributable external industry developments and separates sourced facts from editorial analysis.
+            Blog remains focused on the website's original technical guides and application knowledge.
           </p>
         </div>
 

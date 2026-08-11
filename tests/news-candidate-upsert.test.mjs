@@ -2,18 +2,19 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-test("candidate refresh updates classification fields on an existing source URL", async () => {
-  const source = await readFile(new URL("../lib/newsOperationsStore.js", import.meta.url), "utf8");
-  const conflictClause = source.match(/ON CONFLICT \(source_url\) DO UPDATE SET([\s\S]*?)RETURNING \*/)?.[1] || "";
+test("candidate refresh is isolated by site and retains candidate lifecycle fields", async () => {
+  const source = await readFile(new URL("../lib/newsAutomationStore.js", import.meta.url), "utf8");
+  const conflictClause = source.match(/ON CONFLICT \(site_id, source_url\) DO UPDATE SET([\s\S]*?)RETURNING \*/)?.[1] || "";
 
-  for (const field of ["industry", "materials", "process_stage", "product_families", "publisher", "status"]) {
-    assert.match(conflictClause, new RegExp(`${field} = EXCLUDED\\.${field}`));
+  for (const field of ["industry", "publisher", "candidate_score", "content_fingerprint"]) {
+    assert.match(conflictClause, new RegExp(`${field}\\s*=\\s*EXCLUDED\\.${field}`));
   }
+  assert.match(conflictClause, /status\s*=\s*CASE WHEN news_candidates\.status IN \('used','reserved_for_cycle'\)/);
 });
 
-test("editorial plan saves preserve database snake-case fields", async () => {
-  const source = await readFile(new URL("../lib/newsOperationsStore.js", import.meta.url), "utf8");
-  assert.match(source, /plan\.primaryProductId \|\| plan\.primary_product_id/);
-  assert.match(source, /plan\.secondaryProductIds \|\| plan\.secondary_product_ids/);
-  assert.match(source, /plan\.candidateIds \|\| plan\.candidate_ids/);
+test("News storage creates site-scoped fingerprints, locks and delivery records", async () => {
+  const source = await readFile(new URL("../lib/newsAutomationStore.js", import.meta.url), "utf8");
+  assert.match(source, /news_candidate_fingerprints/);
+  assert.match(source, /news_delivery_checks/);
+  assert.match(source, /news:\$\{name\}:\$\{siteId\}/);
 });

@@ -112,6 +112,8 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
     displayOrder?: number;
   }[];
   const faqs = (post.faqs || []) as { question: string; answer: string }[];
+  const automatedNews = post.contentOrigin === "news-automation";
+  const editorialDisclaimer = typeof post.editorialDisclaimer === "string" ? post.editorialDisclaimer : "";
   const relatedInternalLinks = await getInternalLinkSuggestions({ type: "news", slug: post.slug, limit: 5 });
   const articleImages = [coverImage, ...bodyImages.map((image) => image.imageUrl).filter(Boolean)].filter(Boolean).map((imageUrl) => absoluteUrl(imageUrl));
 
@@ -138,12 +140,13 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
       ...((seoGeoProfile.serviceScope as string[] | undefined) || [])
     ].filter(Boolean).slice(0, 24).map((name) => ({ "@type": "Thing", name })),
     citation: sources.map((source) => source.url).filter(Boolean),
+    ...(automatedNews && sources[0]?.url ? { isBasedOn: sources[0].url } : {}),
     isAccessibleForFree: true,
     ...(articleImages.length ? { image: articleImages } : {}),
     datePublished: post.publishedAt,
     dateModified: post.updatedAt || post.publishedAt,
     author: {
-      "@type": post.author ? "Person" : "Organization",
+      "@type": automatedNews || !post.author ? "Organization" : "Person",
       name: post.author || site.name
     },
     publisher: {
@@ -212,8 +215,8 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
 
           {sources.length ? (
             <section className="news-source-box">
-              <h2>Source References</h2>
-              <p>External references are cited for context. Cowinmagnet adds its own analysis and buyer-focused interpretation.</p>
+              <h2>Original Source</h2>
+              <p>{editorialDisclaimer || "This page is an independent editorial summary and analysis. The original reporting remains the property of the source named below."}</p>
               <ul>
                 {sources.map((source) => (
                   <li key={`${source.name}-${source.title}`}>
@@ -239,7 +242,7 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
             </section>
           ) : null}
 
-          {relatedProducts.length ? (
+          {!automatedNews && relatedProducts.length ? (
             <section className="news-source-box news-related-products">
               <h2>Related Cowinmagnet Solutions</h2>
               <p>{post.relatedProductRationale || "Product links are selected by topic match and should be reviewed against site conditions before final model selection."}</p>
@@ -252,21 +255,21 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
           ) : null}
         </article>
 
-        <aside className="blog-sidebar">
+        {!automatedNews ? <aside className="blog-sidebar">
           <div className="blog-quote-card">
             <span className="eyebrow">News Insight</span>
             <h2>Turn market signals into product selection questions</h2>
             <p>Send your material type, conveyor data and target application. We will help review the suitable magnetic separation direction.</p>
             <Link href="/request-quote" className="btn btn-primary">Send Requirements</Link>
           </div>
-        </aside>
+        </aside> : null}
       </section>
 
-      <RelatedInternalLinks
+      {!automatedNews ? <RelatedInternalLinks
         eyebrow="Buyer Context"
         title="Related products, guides and application pages"
         links={relatedInternalLinks}
-      />
+      /> : null}
 
       <section className="section article-nav-section">
         <div className="article-prev-next">

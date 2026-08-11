@@ -5,11 +5,11 @@
   "crons": [
     {
       "path": "/api/automation/news-discovery",
-      "schedule": "5 1 * * *"
+      "schedule": "5 1,13 * * *"
     },
     {
       "path": "/api/automation/news-publish",
-      "schedule": "15 2 */2 * *"
+      "schedule": "15 1,13 * * *"
     },
     {
       "path": "/api/cron/analytics-sync",

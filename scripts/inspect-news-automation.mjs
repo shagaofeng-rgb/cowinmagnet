@@ -19,7 +19,7 @@ async function rows(sql) {
 try {
   const result = {
     config: {
-      autopublish: process.env.NEWS_AUTOPUBLISH_ENABLED,
+      productionEnabled: process.env.NEWS_AUTOMATION_PRODUCTION_ENABLED,
       hasOpenAI: Boolean(process.env.OPENAI_API_KEY),
       model: process.env.NEWS_LLM_MODEL || null
     },

@@ -68,20 +68,18 @@ export default async function LocalizedNewsPage({ params, searchParams }: PagePr
       <PageHero
         eyebrow="News"
         title="News"
-        description="Latest industry updates, market insights, and company perspectives."
+        description="Verified external industry updates with clear source attribution and independent editorial analysis."
         image="/images/generated/recycling-application-cowinmagnet.png"
         imageAlt="Cowinmagnet industry news and magnetic separation market insights"
-        primaryHref={localizeHref("/request-quote", current)}
-        primaryLabel="Send Requirements"
       />
 
       <section className="section news-index-section">
         <div className="section-heading align-left">
           <span className="eyebrow">Industry Updates</span>
-          <h2>Market signals and Cowinmagnet viewpoints</h2>
+          <h2>Verified industry updates and editorial context</h2>
           <p>
-            News is used for industry news, market dynamics, technology trends, company insights, project updates and global observations.
-            Blog remains focused on product knowledge, technical guides and application solutions.
+            News summarizes relevant industry developments with the original source, publication date and an editorial disclaimer on every automated item.
+            Blog remains a separate destination for long-form product knowledge, technical guides and application solutions.
           </p>
         </div>
 

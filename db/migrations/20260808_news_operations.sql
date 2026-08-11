@@ -1,5 +1,5 @@
 -- Additive migration for the autonomous News operations module.
--- The runtime bootstrap in lib/newsOperationsStore.js uses the same idempotent definitions.
+-- Superseded by the site-isolated runtime bootstrap in lib/newsAutomationStore.js.
 CREATE TABLE IF NOT EXISTS news_sources (
   id TEXT PRIMARY KEY, domain TEXT NOT NULL UNIQUE, name TEXT NOT NULL, priority SMALLINT NOT NULL,
   rss_url TEXT, allowed BOOLEAN NOT NULL DEFAULT TRUE, active BOOLEAN NOT NULL DEFAULT TRUE,

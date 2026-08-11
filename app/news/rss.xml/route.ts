@@ -1,1 +1,1 @@
-export { GET } from "../../feed.xml/route";
+export { GET } from "@/app/feed.xml/route";

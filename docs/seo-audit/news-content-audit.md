@@ -11,7 +11,7 @@ This report is generated from existing CMS and legacy content records. No record
 ## Current publishing controls
 
 - The daily discovery task records candidate sources and planned topics only.
-- The 48-hour publishing task can publish only when `NEWS_AUTOPUBLISH_ENABLED=true`, two independent HTTPS sources, the content-quality rules, a local product image and a self-made local process diagram all pass validation.
+- The 48-hour publishing task can publish only when `NEWS_AUTOMATION_PRODUCTION_ENABLED=true`, source, duplicate, quality and public frontend verification checks all pass.
 - A failed source, quality or post-publication health check is saved as `needs_review` or reverted to `draft`; it is not kept publicly indexable.
 - Blog has no automatic publishing task. Manual CMS publishing remains available.
 

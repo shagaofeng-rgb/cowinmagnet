@@ -4,7 +4,7 @@ Generated: 2026-08-08
 
 ## Confirmed changes
 
-- The legacy direct-publication News flow was removed. The active News system discovers source candidates daily and may publish one quality-gated item every 48 hours when `NEWS_AUTOPUBLISH_ENABLED=true`.
+- The legacy direct-publication News flow was removed. The active News system ingests source candidates every 12 hours and can publish one frontend-verified item every 48 hours when `NEWS_AUTOMATION_PRODUCTION_ENABLED=true`.
 - A News item is blocked or reverted unless independent HTTPS sources, relevance and duplication rules, local media rules and a post-publication health check all pass. Each discovery/publish cycle records its result and skip/failure reason.
 - Blog automatic publishing is retired. Existing Blog records are retained and manual CMS publishing remains available.
 - Draft, archived and explicitly noindex News are excluded from listings and sitemaps without deleting CMS data; eligible published News can remain indexable.

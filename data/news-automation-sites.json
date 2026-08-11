@@ -1,0 +1,61 @@
+[
+  {
+    "site_id": "cowinmagnet-production",
+    "enabled": true,
+    "brand_name": "COWIN MAGNET",
+    "site_url": "https://www.cowinmagnet.com",
+    "industry": "industrial magnetic separation equipment",
+    "industry_scope": "Magnetic separation, tramp-iron removal, mineral processing, recycling, bulk-material handling, cement and aggregate processing, food-process magnetic filtration, metal detection, and directly related regulations, standards, engineering and supply-chain developments. Exclude general consumer recalls, celebrity, financial, political and unrelated corporate news.",
+    "target_markets": ["US", "EU"],
+    "publication_language": "en",
+    "locale": "en-US",
+    "timezone": "Asia/Shanghai",
+    "news": {
+      "enabled": true,
+      "list_route": "/news",
+      "detail_route_pattern": "/news/[slug]",
+      "rss_route": "/news/rss.xml",
+      "sitemap_route": "/news-sitemap.xml",
+      "desired_word_count": { "min": 700, "max": 1000 },
+      "ingest_interval_hours": 12,
+      "publish_interval_hours": 48,
+      "candidate_max_age_hours": 72,
+      "fallback_candidate_max_age_days": 7,
+      "min_score": 70,
+      "max_internal_product_links": 1,
+      "default_author_type": "Editorial Team"
+    },
+    "blog": {
+      "enabled": true,
+      "list_route": "/blog",
+      "detail_route_pattern": "/blog/[slug]",
+      "sitemap_route": "/blog-sitemap.xml",
+      "content_source": "existing-blog-webhook",
+      "allow_news_automation": false
+    },
+    "product_theme_plan": {
+      "source_type": "yaml",
+      "source_reference": "data/news-product-theme-plan.json",
+      "required_fields": ["theme_id", "product_url", "product_name", "start_at", "end_at", "status"]
+    },
+    "sources": {
+      "primary_whitelist": [
+        { "domain": "internationalmining.com", "name": "International Mining", "type": "trade-media", "allowed_topics": ["mining", "mineral processing", "magnetic separation"], "allowed_languages": ["en"], "rss_or_api_url": "https://im-mining.com/feed/", "source_trust_score": 85 },
+        { "domain": "mining-technology.com", "name": "Mining Technology", "type": "trade-media", "allowed_topics": ["mining", "mineral processing", "recycling"], "allowed_languages": ["en"], "rss_or_api_url": "https://www.mining-technology.com/feed/", "source_trust_score": 80 },
+        { "domain": "recyclingtoday.com", "name": "Recycling Today", "type": "trade-media", "allowed_topics": ["recycling", "metal recovery", "sorting"], "allowed_languages": ["en"], "rss_or_api_url": "https://www.recyclingtoday.com/rss", "source_trust_score": 80 }
+      ],
+      "fallback_whitelist": [
+        { "domain": "wastetodaymagazine.com", "name": "Waste Today", "type": "trade-media", "allowed_topics": ["recycling", "waste processing"], "allowed_languages": ["en"], "rss_or_api_url": "https://www.wastetodaymagazine.com/rss", "source_trust_score": 75 },
+        { "domain": "foodengineeringmag.com", "name": "Food Engineering", "type": "trade-media", "allowed_topics": ["food processing", "contamination control"], "allowed_languages": ["en"], "rss_or_api_url": "https://www.foodengineeringmag.com/rss", "source_trust_score": 75 }
+      ]
+    },
+    "publishing": {
+      "cms_adapter": "cms-items-news-adapter",
+      "content_status_after_publish": "published",
+      "require_frontend_verification": true,
+      "alert_channel": "configured-alert-target",
+      "production_enabled": false
+    },
+    "relevance_terms": ["magnetic separation", "magnetic separator", "tramp iron", "ferrous", "nonferrous", "metal sorting", "metal recovery", "mineral processing", "ore", "tailings", "recycling", "conveyor", "crusher", "cement", "aggregate", "food processing", "metal detection"]
+  }
+]
