@@ -1,11 +1,26 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import catalog from "../data/product-application-catalog.json" with { type: "json" };
-import { newsFingerprint, parseNewsRssItems, validateNewsArticle } from "../lib/newsOperationsRules.js";
+import { newsFingerprint, normalizeGeneratedSourceClaims, parseNewsRssItems, validateNewsArticle } from "../lib/newsOperationsRules.js";
 
 test("RSS parsing keeps title, URL and publication date", () => {
   const items = parseNewsRssItems(`<?xml version="1.0"?><rss><channel><item><title><![CDATA[Recycling line update]]></title><link>https://example.com/article</link><pubDate>Fri, 08 Aug 2026 00:00:00 GMT</pubDate><description>Short source fact</description></item></channel></rss>`);
   assert.deepEqual(items, [{ title: "Recycling line update", sourceUrl: "https://example.com/article", publishedAt: "Fri, 08 Aug 2026 00:00:00 GMT", summary: "Short source fact", author: "" }]);
+});
+
+test("generated source claims accept common URL field names and remain candidate-bound", () => {
+  const candidates = [
+    { id: "one", sourceUrl: "https://one.example/article", publisher: "One" },
+    { id: "two", source_url: "https://two.example/article", publisher: "Two" },
+  ];
+  const claims = normalizeGeneratedSourceClaims([
+    { url: "https://one.example/article", title: "First" },
+    "https://two.example/article",
+    { link: "https://unknown.example/article" },
+  ], candidates);
+  assert.equal(claims.length, 2);
+  assert.deepEqual(claims.map((claim) => claim.candidateId), ["one", "two"]);
+  assert.deepEqual(claims.map((claim) => claim.sourceUrl), ["https://one.example/article", "https://two.example/article"]);
 });
 
 test("quality gate rejects a short article without independent evidence", () => {
