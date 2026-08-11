@@ -19,7 +19,10 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   }
 
   const direction = getDirection(locale as Locale);
-  const documentAttributesScript = `document.documentElement.lang=${JSON.stringify(locale)};document.documentElement.dir=${JSON.stringify(direction)};`;
+  // Keep the document language accurate for assistive technology. Direction is
+  // intentionally scoped to the locale shell: applying RTL to <html> causes
+  // an oversized scroll coordinate space in Chromium on this layout.
+  const documentAttributesScript = `document.documentElement.lang=${JSON.stringify(locale)};`;
 
   return (
     <>
