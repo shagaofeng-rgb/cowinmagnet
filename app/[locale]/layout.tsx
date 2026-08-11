@@ -18,9 +18,13 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     notFound();
   }
 
+  const direction = getDirection(locale as Locale);
+  const documentAttributesScript = `document.documentElement.lang=${JSON.stringify(locale)};document.documentElement.dir=${JSON.stringify(direction)};`;
+
   return (
-    <div className="locale-shell" lang={locale} dir={getDirection(locale as Locale)}>
-      {children}
-    </div>
+    <>
+      <script dangerouslySetInnerHTML={{ __html: documentAttributesScript }} />
+      <div className="locale-shell" lang={locale} dir={direction}>{children}</div>
+    </>
   );
 }
