@@ -6,6 +6,7 @@ import { isCronAuthorized } from "@/lib/cronAuth";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+export const maxDuration = 60;
 
 export async function GET(request) {
   if (!isCronAuthorized(request)) {
@@ -14,70 +15,89 @@ export async function GET(request) {
 
   const startedAt = new Date();
 
-  const result = await withSyncJobLock("analytics-sync", async ({ locked, storageMode }) => {
-    if (!locked) {
-      return NextResponse.json({
-        ok: true,
-        status: "skipped_due_to_lock",
-        storageMode
-      });
-    }
+  let result;
+  try {
+    result = await withSyncJobLock("analytics-sync", async ({ locked, storageMode }) => {
+      if (!locked) {
+        return NextResponse.json({
+          ok: true,
+          status: "skipped_due_to_lock",
+          storageMode
+        });
+      }
 
-    try {
-      const processedCount = await countAnalyticsEvents({ days: 1 });
-      const snapshotRefresh = await refreshStoredAnalyticsSnapshots(
-        ["day"].map((range) => getAdminDateRange(new URLSearchParams({ range })))
-      );
-      const finishedAt = new Date();
+      try {
+        const processedCount = await countAnalyticsEvents({ days: 1 });
+        const snapshotRefresh = await refreshStoredAnalyticsSnapshots(
+          ["day"].map((range) => getAdminDateRange(new URLSearchParams({ range })))
+        );
+        const finishedAt = new Date();
 
-      await recordSyncJobRun({
-        jobName: "analytics-sync",
-        status: "success",
-        startedAt: startedAt.toISOString(),
-        finishedAt: finishedAt.toISOString(),
-        durationMs: finishedAt.getTime() - startedAt.getTime(),
-        processedCount,
-        metadata: {
-          cronLogicVersion: "analytics-snapshot-v3",
-          cronHeader: request.headers.get("x-vercel-cron") || "",
-          userAgent: request.headers.get("user-agent") || "",
-          storageMode: getAnalyticsStorageMode(),
-          snapshotStrategy: "daily-prewarm; week-and-month-on-demand",
-          snapshotRefresh
-        }
-      });
+        await recordSyncJobRun({
+          jobName: "analytics-sync",
+          status: "success",
+          startedAt: startedAt.toISOString(),
+          finishedAt: finishedAt.toISOString(),
+          durationMs: finishedAt.getTime() - startedAt.getTime(),
+          processedCount,
+          metadata: {
+            cronLogicVersion: "analytics-snapshot-v3",
+            cronHeader: request.headers.get("x-vercel-cron") || "",
+            userAgent: request.headers.get("user-agent") || "",
+            storageMode: getAnalyticsStorageMode(),
+            snapshotStrategy: "daily-prewarm; week-and-month-on-demand",
+            snapshotRefresh
+          }
+        });
 
-      return NextResponse.json({
-        ok: true,
-        status: "success",
-        storageMode,
-        processedCount,
-        snapshotRefresh,
-        startedAt,
-        finishedAt
-      });
-    } catch (error) {
-      const finishedAt = new Date();
-      await recordSyncJobRun({
-        jobName: "analytics-sync",
-        status: "failed",
-        startedAt: startedAt.toISOString(),
-        finishedAt: finishedAt.toISOString(),
-        durationMs: finishedAt.getTime() - startedAt.getTime(),
-        failedCount: 1,
-        errorMessage: error?.message || "Analytics sync failed"
-      });
-
-      return NextResponse.json(
-        {
-          ok: false,
+        return NextResponse.json({
+          ok: true,
+          status: "success",
+          storageMode,
+          processedCount,
+          snapshotRefresh,
+          startedAt,
+          finishedAt
+        });
+      } catch (error) {
+        const finishedAt = new Date();
+        await recordSyncJobRun({
+          jobName: "analytics-sync",
           status: "failed",
-          error: "Analytics sync failed"
-        },
-        { status: 500 }
-      );
-    }
-  });
+          startedAt: startedAt.toISOString(),
+          finishedAt: finishedAt.toISOString(),
+          durationMs: finishedAt.getTime() - startedAt.getTime(),
+          failedCount: 1,
+          errorMessage: error?.message || "Analytics sync failed"
+        });
+
+        return NextResponse.json(
+          {
+            ok: false,
+            status: "failed",
+            error: "Analytics sync failed"
+          },
+          { status: 500 }
+        );
+      }
+    });
+  } catch (error) {
+    const finishedAt = new Date();
+    await recordSyncJobRun({
+      jobName: "analytics-sync",
+      status: "failed",
+      startedAt: startedAt.toISOString(),
+      finishedAt: finishedAt.toISOString(),
+      durationMs: finishedAt.getTime() - startedAt.getTime(),
+      failedCount: 1,
+      errorMessage: error?.message || "Analytics sync failed before refresh"
+    }).catch(() => {});
+
+    return NextResponse.json(
+      { ok: false, status: "failed", error: "Analytics sync failed" },
+      { status: 500, headers: { "Cache-Control": "no-store" } }
+    );
+  }
 
   if (result instanceof Response) return result;
   return NextResponse.json({
