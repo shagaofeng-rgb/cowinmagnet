@@ -35,11 +35,23 @@ try {
       GROUP BY status
       ORDER BY status
     `),
+    candidateIndustries: await rows(`
+      SELECT industry, publisher, status, COUNT(1)::int AS count
+      FROM news_candidates
+      GROUP BY industry, publisher, status
+      ORDER BY status, industry, publisher
+    `),
     planCounts: await rows(`
       SELECT status, COUNT(1)::int AS count
       FROM editorial_plans
       GROUP BY status
       ORDER BY status
+    `),
+    plans: await rows(`
+      SELECT id, industry, primary_product_id, status, reason
+      FROM editorial_plans
+      ORDER BY created_at DESC
+      LIMIT 12
     `),
     articles: await rows(`
       SELECT slug, title, status, published_at, created_at, industry
