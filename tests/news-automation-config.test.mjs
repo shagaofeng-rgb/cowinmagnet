@@ -28,3 +28,9 @@ test("ingest implementation rejects incomplete RSS records before database persi
   assert.match(source, /if \(!item\?\.title \|\| !item\?\.sourceUrl\)/);
   assert.match(source, /publisher: source\.name, author: item\.author,\s*title: item\.title,/);
 });
+
+test("publish implementation promotes the CMS item only after frontend delivery verification", async () => {
+  const source = await readFile(new URL("../lib/newsOperations.js", import.meta.url), "utf8");
+  assert.match(source, /if \(!delivery\.passed\) \{\s*await updateCmsItemPublicationStatus\("news", article\.slug, \{ status: "draft", editorialStatus: "delivery-failed" \}\)/s);
+  assert.match(source, /await updateCmsItemPublicationStatus\("news", article\.slug, \{ status: "published", editorialStatus: "automatically-validated" \}\);/);
+});
