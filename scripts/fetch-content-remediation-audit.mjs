@@ -1,0 +1,20 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+
+const origin = (process.env.CONTENT_REMEDIATION_ORIGIN || "https://www.cowinmagnet.com").replace(/\/$/, "");
+const secret = process.env.CRON_SECRET;
+if (!secret) throw new Error("CRON_SECRET is required to retrieve the protected content remediation audit.");
+const apply = process.argv.includes("--apply");
+const response = await fetch(`${origin}/api/automation/content-remediation/audit${apply ? "?apply=true" : ""}`, { headers: { authorization: `Bearer ${secret}` } });
+const payload = await response.json();
+if (!response.ok || !payload.success) throw new Error(payload.error || `Audit request failed: ${response.status}`);
+const rows = payload.data.rows;
+const keys = ["id", "storeType", "slug", "locale", "url", "contentType", "title", "publishedAt", "modifiedAt", "canonical", "robots", "metaTitle", "metaDescription", "ogTitle", "ogDescription", "h1Count", "h2Count", "faqCount", "sourceCount", "wordCount", "imageCount", "jsonLdTypes", "defects", "action"];
+const csv = (value = "") => `"${String(Array.isArray(value) ? value.join(";") : value ?? "").replaceAll('"', '""')}"`;
+const outDir = path.join(process.cwd(), "docs", "content-remediation");
+await fs.mkdir(outDir, { recursive: true });
+const suffix = apply ? "after" : "before";
+await fs.writeFile(path.join(outDir, `content-audit-${suffix}.csv`), `${keys.join(",")}\n${rows.map((row) => keys.map((key) => csv(row[key])).join(",")).join("\n")}\n`);
+const report = `# Content remediation audit (${suffix})\n\nGenerated: ${payload.data.generatedAt}\n\n- Records reviewed: ${rows.length}\n- Safe as-is: ${rows.filter((row) => row.action === "safe-as-is").length}\n- Structured rewrite: ${rows.filter((row) => row.action === "structured-rewrite").length}\n- Needs revision/noindex: ${rows.filter((row) => row.action === "needs-revision-noindex").length}\n- Records changed in this request: ${payload.data.changed.length}\n\nThe action preserves records, media and URLs. Items held for revision remain recoverable in the CMS and are excluded from listings and sitemaps.\n`;
+await fs.writeFile(path.join(outDir, `content-audit-${suffix}.md`), report);
+console.log(JSON.stringify({ rows: rows.length, changed: payload.data.changed.length, output: outDir }));
