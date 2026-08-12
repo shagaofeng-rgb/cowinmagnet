@@ -19,6 +19,7 @@
     "content:audit": "node scripts/audit-content-remediation.mjs",
     "content:remediate-rcdd": "node scripts/remediate-rcdd-guide.mjs",
     "content:audit-production": "node scripts/fetch-content-remediation-audit.mjs",
+    "content:export-captured-audit": "node scripts/export-captured-content-audit.mjs",
     "news:triage": "node scripts/generate-news-content-triage.mjs",
     "test": "node --test tests/*.test.mjs",
     "typecheck": "tsc --noEmit",

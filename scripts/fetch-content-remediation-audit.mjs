@@ -5,6 +5,7 @@ const origin = (process.env.CONTENT_REMEDIATION_ORIGIN || "https://www.cowinmagn
 const secret = process.env.CRON_SECRET;
 if (!secret) throw new Error("CRON_SECRET is required to retrieve the protected content remediation audit.");
 const apply = process.argv.includes("--apply");
+const after = process.argv.includes("--after");
 const response = await fetch(`${origin}/api/automation/content-remediation/audit${apply ? "?apply=true" : ""}`, { headers: { authorization: `Bearer ${secret}` } });
 const payload = await response.json();
 if (!response.ok || !payload.success) throw new Error(payload.error || `Audit request failed: ${response.status}`);
@@ -13,8 +14,10 @@ const keys = ["id", "storeType", "slug", "locale", "url", "contentType", "title"
 const csv = (value = "") => `"${String(Array.isArray(value) ? value.join(";") : value ?? "").replaceAll('"', '""')}"`;
 const outDir = path.join(process.cwd(), "docs", "content-remediation");
 await fs.mkdir(outDir, { recursive: true });
-const suffix = apply ? "after" : "before";
+const suffix = apply || after ? "after" : "before";
 await fs.writeFile(path.join(outDir, `content-audit-${suffix}.csv`), `${keys.join(",")}\n${rows.map((row) => keys.map((key) => csv(row[key])).join(",")).join("\n")}\n`);
-const report = `# Content remediation audit (${suffix})\n\nGenerated: ${payload.data.generatedAt}\n\n- Records reviewed: ${rows.length}\n- Safe as-is: ${rows.filter((row) => row.action === "safe-as-is").length}\n- Structured rewrite: ${rows.filter((row) => row.action === "structured-rewrite").length}\n- Needs revision/noindex: ${rows.filter((row) => row.action === "needs-revision-noindex").length}\n- Records changed in this request: ${payload.data.changed.length}\n\nThe action preserves records, media and URLs. Items held for revision remain recoverable in the CMS and are excluded from listings and sitemaps.\n`;
+const heldNews = rows.filter((row) => row.storeType === "news" && row.robots === "noindex,follow").length;
+const reviewOnly = rows.filter((row) => row.storeType !== "news" && row.action === "needs-revision-noindex").length;
+const report = `# Content remediation audit (${suffix})\n\nGenerated: ${payload.data.generatedAt}\n\n- Records reviewed: ${rows.length}\n- Structured rewrite: ${rows.filter((row) => row.action === "structured-rewrite").length}\n- Legacy News safely held from listings and sitemaps: ${heldNews}\n- Other records flagged for editorial review only: ${reviewOnly}\n- Records changed in this request: ${payload.data.changed.length}\n\nThe action preserves records, media and URLs. Only News records explicitly placed in \`needs_revision\` plus \`noindex,follow\` are excluded from public News listings and sitemaps. Other content is an audit finding until a page-specific remediation is approved.\n`;
 await fs.writeFile(path.join(outDir, `content-audit-${suffix}.md`), report);
 console.log(JSON.stringify({ rows: rows.length, changed: payload.data.changed.length, output: outDir }));
