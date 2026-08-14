@@ -17,6 +17,9 @@ test("News publisher persists a validated structured document and verifies befor
   assert.match(source, /NEWS_PUBLISH_CANDIDATE_LIMIT/);
   assert.match(source, /normalizeGeneratedNewsDocument/);
   assert.match(source, /completeMetaDescription/);
+  assert.match(source, /max_output_tokens: 2600/);
+  assert.match(source, /type: "json_object"/);
+  assert.match(source, /createSourceBoundFallbackNewsDocument/);
   assert.match(source, /recoverStaleNewsPublishWork/);
 });
 
