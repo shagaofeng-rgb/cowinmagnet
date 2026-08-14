@@ -9,7 +9,7 @@
     },
     {
       "path": "/api/automation/news-publish",
-      "schedule": "15 1,13 * * *"
+      "schedule": "*/5 * * * *"
     },
     {
       "path": "/api/cron/analytics-sync",
