@@ -10,9 +10,11 @@ test("News publisher persists a validated structured document and verifies befor
   assert.match(source, /contentType: document\.contentType/);
   assert.match(source, /48-hour publication interval has not elapsed/);
   assert.match(source, /AbortController/);
-  assert.match(source, /fetchNewsWithTimeout\(fetcher, "https:\/\/api\.openai\.com\/v1\/responses"/);
+  assert.match(source, /withNewsTimeout\(async \(signal\) =>/);
+  assert.match(source, /response\.json\(\)/);
   assert.match(source, /News detail verification/);
   assert.match(source, /NEWS_DELIVERY_TIMEOUT_MS/);
+  assert.match(source, /NEWS_PUBLISH_CANDIDATE_LIMIT/);
   assert.match(source, /recoverStaleNewsPublishWork/);
 });
 
