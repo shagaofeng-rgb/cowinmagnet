@@ -9,6 +9,9 @@ test("News publisher persists a validated structured document and verifies befor
   assert.match(store, /document_json/);
   assert.match(source, /contentType: document\.contentType/);
   assert.match(source, /48-hour publication interval has not elapsed/);
+  assert.match(source, /AbortController/);
+  assert.match(source, /News composer timed out after/);
+  assert.match(source, /recoverStaleNewsPublishWork/);
 });
 
 test("public News pages use the structured renderer instead of raw MarkdownContent", async () => {
