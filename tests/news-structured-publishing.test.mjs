@@ -15,6 +15,8 @@ test("News publisher persists a validated structured document and verifies befor
   assert.match(source, /News detail verification/);
   assert.match(source, /NEWS_DELIVERY_TIMEOUT_MS/);
   assert.match(source, /NEWS_PUBLISH_CANDIDATE_LIMIT/);
+  assert.match(source, /normalizeGeneratedNewsDocument/);
+  assert.match(source, /completeMetaDescription/);
   assert.match(source, /recoverStaleNewsPublishWork/);
 });
 
