@@ -1,11 +1,10 @@
 # Content remediation audit (after)
 
-Generated: 2026-08-12T12:38:23.128Z
+Generated: 2026-08-20T06:33:44.107Z
 
-- Records reviewed: 135
-- Structured rewrite: 1
-- Legacy News safely held from listings and sitemaps: 100
-- Other records flagged for editorial review only: 34
-- Records changed in this request: 0
+- Records reviewed: 146
+- Safe as-is: 3
+- Held for validated rewrite: 142
+- RCDD regression repair: included
 
-The action preserves records, media and URLs. Only News records explicitly placed in `needs_revision` plus `noindex,follow` are excluded from public News listings and sitemaps. Other content is an audit finding until a page-specific remediation is approved.
+This audit preserves existing records and URLs. No original media or records are deleted.

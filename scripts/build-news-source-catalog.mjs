@@ -81,14 +81,17 @@ for (const line of lines) {
     discoveryMethod: [override?.rss ? "rss" : "public-page"],
     rssOrApiUrl: override?.rss || null,
     tier: discoveryOnly ? "discovery-only" : (override?.tier || (authorityDomains.has(canonicalDomain) ? "A" : "C")),
-    active: Boolean(override) && !first && !discoveryOnly,
-    validationStatus: Boolean(override) && !first && !discoveryOnly ? "verified" : "pending",
+    // An RSS feed is a convenience, not an approval requirement.  Every non-community
+    // source may be considered through its public news pages.  The runtime health check
+    // still honours an explicit robots.txt block before it makes a request for content.
+    active: !first && !discoveryOnly,
+    validationStatus: Boolean(override) && !first && !discoveryOnly ? "verified" : (!first && !discoveryOnly ? "enabled-public-page" : "pending"),
     robotsAllowed: Boolean(override) && !first && !discoveryOnly ? true : null,
     lastCheckedAt: null,
     lastUsedAt: null,
     useCount: 0,
     canonicalDuplicateOf: first || null,
-    notes: discoveryOnly ? "Discovery-only: never an independent factual source." : (first ? `Canonical duplicate of ${first}.` : "Requires DNS, HTTP, robots, and content-health validation before activation.")
+    notes: discoveryOnly ? "Discovery-only: never an independent factual source." : (first ? `Canonical duplicate of ${first}.` : "Enabled for low-frequency public-page discovery. Runtime checks robots.txt and rejects inaccessible or irrelevant articles.")
   };
   sources.push(record);
   if (!first) seenCanonical.set(canonicalDomain, record.id);
@@ -96,7 +99,7 @@ for (const line of lines) {
 
 if (sources.length !== 300) throw new Error(`Expected 300 raw source entries, found ${sources.length}`);
 
-const activeCatalog = sources.filter((source) => source.active && source.validationStatus === "verified" && source.robotsAllowed);
+const activeCatalog = sources.filter((source) => source.active && !source.canonicalDuplicateOf && source.tier !== "discovery-only");
 const groupCounts = Object.fromEntries([...new Set(sources.map((source) => source.sourceGroup))].map((group) => [group, sources.filter((source) => source.sourceGroup === group).length]));
 const statusCounts = Object.fromEntries(["verified", "pending"].map((status) => [status, sources.filter((source) => source.validationStatus === status).length]));
 const duplicateCount = sources.filter((source) => source.canonicalDuplicateOf).length;
@@ -104,9 +107,9 @@ const headers = ["id", "sourceOrdinal", "rawEntry", "name", "requestedDomain", "
 const groupBullets = Object.entries(groupCounts).map(([group, count]) => `- ${group}: ${count}`).join("\n");
 
 await fs.mkdir(outputDir, { recursive: true });
-const summary = { rawEntries: sources.length, canonicalDomains: seenCanonical.size, verifiedBootstrapSources: activeCatalog.length, pending: statusCounts.pending, duplicateCount, groupCounts };
+const summary = { rawEntries: sources.length, canonicalDomains: seenCanonical.size, enabledPublicSources: activeCatalog.length, verifiedBootstrapSources: sources.filter((source) => source.validationStatus === "verified" && source.robotsAllowed).length, pending: statusCounts.pending, duplicateCount, groupCounts };
 await fs.writeFile(path.join(outputDir, "source-catalog.seed.json"), `${JSON.stringify({ generatedAt: new Date().toISOString(), summary, sources, activeCatalog }, null, 2)}\n`);
 await fs.writeFile(path.join(outputDir, "source-catalog.seed.csv"), `${headers.join(",")}\n${sources.map((source) => headers.map((header) => csv(Array.isArray(source[header]) ? source[header].join("|") : source[header])).join(",")).join("\n")}\n`);
-await fs.writeFile(path.join(outputDir, "source-catalog.normalization-report.md"), `# CowinMagnet source catalog normalization\n\nGenerated: ${new Date().toISOString()}\n\n- Raw entries preserved: ${sources.length}\n- Canonical domains: ${seenCanonical.size}\n- Canonical duplicate records: ${duplicateCount}\n- Verified bootstrap sources: ${activeCatalog.length}\n- Pending validation: ${statusCounts.pending}\n\n## Group counts\n\n${groupBullets}\n\n## Activation rule\n\nOnly entries with \`active=true\`, \`validationStatus=verified\`, and \`robotsAllowed=true\` may be used to discover or cite a News article. Forum, Reddit, Quora, and similar entries remain preserved as discovery-only records and cannot be an article's sole factual source.\n`);
+await fs.writeFile(path.join(outputDir, "source-catalog.normalization-report.md"), `# CowinMagnet source catalog normalization\n\nGenerated: ${new Date().toISOString()}\n\n- Raw entries preserved: ${sources.length}\n- Canonical domains: ${seenCanonical.size}\n- Canonical duplicate records: ${duplicateCount}\n- Enabled public sources: ${activeCatalog.length}\n- RSS/API bootstrap sources: ${sources.filter((source) => source.validationStatus === "verified" && source.robotsAllowed).length}\n- Pending duplicate or discovery-only records: ${statusCounts.pending}\n\n## Group counts\n\n${groupBullets}\n\n## Activation rule\n\nA public RSS feed is not required. Non-community sources are enabled for low-frequency public-page discovery. Before the runtime reads a source, it checks its current \`robots.txt\`, applies timeouts and rate limits, and rejects inaccessible, blocked, irrelevant or unverifiable articles. Forum, Reddit, Quora, and similar entries remain preserved as discovery-only records and cannot be an article's sole factual source.\n`);
 
 console.log(JSON.stringify(summary, null, 2));

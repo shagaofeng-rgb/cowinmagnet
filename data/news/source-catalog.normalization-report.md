@@ -1,12 +1,13 @@
 # CowinMagnet source catalog normalization
 
-Generated: 2026-08-20T05:27:48.185Z
+Generated: 2026-08-20T06:39:05.540Z
 
 - Raw entries preserved: 300
 - Canonical domains: 296
 - Canonical duplicate records: 4
-- Verified bootstrap sources: 6
-- Pending validation: 294
+- Enabled public sources: 280
+- RSS/API bootstrap sources: 6
+- Pending duplicate or discovery-only records: 20
 
 ## Group counts
 
@@ -18,4 +19,4 @@ Generated: 2026-08-20T05:27:48.185Z
 
 ## Activation rule
 
-Only entries with `active=true`, `validationStatus=verified`, and `robotsAllowed=true` may be used to discover or cite a News article. Forum, Reddit, Quora, and similar entries remain preserved as discovery-only records and cannot be an article's sole factual source.
+A public RSS feed is not required. Non-community sources are enabled for low-frequency public-page discovery. Before the runtime reads a source, it checks its current `robots.txt`, applies timeouts and rate limits, and rejects inaccessible, blocked, irrelevant or unverifiable articles. Forum, Reddit, Quora, and similar entries remain preserved as discovery-only records and cannot be an article's sole factual source.

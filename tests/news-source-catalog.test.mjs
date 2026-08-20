@@ -10,9 +10,10 @@ test("the Cowin source catalog preserves all 300 supplied source entries", () =>
   assert.equal(catalog.summary.canonicalDomains, 296);
 });
 
-test("only explicit public RSS bootstrap sources are immediately eligible", () => {
-  const active = catalog.sources.filter((source) => source.active && source.validationStatus === "verified");
-  assert.equal(active.length, 6);
-  assert.ok(active.every((source) => source.discoveryMethod.includes("rss") && source.robotsAllowed));
+test("public-page sources are enabled without requiring RSS, while communities remain discovery-only", () => {
+  const active = catalog.sources.filter((source) => source.active);
+  assert.equal(active.length, 280);
+  assert.ok(active.every((source) => source.tier !== "discovery-only" && !source.canonicalDuplicateOf));
+  assert.ok(active.some((source) => source.discoveryMethod.includes("public-page") && source.validationStatus === "enabled-public-page"));
   assert.ok(catalog.sources.filter((source) => source.tier === "discovery-only").every((source) => source.active === false));
 });
