@@ -8,7 +8,7 @@ test("News publisher persists a validated structured document and verifies befor
   assert.match(source, /validateArticleDocument\(article\.document\)/);
   assert.match(store, /document_json/);
   assert.match(source, /contentType: document\.contentType/);
-  assert.match(source, /48-hour publication interval has not elapsed/);
+  assert.match(source, /daily publication interval has not elapsed/);
   assert.match(source, /AbortController/);
   assert.match(source, /withNewsTimeout\(async \(signal\) =>/);
   assert.match(source, /response\.json\(\)/);
@@ -17,7 +17,7 @@ test("News publisher persists a validated structured document and verifies befor
   assert.match(source, /NEWS_PUBLISH_CANDIDATE_LIMIT/);
   assert.match(source, /normalizeGeneratedNewsDocument/);
   assert.match(source, /completeMetaDescription/);
-  assert.match(source, /max_output_tokens: 2600/);
+  assert.match(source, /max_output_tokens: 5000/);
   assert.match(source, /type: "json_object"/);
   assert.match(source, /createSourceBoundFallbackNewsDocument/);
   assert.match(source, /Information worth documenting before action/);

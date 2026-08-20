@@ -35,23 +35,12 @@ function modelDesignations(product: Product) {
 }
 
 function technicalRows(product: Product, technicalFields: string[]) {
-  const confirmed = cleanProductSpecs(product.specs).filter((spec) => spec.label.trim() && spec.value.trim());
-  const consumed = new Set<number>();
-  const rows = technicalFields.map((field) => {
-    const fieldKey = field.trim().toLowerCase();
-    const matchIndex = confirmed.findIndex((spec, index) => !consumed.has(index) && spec.label.trim().toLowerCase() === fieldKey);
-    if (matchIndex >= 0) {
-      consumed.add(matchIndex);
-      return { label: field, value: confirmed[matchIndex].value.trim(), confirmed: true };
-    }
-    return { label: field, value: "Available on request", confirmed: false };
-  });
-
-  return rows.concat(
-    confirmed
-      .filter((_, index) => !consumed.has(index))
-      .map((spec) => ({ label: spec.label.trim(), value: spec.value.trim(), confirmed: true }))
-  );
+  const publishedModels = cleanProductSpecs(product.specs)
+    .filter((spec) => spec.label.trim().toLowerCase() === "model" && spec.value.trim());
+  const rows = technicalFields.map((field) => ({ label: field, value: "Available on request", confirmed: false }));
+  const modelIndex = rows.findIndex((row) => row.label.trim().toLowerCase() === "model");
+  if (modelIndex >= 0 && publishedModels.length) rows[modelIndex] = { label: rows[modelIndex].label, value: publishedModels.map((item) => item.value.trim()).join(" / "), confirmed: true };
+  return rows;
 }
 
 function relatedProducts(product: Product) {
@@ -259,18 +248,18 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           <div className="product-detail-section-heading">
             <span className="eyebrow">Technical information</span>
             <h2>Technical specifications and confirmation basis</h2>
-            <p>Only supplier-confirmed product details are shown as values. Remaining selection fields are confirmed for the requested configuration and site conditions.</p>
+            <p>Published model references are shown where available. Final technical details are confirmed from current product records, material and site conditions.</p>
           </div>
           <div className="product-specification-table" role="table" aria-label={`${product.name} technical specifications`}>
             <div className="product-specification-head" role="row"><span>Parameter</span><span>Published record</span><span>Selection confirmation</span></div>
-            {specs.map((spec) => <div role="row" key={`${spec.label}-${spec.value}`}><span>{spec.label === "Model" ? "Model designation" : spec.label}</span><strong>{spec.value}</strong><span>{spec.confirmed ? "Supplier-confirmed product record." : "To be confirmed based on material and site conditions."}</span></div>)}
+            {specs.map((spec) => <div role="row" key={`${spec.label}-${spec.value}`}><span>{spec.label === "Model" ? "Model designation" : spec.label}</span><strong>{spec.value}</strong><span>{spec.confirmed ? "Published model reference. Final configuration is confirmed for the project." : "To be confirmed based on material and site conditions."}</span></div>)}
           </div>
         </section>
 
         <section className="product-detail-section product-options-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Configuration</span>
-            <h2>Configuration options to review</h2>
+            <h2>Configuration points to review</h2>
           </div>
           <div className="product-options-grid">
             {profile.configurationOptions.map((option) => <div key={option}><CheckCircle2 size={17} aria-hidden /><span>{option}</span></div>)}

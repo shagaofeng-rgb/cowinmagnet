@@ -35,6 +35,12 @@ try {
       GROUP BY status
       ORDER BY status
     `),
+    sourceCounts: await rows(`
+      SELECT validation_status, active, robots_allowed, COUNT(1)::int AS count
+      FROM news_sources
+      GROUP BY validation_status, active, robots_allowed
+      ORDER BY validation_status, active
+    `),
     candidateIndustries: await rows(`
       SELECT industry, publisher, status, COUNT(1)::int AS count
       FROM news_candidates

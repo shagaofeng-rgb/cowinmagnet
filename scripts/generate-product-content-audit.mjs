@@ -5,6 +5,8 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sourcePath = path.join(root, "data", "products.ts");
 const outputDir = path.join(root, "docs", "product-content");
+const auditDataDir = path.join(root, "data", "audits");
+const auditDocsDir = path.join(root, "docs", "audits");
 const source = fs.readFileSync(sourcePath, "utf8");
 const declaration = source.indexOf("export const products");
 const start = source.indexOf("[", source.indexOf("=", declaration));
@@ -65,9 +67,14 @@ for (const product of products) {
 
 const rows = products.map((product) => ({
   productId: product.slug,
+  id: product.slug,
+  locale: "en",
   existingUrl: `/en/products/${product.slug}`,
+  currentUrl: `/en/products/${product.slug}`,
   slug: product.slug,
   currentTitle: product.name,
+  productName: product.name,
+  category: product.category,
   productFamily: family(product),
   exactModel: (product.specs || []).filter((item) => String(item.label).toLowerCase() === "model").map((item) => item.value).join(" | "),
   productType: product.category,
@@ -119,4 +126,45 @@ const duplicateGroups = [...names.values()].filter((group) => group.length > 1);
 const byFamily = rows.reduce((all, row) => ({ ...all, [row.productFamily]: (all[row.productFamily] || 0) + 1 }), {});
 const markdown = `# Product Content Audit\n\nGenerated: ${new Date().toISOString()}\n\n## Scope\n\n- Static product records audited: ${rows.length}\n- Sample pages planned: ${samples.size}\n- Static product images missing: ${rows.filter((row) => !row.currentImages).length}\n- Potential duplicate title groups: ${duplicateGroups.length}\n\n## Product Families\n\n${Object.entries(byFamily).map(([name, count]) => `- ${name}: ${count}`).join("\n")}\n\n## Data Handling\n\nThis inventory preserves the existing product URLs and records. Only model references and validated source fields may be displayed as numeric or technical facts. Fields listed in \`missing-technical-fields.csv\` must be confirmed from current COWIN technical records, not inferred from third-party pages.\n\n## Potential URL Compatibility Review\n\n${duplicateGroups.length ? duplicateGroups.map((group) => `- ${group.join(" | ")}: review canonical or 301 only after confirming that both entries represent the same real model.`).join("\n") : "- No duplicate groups detected by the normalized title check."}\n\n## Sample Page Set\n\n${rows.filter((row) => samples.has(row.productId)).map((row) => `- [${row.currentTitle}](${row.existingUrl}) - ${row.productFamily}`).join("\n")}\n`;
 fs.writeFileSync(path.join(outputDir, "product-content-audit.md"), markdown);
+fs.mkdirSync(auditDataDir, { recursive: true });
+fs.mkdirSync(auditDocsDir, { recursive: true });
+const productAudit = rows.map((row) => ({
+  id: row.id,
+  slug: row.slug,
+  locale: row.locale,
+  category: row.category,
+  series: row.productFamily,
+  productName: row.productName,
+  model: row.exactModel || null,
+  currentUrl: row.currentUrl,
+  shortDescription: row.existingDescription || null,
+  existingSpecifications: Object.fromEntries(String(row.existingSpecs || "").split(" | ").filter(Boolean).map((entry) => {
+    const separator = entry.indexOf(":");
+    return [separator === -1 ? entry : entry.slice(0, separator), separator === -1 ? null : entry.slice(separator + 1).trim()];
+  })),
+  existingImages: String(row.currentImages || "").split(" | ").filter(Boolean).map((src) => ({ src, ownership: "unknown" })),
+  visibleApplications: String(row.primaryIndustries || "").split(" | ").filter(Boolean),
+  visibleIndustries: String(row.primaryIndustries || "").split(" | ").filter(Boolean),
+  missingFields: [row.missingTechnicalFields],
+  issues: row.contentStatus.includes("technical review") ? ["technical-data-review-required"] : [],
+  dataConfidence: row.exactModel ? "partial" : "placeholder"
+}));
+const topicProfiles = productAudit.map((product) => ({
+  productId: product.id,
+  productName: product.productName,
+  primaryKeywords: [product.productName.toLowerCase()],
+  secondaryKeywords: product.series ? [product.series.replaceAll("-", " ")] : [],
+  longTailKeywords: [],
+  aliases: product.model ? [product.model] : [],
+  industries: product.visibleIndustries,
+  applicationScenarios: product.visibleApplications,
+  buyerRoles: ["industrial buyer", "process engineer", "maintenance manager"],
+  painPoints: [],
+  selectionFactors: confirmationFields[product.series] || [],
+  approvedFactSources: ["data/products.ts"],
+  prohibitedClaims: ["Unverified dimensions, performance, capacity, certification, price, delivery or project result."]
+}));
+fs.writeFileSync(path.join(auditDataDir, "product-audit.json"), `${JSON.stringify(productAudit, null, 2)}\n`);
+fs.writeFileSync(path.join(root, "data", "product-topic-profiles.json"), `${JSON.stringify(topicProfiles, null, 2)}\n`);
+fs.writeFileSync(path.join(auditDocsDir, "product-audit.md"), markdown);
 console.log(JSON.stringify({ products: rows.length, samples: samples.size, duplicateGroups: duplicateGroups.length, outputDir }, null, 2));

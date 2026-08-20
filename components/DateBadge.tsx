@@ -6,7 +6,8 @@ type DateBadgeProps = {
 };
 
 export function DateBadge({ date, className = "" }: DateBadgeProps) {
-  const value = new Date(`${date}T00:00:00Z`);
+  const normalized = String(date || "");
+  const value = new Date(normalized.includes("T") ? normalized : `${normalized}T00:00:00Z`);
   const month = value.toLocaleDateString("en", { month: "short", timeZone: "UTC" });
   const day = value.toLocaleDateString("en", { day: "2-digit", timeZone: "UTC" });
   const year = value.toLocaleDateString("en", { year: "numeric", timeZone: "UTC" });

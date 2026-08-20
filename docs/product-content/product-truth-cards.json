@@ -41,8 +41,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/60.html"
+      "data/products.ts"
     ],
     "contentStatus": "sample-approved / ready for deployment"
   },
@@ -83,8 +82,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/49.html"
+      "data/products.ts"
     ],
     "contentStatus": "sample-approved / ready for deployment"
   },
@@ -130,8 +128,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/58.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -196,8 +193,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/57.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -238,8 +234,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.chnmag.com/product/Belt-High-Gradient-Magnetic-Separator-26.html"
+      "data/products.ts"
     ],
     "contentStatus": "sample-approved / ready for deployment"
   },
@@ -280,8 +275,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.chnmag.com/product/Disc-Magnetic-Separator-for-Tailing-28.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -326,8 +320,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.chnmag.com/product/Dry-Drum-Magnetic-Separator-24.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -390,8 +383,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.chnmag.com/product/Wet-Drum-Magnetic-Separator-25.html"
+      "data/products.ts"
     ],
     "contentStatus": "sample-approved / ready for deployment"
   },
@@ -439,9 +431,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/23.html",
-      "https://www.cnmagnetics.com/n-15/66.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -488,9 +478,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/25.html",
-      "https://www.cnmagnetics.com/n-15/63.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -537,8 +525,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-15/65.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -581,9 +568,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/18.html",
-      "https://www.cnmagnetics.com/n-15/68.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -626,9 +611,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/22.html",
-      "https://www.cnmagnetics.com/n-15/72.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -672,9 +655,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/24.html",
-      "https://www.cnmagnetics.com/n-15/73.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -725,8 +706,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-15/74.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -780,8 +760,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-15/62.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -828,9 +807,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-12/11.html",
-      "https://www.cnmagnetics.com/n-14/54.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -886,9 +863,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-12/12.html",
-      "https://www.cnmagnetics.com/n-14/56.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -933,8 +908,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/41.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -979,8 +953,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/42.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1021,8 +994,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/55.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1067,8 +1039,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/40.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1111,8 +1082,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/52.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1154,8 +1124,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/39.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1211,9 +1180,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-12/14.html",
-      "https://www.cnmagnetics.com/n-14/51.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1265,8 +1232,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/48.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1312,8 +1278,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/43.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1351,9 +1316,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-12/5.html",
-      "https://www.cnmagnetics.com/n-14/61.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1397,8 +1360,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/46.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1445,8 +1407,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/59.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1487,8 +1448,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/44.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1533,8 +1493,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/47.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1581,8 +1540,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/19.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1624,8 +1582,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/20.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1669,8 +1626,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/36.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1721,8 +1677,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/31.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1765,8 +1720,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/35.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1808,8 +1762,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/34.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1852,8 +1805,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/28.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1895,8 +1847,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-12/9.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1938,8 +1889,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-12/4.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -1982,8 +1932,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-12/10.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -2025,8 +1974,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-12/17.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -2068,8 +2016,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-12/3.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -2111,8 +2058,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-12/15.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -2162,8 +2108,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-12/6.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -2205,8 +2150,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-12/13.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -2247,8 +2191,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-12/2.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -2291,8 +2234,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-12/8.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -2334,8 +2276,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-12/7.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -2378,8 +2319,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-16/78.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -2422,8 +2362,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-16/79.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -2554,9 +2493,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/37.html",
-      "https://www.cnmagnetics.com/n-15/64.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -2599,8 +2536,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/38.html"
+      "data/products.ts"
     ],
     "contentStatus": "sample-approved / ready for deployment"
   },
@@ -2652,8 +2588,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-12/16.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -2697,8 +2632,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-12/1.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -2744,8 +2678,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.chnmag.com/product/Drum-Magnet-15.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -2823,8 +2756,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.chnmag.com/product/Eccentric-Eddy-Current-Separator-14.html"
+      "data/products.ts"
     ],
     "contentStatus": "sample-approved / ready for deployment"
   },
@@ -2878,8 +2810,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.chnmag.com/product/Electromagnet-Separator-29.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -2921,8 +2852,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.chnmag.com/product/Magnetic-Head-Pulley-30.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -2982,8 +2912,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.chnmag.com/product/Permanent-Overband-Magnetic-Separator-16.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3048,8 +2977,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.chnmag.com/product/Stainless-Steel-Separation-Conveyor-17.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3097,9 +3025,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/26.html",
-      "https://www.cnmagnetics.com/n-15/67.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3150,8 +3076,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-15/70.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3190,9 +3115,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/29.html",
-      "https://www.cnmagnetics.com/n-15/75.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3243,9 +3166,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/27.html",
-      "https://www.cnmagnetics.com/n-15/71.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3290,8 +3211,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-15/69.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3342,8 +3262,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/32.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3386,8 +3305,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/33.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3430,8 +3348,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/30.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3474,8 +3391,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-13/21.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3527,8 +3443,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.chnmag.com/product/Drawer-Magnet-18.html"
+      "data/products.ts"
     ],
     "contentStatus": "sample-approved / ready for deployment"
   },
@@ -3569,8 +3484,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.chnmag.com/product/Hump-Magnet-19.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3611,8 +3525,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.chnmag.com/product/Magnetic-Grid-20.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3653,8 +3566,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.chnmag.com/product/Magnetic-Rod-21.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3695,8 +3607,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.chnmag.com/product/Magnetic-Trap-22.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3739,8 +3650,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.chnmag.com/product/Rotary-Pipe-Magnet-23.html"
+      "data/products.ts"
     ],
     "contentStatus": "sample-approved / ready for deployment"
   },
@@ -3821,8 +3731,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.chnmag.com/product/27.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3862,8 +3771,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-14/50.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3909,8 +3817,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-16/81.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3947,8 +3854,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-16/82.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -3991,8 +3897,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-16/80.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -4035,8 +3940,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-16/77.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },
@@ -4079,8 +3983,7 @@
       "Unverified dimensions, weight, power, magnetic intensity, capacity, certification, food-grade status, project result or customer case."
     ],
     "sourceOfTruth": [
-      "data/products.ts",
-      "https://www.cnmagnetics.com/n-16/76.html"
+      "data/products.ts"
     ],
     "contentStatus": "detail-template-live / technical-review-needed"
   },

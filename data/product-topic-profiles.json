@@ -1,0 +1,4172 @@
+[
+  {
+    "productId": "rcyd-type-permanent-magnet-self-dumping-iron-remover",
+    "productName": "RCYD type permanent magnet self dumping iron remover",
+    "primaryKeywords": [
+      "rcyd type permanent magnet self dumping iron remover"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RCYC | RCYD"
+    ],
+    "industries": [
+      "General iron removal equipment",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover",
+    "productName": "RCDD type self cooling self dumping electromagnetic iron remover",
+    "primaryKeywords": [
+      "rcdd type self cooling self dumping electromagnetic iron remover"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RCDD"
+    ],
+    "industries": [
+      "General iron removal equipment"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rcyb-type-permanent-magnet-manual-iron-remover",
+    "productName": "RCYB type permanent magnet manual iron remover",
+    "primaryKeywords": [
+      "rcyb type permanent magnet manual iron remover"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "JB/T8711 | RCYB"
+    ],
+    "industries": [
+      "General iron removal equipment",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rcdb-type-self-cooling-plate-electromagnetic-iron-remover",
+    "productName": "RCDB type self cooling plate electromagnetic iron remover",
+    "primaryKeywords": [
+      "rcdb type self cooling plate electromagnetic iron remover"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "PDC | RCDB | RCDB-10 | RCDB-18 | RCDB-3 | RCDB-8 | RCDY"
+    ],
+    "industries": [
+      "General iron removal equipment"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "belt-high-gradient-magnetic-separator",
+    "productName": "Belt High Gradient Magnetic Separator",
+    "primaryKeywords": [
+      "belt high gradient magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [],
+    "industries": [
+      "Mining Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "mineral",
+      "metal recycling"
+    ],
+    "applicationScenarios": [
+      "Mining Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "mineral",
+      "metal recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "disc-magnetic-separator-for-tailing",
+    "productName": "Disc Magnetic Separator for Tailing",
+    "primaryKeywords": [
+      "disc magnetic separator for tailing"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [],
+    "industries": [
+      "Mining Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "mineral",
+      "metal recycling"
+    ],
+    "applicationScenarios": [
+      "Mining Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "mineral",
+      "metal recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "dry-drum-magnetic-separator",
+    "productName": "Dry Drum Magnetic Separator",
+    "primaryKeywords": [
+      "dry drum magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "QJ-CGT"
+    ],
+    "industries": [
+      "Mining Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "applicationScenarios": [
+      "Mining Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "wet-drum-magnetic-separator",
+    "productName": "Wet Drum Magnetic Separator",
+    "primaryKeywords": [
+      "wet drum magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CTB | CTN | CTS | DMS | QJ-CT(S"
+    ],
+    "industries": [
+      "Mining Industry",
+      "mining",
+      "recycling",
+      "coal",
+      "food",
+      "ore",
+      "mineral",
+      "metal recycling"
+    ],
+    "applicationScenarios": [
+      "Mining Industry",
+      "mining",
+      "recycling",
+      "coal",
+      "food",
+      "ore",
+      "mineral",
+      "metal recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "cbz-type-rotary-automatic-magnetic-separator",
+    "productName": "CBZ type rotary automatic magnetic separator",
+    "primaryKeywords": [
+      "cbz type rotary automatic magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CBZ"
+    ],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "chemical",
+      "food",
+      "ore",
+      "pharmaceutical",
+      "recycling",
+      "wood"
+    ],
+    "applicationScenarios": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "chemical",
+      "food",
+      "ore",
+      "pharmaceutical",
+      "recycling",
+      "wood"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "cgb-type-rotary-semi-automatic-magnetic-separator",
+    "productName": "CGB type rotary semi-automatic magnetic separator",
+    "primaryKeywords": [
+      "cgb type rotary semi-automatic magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CGB"
+    ],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "chemical",
+      "food",
+      "pharmaceutical",
+      "recycling",
+      "wood"
+    ],
+    "applicationScenarios": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "chemical",
+      "food",
+      "pharmaceutical",
+      "recycling",
+      "wood"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "cqz-type-fully-automatic-online-magnetic-separator",
+    "productName": "CQZ type fully automatic online magnetic separator",
+    "primaryKeywords": [
+      "cqz type fully automatic online magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CQZ"
+    ],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "recycling",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "wood",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "recycling",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "wood",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "ctn-wet-full-countercurrent-magnetic-separator",
+    "productName": "CTN wet full countercurrent magnetic separator",
+    "primaryKeywords": [
+      "ctn wet full countercurrent magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CTN"
+    ],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "mineral",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "mineral",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "cts-type-wet-co-current-magnetic-separator",
+    "productName": "CTS type wet co current magnetic separator",
+    "primaryKeywords": [
+      "cts type wet co current magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CTS"
+    ],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "chemical",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "chemical",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "cxj-drum-type-automatic-magnetic-separator",
+    "productName": "CXJ drum type automatic magnetic separator",
+    "primaryKeywords": [
+      "cxj drum type automatic magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CXJ"
+    ],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "chemical",
+      "mineral",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "chemical",
+      "mineral",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "dcz-type-dry-fully-automatic-magnetic-separator",
+    "productName": "DCZ type dry fully automatic magnetic separator",
+    "primaryKeywords": [
+      "dcz type dry fully automatic magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "DCZ | HV1200"
+    ],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "coal",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "ceramic",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "coal",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "ceramic",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "gls-type-integral-channel-metal-separator",
+    "productName": "GLS type integral channel metal separator",
+    "primaryKeywords": [
+      "gls type integral channel metal separator"
+    ],
+    "secondaryKeywords": [
+      "metal detection"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "HACCP | IFS | IP65 | IP67"
+    ],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Metal detection and separation equipment for the food",
+      "pharmaceutical",
+      "and chemical industries"
+    ],
+    "applicationScenarios": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Metal detection and separation equipment for the food",
+      "pharmaceutical",
+      "and chemical industries"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Window size",
+      "Material condition",
+      "Detection target",
+      "Belt speed",
+      "Alarm or reject interface"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "cgt-type-super-strong-full-magnetic-drum",
+    "productName": "CGT type super strong full magnetic drum",
+    "primaryKeywords": [
+      "cgt type super strong full magnetic drum"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CGT"
+    ],
+    "industries": [
+      "General iron removal equipment",
+      "Metal industry magnetic separation equipment",
+      "ceramic",
+      "chemical",
+      "food",
+      "mining",
+      "ore",
+      "pharmaceutical"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment",
+      "Metal industry magnetic separation equipment",
+      "ceramic",
+      "chemical",
+      "food",
+      "mining",
+      "ore",
+      "pharmaceutical"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "ctz-type-midfield-strong-semi-magnetic-drum",
+    "productName": "CTZ type midfield strong semi magnetic drum",
+    "primaryKeywords": [
+      "ctz type midfield strong semi magnetic drum"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CTZ | RCT | TD-75"
+    ],
+    "industries": [
+      "General iron removal equipment",
+      "Metal industry magnetic separation equipment",
+      "ceramic",
+      "chemical",
+      "food",
+      "glass",
+      "mineral",
+      "mining",
+      "recycling"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment",
+      "Metal industry magnetic separation equipment",
+      "ceramic",
+      "chemical",
+      "food",
+      "glass",
+      "mineral",
+      "mining",
+      "recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rcda-type-air-cooled-electromagnetic-iron-remover",
+    "productName": "RCDA type air-cooled electromagnetic iron remover",
+    "primaryKeywords": [
+      "rcda type air-cooled electromagnetic iron remover"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RCDA | RCDA-T"
+    ],
+    "industries": [
+      "General iron removal equipment"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover",
+    "productName": "RCDC type air-cooled self dumping electromagnetic iron remover",
+    "primaryKeywords": [
+      "rcdc type air-cooled self dumping electromagnetic iron remover"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RCDA | RCDC"
+    ],
+    "industries": [
+      "General iron removal equipment"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rcde-type-oil-cooled-electromagnetic-iron-remover",
+    "productName": "RCDE type oil cooled electromagnetic iron remover",
+    "primaryKeywords": [
+      "rcde type oil cooled electromagnetic iron remover"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RCDE"
+    ],
+    "industries": [
+      "General iron removal equipment"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover",
+    "productName": "RCDF oil cooled self dumping electromagnetic iron remover",
+    "primaryKeywords": [
+      "rcdf oil cooled self dumping electromagnetic iron remover"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RCDE | RCDF"
+    ],
+    "industries": [
+      "General iron removal equipment"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover",
+    "productName": "RCDFJ type forced oil circulation self dumping electromagnetic iron remover",
+    "primaryKeywords": [
+      "rcdfj type forced oil circulation self dumping electromagnetic iron remover"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RCDFJ"
+    ],
+    "industries": [
+      "General iron removal equipment",
+      "coal",
+      "power plant"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment",
+      "coal",
+      "power plant"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rcps-self-dumping-disc-type-permanent-magnet-iron-remover",
+    "productName": "RCPS self dumping disc type permanent magnet iron remover",
+    "primaryKeywords": [
+      "rcps self dumping disc type permanent magnet iron remover"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RCPS"
+    ],
+    "industries": [
+      "General iron removal equipment",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rct-type-fully-magnetic-drum",
+    "productName": "RCT type fully magnetic drum",
+    "primaryKeywords": [
+      "rct type fully magnetic drum"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "AD-80 | RCT | RCTG | TD-75"
+    ],
+    "industries": [
+      "General iron removal equipment",
+      "Metal industry magnetic separation equipment",
+      "cement",
+      "chemical",
+      "mining"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment",
+      "Metal industry magnetic separation equipment",
+      "cement",
+      "chemical",
+      "mining"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rcya-type-inclined-pipeline-permanent-magnet-iron-remover",
+    "productName": "RCYA type inclined pipeline permanent magnet iron remover",
+    "primaryKeywords": [
+      "rcya type inclined pipeline permanent magnet iron remover"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RCYA | RCYA1 | RCYA2"
+    ],
+    "industries": [
+      "General iron removal equipment",
+      "cement",
+      "coal",
+      "chemical"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment",
+      "cement",
+      "coal",
+      "chemical"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rcydii-type-permanent-magnet-self-dumping-iron-remover",
+    "productName": "RCYDII type permanent magnet self dumping iron remover",
+    "primaryKeywords": [
+      "rcydii type permanent magnet self dumping iron remover"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RCYD | RCYDII"
+    ],
+    "industries": [
+      "General iron removal equipment",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rcye-type-permanent-magnet-self-dumping-iron-remover",
+    "productName": "RCYE type permanent magnet self dumping iron remover",
+    "primaryKeywords": [
+      "rcye type permanent magnet self dumping iron remover"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [],
+    "industries": [
+      "General iron removal equipment",
+      "Metal industry magnetic separation equipment",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment",
+      "Metal industry magnetic separation equipment",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rcyf-type-vertical-pipeline-permanent-magnet-iron-remover",
+    "productName": "RCYF type vertical pipeline permanent magnet iron remover",
+    "primaryKeywords": [
+      "rcyf type vertical pipeline permanent magnet iron remover"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RCYF"
+    ],
+    "industries": [
+      "General iron removal equipment",
+      "cement",
+      "coal",
+      "chemical"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment",
+      "cement",
+      "coal",
+      "chemical"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover",
+    "productName": "RCYG type pipeline self dumping permanent magnet iron remover",
+    "primaryKeywords": [
+      "rcyg type pipeline self dumping permanent magnet iron remover"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RCYG"
+    ],
+    "industries": [
+      "General iron removal equipment",
+      "cement",
+      "food",
+      "chemical",
+      "ceramic",
+      "glass",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment",
+      "cement",
+      "food",
+      "chemical",
+      "ceramic",
+      "glass",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rcyp-type-permanent-magnet-manual-self-dumping-iron-remover",
+    "productName": "RCYP type permanent magnet manual self dumping iron remover",
+    "primaryKeywords": [
+      "rcyp type permanent magnet manual self dumping iron remover"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RCYP"
+    ],
+    "industries": [
+      "General iron removal equipment"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rcyz-type-vertical-pipeline-permanent-magnet-iron-remover",
+    "productName": "RCYZ type vertical pipeline permanent magnet iron remover",
+    "primaryKeywords": [
+      "rcyz type vertical pipeline permanent magnet iron remover"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RCYZ"
+    ],
+    "industries": [
+      "General iron removal equipment",
+      "cement",
+      "food",
+      "chemical",
+      "ceramic"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment",
+      "cement",
+      "food",
+      "chemical",
+      "ceramic"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "cqz-type-fully-automatic-online-magnetic-separation",
+    "productName": "CQZ type fully automatic online magnetic separation",
+    "primaryKeywords": [
+      "cqz type fully automatic online magnetic separation"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CQZ"
+    ],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "recycling",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "wood",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "Non metallic industry magnetic separation equipment",
+      "recycling",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "wood",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "ctb-wet-semi-countercurrent-magnetic-separator",
+    "productName": "CTB wet semi countercurrent magnetic separator",
+    "primaryKeywords": [
+      "ctb wet semi countercurrent magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CTB"
+    ],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Non metallic industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "dcx-wet-fully-automatic-magnetic-separator",
+    "productName": "DCX wet fully automatic magnetic separator",
+    "primaryKeywords": [
+      "dcx wet fully automatic magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "DCX"
+    ],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "mining",
+      "food",
+      "chemical",
+      "ceramic"
+    ],
+    "applicationScenarios": [
+      "Non metallic industry magnetic separation equipment",
+      "mining",
+      "food",
+      "chemical",
+      "ceramic"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "dcz-type-dry-fully-automatic-magnetic-separation",
+    "productName": "DCZ type dry fully automatic magnetic separation",
+    "primaryKeywords": [
+      "dcz type dry fully automatic magnetic separation"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "DCZ | HV1200"
+    ],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "coal",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "ceramic",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Non metallic industry magnetic separation equipment",
+      "coal",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "ceramic",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "gtc-wet-plate-magnetic-separator",
+    "productName": "GTC wet plate magnetic separator",
+    "primaryKeywords": [
+      "gtc wet plate magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "GTC"
+    ],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "coal",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Non metallic industry magnetic separation equipment",
+      "coal",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "hjlh-wet-vertical-ring-high-gradient-magnetic-separator",
+    "productName": "HJLH wet vertical ring high gradient magnetic separator",
+    "primaryKeywords": [
+      "hjlh wet vertical ring high gradient magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "HJLH"
+    ],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Non metallic industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "hjpc-wet-disc-magnetic-separation",
+    "productName": "HJPC wet disc magnetic separation",
+    "primaryKeywords": [
+      "hjpc wet disc magnetic separation"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "HJPC"
+    ],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "ceramic",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Non metallic industry magnetic separation equipment",
+      "ceramic",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "clt-type-magnetic-desliming-tank",
+    "productName": "CLT type magnetic desliming tank",
+    "primaryKeywords": [
+      "clt type magnetic desliming tank"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CLT"
+    ],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Metal industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "ctb-type-semi-countercurrent-wet-selection-machine",
+    "productName": "CTB type semi countercurrent wet selection machine",
+    "primaryKeywords": [
+      "ctb type semi countercurrent wet selection machine"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CTB"
+    ],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Metal industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "ctdg-type-permanent-magnet-bulk-dry-magnetic-separator",
+    "productName": "CTDG type permanent magnet bulk dry magnetic separator",
+    "primaryKeywords": [
+      "ctdg type permanent magnet bulk dry magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CTDG"
+    ],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "mining",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Metal industry magnetic separation equipment",
+      "mining",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "ctn-type-full-countercurrent-wet-magnetic-separator",
+    "productName": "CTN type full countercurrent wet magnetic separator",
+    "primaryKeywords": [
+      "ctn type full countercurrent wet magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CTN"
+    ],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Metal industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "cts-type-downstream-wet-pre-selection-machine",
+    "productName": "CTS type downstream wet pre selection machine",
+    "primaryKeywords": [
+      "cts type downstream wet pre selection machine"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CTS"
+    ],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Metal industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "ctzs-type-upward-suction-magnetic-separator",
+    "productName": "CTZS type upward suction magnetic separator",
+    "primaryKeywords": [
+      "ctzs type upward suction magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CTZS"
+    ],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "cement"
+    ],
+    "applicationScenarios": [
+      "Metal industry magnetic separation equipment",
+      "cement"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "hcg-type-dry-pre-selection-machine",
+    "productName": "HCG type dry pre selection machine",
+    "primaryKeywords": [
+      "hcg type dry pre selection machine"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "HCG | HRA | HRA92"
+    ],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "ceramic",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "Metal industry magnetic separation equipment",
+      "ceramic",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "hjlh-type-vertical-ring-high-gradient-magnetic-separation",
+    "productName": "HJLH type vertical ring high gradient magnetic separation",
+    "primaryKeywords": [
+      "hjlh type vertical ring high gradient magnetic separation"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "HJLH"
+    ],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Metal industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "ljk-type-magnetic-ore-special-iron-remover",
+    "productName": "LJK type magnetic ore special iron remover",
+    "primaryKeywords": [
+      "ljk type magnetic ore special iron remover"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "LJK"
+    ],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "Metal industry magnetic separation equipment",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "nct-type-concentrated-magnetic-separator",
+    "productName": "NCT type concentrated magnetic separator",
+    "primaryKeywords": [
+      "nct type concentrated magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "NCT"
+    ],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "recycling",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Metal industry magnetic separation equipment",
+      "recycling",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "wbc-semi-magnetic-tailings-recovery-machine",
+    "productName": "WBC semi magnetic tailings recovery machine",
+    "primaryKeywords": [
+      "wbc semi magnetic tailings recovery machine"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "WBC"
+    ],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "mineral",
+      "aggregate"
+    ],
+    "applicationScenarios": [
+      "Metal industry magnetic separation equipment",
+      "mineral",
+      "aggregate"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "ctn-type-specialized-magnetic-separator-for-coal-washing",
+    "productName": "CTN type specialized magnetic separator for coal washing",
+    "primaryKeywords": [
+      "ctn type specialized magnetic separator for coal washing"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CTN"
+    ],
+    "industries": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "coal",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "coal",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "hmdn-coal-washing-special-magnetic-separator",
+    "productName": "HMDN coal washing special magnetic separator",
+    "primaryKeywords": [
+      "hmdn coal washing special magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "HMDN"
+    ],
+    "industries": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "coal",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "coal",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "suspended-permanent-magnetic-separator",
+    "productName": "Suspended Permanent Magnetic Separator",
+    "primaryKeywords": [
+      "suspended permanent magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [],
+    "industries": [
+      "Quarry",
+      "mining",
+      "coal",
+      "cement and aggregate handling",
+      "Permanent Magnet Series"
+    ],
+    "applicationScenarios": [
+      "Quarry",
+      "mining",
+      "coal",
+      "cement and aggregate handling",
+      "Permanent Magnet Series"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "suspended-electromagnetic-conveyor-belt-separator",
+    "productName": "Suspended Electromagnetic Conveyor Belt Separator",
+    "primaryKeywords": [
+      "suspended electromagnetic conveyor belt separator"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [],
+    "industries": [
+      "High-capacity conveyors",
+      "mining",
+      "ports",
+      "coal and heavy material handling",
+      "Electromagnetic Series"
+    ],
+    "applicationScenarios": [
+      "High-capacity conveyors",
+      "mining",
+      "ports",
+      "coal and heavy material handling",
+      "Electromagnetic Series"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "dls-type-window-metal-detector",
+    "productName": "DLS type window metal detector",
+    "primaryKeywords": [
+      "dls type window metal detector"
+    ],
+    "secondaryKeywords": [
+      "metal detection"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "DLS | RS232 | RS485"
+    ],
+    "industries": [
+      "General iron removal equipment",
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "ceramic",
+      "recycling",
+      "wood"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment",
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "ceramic",
+      "recycling",
+      "wood"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Window size",
+      "Material condition",
+      "Detection target",
+      "Belt speed",
+      "Alarm or reject interface"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "gjt-type-window-metal-detector",
+    "productName": "GJT type window metal detector",
+    "primaryKeywords": [
+      "gjt type window metal detector"
+    ],
+    "secondaryKeywords": [
+      "metal detection"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "GJT"
+    ],
+    "industries": [
+      "General iron removal equipment",
+      "mining",
+      "cement",
+      "food",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment",
+      "mining",
+      "cement",
+      "food",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Window size",
+      "Material condition",
+      "Detection target",
+      "Belt speed",
+      "Alarm or reject interface"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "hecp-eddy-current-metal-sorting-machine",
+    "productName": "HECP eddy current metal sorting machine",
+    "primaryKeywords": [
+      "hecp eddy current metal sorting machine"
+    ],
+    "secondaryKeywords": [
+      "recycling sorting"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CNC | HECP | HECS"
+    ],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "recycling",
+      "glass",
+      "wood",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "Metal industry magnetic separation equipment",
+      "recycling",
+      "glass",
+      "wood",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Feed size range",
+      "Material mix",
+      "Throughput",
+      "Ferrous pre-separation",
+      "Target fraction",
+      "Downstream discharge arrangement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "hecs-type-eddy-current-metal-sorting-machine",
+    "productName": "HECS type eddy current metal sorting machine",
+    "primaryKeywords": [
+      "hecs type eddy current metal sorting machine"
+    ],
+    "secondaryKeywords": [
+      "recycling sorting"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "HECS"
+    ],
+    "industries": [
+      "Metal industry magnetic separation equipment",
+      "recycling",
+      "glass",
+      "wood",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "Metal industry magnetic separation equipment",
+      "recycling",
+      "glass",
+      "wood",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Feed size range",
+      "Material mix",
+      "Throughput",
+      "Ferrous pre-separation",
+      "Target fraction",
+      "Downstream discharge arrangement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "drum-magnet",
+    "productName": "Drum Magnet",
+    "primaryKeywords": [
+      "drum magnet"
+    ],
+    "secondaryKeywords": [
+      "mineral processing"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CHNMAG"
+    ],
+    "industries": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "mineral",
+      "metal recycling"
+    ],
+    "applicationScenarios": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "mineral",
+      "metal recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Mineral and target",
+      "Feed size",
+      "Feed condition",
+      "Throughput",
+      "Magnetic and non-magnetic product streams",
+      "Water or slurry requirement where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "eccentric-eddy-current-separator",
+    "productName": "Eccentric Eddy Current Separator",
+    "primaryKeywords": [
+      "eccentric eddy current separator"
+    ],
+    "secondaryKeywords": [
+      "recycling sorting"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "ASR | CHNMAG | MSW | PET | SEW | SKF | WEEE | WTE"
+    ],
+    "industries": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "food",
+      "glass",
+      "wood",
+      "municipal waste",
+      "electronic scrap",
+      "foundry sand",
+      "ore",
+      "metal recycling"
+    ],
+    "applicationScenarios": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "food",
+      "glass",
+      "wood",
+      "municipal waste",
+      "electronic scrap",
+      "foundry sand",
+      "ore",
+      "metal recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Feed size range",
+      "Material mix",
+      "Throughput",
+      "Ferrous pre-separation",
+      "Target fraction",
+      "Downstream discharge arrangement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "electromagnet-separator",
+    "productName": "Electromagnet Separator",
+    "primaryKeywords": [
+      "electromagnet separator"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CHNMAG | QJRCDB | QJRCDD"
+    ],
+    "industries": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "applicationScenarios": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "magnetic-head-pulley",
+    "productName": "Magnetic Head Pulley",
+    "primaryKeywords": [
+      "magnetic head pulley"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [],
+    "industries": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "cement",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "applicationScenarios": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "cement",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "permanent-overband-magnetic-separator",
+    "productName": "Permanent Overband Magnetic Separator",
+    "primaryKeywords": [
+      "permanent overband magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "QJRCY-HL | QJRCY-KL | QJRCY-L | QJRCY-PL"
+    ],
+    "industries": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "coal",
+      "food",
+      "wood",
+      "ore",
+      "metal recycling"
+    ],
+    "applicationScenarios": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "coal",
+      "food",
+      "wood",
+      "ore",
+      "metal recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "stainless-steel-separation-conveyor",
+    "productName": "Stainless Steel Separation Conveyor",
+    "primaryKeywords": [
+      "stainless steel separation conveyor"
+    ],
+    "secondaryKeywords": [
+      "recycling sorting"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "ASR | CHNMAG | ICW | QJSS | VFD | WEEE"
+    ],
+    "industries": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "applicationScenarios": [
+      "Metal Recycling",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Feed size range",
+      "Material mix",
+      "Throughput",
+      "Ferrous pre-separation",
+      "Target fraction",
+      "Downstream discharge arrangement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "cbs-drawer-type-magnetic-filter",
+    "productName": "CBS drawer type magnetic filter",
+    "primaryKeywords": [
+      "cbs drawer type magnetic filter"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CBS"
+    ],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "ceramic",
+      "chemical",
+      "food",
+      "pharmaceutical",
+      "recycling",
+      "wood"
+    ],
+    "applicationScenarios": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "ceramic",
+      "chemical",
+      "food",
+      "pharmaceutical",
+      "recycling",
+      "wood"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "clc-type-wet-slot-magnetic-filter",
+    "productName": "CLC type wet slot magnetic filter",
+    "primaryKeywords": [
+      "clc type wet slot magnetic filter"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CLC | SUS304"
+    ],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "mining",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "ceramic",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "mining",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "ceramic",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "ctq-type-roller-automatic-magnetic-separator",
+    "productName": "CTQ type roller automatic magnetic separator",
+    "primaryKeywords": [
+      "ctq type roller automatic magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "mineral",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "mineral",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "cyg-wet-pipeline-magnetic-filter",
+    "productName": "CYG wet pipeline magnetic filter",
+    "primaryKeywords": [
+      "cyg wet pipeline magnetic filter"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CYG | SUS304"
+    ],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "ceramic",
+      "chemical",
+      "food",
+      "ore",
+      "pharmaceutical"
+    ],
+    "applicationScenarios": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "Non metallic industry magnetic separation equipment",
+      "ceramic",
+      "chemical",
+      "food",
+      "ore",
+      "pharmaceutical"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rcyz-type-pipeline-magnetic-filter",
+    "productName": "RCYZ type pipeline magnetic filter",
+    "primaryKeywords": [
+      "rcyz type pipeline magnetic filter"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RCYZ"
+    ],
+    "industries": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "cement",
+      "food",
+      "chemical",
+      "ceramic"
+    ],
+    "applicationScenarios": [
+      "Metal detection and separation equipment for the food, pharmaceutical, and chemical industries",
+      "cement",
+      "food",
+      "chemical",
+      "ceramic"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "clc-type-slot-magnetic-filter",
+    "productName": "CLC type slot magnetic filter",
+    "primaryKeywords": [
+      "clc type slot magnetic filter"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "CLC | SUS304"
+    ],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "mining",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "ceramic",
+      "ore"
+    ],
+    "applicationScenarios": [
+      "Non metallic industry magnetic separation equipment",
+      "mining",
+      "food",
+      "pharmaceutical",
+      "chemical",
+      "ceramic",
+      "ore"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "dhd-type-roller-type-automatic-magnetic-separator",
+    "productName": "DHD type roller type automatic magnetic separator",
+    "primaryKeywords": [
+      "dhd type roller type automatic magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "DHD"
+    ],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Non metallic industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "dhj-type-strong-roller-automatic-magnetic-separator",
+    "productName": "DHJ type strong roller automatic magnetic separator",
+    "primaryKeywords": [
+      "dhj type strong roller automatic magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "DHJ"
+    ],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Non metallic industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "qcg-wet-roller-magnetic-separator",
+    "productName": "QCG wet roller magnetic separator",
+    "primaryKeywords": [
+      "qcg wet roller magnetic separator"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "QCG"
+    ],
+    "industries": [
+      "Non metallic industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "applicationScenarios": [
+      "Non metallic industry magnetic separation equipment",
+      "ore",
+      "mineral"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "drawer-magnet",
+    "productName": "Drawer Magnet",
+    "primaryKeywords": [
+      "drawer magnet"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "SS304 | SS316"
+    ],
+    "industries": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "food",
+      "chemical",
+      "ceramic",
+      "ore",
+      "metal recycling"
+    ],
+    "applicationScenarios": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "food",
+      "chemical",
+      "ceramic",
+      "ore",
+      "metal recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "hump-magnet",
+    "productName": "Hump Magnet",
+    "primaryKeywords": [
+      "hump magnet"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [],
+    "industries": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "applicationScenarios": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "magnetic-grid",
+    "productName": "Magnetic Grid",
+    "primaryKeywords": [
+      "magnetic grid"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [],
+    "industries": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "applicationScenarios": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "magnetic-rod",
+    "productName": "Magnetic Rod",
+    "primaryKeywords": [
+      "magnetic rod"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [],
+    "industries": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "applicationScenarios": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "magnetic-trap",
+    "productName": "Magnetic Trap",
+    "primaryKeywords": [
+      "magnetic trap"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [],
+    "industries": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "applicationScenarios": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rotary-pipe-magnet",
+    "productName": "Rotary Pipe Magnet",
+    "primaryKeywords": [
+      "rotary pipe magnet"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [],
+    "industries": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "coal",
+      "food",
+      "chemical",
+      "ore",
+      "metal recycling"
+    ],
+    "applicationScenarios": [
+      "Food Industry",
+      "mining",
+      "recycling",
+      "coal",
+      "food",
+      "chemical",
+      "ore",
+      "metal recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "permanent-filter-bar-magnetic-neodymium-rod",
+    "productName": "Strong 6000-16000 Gauss Iron Absorbing Permanent Filter Bar Magnetic Neodymium Rod",
+    "primaryKeywords": [
+      "strong 6000-16000 gauss iron absorbing permanent filter bar magnetic neodymium rod"
+    ],
+    "secondaryKeywords": [
+      "filtering"
+    ],
+    "longTailKeywords": [],
+    "aliases": [],
+    "industries": [
+      "Powder",
+      "granule",
+      "liquid filtration",
+      "hopper and chute protection",
+      "Magnetic Rollers & Magnetic Bars"
+    ],
+    "applicationScenarios": [
+      "Powder",
+      "granule",
+      "liquid filtration",
+      "hopper and chute protection",
+      "Magnetic Rollers & Magnetic Bars"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Flow type",
+      "Flow rate",
+      "Temperature",
+      "Viscosity or flowability",
+      "Connection size",
+      "Cleaning method",
+      "Contact material requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "high-frequency-screen",
+    "productName": "High Frequency Screen",
+    "primaryKeywords": [
+      "high frequency screen"
+    ],
+    "secondaryKeywords": [
+      "suspended"
+    ],
+    "longTailKeywords": [],
+    "aliases": [],
+    "industries": [
+      "Mining Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "applicationScenarios": [
+      "Mining Industry",
+      "mining",
+      "recycling",
+      "food",
+      "ore",
+      "metal recycling"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Belt width",
+      "Belt speed",
+      "Material layer",
+      "Suspension height",
+      "Largest expected tramp iron",
+      "Cleaning arrangement",
+      "Power or cooling where applicable"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "kgla-series-rectifier-control-box",
+    "productName": "KGLA series rectifier control box",
+    "primaryKeywords": [
+      "kgla series rectifier control box"
+    ],
+    "secondaryKeywords": [
+      "explosion control"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "KGLA"
+    ],
+    "industries": [
+      "General iron removal equipment"
+    ],
+    "applicationScenarios": [
+      "General iron removal equipment"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Connected equipment",
+      "Electrical supply",
+      "Control mode",
+      "Interlocks",
+      "Installation environment",
+      "Verified project documents"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box",
+    "productName": "KXB mining explosion-proof electromagnetic iron remover control box",
+    "primaryKeywords": [
+      "kxb mining explosion-proof electromagnetic iron remover control box"
+    ],
+    "secondaryKeywords": [
+      "explosion control"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "LCD | RS-485"
+    ],
+    "industries": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "mining",
+      "coal"
+    ],
+    "applicationScenarios": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "mining",
+      "coal"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Connected equipment",
+      "Electrical supply",
+      "Control mode",
+      "Interlocks",
+      "Installation environment",
+      "Verified project documents"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box",
+    "productName": "QJZ mining explosion-proof permanent magnet iron remover control box",
+    "primaryKeywords": [
+      "qjz mining explosion-proof permanent magnet iron remover control box"
+    ],
+    "secondaryKeywords": [
+      "explosion control"
+    ],
+    "longTailKeywords": [],
+    "aliases": [],
+    "industries": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "mining",
+      "coal"
+    ],
+    "applicationScenarios": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "mining",
+      "coal"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Connected equipment",
+      "Electrical supply",
+      "Control mode",
+      "Interlocks",
+      "Installation environment",
+      "Verified project documents"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover",
+    "productName": "RBCDB explosion-proof disc type electromagnetic iron remover",
+    "primaryKeywords": [
+      "rbcdb explosion-proof disc type electromagnetic iron remover"
+    ],
+    "secondaryKeywords": [
+      "explosion control"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RBCDB"
+    ],
+    "industries": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "mining",
+      "coal",
+      "chemical"
+    ],
+    "applicationScenarios": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "mining",
+      "coal",
+      "chemical"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Connected equipment",
+      "Electrical supply",
+      "Control mode",
+      "Interlocks",
+      "Installation environment",
+      "Verified project documents"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover",
+    "productName": "RBCDD explosion-proof electromagnetic self dumping iron remover",
+    "primaryKeywords": [
+      "rbcdd explosion-proof electromagnetic self dumping iron remover"
+    ],
+    "secondaryKeywords": [
+      "explosion control"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RBCDD"
+    ],
+    "industries": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "mining",
+      "coal",
+      "chemical"
+    ],
+    "applicationScenarios": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "mining",
+      "coal",
+      "chemical"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Connected equipment",
+      "Electrical supply",
+      "Control mode",
+      "Interlocks",
+      "Installation environment",
+      "Verified project documents"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover",
+    "productName": "RBCYD explosion-proof permanent magnet self dumping iron remover",
+    "primaryKeywords": [
+      "rbcyd explosion-proof permanent magnet self dumping iron remover"
+    ],
+    "secondaryKeywords": [
+      "explosion control"
+    ],
+    "longTailKeywords": [],
+    "aliases": [
+      "RBCYD"
+    ],
+    "industries": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "mining",
+      "coal",
+      "chemical"
+    ],
+    "applicationScenarios": [
+      "Coal industry iron removal and magnetic separation equipment",
+      "mining",
+      "coal",
+      "chemical"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Connected equipment",
+      "Electrical supply",
+      "Control mode",
+      "Interlocks",
+      "Installation environment",
+      "Verified project documents"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  },
+  {
+    "productId": "round-electromagnetic-lifting-magnet",
+    "productName": "Round Electromagnetic Lifting Magnet",
+    "primaryKeywords": [
+      "round electromagnetic lifting magnet"
+    ],
+    "secondaryKeywords": [
+      "lifting"
+    ],
+    "longTailKeywords": [],
+    "aliases": [],
+    "industries": [
+      "Steel scrap lifting",
+      "metal handling",
+      "foundry and warehouse operations",
+      "Electromagnetic Series"
+    ],
+    "applicationScenarios": [
+      "Steel scrap lifting",
+      "metal handling",
+      "foundry and warehouse operations",
+      "Electromagnetic Series"
+    ],
+    "buyerRoles": [
+      "industrial buyer",
+      "process engineer",
+      "maintenance manager"
+    ],
+    "painPoints": [],
+    "selectionFactors": [
+      "Load shape and condition",
+      "Lifting duty",
+      "Power and control",
+      "Suspension arrangement",
+      "Site safety and inspection requirement"
+    ],
+    "approvedFactSources": [
+      "data/products.ts"
+    ],
+    "prohibitedClaims": [
+      "Unverified dimensions, performance, capacity, certification, price, delivery or project result."
+    ]
+  }
+]

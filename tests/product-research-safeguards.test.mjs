@@ -35,7 +35,7 @@ test("public product component contains no editorial workflow labels", () => {
   assert.equal(page.includes("Technical review in progress"), false);
   assert.equal(page.includes("Model reference"), false);
   assert.match(page, /function technicalRows/);
-  assert.match(page, /Supplier-confirmed product record/);
+  assert.match(page, /Final configuration is confirmed for the project/);
 });
 
 test("priority products have separate engineering copy instead of one family-only paragraph", () => {

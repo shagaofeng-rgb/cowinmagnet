@@ -17,7 +17,7 @@ try {
   const coverImage = old.coverImage || "";
   const document = {
     schemaVersion: 1, locale: "en", contentType: "technical-guide", status: "published",
-    title: "How to Select an RCDD Self-Cooling Electromagnetic Iron Remover.",
+    title: "How to Select an RCDD Self-Cooling Electromagnetic Iron Remover",
     summary: "A practical conveyor selection guide for reviewing material burden, installation space and electrical conditions before specifying an RCDD self-cooling self-dumping electromagnetic iron remover.",
     primaryTopic: "RCDD self-cooling electromagnetic iron remover selection", targetAudience: "Conveyor system engineers, plant operators and industrial procurement teams",
     ...(coverImage ? { heroImage: { assetId: coverImage, alt: "RCDD self-cooling self-dumping electromagnetic iron remover for conveyor applications" } } : {}),
