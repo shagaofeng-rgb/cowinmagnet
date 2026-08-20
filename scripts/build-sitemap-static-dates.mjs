@@ -7,8 +7,10 @@ const portableGit = path.join(cwd, ".tools", "PortableGit", "cmd", "git.exe");
 const git = process.env.GIT_BINARY || (fs.existsSync(portableGit) ? portableGit : "git");
 const outputPath = path.join(cwd, "data", "sitemapStaticDates.json");
 const groups = {
-  pages: ["app", "components", "data/site.ts", "messages"],
-  products: ["data/products.ts", "data/productDetailProfiles.ts", "lib/productCms.js", "components/ProductDetailExperience.tsx", "components/ProductCard.tsx"],
+  // Keep lastmod tied to content records rather than template/component releases.
+  // Template edits can affect hundreds of routes without changing page content.
+  pages: ["data/site.ts", "messages"],
+  products: ["data/products.ts", "data/productDetailProfiles.ts", "lib/productCms.js"],
   categories: ["data/applications.ts", "components/ApplicationsPageContent.jsx"],
   posts: ["data/blogs.ts", "data/contentHub.js", "data/generatedNews.js", "content/blog"]
 };
@@ -25,7 +27,12 @@ function groupDate(paths, fallback = "") {
     // change is committed and can be dated from Git history.
     if (dirty) return fallback;
     const committed = gitOutput(["log", "-1", "--format=%cI", "--", ...paths]);
-    if (committed) return new Date(committed).toISOString().slice(0, 10);
+    if (committed) {
+      const committedDate = new Date(committed).toISOString().slice(0, 10);
+      // A verified CMS update may be newer than the tracked content path.
+      // Do not move a truthful sitemap lastmod backwards during a build.
+      return committedDate > fallback ? committedDate : fallback;
+    }
   } catch {}
   return fallback;
 }
