@@ -26,6 +26,7 @@
     "content:export-captured-audit": "node scripts/export-captured-content-audit.mjs",
     "news:triage": "node scripts/generate-news-content-triage.mjs",
     "news:remediate-legacy": "node scripts/remediate-legacy-news.mjs",
+    "news:restore-remediated-listings": "node scripts/restore-remediated-news-listings.mjs",
     "test": "node --test tests/*.test.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",

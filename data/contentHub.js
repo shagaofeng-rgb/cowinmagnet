@@ -1,6 +1,6 @@
 import { getCmsItems } from "../lib/cmsStore.js";
 import { generatedNewsPosts as legacyNewsPosts } from "./generatedNews.js";
-import { isIndexableNews } from "../lib/newsContentPolicy.js";
+import { isNewsVisibleInListings } from "../lib/newsContentPolicy.js";
 
 export const blogPosts = [
   {
@@ -370,7 +370,7 @@ export async function getAllNewsPosts() {
 }
 
 export async function getNewsPosts() {
-  return (await getAllNewsPosts()).filter(isIndexableNews);
+  return (await getAllNewsPosts()).filter(isNewsVisibleInListings);
 }
 
 export async function getNewsPost(slug) {

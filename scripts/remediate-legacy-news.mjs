@@ -52,6 +52,7 @@ try {
       seoIndexable: indexable,
       editorialStatus: indexable ? "remediated-validated" : "remediated-noindex-source-gap",
       relevanceStatus: indexable ? "remediated-direct-scope" : "remediated-guide-source-gap",
+      showInNewsList: true,
       status: "published",
       // The historical date is copied verbatim: list order and public date stay stable.
       publishedAt: post.publishedAt
