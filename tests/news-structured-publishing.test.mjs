@@ -20,6 +20,7 @@ test("News publisher persists a validated structured document and verifies befor
   assert.match(source, /max_output_tokens: 5000/);
   assert.match(source, /type: "json_object"/);
   assert.match(source, /createSourceBoundFallbackNewsDocument/);
+  assert.match(source, /upstream generation outage/);
   assert.match(source, /Information worth documenting before action/);
   assert.match(source, /recoverStaleNewsPublishWork/);
   assert.match(source, /resolvePublicationContext/);

@@ -28,6 +28,7 @@
     "news:remediate-legacy": "node scripts/remediate-legacy-news.mjs",
     "news:restore-remediated-listings": "node scripts/restore-remediated-news-listings.mjs",
     "news:audit-media-repair": "node scripts/audit-news-media-repair.mjs",
+    "news:inspect-publication-state": "node scripts/inspect-news-publication-state.mjs",
     "test": "node --test tests/*.test.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
