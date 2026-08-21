@@ -22,6 +22,10 @@ test("News publisher persists a validated structured document and verifies befor
   assert.match(source, /createSourceBoundFallbackNewsDocument/);
   assert.match(source, /Information worth documenting before action/);
   assert.match(source, /recoverStaleNewsPublishWork/);
+  assert.match(source, /resolvePublicationContext/);
+  assert.match(source, /product-media:/);
+  assert.match(source, /sourceSummaryVisible/);
+  assert.match(store, /news_article_evidence/);
 });
 
 test("public News pages use the structured renderer instead of raw MarkdownContent", async () => {

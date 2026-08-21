@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { requireAdminApi } from "@/lib/adminApi";
 import { getCmsItems, saveCmsItem, updateCmsItemStatus } from "@/lib/cmsStore";
+import { validateExternalImageRights } from "@/lib/news/image-rights-validator";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -58,22 +59,51 @@ export async function POST(request, { params }) {
 
     if (action === "use-remote-image") {
       const sourceImage = post.sourceImage || {};
+      // An Open Graph image URL does not grant reuse rights. Public News pages
+      // may only use a media record that has been verified and copied into the
+      // site's controlled storage by the media-sync workflow.
+      const rights = validateExternalImageRights({
+        originalUrl: sourceImage.originalImageUrl || sourceImage.imageUrl,
+        publisher: sourceImage.sourceName || post.source,
+        licenseBasis: sourceImage.licenseBasis,
+        licenseUrl: sourceImage.licenseUrl,
+        rightsVerifiedAt: sourceImage.rightsVerifiedAt,
+        allowedForReuse: sourceImage.allowedForReuse === true
+      });
+
+      if (!rights.passed || !sourceImage.storageUrl) {
+        await saveCmsItem({
+          ...post,
+          sourceImage: {
+            ...sourceImage,
+            imageUsageMode: "review",
+            imageStatus: "review_required",
+            imageFailureReason: rights.passed ? "controlled-storage-copy-missing" : rights.reason,
+            updatedAt: new Date().toISOString()
+          }
+        });
+        revalidateNews(slug);
+        redirect(`/admin/news?image=review-required`);
+      }
+
       await saveCmsItem({
         ...post,
-        coverImage: sourceImage.originalImageUrl || sourceImage.imageUrl || post.coverImage || "",
+        coverImage: sourceImage.storageUrl,
         coverAlt: sourceImage.imageAlt || post.coverAlt || post.title,
-        imageCaption: sourceImage.imageCaption || post.imageCaption || `Article image. Image source: ${sourceImage.sourceName || post.source || "Original source"}.`,
+        imageCaption: sourceImage.imageCaption || post.imageCaption || `Source context image. ${sourceImage.sourceName || post.source || "Original source"}.`,
         sourceImage: {
           ...sourceImage,
-          imageUrl: sourceImage.originalImageUrl || sourceImage.imageUrl || post.coverImage || "",
-          imageUsageMode: "remote",
-          imageStatus: sourceImage.imageStatus || "valid",
+          imageUrl: sourceImage.storageUrl,
+          imageUsageMode: "controlled-storage",
+          imageStatus: "synced",
           updatedAt: new Date().toISOString()
         }
       });
     }
 
     if (action === "save-local-image") {
+      // This route intentionally does not download media into serverless disk.
+      // A configured object-storage adapter performs the actual sync.
       await saveCmsItem({
         ...post,
         sourceImage: {

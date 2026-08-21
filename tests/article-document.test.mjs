@@ -37,6 +37,17 @@ test("duplicate FAQs and guide content rendered as NewsArticle are prevented by 
   assert.equal(result.document.contentType, "technical-guide");
 });
 
+test("News requires a readable source summary rather than a bare source link", () => {
+  const document = guide({
+    contentType: "news",
+    sections: guide().sections.slice(0, 5),
+    sources: [{ title: "Verified report", publisher: "Industry publisher", url: "https://example.com/report", accessedAt: "2026-08-21T00:00:00.000Z", relevanceNote: "This report supports the article context." }]
+  });
+  const result = validateArticleDocument(document);
+  assert.equal(result.passed, false);
+  assert.ok(result.errors.includes("source-summary-length"));
+});
+
 test("legacy lists remain list blocks rather than generated headings", () => {
   const document = createArticleDocumentFromLegacy({ title: "Legacy guide", contentType: "technical-guide", excerpt: "A clear summary that explains the process and selection conditions for a conveyor system.", seoTitle: "Legacy guide", seoDescription: "A clear description of process and selection conditions for a conveyor system before making a practical equipment choice.", slug: "legacy-guide", content: "- Belt width\n- Burden depth\n\nThis paragraph remains a paragraph." });
   assert.equal(document.sections.length, 1);

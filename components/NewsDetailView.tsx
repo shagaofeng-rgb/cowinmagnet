@@ -17,6 +17,8 @@ type NewsDetailViewProps = {
 };
 
 function NewsDisplayImage({ src, alt, priority = false }: { src: string; alt: string; priority?: boolean }) {
+  const controlled = src.startsWith("/") || src.startsWith("/api/") || (() => { try { return /(^|\.)cowinmagnet\.com$/i.test(new URL(src).hostname); } catch { return false; } })();
+  if (!controlled) return null;
   if (/^https?:\/\//i.test(src) || src.startsWith("/api/")) return <img src={src} width={980} height={620} alt={alt} loading={priority ? "eager" : "lazy"} referrerPolicy="no-referrer" style={{ objectFit: "contain" }} />;
   return <Image src={src} width={980} height={620} alt={alt} priority={priority} style={{ objectFit: "contain" }} />;
 }

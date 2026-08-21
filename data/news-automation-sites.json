@@ -54,7 +54,7 @@
       "content_status_after_publish": "published",
       "require_frontend_verification": true,
       "alert_channel": "configured-alert-target",
-      "production_enabled": false
+      "production_enabled": true
     },
     "relevance_terms": ["magnetic separation", "magnetic separator", "tramp iron", "ferrous", "nonferrous", "metal sorting", "metal recovery", "mineral processing", "ore", "tailings", "recycling", "conveyor", "crusher", "cement", "aggregate", "food processing", "metal detection"]
   }
