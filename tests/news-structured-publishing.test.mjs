@@ -24,6 +24,8 @@ test("News publisher persists a validated structured document and verifies befor
   assert.match(source, /recoverStaleNewsPublishWork/);
   assert.match(source, /resolvePublicationContext/);
   assert.match(source, /product-media:/);
+  assert.match(source, /isNonRetryableCandidateFailure/);
+  assert.match(store, /rejectNewsCandidate/);
   assert.match(source, /sourceSummaryVisible/);
   assert.match(store, /news_article_evidence/);
 });

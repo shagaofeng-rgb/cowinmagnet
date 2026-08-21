@@ -19,6 +19,7 @@ Generated: 2026-08-21 (Asia/Shanghai)
 - A stale production `daily-publish` run was recovered safely: 1 run and 1 candidate released.
 - Production discovery completed at 2026-08-21T00:10:00Z with 62 discovered, 2 accepted and 60 rejected candidates.
 - Historical News media audit: 104 inspected, 1 repairable and 103 retained for factual review.
+- A live publication verification was attempted after deployment preparation. The selected source returned HTTP 403, so the publisher returned `retry_pending` and created no CMS article. The next revision classifies this as a non-retryable candidate failure so the source is not retried indefinitely.
 
 ## Safe behavior when information is incomplete
 
