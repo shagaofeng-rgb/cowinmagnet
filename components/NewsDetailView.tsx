@@ -14,6 +14,7 @@ type NewsDetailViewProps = {
   posts: any[];
   categories: Array<{ slug: string; title: string }>;
   locale?: string;
+  visualVariant?: "product-first";
 };
 
 function NewsDisplayImage({ src, alt, priority = false }: { src: string; alt: string; priority?: boolean }) {
@@ -27,7 +28,12 @@ function contentTypeLabel(type: string) {
   return type.split("-").map((part) => part.slice(0, 1).toUpperCase() + part.slice(1)).join(" ");
 }
 
-export function NewsDetailView({ post, posts, categories, locale }: NewsDetailViewProps) {
+function navigationId(heading: string, index: number) {
+  const slug = heading.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+  return `article-section-${slug || index + 1}`;
+}
+
+export function NewsDetailView({ post, posts, categories, locale, visualVariant }: NewsDetailViewProps) {
   const document: any = getArticleDocument(post);
   const articleType = articleSchemaType(document);
   const categoryMap = new Map(categories.map((category) => [category.slug, category.title]));
@@ -54,7 +60,9 @@ export function NewsDetailView({ post, posts, categories, locale }: NewsDetailVi
     ...(document.contentType === "news" && document.sources[0]?.url ? { isBasedOn: document.sources[0].url, citation: document.sources.map((source: any) => source.url) } : {})
   };
 
-  return <>
+  const previewVariant = visualVariant === "product-first";
+
+  return <div className={previewVariant ? "product-first-news-preview" : undefined}>
     <JsonLd data={articleSchema} />
     <JsonLd data={organizationSchema()} />
     {document.faq.length ? <JsonLd data={faqSchema(document.faq)} /> : null}
@@ -75,7 +83,12 @@ export function NewsDetailView({ post, posts, categories, locale }: NewsDetailVi
       </div>
       {coverImage ? <div className="blog-hero-image"><NewsDisplayImage src={coverImage} alt={coverAlt} priority />{document.heroImage?.caption || post.imageCaption ? <p className="news-image-caption">{document.heroImage?.caption || post.imageCaption}</p> : null}</div> : null}
     </section>
-    <section className="section blog-detail-layout">
+    <section className={`section blog-detail-layout${previewVariant ? " product-first-reading-layout" : ""}`}>
+      {previewVariant ? <aside className="product-first-reading-rail" aria-label="Article contents">
+        <p>In this guide</p>
+        <nav>{document.sections.slice(0, 7).map((section: any, index: number) => <a href={`#${navigationId(section.heading, index)}`} key={section.heading}>{section.heading}</a>)}</nav>
+        <a className="product-first-rail-link" href={document.cta.href}>{document.cta.label}</a>
+      </aside> : null}
       <article className="blog-article news-article"><ArticleDocument document={document} /></article>
     </section>
     <section className="section article-nav-section">
@@ -85,5 +98,5 @@ export function NewsDetailView({ post, posts, categories, locale }: NewsDetailVi
       </div>
       {related.length ? <div className="article-more-grid">{related.map((item) => <Link href={`${basePath}/news/${item.slug}`} className="article-more-card" key={item.slug}>{item.coverImage ? <Image src={item.coverImage} width={420} height={240} alt={item.coverAlt || item.title} /> : null}<div><DateBadge date={item.publishedAt} /><h2>{item.title}</h2><p>{item.excerpt}</p></div></Link>)}</div> : null}
     </section>
-  </>;
+  </div>;
 }

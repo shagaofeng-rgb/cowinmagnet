@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { NewsDetailView } from "@/components/NewsDetailView";
 import previewData from "@/docs/news-previews/product-first-news-previews.json";
 import { isLocale, type Locale } from "@/lib/i18n";
@@ -35,10 +36,24 @@ const previewMedia: Record<string, { assetId: string; alt: string; caption: stri
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
+export async function generateMetadata({ searchParams }: Pick<PreviewPageProps, "searchParams">): Promise<Metadata> {
+  const { sample } = await searchParams;
+  const records = previewData as PreviewRecord[];
+  const selectedIndex = Math.max(0, Math.min(records.length - 1, Number(sample || "1") - 1));
+  const document = records[selectedIndex]?.document;
+  if (!document) return {};
+  return {
+    title: `${document.seo?.metaTitle || document.title} | Local preview`,
+    description: document.seo?.metaDescription || document.summary,
+    robots: { index: false, follow: false }
+  };
+}
+
 // This route is intentionally unavailable unless explicitly enabled for a local review.
 // It is not linked, indexed or included in the sitemap.
 export default async function ProductFirstNewsPreviewPage({ params, searchParams }: PreviewPageProps) {
-  if (process.env.NEWS_LOCAL_PREVIEW !== "true") notFound();
+  const previewEnabled = process.env.NODE_ENV !== "production" || process.env.NEWS_LOCAL_PREVIEW === "true";
+  if (!previewEnabled) notFound();
   const { locale: rawLocale } = await params;
   if (!isLocale(rawLocale)) notFound();
   const locale: Locale = rawLocale;
@@ -69,5 +84,6 @@ export default async function ProductFirstNewsPreviewPage({ params, searchParams
     posts={posts}
     categories={[{ slug: "product-first-preview", title: "Local product-first preview" }]}
     locale={locale}
+    visualVariant="product-first"
   />;
 }

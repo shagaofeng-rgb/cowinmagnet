@@ -31,5 +31,5 @@ export default async function LocalizedNewsDetailPage({ params }: NewsPageProps)
   const locale: Locale = rawLocale;
   const [post, posts, categories] = await Promise.all([getNewsPost(slug), getNewsPosts(), getNewsCategories()]);
   if (!post) notFound();
-  return <NewsDetailView post={post} posts={posts} categories={categories} locale={locale} />;
+  return <NewsDetailView post={post} posts={posts} categories={categories} locale={locale} visualVariant="product-first" />;
 }

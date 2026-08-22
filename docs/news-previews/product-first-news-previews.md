@@ -1,8 +1,8 @@
-<!-- permanent-overband-aggregate; 1196 words -->
+<!-- permanent-overband-aggregate; 1184 words -->
 
 # Permanent Overband Magnetic Separator for Aggregate Conveyor Protection: Application Considerations
 
-Permanent Overband Magnetic Separator is considered here for aggregate conveyor protection. This article explains the product role, site information needed for a configuration discussion, and relevant context from a verified industry report.
+Review Permanent Overband Magnetic Separator for aggregate conveyor protection. Check the product role and site conditions before a configuration discussion.
 
 **Preview only. Not published.**
 
@@ -79,15 +79,15 @@ No. A report may identify a relevant issue, but it does not confirm performance 
 
 ## CTA
 
-[Discuss your application](/en/request-quote)
+[Send your conveyor and material details](/en/request-quote)
 
 ---
 
-<!-- wet-drum-mineral-processing; 1195 words -->
+<!-- wet-drum-mineral-processing; 1183 words -->
 
 # Wet Drum Magnetic Separator for Mineral Slurry Processing: Application Considerations
 
-Wet Drum Magnetic Separator is considered here for wet mineral slurry processing. This article explains the product role, site information needed for a configuration discussion, and relevant context from a verified industry report.
+Review Wet Drum Magnetic Separator for wet mineral slurry processing. Check the product role and site conditions before a configuration discussion.
 
 **Preview only. Not published.**
 
@@ -164,15 +164,15 @@ No. A report may identify a relevant issue, but it does not confirm performance 
 
 ## CTA
 
-[Discuss your application](/en/request-quote)
+[Send your conveyor and material details](/en/request-quote)
 
 ---
 
-<!-- drawer-magnet-powder-handling; 1188 words -->
+<!-- drawer-magnet-powder-handling; 1176 words -->
 
 # Drawer Magnet for Dry Powder Contamination Control: Application Considerations
 
-Drawer Magnet is considered here for dry powder contamination control. This article explains the product role, site information needed for a configuration discussion, and relevant context from a verified industry report.
+Review Drawer Magnet for dry powder contamination control. Check the product role and site conditions before a configuration discussion.
 
 **Preview only. Not published.**
 
@@ -249,4 +249,4 @@ No. A report may identify a relevant issue, but it does not confirm performance 
 
 ## CTA
 
-[Discuss your application](/en/request-quote)
+[Send your conveyor and material details](/en/request-quote)

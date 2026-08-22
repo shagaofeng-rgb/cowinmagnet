@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { formatDisplayDate } from "@/data/contentHub";
 
 type TextBlock =
   | { type: "paragraph"; text: string }
@@ -28,6 +29,11 @@ function DocumentImage({ src, alt }: { src: string; alt: string }) {
   return <Image src={src} alt={alt} width={920} height={560} />;
 }
 
+function sectionId(heading: string, index: number) {
+  const slug = heading.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+  return `article-section-${slug || index + 1}`;
+}
+
 function BlockRenderer({ block }: { block: any }) {
   if (block.type === "paragraph") return <p>{block.text}</p>;
   if (block.type === "bullets" || block.type === "checklist") {
@@ -43,10 +49,10 @@ export function ArticleDocument({ document }: { document: any }) {
   return <>
     {document.sections.map((section: any, index: number) => {
       const Heading = section.level === 3 ? "h3" : "h2";
-      return <section className="news-content-section" key={`${section.heading}-${index}`}><Heading>{section.heading}</Heading>{section.blocks.map((block: any, blockIndex: number) => <BlockRenderer key={`${block.type}-${blockIndex}`} block={block} />)}</section>;
+      return <section id={sectionId(section.heading, index)} className="news-content-section" key={`${section.heading}-${index}`}><Heading>{section.heading}</Heading>{section.blocks.map((block: any, blockIndex: number) => <BlockRenderer key={`${block.type}-${blockIndex}`} block={block} />)}</section>;
     })}
     {document.faq.length ? <section className="news-source-box news-faq-section"><h2>FAQ</h2>{document.faq.map((entry: any) => <div className="news-faq-item" key={entry.question}><h3>{entry.question}</h3><p>{entry.answer}</p></div>)}</section> : null}
-    {document.contentType === "news" && document.sources.length ? <section className="news-source-box"><h2>Sources</h2>{document.sources.map((source: any) => <article className="news-source-card" key={source.url}><p><strong>{source.publisher}</strong>{source.publishedAt ? ` | ${source.publishedAt}` : ""}</p><h3>{source.title}</h3><p>{source.editorialSummary}</p>{source.keyFacts?.length ? <ul>{source.keyFacts.map((fact: string, index: number) => <li key={`${source.url}-${index}`}>{fact}</li>)}</ul> : null}<a href={source.url} target="_blank" rel="noopener noreferrer nofollow">Read the original report</a></article>)}<p className="news-reporting-note">This article combines COWIN MAGNET product information with recent industry reporting from the sources listed above. External developments are cited for context and do not indicate a commercial relationship with COWIN MAGNET.</p></section> : null}
+    {document.contentType === "news" && document.sources.length ? <section className="news-source-box"><h2>Sources</h2>{document.sources.map((source: any) => <article className="news-source-card" key={source.url}><p><strong>{source.publisher}</strong>{source.publishedAt ? ` | ${formatDisplayDate(source.publishedAt)}` : ""}</p><h3>{source.title}</h3><p>{source.editorialSummary}</p>{source.keyFacts?.length ? <ul>{source.keyFacts.map((fact: string, index: number) => <li key={`${source.url}-${index}`}>{fact}</li>)}</ul> : null}<a href={source.url} target="_blank" rel="noopener noreferrer nofollow">Read the original report</a></article>)}<p className="news-reporting-note">This article combines COWIN MAGNET product information with recent industry reporting from the sources listed above. External developments are cited for context and do not indicate a commercial relationship with COWIN MAGNET.</p></section> : null}
     {document.relatedContent?.length ? <section className="news-source-box article-related-content"><h2>Related equipment and guidance</h2><ul>{document.relatedContent.map((item: any) => <li key={`${item.relationship}-${item.contentId}`}><Link href={item.contentId}>{item.relationship === "product" ? "View the related product" : "View related guidance"}</Link></li>)}</ul></section> : null}
     {document.cta.label ? <section className="news-source-box article-document-cta"><h2>{document.cta.heading}</h2><p>{document.cta.text}</p><Link href={document.cta.href} className="btn btn-primary">{document.cta.label}</Link></section> : null}
   </>;
