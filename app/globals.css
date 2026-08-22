@@ -7097,6 +7097,83 @@ textarea:focus {
   text-transform: uppercase;
 }
 
+.product-model-table-scroll {
+  overflow-x: auto;
+  border: 1px solid #ccddea;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.product-model-specification-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  color: #3a5570;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.product-model-specification-table caption {
+  padding: 12px 15px;
+  color: #36506b;
+  border-bottom: 1px solid #dce6ef;
+  background: #f4f8fb;
+  font-size: 13px;
+  font-weight: 750;
+  text-align: left;
+}
+
+.product-model-specification-table th,
+.product-model-specification-table td {
+  padding: 11px 14px;
+  border-right: 1px solid #dce6ef;
+  border-bottom: 1px solid #dce6ef;
+  text-align: left;
+  vertical-align: top;
+}
+
+.product-model-specification-table th {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.16);
+  background: #102b47;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.product-model-specification-table tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+.product-engineering-diagram-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.product-engineering-diagram-grid figure {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #d1dfeb;
+  border-radius: 7px;
+  background: #ffffff;
+}
+
+.product-engineering-diagram-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #ffffff;
+  object-fit: contain;
+}
+
+.product-engineering-diagram-grid figcaption {
+  padding: 11px 14px;
+  color: #4f6680;
+  border-top: 1px solid #dce6ef;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 .product-options-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -7490,6 +7567,25 @@ textarea:focus {
 
   .product-specification-table {
     margin-inline: -2px;
+  }
+
+  .product-model-table-scroll {
+    margin-inline: -2px;
+    border-radius: 0;
+  }
+
+  .product-model-specification-table {
+    min-width: 760px;
+    font-size: 13px;
+  }
+
+  .product-model-specification-table th,
+  .product-model-specification-table td {
+    padding: 10px 12px;
+  }
+
+  .product-engineering-diagram-grid {
+    grid-template-columns: 1fr;
   }
 
   .product-options-grid > div {

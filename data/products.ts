@@ -9,6 +9,18 @@ export type Product = {
   features: string[];
   principle: string;
   specs: { label: string; value: string }[];
+  /** Model-level values from a verified product record. Keep this separate from summary facts. */
+  specificationTable?: {
+    columns: string[];
+    rows: string[][];
+    sourceLabel: string;
+  };
+  /** Engineering diagrams are published only when the original asset is owned and product-matched. */
+  engineeringDiagrams?: {
+    src: string;
+    alt: string;
+    caption: string;
+  }[];
   applications: string[];
   installation: string;
   customization: string[];
@@ -29,10 +41,18 @@ export const productCategories = [
 export const products: Product[] = [
   {
     "slug": "rcyd-type-permanent-magnet-self-dumping-iron-remover",
-    "name": "RCYD type permanent magnet self dumping iron remover",
+    "name": "RCYD Self-Dumping Permanent Magnetic Iron Remover",
     "category": "Suspended & Self-Unloading Iron Removers",
-    "image": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/rcyd-type-permanent-magnet-self-dumping-iron-remover-01.jpg",
+    "image": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130527234013948.jpg",
     "imageGallery": [
+      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130527234013948.jpg",
+      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-2013010416351264.gif",
+      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130104163512471.gif",
+      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-2013010416351288.gif",
+      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130104163512519.gif",
+      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-s_20130825103056345.jpg",
+      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-s_20130104162714773.gif",
+      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-s_2013052723244980.jpg",
       "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/rcyd-type-permanent-magnet-self-dumping-iron-remover-01.jpg",
       "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/rcyd-type-permanent-magnet-self-dumping-iron-remover-02.png",
       "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/rcyd-type-permanent-magnet-self-dumping-iron-remover-03.png",
@@ -43,47 +63,280 @@ export const products: Product[] = [
       "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/rcyd-type-permanent-magnet-self-dumping-iron-remover-08.jpg",
       "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/rcyd-type-permanent-magnet-self-dumping-iron-remover-06.png"
     ],
-    "summary": "product overview： 1、 Explanation The RCYD permanent magnet self dumping iron remover is equivalent to the RCYC series model and is suitable for removing iron from conveyor belts in various industries. It can achieve continuous suction and disposal of iron.",
+    "summary": "The RCYD Self-Dumping Permanent Magnetic Iron Remover uses a permanent magnetic circuit and a discharge belt to continuously remove captured ferromagnetic tramp iron from conveyor-fed bulk material. It is selected where continuous discharge is required and the site layout provides a clear discharge path.",
     "keywords": [
-      "RCYD type permanent magnet self dumping iron remover",
-      "General iron removal equipment",
-      "ore"
+      "RCYD Self-Dumping Permanent Magnetic Iron Remover",
+      "industrial magnetic iron removal",
+      "bulk material handling"
     ],
     "features": [
-      "The RCYD permanent magnet self dumping iron remover is equivalent to the RCYC series model and is suitable for removing iron from conveyor belts in various industries",
-      "It can achieve continuous suction and disposal of iron",
-      "The belt has an automatic correction function, which is reliable in operation and easy to maintain",
-      "The internal magnetic circuit adopts a perfect magnetic pole structure to ensure the long-term operation of the whole machine without faults in harsh environments",
-      "It has explosion-proof and armored types"
+      "Permanent magnetic circuit with no excitation power during operation",
+      "Self-dumping belt arrangement for continuous iron discharge",
+      "Suspended use above conveyor-fed non-magnetic material",
+      "Selection based on belt width, burden, suspension height and discharge clearance"
     ],
-    "principle": "product overview： 1、 Explanation The RCYD permanent magnet self dumping iron remover is equivalent to the RCYC series model and is suitable for removing iron from conveyor belts in various industries. It can achieve continuous suction and disposal of iron. The belt has an automatic correction function, which is reliable in operation and easy to maintain. The internal magnetic circuit adopts a perfect magnetic pole structure to ensure the long-term operation of the whole machine without faults in harsh environments. It has explosion-proof and armored types. 2、 Schematic diagram 3、 Main technical parameters 4、 Industry Applications",
+    "principle": "A permanent magnetic circuit captures ferromagnetic pieces from the material stream. The self-dumping belt moves the collected material out of the magnetic zone so it can discharge at a planned position. The final layout depends on the conveyor trajectory and available service clearance.",
     "specs": [
       {
-        "label": "Model",
-        "value": "RCYC"
+        "label": "Series",
+        "value": "RCYD"
       },
       {
-        "label": "Model",
-        "value": "RCYD"
+        "label": "Magnetic system",
+        "value": "Permanent magnetic"
+      },
+      {
+        "label": "Cleaning method",
+        "value": "Self-dumping"
       }
     ],
     "applications": [
-      "General iron removal equipment",
-      "ore"
+      "Bulk material conveying",
+      "Conveyor or process equipment protection",
+      "Ferromagnetic tramp iron removal"
     ],
-    "installation": "",
+    "installation": "Confirm conveyor width, material trajectory, suspension height, expected tramp iron and the available discharge area before finalizing the mounting arrangement.",
     "customization": [
-      "Model: RCYC",
-      "Model: RCYD"
+      "Configuration review based on actual material and site conditions"
     ],
-    "faqs": []
+    "faqs": [],
+    "specificationTable": {
+      "columns": [
+        "Reference field: 项目 / 参数",
+        "Suitable belt width (mm)",
+        "Reference field: 额定吊高 h=mm",
+        "Material burden thickness (max. mm)",
+        "Magnetic field reference",
+        "Reference field: 驱动功率 ≤kw",
+        "Belt speed (max. m/s)",
+        "Duty cycle",
+        "Weight (kg)",
+        "Reference field: 外形尺寸mm",
+        "Reference field: 外形尺寸mm",
+        "Reference field: 外形尺寸mm",
+        "Reference field: 外形尺寸mm",
+        "Reference field: 外形尺寸mm"
+      ],
+      "rows": [
+        [
+          "型号",
+          "适应带宽 \nmm",
+          "额定吊高 \nh=mm",
+          "物料厚度 \n≤mm",
+          "磁场强度 \n≥mT",
+          "驱动功率 \n≤kw",
+          "适应带速 \n≤m/s",
+          "工作制",
+          "重量 \nkg",
+          "外形尺寸mm",
+          "外形尺寸mm",
+          "外形尺寸mm",
+          "外形尺寸mm",
+          "外形尺寸mm"
+        ],
+        [
+          "RCYD(C)-5",
+          "适应带宽 \nmm",
+          "额定吊高 \nh=mm",
+          "物料厚度 \n≤mm",
+          "磁场强度 \n≥mT",
+          "驱动功率 \n≤kw",
+          "适应带速 \n≤m/s",
+          "工作制",
+          "重量 \nkg",
+          "500",
+          "150",
+          "100",
+          "60",
+          "1.5"
+        ],
+        [
+          "RCYD(C)-6",
+          "600",
+          "180",
+          "130",
+          "60",
+          "1.5",
+          "920",
+          "2050",
+          "780",
+          "1030",
+          "1100",
+          "753",
+          "",
+          ""
+        ],
+        [
+          "RCYD(C)-6.5",
+          "650",
+          "200",
+          "150",
+          "70",
+          "1.5",
+          "1200",
+          "2165",
+          "780",
+          "1080",
+          "1200",
+          "888",
+          "",
+          ""
+        ],
+        [
+          "RCYD(C)-8",
+          "800",
+          "250",
+          "200",
+          "70",
+          "2.2",
+          "1400",
+          "2350",
+          "796",
+          "1280",
+          "1300",
+          "1088",
+          "",
+          ""
+        ],
+        [
+          "RCYD(C)-10",
+          "1000",
+          "300",
+          "250",
+          "70",
+          "3.0",
+          "2120",
+          "2660",
+          "920",
+          "1550",
+          "1400",
+          "1335",
+          "",
+          ""
+        ],
+        [
+          "RCYD(C)-12",
+          "1200",
+          "350",
+          "300",
+          "70",
+          "4.0",
+          "3350",
+          "2860",
+          "1010",
+          "1720",
+          "1550",
+          "1515",
+          "",
+          ""
+        ],
+        [
+          "RCYD(C)-14",
+          "1400",
+          "400",
+          "350",
+          "70",
+          "4.0",
+          "4450",
+          "3225",
+          "1050",
+          "1980",
+          "1800",
+          "1755",
+          "",
+          ""
+        ],
+        [
+          "RCYD(C)-16",
+          "1600",
+          "450",
+          "400",
+          "70",
+          "5.5",
+          "6200",
+          "3350",
+          "1180",
+          "2160",
+          "1950",
+          "1850",
+          "",
+          ""
+        ],
+        [
+          "RCYD(C)-18",
+          "1800",
+          "500",
+          "450",
+          "80",
+          "5.5",
+          "8100",
+          "3580",
+          "1210",
+          "2450",
+          "2200",
+          "2130",
+          "",
+          ""
+        ],
+        [
+          "RCYD(C)-20",
+          "2000",
+          "550",
+          "500",
+          "80",
+          "7.5",
+          "9700",
+          "3800",
+          "1300",
+          "2700",
+          "2400",
+          "2410",
+          "",
+          ""
+        ]
+      ],
+      "sourceLabel": "Model reference. Final configuration must be confirmed against material and site conditions."
+    },
+    "engineeringDiagrams": [
+      {
+        "src": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-2013010416351264.gif",
+        "alt": "RCYD Self-Dumping Permanent Magnetic Iron Remover technical reference drawing 1",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130104163512471.gif",
+        "alt": "RCYD Self-Dumping Permanent Magnetic Iron Remover technical reference drawing 2",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-2013010416351288.gif",
+        "alt": "RCYD Self-Dumping Permanent Magnetic Iron Remover technical reference drawing 3",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130104163512519.gif",
+        "alt": "RCYD Self-Dumping Permanent Magnetic Iron Remover technical reference drawing 4",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-s_20130104162714773.gif",
+        "alt": "RCYD Self-Dumping Permanent Magnetic Iron Remover technical reference drawing 5",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      }
+    ]
   },
   {
     "slug": "rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover",
-    "name": "RCDD type self cooling self dumping electromagnetic iron remover",
+    "name": "RCDD Self-Cooling Self-Dumping Electromagnetic Iron Remover",
     "category": "Suspended & Self-Unloading Iron Removers",
-    "image": "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover-01.jpg",
+    "image": "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130825103209634.jpg",
     "imageGallery": [
+      "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130825103209634.jpg",
+      "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130104122226760.gif",
+      "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-s_20130825103008516.jpg",
+      "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-s_20130528000938524.jpg",
+      "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-s_20130528000628451.jpg",
+      "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-s_2013032221485321.jpg",
       "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover-01.jpg",
       "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover-06.png",
       "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover-03.png",
@@ -93,37 +346,237 @@ export const products: Product[] = [
       "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover-08.jpg",
       "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover-07.jpg"
     ],
-    "summary": "product overview： 1、 Explanation The RCDD self cooling self dumping electromagnetic iron remover is a device used for automatically removing impurities of iron from powdered or block shaped non-magnetic materials. It is internally cast with electrical",
+    "summary": "The RCDD Self-Cooling Self-Dumping Electromagnetic Iron Remover combines an electromagnetic separator with a discharge belt for continuous removal of collected ferromagnetic tramp iron from bulk material streams. It is considered where the expected contamination level makes planned manual cleaning impractical.",
     "keywords": [
-      "RCDD type self cooling self dumping electromagnetic iron remover",
-      "General iron removal equipment"
+      "RCDD Self-Cooling Self-Dumping Electromagnetic Iron Remover",
+      "industrial magnetic iron removal",
+      "bulk material handling"
     ],
     "features": [
-      "The RCDD self cooling self dumping electromagnetic iron remover is a device used for automatically removing impurities of iron from powdered or block shaped non-magnetic materials",
-      "It is internally cast with electrical specific resin and features a self cooling fully sealed structure"
+      "Electromagnetic circuit for suspended material-handling positions",
+      "Self-dumping belt arrangement for continuous iron discharge",
+      "Self-cooling configuration referenced for this series",
+      "Configuration review based on burden depth, suspension height, power and discharge clearance"
     ],
-    "principle": "product overview： 1、 Explanation The RCDD self cooling self dumping electromagnetic iron remover is a device used for automatically removing impurities of iron from powdered or block shaped non-magnetic materials. It is internally cast with electrical specific resin and features a self cooling fully sealed structure. It has the advantages of high magnetic penetration depth, strong suction, dust prevention, rain resistance, corrosion resistance, and automatic belt correction, and can still operate reliably in extremely harsh environments. 2、 Schematic diagram 3、 Main technical parameters Note: All models in this series are designed with extra strong T1, T2, and T3 products that are higher than the national standard. The rated magnetic field strength at the lifting height is 90mT, 120mT, and 150mT, respectively. 4、 Industry Applications",
+    "principle": "The energized magnetic circuit retains ferromagnetic pieces above the material stream. A separate discharge belt carries collected metal away from the magnetic zone to a designated discharge area. Electrical excitation and discharge-belt drive requirements are confirmed for the selected configuration.",
     "specs": [
       {
-        "label": "Model",
+        "label": "Series",
         "value": "RCDD"
+      },
+      {
+        "label": "Magnetic system",
+        "value": "Electromagnetic"
+      },
+      {
+        "label": "Cleaning method",
+        "value": "Self-dumping"
+      },
+      {
+        "label": "Cooling reference",
+        "value": "self-cooling"
       }
     ],
     "applications": [
-      "General iron removal equipment"
+      "Bulk material conveying",
+      "Conveyor or process equipment protection",
+      "Ferromagnetic tramp iron removal"
     ],
-    "installation": "",
+    "installation": "Confirm belt width, burden depth, suspension height, electrical supply, discharge-belt clearance and a safe ferrous-metal discharge position before finalizing the layout.",
     "customization": [
-      "Model: RCDD"
+      "Configuration review based on actual material and site conditions"
     ],
-    "faqs": []
+    "faqs": [],
+    "specificationTable": {
+      "columns": [
+        "Model",
+        "Suitable belt width (mm)",
+        "Reference field: 额定吊高 h mm",
+        "Magnetic field reference",
+        "Material burden thickness (max. mm)",
+        "Excitation power",
+        "Reference field: 驱动功率 ≤Kw",
+        "Belt speed (max. m/s)",
+        "Weight (kg)",
+        "Overall dimensions",
+        "Overall dimensions",
+        "Overall dimensions",
+        "Overall width D (mm)",
+        "Overall dimensions",
+        "Overall dimensions"
+      ],
+      "rows": [
+        [
+          "RCDD-5",
+          "500",
+          "150",
+          "60",
+          "100",
+          "1",
+          "1.5",
+          "2.5",
+          "950",
+          "1900",
+          "940",
+          "710",
+          "740",
+          "950",
+          "950"
+        ],
+        [
+          "RCDD-6",
+          "600",
+          "175",
+          "60",
+          "130",
+          "1.8",
+          "1.5",
+          "2.5",
+          "1380",
+          "2000",
+          "1020",
+          "710",
+          "840",
+          "1050",
+          "1050"
+        ],
+        [
+          "RCDD-6.5",
+          "650",
+          "200",
+          "70",
+          "150",
+          "2",
+          "2.2",
+          "2.5",
+          "1490",
+          "2050",
+          "1190",
+          "710",
+          "988",
+          "1250",
+          "1250"
+        ],
+        [
+          "RCDD-8",
+          "800",
+          "250",
+          "70",
+          "200",
+          "3.0",
+          "2.2",
+          "2.5",
+          "1770",
+          "2200",
+          "1270",
+          "750",
+          "1090",
+          "1350",
+          "1350"
+        ],
+        [
+          "RCDD-10",
+          "1000",
+          "300",
+          "70",
+          "250",
+          "4.5",
+          "3.0",
+          "2.5",
+          "2380",
+          "2750",
+          "1635",
+          "940",
+          "1420",
+          "1400",
+          "1400"
+        ],
+        [
+          "RCDD-12",
+          "1200",
+          "350",
+          "70",
+          "300",
+          "5.8",
+          "3.0",
+          "2.5",
+          "3170",
+          "3000",
+          "1800",
+          "1010",
+          "1580",
+          "1700",
+          "1700"
+        ],
+        [
+          "RCDD-14",
+          "1400",
+          "400",
+          "70",
+          "350",
+          "6.7",
+          "4.0",
+          "2.5",
+          "4800",
+          "3500",
+          "2050",
+          "1050",
+          "1800",
+          "2000",
+          "2000"
+        ],
+        [
+          "RCDD-16",
+          "1600",
+          "450",
+          "70",
+          "400",
+          "9.5",
+          "5.5",
+          "2.5",
+          "6300",
+          "3900",
+          "2450",
+          "1180",
+          "2200",
+          "2350",
+          "2350"
+        ],
+        [
+          "RCDD-18",
+          "1800",
+          "500",
+          "70",
+          "450",
+          "12.5",
+          "7.5",
+          "2.5",
+          "7800",
+          "4400",
+          "2850",
+          "1290",
+          "2600",
+          "2800",
+          "2800"
+        ]
+      ],
+      "sourceLabel": "Model reference. Final configuration must be confirmed against material and site conditions."
+    },
+    "engineeringDiagrams": [
+      {
+        "src": "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130104122226760.gif",
+        "alt": "RCDD Self-Cooling Self-Dumping Electromagnetic Iron Remover technical reference drawing 1",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      }
+    ]
   },
   {
     "slug": "rcyb-type-permanent-magnet-manual-iron-remover",
-    "name": "RCYB type permanent magnet manual iron remover",
+    "name": "RCYB Suspended Permanent Magnetic Iron Remover",
     "category": "Suspended & Self-Unloading Iron Removers",
-    "image": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/rcyb-type-permanent-magnet-manual-iron-remover-01.jpg",
+    "image": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-suspended-permanent-magnet-main.jpg",
     "imageGallery": [
+      "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-suspended-permanent-magnet-main.jpg",
       "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/rcyb-type-permanent-magnet-manual-iron-remover-01.jpg",
       "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/rcyb-type-permanent-magnet-manual-iron-remover-02.png",
       "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/rcyb-type-permanent-magnet-manual-iron-remover-03.png",
@@ -133,47 +586,245 @@ export const products: Product[] = [
       "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/rcyb-type-permanent-magnet-manual-iron-remover-08.jpg",
       "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/rcyb-type-permanent-magnet-manual-iron-remover-07.jpg"
     ],
-    "summary": "product overview： 1、 Explanation The RCYB type permanent magnet manual iron remover adopts a composite magnetic system composed of special permanent magnets such as neodymium iron boron with high coercivity and high remanence inside. Suitable for removing",
+    "summary": "The RCYB suspended permanent magnetic iron remover is installed above a conveyor, vibratory feeder or chute to capture ferromagnetic tramp metal from non-magnetic bulk material. Its permanent magnetic circuit operates without excitation power and is generally selected where planned manual cleaning is practical.",
     "keywords": [
-      "RCYB type permanent magnet manual iron remover",
-      "General iron removal equipment",
-      "ore"
+      "RCYB suspended permanent magnetic iron remover",
+      "manual cleaning suspended magnet",
+      "conveyor tramp iron removal"
     ],
     "features": [
-      "The RCYB type permanent magnet manual iron remover adopts a composite magnetic system composed of special permanent magnets such as neodymium iron boron with high coercivity and high remanence inside",
-      "Suitable for removing iron from non-magnetic materials on belt conveyors, vibrating conveyors, electromagnetic vibrating feeders, and discharge chutes",
-      "It can remove 0.1-35kg of ferromagnetic material, and the internal permanent magnet system has a service life of more than 10 years",
-      "All technical indicators of this product comply with the JB/T8711-2012 standard",
-      "It has the advantages of maintenance free, strong magnetic force, long service life, simple"
+      "Permanent magnetic circuit with no excitation power during operation",
+      "Suspended placement above conveyor, feeder or chute applications",
+      "Manual cleaning suited to lines where collected tramp iron can be cleared safely at planned intervals",
+      "Model selection considers belt width, suspension height, burden thickness, belt speed and access for cleaning"
     ],
-    "principle": "product overview： 1、 Explanation The RCYB type permanent magnet manual iron remover adopts a composite magnetic system composed of special permanent magnets such as neodymium iron boron with high coercivity and high remanence inside. Suitable for removing iron from non-magnetic materials on belt conveyors, vibrating conveyors, electromagnetic vibrating feeders, and discharge chutes. It can remove 0.1-35kg of ferromagnetic material, and the internal permanent magnet system has a service life of more than 10 years. All technical indicators of this product comply with the JB/T8711-2012 standard. It has the advantages of maintenance free, strong magnetic force, long service life, simple installation, convenient use, and reliable operation. When the permanent magnet adsorbs a large amount of ferromagnetic material, it can be manually removed with a non-magnetic scraper or gloves, which is suitable for non continuous work and situations with low iron content. 2、 Schematic diagram 3、 Main technical parameters Note: All models in this series are designed with extra strong T1, T2, and T3 products that are higher than the national standard. The rated magnetic field strength at the lifting height is 90mT, 120mT, and 150mT, respectively. 4、 Industry Applications",
+    "principle": "A composite permanent magnetic circuit creates a magnetic field above the material stream. Ferromagnetic pieces entering its effective field are retained on the separator face while non-magnetic material continues through the line. The collection surface is cleaned manually using a safe isolation and removal procedure, so this is not a self-cleaning configuration.",
     "specs": [
       {
-        "label": "Model",
-        "value": "JB/T8711"
+        "label": "Series",
+        "value": "RCYB"
       },
       {
-        "label": "Model",
-        "value": "RCYB"
+        "label": "Cleaning method",
+        "value": "Manual"
+      },
+      {
+        "label": "Installation",
+        "value": "Suspended above conveyor, feeder or chute"
       }
     ],
     "applications": [
-      "General iron removal equipment",
-      "ore"
+      "Conveyor protection",
+      "Vibratory feeders",
+      "Chutes handling non-magnetic bulk material"
     ],
-    "installation": "",
+    "installation": "Confirm the conveyor layout, material trajectory, suspension height and safe access for manual cleaning before selecting an installation position. The imported reference drawings show inline and cross-belt arrangements; final mounting details depend on the site layout.",
     "customization": [
-      "Model: JB/T8711",
-      "Model: RCYB"
+      "Model selection by belt width and installation clearance",
+      "Configuration review based on material burden and tramp iron conditions"
     ],
-    "faqs": []
+    "faqs": [
+      {
+        "question": "When is manual cleaning a suitable choice?",
+        "answer": "Manual cleaning is generally suitable when the expected quantity of collected tramp iron allows planned, safe cleaning intervals. Continuous heavy tramp iron conditions may require a self-cleaning separator instead."
+      },
+      {
+        "question": "What information is needed before selection?",
+        "answer": "Provide the belt width, material burden thickness, belt speed, suspension clearance, material type and the expected size and quantity of ferromagnetic tramp iron."
+      },
+      {
+        "question": "Can the RCYB be installed in different conveyor positions?",
+        "answer": "The installation position depends on the material trajectory and available clearance. Inline and cross-belt arrangements should be reviewed against the actual conveyor layout."
+      }
+    ],
+    "specificationTable": {
+      "columns": [
+        "Model",
+        "Suitable belt width (mm)",
+        "Suspension height h (max. mm)",
+        "Belt speed (max. m/s)",
+        "Material burden thickness (max. mm)",
+        "Weight (kg)",
+        "Overall length L (mm)",
+        "Overall width D (mm)",
+        "Overall height H (mm)"
+      ],
+      "rows": [
+        [
+          "RCYB-4",
+          "400",
+          "125",
+          "4.5",
+          "60",
+          "115",
+          "400",
+          "300",
+          "230"
+        ],
+        [
+          "RCYB-4-1",
+          "400",
+          "75",
+          "4.5",
+          "30",
+          "65",
+          "400",
+          "250",
+          "140"
+        ],
+        [
+          "RCYB-5",
+          "500",
+          "150",
+          "4.5",
+          "90",
+          "206",
+          "500",
+          "350",
+          "260"
+        ],
+        [
+          "RCYB-5-1",
+          "500",
+          "100",
+          "4.5",
+          "50",
+          "96",
+          "500",
+          "260",
+          "160"
+        ],
+        [
+          "RCYB-6",
+          "600",
+          "175",
+          "4.5",
+          "120",
+          "295",
+          "600",
+          "450",
+          "280"
+        ],
+        [
+          "RCYB-6-1",
+          "600",
+          "130",
+          "4.5",
+          "60",
+          "158",
+          "600",
+          "350",
+          "180"
+        ],
+        [
+          "RCYB-6.5",
+          "650",
+          "200",
+          "4.5",
+          "150",
+          "450",
+          "650",
+          "600",
+          "300"
+        ],
+        [
+          "RCYB-8",
+          "800",
+          "250",
+          "4.5",
+          "200",
+          "680",
+          "950",
+          "950",
+          "380"
+        ],
+        [
+          "RCYB-8-1",
+          "800",
+          "200",
+          "4.5",
+          "150",
+          "550",
+          "800",
+          "600",
+          "300"
+        ],
+        [
+          "RCYB-10",
+          "1000",
+          "300",
+          "4.5",
+          "250",
+          "1180",
+          "1100",
+          "1000",
+          "380"
+        ],
+        [
+          "RCYB-12",
+          "1200",
+          "350",
+          "4.5",
+          "300",
+          "1670",
+          "1300",
+          "1340",
+          "420"
+        ],
+        [
+          "RCYB-14",
+          "1400",
+          "400",
+          "4.5",
+          "350",
+          "2350",
+          "1500",
+          "1500",
+          "420"
+        ],
+        [
+          "RCYB-16",
+          "1600",
+          "450",
+          "4.5",
+          "400",
+          "2850",
+          "1750",
+          "1750",
+          "460"
+        ]
+      ],
+      "sourceLabel": "Imported RCYB model reference. Final configuration must be confirmed against material and site conditions."
+    },
+    "engineeringDiagrams": [
+      {
+        "src": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-dimensional-reference.gif",
+        "alt": "RCYB suspended permanent magnetic iron remover dimensional reference drawing",
+        "caption": "Dimensional reference for preliminary configuration."
+      },
+      {
+        "src": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-inline-installation-reference.gif",
+        "alt": "RCYB suspended permanent magnetic iron remover inline installation reference drawing",
+        "caption": "Inline installation reference. Confirm clearance and material trajectory for the final layout."
+      },
+      {
+        "src": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-cross-belt-installation-reference.gif",
+        "alt": "RCYB suspended permanent magnetic iron remover cross-belt installation reference drawing",
+        "caption": "Cross-belt installation reference. Final mounting is reviewed against the conveyor layout."
+      }
+    ]
   },
   {
     "slug": "rcdb-type-self-cooling-plate-electromagnetic-iron-remover",
-    "name": "RCDB type self cooling plate electromagnetic iron remover",
+    "name": "RCDB Self-Cooling Plate Electromagnetic Iron Remover",
     "category": "Suspended & Self-Unloading Iron Removers",
-    "image": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/rcdb-type-self-cooling-plate-electromagnetic-iron-remover-01.jpg",
+    "image": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130527235935684.jpg",
     "imageGallery": [
+      "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130527235935684.jpg",
+      "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130527160023_97967.jpg",
+      "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130104123550864.gif",
+      "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-s_20130322215922721.gif",
+      "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-s_20130104123824116.gif",
       "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/rcdb-type-self-cooling-plate-electromagnetic-iron-remover-01.jpg",
       "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/rcdb-type-self-cooling-plate-electromagnetic-iron-remover-02.png",
       "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/rcdb-type-self-cooling-plate-electromagnetic-iron-remover-05.png",
@@ -182,62 +833,251 @@ export const products: Product[] = [
       "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/rcdb-type-self-cooling-plate-electromagnetic-iron-remover-07.jpg",
       "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/rcdb-type-self-cooling-plate-electromagnetic-iron-remover-06.jpg"
     ],
-    "summary": "product overview： 1、 Explanation The RCDB type self cooling disc electromagnetic iron remover is equivalent to the PDC series disc electromagnetic iron remover and the RCDY series electromagnetic iron remover. It is an iron removal device used to remove",
+    "summary": "The RCDB Self-Cooling Plate Electromagnetic Iron Remover is a suspended electromagnetic separator for removing ferromagnetic tramp iron from non-magnetic bulk material. Its self-cooling configuration is selected with the required suspension height, material burden, available power and site environment in mind.",
     "keywords": [
-      "RCDB type self cooling plate electromagnetic iron remover",
-      "General iron removal equipment"
+      "RCDB Self-Cooling Plate Electromagnetic Iron Remover",
+      "industrial magnetic iron removal",
+      "bulk material handling"
     ],
     "features": [
-      "The RCDB type self cooling disc electromagnetic iron remover is equivalent to the PDC series disc electromagnetic iron remover and the RCDY series electromagnetic iron remover",
-      "It is an iron removal device used to remove impurities from non-magnetic materials in powder or block form",
-      "It can still operate reliably in extremely harsh environments",
-      "The equipment of the walking device can be chosen by the customer themselves"
+      "Electromagnetic separation for suspended conveyor and chute positions",
+      "Self-cooling configuration referenced for this series",
+      "Manual cleaning arrangement where safe planned access is available",
+      "Selection depends on belt width, burden depth, suspension clearance and electrical conditions"
     ],
-    "principle": "product overview： 1、 Explanation The RCDB type self cooling disc electromagnetic iron remover is equivalent to the PDC series disc electromagnetic iron remover and the RCDY series electromagnetic iron remover. It is an iron removal device used to remove impurities from non-magnetic materials in powder or block form. It is internally cast with electrical specific resin and has a self cooling fully sealed structure, which has the characteristics of high magnetic penetration depth, strong suction, dust prevention, rain resistance, corrosion resistance, etc. It can still operate reliably in extremely harsh environments. The equipment of the walking device can be chosen by the customer themselves. 2、 Schematic diagram 3、 Main technical parameters Note: RCDB-3~RCDB-8 models do not require wave fin heat sinks on the body shell. The RCDB-10 to RCDB-18 models are equipped with wavy fin heat sinks to increase the heat dissipation area. 2. All models in this series are designed with extra strong T1, T2, and T3 products that are higher than the national standard. The rated magnetic field strength at the lifting height is 90mT, 120mT, and 150mT, respectively. 4、 Industry Applications",
+    "principle": "When energized, the electromagnetic circuit attracts ferromagnetic pieces from the material stream. Non-magnetic material continues through the process while collected metal is removed during a planned and safe cleaning procedure. The final selection must consider heat dissipation, available power and access for maintenance.",
     "specs": [
       {
-        "label": "Model",
-        "value": "PDC"
-      },
-      {
-        "label": "Model",
+        "label": "Series",
         "value": "RCDB"
       },
       {
-        "label": "Model",
-        "value": "RCDB-10"
+        "label": "Magnetic system",
+        "value": "Electromagnetic"
       },
       {
-        "label": "Model",
-        "value": "RCDB-18"
+        "label": "Cooling reference",
+        "value": "self-cooling"
       },
       {
-        "label": "Model",
-        "value": "RCDB-3"
-      },
-      {
-        "label": "Model",
-        "value": "RCDB-8"
-      },
-      {
-        "label": "Model",
-        "value": "RCDY"
+        "label": "Cleaning method",
+        "value": "Manual"
       }
     ],
     "applications": [
-      "General iron removal equipment"
+      "Bulk material conveying",
+      "Conveyor or process equipment protection",
+      "Ferromagnetic tramp iron removal"
     ],
-    "installation": "",
+    "installation": "Confirm the conveyor layout, suspension clearance, burden depth, available electrical supply and maintenance access before finalizing the installation position.",
     "customization": [
-      "Model: PDC",
-      "Model: RCDB",
-      "Model: RCDB-10",
-      "Model: RCDB-18",
-      "Model: RCDB-3",
-      "Model: RCDB-8",
-      "Model: RCDY"
+      "Configuration review based on actual material and site conditions"
     ],
-    "faqs": []
+    "faqs": [],
+    "specificationTable": {
+      "columns": [
+        "Reference field: 项目 / 参数",
+        "Suitable belt width (mm)",
+        "Reference field: 额定吊高h mm",
+        "Magnetic field reference",
+        "Material burden thickness (max. mm)",
+        "Excitation power",
+        "Belt speed (max. m/s)",
+        "Weight (kg)",
+        "Overall dimensions",
+        "Overall dimensions",
+        "Overall dimensions",
+        "Overall dimensions"
+      ],
+      "rows": [
+        [
+          "型号",
+          "适应带宽 \nmm",
+          "额定吊高h \nmm",
+          "磁场强度 \n≥mT",
+          "物料厚度 \n≤mm",
+          "励磁功率 \n≤kw",
+          "适应带速 \n≤m/s",
+          "重量 \nkg",
+          "外型尺寸mm",
+          "外型尺寸mm",
+          "外型尺寸mm",
+          "外型尺寸mm"
+        ],
+        [
+          "RCDB-3",
+          "适应带宽 \nmm",
+          "额定吊高h \nmm",
+          "磁场强度 \n≥mT",
+          "物料厚度 \n≤mm",
+          "励磁功率 \n≤kw",
+          "适应带速 \n≤m/s",
+          "重量 \nkg",
+          "300",
+          "75",
+          "50",
+          "50"
+        ],
+        [
+          "RCDB-4",
+          "400",
+          "100",
+          "50",
+          "70",
+          "0.6",
+          "300",
+          "240",
+          "280",
+          "500",
+          "400",
+          ""
+        ],
+        [
+          "RCDB-5",
+          "500",
+          "150",
+          "60",
+          "90",
+          "1",
+          "430",
+          "280",
+          "325",
+          "610",
+          "450",
+          ""
+        ],
+        [
+          "RCDB-6",
+          "600",
+          "175",
+          "60",
+          "120",
+          "1.6",
+          "580",
+          "280",
+          "325",
+          "710",
+          "500",
+          ""
+        ],
+        [
+          "RCDB-6.5",
+          "650",
+          "200",
+          "70",
+          "150",
+          "2",
+          "680",
+          "280",
+          "325",
+          "816",
+          "640",
+          ""
+        ],
+        [
+          "RCDB-8",
+          "800",
+          "250",
+          "70",
+          "200",
+          "3.6",
+          "950",
+          "310",
+          "355",
+          "960",
+          "780",
+          ""
+        ],
+        [
+          "RCDB-10",
+          "1000",
+          "300",
+          "70",
+          "250",
+          "5",
+          "1520",
+          "310",
+          "360",
+          "1200",
+          "920",
+          ""
+        ],
+        [
+          "RCDB-12",
+          "1200",
+          "350",
+          "70",
+          "300",
+          "6.8",
+          "2250",
+          "310",
+          "365",
+          "1400",
+          "1000",
+          ""
+        ],
+        [
+          "RCDB-14",
+          "1400",
+          "400",
+          "70",
+          "350",
+          "9",
+          "2950",
+          "405",
+          "485",
+          "1650",
+          "1400",
+          ""
+        ],
+        [
+          "RCDB-16",
+          "1600",
+          "450",
+          "70",
+          "400",
+          "13",
+          "4800",
+          "460",
+          "540",
+          "1900",
+          "1650",
+          ""
+        ],
+        [
+          "RCDB-18",
+          "1800",
+          "500",
+          "70",
+          "450",
+          "18",
+          "6900",
+          "530",
+          "610",
+          "2150",
+          "1800",
+          ""
+        ]
+      ],
+      "sourceLabel": "Model reference. Final configuration must be confirmed against material and site conditions."
+    },
+    "engineeringDiagrams": [
+      {
+        "src": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130104123550864.gif",
+        "alt": "RCDB Self-Cooling Plate Electromagnetic Iron Remover technical reference drawing 1",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-s_20130322215922721.gif",
+        "alt": "RCDB Self-Cooling Plate Electromagnetic Iron Remover technical reference drawing 2",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-s_20130104123824116.gif",
+        "alt": "RCDB Self-Cooling Plate Electromagnetic Iron Remover technical reference drawing 3",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      }
+    ]
   },
   {
     "slug": "belt-high-gradient-magnetic-separator",
@@ -1068,10 +1908,17 @@ export const products: Product[] = [
   },
   {
     "slug": "rcda-type-air-cooled-electromagnetic-iron-remover",
-    "name": "RCDA type air-cooled electromagnetic iron remover",
+    "name": "RCDA Air-Cooled Suspended Electromagnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/rcda-type-air-cooled-electromagnetic-iron-remover-01.jpg",
+    "image": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824116.gif",
     "imageGallery": [
+      "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824116.gif",
+      "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824869.gif",
+      "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824314.gif",
+      "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-s_2013032221485321.jpg",
+      "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-s_20130528000628451.jpg",
+      "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-s_20130322215922721.gif",
+      "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-s_20130527235935684.jpg",
       "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/rcda-type-air-cooled-electromagnetic-iron-remover-01.jpg",
       "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/rcda-type-air-cooled-electromagnetic-iron-remover-02.png",
       "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/rcda-type-air-cooled-electromagnetic-iron-remover-03.png",
@@ -1081,43 +1928,294 @@ export const products: Product[] = [
       "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/rcda-type-air-cooled-electromagnetic-iron-remover-04.png",
       "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/rcda-type-air-cooled-electromagnetic-iron-remover-07.jpg"
     ],
-    "summary": "product overview： 1、 Explanation The RCDA air-cooled electromagnetic iron remover is suitable for use in outdoor or various light dust environments. The coil has undergone special treatment, is resistant to oxidation, corrosion, and has good insulation",
+    "summary": "The RCDA Air-Cooled Suspended Electromagnetic Iron Remover is a suspended electromagnetic separator for removing ferromagnetic tramp iron from non-magnetic bulk material. Its air-cooled configuration is selected with the required suspension height, material burden, available power and site environment in mind.",
     "keywords": [
-      "RCDA type air-cooled electromagnetic iron remover",
-      "General iron removal equipment"
+      "RCDA Air-Cooled Suspended Electromagnetic Iron Remover",
+      "industrial magnetic iron removal",
+      "bulk material handling"
     ],
     "features": [
-      "The RCDA air-cooled electromagnetic iron remover is suitable for use in outdoor or various light dust environments",
-      "The coil has undergone special treatment, is resistant to oxidation, corrosion, and has good insulation performance; Large heat dissipation area, stable temperature rise, and good air cooling effect",
-      "Axial flow fan forced air cooling, with large air volume, enables fast heat dissipation and low temperature rise of the iron remover, ensuring long-term trouble free operation of the iron remover"
+      "Electromagnetic separation for suspended conveyor and chute positions",
+      "Air-cooled configuration referenced for this series",
+      "Manual cleaning arrangement where safe planned access is available",
+      "Selection depends on belt width, burden depth, suspension clearance and electrical conditions"
     ],
-    "principle": "product overview： 1、 Explanation The RCDA air-cooled electromagnetic iron remover is suitable for use in outdoor or various light dust environments. The coil has undergone special treatment, is resistant to oxidation, corrosion, and has good insulation performance; Large heat dissipation area, stable temperature rise, and good air cooling effect. The RCDA-T ultra strong air-cooled electromagnetic iron remover has a unique internal magnetic circuit design, deep magnetic penetration, and high suction force, which is much greater than the national standard iron remover. Axial flow fan forced air cooling, with large air volume, enables fast heat dissipation and low temperature rise of the iron remover, ensuring long-term trouble free operation of the iron remover. 2、 Schematic diagram 3、 Main technical parameters 4、 Industry Applications",
+    "principle": "When energized, the electromagnetic circuit attracts ferromagnetic pieces from the material stream. Non-magnetic material continues through the process while collected metal is removed during a planned and safe cleaning procedure. The final selection must consider heat dissipation, available power and access for maintenance.",
     "specs": [
       {
-        "label": "Model",
+        "label": "Series",
         "value": "RCDA"
       },
       {
-        "label": "Model",
-        "value": "RCDA-T"
+        "label": "Magnetic system",
+        "value": "Electromagnetic"
+      },
+      {
+        "label": "Cooling reference",
+        "value": "air-cooled"
+      },
+      {
+        "label": "Cleaning method",
+        "value": "Manual"
       }
     ],
     "applications": [
-      "General iron removal equipment"
+      "Bulk material conveying",
+      "Conveyor or process equipment protection",
+      "Ferromagnetic tramp iron removal"
     ],
-    "installation": "",
+    "installation": "Confirm the conveyor layout, suspension clearance, burden depth, available electrical supply and maintenance access before finalizing the installation position.",
     "customization": [
-      "Model: RCDA",
-      "Model: RCDA-T"
+      "Configuration review based on actual material and site conditions"
     ],
-    "faqs": []
+    "faqs": [],
+    "specificationTable": {
+      "columns": [
+        "Reference field: 项目 / 参数",
+        "Suitable belt width (mm)",
+        "Reference field: 额定吊高h mm",
+        "Magnetic field reference",
+        "Material burden thickness (max. mm)",
+        "Reference field: 风机功率 ≤kw",
+        "Excitation power",
+        "Belt speed (max. m/s)",
+        "Weight (kg)",
+        "Overall dimensions",
+        "Overall dimensions",
+        "Overall dimensions",
+        "Overall dimensions",
+        "Overall dimensions"
+      ],
+      "rows": [
+        [
+          "型号",
+          "适应带宽 \nmm",
+          "额定吊高h \nmm",
+          "磁场强度 \n≥mT",
+          "物料厚度 \n≤mm",
+          "风机功率 \n≤kw",
+          "励磁功率 \n≤kw",
+          "适应带速 \n≤m/s",
+          "重量 \nkg",
+          "外型尺寸mm",
+          "外型尺寸mm",
+          "外型尺寸mm",
+          "外型尺寸mm",
+          "外型尺寸mm"
+        ],
+        [
+          "RCDA-4",
+          "适应带宽 \nmm",
+          "额定吊高h \nmm",
+          "磁场强度 \n≥mT",
+          "物料厚度 \n≤mm",
+          "风机功率 \n≤kw",
+          "励磁功率 \n≤kw",
+          "适应带速 \n≤m/s",
+          "重量 \nkg",
+          "400",
+          "100",
+          "50",
+          "70",
+          "0.6"
+        ],
+        [
+          "RCDA-5",
+          "500",
+          "150",
+          "60",
+          "90",
+          "1",
+          "0.15",
+          "450",
+          "340",
+          "430",
+          "500",
+          "710",
+          "340",
+          ""
+        ],
+        [
+          "RCDA-6",
+          "600",
+          "175",
+          "60",
+          "120",
+          "1.6",
+          "0.37",
+          "620",
+          "500",
+          "450",
+          "600",
+          "910",
+          "500",
+          ""
+        ],
+        [
+          "RCDA-6.5",
+          "650",
+          "200",
+          "70",
+          "150",
+          "2",
+          "0.37",
+          "750",
+          "780",
+          "510",
+          "710",
+          "990",
+          "650",
+          ""
+        ],
+        [
+          "RCDA-8",
+          "800",
+          "250",
+          "70",
+          "180",
+          "4",
+          "0.37",
+          "980",
+          "870",
+          "550",
+          "810",
+          "1080",
+          "740",
+          ""
+        ],
+        [
+          "RCDA-10",
+          "1000",
+          "300",
+          "70",
+          "230",
+          "6",
+          "0.45",
+          "1330",
+          "1250",
+          "590",
+          "1100",
+          "1400",
+          "1040",
+          ""
+        ],
+        [
+          "RCDA-12",
+          "1200",
+          "350",
+          "70",
+          "280",
+          "8",
+          "0.45",
+          "1950",
+          "1400",
+          "640",
+          "1300",
+          "1600",
+          "1240",
+          ""
+        ],
+        [
+          "RCDA-14",
+          "1400",
+          "400",
+          "70",
+          "330",
+          "12",
+          "0.8",
+          "2870",
+          "1560",
+          "530",
+          "1460",
+          "1910",
+          "1400",
+          ""
+        ],
+        [
+          "RCDA-16",
+          "1600",
+          "450",
+          "70",
+          "380",
+          "15",
+          "0.8",
+          "3800",
+          "1760",
+          "530",
+          "1660",
+          "2010",
+          "1600",
+          ""
+        ],
+        [
+          "RCDA-18",
+          "1800",
+          "500",
+          "70",
+          "430",
+          "20",
+          "1.3",
+          "4500",
+          "2000",
+          "850",
+          "1880",
+          "2360",
+          "1800",
+          ""
+        ],
+        [
+          "RCDA-20",
+          "2000",
+          "550",
+          "70",
+          "470",
+          "28",
+          "1.3",
+          "6900",
+          "2200",
+          "850",
+          "2080",
+          "2560",
+          "2000",
+          ""
+        ]
+      ],
+      "sourceLabel": "Model reference. Final configuration must be confirmed against material and site conditions."
+    },
+    "engineeringDiagrams": [
+      {
+        "src": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824116.gif",
+        "alt": "RCDA Air-Cooled Suspended Electromagnetic Iron Remover technical reference drawing 1",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824869.gif",
+        "alt": "RCDA Air-Cooled Suspended Electromagnetic Iron Remover technical reference drawing 2",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824314.gif",
+        "alt": "RCDA Air-Cooled Suspended Electromagnetic Iron Remover technical reference drawing 3",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-s_20130322215922721.gif",
+        "alt": "RCDA Air-Cooled Suspended Electromagnetic Iron Remover technical reference drawing 4",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      }
+    ]
   },
   {
     "slug": "rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover",
-    "name": "RCDC type air-cooled self dumping electromagnetic iron remover",
+    "name": "RCDC Air-Cooled Self-Dumping Electromagnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover-01.jpg",
+    "image": "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-20130528000628451.jpg",
     "imageGallery": [
+      "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-20130528000628451.jpg",
+      "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-s_20130825103209634.jpg",
+      "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-s_20130825103008516.jpg",
+      "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-s_2013032221485321.jpg",
+      "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-s_20130104123824116.gif",
       "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover-01.jpg",
       "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover-02.png",
       "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover-03.png",
@@ -1129,41 +2227,264 @@ export const products: Product[] = [
       "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover-05.png",
       "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover-07.png"
     ],
-    "summary": "product overview： 1、 Explanation The RCDC air-cooled self dumping electromagnetic iron remover is an iron unloading mechanism composed of a drive motor, a drum, and an iron unloading tape with a scraper added to the RCDA series iron remover. During the",
+    "summary": "The RCDC Air-Cooled Self-Dumping Electromagnetic Iron Remover combines an electromagnetic separator with a discharge belt for continuous removal of collected ferromagnetic tramp iron from bulk material streams. It is considered where the expected contamination level makes planned manual cleaning impractical.",
     "keywords": [
-      "RCDC type air-cooled self dumping electromagnetic iron remover",
-      "General iron removal equipment"
+      "RCDC Air-Cooled Self-Dumping Electromagnetic Iron Remover",
+      "industrial magnetic iron removal",
+      "bulk material handling"
     ],
     "features": [
-      "The RCDC air-cooled self dumping electromagnetic iron remover is an iron unloading mechanism composed of a drive motor, a drum, and an iron unloading tape with a scraper added to the RCDA series iron remover"
+      "Electromagnetic circuit for suspended material-handling positions",
+      "Self-dumping belt arrangement for continuous iron discharge",
+      "Air-cooled configuration referenced for this series",
+      "Configuration review based on burden depth, suspension height, power and discharge clearance"
     ],
-    "principle": "product overview： 1、 Explanation The RCDC air-cooled self dumping electromagnetic iron remover is an iron unloading mechanism composed of a drive motor, a drum, and an iron unloading tape with a scraper added to the RCDA series iron remover. During the working process, the iron unloading mechanism automatically unloads the ferromagnetic substances adsorbed by the iron unloading belt into the iron collection box, without the need for power outage and manual cleaning, achieving automatic iron removal. 2、 Schematic diagram 3、 Main technical parameters 4、 Product shooting",
+    "principle": "The energized magnetic circuit retains ferromagnetic pieces above the material stream. A separate discharge belt carries collected metal away from the magnetic zone to a designated discharge area. Electrical excitation and discharge-belt drive requirements are confirmed for the selected configuration.",
     "specs": [
       {
-        "label": "Model",
-        "value": "RCDA"
+        "label": "Series",
+        "value": "RCDC"
       },
       {
-        "label": "Model",
-        "value": "RCDC"
+        "label": "Magnetic system",
+        "value": "Electromagnetic"
+      },
+      {
+        "label": "Cleaning method",
+        "value": "Self-dumping"
+      },
+      {
+        "label": "Cooling reference",
+        "value": "air-cooled"
       }
     ],
     "applications": [
-      "General iron removal equipment"
+      "Bulk material conveying",
+      "Conveyor or process equipment protection",
+      "Ferromagnetic tramp iron removal"
     ],
-    "installation": "",
+    "installation": "Confirm belt width, burden depth, suspension height, electrical supply, discharge-belt clearance and a safe ferrous-metal discharge position before finalizing the layout.",
     "customization": [
-      "Model: RCDA",
-      "Model: RCDC"
+      "Configuration review based on actual material and site conditions"
     ],
-    "faqs": []
+    "faqs": [],
+    "specificationTable": {
+      "columns": [
+        "Model",
+        "Suitable belt width (mm)",
+        "Reference field: 额定吊高 h mm",
+        "Magnetic field reference",
+        "Material burden thickness (max. mm)",
+        "Excitation power",
+        "Reference field: 驱机功率 ≤KW",
+        "Belt speed (max. m/s)",
+        "Weight (kg)",
+        "Overall dimensions",
+        "Overall dimensions",
+        "Overall dimensions",
+        "Overall width D (mm)",
+        "Overall dimensions"
+      ],
+      "rows": [
+        [
+          "RCDC-5",
+          "500",
+          "150",
+          "60",
+          "100",
+          "1.2",
+          "1.5",
+          "2.5",
+          "1080",
+          "2060",
+          "965",
+          "720",
+          "770",
+          "455"
+        ],
+        [
+          "RCDC-6",
+          "600",
+          "175",
+          "60",
+          "120",
+          "2",
+          "1.5",
+          "2.5",
+          "1350",
+          "2160",
+          "1170",
+          "810",
+          "1070",
+          "575"
+        ],
+        [
+          "RCDC-6.5",
+          "650",
+          "200",
+          "70",
+          "150",
+          "3",
+          "2.2",
+          "2.5",
+          "1530",
+          "2380",
+          "1370",
+          "820",
+          "888",
+          "650"
+        ],
+        [
+          "RCDC-8",
+          "800",
+          "250",
+          "70",
+          "200",
+          "4",
+          "2.2",
+          "2.5",
+          "2100",
+          "2340",
+          "1420",
+          "860",
+          "923",
+          "800"
+        ],
+        [
+          "RCDC-10",
+          "1000",
+          "300",
+          "70",
+          "250",
+          "6",
+          "3.0",
+          "2.5",
+          "3380",
+          "2810",
+          "1700",
+          "880",
+          "1180",
+          "1450"
+        ],
+        [
+          "RCDC-12",
+          "1200",
+          "350",
+          "70",
+          "300",
+          "8",
+          "4.0",
+          "2.5",
+          "4150",
+          "3000",
+          "1850",
+          "850",
+          "1650",
+          "1500"
+        ],
+        [
+          "RCDC-14",
+          "1400",
+          "400",
+          "70",
+          "350",
+          "12",
+          "4.0",
+          "2.5",
+          "5500",
+          "3280",
+          "2070",
+          "1020",
+          "1600",
+          "1410"
+        ],
+        [
+          "RCDC-16",
+          "1600",
+          "450",
+          "70",
+          "400",
+          "15",
+          "5.5",
+          "2.5",
+          "6900",
+          "3600",
+          "2270",
+          "1050",
+          "1800",
+          "1500"
+        ],
+        [
+          "RCDC-18",
+          "1800",
+          "500",
+          "70",
+          "450",
+          "20",
+          "7.5",
+          "2.5",
+          "8800",
+          "4280",
+          "2500",
+          "1160",
+          "2220",
+          "2850"
+        ],
+        [
+          "RCDC-20",
+          "2000",
+          "550",
+          "70",
+          "500",
+          "26",
+          "7.5",
+          "2.5",
+          "10500",
+          "4600",
+          "2750",
+          "1300",
+          "2470",
+          "3100"
+        ],
+        [
+          "RCDC-22",
+          "2200",
+          "600",
+          "70",
+          "550",
+          "32",
+          "7.5",
+          "2.5",
+          "12900",
+          "5100",
+          "3100",
+          "1600",
+          "2800",
+          "3450"
+        ]
+      ],
+      "sourceLabel": "Model reference. Final configuration must be confirmed against material and site conditions."
+    },
+    "engineeringDiagrams": [
+      {
+        "src": "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-s_20130104123824116.gif",
+        "alt": "RCDC Air-Cooled Self-Dumping Electromagnetic Iron Remover technical reference drawing 1",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      }
+    ]
   },
   {
     "slug": "rcde-type-oil-cooled-electromagnetic-iron-remover",
-    "name": "RCDE type oil cooled electromagnetic iron remover",
+    "name": "RCDE Oil-Cooled Electromagnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/rcde-type-oil-cooled-electromagnetic-iron-remover-01.jpg",
+    "image": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130825103008516.jpg",
     "imageGallery": [
+      "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130825103008516.jpg",
+      "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130104121634646.gif",
+      "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-s_20130528000938524.jpg",
+      "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-s_20130104161615151.gif",
+      "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-s_20130825103209634.jpg",
+      "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-s_20130528000628451.jpg",
       "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/rcde-type-oil-cooled-electromagnetic-iron-remover-01.jpg",
       "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/rcde-type-oil-cooled-electromagnetic-iron-remover-04.png",
       "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/rcde-type-oil-cooled-electromagnetic-iron-remover-03.png",
@@ -1174,36 +2495,300 @@ export const products: Product[] = [
       "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/rcde-type-oil-cooled-electromagnetic-iron-remover-08.jpg",
       "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/rcde-type-oil-cooled-electromagnetic-iron-remover-09.jpg"
     ],
-    "summary": "product overview： 1、 Explanation The RCDE oil cooled electromagnetic iron remover adopts advanced internal and external oil circulation heat dissipation pipe design and unique winding technology of internal excitation coil. It has a fully sealed structure and",
+    "summary": "The RCDE Oil-Cooled Electromagnetic Iron Remover is a suspended electromagnetic separator for removing ferromagnetic tramp iron from non-magnetic bulk material. Its oil-cooled configuration is selected with the required suspension height, material burden, available power and site environment in mind.",
     "keywords": [
-      "RCDE type oil cooled electromagnetic iron remover",
-      "General iron removal equipment"
+      "RCDE Oil-Cooled Electromagnetic Iron Remover",
+      "industrial magnetic iron removal",
+      "bulk material handling"
     ],
     "features": [
-      "high magnetic force, dust and rain resistance, corrosion resistance, and long continuous working service life. 2、"
+      "Electromagnetic separation for suspended conveyor and chute positions",
+      "Oil-cooled configuration referenced for this series",
+      "Manual cleaning arrangement where safe planned access is available",
+      "Selection depends on belt width, burden depth, suspension clearance and electrical conditions"
     ],
-    "principle": "product overview： 1、 Explanation The RCDE oil cooled electromagnetic iron remover adopts advanced internal and external oil circulation heat dissipation pipe design and unique winding technology of internal excitation coil. It has a fully sealed structure and features high magnetic force, dust and rain resistance, corrosion resistance, and long continuous working service life. 2、 Schematic diagram 3、 Main technical parameters 4、 Industry Applications",
+    "principle": "When energized, the electromagnetic circuit attracts ferromagnetic pieces from the material stream. Non-magnetic material continues through the process while collected metal is removed during a planned and safe cleaning procedure. The final selection must consider heat dissipation, available power and access for maintenance.",
     "specs": [
       {
-        "label": "Model",
+        "label": "Series",
         "value": "RCDE"
+      },
+      {
+        "label": "Magnetic system",
+        "value": "Electromagnetic"
+      },
+      {
+        "label": "Cooling reference",
+        "value": "oil-cooled"
+      },
+      {
+        "label": "Cleaning method",
+        "value": "Manual"
       }
     ],
     "applications": [
-      "General iron removal equipment"
+      "Bulk material conveying",
+      "Conveyor or process equipment protection",
+      "Ferromagnetic tramp iron removal"
     ],
-    "installation": "",
+    "installation": "Confirm the conveyor layout, suspension clearance, burden depth, available electrical supply and maintenance access before finalizing the installation position.",
     "customization": [
-      "Model: RCDE"
+      "Configuration review based on actual material and site conditions"
     ],
-    "faqs": []
+    "faqs": [],
+    "specificationTable": {
+      "columns": [
+        "Reference field: 项目 / 参数",
+        "Suitable belt width (mm)",
+        "Reference field: 额定吊高h mm",
+        "Magnetic field reference",
+        "Belt speed (max. m/s)",
+        "Material burden thickness (max. mm)",
+        "Excitation power",
+        "Weight (kg)",
+        "Overall dimensions",
+        "Overall dimensions",
+        "Overall dimensions",
+        "Overall dimensions",
+        "Overall dimensions",
+        "Overall dimensions"
+      ],
+      "rows": [
+        [
+          "型号",
+          "适应带宽 \nmm",
+          "额定吊高h \nmm",
+          "磁场强度 \n≥mT",
+          "适应带速 \n≤m/s",
+          "物料厚度 \n≤mm",
+          "励磁功率 \n≤kw",
+          "重量 \nkg",
+          "外型尺寸mm",
+          "外型尺寸mm",
+          "外型尺寸mm",
+          "外型尺寸mm",
+          "外型尺寸mm",
+          "外型尺寸mm"
+        ],
+        [
+          "RCDE-4",
+          "适应带宽 \nmm",
+          "额定吊高h \nmm",
+          "磁场强度 \n≥mT",
+          "适应带速 \n≤m/s",
+          "物料厚度 \n≤mm",
+          "励磁功率 \n≤kw",
+          "重量 \nkg",
+          "400",
+          "100",
+          "50",
+          "4.5",
+          "60",
+          "0.6"
+        ],
+        [
+          "RCDE-5",
+          "500",
+          "150",
+          "60",
+          "100",
+          "1",
+          "500",
+          "670",
+          "760",
+          "480",
+          "300",
+          "4.5",
+          "475",
+          "500"
+        ],
+        [
+          "RCDE-6",
+          "600",
+          "175",
+          "60",
+          "125",
+          "1.5",
+          "650",
+          "775",
+          "835",
+          "580",
+          "450",
+          "4.5",
+          "530",
+          "600"
+        ],
+        [
+          "RCDE-6.5",
+          "650",
+          "200",
+          "70",
+          "150",
+          "2.0",
+          "750",
+          "795",
+          "855",
+          "590",
+          "440",
+          "4.5",
+          "550",
+          "650"
+        ],
+        [
+          "RCDE-8",
+          "800",
+          "250",
+          "70",
+          "200",
+          "3",
+          "1150",
+          "1050",
+          "980",
+          "770",
+          "620",
+          "4.5",
+          "670",
+          "835"
+        ],
+        [
+          "RCDE-10",
+          "1000",
+          "300",
+          "70",
+          "250",
+          "4.5",
+          "1400",
+          "1400",
+          "1160",
+          "940",
+          "800",
+          "4.5",
+          "755",
+          "1000"
+        ],
+        [
+          "RCDE-12",
+          "1200",
+          "350",
+          "70",
+          "300",
+          "6",
+          "2780",
+          "1460",
+          "1190",
+          "1260",
+          "1070",
+          "4.5",
+          "730",
+          "1290"
+        ],
+        [
+          "RCDE-14",
+          "1400",
+          "400",
+          "70",
+          "350",
+          "8.5",
+          "4200",
+          "1700",
+          "1280",
+          "1500",
+          "1340",
+          "4.5",
+          "800",
+          "1560"
+        ],
+        [
+          "RCDE-16",
+          "1600",
+          "450",
+          "70",
+          "400",
+          "12.5",
+          "5700",
+          "1950",
+          "1370",
+          "1850",
+          "1630",
+          "4.5",
+          "860",
+          "1850"
+        ],
+        [
+          "RCDE-18",
+          "1800",
+          "500",
+          "70",
+          "450",
+          "18",
+          "7300",
+          "2170",
+          "1490",
+          "2050",
+          "1880",
+          "4.5",
+          "950",
+          "2000"
+        ],
+        [
+          "RCDE-20",
+          "2000",
+          "550",
+          "70",
+          "500",
+          "22",
+          "8500",
+          "2400",
+          "1660",
+          "2250",
+          "2180",
+          "4.5",
+          "1110",
+          "2100"
+        ],
+        [
+          "RCDE-22",
+          "2200",
+          "600",
+          "70",
+          "550",
+          "27",
+          "10500",
+          "2700",
+          "1900",
+          "2470",
+          "2420",
+          "4.5",
+          "1350",
+          "2280"
+        ]
+      ],
+      "sourceLabel": "Model reference. Final configuration must be confirmed against material and site conditions."
+    },
+    "engineeringDiagrams": [
+      {
+        "src": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130104121634646.gif",
+        "alt": "RCDE Oil-Cooled Electromagnetic Iron Remover technical reference drawing 1",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-s_20130104161615151.gif",
+        "alt": "RCDE Oil-Cooled Electromagnetic Iron Remover technical reference drawing 2",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      }
+    ]
   },
   {
     "slug": "rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover",
-    "name": "RCDF oil cooled self dumping electromagnetic iron remover",
+    "name": "RCDF Oil-Cooled Self-Dumping Electromagnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover-01.jpg",
+    "image": "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-20130528000938524.jpg",
     "imageGallery": [
+      "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-20130528000938524.jpg",
+      "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-s_20130104161615151.gif",
+      "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-s_20130825103008516.jpg",
+      "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-s_20130825103209634.jpg",
+      "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-s_20130528000628451.jpg",
       "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover-01.jpg",
       "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover-02.png",
       "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover-03.png",
@@ -1214,35 +2799,235 @@ export const products: Product[] = [
       "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover-09.jpg",
       "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover-06.png"
     ],
-    "summary": "product overview： 1、 Explanation The RCDF oil cooled self dumping electromagnetic iron remover is an iron unloading mechanism composed of a drive motor, a drum, and an iron unloading tape with a scraper added to the RCDE series iron remover. It has the",
+    "summary": "The RCDF Oil-Cooled Self-Dumping Electromagnetic Iron Remover combines an electromagnetic separator with a discharge belt for continuous removal of collected ferromagnetic tramp iron from bulk material streams. It is considered where the expected contamination level makes planned manual cleaning impractical.",
     "keywords": [
-      "RCDF oil cooled self dumping electromagnetic iron remover",
-      "General iron removal equipment"
+      "RCDF Oil-Cooled Self-Dumping Electromagnetic Iron Remover",
+      "industrial magnetic iron removal",
+      "bulk material handling"
     ],
     "features": [
-      "The RCDF oil cooled self dumping electromagnetic iron remover is an iron unloading mechanism composed of a drive motor, a drum, and an iron unloading tape with a scraper added to the RCDE series iron remover",
-      "It has the advantages of high magnetic force, fast heat dissipation, dust prevention, rain resistance, corrosion resistance, continuous operation, and low maintenance costs"
+      "Electromagnetic circuit for suspended material-handling positions",
+      "Self-dumping belt arrangement for continuous iron discharge",
+      "Oil-cooled configuration referenced for this series",
+      "Configuration review based on burden depth, suspension height, power and discharge clearance"
     ],
-    "principle": "product overview： 1、 Explanation The RCDF oil cooled self dumping electromagnetic iron remover is an iron unloading mechanism composed of a drive motor, a drum, and an iron unloading tape with a scraper added to the RCDE series iron remover. It has the advantages of high magnetic force, fast heat dissipation, dust prevention, rain resistance, corrosion resistance, continuous operation, and low maintenance costs. 2、 Schematic diagram 3、 Main technical parameters 4、 Industry Applications",
+    "principle": "The energized magnetic circuit retains ferromagnetic pieces above the material stream. A separate discharge belt carries collected metal away from the magnetic zone to a designated discharge area. Electrical excitation and discharge-belt drive requirements are confirmed for the selected configuration.",
     "specs": [
       {
-        "label": "Model",
-        "value": "RCDE"
+        "label": "Series",
+        "value": "RCDF"
       },
       {
-        "label": "Model",
-        "value": "RCDF"
+        "label": "Magnetic system",
+        "value": "Electromagnetic"
+      },
+      {
+        "label": "Cleaning method",
+        "value": "Self-dumping"
+      },
+      {
+        "label": "Cooling reference",
+        "value": "oil-cooled"
       }
     ],
     "applications": [
-      "General iron removal equipment"
+      "Bulk material conveying",
+      "Conveyor or process equipment protection",
+      "Ferromagnetic tramp iron removal"
     ],
-    "installation": "",
+    "installation": "Confirm belt width, burden depth, suspension height, electrical supply, discharge-belt clearance and a safe ferrous-metal discharge position before finalizing the layout.",
     "customization": [
-      "Model: RCDE",
-      "Model: RCDF"
+      "Configuration review based on actual material and site conditions"
     ],
-    "faqs": []
+    "faqs": [],
+    "specificationTable": {
+      "columns": [
+        "Reference field: 项目 / 参数",
+        "Suitable belt width (mm)",
+        "Reference field: 额定吊高h mm",
+        "Magnetic field reference",
+        "Material burden thickness (max. mm)",
+        "Excitation power",
+        "Reference field: 驱动功率 ≤kw",
+        "Belt speed (max. m/s)",
+        "Weight (kg)",
+        "Overall dimensions",
+        "Overall dimensions",
+        "Overall dimensions",
+        "Overall dimensions",
+        "Overall dimensions"
+      ],
+      "rows": [
+        [
+          "型号",
+          "适应带宽 \nmm",
+          "额定吊高h \nmm",
+          "磁场强度 \n≥mT",
+          "物料厚度 \n≤mm",
+          "励磁功率 \n≤kw",
+          "驱动功率 \n≤kw",
+          "适应带速 \n≤m/s",
+          "重量 \nkg",
+          "外型尺寸mm",
+          "外型尺寸mm",
+          "外型尺寸mm",
+          "外型尺寸mm",
+          "外型尺寸mm"
+        ],
+        [
+          "RCDF-5",
+          "适应带宽 \nmm",
+          "额定吊高h \nmm",
+          "磁场强度 \n≥mT",
+          "物料厚度 \n≤mm",
+          "励磁功率 \n≤kw",
+          "驱动功率 \n≤kw",
+          "适应带速 \n≤m/s",
+          "重量 \nkg",
+          "500",
+          "150",
+          "60",
+          "100",
+          "1.2"
+        ],
+        [
+          "RCDF-6",
+          "600",
+          "175",
+          "60",
+          "130",
+          "2",
+          "1.5",
+          "1350",
+          "2160",
+          "1170",
+          "810",
+          "1070",
+          "575",
+          ""
+        ],
+        [
+          "RCDF-6.5",
+          "650",
+          "200",
+          "70",
+          "150",
+          "3",
+          "2.2",
+          "1530",
+          "2380",
+          "1370",
+          "820",
+          "888",
+          "650",
+          ""
+        ],
+        [
+          "RCDF-8",
+          "800",
+          "250",
+          "70",
+          "200",
+          "4",
+          "2.2",
+          "2100",
+          "2340",
+          "1420",
+          "860",
+          "923",
+          "800",
+          ""
+        ],
+        [
+          "RCDF-10",
+          "1000",
+          "300",
+          "70",
+          "250",
+          "6",
+          "3",
+          "3380",
+          "2810",
+          "1700",
+          "880",
+          "1180",
+          "1450",
+          ""
+        ],
+        [
+          "RCDF-12",
+          "1200",
+          "350",
+          "70",
+          "300",
+          "8",
+          "4",
+          "4150",
+          "3000",
+          "1850",
+          "850",
+          "1650",
+          "1500",
+          ""
+        ],
+        [
+          "RCDF-14",
+          "1400",
+          "400",
+          "70",
+          "350",
+          "12",
+          "4",
+          "5500",
+          "3280",
+          "2070",
+          "1020",
+          "1600",
+          "1410",
+          ""
+        ],
+        [
+          "RCDF-16",
+          "1600",
+          "450",
+          "70",
+          "400",
+          "15",
+          "5.5",
+          "6900",
+          "3600",
+          "2270",
+          "1050",
+          "1800",
+          "1500",
+          ""
+        ],
+        [
+          "RCDF-18",
+          "1800",
+          "500",
+          "70",
+          "450",
+          "20",
+          "7.5",
+          "8800",
+          "4380",
+          "2500",
+          "1160",
+          "2220",
+          "2850",
+          ""
+        ]
+      ],
+      "sourceLabel": "Model reference. Final configuration must be confirmed against material and site conditions."
+    },
+    "engineeringDiagrams": [
+      {
+        "src": "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-s_20130104161615151.gif",
+        "alt": "RCDF Oil-Cooled Self-Dumping Electromagnetic Iron Remover technical reference drawing 1",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      }
+    ]
   },
   {
     "slug": "rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover",
@@ -1401,10 +3186,18 @@ export const products: Product[] = [
   },
   {
     "slug": "rcya-type-inclined-pipeline-permanent-magnet-iron-remover",
-    "name": "RCYA type inclined pipeline permanent magnet iron remover",
+    "name": "RCYA Inclined Pipeline Permanent Magnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/rcya-type-inclined-pipeline-permanent-magnet-iron-remover-01.jpg",
+    "image": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714773.gif",
     "imageGallery": [
+      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714773.gif",
+      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714540.gif",
+      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162715484.gif",
+      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-2013010416271514.gif",
+      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-s_20130527235730314.jpg",
+      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-s_20130104155415539.gif",
+      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-s_20130825103056345.jpg",
+      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-s_20130527234013948.jpg",
       "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/rcya-type-inclined-pipeline-permanent-magnet-iron-remover-01.jpg",
       "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/rcya-type-inclined-pipeline-permanent-magnet-iron-remover-02.png",
       "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/rcya-type-inclined-pipeline-permanent-magnet-iron-remover-06.png",
@@ -1414,51 +3207,219 @@ export const products: Product[] = [
       "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/rcya-type-inclined-pipeline-permanent-magnet-iron-remover-08.jpg",
       "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/rcya-type-inclined-pipeline-permanent-magnet-iron-remover-07.jpg"
     ],
-    "summary": "product overview： 1、 Explanation The RCYA inclined pipeline permanent magnet iron remover is divided into two types: RCYAl and RCYA2, which include non-magnetic pipelines and permanent magnets. It is specially designed for removing non-magnetic materials in",
+    "summary": "The RCYA Inclined Pipeline Permanent Magnetic Iron Remover is a permanent magnetic separator for ferromagnetic contamination in material moving through a inclined pipeline. The final configuration depends on the material flow, pipe size, particle condition, access for cleaning and process constraints.",
     "keywords": [
-      "RCYA type inclined pipeline permanent magnet iron remover",
-      "General iron removal equipment",
-      "cement",
-      "coal",
-      "chemical"
+      "RCYA Inclined Pipeline Permanent Magnetic Iron Remover",
+      "industrial magnetic iron removal",
+      "bulk material handling"
     ],
     "features": [
-      "The RCYA inclined pipeline permanent magnet iron remover is divided into two types: RCYAl and RCYA2, which include non-magnetic pipelines and permanent magnets",
-      "It is specially designed for removing non-magnetic materials in closed pipelines",
-      "The interior of the permanent magnet iron remover is composed of high-performance rare earth strong magnetic materials to form a composite magnetic system",
-      "It has the characteristics of small size, high magnetic force, light weight, clean iron removal, convenience, no energy consumption, and long service life",
-      "Suitable for situations where there is no conveyor belt and only a discharge chute can be provided",
-      "When bulk materials pass through, iron impurities are adsorbed by high magnetic field permanent magnets",
-      "When removing iron impurities, the pipeline dedicated door is opened to manually remove the impurities"
+      "Permanent magnetic separation for material flowing through a pipeline position",
+      "Cleaning access planned around the process layout",
+      "Configuration review based on pipe size, material flow and contamination characteristics",
+      "Suitable product and material scope confirmed per application"
     ],
-    "principle": "product overview： 1、 Explanation The RCYA inclined pipeline permanent magnet iron remover is divided into two types: RCYAl and RCYA2, which include non-magnetic pipelines and permanent magnets. It is specially designed for removing non-magnetic materials in closed pipelines. The interior of the permanent magnet iron remover is composed of high-performance rare earth strong magnetic materials to form a composite magnetic system. It has the characteristics of small size, high magnetic force, light weight, clean iron removal, convenience, no energy consumption, and long service life. Suitable for situations where there is no conveyor belt and only a discharge chute can be provided. When bulk materials pass through, iron impurities are adsorbed by high magnetic field permanent magnets. When removing iron impurities, the pipeline dedicated door is opened to manually remove the impurities. This device is suitable for applications with low iron content and is mainly used to remove impurities in the discharge pipelines of industries such as cement, chemical, coal, plastics, refractory materials, and building materials. 2、 Schematic diagram 3、 Main technical parameters of RCYA1 type 4、 Main technical parameters of RCYA2 type",
+    "principle": "A permanent magnetic circuit captures ferromagnetic contamination as material passes through the separator. The collection zone is cleaned using the method selected for the process. Final installation details depend on material flow, pipe size and access requirements.",
     "specs": [
       {
-        "label": "Model",
+        "label": "Series",
         "value": "RCYA"
       },
       {
-        "label": "Model",
-        "value": "RCYA1"
+        "label": "Magnetic system",
+        "value": "Permanent magnetic"
       },
       {
-        "label": "Model",
-        "value": "RCYA2"
+        "label": "Installation reference",
+        "value": "inclined pipeline"
+      },
+      {
+        "label": "Cleaning method",
+        "value": "To be confirmed by configuration"
       }
     ],
     "applications": [
-      "General iron removal equipment",
-      "cement",
-      "coal",
-      "chemical"
+      "Bulk material conveying",
+      "Conveyor or process equipment protection",
+      "Ferromagnetic tramp iron removal"
     ],
-    "installation": "",
+    "installation": "Confirm pipe size, material flow characteristics, contamination type, available access and the required cleaning arrangement before the final process connection is selected.",
     "customization": [
-      "Model: RCYA",
-      "Model: RCYA1",
-      "Model: RCYA2"
+      "Configuration review based on actual material and site conditions"
     ],
-    "faqs": []
+    "faqs": [],
+    "specificationTable": {
+      "columns": [
+        "Model",
+        "Reference field: 适应产量 ≤T/h / 15",
+        "Reference field: 管道外形尺寸 L×W×Hmm / 800×500×150",
+        "Reference field: 永磁铁外形尺寸 L×W×H mm / 500×300×120(1)",
+        "Reference field: 法兰接口外形尺寸 W×H mm / 580×230",
+        "Reference field: 适应坡度与地面夹角≦ o / 55 o -75 o",
+        "Weight (kg)",
+        "Reference field: 适应物料 / 粉状"
+      ],
+      "rows": [
+        [
+          "RCYA-15",
+          "15",
+          "800×500×150",
+          "500×70×30(2)",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "RCYA-30",
+          "30",
+          "900×600×200",
+          "600×400×140(1)",
+          "580×230",
+          "55 o -75 o",
+          "180",
+          "粉状"
+        ],
+        [
+          "RCYA-30",
+          "30",
+          "900×600×200",
+          "600×70×30(2)",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "RCYA-50",
+          "50",
+          "1000×700×250",
+          "700×400×180(1)",
+          "800×350",
+          "55 o -75 o",
+          "300",
+          ""
+        ],
+        [
+          "RCYA-50",
+          "50",
+          "1000×700×250",
+          "700×70×30(2)",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "RCYA-80",
+          "80",
+          "1100×800×300",
+          "800×500×200(1)",
+          "800×350",
+          "55 o -75 o",
+          "300",
+          "粉状"
+        ],
+        [
+          "RCYA-80",
+          "80",
+          "1100×800×300",
+          "800×70×30(2)",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "RCYA-100",
+          "100",
+          "1200×900×300",
+          "900×600×300(1)",
+          "1000×400",
+          "55 o -75 o",
+          "950",
+          ""
+        ],
+        [
+          "RCYA-100",
+          "100",
+          "1200×900×300",
+          "900×70×30(2)",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "RCYA-120",
+          "120",
+          "1200×1000×3000",
+          "1000×700×300(1)",
+          "1000×400",
+          "55 o -75 o",
+          "950",
+          "粉状"
+        ],
+        [
+          "RCYA-120",
+          "120",
+          "1200×1000×3000",
+          "1000×70×30(2)",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "RCYA-200",
+          "200",
+          "1200×1200×350",
+          "1200×900×350",
+          "1500×450",
+          "55 o -75 o",
+          "2100",
+          ""
+        ],
+        [
+          "RCYA-200",
+          "200",
+          "1200×1200×350",
+          "1200×700×30",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "sourceLabel": "Model reference. Final configuration must be confirmed against material and site conditions."
+    },
+    "engineeringDiagrams": [
+      {
+        "src": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714773.gif",
+        "alt": "RCYA Inclined Pipeline Permanent Magnetic Iron Remover technical reference drawing 1",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714540.gif",
+        "alt": "RCYA Inclined Pipeline Permanent Magnetic Iron Remover technical reference drawing 2",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162715484.gif",
+        "alt": "RCYA Inclined Pipeline Permanent Magnetic Iron Remover technical reference drawing 3",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-2013010416271514.gif",
+        "alt": "RCYA Inclined Pipeline Permanent Magnetic Iron Remover technical reference drawing 4",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-s_20130104155415539.gif",
+        "alt": "RCYA Inclined Pipeline Permanent Magnetic Iron Remover technical reference drawing 5",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      }
+    ]
   },
   {
     "slug": "rcydii-type-permanent-magnet-self-dumping-iron-remover",
@@ -1548,10 +3509,16 @@ export const products: Product[] = [
   },
   {
     "slug": "rcyf-type-vertical-pipeline-permanent-magnet-iron-remover",
-    "name": "RCYF type vertical pipeline permanent magnet iron remover",
+    "name": "RCYF Vertical Pipeline Permanent Magnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover-01.jpg",
+    "image": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130825102859754.jpg",
     "imageGallery": [
+      "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130825102859754.jpg",
+      "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130527155446_34721.gif",
+      "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130104155415539.gif",
+      "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130527235730314.jpg",
+      "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130104162714773.gif",
+      "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130825103056345.jpg",
       "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover-01.jpg",
       "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover-02.png",
       "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover-03.png",
@@ -1561,42 +3528,160 @@ export const products: Product[] = [
       "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover-05.png",
       "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover-08.jpg"
     ],
-    "summary": "product overview： 1、 Explanation The RCYF vertical pipeline permanent magnet iron remover is suitable for removing iron from powdered, granular, and block materials in industries such as cement, building materials, chemical, grain, plastics, coal, refractory",
+    "summary": "The RCYF Vertical Pipeline Permanent Magnetic Iron Remover is a permanent magnetic separator for ferromagnetic contamination in material moving through a vertical pipeline. The final configuration depends on the material flow, pipe size, particle condition, access for cleaning and process constraints.",
     "keywords": [
-      "RCYF type vertical pipeline permanent magnet iron remover",
-      "General iron removal equipment",
-      "cement",
-      "coal",
-      "chemical"
+      "RCYF Vertical Pipeline Permanent Magnetic Iron Remover",
+      "industrial magnetic iron removal",
+      "bulk material handling"
     ],
     "features": [
-      "It can be connected to conveying pipelines and installed vertically for use"
+      "Permanent magnetic separation for material flowing through a pipeline position",
+      "Cleaning access planned around the process layout",
+      "Configuration review based on pipe size, material flow and contamination characteristics",
+      "Suitable product and material scope confirmed per application"
     ],
-    "principle": "product overview： 1、 Explanation The RCYF vertical pipeline permanent magnet iron remover is suitable for removing iron from powdered, granular, and block materials in industries such as cement, building materials, chemical, grain, plastics, coal, refractory materials, etc. It can be connected to conveying pipelines and installed vertically for use. 2、 Schematic diagram 3、 Main technical parameters 4、 Industry Applications",
+    "principle": "A permanent magnetic circuit captures ferromagnetic contamination as material passes through the separator. The collection zone is cleaned using the method selected for the process. Final installation details depend on material flow, pipe size and access requirements.",
     "specs": [
       {
-        "label": "Model",
+        "label": "Series",
         "value": "RCYF"
+      },
+      {
+        "label": "Magnetic system",
+        "value": "Permanent magnetic"
+      },
+      {
+        "label": "Installation reference",
+        "value": "vertical pipeline"
+      },
+      {
+        "label": "Cleaning method",
+        "value": "To be confirmed by configuration"
       }
     ],
     "applications": [
-      "General iron removal equipment",
-      "cement",
-      "coal",
-      "chemical"
+      "Bulk material conveying",
+      "Conveyor or process equipment protection",
+      "Ferromagnetic tramp iron removal"
     ],
-    "installation": "",
+    "installation": "Confirm pipe size, material flow characteristics, contamination type, available access and the required cleaning arrangement before the final process connection is selected.",
     "customization": [
-      "Model: RCYF"
+      "Configuration review based on actual material and site conditions"
     ],
-    "faqs": []
+    "faqs": [],
+    "specificationTable": {
+      "columns": [
+        "Model",
+        "Reference field: 适应产量 ≤T/h / 15",
+        "Reference field: 管道外形尺寸 LxWxH mm / 350x350x500",
+        "Reference field: 永磁铁外形尺寸 LxWxH mm / 340x300x110",
+        "Reference field: 法兰接口外形尺寸 LxW mm / 400x400",
+        "Reference field: 适应坡度 与地面夹角 / 75度－90度",
+        "Weight (kg)",
+        "Reference field: 物料类别 / 任何 干式物料"
+      ],
+      "rows": [
+        [
+          "RCYF-30",
+          "30",
+          "400x400x550",
+          "380x400x110",
+          "500x500",
+          "75度－90度",
+          "320",
+          ""
+        ],
+        [
+          "RCYF-50",
+          "50",
+          "450x450x600",
+          "440x400x110",
+          "550x550",
+          "75度－90度",
+          "450",
+          ""
+        ],
+        [
+          "RCYF-80",
+          "80",
+          "550x550x650",
+          "540x450x160",
+          "650x650",
+          "75度－90度",
+          "650",
+          ""
+        ],
+        [
+          "RCYF-100",
+          "100",
+          "600x600x700",
+          "590x500x200",
+          "700x700",
+          "75度－90度",
+          "780",
+          ""
+        ],
+        [
+          "RCYF-150",
+          "150",
+          "650x650x750",
+          "640x500x200",
+          "750x750",
+          "75度－90度",
+          "950",
+          ""
+        ],
+        [
+          "RCYF-200",
+          "200",
+          "700x700x800",
+          "690x500x230",
+          "800x800",
+          "75度－90度",
+          "1150",
+          ""
+        ],
+        [
+          "RCYF-300",
+          "300",
+          "750x750x850",
+          "740x500x230",
+          "850x850",
+          "75度－90度",
+          "1280",
+          ""
+        ]
+      ],
+      "sourceLabel": "Model reference. Final configuration must be confirmed against material and site conditions."
+    },
+    "engineeringDiagrams": [
+      {
+        "src": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130527155446_34721.gif",
+        "alt": "RCYF Vertical Pipeline Permanent Magnetic Iron Remover technical reference drawing 1",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130104155415539.gif",
+        "alt": "RCYF Vertical Pipeline Permanent Magnetic Iron Remover technical reference drawing 2",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130104162714773.gif",
+        "alt": "RCYF Vertical Pipeline Permanent Magnetic Iron Remover technical reference drawing 3",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      }
+    ]
   },
   {
     "slug": "rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover",
-    "name": "RCYG type pipeline self dumping permanent magnet iron remover",
+    "name": "RCYG Pipeline Self-Dumping Permanent Magnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover-01.jpg",
+    "image": "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-20130322215922721.gif",
     "imageGallery": [
+      "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-20130322215922721.gif",
+      "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-s_20130104123824116.gif",
+      "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-s_2013032221485321.jpg",
+      "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-s_20130527235935684.jpg",
       "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover-01.jpg",
       "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover-02.png",
       "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover-03.png",
@@ -1606,59 +3691,155 @@ export const products: Product[] = [
       "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover-08.jpg",
       "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover-05.png"
     ],
-    "summary": "product overview： 1、 Explanation The RCYG pipeline self dumping permanent magnet iron remover is a high-performance automated iron removal equipment independently developed by our company. This equipment is mainly used for iron removal of cement, water slag,",
+    "summary": "The RCYG Pipeline Self-Dumping Permanent Magnetic Iron Remover is a permanent magnetic separator for ferromagnetic contamination in material moving through a pipeline. The final configuration depends on the material flow, pipe size, particle condition, access for cleaning and process constraints.",
     "keywords": [
-      "RCYG type pipeline self dumping permanent magnet iron remover",
-      "General iron removal equipment",
-      "cement",
-      "food",
-      "chemical",
-      "ceramic",
-      "glass",
-      "ore"
+      "RCYG Pipeline Self-Dumping Permanent Magnetic Iron Remover",
+      "industrial magnetic iron removal",
+      "bulk material handling"
     ],
     "features": [
-      "The RCYG pipeline self dumping permanent magnet iron remover is a high-performance automated iron removal equipment independently developed by our company",
-      "This equipment is mainly used for iron removal of cement, water slag, and other powdery and small granular materials",
-      "The iron remover is connected in series with the lower outlet of the bucket elevator or with the conveyor chute",
-      "By passing through the iron remover, the powder can automatically separate and discharge iron impurities such as iron segments, iron beans, and iron powder mixed in it, ensuring stable production operation",
-      "This not only improves the purity of cement and other powder, but also reduces maintenance costs",
-      "While removing iron, it can also automatically recycle iron impurities and turn waste into treasure",
-      "The machine has stable performance, high iron removal rate, easy use, uses high-performance wear-resistant ceramics, does not affect the magnetic field, and has a wear-resistant life guarantee of more than 5 years",
-      "It is a new generation of energy-saving and efficient iron removal equipment"
+      "Permanent magnetic separation for material flowing through a pipeline position",
+      "Self-dumping arrangement referenced for this series",
+      "Configuration review based on pipe size, material flow and contamination characteristics",
+      "Suitable product and material scope confirmed per application"
     ],
-    "principle": "product overview： 1、 Explanation The RCYG pipeline self dumping permanent magnet iron remover is a high-performance automated iron removal equipment independently developed by our company. This equipment is mainly used for iron removal of cement, water slag, and other powdery and small granular materials. The iron remover is connected in series with the lower outlet of the bucket elevator or with the conveyor chute. By passing through the iron remover, the powder can automatically separate and discharge iron impurities such as iron segments, iron beans, and iron powder mixed in it, ensuring stable production operation. This not only improves the purity of cement and other powder, but also reduces maintenance costs. While removing iron, it can also automatically recycle iron impurities and turn waste into treasure. The machine has stable performance, high iron removal rate, easy use, uses high-performance wear-resistant ceramics, does not affect the magnetic field, and has a wear-resistant life guarantee of more than 5 years. It is a new generation of energy-saving and efficient iron removal equipment. The product is widely used in industries such as cement, ceramics, building materials, chemicals, food, glass, metallurgy, steel, and electricity. 2、 Schematic diagram 3、 Usage conditions ◇ Material temperature: ≤ 125 ℃ (high-temperature resistant magnets can be used when exceeding this temperature); Pipeline inclination angle: 55 ° -60 ° (optimal installation angle); ◇ Negative pressure of pipeline: ≥- 50Pa； ◇ Environmental temperature: ≤ 45 ℃; ◇ Place of use: Indoor (rainproof facilities are required for outdoor use); The best installation position: the lower outlet of the bucket elevator. 4、 Main technical parameters 5、 Application industry",
+    "principle": "A permanent magnetic circuit captures ferromagnetic contamination from the product flow. The separator configuration is arranged to move collected metal to its designated discharge path. Final installation and cleaning details depend on material flow and the process connection.",
     "specs": [
       {
-        "label": "Installation position",
-        "value": "the lower outlet of the bucket elevator."
+        "label": "Series",
+        "value": "RCYG"
       },
       {
-        "label": "Model",
-        "value": "RCYG"
+        "label": "Magnetic system",
+        "value": "Permanent magnetic"
+      },
+      {
+        "label": "Installation reference",
+        "value": "pipeline"
+      },
+      {
+        "label": "Cleaning method",
+        "value": "Self-dumping"
       }
     ],
     "applications": [
-      "General iron removal equipment",
-      "cement",
-      "food",
-      "chemical",
-      "ceramic",
-      "glass",
-      "ore"
+      "Bulk material conveying",
+      "Conveyor or process equipment protection",
+      "Ferromagnetic tramp iron removal"
     ],
-    "installation": "Installation position: the lower outlet of the bucket elevator.",
+    "installation": "Confirm pipe size, material flow characteristics, contamination type, available access and the required cleaning arrangement before the final process connection is selected.",
     "customization": [
-      "Model: RCYG"
+      "Configuration review based on actual material and site conditions"
     ],
-    "faqs": []
+    "faqs": [],
+    "specificationTable": {
+      "columns": [
+        "Model",
+        "Reference field: 生产率 T/h",
+        "Magnetic field reference",
+        "Discharge drive power",
+        "Power supply",
+        "Reference field: 安装角度",
+        "Reference field: 转速 r/min",
+        "Reference field: 质量 kg",
+        "Reference field: 外形尺寸mm / L",
+        "Reference field: 外形尺寸mm / W",
+        "Reference field: 外形尺寸mm / H"
+      ],
+      "rows": [
+        [
+          "RCYG-50",
+          "≤50",
+          "≥4000",
+          "1.1",
+          "380",
+          "50 o -60 o",
+          "17-82",
+          "800",
+          "1200",
+          "1200",
+          "1000"
+        ],
+        [
+          "RCYG-100",
+          "≤100",
+          "≥4200",
+          "1.5",
+          "380",
+          "50 o -60 o",
+          "17-82",
+          "1100",
+          "1560",
+          "1350",
+          "1200"
+        ],
+        [
+          "RCYG-200",
+          "≤200",
+          "≥4500",
+          "2.2",
+          "380",
+          "50 o -60 o",
+          "17-82",
+          "1300",
+          "1850",
+          "1790",
+          "1300"
+        ],
+        [
+          "RCYG-300",
+          "≤300",
+          "≥4500",
+          "3",
+          "380",
+          "50 o -60 o",
+          "17-82",
+          "1450",
+          "1980",
+          "1590",
+          "1400"
+        ],
+        [
+          "RCYG-400",
+          "≤400",
+          "≥4500",
+          "4",
+          "380",
+          "50 o -60 o",
+          "17-82",
+          "1600",
+          "2100",
+          "1670",
+          "1500"
+        ]
+      ],
+      "sourceLabel": "Model reference. Final configuration must be confirmed against material and site conditions."
+    },
+    "engineeringDiagrams": [
+      {
+        "src": "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-20130322215922721.gif",
+        "alt": "RCYG Pipeline Self-Dumping Permanent Magnetic Iron Remover technical reference drawing 1",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-s_20130104123824116.gif",
+        "alt": "RCYG Pipeline Self-Dumping Permanent Magnetic Iron Remover technical reference drawing 2",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      }
+    ]
   },
   {
     "slug": "rcyp-type-permanent-magnet-manual-self-dumping-iron-remover",
-    "name": "RCYP type permanent magnet manual self dumping iron remover",
+    "name": "RCYP Manual-Cleaning Permanent Magnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover-01.jpg",
+    "image": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155415539.gif",
     "imageGallery": [
+      "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155415539.gif",
+      "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155416137.gif",
+      "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-s_20130825102859754.jpg",
+      "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-s_20130527235730314.jpg",
+      "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-s_20130104162714773.gif",
+      "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-s_20130825103056345.jpg",
       "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover-01.jpg",
       "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover-02.png",
       "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover-03.png",
@@ -1668,31 +3849,175 @@ export const products: Product[] = [
       "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover-05.png",
       "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover-07.jpg"
     ],
-    "summary": "product overview： 1、 Explanation The RCYP type permanent magnet manual self dumping iron remover is suitable for situations where the conveyor belt is narrow, the material is thin, and there is less impurity iron. This machine has a simple structure, reliable",
+    "summary": "The RCYP Manual-Cleaning Permanent Magnetic Iron Remover is a suspended permanent magnetic separator for capturing ferromagnetic tramp iron from non-magnetic bulk material. It operates without excitation power and is generally selected where collected metal can be removed manually at safe planned intervals.",
     "keywords": [
-      "RCYP type permanent magnet manual self dumping iron remover",
-      "General iron removal equipment"
+      "RCYP Manual-Cleaning Permanent Magnetic Iron Remover",
+      "industrial magnetic iron removal",
+      "bulk material handling"
     ],
     "features": [
-      "The RCYP type permanent magnet manual self dumping iron remover is suitable for situations where the conveyor belt is narrow, the material is thin, and there is less impurity iron",
-      "This machine has a simple structure, reliable operation, economic practicality, maintenance free, and no noise",
-      "When the accumulation of ferromagnetic debris at the bottom of the magnet reaches a certain level, manually shake the handle to drive the scraper and remove the scrap iron"
+      "Permanent magnetic circuit with no excitation power during operation",
+      "Suspended positioning above conveyors, feeders or chutes",
+      "Manual cleaning for planned low-to-moderate contamination conditions",
+      "Selection based on material burden, suspension height and access for cleaning"
     ],
-    "principle": "product overview： 1、 Explanation The RCYP type permanent magnet manual self dumping iron remover is suitable for situations where the conveyor belt is narrow, the material is thin, and there is less impurity iron. This machine has a simple structure, reliable operation, economic practicality, maintenance free, and no noise. When the accumulation of ferromagnetic debris at the bottom of the magnet reaches a certain level, manually shake the handle to drive the scraper and remove the scrap iron. 2、 Schematic diagram 3、 Main technical parameters Note: All models in this series are designed with extra strong T1, T2, and T3 products that are higher than the national standard. The rated magnetic field strength at the lifting height is 90mT, 120mT, and 150mT, respectively. 4、 Industry Applications",
+    "principle": "The permanent magnetic circuit retains ferromagnetic pieces as material passes through its effective field. Non-magnetic material continues downstream. Collected metal is removed manually following a safe isolation and cleaning procedure, so this configuration is not intended to replace a self-dumping separator.",
     "specs": [
       {
-        "label": "Model",
+        "label": "Series",
         "value": "RCYP"
+      },
+      {
+        "label": "Magnetic system",
+        "value": "Permanent magnetic"
+      },
+      {
+        "label": "Cleaning method",
+        "value": "Manual"
       }
     ],
     "applications": [
-      "General iron removal equipment"
+      "Bulk material conveying",
+      "Conveyor or process equipment protection",
+      "Ferromagnetic tramp iron removal"
     ],
-    "installation": "",
+    "installation": "Confirm the material trajectory, available suspension clearance and safe maintenance access before choosing the mounting position.",
     "customization": [
-      "Model: RCYP"
+      "Configuration review based on actual material and site conditions"
     ],
-    "faqs": []
+    "faqs": [],
+    "specificationTable": {
+      "columns": [
+        "Reference field: 项目 / 参数",
+        "Suitable belt width (mm)",
+        "Reference field: 额定吊高 h=mm",
+        "Material burden thickness (max. mm)",
+        "Magnetic field reference",
+        "Belt speed (max. m/s)",
+        "Weight (kg)",
+        "Reference field: 外形尺寸 A×B×C",
+        "Reference field: 悬挂尺寸 D×E"
+      ],
+      "rows": [
+        [
+          "型号",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "RCYP-4",
+          "适应带宽 \nmm",
+          "额定吊高 \nh=mm",
+          "物料厚度 \n≤mm",
+          "磁场强度 \n≥mT",
+          "适应带速 \n≤m/s",
+          "重量 \nkg",
+          "外形尺寸 \nA×B×C",
+          "悬挂尺寸 \nD×E"
+        ],
+        [
+          "RCYP-5",
+          "适应带宽 \nmm",
+          "额定吊高 \nh=mm",
+          "物料厚度 \n≤mm",
+          "磁场强度 \n≥mT",
+          "适应带速 \n≤m/s",
+          "重量 \nkg",
+          "外形尺寸 \nA×B×C",
+          "悬挂尺寸 \nD×E"
+        ],
+        [
+          "RCYP-6",
+          "600/650",
+          "180",
+          "130",
+          "63",
+          "450",
+          "1300×1100×560",
+          "600×400",
+          ""
+        ],
+        [
+          "RCYP-6.5",
+          "650",
+          "200",
+          "150",
+          "70",
+          "580",
+          "1350×1200×560",
+          "650×500",
+          ""
+        ],
+        [
+          "RCYP-8",
+          "800",
+          "250",
+          "200",
+          "70",
+          "690",
+          "1600×1300×560",
+          "800×600",
+          ""
+        ],
+        [
+          "RCYP-10",
+          "1000",
+          "300",
+          "250",
+          "70",
+          "980",
+          "1800×1500×560",
+          "1000×800",
+          ""
+        ],
+        [
+          "RCYP-12",
+          "1200",
+          "350",
+          "300",
+          "70",
+          "1500",
+          "2000×1780×580",
+          "1100×900",
+          ""
+        ],
+        [
+          "RCYP-14",
+          "1400",
+          "400",
+          "350",
+          "70",
+          "1800",
+          "2200×1950×600",
+          "1200×1000",
+          ""
+        ]
+      ],
+      "sourceLabel": "Model reference. Final configuration must be confirmed against material and site conditions."
+    },
+    "engineeringDiagrams": [
+      {
+        "src": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155415539.gif",
+        "alt": "RCYP Manual-Cleaning Permanent Magnetic Iron Remover technical reference drawing 1",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155416137.gif",
+        "alt": "RCYP Manual-Cleaning Permanent Magnetic Iron Remover technical reference drawing 2",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      },
+      {
+        "src": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-s_20130104162714773.gif",
+        "alt": "RCYP Manual-Cleaning Permanent Magnetic Iron Remover technical reference drawing 3",
+        "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
+      }
+    ]
   },
   {
     "slug": "rcyz-type-vertical-pipeline-permanent-magnet-iron-remover",

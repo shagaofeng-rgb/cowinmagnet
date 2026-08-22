@@ -9,7 +9,8 @@ const start = source.indexOf("[", source.indexOf("=", declaration));
 const end = source.lastIndexOf("]; ");
 const safeEnd = end === -1 ? source.lastIndexOf("];") : end;
 const products = JSON.parse(source.slice(start, safeEnd + 1).replace(/,\s*([}\]])/g, "$1"));
-const baseUrl = (process.env.PRODUCT_VERIFY_BASE_URL || "http://127.0.0.1:3103").replace(/\/$/, "");
+const baseUrlArgument = process.argv.find((argument) => argument.startsWith("--base-url="));
+const baseUrl = (baseUrlArgument?.slice("--base-url=".length) || process.env.PRODUCT_VERIFY_BASE_URL || "http://127.0.0.1:3103").replace(/\/$/, "");
 const locale = process.env.PRODUCT_VERIFY_LOCALE || "en";
 const failures = [];
 

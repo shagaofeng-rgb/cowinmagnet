@@ -43,6 +43,11 @@ function technicalRows(product: Product, technicalFields: string[]) {
   return rows;
 }
 
+function hasModelSpecificationTable(product: Product) {
+  const table = product.specificationTable;
+  return Boolean(table && table.columns.length && table.rows.length && table.rows.every((row) => row.length === table.columns.length));
+}
+
 function relatedProducts(product: Product) {
   const family = getProductFamily(product);
   const sameFamily = products.filter((item) => item.slug !== product.slug && getProductFamily(item) === family);
@@ -78,6 +83,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
   const quotePath = `${routeFor(locale, "/request-quote")}?product=${encodeURIComponent(product.name)}&family=${encodeURIComponent(profile.family)}`;
   const models = modelDesignations(product);
   const specs = technicalRows(product, profile.technicalFields);
+  const hasSpecificationTable = hasModelSpecificationTable(product);
   // Legacy gallery imports may contain a third-party logo, QR code or unrelated visual.
   // Only the primary product image is published until each extra image is editorially verified.
   const gallery = [product.image];
@@ -225,6 +231,24 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           <ProductProcess steps={profile.processSteps} />
         </section>
 
+        {product.engineeringDiagrams?.length ? (
+          <section className="product-detail-section product-engineering-diagrams">
+            <div className="product-detail-section-heading">
+              <span className="eyebrow">Engineering reference</span>
+              <h2>Installation and dimensional reference</h2>
+              <p>These diagrams support preliminary discussion. Final dimensions and installation details are confirmed for the selected configuration.</p>
+            </div>
+            <div className="product-engineering-diagram-grid">
+              {product.engineeringDiagrams.map((diagram) => (
+                <figure key={diagram.src}>
+                  <Image src={diagram.src} alt={diagram.alt} width={960} height={640} sizes="(max-width: 760px) 100vw, 48vw" />
+                  <figcaption>{diagram.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <section id="applications" className="product-detail-section product-materials-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Applications</span>
@@ -250,10 +274,20 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
             <h2>Technical specifications and confirmation basis</h2>
             <p>Published model references are shown where available. Final technical details are confirmed from current product records, material and site conditions.</p>
           </div>
-          <div className="product-specification-table" role="table" aria-label={`${product.name} technical specifications`}>
-            <div className="product-specification-head" role="row"><span>Parameter</span><span>Published record</span><span>Selection confirmation</span></div>
-            {specs.map((spec) => <div role="row" key={`${spec.label}-${spec.value}`}><span>{spec.label === "Model" ? "Model designation" : spec.label}</span><strong>{spec.value}</strong><span>{spec.confirmed ? "Published model reference. Final configuration is confirmed for the project." : "To be confirmed based on material and site conditions."}</span></div>)}
-          </div>
+          {hasSpecificationTable ? (
+            <div className="product-model-table-scroll">
+              <table className="product-model-specification-table">
+                <caption>{product.specificationTable?.sourceLabel}</caption>
+                <thead><tr>{product.specificationTable?.columns.map((column) => <th scope="col" key={column}>{column}</th>)}</tr></thead>
+                <tbody>{product.specificationTable?.rows.map((row, rowIndex) => <tr key={`${row[0]}-${rowIndex}`}>{row.map((value, valueIndex) => <td key={`${value}-${valueIndex}`}>{value}</td>)}</tr>)}</tbody>
+              </table>
+            </div>
+          ) : (
+            <div className="product-specification-table" role="table" aria-label={`${product.name} technical specifications`}>
+              <div className="product-specification-head" role="row"><span>Parameter</span><span>Published record</span><span>Selection confirmation</span></div>
+              {specs.map((spec) => <div role="row" key={`${spec.label}-${spec.value}`}><span>{spec.label === "Model" ? "Model designation" : spec.label}</span><strong>{spec.value}</strong><span>{spec.confirmed ? "Published model reference. Final configuration is confirmed for the project." : "To be confirmed based on material and site conditions."}</span></div>)}
+            </div>
+          )}
         </section>
 
         <section className="product-detail-section product-options-section">
