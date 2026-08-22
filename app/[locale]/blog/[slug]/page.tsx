@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { LocalizedBlogDetailPage } from "@/components/LocalizedPages";
 import { blogPosts } from "@/data/blogs";
 import { getBlogPostWithCms } from "@/lib/blogCms";
+import { isIndexableBlog } from "@/lib/blogContentPolicy";
 import { isLocale, locales, localizedPageAlternates, type Locale } from "@/lib/i18n";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -20,11 +21,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const current = isLocale(locale) ? locale : "en";
   const post = await getBlogPostWithCms(slug);
   if (!post) return {};
+  const indexable = isIndexableBlog(post);
   return {
     title: post.seoTitle,
     description: post.metaDescription,
     keywords: post.keywords,
     alternates: localizedPageAlternates(current, `/blog/${post.slug}`),
+    robots: indexable ? undefined : { index: false, follow: true },
     openGraph: {
       title: post.seoTitle,
       description: post.metaDescription,

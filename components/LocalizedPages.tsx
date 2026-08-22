@@ -23,6 +23,7 @@ import type { Locale } from "@/lib/i18n";
 import { getDictionary, localizeHref } from "@/lib/i18n";
 import { getStaticInternalLinkSuggestions } from "@/lib/linkStrategy";
 import { cleanProductList, cleanProductSpecs, cleanProductText } from "@/lib/productDisplay";
+import { isIndexableBlog, stripLegacyEditorialSections } from "@/lib/blogContentPolicy";
 
 const advantageIcons = [ShieldCheck, Settings, Headphones, Globe2];
 const serviceIcons = [Headphones, Wrench, Truck, ShieldCheck, BadgeCheck, Globe2];
@@ -355,13 +356,15 @@ export function LocalizedBlogListPage({ locale, posts }: { locale: Locale; posts
 
 export function LocalizedBlogDetailPage({ locale, post }: { locale: Locale; post: BlogPost }) {
   const t = getDictionary(locale);
-  const relatedInternalLinks = getStaticInternalLinkSuggestions({ type: "blog", slug: post.slug, limit: 5 });
+  const indexable = isIndexableBlog(post);
+  const relatedInternalLinks = indexable ? getStaticInternalLinkSuggestions({ type: "blog", slug: post.slug, limit: 5 }) : [];
+  const publicContent = stripLegacyEditorialSections(post.content);
   return (
     <>
       <JsonLd data={{ "@context": "https://schema.org", "@type": "Article", headline: post.title, description: post.metaDescription, image: absoluteUrl(post.image), datePublished: post.publishedAt, dateModified: post.updatedAt, author: { "@type": "Organization", name: site.name }, publisher: { "@type": "Organization", name: site.name, logo: { "@type": "ImageObject", url: absoluteUrl("/images/cowin-logo.png") } } }} />
       <section className="blog-hero"><div className="blog-hero-copy"><span className="eyebrow">{post.category}</span><h1>{post.h1}</h1><p>{post.excerpt}</p><div className="blog-meta"><span>{t.common.updated} {new Intl.DateTimeFormat("en", { month: "short", day: "2-digit", year: "numeric" }).format(new Date(`${post.updatedAt}T00:00:00Z`))}</span><span>{post.readingTime} {t.common.minRead}</span></div></div><div className="blog-hero-image"><BlogImage src={post.image} width={980} height={620} alt={post.title} priority /></div></section>
-      <section className="section blog-detail-layout"><article className="blog-article"><MarkdownContent content={post.content} /></article><aside className="blog-sidebar"><div className="blog-quote-card"><span className="eyebrow">{t.footer.quoteSupport}</span><h2>{t.blog.sidebarTitle}</h2><p>{t.blog.sidebarText}</p></div><div className="quote-form-shell blog-form-shell"><h3>{t.common.requestSelectionSupport}</h3><p>{t.productDetail.quoteText}</p><QuoteForm compact /></div></aside></section>
-      <RelatedInternalLinks locale={locale} eyebrow="Recommended Reading" title="Related products, solutions and articles" links={relatedInternalLinks} />
+      <section className="section blog-detail-layout"><article className="blog-article"><MarkdownContent content={publicContent} /></article><aside className="blog-sidebar"><div className="blog-quote-card"><span className="eyebrow">{t.footer.quoteSupport}</span><h2>{t.blog.sidebarTitle}</h2><p>{t.blog.sidebarText}</p></div><div className="quote-form-shell blog-form-shell"><h3>{t.common.requestSelectionSupport}</h3><p>{t.productDetail.quoteText}</p><QuoteForm compact /></div></aside></section>
+      {relatedInternalLinks.length ? <RelatedInternalLinks locale={locale} eyebrow="Recommended Reading" title="Related products, solutions and articles" links={relatedInternalLinks} /> : null}
     </>
   );
 }
