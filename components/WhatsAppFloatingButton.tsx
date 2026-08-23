@@ -10,6 +10,8 @@ export function WhatsAppFloatingButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contact COWIN MAGNET on WhatsApp"
+      data-whatsapp-placement="floating"
+      data-whatsapp-component="global-floating-button"
     >
       <span className="whatsapp-float-ring" aria-hidden />
       <span className="whatsapp-float-wave whatsapp-float-wave-one" aria-hidden />

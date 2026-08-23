@@ -13,6 +13,7 @@ const links = [
   { href: "/admin/news", label: "新闻管理" },
   { href: "/admin/news-operations", label: "News 运营" },
   { href: "/admin/inquiries", label: "客户表单" },
+  { href: "/admin/whatsapp", label: "WhatsApp 分析" },
   { href: "/admin/link-audit", label: "内外链审计" },
   { href: "/admin/visitors", label: "访客记录" },
   { href: "/admin/pages", label: "页面表现" },

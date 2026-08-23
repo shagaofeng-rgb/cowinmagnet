@@ -156,7 +156,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
             </ul>
             <div className="product-hero-actions">
               <Link className="btn btn-primary" href={quotePath}>Request a Quote <ArrowRight size={17} aria-hidden /></Link>
-              <a className="btn btn-secondary" href={`https://wa.me/${site.whatsapp}?text=${shareMessage}`} target="_blank" rel="noopener noreferrer nofollow"><MessageCircle size={17} aria-hidden /> WhatsApp</a>
+              <a className="btn btn-secondary" href={`https://wa.me/${site.whatsapp}?text=${shareMessage}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="product-hero" data-whatsapp-component="product-detail" data-whatsapp-product-slug={product.slug} data-whatsapp-product-name={displayName}><MessageCircle size={17} aria-hidden /> WhatsApp</a>
             </div>
             <dl className="product-quick-facts">
               {profile.quickFacts.map((fact) => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
@@ -357,7 +357,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
       </main>
       <div className="product-mobile-actions" aria-label="Product contact actions">
         <Link href={quotePath}>Request a Quote</Link>
-        <a href={`https://wa.me/${site.whatsapp}?text=${shareMessage}`} target="_blank" rel="noopener noreferrer nofollow">WhatsApp</a>
+        <a href={`https://wa.me/${site.whatsapp}?text=${shareMessage}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="product-final-cta" data-whatsapp-component="product-detail" data-whatsapp-product-slug={product.slug} data-whatsapp-product-name={displayName}>WhatsApp</a>
       </div>
     </>
   );

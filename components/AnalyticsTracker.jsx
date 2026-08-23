@@ -89,6 +89,25 @@ function sendAnalyticsEvent(payload) {
   }).catch(() => {});
 }
 
+function buildWhatsAppClickContext(link) {
+  const dataset = link.dataset || {};
+  const fallbackPlacement = link.classList?.contains("whatsapp-float") ? "floating" : "other";
+  const createClickId = () => {
+    if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") return crypto.randomUUID();
+    return `wa-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  };
+
+  return {
+    status: "clicked",
+    placement: dataset.whatsappPlacement || fallbackPlacement,
+    component: dataset.whatsappComponent || "site-link",
+    productSlug: dataset.whatsappProductSlug || "",
+    productName: dataset.whatsappProductName || "",
+    locale: document.documentElement.lang || window.location.pathname.split("/").filter(Boolean)[0] || "en",
+    clickId: createClickId()
+  };
+}
+
 function trackMetaContact() {
   if (typeof window.fbq !== "function") return;
   window.fbq("track", "Contact");
@@ -111,6 +130,7 @@ function publicTrackEvent(type, extra = {}) {
     attribution,
     targetText: extra.targetText || "",
     outboundUrl: extra.outboundUrl || "",
+    whatsapp: extra.whatsapp || undefined,
     timestamp: new Date().toISOString()
   });
   if (["click_whatsapp", "click_email", "click_phone", "submit_inquiry", "form_success"].includes(type)) {
@@ -206,6 +226,7 @@ export default function AnalyticsTracker() {
           attribution: window.__cowinAttribution || null,
           outboundUrl: link.href,
           targetText: link.textContent?.trim().slice(0, 120) || "",
+          ...(eventType === "click_whatsapp" ? { whatsapp: buildWhatsAppClickContext(link) } : {}),
           timestamp: new Date().toISOString()
         });
         if (["click_whatsapp", "click_email", "click_phone"].includes(eventType)) {

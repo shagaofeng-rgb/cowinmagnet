@@ -100,7 +100,7 @@ export function Footer() {
           </a>
           <div className="footer-chat">
             <span>Chat now</span>
-            <a href={whatsappChatUrl} target="_blank" rel="noopener noreferrer nofollow">WhatsApp</a>
+            <a href={whatsappChatUrl} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="footer-chat" data-whatsapp-component="site-footer">WhatsApp</a>
           </div>
         </div>
 
@@ -117,7 +117,7 @@ export function Footer() {
             </figure>
           </div>
           <div className="footer-social-buttons" aria-label="Social links">
-            <a href={whatsappChatUrl} target="_blank" rel="noopener noreferrer nofollow" aria-label="WhatsApp">
+            <a href={whatsappChatUrl} target="_blank" rel="noopener noreferrer nofollow" aria-label="WhatsApp" data-whatsapp-placement="footer-social" data-whatsapp-component="site-footer">
               <BrandIcon name="whatsapp" />
             </a>
             <a href={site.social.tiktok} target="_blank" rel="noopener noreferrer nofollow" aria-label="TikTok">

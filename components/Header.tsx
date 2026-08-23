@@ -80,7 +80,7 @@ export function Header() {
             <Mail size={15} aria-hidden />
             {site.email}
           </a>
-          <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow">
+          <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="header" data-whatsapp-component="site-header">
             <MessageCircle size={15} aria-hidden />
             WhatsApp
           </a>
@@ -205,7 +205,7 @@ export function Header() {
             <Link href={localizeHref("/search", locale)} onClick={closeMobile}><Search size={16} aria-hidden /> Search</Link>
             <Link href={localizeHref("/about", locale)} onClick={closeMobile}>{t.nav.about}</Link>
             <Link href={localizeHref("/contact", locale)} onClick={closeMobile}>{t.nav.contact}</Link>
-            <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow" onClick={closeMobile}>
+            <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow" onClick={closeMobile} data-whatsapp-placement="mobile-menu" data-whatsapp-component="site-header">
               <MessageCircle size={16} aria-hidden /> WhatsApp
             </a>
             <div className="mobile-site-actions">
