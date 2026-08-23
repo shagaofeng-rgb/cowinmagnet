@@ -4571,8 +4571,9 @@ textarea:focus {
 
 .whatsapp-float {
   position: fixed;
-  right: max(42px, env(safe-area-inset-right));
-  bottom: max(22px, env(safe-area-inset-bottom));
+  top: 50%;
+  right: max(28px, env(safe-area-inset-right));
+  bottom: auto;
   z-index: 40;
   display: inline-flex;
   align-items: center;
@@ -4589,11 +4590,12 @@ textarea:focus {
     0 18px 38px rgba(18, 140, 74, 0.36),
     0 0 0 7px rgba(250, 204, 21, 0.1),
     0 0 32px rgba(37, 211, 102, 0.42);
+  animation: whatsappFloatAttention 3s ease-in-out infinite;
   transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
 }
 
 .whatsapp-float:hover {
-  transform: translateY(-4px) scale(1.1);
+  transform: translateY(calc(-50% - 4px)) scale(1.1);
   filter: saturate(1.08);
   box-shadow:
     0 22px 46px rgba(18, 140, 74, 0.44),
@@ -4646,28 +4648,31 @@ textarea:focus {
   border: 2px solid #ffffff;
   border-radius: 50%;
   box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.58);
+  animation: whatsappBadgePulse 2.4s ease-out infinite;
 }
 
 @keyframes whatsappFloatAttention {
   0%,
   100% {
-    transform: translateY(0) scale(1);
+    transform: translateY(-50%) scale(1);
+    filter: saturate(1);
   }
 
   18% {
-    transform: translateY(-4px) scale(1.06);
+    transform: translateY(calc(-50% - 4px)) scale(1.06);
+    filter: saturate(1.1) brightness(1.04);
   }
 
   34% {
-    transform: translateY(0) scale(1);
+    transform: translateY(-50%) scale(1);
   }
 
   46% {
-    transform: translateY(-2px) scale(1.035);
+    transform: translateY(calc(-50% - 2px)) scale(1.035);
   }
 
   58% {
-    transform: translateY(0) scale(1);
+    transform: translateY(-50%) scale(1);
   }
 }
 
@@ -4698,6 +4703,14 @@ textarea:focus {
   50% {
     transform: scale(1.18);
     box-shadow: 0 0 0 8px rgba(250, 204, 21, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float,
+  .whatsapp-float-wave,
+  .whatsapp-float-badge {
+    animation: none;
   }
 }
 
@@ -5660,14 +5673,17 @@ textarea:focus {
   }
 
   .whatsapp-float {
-    right: max(18px, env(safe-area-inset-right));
-    bottom: max(18px, env(safe-area-inset-bottom));
-    width: 52px;
-    height: 52px;
+    top: 50%;
+    right: max(14px, env(safe-area-inset-right));
+    bottom: auto;
+    width: 54px;
+    height: 54px;
   }
 
   .whatsapp-float-wave {
-    display: none;
+    display: block;
+    inset: -7px;
+    border-width: 1px;
   }
 
   .map-card-glow {
@@ -5795,7 +5811,7 @@ textarea:focus {
 
 @media (max-width: 430px) {
   .whatsapp-float {
-    display: none;
+    display: inline-flex;
   }
 
   .global-network-grid {
