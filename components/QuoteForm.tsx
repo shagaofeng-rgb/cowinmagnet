@@ -35,7 +35,7 @@ export function QuoteForm({ compact = false, defaultProduct = "", productContext
         .join(" | ");
       payload.consent = "true";
       payload.sourcePath = window.location.pathname;
-      payload.sourceUrl = window.location.href;
+      payload.pageUrl = window.location.href;
       payload.sourceLanguage = document.documentElement.lang || window.location.pathname.split("/").filter(Boolean)[0] || "en";
       payload.utm = window.location.search;
       payload.attribution = (window as typeof window & { __cowinAttribution?: unknown }).__cowinAttribution || null;

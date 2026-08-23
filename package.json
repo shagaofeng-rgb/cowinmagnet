@@ -7,6 +7,7 @@
     "dev": "next dev",
     "monitor": "node scripts/monitor/run-monitor.mjs",
     "monitor:no-email": "node scripts/monitor/run-monitor.mjs --no-email",
+    "audit:runtime-health": "node scripts/audit-runtime-health.mjs",
     "visual:qa": "node scripts/visual-qa-capture.mjs",
     "sitemap:generate": "node scripts/run-sitemap.mjs",
     "sitemap:audit": "node scripts/audit-sitemap-http.mjs",

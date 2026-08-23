@@ -149,6 +149,7 @@ export default function InquiryForm() {
         body: JSON.stringify({
           ...values,
           sourcePath: window.location.pathname,
+          pageUrl: window.location.href,
           sourceLanguage: document.documentElement.lang || window.location.pathname.split("/").filter(Boolean)[0] || "en",
           utm: window.location.search,
           attribution: window.__cowinAttribution || null,

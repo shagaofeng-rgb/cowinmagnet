@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { localeLabels, locales } from "@/data/i18n";
+import { persistLocalePreference } from "@/lib/clientLocalePreference";
 
 const menuEventName = "cowin:header-menu-open";
 
@@ -35,7 +36,7 @@ export default function LanguageSwitcher({ locale = "en" }) {
   }
 
   function rememberLocale(nextLocale) {
-    window.document.cookie = `cowin_locale=${nextLocale}; path=/; max-age=2592000; samesite=lax`;
+    persistLocalePreference(nextLocale);
     closeMenu();
   }
 

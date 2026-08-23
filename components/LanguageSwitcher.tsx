@@ -5,6 +5,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Globe2 } from "lucide-react";
 import { getLocaleFromPath, languageLabels, localePath, locales, stripLocale } from "@/lib/i18n";
+import { persistLocalePreference } from "@/lib/clientLocalePreference";
 
 export function LanguageSwitcher() {
   const pathname = usePathname();
@@ -34,7 +35,7 @@ export function LanguageSwitcher() {
   }, [open]);
 
   function rememberLocale(locale: string) {
-    window.document.cookie = `cowin_locale=${locale}; path=/; max-age=2592000; samesite=lax`;
+    persistLocalePreference(locale);
     setOpen(false);
   }
 

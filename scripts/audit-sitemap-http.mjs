@@ -1,6 +1,9 @@
 const rootUrl = process.argv.find((arg) => arg.startsWith("--url="))?.slice(6) || "https://www.cowinmagnet.com/sitemap.xml";
 const targetOrigin = process.argv.find((arg) => arg.startsWith("--target-origin="))?.slice(16).replace(/\/$/, "") || "";
-const concurrency = Math.max(1, Math.min(20, Number(process.argv.find((arg) => arg.startsWith("--concurrency="))?.slice(14) || 8)));
+// Rendered routes can be expensive to resolve locally. Keep this audit deliberately
+// conservative so the checker does not overload a development server and report its
+// own failures as sitemap defects.
+const concurrency = Math.max(1, Math.min(20, Number(process.argv.find((arg) => arg.startsWith("--concurrency="))?.slice(14) || 2)));
 const timeoutMs = Math.max(1000, Number(process.argv.find((arg) => arg.startsWith("--timeout="))?.slice(10) || 12000));
 
 function xmlLocations(xml = "") {
@@ -35,20 +38,12 @@ async function collectUrls(url) {
 async function inspectUrl(url) {
   const targetUrl = requestUrl(url);
   try {
-    let response = await fetch(targetUrl, {
-      method: "HEAD",
+    const response = await fetch(targetUrl, {
+      method: "GET",
       redirect: "manual",
-      headers: { "User-Agent": "Cowinmagnet-Sitemap-Audit/1.0" },
+      headers: { Range: "bytes=0-0", "User-Agent": "Cowinmagnet-Sitemap-Audit/1.0" },
       signal: AbortSignal.timeout(timeoutMs)
     });
-    if (response.status === 405) {
-      response = await fetch(targetUrl, {
-        method: "GET",
-        redirect: "manual",
-        headers: { Range: "bytes=0-0", "User-Agent": "Cowinmagnet-Sitemap-Audit/1.0" },
-        signal: AbortSignal.timeout(timeoutMs)
-      });
-    }
     return {
       url,
       requestUrl: targetUrl,

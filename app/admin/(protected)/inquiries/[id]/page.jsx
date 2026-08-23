@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getInquirySubmissionDetail } from "@/lib/inquiryStore";
+import { safeSitePath, safeSiteUrl } from "@/lib/siteUrlSafety";
 
 export const dynamic = "force-dynamic";
 
@@ -127,6 +128,8 @@ export default async function AdminInquiryDetailPage({ params, searchParams }) {
   const payloadDetails = detailsFromPayload(inquiry);
   const detailPath = `/admin/inquiries/${encodeURIComponent(inquiry.id)}`;
   const attribution = inquiry.attribution || {};
+  const sourcePath = safeSitePath(inquiry.sourcePath);
+  const pageUrl = safeSiteUrl(inquiry.pageUrl);
 
   return (
     <div className="admin-page admin-inquiry-detail-page">
@@ -193,8 +196,8 @@ export default async function AdminInquiryDetailPage({ params, searchParams }) {
             </div>
           </div>
           <dl className="admin-detail-definition-list">
-            <div><dt>来源页面</dt><dd>{inquiry.sourcePath ? <a href={inquiry.sourcePath} target="_blank" rel="noopener noreferrer">{inquiry.sourcePath}</a> : "-"}</dd></div>
-            <div><dt>页面地址</dt><dd>{inquiry.pageUrl ? <a href={inquiry.pageUrl} target="_blank" rel="noopener noreferrer">打开来源页</a> : "-"}</dd></div>
+            <div><dt>来源页面</dt><dd>{sourcePath ? <a href={sourcePath} target="_blank" rel="noopener noreferrer">{sourcePath}</a> : "-"}</dd></div>
+            <div><dt>页面地址</dt><dd>{pageUrl ? <a href={pageUrl} target="_blank" rel="noopener noreferrer">打开来源页</a> : "-"}</dd></div>
             <div><dt>首次来源</dt><dd>{touchSummary(attribution.firstTouch)}</dd></div>
             <div><dt>最近来源</dt><dd>{touchSummary(attribution.lastTouch)}</dd></div>
             <div><dt>本次会话</dt><dd>{touchSummary(attribution.sessionTouch)}</dd></div>

@@ -6032,6 +6032,16 @@ textarea:focus {
   }
 }
 
+@media (max-width: 760px) {
+  .whatsapp-float {
+    right: calc(28px + env(safe-area-inset-right));
+  }
+
+  .product-detail-experience .product-hero-copy {
+    padding-inline-end: 78px;
+  }
+}
+
 /* Unified product-first visual direction for News detail pages. */
 .product-first-news-preview {
   --news-preview-ink: #0c233d;

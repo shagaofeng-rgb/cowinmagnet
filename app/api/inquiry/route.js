@@ -7,6 +7,7 @@ export const runtime = "nodejs";
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const phonePattern = /^\+?[0-9\s().-]{7,24}$/;
 const MAX_TEXT_LENGTH = 3000;
+const MAX_REQUEST_BYTES = 24 * 1024;
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
 const RATE_LIMIT_MAX = 5;
 const inquiryRateLimit = globalThis.__cowinInquiryRateLimit || new Map();
@@ -40,11 +41,11 @@ function validate(payload) {
 }
 
 function clientIp(request) {
-  return (
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    request.headers.get("x-real-ip") ||
-    "unknown"
-  );
+  // Vercel strips and recreates X-Forwarded-For before the request reaches this
+  // route. Outside Vercel, do not treat a browser-supplied value as authoritative.
+  const forwarded = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
+  if (request.headers.get("x-vercel-id") && forwarded) return forwarded;
+  return request.headers.get("x-real-ip") || "unknown";
 }
 
 function checkRateLimit(key) {
@@ -199,11 +200,24 @@ async function recordInquiryAttribution(payload) {
 }
 
 export async function POST(request) {
+  const contentLength = Number(request.headers.get("content-length") || 0);
+  if (Number.isFinite(contentLength) && contentLength > MAX_REQUEST_BYTES) {
+    return Response.json({ message: "Request is too large." }, { status: 413 });
+  }
+
   let payload;
   try {
     payload = await request.json();
   } catch {
     return Response.json({ message: "Invalid request body." }, { status: 400 });
+  }
+
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    return Response.json({ message: "Invalid request body." }, { status: 400 });
+  }
+
+  if (Buffer.byteLength(JSON.stringify(payload), "utf8") > MAX_REQUEST_BYTES) {
+    return Response.json({ message: "Request is too large." }, { status: 413 });
   }
 
   const ip = clientIp(request);

@@ -1,4 +1,5 @@
 import { listInquirySubmissions } from "@/lib/inquiryStore";
+import { safeSitePath } from "@/lib/siteUrlSafety";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -153,7 +154,7 @@ export default async function AdminInquiriesPage({ searchParams }) {
                       </td>
                       <td>{text(item.country)}</td>
                       <td>
-                        {item.sourcePath ? <a href={item.sourcePath} target="_blank" rel="noopener noreferrer">{item.sourcePath}</a> : "-"}
+                        {safeSitePath(item.sourcePath) ? <a href={safeSitePath(item.sourcePath)} target="_blank" rel="noopener noreferrer">{safeSitePath(item.sourcePath)}</a> : "-"}
                         <br />
                         <span className="admin-muted">{text(item.channel)}</span>
                       </td>

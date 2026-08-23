@@ -70,7 +70,7 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
           <h2>Verified industry updates and editorial analysis</h2>
           <p>
             News summarizes attributable external industry developments and separates sourced facts from editorial analysis.
-            Blog remains focused on the website's original technical guides and application knowledge.
+            Blog remains focused on the website&apos;s original technical guides and application knowledge.
           </p>
         </div>
 
