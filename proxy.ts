@@ -5,9 +5,9 @@ import { defaultLocale, isLocale } from "@/lib/i18n";
 const PUBLIC_FILE = /\.(.*)$/;
 // Geo blocking is intentionally limited to public document routes. Admin, API,
 // cron, sitemap and static asset requests are handled by the allow-list below.
-// Keep public content reachable. A broad country block previously made News and
-// Blog look offline for legitimate visitors and operators.
-const blockedVisitorCountries = new Set<string>();
+// Keep China mainland public traffic blocked without interrupting operators,
+// deployment jobs, search crawlers, or required static resources.
+const blockedVisitorCountries = new Set<string>(["CN"]);
 const PRIMARY_HOST = "www.cowinmagnet.com";
 
 function getRequestCountry(request: NextRequest) {
