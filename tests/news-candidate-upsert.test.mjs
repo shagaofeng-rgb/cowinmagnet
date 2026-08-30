@@ -18,3 +18,12 @@ test("News storage creates site-scoped fingerprints, locks and delivery records"
   assert.match(source, /news_delivery_checks/);
   assert.match(source, /news:\$\{name\}:\$\{siteId\}/);
 });
+
+test("candidate refresh does not treat its own stored fingerprints as a duplicate", async () => {
+  const [store, operations] = await Promise.all([
+    readFile(new URL("../lib/newsAutomationStore.js", import.meta.url), "utf8"),
+    readFile(new URL("../lib/newsOperations.js", import.meta.url), "utf8")
+  ]);
+  assert.match(store, /candidate\.source_url<>\$4/);
+  assert.match(operations, /excludeSourceUrl: item\.sourceUrl/);
+});
