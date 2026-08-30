@@ -8,7 +8,8 @@ test("News publisher persists a validated structured document and verifies befor
   assert.match(source, /validateArticleDocument\(article\.document\)/);
   assert.match(store, /document_json/);
   assert.match(source, /contentType: document\.contentType/);
-  assert.match(source, /daily publication interval has not elapsed/);
+  assert.match(source, /already_published_today/);
+  assert.match(source, /getSuccessfulNewsPublicationForDay/);
   assert.match(source, /AbortController/);
   assert.match(source, /withNewsTimeout\(async \(signal\) =>/);
   assert.match(source, /response\.json\(\)/);

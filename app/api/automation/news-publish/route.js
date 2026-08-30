@@ -11,9 +11,10 @@ async function handle(request) {
   const requestId = crypto.randomUUID();
   if (!isCronAuthorized(request)) return NextResponse.json({ success: false, data: null, error: "Unauthorized", requestId }, { status: 401 });
   try {
-    const data = await runNewsPublishCycle();
-    const successful = ["published_success", "not_due", "paused"].includes(data.status);
-    return NextResponse.json({ success: successful, data, error: successful ? null : data.reason || "News publishing is retrying after a delivery failure", requestId }, { status: data.status === "retry_pending" ? 503 : 200, headers: { "Cache-Control": "no-store" } });
+    const data = await runNewsPublishCycle({ requestId });
+    const successful = ["published_success", "already_published_today"].includes(data.status);
+    const status = successful ? 200 : data.status === "paused" || data.status === "retry_pending" ? 503 : data.locked === false ? 409 : 500;
+    return NextResponse.json({ success: successful, data, error: successful ? null : data.reason || "News publishing did not complete", requestId }, { status, headers: { "Cache-Control": "no-store" } });
   } catch (error) {
     return NextResponse.json({ success: false, data: null, error: error instanceof Error ? error.message : "News publishing failed", requestId }, { status: 500, headers: { "Cache-Control": "no-store" } });
   }

@@ -34,6 +34,8 @@ export default async function NewsOperationsPage() {
       <section className="admin-panel">
         <h2>Active site</h2>
         <p className="admin-muted">site_id: <code>{dashboard.siteId}</code>. Candidates remain private until a publication run verifies the public News list, detail page and News sitemap.</p>
+        <p className="admin-muted">Publication day: <strong>{dashboard.publicationStatus.today}</strong> ({dashboard.publicationStatus.timeZone}) · Published today: <strong>{dashboard.publicationStatus.publishedToday ? "Yes" : "No"}</strong> · Eligible candidates: <strong>{dashboard.publicationStatus.eligibleCandidateCount}</strong></p>
+        <p className="admin-muted">Last successful publication: <strong>{date(dashboard.publicationStatus.lastSuccessfulAt)}</strong> · Latest publish run: <strong>{dashboard.publicationStatus.latestRunStatus || "-"}</strong>{dashboard.publicationStatus.latestRunError ? ` · ${dashboard.publicationStatus.latestRunError}` : ""}</p>
         <Link href="/admin/news">Open News content management</Link>
       </section>
 
