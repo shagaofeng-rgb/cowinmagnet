@@ -27,3 +27,10 @@ test("candidate refresh does not treat its own stored fingerprints as a duplicat
   assert.match(store, /candidate\.source_url<>\$4/);
   assert.match(operations, /excludeSourceUrl: item\.sourceUrl/);
 });
+
+test("source rotation remains a preference instead of blocking daily ingestion", async () => {
+  const store = await readFile(new URL("../lib/newsAutomationStore.js", import.meta.url), "utf8");
+  const query = store.match(/export async function listNewsSources[\s\S]*?return result\.rows;/)?.[0] || "";
+  assert.doesNotMatch(query, /last_used_at\s*<\s*NOW\(\)/);
+  assert.match(query, /last_used_at NULLS FIRST/);
+});
