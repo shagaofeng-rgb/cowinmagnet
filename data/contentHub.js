@@ -283,6 +283,8 @@ function isRemoteImage(value = "") {
   return /^https?:\/\//i.test(String(value));
 }
 
+const LEGACY_NEWS_FALLBACK_IMAGE = "/images/generated/recycling-application-cowinmagnet.png";
+
 function directLegacyImageUrl(value = "") {
   if (!String(value).startsWith("/api/news-image?")) return value;
   try {
@@ -292,15 +294,21 @@ function directLegacyImageUrl(value = "") {
   }
 }
 
+function stableLegacyNewsImage(value = "") {
+  const direct = directLegacyImageUrl(value);
+  return isRemoteImage(direct) ? LEGACY_NEWS_FALLBACK_IMAGE : direct;
+}
+
 function normalizeLegacyNewsImages(post = {}) {
   const sourcePageUrl = post.canonicalSourceUrl || post.sourceImage?.sourcePageUrl || "";
   const sourceImageUrl =
     post.sourceImage?.originalImageUrl ||
     post.sourceImage?.imageUrl ||
     (isRemoteImage(post.coverImage) ? post.coverImage : "");
+  const coverImage = stableLegacyNewsImage(sourceImageUrl || post.coverImage || "");
   return {
-    coverImage: sourceImageUrl || post.coverImage || "",
-    coverAlt: post.sourceImage?.imageAlt || post.coverAlt || post.title || "",
+    coverImage,
+    coverAlt: isRemoteImage(sourceImageUrl) ? "COWIN MAGNET magnetic separation industry news" : post.sourceImage?.imageAlt || post.coverAlt || post.title || "",
     imageCaption:
       post.sourceImage?.imageCaption ||
       post.imageCaption ||
@@ -349,15 +357,20 @@ async function getLegacyNewsPosts() {
 export async function getAllNewsPosts() {
   const [uploadedNews, legacyNews] = await Promise.all([getCmsItems("news"), getLegacyNewsPosts()]);
   const merged = [
-    ...uploadedNews.map((post) => ({
-      ...post,
-      coverImage: directLegacyImageUrl(post.coverImage || ""),
-      href: post.href || `/news/${post.slug}`,
-      views: Number(post.views || 0),
-      categoryTitle: post.categoryTitle || post.category,
-      seoTitle: post.seoTitle || post.title,
-      seoDescription: post.seoDescription || post.excerpt
-    })),
+    ...uploadedNews.map((post) => {
+      const directCoverImage = directLegacyImageUrl(post.coverImage || "");
+      const remoteCoverImage = isRemoteImage(directCoverImage);
+      return {
+        ...post,
+        coverImage: stableLegacyNewsImage(directCoverImage),
+        coverAlt: remoteCoverImage ? "COWIN MAGNET magnetic separation industry news" : post.coverAlt,
+        href: post.href || `/news/${post.slug}`,
+        views: Number(post.views || 0),
+        categoryTitle: post.categoryTitle || post.category,
+        seoTitle: post.seoTitle || post.title,
+        seoDescription: post.seoDescription || post.excerpt
+      };
+    }),
     ...legacyNews,
     ...newsPosts
   ];

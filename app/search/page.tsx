@@ -12,7 +12,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: "Search | COWIN MAGNET",
+  title: "Search",
   description: "Search COWIN MAGNET products, industry solutions, news, and technical articles.",
   alternates: { canonical: "/search" },
   robots: { index: false, follow: true }

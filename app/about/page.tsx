@@ -6,7 +6,7 @@ import { organizationSchema } from "@/lib/seo";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "About Us | COWIN MAGNET",
+  title: "About Us",
   description:
     "Learn about COWIN MAGNET, a service-first magnetic separation equipment supplier helping overseas buyers with product selection, sourcing coordination, OEM/ODM communication, and delivery follow-up.",
   alternates: { canonical: "/about" }

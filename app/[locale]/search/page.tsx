@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const current = (isLocale(locale) ? locale : "en") as Locale;
   return {
-    title: "Search | COWIN MAGNET",
+    title: "Search",
     description: "Search COWIN MAGNET products, industry solutions, news, and technical articles.",
     alternates: localizedPageAlternates(current, "/search"),
     robots: { index: false, follow: true }

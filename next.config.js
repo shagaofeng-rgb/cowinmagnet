@@ -5,7 +5,14 @@ const nextConfig = {
     "/api/news-image": ["./node_modules/sharp/**/*", "./node_modules/@img/**/*"]
   },
   images: {
-    formats: ["image/avif", "image/webp"]
+    formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "laikegeo.oss-cn-shanghai.aliyuncs.com",
+        pathname: "/uploads/**"
+      }
+    ]
   },
   async redirects() {
     return [

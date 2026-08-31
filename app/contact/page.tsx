@@ -6,7 +6,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Contact COWIN MAGNET",
+  title: "Contact",
   description:
     "Contact COWIN MAGNET for magnetic separator selection, product inquiries, OEM/ODM customization, and global B2B quotation support.",
   alternates: { canonical: "/contact" }

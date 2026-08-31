@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Editorial Policy | COWIN MAGNET",
+  title: "Editorial Policy",
   description: "How COWIN MAGNET prepares and reviews editorial guidance and industry news for industrial buyers.",
   alternates: { canonical: "/editorial-policy" }
 };

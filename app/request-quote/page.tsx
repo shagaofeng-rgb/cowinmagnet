@@ -3,7 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { QuoteForm } from "@/components/QuoteForm";
 
 export const metadata: Metadata = {
-  title: "Request a Quote | COWIN MAGNET",
+  title: "Request a Quote",
   description:
     "Request a custom quotation for magnetic separators, suspended magnets, self-cleaning separators, magnetic pulleys, magnetic bars, and industrial metal detection equipment.",
   alternates: { canonical: "/request-quote" }
