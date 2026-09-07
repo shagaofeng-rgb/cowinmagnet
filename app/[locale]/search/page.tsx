@@ -2,13 +2,21 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Search } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
+import { PaginationNav } from "@/components/PaginationNav";
 import { isLocale, localizedPageAlternates, localizeHref, type Locale } from "@/lib/i18n";
 import { searchSite } from "@/lib/siteSearch";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
-  searchParams?: Promise<{ q?: string }>;
+  searchParams?: Promise<{ q?: string; page?: string }>;
 };
+
+const RESULTS_PER_PAGE = 10;
+
+function safePage(value?: string) {
+  const page = Number(value);
+  return Number.isFinite(page) && page > 0 ? Math.floor(page) : 1;
+}
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -30,6 +38,16 @@ export default async function LocalizedSearchPage({ params, searchParams }: Page
   const queryParams = await searchParams;
   const query = String(queryParams?.q || "").trim();
   const results = await searchSite(query);
+  const totalPages = Math.max(1, Math.ceil(results.length / RESULTS_PER_PAGE));
+  const currentPage = Math.min(safePage(queryParams?.page), totalPages);
+  const pageResults = results.slice((currentPage - 1) * RESULTS_PER_PAGE, currentPage * RESULTS_PER_PAGE);
+  const startItem = results.length ? (currentPage - 1) * RESULTS_PER_PAGE + 1 : 0;
+  const endItem = Math.min(results.length, currentPage * RESULTS_PER_PAGE);
+  const hrefForPage = (page: number) => {
+    const search = new URLSearchParams({ q: query });
+    if (page > 1) search.set("page", String(page));
+    return `${localizeHref("/search", current)}?${search.toString()}`;
+  };
 
   return (
     <>
@@ -60,8 +78,10 @@ export default async function LocalizedSearchPage({ params, searchParams }: Page
         </div>
 
         {query && results.length ? (
+          <>
+          <p className="search-results-summary">{startItem}-{endItem} of {results.length} results · 10 results per page</p>
           <div className="search-result-list">
-            {results.map((item) => (
+            {pageResults.map((item) => (
               <article className="search-result-card" key={`${item.type}-${item.href}`}>
                 <span>{item.type}</span>
                 <h3><Link href={localizeHref(item.href, current)}>{item.title}</Link></h3>
@@ -70,6 +90,8 @@ export default async function LocalizedSearchPage({ params, searchParams }: Page
               </article>
             ))}
           </div>
+          <PaginationNav currentPage={currentPage} totalPages={totalPages} hrefForPage={hrefForPage} label="Search results pagination" summary={`Page ${currentPage} of ${totalPages}`} />
+          </>
         ) : query ? (
           <div className="search-empty-state">
             <h3>No direct match found</h3>

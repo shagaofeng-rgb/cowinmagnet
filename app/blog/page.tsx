@@ -4,7 +4,16 @@ import { ArrowRight, Clock } from "lucide-react";
 import { DateBadge } from "@/components/DateBadge";
 import { BlogImage } from "@/components/BlogImage";
 import { PageHero } from "@/components/PageHero";
+import { PaginationNav } from "@/components/PaginationNav";
 import { getBlogPostsWithCms } from "@/lib/blogCms";
+
+type BlogPageProps = { searchParams?: Promise<{ page?: string }> };
+const POSTS_PER_PAGE = 9;
+
+function safePage(value?: string) {
+  const page = Number(value);
+  return Number.isFinite(page) && page > 0 ? Math.floor(page) : 1;
+}
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -16,8 +25,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blog" }
 };
 
-export default async function BlogPage() {
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+  const query = await searchParams;
   const blogPosts = await getBlogPostsWithCms();
+  const totalPages = Math.max(1, Math.ceil(blogPosts.length / POSTS_PER_PAGE));
+  const currentPage = Math.min(safePage(query?.page), totalPages);
+  const pagePosts = blogPosts.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE);
+  const startItem = blogPosts.length ? (currentPage - 1) * POSTS_PER_PAGE + 1 : 0;
+  const endItem = Math.min(blogPosts.length, currentPage * POSTS_PER_PAGE);
 
   return (
     <>
@@ -37,8 +52,9 @@ export default async function BlogPage() {
           <p>Use these guides to prepare conveyor data, compare product options, and request a more accurate magnetic separator quotation.</p>
         </div>
 
+        <div className="catalog-list-summary"><p>{startItem}-{endItem} of {blogPosts.length} articles</p></div>
         <div className="blog-grid">
-          {blogPosts.map((post) => (
+          {pagePosts.map((post) => (
             <article className="blog-card" key={post.slug}>
               <Link href={`/blog/${post.slug}`} className="blog-card-image" aria-label={post.title}>
                 <DateBadge date={post.publishedAt} />
@@ -58,6 +74,7 @@ export default async function BlogPage() {
             </article>
           ))}
         </div>
+        <PaginationNav currentPage={currentPage} totalPages={totalPages} hrefForPage={(page) => page > 1 ? `/blog?page=${page}` : "/blog"} label="Blog pagination" summary={`Page ${currentPage} of ${totalPages}`} />
       </section>
     </>
   );

@@ -10,6 +10,7 @@ import { DateBadge } from "@/components/DateBadge";
 import { LocalizedProductCard } from "@/components/LocalizedProductCard";
 import { MarkdownContent } from "@/components/MarkdownContent";
 import { PageHero } from "@/components/PageHero";
+import { PaginationNav } from "@/components/PaginationNav";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ProductDetailExperience } from "@/components/ProductDetailExperience";
 import { RelatedInternalLinks } from "@/components/RelatedInternalLinks";
@@ -158,17 +159,19 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
 export function LocalizedProductsPage({
   locale,
   productList = products,
-  categoryList = productCategories
+  categoryList = productCategories,
+  heroOnly = false
 }: {
   locale: Locale;
   productList?: Product[];
   categoryList?: string[];
+  heroOnly?: boolean;
 }) {
   const t = getDictionary(locale);
   return (
     <>
       <PageHero eyebrow={t.products.eyebrow} title={t.products.h1} description={t.products.description} image="/images/catalog/page-3-image-9-1871x840.jpg" imageAlt={t.products.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/request-quote", locale)} secondaryLabel={t.common.requestSelectionSupport} />
-      <section className="section">
+      {heroOnly ? null : <section className="section">
         {categoryList.map((category) => (
           <div className="product-category-block" id={categoryAnchor(category)} key={category}>
             <div className="section-heading align-left"><span className="eyebrow">{category}</span><h2>{category}</h2></div>
@@ -177,7 +180,7 @@ export function LocalizedProductsPage({
             </div>
           </div>
         ))}
-      </section>
+      </section>}
     </>
   );
 }
@@ -341,14 +344,18 @@ export function LocalizedSimplePage({ locale, page }: { locale: Locale; page: "f
   );
 }
 
-export function LocalizedBlogListPage({ locale, posts }: { locale: Locale; posts: BlogPost[] }) {
+export function LocalizedBlogListPage({ locale, posts, pagination }: { locale: Locale; posts: BlogPost[]; pagination?: { currentPage: number; totalPages: number; totalItems: number } }) {
   const t = getDictionary(locale);
+  const startItem = pagination && pagination.totalItems ? (pagination.currentPage - 1) * 9 + 1 : 0;
+  const endItem = pagination ? Math.min(pagination.totalItems, pagination.currentPage * 9) : posts.length;
   return (
     <>
       <PageHero eyebrow={t.blog.eyebrow} title={t.blog.h1} description={t.blog.description} image="/images/generated/recycling-application-cowinmagnet.png" imageAlt={t.blog.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/request-quote", locale)} secondaryLabel={t.common.sendRequirements} />
       <section className="section blog-list-section">
         <div className="section-heading align-left"><span className="eyebrow">{t.blog.hubEyebrow}</span><h2>{t.blog.hubTitle}</h2><p>{t.blog.hubText}</p></div>
+        {pagination ? <div className="catalog-list-summary"><p>{startItem}-{endItem} of {pagination.totalItems} articles</p></div> : null}
         <div className="blog-grid">{posts.map((post) => <article className="blog-card" key={post.slug}><Link href={localizeHref(`/blog/${post.slug}`, locale)} className="blog-card-image"><DateBadge date={post.publishedAt} /><BlogImage src={post.image} width={760} height={460} alt={post.title} /></Link><div className="blog-card-body"><div className="blog-card-meta"><span>{post.category}</span><span>{post.readingTime} {t.common.minRead}</span></div><h3><Link href={localizeHref(`/blog/${post.slug}`, locale)}>{post.title}</Link></h3><p>{post.excerpt}</p><Link href={localizeHref(`/blog/${post.slug}`, locale)} className="text-link">{t.common.readArticle} <ArrowRight size={16} aria-hidden /></Link></div></article>)}</div>
+        {pagination ? <PaginationNav currentPage={pagination.currentPage} totalPages={pagination.totalPages} hrefForPage={(page) => page > 1 ? `${localizeHref("/blog", locale)}?page=${page}` : localizeHref("/blog", locale)} label="Blog pagination" summary={`Page ${pagination.currentPage} of ${pagination.totalPages}`} /> : null}
       </section>
     </>
   );

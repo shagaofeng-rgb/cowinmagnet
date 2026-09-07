@@ -9,6 +9,7 @@ import { absoluteUrl } from "@/lib/seo";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ page?: string }>;
 };
 
 export const dynamic = "force-dynamic";
@@ -47,14 +48,15 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   };
 }
 
-export default async function ProductPage({ params }: ProductPageProps) {
+export default async function ProductPage({ params, searchParams }: ProductPageProps) {
   const { slug } = await params;
+  const query = await searchParams;
   const product = await getProductBySlugWithCms(slug);
   const category = getProductCategoryPage(slug);
 
   if (category) {
     const catalogue = await getProductsWithCms();
-    return <ProductCategoryPage category={category} products={catalogue.filter((item) => item.category === category.category)} />;
+    return <ProductCategoryPage category={category} products={catalogue.filter((item) => item.category === category.category)} requestedPage={query?.page} />;
   }
 
   if (!product) notFound();

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, ExternalLink, MessageCircle } from "lucide-react";
 import { JsonLd } from "@/components/JsonLd";
 import { QuoteForm } from "@/components/QuoteForm";
+import { ProductDetailSectionTabs } from "@/components/ProductDetailPanels";
 import { products, type Product } from "@/data/products";
 import { site } from "@/data/site";
 import { getProductDetailProfile, getProductDisplayName, getProductFamily, productSeoDescription, productSeoTitle } from "@/data/productDetailProfiles";
@@ -189,14 +190,9 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </aside>
 
           <div className="product-detail-content">
-            <nav className="product-section-nav" aria-label="Product section navigation">
-              <a href="#overview">Product overview</a>
-              <a href="#selection">Selection logic</a>
-              <a href="#applications">Applications</a>
-              <a href="#technical-data">Technical data</a>
-            </nav>
+            <ProductDetailSectionTabs />
 
-        <section id="overview" className="product-detail-section product-overview-section">
+        <section id="overview" data-product-panel="overview" className="product-detail-section product-overview-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Product role</span>
             <h2>Overview and how it fits the process</h2>
@@ -206,7 +202,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
         </section>
 
-        <section id="selection" className="product-detail-section product-configuration-section">
+        <section id="selection" data-product-panel="selection" hidden className="product-detail-section product-configuration-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Selection logic</span>
             <h2>Why this configuration needs site information</h2>
@@ -222,7 +218,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
         </section>
 
-        <section className="product-detail-section product-process-section">
+        <section data-product-panel="applications" hidden className="product-detail-section product-process-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Process position</span>
             <h2>Where it fits in a typical material flow</h2>
@@ -232,7 +228,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
         </section>
 
         {product.engineeringDiagrams?.length ? (
-          <section className="product-detail-section product-engineering-diagrams">
+          <section data-product-panel="applications" hidden className="product-detail-section product-engineering-diagrams">
             <div className="product-detail-section-heading">
               <span className="eyebrow">Engineering reference</span>
               <h2>Installation and dimensional reference</h2>
@@ -249,7 +245,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </section>
         ) : null}
 
-        <section id="applications" className="product-detail-section product-materials-section">
+        <section id="applications" data-product-panel="applications" hidden className="product-detail-section product-materials-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Applications</span>
             <h2>Typical materials and industry contexts</h2>
@@ -268,7 +264,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
         </section>
 
-        <section id="technical-data" className="product-detail-section product-specification-section">
+        <section id="technical-data" data-product-panel="technical" hidden className="product-detail-section product-specification-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Technical information</span>
             <h2>Technical specifications and confirmation basis</h2>
@@ -278,7 +274,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
             <div className="product-model-table-scroll">
               <table className="product-model-specification-table">
                 <caption>{product.specificationTable?.sourceLabel}</caption>
-                <thead><tr>{product.specificationTable?.columns.map((column) => <th scope="col" key={column}>{column}</th>)}</tr></thead>
+                <thead><tr>{product.specificationTable?.columns.map((column, index) => <th scope="col" key={`${column}-${index}`}>{column}</th>)}</tr></thead>
                 <tbody>{product.specificationTable?.rows.map((row, rowIndex) => <tr key={`${row[0]}-${rowIndex}`}>{row.map((value, valueIndex) => <td key={`${value}-${valueIndex}`}>{value}</td>)}</tr>)}</tbody>
               </table>
             </div>
@@ -290,7 +286,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           )}
         </section>
 
-        <section className="product-detail-section product-options-section">
+        <section data-product-panel="selection" hidden className="product-detail-section product-options-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Configuration</span>
             <h2>Configuration points to review</h2>
@@ -300,7 +296,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
         </section>
 
-        <section className="product-detail-section product-selection-section">
+        <section data-product-panel="selection" hidden className="product-detail-section product-selection-section">
           <div className="product-selection-copy">
             <span className="eyebrow">Selection checklist</span>
             <h2>What to send for an initial configuration review</h2>
@@ -316,7 +312,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
         </section>
 
-        <section className="product-detail-section product-related-section">
+        <section data-product-panel="applications" hidden className="product-detail-section product-related-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Process equipment</span>
             <h2>Related products for the same process line</h2>
@@ -333,7 +329,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
         </section>
 
-        <section className="product-detail-section product-faq-section">
+        <section data-product-panel="support" hidden className="product-detail-section product-faq-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Product FAQ</span>
             <h2>Questions to resolve before ordering</h2>
@@ -343,7 +339,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
         </section>
 
-        <section className="product-final-cta" aria-labelledby="product-final-cta-title">
+        <section data-product-panel="support" hidden className="product-final-cta" aria-labelledby="product-final-cta-title">
           <div className="product-final-media"><Image src={product.image} alt={`${displayName} inquiry support`} width={660} height={440} sizes="(max-width: 900px) 100vw, 46vw" /></div>
           <div className="product-final-form">
             <span className="eyebrow">Request a quote</span>

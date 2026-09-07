@@ -3853,6 +3853,160 @@ textarea:focus {
   background: var(--blue);
 }
 
+.news-category-pill.active {
+  color: #ffffff;
+  border-color: var(--blue);
+  background: var(--blue);
+}
+
+.catalog-index-section {
+  display: grid;
+  gap: 24px;
+}
+
+.catalog-category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.catalog-category-tabs a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 12px;
+  color: #17466f;
+  border: 1px solid #d5e2ed;
+  border-radius: 999px;
+  background: #f7fbff;
+  font-size: 13px;
+  font-weight: 780;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.catalog-category-tabs a:hover,
+.catalog-category-tabs a:focus-visible,
+.catalog-category-tabs a.is-active {
+  color: #ffffff;
+  border-color: var(--blue);
+  background: var(--blue);
+  outline: none;
+}
+
+.catalog-category-tabs small {
+  display: inline-grid;
+  min-width: 22px;
+  min-height: 22px;
+  place-items: center;
+  padding: 0 5px;
+  color: inherit;
+  border-radius: 999px;
+  background: rgba(13, 38, 63, 0.1);
+  font-size: 11px;
+}
+
+.catalog-category-tabs a.is-active small {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.catalog-list-summary,
+.search-results-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 0;
+  color: #5b7088;
+  font-size: 14px;
+  font-weight: 760;
+}
+
+.catalog-list-summary p,
+.search-results-summary {
+  margin: 0;
+}
+
+.content-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 18px 0 0;
+}
+
+.content-pagination > a,
+.content-pagination > span,
+.content-pagination li > a,
+.content-pagination li > span {
+  display: inline-grid;
+  min-width: 42px;
+  min-height: 42px;
+  place-items: center;
+  padding: 8px 12px;
+  color: #0b5cad;
+  border: 1px solid rgba(11, 92, 173, 0.24);
+  border-radius: 7px;
+  background: #ffffff;
+  font-size: 14px;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.content-pagination > a:hover,
+.content-pagination li > a:hover,
+.content-pagination > a:focus-visible,
+.content-pagination li > a:focus-visible {
+  color: #ffffff;
+  border-color: var(--blue);
+  background: var(--blue);
+  outline: none;
+}
+
+.content-pagination ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.content-pagination .is-current {
+  color: #ffffff;
+  border-color: var(--blue);
+  background: var(--blue);
+}
+
+.content-pagination .is-disabled {
+  color: #94a3b8;
+  border-color: #e2e8f0;
+  background: #f8fafc;
+}
+
+.content-pagination .is-ellipsis {
+  min-width: 24px;
+  padding-inline: 2px;
+  color: #64748b;
+  border-color: transparent;
+  background: transparent;
+}
+
+.content-pagination > p {
+  width: 100%;
+  margin: 2px 0 0;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
 .news-list-toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -6834,7 +6988,12 @@ textarea:focus {
   background: #ffffff;
 }
 
-.product-section-nav {
+.product-detail-content [data-product-panel][hidden] {
+  display: none !important;
+}
+
+.product-section-nav,
+.product-section-tabs {
   position: sticky;
   top: 74px;
   z-index: 4;
@@ -6848,7 +7007,8 @@ textarea:focus {
   scrollbar-width: thin;
 }
 
-.product-section-nav a {
+.product-section-nav a,
+.product-section-tabs button {
   flex: 1 0 auto;
   min-height: 42px;
   padding: 11px 15px;
@@ -6858,10 +7018,16 @@ textarea:focus {
   font-weight: 800;
   text-align: center;
   text-decoration: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
 }
 
 .product-section-nav a:hover,
-.product-section-nav a:focus-visible {
+.product-section-nav a:focus-visible,
+.product-section-tabs button:hover,
+.product-section-tabs button:focus-visible,
+.product-section-tabs button.is-active {
   color: #0a5fae;
   background: #eef6fc;
   outline: none;
@@ -7493,12 +7659,14 @@ textarea:focus {
     border-radius: 0;
   }
 
-  .product-section-nav {
+  .product-section-nav,
+  .product-section-tabs {
     top: 58px;
     padding: 6px 14px;
   }
 
-  .product-section-nav a {
+  .product-section-nav a,
+  .product-section-tabs button {
     min-height: 40px;
     padding: 10px 12px;
     font-size: 13px;

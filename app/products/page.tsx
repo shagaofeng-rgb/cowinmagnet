@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { ProductCard } from "@/components/ProductCard";
+import { PaginatedProductCatalog } from "@/components/PaginatedProductCatalog";
 import { PageHero } from "@/components/PageHero";
 import { getProductCategoryNamesWithCms, getProductsWithCms } from "@/lib/productCms";
-import { getProductCategoryPage } from "@/lib/productCategories";
-import { categoryAnchor } from "@/lib/anchors";
+
+type ProductsPageProps = {
+  searchParams?: Promise<{ category?: string; page?: string }>;
+};
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -15,7 +17,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/products" }
 };
 
-export default async function ProductsPage() {
+export default async function ProductsPage({ searchParams }: ProductsPageProps) {
+  const query = await searchParams;
   const [products, productCategories] = await Promise.all([getProductsWithCms(), getProductCategoryNamesWithCms()]);
 
   return (
@@ -28,23 +31,7 @@ export default async function ProductsPage() {
         secondaryHref="/request-quote"
         secondaryLabel="Request Selection Support"
       />
-      <section className="section">
-        {productCategories.map((category) => (
-          <div className="product-category-block" key={category}>
-            <div className="section-heading align-left">
-              <span className="eyebrow">{category}</span>
-              <h2>{getProductCategoryPage(categoryAnchor(category)) ? <a href={`/products/${getProductCategoryPage(categoryAnchor(category))?.slug}`}>{category}</a> : category}</h2>
-            </div>
-            <div className="product-grid">
-              {products
-                .filter((product) => product.category === category)
-                .map((product) => (
-                  <ProductCard key={product.slug} product={product} />
-                ))}
-            </div>
-          </div>
-        ))}
-      </section>
+      <PaginatedProductCatalog products={products} categories={productCategories} selectedCategory={query?.category} requestedPage={query?.page} />
     </>
   );
 }

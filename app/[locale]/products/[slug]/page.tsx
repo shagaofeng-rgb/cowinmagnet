@@ -9,7 +9,7 @@ import { getProductCategoryPage, productCategoryPages } from "@/lib/productCateg
 import { getProductsWithCms } from "@/lib/productCms";
 import { absoluteUrl } from "@/lib/seo";
 
-type PageProps = { params: Promise<{ locale: string; slug: string }> };
+type PageProps = { params: Promise<{ locale: string; slug: string }>; searchParams?: Promise<{ page?: string }> };
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -50,14 +50,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     twitter: { card: "summary_large_image", title: productSeoTitle(product), description: productSeoDescription(product), images: [product.image] }
   };
 }
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params, searchParams }: PageProps) {
   const { locale, slug } = await params;
+  const query = await searchParams;
   const product = await getProductBySlugWithCms(slug);
   const category = getProductCategoryPage(slug);
   if (!isLocale(locale)) notFound();
   if (category) {
     const catalogue = await getProductsWithCms();
-    return <ProductCategoryPage locale={locale as Locale} category={category} products={catalogue.filter((item) => item.category === category.category)} />;
+    return <ProductCategoryPage locale={locale as Locale} category={category} products={catalogue.filter((item) => item.category === category.category)} requestedPage={query?.page} />;
   }
   if (!product) notFound();
   return <ProductDetailExperience locale={locale as Locale} product={product} />;

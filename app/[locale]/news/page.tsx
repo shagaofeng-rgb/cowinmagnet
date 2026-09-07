@@ -3,26 +3,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { DateBadge } from "@/components/DateBadge";
+import { PaginationNav } from "@/components/PaginationNav";
 import { PageHero } from "@/components/PageHero";
 import { formatDisplayDate, getNewsCategories, getNewsPosts } from "@/data/contentHub";
 import { isLocale, localizedPageAlternates, localizeHref, type Locale } from "@/lib/i18n";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
-  searchParams?: Promise<{ page?: string; perPage?: string }>;
+  searchParams?: Promise<{ category?: string; page?: string }>;
 };
 
-const pageSizeOptions = [15, 30, 45];
+const NEWS_PER_PAGE = 12;
 
 function parsePositiveInteger(value: string | undefined, fallback: number) {
   const number = Number(value);
   return Number.isFinite(number) && number > 0 ? Math.floor(number) : fallback;
 }
 
-function newsPageHref(locale: Locale, page: number, perPage: number) {
+function newsPageHref(locale: Locale, page: number, category?: string) {
   const params = new URLSearchParams();
+  if (category) params.set("category", category);
   if (page > 1) params.set("page", String(page));
-  if (perPage !== pageSizeOptions[0]) params.set("perPage", String(perPage));
   const base = localizeHref("/news", locale);
   const query = params.toString();
   return query ? `${base}?${query}` : base;
@@ -54,14 +55,14 @@ export default async function LocalizedNewsPage({ params, searchParams }: PagePr
   const current = (isLocale(locale) ? locale : "en") as Locale;
   const [categories, posts] = await Promise.all([getNewsCategories(), getNewsPosts()]);
   const categoryMap = new Map(categories.map((category) => [category.slug, category.title]));
-  const perPageCandidate = parsePositiveInteger(query?.perPage, pageSizeOptions[0]);
-  const perPage = pageSizeOptions.includes(perPageCandidate) ? perPageCandidate : pageSizeOptions[0];
-  const totalPages = Math.max(1, Math.ceil(posts.length / perPage));
+  const selectedCategory = categories.some((category) => category.slug === query?.category) ? query?.category : undefined;
+  const filteredPosts = selectedCategory ? posts.filter((post) => post.category === selectedCategory) : posts;
+  const totalPages = Math.max(1, Math.ceil(filteredPosts.length / NEWS_PER_PAGE));
   const requestedPage = parsePositiveInteger(query?.page, 1);
   const currentPage = Math.min(Math.max(1, requestedPage), totalPages);
-  const pagePosts = posts.slice((currentPage - 1) * perPage, currentPage * perPage);
-  const startItem = posts.length ? (currentPage - 1) * perPage + 1 : 0;
-  const endItem = Math.min(posts.length, currentPage * perPage);
+  const pagePosts = filteredPosts.slice((currentPage - 1) * NEWS_PER_PAGE, currentPage * NEWS_PER_PAGE);
+  const startItem = filteredPosts.length ? (currentPage - 1) * NEWS_PER_PAGE + 1 : 0;
+  const endItem = Math.min(filteredPosts.length, currentPage * NEWS_PER_PAGE);
 
   return (
     <>
@@ -84,23 +85,17 @@ export default async function LocalizedNewsPage({ params, searchParams }: PagePr
         </div>
 
         <div className="news-category-row" aria-label="News categories">
+          <Link href={newsPageHref(current, 1)} className={`news-category-pill${!selectedCategory ? " active" : ""}`}>All updates</Link>
           {categories.map((category) => (
-            <a href={`#${category.slug}`} className="news-category-pill" key={category.slug}>
+            <Link href={newsPageHref(current, 1, category.slug)} className={`news-category-pill${selectedCategory === category.slug ? " active" : ""}`} key={category.slug}>
               {category.title}
-            </a>
+            </Link>
           ))}
         </div>
 
         <div className="news-list-toolbar">
-          <p>{startItem}-{endItem} of {posts.length} news posts</p>
-          <div className="news-page-size" aria-label="News posts per page">
-            <span>Per page</span>
-            {pageSizeOptions.map((option) => (
-              <Link key={option} href={newsPageHref(current, 1, option)} className={option === perPage ? "active" : ""}>
-                {option}
-              </Link>
-            ))}
-          </div>
+          <p>{startItem}-{endItem} of {filteredPosts.length} news posts</p>
+          <span>12 posts per page</span>
         </div>
 
         <div className="blog-grid news-card-grid">
@@ -128,15 +123,7 @@ export default async function LocalizedNewsPage({ params, searchParams }: PagePr
         </div>
 
         {totalPages > 1 ? (
-          <nav className="news-pagination" aria-label="News pagination">
-            <Link className={currentPage === 1 ? "disabled" : ""} href={newsPageHref(current, Math.max(1, currentPage - 1), perPage)} aria-disabled={currentPage === 1}>
-              Previous
-            </Link>
-            <span>Page {currentPage} of {totalPages}</span>
-            <Link className={currentPage === totalPages ? "disabled" : ""} href={newsPageHref(current, Math.min(totalPages, currentPage + 1), perPage)} aria-disabled={currentPage === totalPages}>
-              Next
-            </Link>
-          </nav>
+          <PaginationNav currentPage={currentPage} totalPages={totalPages} hrefForPage={(page) => newsPageHref(current, page, selectedCategory)} label="News pagination" summary={`Page ${currentPage} of ${totalPages}`} />
         ) : null}
       </section>
     </>
