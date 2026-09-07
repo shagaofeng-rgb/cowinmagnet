@@ -8,7 +8,7 @@ Static content dates are generated from the latest relevant Git commit by `scrip
 
 On Vercel, a writable project filesystem is not persistent. The production implementation therefore validates all XML first, then activates a new snapshot in a Neon PostgreSQL transaction. The previous snapshot remains current if validation or storage fails. Local mode writes a temporary JSON file, validates it and atomically renames it.
 
-CMS saves and status changes mark the Sitemap as dirty. The next public Sitemap request regenerates it under a job lock. A daily Vercel Cron performs a second consistency check, verifies the absolute Sitemap declaration in `robots.txt`, and records every run in `sync_job_runs` with file sizes, URL counts, skipped URLs, additions, modifications, removals and Search Console submission status.
+CMS saves and status changes mark the Sitemap as dirty. The next public Sitemap request regenerates it under a job lock. A daily Vercel Cron performs a second consistency check, verifies the absolute Sitemap declaration in `robots.txt`, and records every run in `sync_job_runs` with file sizes, URL counts, skipped URLs, additions, modifications, removals and Search Console submission status. Google submission is attempted only when the sitemap manifest changed (or a privileged forced run requests it); a disabled or failed required submission is recorded as `submission_failed`, never as an ordinary success.
 
 ## Public URLs
 
@@ -38,13 +38,13 @@ npm run build
 
 ## Vercel Cron
 
-`vercel.json` schedules `/api/cron/sitemap-maintenance` at `35 2 * * *` (02:35 UTC daily). Vercel authenticates the request with `Authorization: Bearer $CRON_SECRET`. Do not expose this route without authentication and do not create a second scheduler for the same job.
+`vercel.json` schedules `/api/cron/sitemap-maintenance` at `35 2 * * *` (02:35 UTC daily; 10:35 Asia/Shanghai). Vercel authenticates the request with `Authorization: Bearer $CRON_SECRET`. Do not expose this route without authentication and do not create a second scheduler for the same job.
 
 ## Environment Variables
 
 ```env
 CRON_SECRET=
-GOOGLE_SEARCH_CONSOLE_ENABLED=false
+GOOGLE_SEARCH_CONSOLE_ENABLED=true
 GOOGLE_SEARCH_CONSOLE_SITE_URL=https://www.cowinmagnet.com/
 GOOGLE_SEARCH_CONSOLE_SITEMAP_URL=https://www.cowinmagnet.com/sitemap.xml
 GOOGLE_CLIENT_EMAIL=
@@ -59,7 +59,7 @@ The implementation uses the Search Console Sitemaps API. It does not use the ret
 
 ## Logs
 
-Sitemap runs are written to `sync_job_runs` with `job_name = 'sitemap-maintenance'`. The metadata records trigger, duration, status, files, counts, diff URLs and sanitized API results. Credentials, access tokens and private keys are never logged.
+Sitemap runs are written to `sync_job_runs` with `job_name = 'sitemap-maintenance'`. The metadata records trigger, duration, status, files, counts, diff URLs and sanitized API results. Credentials, access tokens and private keys are never logged. The authenticated health endpoint additionally reads the official Sitemap API status (last submitted/read time, pending state, warnings, errors and discovered URL counts). This confirms sitemap handoff only; it does not claim individual URLs are indexed.
 
 ## Troubleshooting
 

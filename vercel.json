@@ -17,7 +17,7 @@
     },
     {
       "path": "/api/cron/sitemap-maintenance",
-      "schedule": "35 2 */3 * *"
+      "schedule": "35 2 * * *"
     },
     {
       "path": "/api/cron/blog-publish-retry",

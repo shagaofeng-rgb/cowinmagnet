@@ -15,6 +15,7 @@ import {
 import { atomicWriteJson, withSitemapGenerationLock } from "../lib/sitemap/storage.js";
 import {
   maybeSubmitSitemap,
+  getSearchConsoleSitemapStatus,
   resetSearchConsoleTokenCacheForTests,
   submitSitemapToSearchConsole
 } from "../lib/searchConsoleClient.js";
@@ -138,4 +139,26 @@ test("does not call Google when submission is disabled", async () => {
   const result = await maybeSubmitSitemap({ fetchImpl: async () => assert.fail("fetch should not run") });
   assert.equal(result.attempted, false);
   assert.equal(result.reason, "disabled");
+});
+
+test("reads the accepted sitemap status without claiming URL indexing", async () => {
+  searchConsoleEnv();
+  const result = await getSearchConsoleSitemapStatus({
+    fetchImpl: async (url) => {
+      if (String(url).includes("oauth2.googleapis.com")) return Response.json({ access_token: "test-token", expires_in: 3600 });
+      return Response.json({
+        path: `${siteUrl}/sitemap.xml`,
+        lastSubmitted: "2026-09-07T02:35:00.000Z",
+        lastDownloaded: "2026-09-07T02:36:00.000Z",
+        isPending: false,
+        warnings: 0,
+        errors: 0,
+        contents: [{ type: "web", submitted: 144 }]
+      });
+    }
+  });
+  assert.equal(result.live, true);
+  assert.equal(result.submissionEnabled, true);
+  assert.equal(result.contents[0].submitted, 144);
+  assert.equal("indexedPages" in result, false);
 });

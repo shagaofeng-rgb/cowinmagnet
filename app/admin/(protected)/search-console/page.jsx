@@ -2,6 +2,8 @@ import { BarList, MetricCard } from "@/components/admin/AdminWidgets";
 import AdminDateRangeFilter from "@/components/admin/AdminDateRangeFilter";
 import { getAdminDateRange } from "@/lib/adminDateRange";
 import { getSearchConsoleSnapshot } from "@/lib/analyticsStore";
+import { getSearchConsoleSitemapStatus } from "@/lib/searchConsoleClient";
+import { getSyncStatus } from "@/lib/syncStatusStore";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -11,7 +13,16 @@ export const metadata = {
 export default async function SearchConsolePage({ searchParams }) {
   const range = getAdminDateRange(await searchParams);
   const rangeKey = `${range.preset}:${range.startInput}:${range.endInput}`;
-  const data = await getSearchConsoleSnapshot(range);
+  const [data, sitemapResult, maintenance] = await Promise.all([
+    getSearchConsoleSnapshot(range),
+    getSearchConsoleSitemapStatus().catch((error) => ({
+      configured: true,
+      submissionEnabled: false,
+      live: false,
+      error: error instanceof Error ? error.message : "Sitemap status check failed"
+    })),
+    getSyncStatus("sitemap-maintenance").catch(() => null)
+  ]);
 
   return (
     <div className="admin-page">
@@ -65,12 +76,29 @@ export default async function SearchConsolePage({ searchParams }) {
         </article>
 
         <article className="admin-panel">
-          <p className="eyebrow">连接状态</p>
+          <p className="eyebrow">Sitemap 握手状态</p>
+          <h2>Google 已接收 Sitemap</h2>
+          <dl className="admin-definition-list">
+            <div><dt>自动提交</dt><dd>{sitemapResult.submissionEnabled ? "已启用" : "未启用"}</dd></div>
+            <div><dt>Google API</dt><dd>{sitemapResult.live ? "已连接" : "未连接"}</dd></div>
+            <div><dt>最后提交</dt><dd>{sitemapResult.lastSubmitted ? new Date(sitemapResult.lastSubmitted).toLocaleString("zh-CN") : "—"}</dd></div>
+            <div><dt>最后读取</dt><dd>{sitemapResult.lastDownloaded ? new Date(sitemapResult.lastDownloaded).toLocaleString("zh-CN") : "—"}</dd></div>
+            <div><dt>发现 URL</dt><dd>{sitemapResult.contents?.reduce((total, item) => total + item.submitted, 0) || 0}</dd></div>
+            <div><dt>警告 / 错误</dt><dd>{`${sitemapResult.warnings || 0} / ${sitemapResult.errors || 0}`}</dd></div>
+          </dl>
+          <p className="admin-muted">
+            最近维护任务：{maintenance?.latest?.status || "暂无记录"}；{maintenance?.schedule || "未配置"}
+          </p>
+          {sitemapResult.error ? <p className="admin-alert">{sitemapResult.error}</p> : null}
+        </article>
+
+        <article className="admin-panel">
+          <p className="eyebrow">搜索表现 API</p>
           <h2>Search Console API</h2>
           <BarList rows={data.indexingStatus} />
           <p className="admin-muted">
             {data.live
-              ? "已读取 Google Search Console 搜索表现数据。收录明细如需逐 URL 检查，可后续接入 URL Inspection API。"
+              ? "已读取 Google Search Console 搜索表现数据。Pages 收录覆盖率以 Google Search Console 的 Page indexing 报告为准；普通网页不使用批量 Indexing API。"
               : "尚未连接 Google Search Console API，因此当前显示 0 和空表，不再显示示例数据。"}
           </p>
           {data.error ? <p className="admin-alert">{data.error}</p> : null}

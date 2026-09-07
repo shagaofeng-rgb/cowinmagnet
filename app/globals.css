@@ -8114,6 +8114,40 @@ body:not(:has(.admin-dashboard)):not(:has(.admin-login-page)) {
   color: #58708a;
 }
 
+.admin-definition-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.admin-definition-list div {
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #d7e2ed;
+  border-radius: 6px;
+  background: #f7fafc;
+}
+
+.admin-definition-list dt {
+  color: #58708a;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.admin-definition-list dd {
+  margin: 4px 0 0;
+  overflow-wrap: anywhere;
+  color: #18324b;
+  font-weight: 850;
+}
+
+@media (max-width: 560px) {
+  .admin-definition-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 .admin-date-filter,
 .admin-panel,
 .admin-metric-card {
