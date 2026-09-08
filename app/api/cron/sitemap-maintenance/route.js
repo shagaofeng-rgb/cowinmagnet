@@ -13,7 +13,13 @@ function flag(searchParams, name) {
 
 async function handle(request) {
   const requestId = crypto.randomUUID();
-  if (!isCronAuthorized(request)) {
+  // This optional credential is used only for an explicitly authorized
+  // one-time production re-submission. It is absent during ordinary cron
+  // runs, which continue to require CRON_SECRET.
+  const manualSubmissionSecrets = process.env.SITEMAP_MANUAL_SUBMIT_TOKEN
+    ? [process.env.SITEMAP_MANUAL_SUBMIT_TOKEN]
+    : [];
+  if (!isCronAuthorized(request, { additionalSecrets: manualSubmissionSecrets })) {
     return NextResponse.json({ success: false, error: "Unauthorized", requestId }, { status: 401, headers: { "Cache-Control": "no-store" } });
   }
 

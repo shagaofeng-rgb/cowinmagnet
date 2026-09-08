@@ -47,3 +47,12 @@ test("Cron authorization supports the protected manual header", () => {
     assert.equal(isCronAuthorized(request), true);
   });
 });
+
+test("Cron authorization accepts an explicitly scoped one-time manual secret", () => {
+  withSecret(() => {
+    const request = new Request("https://example.com/api/cron/test", {
+      headers: { "x-cron-secret": "one-time-sitemap-submission" }
+    });
+    assert.equal(isCronAuthorized(request, { additionalSecrets: ["one-time-sitemap-submission"] }), true);
+  });
+});
