@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { newsCategories } from "@/data/contentHub";
 import { cmsStorageMode, getCmsItems } from "@/lib/cmsStore";
+import AdminDateRangeFilter from "@/components/admin/AdminDateRangeFilter";
+import { getAdminDateRange } from "@/lib/adminDateRange";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -107,6 +109,7 @@ function formatDate(value) {
 
 export default async function AdminNewsPage({ searchParams }) {
   const params = await searchParams;
+  const range = getAdminDateRange(params);
   const uploadedNews = await getCmsItems("news", { includeInactive: true });
   const query = String(params?.q || "").trim().toLowerCase();
   const status = String(params?.status || "all");
@@ -115,6 +118,10 @@ export default async function AdminNewsPage({ searchParams }) {
   const page = pageValue(params?.page);
 
   const filteredNews = uploadedNews
+    .filter((post) => {
+      const date = new Date(post.updatedAt || post.createdAt || post.publishedAt || 0);
+      return !Number.isNaN(date.getTime()) && date >= range.startDate && date <= range.endDate;
+    })
     .filter((post) => (status === "all" ? true : post.status === status))
     .filter((post) => (category === "all" ? true : post.category === category))
     .filter((post) => {
@@ -129,7 +136,7 @@ export default async function AdminNewsPage({ searchParams }) {
   const totalPages = Math.max(1, Math.ceil(filteredNews.length / pageSize));
   const safePage = Math.min(page, totalPages);
   const pageNews = filteredNews.slice((safePage - 1) * pageSize, safePage * pageSize);
-  const filterParams = { q: params?.q || "", status, category, pageSize };
+  const filterParams = { q: params?.q || "", status, category, pageSize, range: range.preset, start: range.preset === "custom" ? range.startInput : "", end: range.preset === "custom" ? range.endInput : "" };
 
   return (
     <div className="admin-page">
@@ -145,6 +152,7 @@ export default async function AdminNewsPage({ searchParams }) {
           {cmsStorageMode() === "database" ? "数据库持久化" : "本地文件模式"}
         </div>
       </header>
+      <AdminDateRangeFilter range={range} />
 
       {statusMessage(params) ? <div className="admin-alert">{statusMessage(params)}</div> : null}
 

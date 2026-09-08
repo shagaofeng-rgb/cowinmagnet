@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 const rangeOptions = [
   ["day", "日"],
@@ -12,6 +12,7 @@ const rangeOptions = [
 
 export default function AdminDateRangeFilter({ range }) {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const filterRef = useRef(null);
   const [preset, setPreset] = useState(range?.preset || "day");
   const [start, setStart] = useState(range?.startInput || "");
@@ -52,8 +53,11 @@ export default function AdminDateRangeFilter({ range }) {
   }, [error, isCustom, range]);
 
   function goToPreset(nextPreset) {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(searchParams.toString());
     params.set("range", nextPreset);
+    params.delete("start");
+    params.delete("end");
+    params.set("page", "1");
     window.location.assign(`${pathname}?${params.toString()}`);
   }
 
@@ -92,7 +96,9 @@ export default function AdminDateRangeFilter({ range }) {
 
   return (
     <form ref={filterRef} className="admin-date-filter" action={pathname} method="get" onSubmit={applyRange}>
+      {[...searchParams.entries()].filter(([key]) => !["range", "start", "end", "page"].includes(key)).map(([key, value], index) => <input type="hidden" name={key} value={value} key={`${key}-${index}`} />)}
       <input type="hidden" name="range" value={preset} />
+      <input type="hidden" name="page" value="1" />
       <div className="admin-date-filter-head">
         <span>时间范围</span>
         <small className={error ? "is-error" : ""}>

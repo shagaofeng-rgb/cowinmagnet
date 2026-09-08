@@ -1,5 +1,7 @@
 import { listInquirySubmissions } from "@/lib/inquiryStore";
 import { safeSitePath } from "@/lib/siteUrlSafety";
+import AdminDateRangeFilter from "@/components/admin/AdminDateRangeFilter";
+import { getAdminDateRange } from "@/lib/adminDateRange";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -68,13 +70,14 @@ function Pagination({ params, page, totalPages, total, pageSize }) {
 
 export default async function AdminInquiriesPage({ searchParams }) {
   const params = await searchParams;
+  const range = getAdminDateRange(params);
   const query = String(params?.q || "");
   const status = String(params?.status || "all");
   const country = String(params?.country || "all");
   const page = Number(params?.page || 1);
   const pageSize = Number(params?.pageSize || 20);
-  const data = await listInquirySubmissions({ q: query, status, country, page, pageSize });
-  const filterParams = { q: query, status, country, pageSize: data.pageSize };
+  const data = await listInquirySubmissions({ q: query, status, country, page, pageSize, startDate: range.startDate.toISOString(), endDate: range.endDate.toISOString() });
+  const filterParams = { q: query, status, country, pageSize: data.pageSize, range: range.preset, start: range.preset === "custom" ? range.startInput : "", end: range.preset === "custom" ? range.endInput : "" };
   const countries = [...new Set(data.rows.map((item) => item.country).filter(Boolean))].sort();
 
   return (
@@ -89,6 +92,7 @@ export default async function AdminInquiriesPage({ searchParams }) {
           {data.storageMode === "database" ? "数据库持久化" : "本地文件模式"}
         </div>
       </header>
+      <AdminDateRangeFilter range={range} />
 
       {params?.updated ? <div className="admin-alert success">询盘状态已更新。</div> : null}
 

@@ -511,7 +511,7 @@ export function AdminTrafficRealtime({ initialData }) {
 
 export function AdminVisitorsRealtime({ initialData }) {
   const { data, state } = useLiveAnalytics(initialData);
-  const visitors = list(data.visitors);
+  const visitors = list(data.customerProfiles?.length ? data.customerProfiles : data.visitors);
   const [filters, setFilters] = useState({ keyword: "", country: "", source: "" });
   const filteredVisitors = useMemo(() => {
     const keyword = filters.keyword.trim().toLowerCase();
@@ -527,8 +527,7 @@ export function AdminVisitorsRealtime({ initialData }) {
         visitor.channel,
         visitor.sourcePlatform,
         visitor.sourceDetail,
-        visitor.page,
-        visitor.ip,
+        visitor.latestPage || visitor.page,
         customerType(visitor),
         visitDay(visitor)
       );
@@ -547,7 +546,8 @@ export function AdminVisitorsRealtime({ initialData }) {
   const csvRows = useMemo(
     () =>
       filteredVisitors.map((item) => ({
-        time: formatBeijingDateTime(item.timestamp),
+        firstSeen: formatBeijingDateTime(item.firstSeenAt || item.timestamp),
+        lastSeen: formatBeijingDateTime(item.lastSeenAt || item.timestamp),
         customerNumber: customerNumber(item.customerNumber),
         country: displayCountry(item.country),
         device: displayText(item.device),
@@ -555,7 +555,10 @@ export function AdminVisitorsRealtime({ initialData }) {
         channel: displayText(item.channel),
         sourcePlatform: displayText(item.sourcePlatform),
         sourceDetail: displayText(item.sourceDetail),
-        page: item.page,
+        visits: item.visitCount || 1,
+        sessions: item.sessionCount || 1,
+        pages: item.pageCount || 1,
+        page: item.latestPage || item.page,
         customerType: customerType(item),
         visitDay: visitDay(item),
         ip: item.ip || "-"
@@ -579,8 +582,8 @@ export function AdminVisitorsRealtime({ initialData }) {
       <section className="admin-panel">
         <div className="admin-panel-head">
           <div>
-            <p className="eyebrow">实时访客</p>
-            <h2>最近访问记录</h2>
+            <p className="eyebrow">客户归属</p>
+            <h2>客户访问档案</h2>
           </div>
           <CsvExportButton rows={csvRows} filename="cowin-visitors.csv" />
         </div>
@@ -589,7 +592,7 @@ export function AdminVisitorsRealtime({ initialData }) {
             aria-label="筛选访客记录"
             value={filters.keyword}
             onChange={(event) => updateFilter("keyword", event.target.value)}
-            placeholder="搜索客户编号、页面、IP、来源"
+            placeholder="搜索客户编号、页面、来源"
           />
           <select aria-label="按国家筛选" value={filters.country} onChange={(event) => updateFilter("country", event.target.value)}>
             <option value="">全部国家</option>
@@ -611,24 +614,22 @@ export function AdminVisitorsRealtime({ initialData }) {
               <table className="admin-table">
                 <thead>
                   <tr>
-                    <th>时间</th><th>客户编号</th><th>国家</th><th>设备</th><th>浏览器</th><th>来源</th><th>来源平台</th><th>来源详情</th><th>页面</th><th>客户标签</th><th>访问日</th><th>IP</th>
+                    <th>最近访问</th><th>客户编号</th><th>国家</th><th>设备</th><th>来源</th><th>访问次数</th><th>会话</th><th>页面</th><th>客户标签</th><th>详情</th>
                   </tr>
                 </thead>
                 <tbody>
                   {visitorPager.pageRows.map((visitor, index) => (
-                    <tr key={`${visitor.sessionId}-${visitor.timestamp}-${index}`}>
-                      <td>{formatBeijingDateTime(visitor.timestamp)}</td>
+                    <tr key={`${visitor.visitorId}-${visitor.sessionId || ""}-${index}`}>
+                      <td>{formatBeijingDateTime(visitor.lastSeenAt || visitor.timestamp)}</td>
                       <td>{customerNumber(visitor.customerNumber)}</td>
                       <td>{displayCountry(visitor.country)}</td>
                       <td>{displayText(visitor.device)}</td>
-                      <td>{displayText(visitor.browser)}</td>
                       <td>{displayText(visitor.channel)}</td>
-                      <td>{displayText(visitor.sourcePlatform)}</td>
-                      <td>{displayText(visitor.sourceDetail)}</td>
-                      <td>{visitor.page}</td>
+                      <td>{visitor.visitCount || 1}</td>
+                      <td>{visitor.sessionCount || 1}</td>
+                      <td>{visitor.pageCount || 1}</td>
                       <td><span className={`admin-customer-tag ${visitor.visitDayNumber === 1 ? "new" : "returning"}`}>{customerType(visitor)}</span></td>
-                      <td>{visitDay(visitor)}</td>
-                      <td>{visitor.ip || "-"}</td>
+                      <td><a className="admin-detail-link" href={`/admin/visitors/${encodeURIComponent(visitor.visitorId)}`}>访问详情</a></td>
                     </tr>
                   ))}
                 </tbody>

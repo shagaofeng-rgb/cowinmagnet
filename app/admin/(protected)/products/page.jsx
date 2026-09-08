@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { productCategories } from "@/data/productCatalog";
 import { cmsStorageMode, getCmsItems } from "@/lib/cmsStore";
+import AdminDateRangeFilter from "@/components/admin/AdminDateRangeFilter";
+import { getAdminDateRange } from "@/lib/adminDateRange";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -62,12 +64,17 @@ function Pagination({ params, page, totalPages, total, pageSize }) {
 
 export default async function AdminProductsPage({ searchParams }) {
   const params = await searchParams;
+  const range = getAdminDateRange(params);
   const uploadedProducts = await getCmsItems("product", { includeInactive: true });
   const query = String(params?.q || "").trim().toLowerCase();
   const status = String(params?.status || "all");
   const pageSize = pageSizeValue(params?.pageSize);
   const page = pageValue(params?.page);
   const filteredProducts = uploadedProducts
+    .filter((product) => {
+      const date = new Date(product.updatedAt || product.createdAt || product.publishedAt || 0);
+      return !Number.isNaN(date.getTime()) && date >= range.startDate && date <= range.endDate;
+    })
     .filter((product) => (status === "all" ? true : product.status === status))
     .filter((product) => {
       if (!query) return true;
@@ -80,7 +87,7 @@ export default async function AdminProductsPage({ searchParams }) {
   const totalPages = Math.max(1, Math.ceil(filteredProducts.length / pageSize));
   const safePage = Math.min(page, totalPages);
   const pageProducts = filteredProducts.slice((safePage - 1) * pageSize, safePage * pageSize);
-  const filterParams = { q: params?.q || "", status, pageSize };
+  const filterParams = { q: params?.q || "", status, pageSize, range: range.preset, start: range.preset === "custom" ? range.startInput : "", end: range.preset === "custom" ? range.endInput : "" };
 
   return (
     <div className="admin-page">
@@ -95,6 +102,7 @@ export default async function AdminProductsPage({ searchParams }) {
           <Link href="/admin/products/research" className="admin-inline-link">Private product research</Link>
         </div>
       </header>
+      <AdminDateRangeFilter range={range} />
 
       {statusMessage(params) ? <div className="admin-alert">{statusMessage(params)}</div> : null}
 
