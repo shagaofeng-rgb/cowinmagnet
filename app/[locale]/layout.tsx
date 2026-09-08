@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { getDirection, isLocale, locales, type Locale } from "@/lib/i18n";
+import { defaultLocale, getDirection, isLocale, locales, type Locale } from "@/lib/i18n";
 
 type LocaleLayoutProps = {
   children: ReactNode;
@@ -9,6 +10,15 @@ type LocaleLayoutProps = {
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
+}
+
+// The edge proxy already returns X-Robots-Tag for untranslated locales. Keep
+// the document metadata in agreement so alternate URLs stay excluded even
+// when an intermediary does not preserve that response header.
+export async function generateMetadata({ params }: LocaleLayoutProps): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale) || locale === defaultLocale) return {};
+  return { robots: { index: false, follow: true } };
 }
 
 export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {

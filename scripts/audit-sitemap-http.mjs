@@ -48,7 +48,8 @@ async function inspectUrl(url) {
       url,
       requestUrl: targetUrl,
       status: response.status,
-      location: response.headers.get("location") || ""
+      location: response.headers.get("location") || "",
+      robots: response.headers.get("x-robots-tag") || ""
     };
   } catch (error) {
     return { url, requestUrl: targetUrl, status: 0, error: String(error?.name || error?.message || "request-failed") };
@@ -67,7 +68,7 @@ async function worker() {
 }
 
 await Promise.all(Array.from({ length: concurrency }, () => worker()));
-const issues = results.filter((result) => result.status !== 200);
+const issues = results.filter((result) => result.status !== 200 || /\bnoindex\b/i.test(result.robots));
 const statusCounts = results.reduce((counts, result) => {
   const key = String(result.status || "error");
   counts[key] = (counts[key] || 0) + 1;

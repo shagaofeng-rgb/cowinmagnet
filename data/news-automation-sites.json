@@ -29,7 +29,7 @@
       "enabled": true,
       "list_route": "/blog",
       "detail_route_pattern": "/blog/[slug]",
-      "sitemap_route": "/blog-sitemap.xml",
+      "sitemap_route": "/sitemap.xml",
       "content_source": "existing-blog-webhook",
       "allow_news_automation": false
     },

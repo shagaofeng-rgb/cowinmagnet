@@ -6,6 +6,7 @@ test("known legacy URLs with equivalent current content have permanent redirects
   const source = await readFile(new URL("../next.config.js", import.meta.url), "utf8");
 
   for (const value of [
+    "/blog-sitemap.xml",
     "/industries/food-processing",
     "/applications/waste-processing",
     "/applications/incineration-plant",
@@ -16,5 +17,5 @@ test("known legacy URLs with equivalent current content have permanent redirects
     assert.match(source, new RegExp(value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
 
-  assert.equal((source.match(/permanent: true/g) || []).length >= 18, true);
+  assert.equal((source.match(/permanent: true/g) || []).length >= 20, true);
 });

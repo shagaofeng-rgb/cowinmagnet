@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-const policyVersion = "2026-08-22-blog-indexability-v1";
+const policyVersion = "2026-09-08-en-canonical-noindex-v2";
 
 test("sitemap policy version changes are treated as a sitemap change", () => {
   const previous = { manifestHash: "same", policyVersion: "legacy-policy" };

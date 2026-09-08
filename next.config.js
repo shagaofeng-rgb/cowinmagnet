@@ -17,6 +17,18 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        // Historical automation configuration exposed this filename. The
+        // current segmented sitemap contains the canonical Blog URLs.
+        source: "/blog-sitemap.xml",
+        destination: "/sitemap.xml",
+        permanent: true
+      },
+      {
+        source: "/:locale(en|es|ru|ar|fr|pt)/blog-sitemap.xml",
+        destination: "/sitemap.xml",
+        permanent: true
+      },
+      {
         source: "/applications",
         destination: "/en/industries",
         permanent: true

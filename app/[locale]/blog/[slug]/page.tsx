@@ -4,7 +4,7 @@ import { LocalizedBlogDetailPage } from "@/components/LocalizedPages";
 import { blogPosts } from "@/data/blogs";
 import { getBlogPostWithCms } from "@/lib/blogCms";
 import { isIndexableBlog } from "@/lib/blogContentPolicy";
-import { isLocale, locales, localizedPageAlternates, type Locale } from "@/lib/i18n";
+import { defaultLocale, isLocale, locales, localizedPageAlternates, type Locale } from "@/lib/i18n";
 import { absoluteUrl } from "@/lib/seo";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
@@ -21,7 +21,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const current = isLocale(locale) ? locale : "en";
   const post = await getBlogPostWithCms(slug);
   if (!post) return {};
-  const indexable = isIndexableBlog(post);
+  // Non-English shells are intentionally available to visitors but have not
+  // completed editorial review for search. They must never override the
+  // locale layout's noindex policy with article-level index metadata.
+  const indexable = current === defaultLocale && isIndexableBlog(post);
   return {
     title: post.seoTitle,
     description: post.metaDescription,
