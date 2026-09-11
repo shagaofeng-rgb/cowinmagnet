@@ -1,48 +1,50 @@
 "use client";
 
-import Link from "next/link";
 import { PlayCircle } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 type HomeVideoShowcaseProps = {
   eyebrow: string;
   title: string;
-  text: string;
-  quoteHref: string;
-  quoteLabel: string;
 };
 
-export function HomeVideoShowcase({ eyebrow, title, text, quoteHref, quoteLabel }: HomeVideoShowcaseProps) {
-  const [loadVideo, setLoadVideo] = useState(false);
+export function HomeVideoShowcase({ eyebrow, title }: HomeVideoShowcaseProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [playError, setPlayError] = useState(false);
+
+  async function playVideo() {
+    const video = videoRef.current;
+    if (!video) return;
+    setPlayError(false);
+    try {
+      await video.play();
+      setIsPlaying(true);
+    } catch {
+      setPlayError(true);
+    }
+  }
+
   return (
     <div className="video-showcase" aria-labelledby="home-video-title">
       <div className="video-showcase-copy">
         <span className="eyebrow">{eyebrow}</span>
         <h2 id="home-video-title">{title}</h2>
-        <p>{text}</p>
-        <div className="video-feature-list">
-          <span>Product details</span>
-          <span>Service communication</span>
-          <span>Global buyer support</span>
-        </div>
-        <Link href={quoteHref} className="btn btn-primary">
-          {quoteLabel}
-        </Link>
       </div>
       <div className="video-tech-card">
-        <div className="video-card-header">
-          <span><PlayCircle size={16} aria-hidden /> COWIN MAGNET Video</span>
-          <strong>16:9</strong>
-        </div>
         <div className="home-video-frame">
           <video
-            {...(loadVideo ? { src: "/videos/cowinmagnet-home-product-showcase-2026.mp4" } : {})}
+            ref={videoRef}
             controls
             playsInline
-            preload="none"
+            preload="metadata"
             poster="/assets/magnetic-separator-banner-800.webp"
             aria-label="COWIN MAGNET product and service showcase video"
+            onPlay={() => { setIsPlaying(true); setPlayError(false); }}
+            onPause={() => setIsPlaying(false)}
+            onError={() => setPlayError(true)}
           >
+            <source src="/videos/cowinmagnet-home-product-showcase-2026.mp4" type="video/mp4" />
             <track
               kind="captions"
               src="/videos/cowinmagnet-home-product-showcase-2026.en.vtt"
@@ -52,12 +54,14 @@ export function HomeVideoShowcase({ eyebrow, title, text, quoteHref, quoteLabel 
             />
             Your browser does not support the video tag.
           </video>
-          {!loadVideo ? (
-            <button type="button" className="video-load-button" onClick={() => setLoadVideo(true)}>
-              <PlayCircle size={20} aria-hidden /> Load product showcase video
+          {!isPlaying ? (
+            <button type="button" className="video-load-button" onClick={playVideo} aria-label="Play COWIN MAGNET product showcase video">
+              <PlayCircle size={44} aria-hidden />
             </button>
           ) : null}
+          <div className="video-caption"><strong>Reliable Magnetic Separation<br />for Real-World Challenges</strong><span>0:00 / 1:13</span></div>
         </div>
+        {playError ? <p className="video-play-error" role="alert">The video could not start. Please use the play control again or open it in a new tab.</p> : null}
       </div>
     </div>
   );

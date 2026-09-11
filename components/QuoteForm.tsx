@@ -15,10 +15,12 @@ type QuoteFormProps = {
   compact?: boolean;
   defaultProduct?: string;
   productContext?: ProductInquiryContext;
+  variant?: "default" | "home";
 };
 
-export function QuoteForm({ compact = false, defaultProduct = "", productContext }: QuoteFormProps) {
+export function QuoteForm({ compact = false, defaultProduct = "", productContext, variant = "default" }: QuoteFormProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const isHomeForm = variant === "home";
 
   async function submit(formData: FormData) {
     setStatus("submitting");
@@ -60,7 +62,7 @@ export function QuoteForm({ compact = false, defaultProduct = "", productContext
   }
 
   return (
-    <form action={submit} className={`quote-form ${compact ? "quote-form-compact" : ""}`}>
+    <form action={submit} className={`quote-form ${compact ? "quote-form-compact" : ""} ${isHomeForm ? "quote-form-home" : ""}`}>
       {productContext ? (
         <>
           <input type="hidden" name="productName" value={productContext.name} />
@@ -74,68 +76,107 @@ export function QuoteForm({ compact = false, defaultProduct = "", productContext
           Website
           <input name="website" tabIndex={-1} autoComplete="off" />
         </label>
-        <label>
-          Name
-          <input name="name" required placeholder="Your name" />
-        </label>
-        <label>
-          Email
-          <input name="email" type="email" required placeholder="name@company.com" />
-        </label>
-        <label>
-          Country
-          <input name="country" required placeholder="Country / region" />
-        </label>
-        <label>
-          Phone / WhatsApp
-          <input name="phone" required placeholder="+1 555 000 0000" />
-        </label>
-        {!compact && !productContext && (
+        {isHomeForm ? (
           <>
-            <label>
-              Industry
-              <input name="industry" placeholder="Mining, recycling, cement..." />
+            <input type="hidden" name="country" value="Not provided" readOnly />
+            <label className="field-wide">
+              Your Name <span aria-hidden="true">*</span>
+              <input name="name" required placeholder="Your name" />
+            </label>
+            <label className="field-wide">
+              Company Name <span aria-hidden="true">*</span>
+              <input name="company" required placeholder="Your company" />
             </label>
             <label>
-              Material
-              <input name="material" placeholder="Ore, coal, aggregate, waste..." />
+              Email <span aria-hidden="true">*</span>
+              <input name="email" type="email" required placeholder="name@company.com" />
             </label>
             <label>
-              Belt Width
-              <input name="beltWidth" placeholder="e.g. 800 mm" />
+              Phone / WhatsApp
+              <input name="phone" required placeholder="+1 555 000 0000" />
             </label>
-            <label>
-              Installation Method
-              <input name="installation" placeholder="Cross-belt, inline, chute..." />
+            <label className="field-wide">
+              Select Product Type <span aria-hidden="true">*</span>
+              <select name="requiredProduct" defaultValue={defaultProduct} required>
+                <option value="" disabled>Select product type</option>
+                <option value="Suspended Magnets">Suspended Magnets</option>
+                <option value="Magnetic Pulleys">Magnetic Pulleys</option>
+                <option value="Drum Magnetic Separators">Drum Magnetic Separators</option>
+                <option value="Magnetic Bars & Grates">Magnetic Bars & Grates</option>
+                <option value="Customized Solution">Customized Solution</option>
+              </select>
+            </label>
+            <label className="field-wide">
+              Tell us about your project
+              <textarea name="message" required placeholder="Material, capacity, installation position, or any other details." rows={4} />
             </label>
           </>
-        )}
-        {productContext ? (
-          <label className="field-wide">
-            Product selected
-            <input value={productContext.name} readOnly aria-readonly="true" />
-          </label>
         ) : (
-          <label className="field-wide">
-            Product of interest
-            <input name="requiredProduct" defaultValue={defaultProduct} placeholder="Product name or equipment type" />
-          </label>
-        )}
-        {productContext?.selectionFields?.map((field) => (
-          <label key={field.name}>
-            {field.label}
-            <input name={field.name} placeholder={field.placeholder} />
-          </label>
-        ))}
-        <label className="field-wide">
-          Product Requirement / Message
-          <textarea name="message" required placeholder="Tell us your material, belt width, capacity, installation height, and target iron removal result." rows={compact ? 4 : 6} />
-        </label>
-        {!compact && (
-          <label className="field-wide">
-            Upload Drawing / Photo
-            <input name="attachmentNote" placeholder="Paste a file link or note that drawings/photos are available" />
-          </label>
+          <>
+            <label>
+              Name
+              <input name="name" required placeholder="Your name" />
+            </label>
+            <label>
+              Email
+              <input name="email" type="email" required placeholder="name@company.com" />
+            </label>
+            <label>
+              Country
+              <input name="country" required placeholder="Country / region" />
+            </label>
+            <label>
+              Phone / WhatsApp
+              <input name="phone" required placeholder="+1 555 000 0000" />
+            </label>
+            {!compact && !productContext && (
+              <>
+                <label>
+                  Industry
+                  <input name="industry" placeholder="Mining, recycling, cement..." />
+                </label>
+                <label>
+                  Material
+                  <input name="material" placeholder="Ore, coal, aggregate, waste..." />
+                </label>
+                <label>
+                  Belt Width
+                  <input name="beltWidth" placeholder="e.g. 800 mm" />
+                </label>
+                <label>
+                  Installation Method
+                  <input name="installation" placeholder="Cross-belt, inline, chute..." />
+                </label>
+              </>
+            )}
+            {productContext ? (
+              <label className="field-wide">
+                Product selected
+                <input value={productContext.name} readOnly aria-readonly="true" />
+              </label>
+            ) : (
+              <label className="field-wide">
+                Product of interest
+                <input name="requiredProduct" defaultValue={defaultProduct} placeholder="Product name or equipment type" />
+              </label>
+            )}
+            {productContext?.selectionFields?.map((field) => (
+              <label key={field.name}>
+                {field.label}
+                <input name={field.name} placeholder={field.placeholder} />
+              </label>
+            ))}
+            <label className="field-wide">
+              Product Requirement / Message
+              <textarea name="message" required placeholder="Tell us your material, belt width, capacity, installation height, and target iron removal result." rows={compact ? 4 : 6} />
+            </label>
+            {!compact && (
+              <label className="field-wide">
+                Upload Drawing / Photo
+                <input name="attachmentNote" placeholder="Paste a file link or note that drawings/photos are available" />
+              </label>
+            )}
+          </>
         )}
       </div>
       <button className="btn btn-primary" type="submit" disabled={status === "submitting"}>

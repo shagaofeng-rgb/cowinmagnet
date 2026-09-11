@@ -28,20 +28,30 @@ import { isIndexableBlog, stripLegacyEditorialSections } from "@/lib/blogContent
 
 const advantageIcons = [ShieldCheck, Settings, Headphones, Globe2];
 const serviceIcons = [Headphones, Wrench, Truck, ShieldCheck, BadgeCheck, Globe2];
-const homeFeaturedProductSlugs = [
-  "suspended-permanent-magnetic-separator",
-  "suspended-electromagnetic-conveyor-belt-separator",
-  "round-electromagnetic-lifting-magnet",
-  "electromagnet-separator",
-  "permanent-overband-magnetic-separator",
-  "magnetic-head-pulley"
+const homeProductCards = [
+  { slug: "suspended-permanent-magnetic-separator", title: "Suspended Magnets", description: "Remove ferrous metals from bulk materials." },
+  { slug: "magnetic-head-pulley", title: "Magnetic Pulleys", description: "Continuous iron removal in conveyor systems." },
+  { slug: "dry-drum-magnetic-separator", title: "Drum Magnetic Separators", description: "Efficient separation for wet and dry materials." },
+  { slug: "magnetic-grid", title: "Magnetic Bars & Grates", description: "Protect equipment and improve product purity." },
+  { slug: "rcdb-type-self-cooling-plate-electromagnetic-iron-remover", title: "Magnetic Plates & Chutes", description: "Simple, effective iron removal." },
+  { slug: "suspended-electromagnetic-conveyor-belt-separator", title: "Customized Solutions", description: "Tailored designs for your specific needs." }
+];
+
+const homeIndustryTiles = [
+  { title: "Mining", href: "/industries/mining", image: "/images/industries/mining-scenarios/iron-ore.jpg", alt: "Iron ore mining magnetic separation application", size: "large" },
+  { title: "Recycling", href: "/industries/recycling", image: "/images/industries/recycling-scenarios/non-metal-recycling-sorting-line.jpg", alt: "Recycling magnetic separation application", size: "large" },
+  { title: "Cement", href: "/industries/cement-aggregate", image: "/images/industries/cement-aggregate-scenarios/cement-raw-material-processing.jpg", alt: "Cement magnetic separation application", size: "small" },
+  { title: "Power Generation", href: "/industries", image: "/images/catalog/page-6-image-3-1349x734.jpg", alt: "Industrial bulk material handling application", size: "small" },
+  { title: "Aggregates", href: "/industries/cement-aggregate", image: "/images/industries/cement-aggregate-scenarios/finished-aggregate-purification.jpg", alt: "Aggregate processing magnetic separation application", size: "small" },
+  { title: "Other Industries", href: "/industries", image: "/images/industries/recycling-scenarios/construction-waste-recycling-line.jpg", alt: "Industrial magnetic separation application", size: "small" }
 ];
 
 export function LocalizedHomePage({ locale }: { locale: Locale }) {
   const t = getDictionary(locale);
-  const featured = homeFeaturedProductSlugs
-    .map((slug) => products.find((product) => product.slug === slug))
-    .filter((product): product is Product => Boolean(product));
+  const featured = homeProductCards.flatMap((card) => {
+    const product = products.find((item) => item.slug === card.slug);
+    return product ? [{ ...card, product }] : [];
+  });
   const categoryCards = productCategories.map((category) => ({
     title: category,
     count: products.filter((product) => product.category === category).length,
@@ -53,19 +63,20 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
       <section className="home-hero industrial-hero">
         <Image src="/images/generated/home-hero-cowinmagnet.webp" fill sizes="100vw" alt={t.home.heroAlt} className="hero-banner-image" priority />
         <div className="hero-copy">
-          <span className="eyebrow industrial-kicker">{locale === "en" ? "Industrial magnetic separation systems" : t.home.heroEyebrow}</span>
-          <h1>{locale === "en" ? "Magnetic separation for a cleaner, stronger tomorrow" : t.home.h1}</h1>
+          <span className="eyebrow industrial-kicker">{locale === "en" ? "Global OEM/ODM Partner" : t.home.heroEyebrow}</span>
+          {locale === "en" ? <h1 className="template-hero-title">Magnetic<br />Separation<br />for a <em>Cleaner,</em><br /><em>Stronger Tomorrow</em></h1> : <h1>{t.home.h1}</h1>}
           <p>{t.home.heroText}</p>
           <div className="hero-actions">
             <Link href={localizeHref("/request-quote", locale)} className="btn btn-primary">{t.common.getQuote}</Link>
-            <Link href={localizeHref("/products", locale)} className="btn btn-secondary">{t.common.viewProducts}</Link>
+            <Link href={localizeHref("/products", locale)} className="btn btn-secondary">{locale === "en" ? "Explore Products" : t.common.viewProducts}</Link>
           </div>
         </div>
+        <p className="industrial-hero-slogan" aria-hidden="true">Metal<br />out.<br /><strong>Purity in.</strong></p>
         <div className="industrial-hero-proof" aria-label={t.home.whyTitle}>
-          {t.advantages.map(([title, text], index) => {
-            const Icon = advantageIcons[index] || ShieldCheck;
-            return <article key={title}><Icon size={24} aria-hidden /><div><strong>{title}</strong><span>{text}</span></div></article>;
-          })}
+          <article><Globe2 size={26} aria-hidden /><strong>OEM/ODM<br />for global buyers</strong></article>
+          <article><Settings size={26} aria-hidden /><strong>Reliable industrial<br />solutions</strong></article>
+          <article><ShieldCheck size={26} aria-hidden /><strong>Focused on your<br />separation challenges</strong></article>
+          <article><Headphones size={26} aria-hidden /><strong>Responsive support<br />worldwide</strong></article>
         </div>
       </section>
 
@@ -73,45 +84,55 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
         <div className="section-heading industrial-section-heading">
           <span className="eyebrow">{t.home.featuredEyebrow}</span>
           <h2 id="industrial-products-title">{locale === "en" ? "Find the right magnetic separator" : t.home.featuredTitle}</h2>
-          <p>{locale === "en" ? "Explore dependable equipment for conveyor protection, material purification and metal recovery." : t.home.applicationText}</p>
+          <div><p>{locale === "en" ? "A complete range of magnetic separation equipment for different industries and applications." : t.home.applicationText}</p><Link href={localizeHref("/products", locale)} className="text-link">{locale === "en" ? "View All Products" : t.common.viewProducts} <ArrowRight size={16} aria-hidden /></Link></div>
         </div>
         <nav className="industrial-category-nav" aria-label="Product categories">
-          {categoryCards.map((category) => <Link key={category.title} href={category.href}>{category.title}</Link>)}
+          <Link href={localizeHref("/products", locale)} className="is-active">{locale === "en" ? "All Products" : t.common.viewProducts}</Link>
+          <Link href={categoryCards[0]?.href || localizeHref("/products", locale)}>Suspended Magnets</Link>
+          <Link href={localizeHref("/products/magnetic-head-pulley", locale)}>Magnetic Pulleys</Link>
+          <Link href={categoryCards[1]?.href || localizeHref("/products", locale)}>Magnetic Separators</Link>
+          <Link href={categoryCards[3]?.href || localizeHref("/products", locale)}>Magnetic Bars</Link>
+          <Link href={localizeHref("/request-quote", locale)}>Customized Solutions</Link>
         </nav>
-        <div className="product-grid industrial-product-grid">
-          {featured.map((product) => <LocalizedProductCard key={product.slug} product={product} locale={locale} />)}
+        <div className="template-product-grid">
+          {featured.map(({ product, title, description }) => <article className="template-product-card" key={product.slug}>
+            <Link href={localizeHref(`/products/${product.slug}`, locale)} className="template-product-image"><Image src={product.image} width={400} height={300} sizes="(max-width: 700px) 82vw, (max-width: 1100px) 30vw, 16vw" alt={product.name} loading="lazy" /></Link>
+            <div><h3><Link href={localizeHref(`/products/${product.slug}`, locale)}>{title}</Link></h3><p>{description}</p><Link href={localizeHref(`/products/${product.slug}`, locale)} className="text-link">{locale === "en" ? "View Products" : t.common.viewProduct} <ArrowRight size={14} aria-hidden /></Link></div>
+          </article>)}
         </div>
       </section>
 
       <section className="industrial-industry-section" aria-labelledby="industrial-industry-title">
         <div className="industrial-industry-heading">
           <span className="eyebrow">{t.home.applicationEyebrow}</span>
-          <h2 id="industrial-industry-title">{locale === "en" ? "Built for demanding industries" : t.home.applicationTitle}</h2>
+          <h2 id="industrial-industry-title">{locale === "en" ? "Proven in real-world industries" : t.home.applicationTitle}</h2>
           <p>{t.home.applicationText}</p>
-          <Link href={localizeHref("/industries", locale)} className="text-link">{locale === "en" ? "Explore industries" : t.common.viewSolution} <ArrowRight size={16} aria-hidden /></Link>
+          <Link href={localizeHref("/industries", locale)} className="btn btn-secondary">{locale === "en" ? "Explore by Industry" : t.common.viewSolution} <ArrowRight size={16} aria-hidden /></Link>
         </div>
         <div className="industrial-industry-grid">
-          {applications.map((application) => (
-            <Link key={application.industrySlug} href={localizeHref(`/industries/${application.industrySlug}`, locale)} className="industrial-industry-card">
-              <Image src={application.image} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 25vw" alt={application.imageAlt} loading="lazy" />
-              <span>{application.name.replace(" Industry", "")}</span>
-              <ArrowRight size={18} aria-hidden />
+          {homeIndustryTiles.map((industry) => (
+            <Link key={industry.title} href={localizeHref(industry.href, locale)} className={`industrial-industry-card industrial-industry-card-${industry.size}`}>
+              <Image src={industry.image} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 22vw" alt={industry.alt} loading="lazy" />
+              <span>{industry.title}</span>
             </Link>
           ))}
         </div>
       </section>
 
       <section className="section industrial-video-quote" aria-labelledby="industrial-video-title">
-        <HomeVideoShowcase eyebrow={t.home.videoEyebrow} title={t.home.videoTitle} text={t.home.videoText} quoteHref={localizeHref("/request-quote", locale)} quoteLabel={t.common.sendRequirements} />
+        <div className="industrial-video-stack">
+          <HomeVideoShowcase eyebrow={locale === "en" ? "Industries Video" : t.home.videoEyebrow} title={locale === "en" ? "See COWIN MAGNET in action" : t.home.videoTitle} />
+          <article className="template-service-card">
+            <div><span className="eyebrow">Service &amp; Support</span><h2>From inquiry to operation,<br />we&apos;re with you</h2><p>Technical consultation, customized design, manufacturing, and after-sales support — all in one place.</p><Link href={localizeHref("/contact", locale)} className="btn btn-secondary">Contact Support <ArrowRight size={16} aria-hidden /></Link></div>
+            <Image src="/images/generated/contact-support-cowinmagnet.png" width={760} height={520} sizes="(max-width: 700px) 100vw, 32vw" alt="Cowinmagnet technical service team" loading="lazy" />
+          </article>
+        </div>
         <aside className="industrial-quote-card">
-          <span className="eyebrow">{t.home.quoteEyebrow}</span>
-          <h2 id="industrial-video-title">{t.home.quoteTitle}</h2>
-          <p>{t.home.quoteText}</p>
-          <QuoteForm compact />
+          <span className="eyebrow">{locale === "en" ? "Get a Quote" : t.home.quoteEyebrow}</span>
+          <h2 id="industrial-video-title">{locale === "en" ? "Tell us about your project" : t.home.quoteTitle}</h2>
+          <QuoteForm compact variant="home" />
         </aside>
       </section>
-
-      <GlobalCustomerNetwork categories={categoryCards} />
     </main>
   );
 }
