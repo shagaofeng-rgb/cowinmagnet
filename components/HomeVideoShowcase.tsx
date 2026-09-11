@@ -15,7 +15,7 @@ type HomeVideoShowcaseProps = {
 export function HomeVideoShowcase({ eyebrow, title, text, quoteHref, quoteLabel }: HomeVideoShowcaseProps) {
   const [loadVideo, setLoadVideo] = useState(false);
   return (
-    <section className="section video-showcase" aria-labelledby="home-video-title">
+    <div className="video-showcase" aria-labelledby="home-video-title">
       <div className="video-showcase-copy">
         <span className="eyebrow">{eyebrow}</span>
         <h2 id="home-video-title">{title}</h2>
@@ -59,6 +59,6 @@ export function HomeVideoShowcase({ eyebrow, title, text, quoteHref, quoteLabel 
           ) : null}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
