@@ -10151,6 +10151,6 @@ body:not(:has(.admin-dashboard)):not(:has(.admin-login-page)) {
 
 @media (min-width: 761px) {
   .localized-home .industrial-hero .hero-copy .template-hero-title {
-    font-size: clamp(43px, 4.15vw, 58px);
+    font-size: clamp(40px, 3.4vw, 47px);
   }
 }
