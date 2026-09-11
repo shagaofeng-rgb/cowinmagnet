@@ -10148,3 +10148,9 @@ body:not(:has(.admin-dashboard)):not(:has(.admin-login-page)) {
     font-size: 12px;
   }
 }
+
+@media (min-width: 761px) {
+  .localized-home .industrial-hero .template-hero-title {
+    font-size: clamp(43px, 4.15vw, 58px);
+  }
+}
