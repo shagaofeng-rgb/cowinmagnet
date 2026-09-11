@@ -10099,3 +10099,52 @@ body:not(:has(.admin-dashboard)):not(:has(.admin-login-page)) {
 
 @media (max-width:1120px) { .template-product-grid { grid-template-columns: repeat(3,minmax(0,1fr)); } .industrial-industry-section { grid-template-columns: 1fr; } .industrial-industry-heading { max-width: 640px; } .localized-home .industrial-video-quote { grid-template-columns: 1fr; } }
 @media (max-width:760px) { .localized-home .industrial-hero { min-height: 650px; } .localized-home .industrial-hero .hero-copy { padding-top: 68px; padding-bottom: 202px; } .localized-home .industrial-hero .template-hero-title { font-size: clamp(38px,11vw,54px); } .industrial-hero-slogan { display: none; } .industrial-hero-proof { grid-template-columns: repeat(2,minmax(0,1fr)); } .industrial-hero-proof article, .industrial-hero-proof article + article { min-height: 76px; padding: 12px 8px 12px 0; border-left: 0; } .industrial-hero-proof article:nth-child(even) { padding-left: 12px; border-left: 1px solid rgba(202,225,246,.26); } .industrial-hero-proof article:nth-child(n + 3) { border-top: 1px solid rgba(202,225,246,.24); } .industrial-hero-proof svg { width: 18px; } .industrial-hero-proof strong { font-size: 11px; } .industrial-hero-proof span { font-size: 9px; } .localized-home .industrial-section-heading { grid-template-columns: 1fr; gap: 17px; } .industrial-category-nav { overflow-x: auto; flex-wrap: nowrap; margin-right: -18px; padding-right: 18px; } .industrial-category-nav a { flex: 0 0 auto; } .template-product-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; } .template-product-card > div { min-height: 150px; padding: 13px 12px; } .template-product-card h3 { font-size: 14px; } .industrial-industry-section { padding-inline: 18px; } .industrial-industry-grid { grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-rows: 126px 92px 92px; } .industrial-industry-card-large { grid-column: span 1; } .localized-home .industrial-video-quote { padding-inline: 18px; } .template-service-card { grid-template-columns: 1fr 34%; } .template-service-card > div { padding: 18px; } .industrial-quote-card { padding: 24px 19px; } }
+
+/* Homepage navigation follows the compact reference-header rhythm without changing the mobile menu. */
+@media (min-width: 1050px) {
+  body:has(.localized-home) .topbar {
+    padding-block: 7px;
+    font-size: 11px;
+  }
+
+  body:has(.localized-home) .navbar {
+    min-height: 60px;
+    gap: 18px;
+    padding-block: 8px;
+  }
+
+  body:has(.localized-home) .brand {
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  body:has(.localized-home) .brand img {
+    width: 40px;
+    height: 40px;
+  }
+
+  body:has(.localized-home) .nav-links {
+    gap: 0;
+    font-size: 12px;
+  }
+
+  body:has(.localized-home) .nav-links > a,
+  body:has(.localized-home) .nav-trigger {
+    min-height: 34px;
+    padding: 7px 11px;
+  }
+
+  body:has(.localized-home) .nav-search-label {
+    display: none;
+  }
+
+  body:has(.localized-home) .nav-actions {
+    gap: 8px;
+  }
+
+  body:has(.localized-home) .nav-actions .btn {
+    min-height: 36px;
+    padding-inline: 15px;
+    font-size: 12px;
+  }
+}

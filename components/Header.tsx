@@ -181,14 +181,14 @@ export function Header() {
               </div>
             </div>
           </div>
-          <Link href={localizeHref("/blog", locale)}>{t.nav.blog}</Link>
-          <Link href={localizeHref("/news", locale)}>{t.nav.news || "News"}</Link>
+          <Link href={localizeHref("/about", locale)}>OEM/ODM</Link>
+          <Link href={localizeHref("/about", locale)}>About Us</Link>
+          <Link href={localizeHref("/contact", locale)}>Support</Link>
+          <Link href={localizeHref("/contact", locale)}>Contact</Link>
           <Link href={localizeHref("/search", locale)} className="nav-search-link" aria-label="Search COWIN MAGNET">
             <Search size={16} aria-hidden />
-            <span>Search</span>
+            <span className="nav-search-label">Search</span>
           </Link>
-          <Link href={localizeHref("/about", locale)}>{t.nav.about}</Link>
-          <Link href={localizeHref("/contact", locale)}>{t.nav.contact}</Link>
         </div>
         <div className="nav-actions">
           <LanguageSwitcher />
