@@ -143,6 +143,8 @@ export default function InquiryForm() {
 
     try {
       const trackingIdentity = getClientTrackingIdentity();
+      const metaEventId = window.__cowinMetaCreateEventId?.("lead") || `lead-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+      const metaBrowserIds = window.__cowinMetaBrowserIds?.() || {};
       const response = await fetch("/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -154,7 +156,10 @@ export default function InquiryForm() {
           utm: window.location.search,
           attribution: window.__cowinAttribution || null,
           visitorId: trackingIdentity.visitorId,
-          sessionId: trackingIdentity.sessionId
+          sessionId: trackingIdentity.sessionId,
+          metaEventId,
+          metaFbp: metaBrowserIds.fbp || "",
+          metaFbc: metaBrowserIds.fbc || ""
         })
       });
       const result = await response.json();
@@ -171,6 +176,10 @@ export default function InquiryForm() {
           attribution: window.__cowinAttribution || null
         });
       }
+      window.__cowinMetaTrack?.("Lead", {
+        content_name: values.productRequirement || "Website inquiry",
+        content_category: "B2B inquiry"
+      }, { eventId: metaEventId, sendServer: false });
       setStatus({
         type: "success",
         message: result?.message || "Thank you. Your inquiry has been submitted successfully."

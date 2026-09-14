@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, ExternalLink, MessageCircle } from "lucide-react";
 import { JsonLd } from "@/components/JsonLd";
 import { QuoteForm } from "@/components/QuoteForm";
+import { MetaProductView } from "@/components/MetaProductView";
 import { ProductDetailSectionTabs } from "@/components/ProductDetailPanels";
 import { products, type Product } from "@/data/products";
 import { site } from "@/data/site";
@@ -117,6 +118,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
       <JsonLd data={productSchema} />
       <JsonLd data={breadcrumbSchema(breadcrumbs)} />
       <JsonLd data={faqSchema(profile.faqs)} />
+      <MetaProductView name={displayName} category={product.category} slug={product.slug} />
 
       <main className="product-detail-experience">
         <nav className="product-breadcrumb" aria-label="Breadcrumb">

@@ -108,9 +108,11 @@ function buildWhatsAppClickContext(link) {
   };
 }
 
-function trackMetaContact() {
-  if (typeof window.fbq !== "function") return;
-  window.fbq("track", "Contact");
+function trackMetaContact(eventType, extra = {}) {
+  window.__cowinMetaTrack?.("Contact", {
+    content_name: extra.targetText || "Website contact intent",
+    content_category: eventType === "click_whatsapp" ? "WhatsApp" : eventType === "click_email" ? "Email" : "Phone"
+  }, { sendServer: true });
 }
 
 function publicTrackEvent(type, extra = {}) {
@@ -133,8 +135,8 @@ function publicTrackEvent(type, extra = {}) {
     whatsapp: extra.whatsapp || undefined,
     timestamp: new Date().toISOString()
   });
-  if (["click_whatsapp", "click_email", "click_phone", "submit_inquiry", "form_success"].includes(type)) {
-    trackMetaContact();
+  if (["click_whatsapp", "click_email", "click_phone"].includes(type)) {
+    trackMetaContact(type, extra);
   }
 }
 
@@ -230,7 +232,7 @@ export default function AnalyticsTracker() {
           timestamp: new Date().toISOString()
         });
         if (["click_whatsapp", "click_email", "click_phone"].includes(eventType)) {
-          trackMetaContact();
+          trackMetaContact(eventType, { targetText: link.textContent?.trim().slice(0, 120) || "" });
         }
       }
     }

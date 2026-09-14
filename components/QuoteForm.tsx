@@ -44,6 +44,11 @@ export function QuoteForm({ compact = false, defaultProduct = "", productContext
       const trackingIdentity = getClientTrackingIdentity();
       payload.visitorId = trackingIdentity.visitorId;
       payload.sessionId = trackingIdentity.sessionId;
+      const metaEventId = window.__cowinMetaCreateEventId?.("lead") || `lead-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+      payload.metaEventId = metaEventId;
+      const metaBrowserIds = window.__cowinMetaBrowserIds?.() || { fbp: "", fbc: "" };
+      payload.metaFbp = metaBrowserIds.fbp || "";
+      payload.metaFbc = metaBrowserIds.fbc || "";
 
       const response = await fetch("/api/inquiry", {
         method: "POST",
@@ -54,6 +59,12 @@ export function QuoteForm({ compact = false, defaultProduct = "", productContext
       const tracker = (window as typeof window & { __cowinTrackEvent?: (type: string, extra?: Record<string, unknown>) => void }).__cowinTrackEvent;
       if (response.ok && tracker) {
         tracker("submit_inquiry", { page: window.location.pathname, attribution: payload.attribution });
+      }
+      if (response.ok) {
+        window.__cowinMetaTrack?.("Lead", {
+          content_name: String(payload.productRequirement || "Website inquiry"),
+          content_category: "B2B inquiry"
+        }, { eventId: metaEventId, sendServer: false });
       }
       setStatus(response.ok ? "success" : "error");
     } catch {

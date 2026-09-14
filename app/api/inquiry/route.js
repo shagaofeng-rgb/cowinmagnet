@@ -1,6 +1,8 @@
 import nodemailer from "nodemailer";
 import { appendConversionAttribution } from "@/lib/analyticsDatabase";
 import { saveInquirySubmission } from "@/lib/inquiryStore";
+import { buildMetaUserData, sendMetaCapiEvent } from "@/lib/metaConversions";
+import { safeSiteUrl } from "@/lib/siteUrlSafety";
 
 export const runtime = "nodejs";
 
@@ -199,6 +201,34 @@ async function recordInquiryAttribution(payload) {
   });
 }
 
+async function recordMetaLead(payload) {
+  const eventSourceUrl = safeSiteUrl(payload.pageUrl || payload.sourcePath);
+  if (!eventSourceUrl) return;
+
+  const result = await sendMetaCapiEvent({
+    eventName: "Lead",
+    eventId: payload.metaEventId,
+    eventSourceUrl,
+    userData: buildMetaUserData({
+      email: payload.email,
+      phone: payload.phone,
+      visitorId: payload.visitorId || payload.attribution?.visitorId,
+      fbp: payload.metaFbp,
+      fbc: payload.metaFbc,
+      clientIp: payload.clientIp,
+      clientUserAgent: payload.userAgent
+    }),
+    customData: {
+      content_name: payload.productRequirement || payload.productName || "Website inquiry",
+      content_category: "B2B inquiry"
+    }
+  });
+
+  if (!result.ok && !result.skipped) {
+    console.warn("Meta CAPI Lead was not confirmed", { reason: result.reason || "rejected", status: result.status || 0 });
+  }
+}
+
 export async function POST(request) {
   const contentLength = Number(request.headers.get("content-length") || 0);
   if (Number.isFinite(contentLength) && contentLength > MAX_REQUEST_BYTES) {
@@ -251,6 +281,10 @@ export async function POST(request) {
       { status: 503 }
     );
   }
+
+  await recordMetaLead(payload).catch((error) => {
+    console.warn("Meta CAPI Lead recording failed", { reason: error instanceof Error ? error.name : "unknown" });
+  });
 
   const toEmail = process.env.INQUIRY_TO_EMAIL;
   const bccEmails = parseEmailList(process.env.INQUIRY_BCC_EMAILS);
