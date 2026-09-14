@@ -41,7 +41,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" suppressHydrationWarning>
       <body>
         <JsonLd data={organizationSchema()} />
-        <MetaPixel pixelId={process.env.NEXT_PUBLIC_META_PIXEL_ID} />
+        <Suspense fallback={null}>
+          <MetaPixel pixelId={process.env.NEXT_PUBLIC_META_PIXEL_ID} />
+        </Suspense>
         <Suspense fallback={null}>
           <AnalyticsTracker />
         </Suspense>
