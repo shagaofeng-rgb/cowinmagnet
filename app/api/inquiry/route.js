@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { after } from "next/server";
 import { appendConversionAttribution } from "@/lib/analyticsDatabase";
 import { saveInquirySubmission } from "@/lib/inquiryStore";
 import { buildMetaUserData, sendMetaCapiEvent } from "@/lib/metaConversions";
@@ -282,8 +283,10 @@ export async function POST(request) {
     );
   }
 
-  await recordMetaLead(payload).catch((error) => {
-    console.warn("Meta CAPI Lead recording failed", { reason: error instanceof Error ? error.name : "unknown" });
+  after(async () => {
+    await recordMetaLead(payload).catch((error) => {
+      console.warn("Meta CAPI Lead recording failed", { reason: error instanceof Error ? error.name : "unknown" });
+    });
   });
 
   const toEmail = process.env.INQUIRY_TO_EMAIL;
