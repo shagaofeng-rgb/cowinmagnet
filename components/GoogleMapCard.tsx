@@ -4,9 +4,9 @@ import { ExternalLink, MapPin } from "lucide-react";
 import { site } from "@/data/site";
 
 const googleEmbedUrl =
-  "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d878.1241356264704!2d118.83929087483493!3d28.96505140816817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1780393502977!5m2!1sen!2sus";
+  "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d878.1241356264704!2d118.839750!3d28.965204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1780393502977!5m2!1sen!2sus";
 const googleMapsUrl =
-  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.address)}`;
+  "https://maps.app.goo.gl/P1YyVHoCdGBd9ef37";
 
 type GoogleMapCardProps = {
   address?: string;
