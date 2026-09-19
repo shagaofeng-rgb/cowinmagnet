@@ -149,7 +149,7 @@ export default async function AdminNewsPage({ searchParams }) {
           </p>
         </div>
         <div className={cmsStorageMode() === "database" ? "admin-status good" : "admin-status"}>
-          {cmsStorageMode() === "database" ? "数据库持久化" : "本地文件模式"}
+          {cmsStorageMode() === "database" ? "内容状态正常" : "内容暂不可用"}
         </div>
       </header>
       <AdminDateRangeFilter range={range} />

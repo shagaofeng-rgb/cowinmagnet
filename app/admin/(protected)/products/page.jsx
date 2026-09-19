@@ -98,7 +98,7 @@ export default async function AdminProductsPage({ searchParams }) {
           <p>这里专门管理产品。新增产品后会进入产品中心和产品详情页；下架后前台隐藏，删除后后台也不保留。</p>
         </div>
         <div className={cmsStorageMode() === "database" ? "admin-status good" : "admin-status"}>
-          {cmsStorageMode() === "database" ? "数据库持久化" : "本地文件模式"}
+          {cmsStorageMode() === "database" ? "内容状态正常" : "内容暂不可用"}
           <Link href="/admin/products/research" className="admin-inline-link">Private product research</Link>
         </div>
       </header>

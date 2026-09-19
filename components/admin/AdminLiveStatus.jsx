@@ -49,9 +49,9 @@ export default function AdminLiveStatus() {
 
   return (
     <div className="admin-live-status">
-      <span>半小时自动同步</span>
+      <span>数据更新时间</span>
       <strong>{status.loading ? "连接中..." : `${status.pageViews} PV / ${status.inquiries} 询盘`}</strong>
-      <small>最近同步：{status.syncedAt || "-"} 北京时间</small>
+      <small>最近更新：{status.syncedAt || "-"} 北京时间</small>
     </div>
   );
 }

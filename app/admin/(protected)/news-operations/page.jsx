@@ -7,56 +7,62 @@ function date(value) {
   return value ? new Date(value).toLocaleString("zh-CN", { hour12: false }) : "-";
 }
 
+function publicationLabel(status) {
+  const labels = {
+    published_success: "发布成功",
+    retry_pending: "等待下一次发布",
+    paused: "已暂停",
+    failed: "暂未完成"
+  };
+  return labels[status] || "暂无记录";
+}
+
 export default async function NewsOperationsPage() {
   let dashboard = null;
-  let storageError = null;
   try {
     dashboard = await getNewsOperationsDashboard();
-  } catch (error) {
-    storageError = error instanceof Error ? error.message : "News operations storage is unavailable";
+  } catch {
+    dashboard = null;
   }
 
   if (!dashboard) {
-    return <div className="admin-page"><header className="admin-page-head"><div><p className="eyebrow">NEWS OPERATIONS</p><h1>News automatic operations</h1><p>The News operations store is unavailable. No fallback data is shown for this private administrative view.</p></div></header><div className="admin-alert">{storageError}</div></div>;
+    return (
+      <div className="admin-page">
+        <header className="admin-page-head"><div><p className="eyebrow">新闻发布</p><h1>新闻发布状态</h1><p>发布信息暂时不可用，请稍后刷新。</p></div></header>
+      </div>
+    );
   }
 
   return (
     <div className="admin-page">
       <header className="admin-page-head">
         <div>
-          <p className="eyebrow">NEWS OPERATIONS</p>
-          <h1>News automatic operations</h1>
-          <p>12-hour candidate ingestion and 48-hour frontend-verified publication are isolated from Blog automation.</p>
+          <p className="eyebrow">新闻发布</p>
+          <h1>新闻发布状态</h1>
+          <p>查看新闻内容的发布进度与近期发布记录。</p>
         </div>
-        <div className="admin-status good">{dashboard.storageMode}</div>
+        <div className="admin-status good">内容服务正常</div>
       </header>
 
-      <section className="admin-panel">
-        <h2>Active site</h2>
-        <p className="admin-muted">site_id: <code>{dashboard.siteId}</code>. Candidates remain private until a publication run verifies the public News list, detail page and News sitemap.</p>
-        <p className="admin-muted">Publication day: <strong>{dashboard.publicationStatus.today}</strong> ({dashboard.publicationStatus.timeZone}) · Published today: <strong>{dashboard.publicationStatus.publishedToday ? "Yes" : "No"}</strong> · Eligible candidates: <strong>{dashboard.publicationStatus.eligibleCandidateCount}</strong></p>
-        <p className="admin-muted">Last successful publication: <strong>{date(dashboard.publicationStatus.lastSuccessfulAt)}</strong> · Latest publish run: <strong>{dashboard.publicationStatus.latestRunStatus || "-"}</strong>{dashboard.publicationStatus.latestRunError ? ` · ${dashboard.publicationStatus.latestRunError}` : ""}</p>
-        <Link href="/admin/news">Open News content management</Link>
+      <section className="admin-grid four">
+        <article className="admin-stat"><span>今日状态</span><strong>{dashboard.publicationStatus.publishedToday ? "已发布" : "待发布"}</strong></article>
+        <article className="admin-stat"><span>可发布内容</span><strong>{dashboard.publicationStatus.eligibleCandidateCount}</strong></article>
+        <article className="admin-stat"><span>最近发布</span><strong>{date(dashboard.publicationStatus.lastSuccessfulAt)}</strong></article>
+        <article className="admin-stat"><span>当前进度</span><strong>{publicationLabel(dashboard.publicationStatus.latestRunStatus)}</strong></article>
       </section>
 
       <section className="admin-panel">
-        <h2>Approved sources</h2>
-        <div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>Source</th><th>Type</th><th>Trust</th><th>Status</th></tr></thead><tbody>
-          {dashboard.sources.map((source) => <tr key={source.id}><td>{source.name}<br /><small>{source.domain}</small></td><td>{source.source_type}</td><td>{source.source_trust_score}</td><td>{source.active && source.allowed ? "Active" : "Disabled"}</td></tr>)}
-        </tbody></table></div>
+        <div className="admin-panel-headline">
+          <div><p className="eyebrow">内容管理</p><h2>新闻内容</h2><p>可在新闻管理中查看、编辑和发布网站新闻。</p></div>
+          <Link className="admin-detail-link" href="/admin/news">进入新闻管理</Link>
+        </div>
       </section>
 
       <section className="admin-panel">
-        <h2>Recent candidate decisions</h2>
-        <div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>Candidate</th><th>Source</th><th>Score</th><th>State</th></tr></thead><tbody>
-          {dashboard.candidates.map((candidate) => <tr key={candidate.id}><td>{candidate.title}</td><td>{candidate.publisher}</td><td>{candidate.candidateScore ?? candidate.candidate_score}</td><td>{candidate.status}{candidate.rejectionReason ? `: ${candidate.rejectionReason}` : ""}</td></tr>)}
-        </tbody></table></div>
-      </section>
-
-      <section className="admin-panel">
-        <h2>Run history</h2>
-        <div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>Run</th><th>Started</th><th>Status</th><th>Details</th></tr></thead><tbody>
-          {dashboard.runs.map((run) => <tr key={run.id}><td>{run.run_type}</td><td>{date(run.started_at)}</td><td>{run.status}</td><td>{run.error_summary || "-"}</td></tr>)}
+        <p className="eyebrow">近期记录</p>
+        <h2>发布记录</h2>
+        <div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>开始时间</th><th>状态</th></tr></thead><tbody>
+          {dashboard.runs.length ? dashboard.runs.map((run) => <tr key={run.id}><td>{date(run.started_at)}</td><td>{publicationLabel(run.status)}</td></tr>) : <tr><td colSpan="2">暂无发布记录。</td></tr>}
         </tbody></table></div>
       </section>
     </div>

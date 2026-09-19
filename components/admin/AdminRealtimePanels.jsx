@@ -5,7 +5,6 @@ import { useSearchParams } from "next/navigation";
 import { BarList, CsvExportButton, MetricCard, TrendChart } from "@/components/admin/AdminWidgets";
 
 const refreshMs = 30 * 60 * 1000;
-const syncStatusRefreshMs = 2 * 60 * 1000;
 const defaultPageSize = 20;
 const pageSizeOptions = [10, 20, 50, 100];
 const countryNameZh = {
@@ -146,81 +145,21 @@ function useLiveContentStats(initialStats) {
   return stats || {};
 }
 
-function LegacyLiveSyncNote({ state }) {
-  return (
-    <div className={`admin-live-note ${state.error ? "error" : ""}`}>
-      <span>{state.loading ? "正在同步最新数据..." : "半小时自动同步已开启"}</span>
-      <small>{state.error || `最近同步：${state.syncedAt || "初始化中"}（北京时间，每 30 分钟刷新一次）`}</small>
-    </div>
-  );
-}
-
-function useSyncStatus() {
-  const [status, setStatus] = useState(null);
-
-  useEffect(() => {
-    let active = true;
-
-    async function refresh() {
-      try {
-        const response = await fetch("/api/admin/sync-status", { cache: "no-store" });
-        if (!response.ok) return;
-        const nextStatus = await response.json();
-        if (active) setStatus(nextStatus);
-      } catch {
-        // Keep the latest visible sync status.
-      }
-    }
-
-    refresh();
-    const timer = window.setInterval(refresh, syncStatusRefreshMs);
-    return () => {
-      active = false;
-      window.clearInterval(timer);
-    };
-  }, []);
-
-  return status;
-}
-
-function formatSyncTime(value) {
-  if (!value) return "-";
-  return formatBeijingDateTime(value);
-}
-
 function LiveSyncNote({ state }) {
-  const syncStatus = useSyncStatus();
-  const latest = syncStatus?.latest;
-  const latestSuccess = syncStatus?.latestSuccess;
-  const statusText = latest?.status || "waiting";
-
   return (
     <div className={`admin-live-note ${state.error ? "error" : ""}`}>
-      <span>{state.loading ? "正在读取最新后台数据..." : "30 分钟自动同步已配置"}</span>
+      <span>{state.loading ? "正在更新数据..." : "数据已更新"}</span>
       <small>
         {state.error ||
-          `前端刷新：${state.syncedAt || "初始化中"}；Cron 最近执行：${formatSyncTime(latest?.finishedAt)}；最近成功：${formatSyncTime(latestSuccess?.finishedAt)}；状态：${statusText}；处理量：${latest?.processedCount ?? 0}`}
+          `最近更新：${state.syncedAt || "初始化中"}（北京时间）`}
       </small>
     </div>
   );
 }
 
-function StorageAlert({ storageMode }) {
-  if (storageMode === "database") {
-    return (
-      <section className="admin-alert success">
-        <strong>Analytics 数据库已连接</strong>
-        <span>PV、UV、访问记录、来源渠道和页面表现都从真实 analytics_events 数据读取。</span>
-      </section>
-    );
-  }
-
-  return (
-    <section className="admin-alert warning">
-      <strong>Analytics 数据库尚未接入</strong>
-      <span>当前统计存储模式为 {storageMode || "unknown"}。系统会继续读取真实 page_view 访问记录，正式长期统计建议接入 Postgres 数据库。</span>
-    </section>
-  );
+function DataAvailability({ storageMode }) {
+  if (storageMode === "database") return null;
+  return <section className="admin-alert warning"><strong>数据暂不可用</strong><span>请稍后刷新页面。</span></section>;
 }
 
 function formatBeijingDateTime(value) {
@@ -342,7 +281,7 @@ export function AdminOverviewRealtime({ initialData, contentStats }) {
   return (
     <>
       <LiveSyncNote state={state} />
-      <StorageAlert storageMode={storageMode} />
+      <DataAvailability storageMode={storageMode} />
 
       <section className="admin-grid four">
         <MetricCard label="页面浏览量" value={Number(overview.pageViews || 0).toLocaleString()} note="PV" />
@@ -352,19 +291,16 @@ export function AdminOverviewRealtime({ initialData, contentStats }) {
       </section>
 
       <section className="admin-grid four">
-        <MetricCard label="前台产品" value={Number(liveContentStats.products || 0).toLocaleString()} note={`${liveContentStats.cmsProducts || 0} 个来自后台`} />
+        <MetricCard label="前台产品" value={Number(liveContentStats.products || 0).toLocaleString()} note="已发布内容" />
         <MetricCard label="Blog 文章" value={Number(liveContentStats.blogPosts || 0).toLocaleString()} note="静态专业文章" />
-        <MetricCard label="News 新闻" value={Number(liveContentStats.newsPosts || 0).toLocaleString()} note={`${liveContentStats.cmsNews || 0} 个来自后台`} />
+        <MetricCard label="新闻文章" value={Number(liveContentStats.newsPosts || 0).toLocaleString()} note="已发布内容" />
         <MetricCard label="应用场景" value={Number(liveContentStats.applications || 0).toLocaleString()} note="静态应用库" />
       </section>
 
       <section className="admin-panel">
-        <p className="eyebrow">内容同步状态</p>
-        <h2>前台内容读取方式</h2>
-        <p className="admin-muted">
-          Products 和 News 已接入后台 CMS。后台保存、发布、下架或删除后，会触发前台对应页面和 sitemap 重新验证。
-          当前 CMS 存储模式：<strong>{liveContentStats.cmsStorageMode || "unknown"}</strong>。
-        </p>
+        <p className="eyebrow">内容状态</p>
+        <h2>网站内容已同步</h2>
+        <p className="admin-muted">已发布的产品和新闻会在网站前台保持同步展示。</p>
       </section>
 
       <section className="admin-grid two">
@@ -383,7 +319,7 @@ export function AdminOverviewRealtime({ initialData, contentStats }) {
       <section className="admin-grid two">
         <article className="admin-panel">
           <p className="eyebrow">来源平台</p>
-          <h2>搜索 / 社媒 / AI / 直接访问</h2>
+          <h2>搜索 / 社媒 / 推荐 / 直接访问</h2>
           <BarList rows={list(traffic.sourcePlatforms)} />
         </article>
         <article className="admin-panel">
@@ -418,7 +354,7 @@ export function AdminOverviewRealtime({ initialData, contentStats }) {
             <MetricCard label="点击率" value={`${searchConsole.overview?.ctr || 0}%`} note="平均值" />
             <MetricCard label="排名位置" value={searchConsole.overview?.position || 0} note="平均值" />
           </div>
-          {!searchConsole.configured ? <p className="admin-muted">Google Search Console API 尚未连接，当前只显示 0 和空表。</p> : null}
+          {!searchConsole.configured ? <p className="admin-muted">搜索数据正在准备中。</p> : null}
         </article>
       </section>
     </>
@@ -447,7 +383,7 @@ export function AdminTrafficRealtime({ initialData }) {
       </section>
       <section className="admin-grid four">
         <article className="admin-panel"><p className="eyebrow">获客来源</p><h2>渠道分布</h2><BarList rows={list(traffic.channels)} /></article>
-        <article className="admin-panel"><p className="eyebrow">来源平台</p><h2>搜索 / 社媒 / AI / 直接访问</h2><BarList rows={list(traffic.sourcePlatforms)} /></article>
+        <article className="admin-panel"><p className="eyebrow">来源平台</p><h2>搜索 / 社媒 / 推荐 / 直接访问</h2><BarList rows={list(traffic.sourcePlatforms)} /></article>
         <article className="admin-panel"><p className="eyebrow">目标市场</p><h2>国家 / 地区</h2><BarList rows={displayCountryRows(traffic.countries)} /></article>
         <article className="admin-panel"><p className="eyebrow">设备环境</p><h2>设备类型</h2><BarList rows={list(traffic.devices)} /></article>
       </section>
@@ -578,7 +514,7 @@ export function AdminVisitorsRealtime({ initialData }) {
   return (
     <>
       <LiveSyncNote state={state} />
-      <StorageAlert storageMode={data.storageMode} />
+      <DataAvailability storageMode={data.storageMode} />
       <section className="admin-panel">
         <div className="admin-panel-head">
           <div>

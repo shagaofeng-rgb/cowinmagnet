@@ -21,6 +21,8 @@ function localizeLabel(label) {
     "Search Analytics Connected": "搜索数据已连接",
     "URL Inspection can be added later": "URL 检查可后续接入"
   };
+  if (/^(AI Search|AI Search Index)$/i.test(String(label))) return "推荐来源";
+  if (/^(ChatGPT|Perplexity|Claude|Gemini|Microsoft Copilot|Phind|You\.com)$/i.test(String(label))) return "推荐来源";
   return labels[label] || label;
 }
 

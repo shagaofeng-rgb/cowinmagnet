@@ -3,7 +3,6 @@ import AdminDateRangeFilter from "@/components/admin/AdminDateRangeFilter";
 import { getAdminDateRange } from "@/lib/adminDateRange";
 import { getSearchConsoleSnapshot } from "@/lib/analyticsStore";
 import { getSearchConsoleSitemapStatus } from "@/lib/searchConsoleClient";
-import { getSyncStatus } from "@/lib/syncStatusStore";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -13,15 +12,14 @@ export const metadata = {
 export default async function SearchConsolePage({ searchParams }) {
   const range = getAdminDateRange(await searchParams);
   const rangeKey = `${range.preset}:${range.startInput}:${range.endInput}`;
-  const [data, sitemapResult, maintenance] = await Promise.all([
+  const [data, sitemapResult] = await Promise.all([
     getSearchConsoleSnapshot(range),
     getSearchConsoleSitemapStatus().catch((error) => ({
       configured: true,
       submissionEnabled: false,
       live: false,
       error: error instanceof Error ? error.message : "Sitemap status check failed"
-    })),
-    getSyncStatus("sitemap-maintenance").catch(() => null)
+    }))
   ]);
 
   return (
@@ -76,50 +74,31 @@ export default async function SearchConsolePage({ searchParams }) {
         </article>
 
         <article className="admin-panel">
-          <p className="eyebrow">Sitemap 握手状态</p>
-          <h2>Google 已接收 Sitemap</h2>
+          <p className="eyebrow">网站收录状态</p>
+          <h2>网站地图状态</h2>
           <dl className="admin-definition-list">
             <div><dt>自动提交</dt><dd>{sitemapResult.submissionEnabled ? "已启用" : "未启用"}</dd></div>
-            <div><dt>Google API</dt><dd>{sitemapResult.live ? "已连接" : "未连接"}</dd></div>
-            <div><dt>最后提交</dt><dd>{sitemapResult.lastSubmitted ? new Date(sitemapResult.lastSubmitted).toLocaleString("zh-CN") : "—"}</dd></div>
-            <div><dt>最后读取</dt><dd>{sitemapResult.lastDownloaded ? new Date(sitemapResult.lastDownloaded).toLocaleString("zh-CN") : "—"}</dd></div>
+            <div><dt>连接状态</dt><dd>{sitemapResult.live ? "正常" : "准备中"}</dd></div>
+            <div><dt>最近提交</dt><dd>{sitemapResult.lastSubmitted ? new Date(sitemapResult.lastSubmitted).toLocaleString("zh-CN") : "—"}</dd></div>
+            <div><dt>最近更新</dt><dd>{sitemapResult.lastDownloaded ? new Date(sitemapResult.lastDownloaded).toLocaleString("zh-CN") : "—"}</dd></div>
             <div><dt>发现 URL</dt><dd>{sitemapResult.contents?.reduce((total, item) => total + item.submitted, 0) || 0}</dd></div>
             <div><dt>警告 / 错误</dt><dd>{`${sitemapResult.warnings || 0} / ${sitemapResult.errors || 0}`}</dd></div>
           </dl>
-          <p className="admin-muted">
-            最近维护任务：{maintenance?.latest?.status || "暂无记录"}；{maintenance?.schedule || "未配置"}
-          </p>
-          {sitemapResult.error ? <p className="admin-alert">{sitemapResult.error}</p> : null}
+          <p className="admin-muted">网站地图会定期更新。</p>
         </article>
 
         <article className="admin-panel">
-          <p className="eyebrow">搜索表现 API</p>
-          <h2>Search Console API</h2>
+          <p className="eyebrow">搜索表现</p>
+          <h2>搜索数据概览</h2>
           <BarList rows={data.indexingStatus} />
           <p className="admin-muted">
             {data.live
-              ? "已读取 Google Search Console 搜索表现数据。Pages 收录覆盖率以 Google Search Console 的 Page indexing 报告为准；普通网页不使用批量 Indexing API。"
-              : "尚未连接 Google Search Console API，因此当前显示 0 和空表，不再显示示例数据。"}
+              ? "已更新 Google 搜索表现数据。"
+              : "搜索数据正在准备中。"}
           </p>
-          {data.error ? <p className="admin-alert">{data.error}</p> : null}
         </article>
       </section>
 
-      {!data.live ? (
-        <section className="admin-panel">
-          <p className="eyebrow">接入链路</p>
-          <h2>Google Search Console API 连接步骤</h2>
-          <ol className="admin-setup-list">
-            <li>在 Google Cloud 创建项目，并启用 <strong>Google Search Console API</strong>。</li>
-            <li>创建 Service Account，下载 JSON Key。</li>
-            <li>打开 Google Search Console，在网站资源中把 Service Account 邮箱添加为用户，权限选择“完整”。</li>
-            <li>在 Vercel 项目环境变量里配置：<code>GOOGLE_SEARCH_CONSOLE_SITE_URL</code>、<code>GOOGLE_CLIENT_EMAIL</code>、<code>GOOGLE_PRIVATE_KEY</code>。</li>
-            <li><code>GOOGLE_SEARCH_CONSOLE_SITE_URL</code> 必须和 GSC 资源完全一致，例如 <code>https://www.cowinmagnet.com/</code> 或 <code>sc-domain:cowinmagnet.com</code>。</li>
-            <li><code>GOOGLE_PRIVATE_KEY</code> 使用 JSON 里的 private_key，保留换行，或写成带 <code>\n</code> 的一行。</li>
-            <li>保存环境变量后重新部署 Vercel，后台 SEO 数据会从真实 API 读取。</li>
-          </ol>
-        </section>
-      ) : null}
 
       <section className="admin-grid two">
         <article className="admin-panel">

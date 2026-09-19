@@ -11,14 +11,12 @@ const links = [
   { href: "/admin/search-console", label: "SEO 数据" },
   { href: "/admin/products", label: "产品管理" },
   { href: "/admin/news", label: "新闻管理" },
-  { href: "/admin/news-operations", label: "News 运营" },
   { href: "/admin/inquiries", label: "客户表单" },
   { href: "/admin/whatsapp", label: "WhatsApp 分析" },
-  { href: "/admin/link-audit", label: "内外链审计" },
   { href: "/admin/visitors", label: "访客记录" },
   { href: "/admin/pages", label: "页面表现" },
-  { href: "/admin/journeys", label: "访问路径" },
-  { href: "/admin/settings", label: "系统设置" }
+  { href: "/admin/journeys", label: "客户路径" },
+  { href: "/admin/settings", label: "账户设置" }
 ];
 
 export default function AdminShell({ children, email }) {

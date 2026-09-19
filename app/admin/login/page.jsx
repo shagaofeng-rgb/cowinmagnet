@@ -10,7 +10,7 @@ export const metadata = {
 
 const errorMessages = {
   invalid: "邮箱或密码不正确。",
-  "not-configured": "后台密码还没有配置，请先在 Vercel 环境变量中配置 ADMIN_PASSWORD_HASH、ADMIN_PASSWORD 或 ADMIN_DEFAULT_PASSWORD。",
+  "not-configured": "后台暂时不可用，请联系网站管理员。",
   "rate-limited": "登录尝试过于频繁，请稍后再试。"
 };
 
@@ -35,7 +35,7 @@ export default async function AdminLoginPage({ searchParams }) {
 
         {!configured ? (
           <div className="admin-alert">
-            后台登录暂未启用，请先配置后台密码环境变量。
+            后台暂时不可用，请联系网站管理员。
           </div>
         ) : null}
 

@@ -29,7 +29,7 @@ export async function GET(request) {
       try {
         const processedCount = await countAnalyticsEvents({ days: 1 });
         const snapshotRefresh = await refreshStoredAnalyticsSnapshots(
-          ["day"].map((range) => getAdminDateRange(new URLSearchParams({ range })))
+          ["day", "week", "month"].map((range) => getAdminDateRange(new URLSearchParams({ range })))
         );
         const finishedAt = new Date();
 
@@ -45,7 +45,7 @@ export async function GET(request) {
             cronHeader: request.headers.get("x-vercel-cron") || "",
             userAgent: request.headers.get("user-agent") || "",
             storageMode: getAnalyticsStorageMode(),
-            snapshotStrategy: "daily-prewarm; week-and-month-on-demand",
+            snapshotStrategy: "day-week-month-prewarm",
             snapshotRefresh
           }
         });
