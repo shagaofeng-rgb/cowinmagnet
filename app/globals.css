@@ -1269,7 +1269,7 @@ p {
   background: transparent;
   color: inherit;
   font: inherit;
-  cursor: default;
+  cursor: pointer;
 }
 
 .nav-links > a:hover,
@@ -1295,6 +1295,15 @@ p {
   pointer-events: none;
   transform: translateX(-50%) translateY(10px);
   transition: opacity 180ms ease, transform 180ms ease;
+}
+
+/* This invisible bridge keeps a desktop mega menu open while the pointer
+   travels from the navigation trigger to the panel below it. */
+.mega-menu::before {
+  position: absolute;
+  inset: -18px 0 auto;
+  height: 18px;
+  content: "";
 }
 
 .has-mega.mega-open .mega-menu {
@@ -3381,6 +3390,15 @@ textarea:focus {
   z-index: 1;
   max-width: 1320px;
   margin-inline: auto;
+}
+
+.footer-bottom a {
+  color: inherit;
+}
+
+.footer-bottom a:hover,
+.footer-bottom a:focus-visible {
+  color: #facc15;
 }
 
 .footer-cta {

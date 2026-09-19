@@ -5,6 +5,7 @@
   email: "davidsha@cowinmagnet.com",
   phone: "+86 156 6513 5205",
   whatsapp: "8615665135205",
+  googleMapsUrl: "https://maps.app.goo.gl/P1YyVHoCdGBd9ef37",
   address:
     "Room 110, 1st Floor, Building 2, Qushidai Future Building, Kecheng District, Quzhou City, Zhejiang Province, China",
   tagline: "Industrial magnetic separation equipment for global B2B buyers.",

@@ -10,13 +10,13 @@ const contactItems = [
   {
     label: "Phone / WhatsApp",
     value: "+86 156 6513 5205",
-    href: "tel:+8615665135205",
+    href: "https://wa.me/8615665135205",
     note: "Call or add WhatsApp for faster communication."
   },
   {
     label: "Office",
     value: "Quzhou, Zhejiang, China",
-    href: "https://www.google.com/maps/search/?api=1&query=Room%20110%2C%201st%20Floor%2C%20Building%202%2C%20Qushidai%20Future%20Building%2C%20Kecheng%20District%2C%20Quzhou%20City%2C%20Zhejiang%20Province%2C%20China",
+    href: "https://maps.app.goo.gl/P1YyVHoCdGBd9ef37",
     note: "Room 110, 1st Floor, Building 2, Qushidai Future Building."
   }
 ];
@@ -34,7 +34,7 @@ export default function DirectContactCard() {
 
       <div className="direct-contact-grid">
         {contactItems.map((item) => (
-          <a className="direct-contact-card" href={item.href} key={item.label} target={item.label === "Office" ? "_blank" : undefined} rel={item.label === "Office" ? "noopener noreferrer nofollow" : undefined}>
+          <a className="direct-contact-card" href={item.href} key={item.label} target={item.label === "Email" ? undefined : "_blank"} rel={item.label === "Email" ? undefined : "noopener noreferrer nofollow"}>
             <span>{item.label}</span>
             <strong>{item.value}</strong>
             <small>{item.note}</small>

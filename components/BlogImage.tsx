@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const BLOG_IMAGE_FALLBACK = "/images/generated/recycling-application-cowinmagnet.png";
+const BLOG_IMAGE_FALLBACK = "/images/generated/recycling-application-cowinmagnet.webp";
 
 function approvedRemoteBlogImage(src: string) {
   try {

@@ -40,7 +40,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         eyebrow="Blog"
         title="Magnetic separator guides for industrial buyers"
         description="Practical articles for procurement teams, plant engineers, distributors, and EPC buyers comparing magnetic separation equipment."
-        image="/images/generated/recycling-application-cowinmagnet.png"
+        image="/images/generated/recycling-application-cowinmagnet.webp"
         secondaryHref="/request-quote"
         secondaryLabel="Send Requirements"
       />

@@ -55,7 +55,7 @@ export default async function LocalizedSearchPage({ params, searchParams }: Page
         eyebrow="Search"
         title="Search COWIN MAGNET"
         description="Find product pages, industry solutions, news updates, and technical buying guides."
-        image="/images/generated/contact-support-cowinmagnet.png"
+        image="/images/generated/contact-support-cowinmagnet.webp"
         imageAlt="Cowinmagnet website search"
         secondaryHref={localizeHref("/request-quote", current)}
         secondaryLabel="Send Requirements"

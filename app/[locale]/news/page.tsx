@@ -70,7 +70,7 @@ export default async function LocalizedNewsPage({ params, searchParams }: PagePr
         eyebrow="News"
         title="News"
         description="Verified external industry updates with clear source attribution and independent editorial analysis."
-        image="/images/generated/recycling-application-cowinmagnet.png"
+        image="/images/generated/recycling-application-cowinmagnet.webp"
         imageAlt="Cowinmagnet industry news and magnetic separation market insights"
       />
 

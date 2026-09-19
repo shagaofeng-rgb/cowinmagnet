@@ -39,7 +39,7 @@ export function PageHero({
       </div>
       {image && (
         <div className="page-hero-media">
-          <Image src={image} width={780} height={520} alt={imageAlt || title} priority />
+          <Image src={image} width={780} height={520} sizes="(max-width: 900px) 100vw, 48vw" alt={imageAlt || title} priority />
         </div>
       )}
     </section>

@@ -39,18 +39,49 @@ export function Header() {
   const t = getDictionary(locale);
   const dir = getDirection(locale);
   const headerRef = useRef<HTMLElement>(null);
+  const megaCloseTimer = useRef<number | null>(null);
   const [activeMega, setActiveMega] = useState<"products" | "industries" | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const clearMegaCloseTimer = () => {
+    if (megaCloseTimer.current) {
+      window.clearTimeout(megaCloseTimer.current);
+      megaCloseTimer.current = null;
+    }
+  };
+
+  const openMega = (menu: "products" | "industries") => {
+    clearMegaCloseTimer();
+    setActiveMega(menu);
+  };
+
+  const scheduleMegaClose = () => {
+    clearMegaCloseTimer();
+    megaCloseTimer.current = window.setTimeout(() => setActiveMega(null), 140);
+  };
+
   useEffect(() => {
-    const closeMega = () => setActiveMega(null);
+    const closeMega = () => {
+      clearMegaCloseTimer();
+      setActiveMega(null);
+    };
     window.addEventListener("scroll", closeMega, { passive: true });
     window.addEventListener("resize", closeMega);
     return () => {
       window.removeEventListener("scroll", closeMega);
       window.removeEventListener("resize", closeMega);
+      clearMegaCloseTimer();
     };
   }, []);
+
+  useEffect(() => {
+    clearMegaCloseTimer();
+    const resetNavigation = window.setTimeout(() => {
+      setActiveMega(null);
+      setMobileOpen(false);
+    }, 0);
+    return () => window.clearTimeout(resetNavigation);
+  }, [pathname]);
 
   useEffect(() => {
     function closeMobileMenu(event: PointerEvent) {
@@ -105,16 +136,15 @@ export function Header() {
         <div className="nav-links">
           <div
             className={`nav-item has-mega${activeMega === "products" ? " mega-open" : ""}`}
-            onMouseEnter={() => setActiveMega("products")}
-            onMouseMove={() => setActiveMega("products")}
-            onMouseLeave={() => setActiveMega(null)}
-            onPointerEnter={() => setActiveMega("products")}
-            onPointerLeave={() => setActiveMega(null)}
+            onMouseEnter={() => openMega("products")}
+            onMouseLeave={scheduleMegaClose}
+            onFocusCapture={() => openMega("products")}
           >
             <Link
               href={localizeHref("/products", locale)}
               className="nav-trigger"
               aria-expanded={activeMega === "products"}
+              aria-haspopup="menu"
             >
               {t.nav.products}
             </Link>
@@ -124,7 +154,7 @@ export function Header() {
                   <span><Sparkles size={15} aria-hidden /> Product Center</span>
                   <h3>{t.products.h1}</h3>
                   <p>{t.products.description}</p>
-                  <Link href={localizeHref("/products", locale)} className="mega-cta">
+                  <Link href={localizeHref("/products", locale)} className="mega-cta" onClick={() => setActiveMega(null)}>
                     {t.common.viewProducts} <ArrowRight size={15} aria-hidden />
                   </Link>
                 </div>
@@ -149,17 +179,16 @@ export function Header() {
           </div>
           <div
             className={`nav-item has-mega${activeMega === "industries" ? " mega-open" : ""}`}
-            onMouseEnter={() => setActiveMega("industries")}
-            onMouseMove={() => setActiveMega("industries")}
-            onMouseLeave={() => setActiveMega(null)}
-            onPointerEnter={() => setActiveMega("industries")}
-            onPointerLeave={() => setActiveMega(null)}
+            onMouseEnter={() => openMega("industries")}
+            onMouseLeave={scheduleMegaClose}
+            onFocusCapture={() => openMega("industries")}
           >
             <button
               type="button"
               className="nav-trigger nav-trigger-button"
               aria-expanded={activeMega === "industries"}
-              onFocus={() => setActiveMega("industries")}
+              aria-haspopup="menu"
+              onClick={() => activeMega === "industries" ? setActiveMega(null) : openMega("industries")}
             >
               Industries
             </button>

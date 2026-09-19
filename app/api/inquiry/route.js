@@ -31,7 +31,6 @@ function validate(payload) {
   else if (!emailPattern.test(payload.email.trim())) errors.email = "Email format is invalid.";
   if (!payload.phone?.trim()) errors.phone = "Phone is required.";
   else if (!phonePattern.test(payload.phone.trim())) errors.phone = "Phone format is invalid.";
-  if (!payload.country?.trim()) errors.country = "Country / Region is required.";
   if (!payload.message?.trim()) errors.message = "Message is required.";
   if (payload.website?.trim()) errors.website = "Spam submission blocked.";
   if (!payload.consent) errors.consent = "Business inquiry confirmation is required.";
@@ -289,6 +288,11 @@ export async function POST(request) {
     });
   });
 
+  // The inquiry itself is the system of record. Record attribution before an
+  // optional email notification so a temporary mail-provider issue can never
+  // make a valid customer lead look like a failed form submission.
+  await recordInquiryAttribution(payload);
+
   const toEmail = process.env.INQUIRY_TO_EMAIL;
   const bccEmails = parseEmailList(process.env.INQUIRY_BCC_EMAILS);
   const fromEmail = process.env.INQUIRY_FROM_EMAIL || "Cowinmagnet Website <davidsha@cowinmagnet.com>";
@@ -319,8 +323,6 @@ export async function POST(request) {
         text: inquiryText(payload),
         html: inquiryHtml(payload)
       });
-      await recordInquiryAttribution(payload);
-
       return Response.json({
         message: "Thank you. Your inquiry has been sent successfully.",
         inquiryId: savedInquiry?.id
@@ -329,16 +331,16 @@ export async function POST(request) {
       console.error("SMTP inquiry delivery failed", error);
       return Response.json(
         {
-          message: "Inquiry received, but email delivery failed. Please check SMTP settings.",
-          inquiryId: savedInquiry?.id
+          message: "Thank you. Your inquiry has been received and our sales team will contact you soon.",
+          inquiryId: savedInquiry?.id,
+          deliveryStatus: "recorded"
         },
-        { status: 502 }
+        { status: 202 }
       );
     }
   }
 
   console.info(`Inquiry received without SMTP delivery: ${payload.email} from ${payload.country || "-"} via ${payload.sourcePath || "-"}`);
-  await recordInquiryAttribution(payload);
   return Response.json({
     message: "Thank you. Your inquiry has been received. Email delivery is not configured on this environment.",
     inquiryId: savedInquiry?.id

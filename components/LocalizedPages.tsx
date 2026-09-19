@@ -124,7 +124,7 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
           <HomeVideoShowcase eyebrow={locale === "en" ? "Industries Video" : t.home.videoEyebrow} title={locale === "en" ? "See COWIN MAGNET in action" : t.home.videoTitle} />
           <article className="template-service-card">
             <div><span className="eyebrow">Service &amp; Support</span><h2>From inquiry to operation,<br />we&apos;re with you</h2><p>Technical consultation, customized design, manufacturing, and after-sales support — all in one place.</p><Link href={localizeHref("/contact", locale)} className="btn btn-secondary">Contact Support <ArrowRight size={16} aria-hidden /></Link></div>
-            <Image src="/images/generated/contact-support-cowinmagnet.png" width={760} height={520} sizes="(max-width: 700px) 100vw, 32vw" alt="Cowinmagnet technical service team" loading="lazy" />
+            <Image src="/images/generated/contact-support-cowinmagnet.webp" width={760} height={520} sizes="(max-width: 700px) 100vw, 32vw" alt="Cowinmagnet technical service team" loading="lazy" />
           </article>
         </div>
         <aside className="industrial-quote-card">
@@ -179,7 +179,7 @@ export function LocalizedApplicationsPage({ locale }: { locale: Locale }) {
         <div className="application-grid">
           {applications.map((application) => (
             <article key={application.slug} className="application-card">
-              <Image src={application.image} width={620} height={390} alt={`${application.name} ${t.applications.heroAlt}`} />
+              <Image src={application.image} width={620} height={390} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 31vw" alt={`${application.name} ${t.applications.heroAlt}`} />
               <div><h2>{application.name}</h2><p>{application.summary}</p><Link href={localizeHref(`/industries/${application.industrySlug || application.slug}`, locale)} className="text-link">{t.common.viewSolution} <ArrowRight size={16} aria-hidden /></Link></div>
             </article>
           ))}
@@ -207,7 +207,7 @@ export function LocalizedIndustriesPage({ locale }: { locale: Locale }) {
         <div className="application-grid">
           {applications.map((application) => (
             <article key={application.industrySlug} className="application-card">
-              <Image src={application.image} width={620} height={390} alt={application.imageAlt} />
+              <Image src={application.image} width={620} height={390} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 31vw" alt={application.imageAlt} />
               <div>
                 <h2>{application.pageTitle}</h2>
                 <p>{application.summary}</p>
@@ -237,7 +237,7 @@ export function LocalizedApplicationDetailPage({ locale, application }: { locale
           {application.secondaryDescription ? <p>{application.secondaryDescription}</p> : null}
           <div className="hero-actions"><Link href={localizeHref("/request-quote", locale)} className="btn btn-primary">Get a Quote</Link><Link href={localizeHref("/contact", locale)} className="btn btn-secondary">Contact Us</Link></div>
         </div>
-        <div className="detail-image"><Image src={application.image} width={820} height={560} alt={application.imageAlt} priority /></div>
+        <div className="detail-image"><Image src={application.image} width={820} height={560} sizes="(max-width: 900px) 100vw, 52vw" alt={application.imageAlt} priority /></div>
       </section>
       <section className="section detail-layout">
         <article className="detail-main">
@@ -268,7 +268,7 @@ export function LocalizedAboutPage({ locale }: { locale: Locale }) {
   return (
     <>
       <JsonLd data={organizationSchema()} />
-      <PageHero eyebrow={t.about.eyebrow} title={t.about.h1} description={t.about.description} image="/images/generated/contact-support-cowinmagnet.png" imageAlt={t.about.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/products", locale)} secondaryLabel={t.common.viewProducts} />
+      <PageHero eyebrow={t.about.eyebrow} title={t.about.h1} description={t.about.description} image="/images/generated/contact-support-cowinmagnet.webp" imageAlt={t.about.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/products", locale)} secondaryLabel={t.common.viewProducts} />
       <section className="section section-split">
         <div><span className="eyebrow">{t.about.profileEyebrow}</span><h2>{site.legalName}</h2><p>{t.about.profileText1}</p><p>{t.about.profileText2}</p></div>
         <div className="value-grid">{t.advantages.slice(0, 3).map(([title, text]) => <article key={title} className="value-item"><ShieldCheck size={26} aria-hidden /><h3>{title}</h3><p>{text}</p></article>)}</div>
@@ -290,10 +290,10 @@ export function LocalizedContactPage({ locale }: { locale: Locale }) {
   const t = getDictionary(locale);
   return (
     <>
-      <PageHero eyebrow={t.contact.eyebrow} title={t.contact.h1} description={t.contact.description} image="/images/generated/contact-support-cowinmagnet.png" imageAlt={t.contact.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} />
+      <PageHero eyebrow={t.contact.eyebrow} title={t.contact.h1} description={t.contact.description} image="/images/generated/contact-support-cowinmagnet.webp" imageAlt={t.contact.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} />
       <section className="section map-section"><GoogleMapCard title="Find COWIN MAGNET in Quzhou, China" /></section>
       <section className="section contact-layout">
-        <div className="contact-info"><h2>{t.contact.infoTitle}</h2><a href={`mailto:${site.email}`}><Mail size={18} aria-hidden />{site.email}</a><a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="contact-page" data-whatsapp-component="localized-contact-page"><MessageCircle size={18} aria-hidden />WhatsApp: {site.whatsapp}</a><a href={`tel:${site.phone.replaceAll(" ", "")}`}><Phone size={18} aria-hidden />{site.phone}</a><span><MapPin size={18} aria-hidden />{site.address}</span><p>{t.contact.fastTip}</p></div>
+        <div className="contact-info"><h2>{t.contact.infoTitle}</h2><a href={`mailto:${site.email}`}><Mail size={18} aria-hidden />{site.email}</a><a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="contact-page" data-whatsapp-component="localized-contact-page"><MessageCircle size={18} aria-hidden />WhatsApp: {site.whatsapp}</a><a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="contact-phone" data-whatsapp-component="localized-contact-page"><Phone size={18} aria-hidden />{site.phone}</a><a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer nofollow"><MapPin size={18} aria-hidden />{site.address}</a><p>{t.contact.fastTip}</p></div>
         <QuoteForm />
       </section>
     </>
@@ -315,7 +315,7 @@ export function LocalizedSimplePage({ locale, page }: { locale: Locale; page: "f
   const data = t[page];
   return (
     <>
-      <PageHero eyebrow={data.eyebrow} title={data.h1} description={data.description} image={page === "factory" ? "/images/generated/about-factory-team-cowinmagnet.png" : "/images/generated/recycling-application-cowinmagnet.png"} imageAlt={data.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/products", locale)} secondaryLabel={t.common.viewProducts} />
+      <PageHero eyebrow={data.eyebrow} title={data.h1} description={data.description} image={page === "factory" ? "/images/generated/about-factory-team-cowinmagnet.webp" : "/images/generated/recycling-application-cowinmagnet.webp"} imageAlt={data.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/products", locale)} secondaryLabel={t.common.viewProducts} />
       <section className="section">
         <div className="advantage-grid">
           {t.advantages.map(([title, text]) => <article key={title} className="advantage-item"><BadgeCheck size={26} aria-hidden /><h3>{title}</h3><p>{text}</p></article>)}
@@ -331,7 +331,7 @@ export function LocalizedBlogListPage({ locale, posts, pagination }: { locale: L
   const endItem = pagination ? Math.min(pagination.totalItems, pagination.currentPage * 9) : posts.length;
   return (
     <>
-      <PageHero eyebrow={t.blog.eyebrow} title={t.blog.h1} description={t.blog.description} image="/images/generated/recycling-application-cowinmagnet.png" imageAlt={t.blog.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/request-quote", locale)} secondaryLabel={t.common.sendRequirements} />
+      <PageHero eyebrow={t.blog.eyebrow} title={t.blog.h1} description={t.blog.description} image="/images/generated/recycling-application-cowinmagnet.webp" imageAlt={t.blog.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/request-quote", locale)} secondaryLabel={t.common.sendRequirements} />
       <section className="section blog-list-section">
         <div className="section-heading align-left"><span className="eyebrow">{t.blog.hubEyebrow}</span><h2>{t.blog.hubTitle}</h2><p>{t.blog.hubText}</p></div>
         {pagination ? <div className="catalog-list-summary"><p>{startItem}-{endItem} of {pagination.totalItems} articles</p></div> : null}

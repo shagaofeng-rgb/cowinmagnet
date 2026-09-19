@@ -36,7 +36,7 @@ export default function AboutPage() {
         eyebrow="About COWIN MAGNET"
         title="A service-first magnetic separation equipment supplier"
         description="COWIN MAGNET is not positioned as a factory. We help overseas buyers choose suitable magnetic separation equipment, coordinate reliable supply, and make the purchasing process clearer from inquiry to delivery."
-        image="/images/generated/contact-support-cowinmagnet.png"
+        image="/images/generated/contact-support-cowinmagnet.webp"
         imageAlt="COWIN MAGNET service support for global buyers"
         secondaryHref="/products"
         secondaryLabel="View Products"

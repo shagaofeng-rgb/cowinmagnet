@@ -47,7 +47,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         eyebrow="Search"
         title="Search COWIN MAGNET"
         description="Find product pages, industry solutions, news updates, and technical buying guides."
-        image="/images/generated/contact-support-cowinmagnet.png"
+        image="/images/generated/contact-support-cowinmagnet.webp"
         imageAlt="Cowinmagnet website search"
         secondaryHref="/request-quote"
         secondaryLabel="Send Requirements"

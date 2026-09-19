@@ -19,7 +19,7 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Send your magnetic separation requirement"
         description="Share your product requirement, country, material, conveyor conditions, and contact details. Our sales team will contact you soon."
-        image="/images/generated/contact-support-cowinmagnet.png"
+        image="/images/generated/contact-support-cowinmagnet.webp"
       />
       <section className="section map-section">
         <GoogleMapCard title="Find COWIN MAGNET in Quzhou, China" />
@@ -29,8 +29,8 @@ export default function ContactPage() {
           <h2>Contact Information</h2>
           <a href={`mailto:${site.email}`}><Mail size={18} aria-hidden />{site.email}</a>
           <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="contact-page" data-whatsapp-component="contact-page"><MessageCircle size={18} aria-hidden />WhatsApp: {site.whatsapp}</a>
-          <a href={`tel:${site.phone.replaceAll(" ", "")}`}><Phone size={18} aria-hidden />{site.phone}</a>
-          <span><MapPin size={18} aria-hidden />{site.address}</span>
+          <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="contact-phone" data-whatsapp-component="contact-page"><Phone size={18} aria-hidden />{site.phone}</a>
+          <a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer nofollow"><MapPin size={18} aria-hidden />{site.address}</a>
           <p>For faster selection, include belt width, material, belt speed, suspension height, and iron contamination level.</p>
         </div>
         <QuoteForm />

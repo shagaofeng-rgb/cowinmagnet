@@ -8,7 +8,7 @@ import BrandIcon from "@/components/BrandIcon";
 import { site } from "@/data/site";
 import { getDictionary, getDirection, getLocaleFromPath, localizeHref } from "@/lib/i18n";
 
-const whatsappChatUrl = "https://wa.me/message/FROFUJEVUZDOC1";
+const whatsappChatUrl = `https://wa.me/${site.whatsapp}`;
 const whatsappQrUrl = "/images/qr-whatsapp-cowinmagnet.png";
 const wechatQrUrl = "/images/qr-wechat-david.png";
 
@@ -86,11 +86,11 @@ export function Footer() {
 
         <div className="footer-contact-card">
           <h3>Contacts</h3>
-          <div className="footer-contact-line">
+          <a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer nofollow" className="footer-contact-line">
             <MapPin size={19} aria-hidden />
             <span>{site.address}</span>
-          </div>
-          <a href={`tel:${site.phone.replaceAll(" ", "")}`} className="footer-contact-line">
+          </a>
+          <a href={whatsappChatUrl} target="_blank" rel="noopener noreferrer nofollow" className="footer-contact-line" data-whatsapp-placement="footer-phone" data-whatsapp-component="site-footer">
             <Phone size={19} aria-hidden />
             <span>{site.whatsapp}</span>
           </a>
@@ -131,7 +131,7 @@ export function Footer() {
       </div>
       <div className="footer-bottom">
         <span>&copy; {new Date().getFullYear()} {site.legalName}</span>
-        <span>{site.address}</span>
+        <a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer nofollow">{site.address}</a>
       </div>
     </footer>
   );

@@ -52,7 +52,7 @@ export const applications: Application[] = [
     seoTitle: "Magnetic Separation Solutions for Recycling Industry",
     seoDescription:
       "Magnetic separation equipment for municipal waste, construction waste, RDF fuel, plastic recycling, scrap metal recycling, and e-waste processing lines.",
-    image: "/images/industries/recycling-industry-magnetic-separation-cover.png",
+    image: "/images/industries/recycling-industry-magnetic-separation-cover.webp",
     iconImage: "/images/industries/icons/recycling-icon.png",
     imageAlt: "Magnetic separator for recycling waste processing line",
     summary:
@@ -267,7 +267,7 @@ export const applications: Application[] = [
     seoTitle: "Magnetic Separation Solutions for Cement and Aggregate Industry",
     seoDescription:
       "Magnetic separators for cement raw materials, limestone, sand, gravel, aggregate, slag, and industrial by-product processing lines.",
-    image: "/images/industries/cement-aggregate-industry-magnetic-separation-cover.png",
+    image: "/images/industries/cement-aggregate-industry-magnetic-separation-cover.webp",
     iconImage: "/images/industries/icons/cement-aggregate-icon.png",
     imageAlt: "Magnetic separation equipment for cement and aggregate industry",
     summary:
@@ -360,7 +360,7 @@ export const applications: Application[] = [
     seoTitle: "Magnetic Separation Solutions for Food Processing Industry",
     seoDescription:
       "Food-grade magnetic separation equipment for rice, grain, flour, sugar, milk powder, nuts, beans, spices, coffee, tea, starch, and feed processing lines.",
-    image: "/images/industries/food-industry-magnetic-separation-cover.png",
+    image: "/images/industries/food-industry-magnetic-separation-cover.webp",
     iconImage: "/images/industries/icons/food-processing-icon.png",
     imageAlt: "Food-grade magnetic separation solution for grain and powder processing",
     summary:
