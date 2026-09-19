@@ -2,7 +2,7 @@
   name: "COWIN MAGNET",
   legalName: "Quzhou Qiying Import & Export Co., Ltd.",
   url: "https://www.cowinmagnet.com",
-  email: "davidsha@cowinmagnet.com",
+  email: "info@cowinmagnet.com",
   phone: "+86 156 6513 5205",
   whatsapp: "8615665135205",
   googleMapsUrl: "https://maps.app.goo.gl/P1YyVHoCdGBd9ef37",

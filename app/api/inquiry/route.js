@@ -293,9 +293,9 @@ export async function POST(request) {
   // make a valid customer lead look like a failed form submission.
   await recordInquiryAttribution(payload);
 
-  const toEmail = process.env.INQUIRY_TO_EMAIL;
+  const toEmail = process.env.INQUIRY_TO_EMAIL || "info@cowinmagnet.com";
   const bccEmails = parseEmailList(process.env.INQUIRY_BCC_EMAILS);
-  const fromEmail = process.env.INQUIRY_FROM_EMAIL || "Cowinmagnet Website <davidsha@cowinmagnet.com>";
+  const fromEmail = process.env.INQUIRY_FROM_EMAIL || "Cowinmagnet Website <info@cowinmagnet.com>";
   const smtpHost = process.env.SMTP_HOST;
   const smtpPort = Number(process.env.SMTP_PORT || 465);
   const smtpUser = process.env.SMTP_USER;

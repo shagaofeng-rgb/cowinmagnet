@@ -3,8 +3,8 @@ import socialLinks from "@/data/socialLinks.json";
 const contactItems = [
   {
     label: "Email",
-    value: "davidsha@cowinmagnet.com",
-    href: "mailto:davidsha@cowinmagnet.com",
+    value: "info@cowinmagnet.com",
+    href: "mailto:info@cowinmagnet.com",
     note: "Send drawings, material details or product requirements directly."
   },
   {
@@ -46,7 +46,7 @@ export default function DirectContactCard() {
         <a href={socialLinks.whatsapp} target="_blank" rel="noopener noreferrer nofollow">
           Message on WhatsApp
         </a>
-        <a href="mailto:davidsha@cowinmagnet.com">Email Now</a>
+        <a href="mailto:info@cowinmagnet.com">Email Now</a>
       </div>
     </section>
   );
