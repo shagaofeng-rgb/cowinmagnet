@@ -51,8 +51,7 @@ function hasBasicSeo(html) {
 }
 
 function hasExpectedCanonical(url, html) {
-  const pathname = new URL(url).pathname;
-  const expected = pathname === "/" ? "/en" : pathname;
+  const expected = new URL(url).pathname;
   const match = html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)/i);
   if (!match) return false;
   try {
