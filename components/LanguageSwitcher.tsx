@@ -3,13 +3,17 @@
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Globe2 } from "lucide-react";
 import { getLocaleFromPath, languageLabels, localePath, locales, stripLocale } from "@/lib/i18n";
 import { persistLocalePreference } from "@/lib/clientLocalePreference";
+import { getPublicUi } from "@/lib/publicUi";
 
 export function LanguageSwitcher() {
   const pathname = usePathname();
+  const router = useRouter();
   const currentLocale = getLocaleFromPath(pathname);
+  const ui = getPublicUi(currentLocale);
   const cleanPath = stripLocale(pathname || "/");
   const menuId = useId();
   const switcherRef = useRef<HTMLDivElement>(null);
@@ -43,13 +47,11 @@ export function LanguageSwitcher() {
     <div
       className={`language-switcher${open ? " is-open" : ""}`}
       ref={switcherRef}
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
     >
       <button
         className="language-trigger"
         type="button"
-        aria-label="Choose language"
+        aria-label={ui.chooseLanguage}
         aria-expanded={open}
         aria-controls={menuId}
         onClick={() => setOpen((value) => !value)}
@@ -57,14 +59,21 @@ export function LanguageSwitcher() {
         <Globe2 size={16} aria-hidden />
         <span>{currentLocale.toUpperCase()}</span>
       </button>
-      <div className="language-menu" id={menuId} role="menu" aria-label="Choose language">
+      <div className="language-menu" id={menuId} role="menu" aria-label={ui.chooseLanguage}>
         {locales.map((locale) => (
           <Link
             key={locale}
             href={localePath(locale, cleanPath)}
             className={locale === currentLocale ? "active" : undefined}
             hrefLang={locale}
-            onClick={() => rememberLocale(locale)}
+            onClick={(event) => {
+              rememberLocale(locale);
+              const suffix = `${window.location.search}${window.location.hash}`;
+              if (suffix) {
+                event.preventDefault();
+                router.push(`${localePath(locale, cleanPath)}${suffix}`);
+              }
+            }}
             role="menuitem"
           >
             <span>{locale.toUpperCase()}</span>

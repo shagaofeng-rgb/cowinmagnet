@@ -7,6 +7,7 @@ import { PaginationNav } from "@/components/PaginationNav";
 import { PageHero } from "@/components/PageHero";
 import { formatDisplayDate, getNewsCategories, getNewsPosts } from "@/data/contentHub";
 import { isLocale, localizedPageAlternates, localizeHref, type Locale } from "@/lib/i18n";
+import { getPublicUi } from "@/lib/publicUi";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -42,9 +43,10 @@ export const revalidate = 0;
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const current = (isLocale(locale) ? locale : "en") as Locale;
+  const ui = getPublicUi(current);
   return {
-    title: "News | Latest Industry Updates and Company Insights",
-    description: "Read the latest industry news, market updates, technology trends, and company perspectives.",
+    title: ui.news[1],
+    description: ui.news[3],
     alternates: localizedPageAlternates(current, "/news")
   };
 }
@@ -53,6 +55,7 @@ export default async function LocalizedNewsPage({ params, searchParams }: PagePr
   const { locale } = await params;
   const query = await searchParams;
   const current = (isLocale(locale) ? locale : "en") as Locale;
+  const ui = getPublicUi(current);
   const [categories, posts] = await Promise.all([getNewsCategories(), getNewsPosts()]);
   const categoryMap = new Map(categories.map((category) => [category.slug, category.title]));
   const selectedCategory = categories.some((category) => category.slug === query?.category) ? query?.category : undefined;
@@ -67,35 +70,33 @@ export default async function LocalizedNewsPage({ params, searchParams }: PagePr
   return (
     <>
       <PageHero
-        eyebrow="News"
-        title="News"
-        description="Verified external industry updates with clear source attribution and independent editorial analysis."
+        eyebrow={ui.news[0]}
+        title={ui.news[0]}
+        description={ui.news[3]}
         image="/images/generated/recycling-application-cowinmagnet.webp"
-        imageAlt="Cowinmagnet industry news and magnetic separation market insights"
+        imageAlt={ui.news[1]}
       />
 
       <section className="section news-index-section">
         <div className="section-heading align-left">
-          <span className="eyebrow">Industry Updates</span>
-          <h2>Verified industry updates and editorial context</h2>
-          <p>
-            News summarizes relevant industry developments with the original source, publication date and an editorial disclaimer on every automated item.
-            Blog remains a separate destination for long-form product knowledge, technical guides and application solutions.
-          </p>
+          <span className="eyebrow">{ui.news[2]}</span>
+          <h2>{ui.news[1]}</h2>
+          <p>{ui.news[3]}</p>
+          {current !== "en" ? <p lang={current}>{ui.news[8]}</p> : null}
         </div>
 
-        <div className="news-category-row" aria-label="News categories">
-          <Link href={newsPageHref(current, 1)} className={`news-category-pill${!selectedCategory ? " active" : ""}`}>All updates</Link>
+        <div className="news-category-row" aria-label={ui.news[2]}>
+          <Link href={newsPageHref(current, 1)} className={`news-category-pill${!selectedCategory ? " active" : ""}`}>{ui.news[4]}</Link>
           {categories.map((category) => (
             <Link href={newsPageHref(current, 1, category.slug)} className={`news-category-pill${selectedCategory === category.slug ? " active" : ""}`} key={category.slug}>
-              {category.title}
+              <span lang="en">{category.title}</span>
             </Link>
           ))}
         </div>
 
         <div className="news-list-toolbar">
-          <p>{startItem}-{endItem} of {filteredPosts.length} news posts</p>
-          <span>12 posts per page</span>
+          <p>{ui.news[5].replace("{start}", String(startItem)).replace("{end}", String(endItem)).replace("{total}", String(filteredPosts.length))}</p>
+          <span>{ui.news[6]}</span>
         </div>
 
         <div className="blog-grid news-card-grid">
@@ -109,13 +110,13 @@ export default async function LocalizedNewsPage({ params, searchParams }: PagePr
               ) : null}
               <div className="blog-card-body">
                 <div className="blog-card-meta">
-                  <span>{categoryMap.get(post.category) || post.categoryTitle || post.category}</span>
+                  <span lang="en">{categoryMap.get(post.category) || post.categoryTitle || post.category}</span>
                   <time dateTime={post.publishedAt}>{formatDisplayDate(post.publishedAt)}</time>
                 </div>
-                <h3><Link href={localizeHref(`/news/${post.slug}`, current)}>{post.title}</Link></h3>
-                <p>{post.excerpt}</p>
+                <h3 lang="en"><Link href={localizeHref(`/news/${post.slug}`, current)}>{post.title}</Link></h3>
+                <p lang="en">{post.excerpt}</p>
                 <Link href={localizeHref(`/news/${post.slug}`, current)} className="text-link">
-                  Read More <ArrowRight size={16} aria-hidden />
+                  {ui.news[7]} <ArrowRight size={16} aria-hidden />
                 </Link>
               </div>
             </article>
@@ -123,7 +124,7 @@ export default async function LocalizedNewsPage({ params, searchParams }: PagePr
         </div>
 
         {totalPages > 1 ? (
-          <PaginationNav currentPage={currentPage} totalPages={totalPages} hrefForPage={(page) => newsPageHref(current, page, selectedCategory)} label="News pagination" summary={`Page ${currentPage} of ${totalPages}`} />
+          <PaginationNav currentPage={currentPage} totalPages={totalPages} hrefForPage={(page) => newsPageHref(current, page, selectedCategory)} label={ui.news[0]} summary={`${ui.page} ${currentPage} / ${totalPages}`} locale={current} />
         ) : null}
       </section>
     </>

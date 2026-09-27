@@ -1,6 +1,9 @@
 "use client";
 
 import { useEffect, useState, useSyncExternalStore } from "react";
+import { usePathname } from "next/navigation";
+import { getLocaleFromPath } from "@/lib/i18n";
+import { getPublicUi } from "@/lib/publicUi";
 
 const sections = [
   ["overview", "Overview"],
@@ -27,6 +30,8 @@ function subscribeToHistory(callback: () => void) {
 }
 
 export function ProductDetailSectionTabs() {
+  const locale = getLocaleFromPath(usePathname());
+  const ui = getPublicUi(locale);
   const urlSection = useSyncExternalStore(subscribeToHistory, readSectionFromUrl, () => "overview");
   const [selectedId, setSelectedId] = useState<SectionId | null>(null);
   const activeId = selectedId || urlSection;
@@ -45,8 +50,8 @@ export function ProductDetailSectionTabs() {
   }
 
   return (
-    <nav className="product-section-tabs" aria-label="Product information sections">
-      {sections.map(([id, label]) => <button type="button" aria-pressed={activeId === id} className={activeId === id ? "is-active" : ""} onClick={() => activate(id)} key={id}>{label}</button>)}
+    <nav className="product-section-tabs" aria-label={ui.productCenter}>
+      {sections.map(([id], index) => <button type="button" aria-pressed={activeId === id} className={activeId === id ? "is-active" : ""} onClick={() => activate(id)} key={id}>{id === "support" && locale !== "en" ? ui.submit : ui.productTabs[index]}</button>)}
     </nav>
   );
 }

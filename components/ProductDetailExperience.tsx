@@ -12,6 +12,10 @@ import { cleanProductSpecs } from "@/lib/productDisplay";
 import { productCategoryPages } from "@/lib/productCategories";
 import { absoluteUrl, breadcrumbSchema, faqSchema } from "@/lib/seo";
 import { localizeHref, type Locale } from "@/lib/i18n";
+import { getDictionary } from "@/lib/i18n";
+import { getPublicUi } from "@/lib/publicUi";
+import { getLocalizedProductSummary } from "@/lib/productLocale";
+import { getOriginalContentLabels } from "@/lib/contentOriginalLocale";
 
 type ProductDetailExperienceProps = {
   product: Product;
@@ -27,6 +31,10 @@ const industryLabels: Record<string, string> = {
 
 function routeFor(locale: Locale | undefined, path: string) {
   return locale ? localizeHref(path, locale) : path;
+}
+
+function industryRoute(slug: string) {
+  return `/industries/${slug === "food-processing" ? "food" : slug}`;
 }
 
 function modelDesignations(product: Product) {
@@ -112,6 +120,71 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
     { name: "Products", path: routeFor(locale, "/products") },
     { name: displayName, path: pagePath }
   ];
+
+  // The English editorial profiles are extensive, but are not translations.
+  // Other locales use a concise, fact-bounded page until each detailed
+  // technical profile has a reviewed translation. Never present English prose
+  // under a non-English document language.
+  if (locale && locale !== "en") {
+    const t = getDictionary(locale);
+    const ui = getPublicUi(locale);
+    const categoryIndex = productCategories.findIndex((category) => category.category === product.category);
+    const localizedCategory = ui.productCategories[categoryIndex] || product.category;
+    const summary = getLocalizedProductSummary(product, locale);
+    const original = getOriginalContentLabels(locale);
+    const localizedBreadcrumbs = [
+      { name: ui.home, path: `/${locale}` },
+      { name: t.nav.products, path: routeFor(locale, "/products") },
+      { name: displayName, path: pagePath }
+    ];
+    const localizedShareMessage = encodeURIComponent(`${displayName} — ${ui.productInstruction} ${absoluteUrl(pagePath)}`);
+    const industrySlugs = ["recycling", "mining", "cement-aggregate", "food-processing"];
+
+    return <>
+      <JsonLd data={{ ...productSchema, description: summary, category: localizedCategory }} />
+      <JsonLd data={breadcrumbSchema(localizedBreadcrumbs)} />
+      <MetaProductView name={displayName} category={product.category} slug={product.slug} />
+      <main className="product-detail-experience">
+        <nav className="product-breadcrumb" aria-label={t.nav.products}>
+          {localizedBreadcrumbs.map((item, index) => <span key={item.path}>{index === localizedBreadcrumbs.length - 1 ? <span aria-current="page" lang="en">{item.name}</span> : <Link href={item.path}>{item.name}</Link>}{index < localizedBreadcrumbs.length - 1 ? <i aria-hidden>/</i> : null}</span>)}
+        </nav>
+        <section className="product-detail-hero">
+          <div className="product-media-panel">
+            <a href={product.image} className="product-primary-image" target="_blank" rel="noopener noreferrer" aria-label={`${ui.openImage}: ${displayName}`}>
+              <Image src={product.image} alt={displayName} width={920} height={680} priority sizes="(max-width: 920px) 100vw, 52vw" />
+              <span>{ui.openImage} <ExternalLink size={15} aria-hidden /></span>
+            </a>
+          </div>
+          <div className="product-hero-copy">
+            <div className="product-hero-meta"><span>{localizedCategory}</span>{models.length ? <span>{ui.productModel}: {models.join(" / ")}</span> : null}</div>
+            <h1 lang="en">{displayName}</h1>
+            <p>{summary}</p>
+            <div className="product-hero-actions">
+              <Link className="btn btn-primary" href={quotePath}>{t.common.getQuote} <ArrowRight size={17} aria-hidden /></Link>
+              <a className="btn btn-secondary" href={`https://wa.me/${site.whatsapp}?text=${localizedShareMessage}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="product-hero" data-whatsapp-component="product-detail" data-whatsapp-product-slug={product.slug} data-whatsapp-product-name={displayName}><MessageCircle size={17} aria-hidden /> WhatsApp</a>
+            </div>
+          </div>
+        </section>
+        <div className="product-detail-workspace">
+          <aside className="product-detail-catalog" aria-label={ui.catalog}>
+            <div className="product-detail-catalog-head"><span>{ui.catalog}</span><h2>{t.products.h1}</h2></div>
+            <nav><Link href={routeFor(locale, "/products")} className="product-detail-catalog-all">{ui.allProducts}</Link>
+              {productCategories.map((category, index) => <Link href={routeFor(locale, `/products/${category.slug}`)} className={category.category === product.category ? "is-active" : ""} key={category.slug}><span>{ui.productCategories[index]}</span><small>{category.count}</small></Link>)}
+            </nav>
+          </aside>
+          <div className="product-detail-content">
+            <ProductDetailSectionTabs />
+            <section data-product-panel="overview" className="product-detail-section product-overview-section"><div className="product-detail-section-heading"><span className="eyebrow">{t.productDetail.overview}</span><h2 lang="en">{displayName}</h2></div><div className="product-prose"><p>{summary}</p><p>{original.product} <Link href={`/en/products/${product.slug}`} hrefLang="en">{original.link}</Link></p></div></section>
+            <section data-product-panel="selection" hidden className="product-detail-section product-selection-section"><div className="product-selection-copy"><span className="eyebrow">{ui.productTabs[1]}</span><h2>{t.productDetail.ctaTitle}</h2><p>{ui.productInstruction}</p></div><div className="product-selection-cta"><p>{t.productDetail.ctaText}</p><Link className="btn btn-primary" href={quotePath}>{t.common.getQuote} <ArrowRight size={17} aria-hidden /></Link></div></section>
+            <section data-product-panel="applications" hidden className="product-detail-section product-materials-section"><div className="product-detail-section-heading"><span className="eyebrow">{ui.productTabs[2]}</span><h2>{t.productDetail.industries}</h2></div><div className="product-industry-links">{profile.industrySlugs.map((slug) => { const index = industrySlugs.indexOf(slug); return <Link href={routeFor(locale, industryRoute(slug))} key={slug}><span>{index >= 0 ? ui.industryMenu[index][0] : slug}</span><ArrowRight size={16} aria-hidden /></Link>; })}</div></section>
+            <section data-product-panel="technical" hidden className="product-detail-section product-specification-section"><div className="product-detail-section-heading"><span className="eyebrow">{ui.productTabs[3]}</span><h2>{t.productDetail.specifications}</h2><p>{ui.technicalNotice}</p></div>{models.length ? <div className="product-specification-table" role="table" aria-label={t.productDetail.specifications}><div role="row"><span>{ui.productModel}</span><strong>{models.join(" / ")}</strong></div></div> : null}</section>
+            <section data-product-panel="support" hidden className="product-final-cta" aria-labelledby="product-final-cta-title"><div className="product-final-media"><Image src={product.image} alt={displayName} width={660} height={440} sizes="(max-width: 900px) 100vw, 46vw" /></div><div className="product-final-form"><span className="eyebrow">{t.productDetail.quoteTitle}</span><h2 id="product-final-cta-title">{t.productDetail.ctaTitle}</h2><p>{t.productDetail.ctaText}</p><QuoteForm compact productContext={{ name: product.name, model: models.join(" / "), family: profile.family }} /></div></section>
+          </div>
+        </div>
+      </main>
+      <div className="product-mobile-actions" aria-label={t.common.contactSales}><Link href={quotePath}>{t.common.getQuote}</Link><a href={`https://wa.me/${site.whatsapp}?text=${localizedShareMessage}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="product-final-cta" data-whatsapp-component="product-detail" data-whatsapp-product-slug={product.slug} data-whatsapp-product-name={displayName}>WhatsApp</a></div>
+    </>;
+  }
 
   return (
     <>
@@ -258,7 +331,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
             </div>
             <div className="product-industry-links">
               {profile.industrySlugs.map((slug) => (
-                <Link href={routeFor(locale, `/industries/${slug}`)} key={slug}>
+                <Link href={routeFor(locale, industryRoute(slug))} key={slug}>
                   <span>{industryLabels[slug] || slug}</span><ArrowRight size={16} aria-hidden />
                 </Link>
               ))}

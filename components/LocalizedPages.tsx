@@ -22,6 +22,9 @@ import { site } from "@/data/site";
 import { absoluteUrl, breadcrumbSchema, faqSchema, organizationSchema } from "@/lib/seo";
 import type { Locale } from "@/lib/i18n";
 import { getDictionary, localizeHref } from "@/lib/i18n";
+import { getPublicUi } from "@/lib/publicUi";
+import { getArticleLabels } from "@/lib/articleLocale";
+import { getOriginalContentLabels } from "@/lib/contentOriginalLocale";
 import { getStaticInternalLinkSuggestions } from "@/lib/linkStrategy";
 import { cleanProductList, cleanProductSpecs, cleanProductText } from "@/lib/productDisplay";
 import { isIndexableBlog, stripLegacyEditorialSections } from "@/lib/blogContentPolicy";
@@ -29,33 +32,34 @@ import { isIndexableBlog, stripLegacyEditorialSections } from "@/lib/blogContent
 const advantageIcons = [ShieldCheck, Settings, Headphones, Globe2];
 const serviceIcons = [Headphones, Wrench, Truck, ShieldCheck, BadgeCheck, Globe2];
 const homeProductCards = [
-  { slug: "suspended-permanent-magnetic-separator", title: "Suspended Magnets", description: "Remove ferrous metals from bulk materials." },
-  { slug: "magnetic-head-pulley", title: "Magnetic Pulleys", description: "Continuous iron removal in conveyor systems." },
-  { slug: "dry-drum-magnetic-separator", title: "Drum Magnetic Separators", description: "Efficient separation for wet and dry materials." },
-  { slug: "magnetic-grid", title: "Magnetic Bars & Grates", description: "Protect equipment and improve product purity." },
-  { slug: "rcdb-type-self-cooling-plate-electromagnetic-iron-remover", title: "Magnetic Plates & Chutes", description: "Simple, effective iron removal." },
-  { slug: "suspended-electromagnetic-conveyor-belt-separator", title: "Customized Solutions", description: "Tailored designs for your specific needs." }
+  { slug: "suspended-permanent-magnetic-separator" },
+  { slug: "magnetic-head-pulley" },
+  { slug: "dry-drum-magnetic-separator" },
+  { slug: "magnetic-grid" },
+  { slug: "rcdb-type-self-cooling-plate-electromagnetic-iron-remover" },
+  { slug: "suspended-electromagnetic-conveyor-belt-separator" }
 ];
 
 const homeIndustryTiles = [
-  { title: "Mining", href: "/industries/mining", image: "/images/industries/mining-scenarios/iron-ore.jpg", alt: "Iron ore mining magnetic separation application", size: "large" },
-  { title: "Recycling", href: "/industries/recycling", image: "/images/industries/recycling-scenarios/non-metal-recycling-sorting-line.jpg", alt: "Recycling magnetic separation application", size: "large" },
-  { title: "Cement", href: "/industries/cement-aggregate", image: "/images/industries/cement-aggregate-scenarios/cement-raw-material-processing.jpg", alt: "Cement magnetic separation application", size: "small" },
-  { title: "Power Generation", href: "/industries", image: "/images/catalog/page-6-image-3-1349x734.jpg", alt: "Industrial bulk material handling application", size: "small" },
-  { title: "Aggregates", href: "/industries/cement-aggregate", image: "/images/industries/cement-aggregate-scenarios/finished-aggregate-purification.jpg", alt: "Aggregate processing magnetic separation application", size: "small" },
-  { title: "Other Industries", href: "/industries", image: "/images/industries/recycling-scenarios/construction-waste-recycling-line.jpg", alt: "Industrial magnetic separation application", size: "small" }
+  { href: "/industries/mining", image: "/images/industries/mining-scenarios/iron-ore.jpg", alt: "Iron ore mining magnetic separation application", size: "large" },
+  { href: "/industries/recycling", image: "/images/industries/recycling-scenarios/non-metal-recycling-sorting-line.jpg", alt: "Recycling magnetic separation application", size: "large" },
+  { href: "/industries/cement-aggregate", image: "/images/industries/cement-aggregate-scenarios/cement-raw-material-processing.jpg", alt: "Cement magnetic separation application", size: "small" },
+  { href: "/industries", image: "/images/catalog/page-6-image-3-1349x734.jpg", alt: "Industrial bulk material handling application", size: "small" },
+  { href: "/industries/cement-aggregate", image: "/images/industries/cement-aggregate-scenarios/finished-aggregate-purification.jpg", alt: "Aggregate processing magnetic separation application", size: "small" },
+  { href: "/industries", image: "/images/industries/recycling-scenarios/construction-waste-recycling-line.jpg", alt: "Industrial magnetic separation application", size: "small" }
 ];
 
 export function LocalizedHomePage({ locale }: { locale: Locale }) {
   const t = getDictionary(locale);
-  const featured = homeProductCards.flatMap((card) => {
+  const ui = getPublicUi(locale);
+  const featured = homeProductCards.flatMap((card, cardIndex) => {
     const product = products.find((item) => item.slug === card.slug);
-    return product ? [{ ...card, product }] : [];
+    return product ? [{ ...card, product, cardIndex }] : [];
   });
   const categoryCards = productCategories.map((category) => ({
     title: category,
     count: products.filter((product) => product.category === category).length,
-    href: localizeHref(`/products#${categoryAnchor(category)}`, locale)
+    href: `${localizeHref("/products", locale)}?category=${encodeURIComponent(categoryAnchor(category))}`
   }));
 
   return (
@@ -64,19 +68,16 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
         <Image src="/images/generated/home-hero-cowinmagnet.webp" fill sizes="100vw" alt={t.home.heroAlt} className="hero-banner-image" priority />
         <div className="hero-copy">
           <span className="eyebrow industrial-kicker">{locale === "en" ? "Global OEM/ODM Partner" : t.home.heroEyebrow}</span>
-          {locale === "en" ? <h1 className="template-hero-title">Magnetic<br />Separation<br />for a <em>Cleaner,</em><br /><em>Stronger Tomorrow</em></h1> : <h1>{t.home.h1}</h1>}
+          {locale === "en" ? <h1 className="template-hero-title">Magnetic<br />Separation<br />for a <em>Cleaner,</em><br /><em>Stronger Tomorrow</em></h1> : <h1 className="template-hero-title">{t.home.h1}</h1>}
           <p>{t.home.heroText}</p>
           <div className="hero-actions">
             <Link href={localizeHref("/request-quote", locale)} className="btn btn-primary">{t.common.getQuote}</Link>
             <Link href={localizeHref("/products", locale)} className="btn btn-secondary">{locale === "en" ? "Explore Products" : t.common.viewProducts}</Link>
           </div>
         </div>
-        <p className="industrial-hero-slogan" aria-hidden="true">Metal<br />out.<br /><strong>Purity in.</strong></p>
+        <p className="industrial-hero-slogan" aria-hidden="true">{ui.homeSlogan[0]}<br />{ui.homeSlogan[1]}<br /><strong>{ui.homeSlogan[2]}</strong></p>
         <div className="industrial-hero-proof" aria-label={t.home.whyTitle}>
-          <article><Globe2 size={26} aria-hidden /><strong>OEM/ODM<br />for global buyers</strong></article>
-          <article><Settings size={26} aria-hidden /><strong>Reliable industrial<br />solutions</strong></article>
-          <article><ShieldCheck size={26} aria-hidden /><strong>Focused on your<br />separation challenges</strong></article>
-          <article><Headphones size={26} aria-hidden /><strong>Responsive support<br />worldwide</strong></article>
+          {[Globe2, Settings, ShieldCheck, Headphones].map((Icon, index) => <article key={index}><Icon size={26} aria-hidden /><strong>{ui.homeProof[index]}</strong></article>)}
         </div>
       </section>
 
@@ -86,18 +87,18 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
           <h2 id="industrial-products-title">{locale === "en" ? "Find the right magnetic separator" : t.home.featuredTitle}</h2>
           <div><p>{locale === "en" ? "A complete range of magnetic separation equipment for different industries and applications." : t.home.applicationText}</p><Link href={localizeHref("/products", locale)} className="text-link">{locale === "en" ? "View All Products" : t.common.viewProducts} <ArrowRight size={16} aria-hidden /></Link></div>
         </div>
-        <nav className="industrial-category-nav" aria-label="Product categories">
-          <Link href={localizeHref("/products", locale)} className="is-active">{locale === "en" ? "All Products" : t.common.viewProducts}</Link>
-          <Link href={categoryCards[0]?.href || localizeHref("/products", locale)}>Suspended Magnets</Link>
-          <Link href={localizeHref("/products/magnetic-head-pulley", locale)}>Magnetic Pulleys</Link>
-          <Link href={categoryCards[1]?.href || localizeHref("/products", locale)}>Magnetic Separators</Link>
-          <Link href={categoryCards[3]?.href || localizeHref("/products", locale)}>Magnetic Bars</Link>
-          <Link href={localizeHref("/request-quote", locale)}>Customized Solutions</Link>
+        <nav className="industrial-category-nav" aria-label={ui.categories}>
+          <Link href={localizeHref("/products", locale)} className="is-active">{ui.homeCategories[0]}</Link>
+          <Link href={categoryCards[0]?.href || localizeHref("/products", locale)}>{ui.homeCategories[1]}</Link>
+          <Link href={localizeHref("/products/magnetic-head-pulley", locale)}>{ui.homeCategories[2]}</Link>
+          <Link href={categoryCards[1]?.href || localizeHref("/products", locale)}>{ui.homeCategories[3]}</Link>
+          <Link href={categoryCards[3]?.href || localizeHref("/products", locale)}>{ui.homeCategories[4]}</Link>
+          <Link href={localizeHref("/request-quote", locale)}>{ui.homeCategories[5]}</Link>
         </nav>
         <div className="template-product-grid">
-          {featured.map(({ product, title, description }) => <article className="template-product-card" key={product.slug}>
-            <Link href={localizeHref(`/products/${product.slug}`, locale)} className="template-product-image"><Image src={product.image} width={400} height={300} sizes="(max-width: 700px) 82vw, (max-width: 1100px) 30vw, 16vw" alt={product.name} loading="lazy" /></Link>
-            <div><h3><Link href={localizeHref(`/products/${product.slug}`, locale)}>{title}</Link></h3><p>{description}</p><Link href={localizeHref(`/products/${product.slug}`, locale)} className="text-link">{locale === "en" ? "View Products" : t.common.viewProduct} <ArrowRight size={14} aria-hidden /></Link></div>
+          {featured.map(({ product, cardIndex }) => <article className="template-product-card" key={product.slug}>
+            <Link href={localizeHref(`/products/${product.slug}`, locale)} className="template-product-image"><Image src={product.image} width={400} height={300} sizes="(max-width: 700px) 82vw, (max-width: 1100px) 30vw, 16vw" alt={ui.homeCards[cardIndex][0]} loading="lazy" /></Link>
+            <div><h3><Link href={localizeHref(`/products/${product.slug}`, locale)}>{ui.homeCards[cardIndex][0]}</Link></h3><p>{ui.homeCards[cardIndex][1]}</p><Link href={localizeHref(`/products/${product.slug}`, locale)} className="text-link">{locale === "en" ? "View Products" : t.common.viewProduct} <ArrowRight size={14} aria-hidden /></Link></div>
           </article>)}
         </div>
       </section>
@@ -110,10 +111,10 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
           <Link href={localizeHref("/industries", locale)} className="btn btn-secondary">{locale === "en" ? "Explore by Industry" : t.common.viewSolution} <ArrowRight size={16} aria-hidden /></Link>
         </div>
         <div className="industrial-industry-grid">
-          {homeIndustryTiles.map((industry) => (
-            <Link key={industry.title} href={localizeHref(industry.href, locale)} className={`industrial-industry-card industrial-industry-card-${industry.size}`}>
-              <Image src={industry.image} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 22vw" alt={industry.alt} loading="lazy" />
-              <span>{industry.title}</span>
+          {homeIndustryTiles.map((industry, index) => (
+            <Link key={industry.image} href={localizeHref(industry.href, locale)} className={`industrial-industry-card industrial-industry-card-${industry.size}`}>
+              <Image src={industry.image} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 22vw" alt={`${ui.homeIndustries[index]} — ${t.applications.heroAlt}`} loading="lazy" />
+              <span>{ui.homeIndustries[index]}</span>
             </Link>
           ))}
         </div>
@@ -121,10 +122,10 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
 
       <section className="section industrial-video-quote" aria-labelledby="industrial-video-title">
         <div className="industrial-video-stack">
-          <HomeVideoShowcase eyebrow={locale === "en" ? "Industries Video" : t.home.videoEyebrow} title={locale === "en" ? "See COWIN MAGNET in action" : t.home.videoTitle} />
+          <HomeVideoShowcase eyebrow={locale === "en" ? "Industries Video" : t.home.videoEyebrow} title={locale === "en" ? "See COWIN MAGNET in action" : t.home.videoTitle} locale={locale} />
           <article className="template-service-card">
-            <div><span className="eyebrow">Service &amp; Support</span><h2>From inquiry to operation,<br />we&apos;re with you</h2><p>Technical consultation, customized design, manufacturing, and after-sales support — all in one place.</p><Link href={localizeHref("/contact", locale)} className="btn btn-secondary">Contact Support <ArrowRight size={16} aria-hidden /></Link></div>
-            <Image src="/images/generated/contact-support-cowinmagnet.webp" width={760} height={520} sizes="(max-width: 700px) 100vw, 32vw" alt="Cowinmagnet technical service team" loading="lazy" />
+            <div><span className="eyebrow">{ui.homeService[0]}</span><h2>{ui.homeService[1]}</h2><p>{ui.homeService[2]}</p><Link href={localizeHref("/contact", locale)} className="btn btn-secondary">{ui.homeService[3]} <ArrowRight size={16} aria-hidden /></Link></div>
+            <Image src="/images/generated/contact-support-cowinmagnet.webp" width={760} height={520} sizes="(max-width: 700px) 100vw, 32vw" alt={ui.homeService[0]} loading="lazy" />
           </article>
         </div>
         <aside className="industrial-quote-card">
@@ -172,15 +173,16 @@ export function LocalizedProductDetailPage({ locale, product }: { locale: Locale
 
 export function LocalizedApplicationsPage({ locale }: { locale: Locale }) {
   const t = getDictionary(locale);
+  const ui = getPublicUi(locale);
   return (
     <>
       <PageHero eyebrow={t.applications.eyebrow} title={t.applications.h1} description={t.applications.description} image="/images/catalog/page-6-image-3-1349x734.jpg" imageAlt={t.applications.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} />
       <section className="section">
         <div className="application-grid">
-          {applications.map((application) => (
+          {applications.map((application, index) => (
             <article key={application.slug} className="application-card">
-              <Image src={application.image} width={620} height={390} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 31vw" alt={`${application.name} ${t.applications.heroAlt}`} />
-              <div><h2>{application.name}</h2><p>{application.summary}</p><Link href={localizeHref(`/industries/${application.industrySlug || application.slug}`, locale)} className="text-link">{t.common.viewSolution} <ArrowRight size={16} aria-hidden /></Link></div>
+              <Image src={application.image} width={620} height={390} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 31vw" alt={`${ui.industryMenu[index]?.[0] || application.name} ${t.applications.heroAlt}`} />
+              <div><h2>{ui.industryMenu[index]?.[0] || application.name}</h2><p>{ui.industryMenu[index]?.[1] || application.summary}</p><Link href={localizeHref(`/industries/${application.industrySlug || application.slug}`, locale)} className="text-link">{t.common.viewSolution} <ArrowRight size={16} aria-hidden /></Link></div>
             </article>
           ))}
         </div>
@@ -190,29 +192,31 @@ export function LocalizedApplicationsPage({ locale }: { locale: Locale }) {
 }
 
 export function LocalizedIndustriesPage({ locale }: { locale: Locale }) {
+  const t = getDictionary(locale);
+  const ui = getPublicUi(locale);
   return (
     <>
       <PageHero
-        eyebrow="Industry Solutions"
-        title="Magnetic separation solutions by industry"
-        description="Review practical magnetic separation layouts for recycling, mining, cement and aggregate, and food processing lines."
+        eyebrow={ui.industrySolutions}
+        title={ui.industryHeadline}
+        description={t.applications.description}
         image="/images/catalog/page-6-image-3-1349x734.jpg"
-        imageAlt="Magnetic separation solutions for industrial applications"
+        imageAlt={t.applications.heroAlt}
         primaryHref={localizeHref("/request-quote", locale)}
-        primaryLabel="Get a Quote"
+        primaryLabel={t.common.getQuote}
         secondaryHref={localizeHref("/contact", locale)}
-        secondaryLabel="Contact Us"
+        secondaryLabel={ui.contact}
       />
       <section className="section">
         <div className="application-grid">
-          {applications.map((application) => (
+          {applications.map((application, index) => (
             <article key={application.industrySlug} className="application-card">
-              <Image src={application.image} width={620} height={390} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 31vw" alt={application.imageAlt} />
+              <Image src={application.image} width={620} height={390} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 31vw" alt={`${ui.industryMenu[index]?.[0] || application.pageTitle} ${t.applications.heroAlt}`} />
               <div>
-                <h2>{application.pageTitle}</h2>
-                <p>{application.summary}</p>
+                <h2>{ui.industryMenu[index]?.[0] || application.pageTitle}</h2>
+                <p>{ui.industryMenu[index]?.[1] || application.summary}</p>
                 <Link href={localizeHref(`/industries/${application.industrySlug}`, locale)} className="text-link">
-                  View industry solution <ArrowRight size={16} aria-hidden />
+                  {t.common.viewSolution} <ArrowRight size={16} aria-hidden />
                 </Link>
               </div>
             </article>
@@ -225,7 +229,28 @@ export function LocalizedIndustriesPage({ locale }: { locale: Locale }) {
 
 export function LocalizedApplicationDetailPage({ locale, application }: { locale: Locale; application: Application }) {
   const t = getDictionary(locale);
+  const ui = getPublicUi(locale);
   const related = products.filter((product) => application.recommendedProducts.includes(product.name));
+  const industryIndex = applications.findIndex((item) => item.industrySlug === application.industrySlug);
+  const industryName = ui.industryMenu[industryIndex]?.[0] || application.name;
+  const industrySummary = ui.industryMenu[industryIndex]?.[1] || application.summary;
+  const original = getOriginalContentLabels(locale);
+
+  if (locale !== "en") {
+    return <>
+      <section className="detail-hero">
+        <div><span className="eyebrow">{ui.industrySolutions}</span><h1>{industryName}</h1><p>{industrySummary}</p><p>{t.applications.description}</p><div className="hero-actions"><Link href={localizeHref("/request-quote", locale)} className="btn btn-primary">{t.common.getQuote}</Link><Link href={localizeHref("/contact", locale)} className="btn btn-secondary">{ui.contact}</Link></div></div>
+        <div className="detail-image"><Image src={application.image} width={820} height={560} sizes="(max-width: 900px) 100vw, 52vw" alt={`${industryName} — ${t.applications.heroAlt}`} priority /></div>
+      </section>
+      <section className="section detail-layout">
+        <article className="detail-main">
+          <ContentBlock title={t.applications.recommended}><p>{industrySummary}</p><div className="related-products">{related.map((product) => <Link href={localizeHref(`/products/${product.slug}`, locale)} key={product.slug} lang="en">{product.name}</Link>)}</div><p>{original.industry} <Link href={`/en/industries/${application.industrySlug}`} hrefLang="en">{original.link}</Link></p></ContentBlock>
+          <ContentBlock title={t.productDetail.ctaTitle}><p>{t.applications.quoteText}</p></ContentBlock>
+        </article>
+        <aside className="quote-panel"><h2>{t.applications.quoteTitle}</h2><p>{t.applications.quoteText}</p><QuoteForm compact /></aside>
+      </section>
+    </>;
+  }
   return (
     <>
       {application.faqs?.length ? <JsonLd data={faqSchema(application.faqs)} /> : null}
@@ -291,7 +316,7 @@ export function LocalizedContactPage({ locale }: { locale: Locale }) {
   return (
     <>
       <PageHero eyebrow={t.contact.eyebrow} title={t.contact.h1} description={t.contact.description} image="/images/generated/contact-support-cowinmagnet.webp" imageAlt={t.contact.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} />
-      <section className="section map-section"><GoogleMapCard title="Find COWIN MAGNET in Quzhou, China" /></section>
+      <section className="section map-section"><GoogleMapCard locale={locale} /></section>
       <section className="section contact-layout">
         <div className="contact-info"><h2>{t.contact.infoTitle}</h2><a href={`mailto:${site.email}`}><Mail size={18} aria-hidden />{site.email}</a><a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="contact-page" data-whatsapp-component="localized-contact-page"><MessageCircle size={18} aria-hidden />WhatsApp: {site.whatsapp}</a><a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="contact-phone" data-whatsapp-component="localized-contact-page"><Phone size={18} aria-hidden />{site.phone}</a><a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer nofollow"><MapPin size={18} aria-hidden />{site.address}</a><p>{t.contact.fastTip}</p></div>
         <QuoteForm />
@@ -327,6 +352,7 @@ export function LocalizedSimplePage({ locale, page }: { locale: Locale; page: "f
 
 export function LocalizedBlogListPage({ locale, posts, pagination }: { locale: Locale; posts: BlogPost[]; pagination?: { currentPage: number; totalPages: number; totalItems: number } }) {
   const t = getDictionary(locale);
+  const ui = getPublicUi(locale);
   const startItem = pagination && pagination.totalItems ? (pagination.currentPage - 1) * 9 + 1 : 0;
   const endItem = pagination ? Math.min(pagination.totalItems, pagination.currentPage * 9) : posts.length;
   return (
@@ -334,9 +360,10 @@ export function LocalizedBlogListPage({ locale, posts, pagination }: { locale: L
       <PageHero eyebrow={t.blog.eyebrow} title={t.blog.h1} description={t.blog.description} image="/images/generated/recycling-application-cowinmagnet.webp" imageAlt={t.blog.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/request-quote", locale)} secondaryLabel={t.common.sendRequirements} />
       <section className="section blog-list-section">
         <div className="section-heading align-left"><span className="eyebrow">{t.blog.hubEyebrow}</span><h2>{t.blog.hubTitle}</h2><p>{t.blog.hubText}</p></div>
-        {pagination ? <div className="catalog-list-summary"><p>{startItem}-{endItem} of {pagination.totalItems} articles</p></div> : null}
-        <div className="blog-grid">{posts.map((post) => <article className="blog-card" key={post.slug}><Link href={localizeHref(`/blog/${post.slug}`, locale)} className="blog-card-image"><DateBadge date={post.publishedAt} /><BlogImage src={post.image} width={760} height={460} alt={post.title} /></Link><div className="blog-card-body"><div className="blog-card-meta"><span>{post.category}</span><span>{post.readingTime} {t.common.minRead}</span></div><h3><Link href={localizeHref(`/blog/${post.slug}`, locale)}>{post.title}</Link></h3><p>{post.excerpt}</p><Link href={localizeHref(`/blog/${post.slug}`, locale)} className="text-link">{t.common.readArticle} <ArrowRight size={16} aria-hidden /></Link></div></article>)}</div>
-        {pagination ? <PaginationNav currentPage={pagination.currentPage} totalPages={pagination.totalPages} hrefForPage={(page) => page > 1 ? `${localizeHref("/blog", locale)}?page=${page}` : localizeHref("/blog", locale)} label="Blog pagination" summary={`Page ${pagination.currentPage} of ${pagination.totalPages}`} /> : null}
+        {locale !== "en" ? <p>{ui.news[8]}</p> : null}
+        {pagination ? <div className="catalog-list-summary"><p>{startItem}–{endItem} / {pagination.totalItems}</p></div> : null}
+        <div className="blog-grid">{posts.map((post) => <article className="blog-card" key={post.slug}><Link href={localizeHref(`/blog/${post.slug}`, locale)} className="blog-card-image"><DateBadge date={post.publishedAt} /><BlogImage src={post.image} width={760} height={460} alt={post.title} /></Link><div className="blog-card-body"><div className="blog-card-meta"><span lang="en">{post.category}</span><span>{post.readingTime} {t.common.minRead}</span></div><h3 lang="en"><Link href={localizeHref(`/blog/${post.slug}`, locale)}>{post.title}</Link></h3><p lang="en">{post.excerpt}</p><Link href={localizeHref(`/blog/${post.slug}`, locale)} className="text-link">{t.common.readArticle} <ArrowRight size={16} aria-hidden /></Link></div></article>)}</div>
+        {pagination ? <PaginationNav currentPage={pagination.currentPage} totalPages={pagination.totalPages} hrefForPage={(page) => page > 1 ? `${localizeHref("/blog", locale)}?page=${page}` : localizeHref("/blog", locale)} label={t.nav.blog} summary={`${ui.page} ${pagination.currentPage} / ${pagination.totalPages}`} locale={locale} /> : null}
       </section>
     </>
   );
@@ -344,15 +371,18 @@ export function LocalizedBlogListPage({ locale, posts, pagination }: { locale: L
 
 export function LocalizedBlogDetailPage({ locale, post }: { locale: Locale; post: BlogPost }) {
   const t = getDictionary(locale);
+  const ui = getPublicUi(locale);
+  const articleLabels = getArticleLabels(locale);
   const indexable = isIndexableBlog(post);
   const relatedInternalLinks = indexable ? getStaticInternalLinkSuggestions({ type: "blog", slug: post.slug, limit: 5 }) : [];
   const publicContent = stripLegacyEditorialSections(post.content);
   return (
     <>
       <JsonLd data={{ "@context": "https://schema.org", "@type": "Article", headline: post.title, description: post.metaDescription, image: absoluteUrl(post.image), datePublished: post.publishedAt, dateModified: post.updatedAt, author: { "@type": "Organization", name: site.name }, publisher: { "@type": "Organization", name: site.name, logo: { "@type": "ImageObject", url: absoluteUrl("/images/cowin-logo.png") } } }} />
-      <section className="blog-hero"><div className="blog-hero-copy"><span className="eyebrow">{post.category}</span><h1>{post.h1}</h1><p>{post.excerpt}</p><div className="blog-meta"><span>{t.common.updated} {new Intl.DateTimeFormat("en", { month: "short", day: "2-digit", year: "numeric" }).format(new Date(`${post.updatedAt}T00:00:00Z`))}</span><span>{post.readingTime} {t.common.minRead}</span></div></div><div className="blog-hero-image"><BlogImage src={post.image} width={980} height={620} alt={post.title} priority /></div></section>
-      <section className="section blog-detail-layout"><article className="blog-article"><MarkdownContent content={publicContent} /></article><aside className="blog-sidebar"><div className="blog-quote-card"><span className="eyebrow">{t.footer.quoteSupport}</span><h2>{t.blog.sidebarTitle}</h2><p>{t.blog.sidebarText}</p></div><div className="quote-form-shell blog-form-shell"><h3>{t.common.requestSelectionSupport}</h3><p>{t.productDetail.quoteText}</p><QuoteForm compact /></div></aside></section>
-      {relatedInternalLinks.length ? <RelatedInternalLinks locale={locale} eyebrow="Recommended Reading" title="Related products, solutions and articles" links={relatedInternalLinks} /> : null}
+      {locale !== "en" ? <p className="section">{ui.news[8]}</p> : null}
+      <section className="blog-hero"><div className="blog-hero-copy"><span className="eyebrow" lang="en">{post.category}</span><h1 lang="en">{post.h1}</h1><p lang="en">{post.excerpt}</p><div className="blog-meta"><span>{t.common.updated} {new Intl.DateTimeFormat(locale, { month: "short", day: "2-digit", year: "numeric" }).format(new Date(`${post.updatedAt}T00:00:00Z`))}</span><span>{post.readingTime} {t.common.minRead}</span></div></div><div className="blog-hero-image"><BlogImage src={post.image} width={980} height={620} alt={post.title} priority /></div></section>
+      <section className="section blog-detail-layout"><article className="blog-article" lang="en"><MarkdownContent content={publicContent} /></article><aside className="blog-sidebar"><div className="blog-quote-card"><span className="eyebrow">{t.footer.quoteSupport}</span><h2>{t.blog.sidebarTitle}</h2><p>{t.blog.sidebarText}</p></div><div className="quote-form-shell blog-form-shell"><h3>{t.common.requestSelectionSupport}</h3><p>{t.productDetail.quoteText}</p><QuoteForm compact /></div></aside></section>
+      {relatedInternalLinks.length ? <RelatedInternalLinks locale={locale} eyebrow={articleLabels.recommended} title={articleLabels.related} links={relatedInternalLinks} /> : null}
     </>
   );
 }

@@ -4,6 +4,8 @@ import { PaginationNav } from "@/components/PaginationNav";
 import { ProductCard } from "@/components/ProductCard";
 import type { Product } from "@/data/products";
 import { localizeHref, type Locale } from "@/lib/i18n";
+import { getDictionary } from "@/lib/i18n";
+import { getPublicUi } from "@/lib/publicUi";
 import { categoryAnchor } from "@/lib/anchors";
 
 const PRODUCTS_PER_PAGE = 12;
@@ -22,7 +24,11 @@ function safePage(value?: string) {
 }
 
 export function PaginatedProductCatalog({ products, categories, locale, selectedCategory, requestedPage }: Props) {
+  const currentLocale = locale || "en";
+  const ui = getPublicUi(currentLocale);
+  const t = getDictionary(currentLocale);
   const selected = categories.find((category) => categoryAnchor(category) === selectedCategory);
+  const selectedIndex = selected ? categories.indexOf(selected) : -1;
   const filteredProducts = selected ? products.filter((product) => product.category === selected) : products;
   const totalPages = Math.max(1, Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE));
   const currentPage = Math.min(safePage(requestedPage), totalPages);
@@ -42,25 +48,25 @@ export function PaginatedProductCatalog({ products, categories, locale, selected
   return (
     <section className="section catalog-index-section">
       <div className="section-heading align-left">
-        <span className="eyebrow">Product catalogue</span>
-        <h2>{selected || "Browse all magnetic separation equipment"}</h2>
-        <p>Choose an equipment group, then compare up to 12 products per page. Send your material and installation conditions for configuration support.</p>
+        <span className="eyebrow">{ui.catalog}</span>
+        <h2>{selectedIndex >= 0 ? ui.productCategories[selectedIndex] : t.products.h1}</h2>
+        <p>{t.products.description}</p>
       </div>
 
-      <nav className="catalog-category-tabs" aria-label="Product categories">
-        <Link href={hrefFor()} className={!selected ? "is-active" : ""}>All products <small>{products.length}</small></Link>
+      <nav className="catalog-category-tabs" aria-label={ui.categories}>
+        <Link href={hrefFor()} className={!selected ? "is-active" : ""}>{ui.allProducts} <small>{products.length}</small></Link>
         {categories.map((category) => {
           const slug = categoryAnchor(category);
           const active = selected === category;
-          return <Link href={hrefFor(slug)} className={active ? "is-active" : ""} key={category}>{category} <small>{products.filter((product) => product.category === category).length}</small></Link>;
+          return <Link href={hrefFor(slug)} className={active ? "is-active" : ""} key={category}>{ui.productCategories[categories.indexOf(category)] || category} <small>{products.filter((product) => product.category === category).length}</small></Link>;
         })}
       </nav>
 
-      <div className="catalog-list-summary"><p>{startItem}-{endItem} of {filteredProducts.length} products</p><Link className="button ghost" href={locale ? localizeHref("/request-quote", locale) : "/request-quote"}>Need selection help?</Link></div>
+      <div className="catalog-list-summary"><p>{ui.catalogCount.replace("{start}", String(startItem)).replace("{end}", String(endItem)).replace("{total}", String(filteredProducts.length))}</p><Link className="button ghost" href={locale ? localizeHref("/request-quote", locale) : "/request-quote"}>{ui.catalogHelp}</Link></div>
       <div className="product-grid">
         {pageProducts.map((product) => locale ? <LocalizedProductCard key={product.slug} product={product} locale={locale} /> : <ProductCard key={product.slug} product={product} />)}
       </div>
-      <PaginationNav currentPage={currentPage} totalPages={totalPages} hrefForPage={(page) => hrefFor(selected ? categoryAnchor(selected) : undefined, page)} label="Product catalogue pagination" summary={`Page ${currentPage} of ${totalPages}`} />
+      <PaginationNav currentPage={currentPage} totalPages={totalPages} hrefForPage={(page) => hrefFor(selected ? categoryAnchor(selected) : undefined, page)} label={ui.catalog} summary={`${ui.page} ${currentPage} / ${totalPages}`} locale={currentLocale} />
     </section>
   );
 }

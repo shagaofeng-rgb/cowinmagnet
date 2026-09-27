@@ -8,6 +8,9 @@ import { formatDisplayDate } from "@/data/contentHub";
 import { site } from "@/data/site";
 import { getArticleDocument, articleSchemaType } from "@/lib/articleDocument";
 import { absoluteUrl, breadcrumbSchema, faqSchema, organizationSchema } from "@/lib/seo";
+import { isLocale } from "@/lib/i18n";
+import { getPublicUi } from "@/lib/publicUi";
+import { getArticleLabels } from "@/lib/articleLocale";
 
 type NewsDetailViewProps = {
   post: any;
@@ -34,6 +37,9 @@ function navigationId(heading: string, index: number) {
 }
 
 export function NewsDetailView({ post, posts, categories, locale, visualVariant }: NewsDetailViewProps) {
+  const currentLocale = isLocale(locale) ? locale : "en";
+  const ui = getPublicUi(currentLocale);
+  const labels = getArticleLabels(currentLocale);
   const document: any = getArticleDocument(post);
   const articleType = articleSchemaType(document);
   const categoryMap = new Map(categories.map((category) => [category.slug, category.title]));
@@ -67,36 +73,37 @@ export function NewsDetailView({ post, posts, categories, locale, visualVariant 
     <JsonLd data={organizationSchema()} />
     {document.faq.length ? <JsonLd data={faqSchema(document.faq)} /> : null}
     <JsonLd data={breadcrumbSchema([
-      { name: "Home", path: basePath || "/" },
-      { name: document.contentType === "news" ? "News" : "Technical Guides", path: `${basePath}/news` },
+      { name: ui.home, path: basePath || "/" },
+      { name: document.contentType === "news" ? ui.news[0] : labels.technicalGuides, path: `${basePath}/news` },
       { name: document.title, path: canonicalPath }
     ])} />
+    {currentLocale !== "en" ? <p className="section">{ui.news[8]}</p> : null}
     <section className="blog-hero news-detail-hero">
       <div className="blog-hero-copy">
-        <span className="eyebrow">{document.contentType === "news" ? categoryMap.get(post.category) || post.categoryTitle || "Industry News" : contentTypeLabel(document.contentType)}</span>
-        <h1>{document.title}</h1>
-        <p>{document.summary}</p>
+        <span className="eyebrow" lang="en">{document.contentType === "news" ? categoryMap.get(post.category) || post.categoryTitle || labels.industryNews : contentTypeLabel(document.contentType)}</span>
+        <h1 lang="en">{document.title}</h1>
+        <p lang="en">{document.summary}</p>
         <div className="blog-meta">
           <span><CalendarDays size={16} aria-hidden /> {formatDisplayDate(document.publishedAt || post.publishedAt)}</span>
-          <span>By <Link href={`${basePath}/editorial-policy`}>{document.author.name}</Link></span>
+          <span>{labels.by} <Link href={`${basePath}/editorial-policy`} lang="en">{document.author.name}</Link></span>
         </div>
       </div>
-      {coverImage ? <div className="blog-hero-image"><NewsDisplayImage src={coverImage} alt={coverAlt} priority />{document.heroImage?.caption || post.imageCaption ? <p className="news-image-caption">{document.heroImage?.caption || post.imageCaption}</p> : null}</div> : null}
+      {coverImage ? <div className="blog-hero-image"><NewsDisplayImage src={coverImage} alt={coverAlt} priority />{document.heroImage?.caption || post.imageCaption ? <p className="news-image-caption" lang="en">{document.heroImage?.caption || post.imageCaption}</p> : null}</div> : null}
     </section>
     <section className={`section blog-detail-layout${previewVariant ? " product-first-reading-layout" : ""}`}>
-      {previewVariant ? <aside className="product-first-reading-rail" aria-label="Article contents">
-        <p>In this guide</p>
-        <nav>{document.sections.slice(0, 7).map((section: any, index: number) => <a href={`#${navigationId(section.heading, index)}`} key={section.heading}>{section.heading}</a>)}</nav>
-        <a className="product-first-rail-link" href={document.cta.href}>{document.cta.label}</a>
+      {previewVariant ? <aside className="product-first-reading-rail" aria-label={labels.contents}>
+        <p>{labels.inGuide}</p>
+        <nav lang="en">{document.sections.slice(0, 7).map((section: any, index: number) => <a href={`#${navigationId(section.heading, index)}`} key={section.heading}>{section.heading}</a>)}</nav>
+        <a className="product-first-rail-link" href={document.cta.href} lang="en">{document.cta.label}</a>
       </aside> : null}
-      <article className="blog-article news-article"><ArticleDocument document={document} /></article>
+      <article className="blog-article news-article" lang="en"><ArticleDocument document={document} /></article>
     </section>
     <section className="section article-nav-section">
       <div className="article-prev-next">
-        {previous ? <Link href={`${basePath}/news/${previous.slug}`}><ArrowLeft size={16} aria-hidden /> Previous: {previous.title}</Link> : <span />}
-        {next ? <Link href={`${basePath}/news/${next.slug}`}>Next: {next.title} <ArrowRight size={16} aria-hidden /></Link> : <span />}
+        {previous ? <Link href={`${basePath}/news/${previous.slug}`}><ArrowLeft size={16} aria-hidden /> {ui.previous}: <span lang="en">{previous.title}</span></Link> : <span />}
+        {next ? <Link href={`${basePath}/news/${next.slug}`}>{ui.next}: <span lang="en">{next.title}</span> <ArrowRight size={16} aria-hidden /></Link> : <span />}
       </div>
-      {related.length ? <div className="article-more-grid">{related.map((item) => <Link href={`${basePath}/news/${item.slug}`} className="article-more-card" key={item.slug}>{item.coverImage ? <Image src={item.coverImage} width={420} height={240} alt={item.coverAlt || item.title} /> : null}<div><DateBadge date={item.publishedAt} /><h2>{item.title}</h2><p>{item.excerpt}</p></div></Link>)}</div> : null}
+      {related.length ? <div className="article-more-grid">{related.map((item) => <Link href={`${basePath}/news/${item.slug}`} className="article-more-card" key={item.slug}>{item.coverImage ? <Image src={item.coverImage} width={420} height={240} alt={item.coverAlt || item.title} /> : null}<div><DateBadge date={item.publishedAt} /><h2 lang="en">{item.title}</h2><p lang="en">{item.excerpt}</p></div></Link>)}</div> : null}
     </section>
   </div>;
 }

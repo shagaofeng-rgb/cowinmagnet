@@ -28,7 +28,7 @@
     "seoTitle": "Fornecedor de separadores magnéticos",
     "metaDescription": "A COWIN MAGNET fornece separadores magnéticos suspensos, autolimpantes, polias magnéticas, barras, grades magnéticas e equipamentos personalizados de separação magnética.",
     "heroEyebrow": "Fornecedor de equipamentos de separação magnética",
-    "h1": "COWIN MAGNET",
+    "h1": "Separação magnética para um amanhã mais limpo e forte",
     "heroText": "Separadores magnéticos industriais, ímãs suspensos, polias magnéticas, barras magnéticas e sistemas personalizados de remoção de ferro para compradores B2B globais.",
     "heroAlt": "Separador magnético COWIN MAGNET trabalhando sobre uma correia transportadora",
     "videoEyebrow": "Vídeo de apresentação",
@@ -36,7 +36,7 @@
     "videoText": "Um vídeo vertical curto ajuda compradores internacionais a entender a aparência do produto, o estilo de comunicação e o suporte prático antes da confirmação da cotação.",
     "categoriesEyebrow": "Categorias de produtos",
     "categoriesTitle": "Categorias para separação magnética e apoio industrial em campo",
-    "categoriesText": "Comece por uma categoria e envie requisitos de material, transportador, iluminação, ar comprimido ou local de trabalho para apoio na seleção.",
+    "categoriesText": "Escolha uma categoria e informe o material, as características do transportador e as condições do local para receber ajuda na seleção.",
     "featuredEyebrow": "Produtos em destaque",
     "featuredTitle": "Produtos principais para remoção de ferro e proteção de equipamentos",
     "whyEyebrow": "Por que COWIN MAGNET",
@@ -53,138 +53,138 @@
   },
   "advantages": [
     [
-      "Strong Magnetic Force",
-      "Deep magnetic penetration for removing ferromagnetic impurities from conveyed bulk materials."
+      "Alta força magnética",
+      "A penetração magnética profunda ajuda a remover impurezas ferromagnéticas de materiais a granel transportados por correia."
     ],
     [
-      "OEM/ODM Customization",
-      "Flexible designs for belt width, suspension height, material burden, and installation method."
+      "Personalização OEM/ODM",
+      "Configurações adaptadas à largura da correia, altura de suspensão, camada de material e método de instalação."
     ],
     [
-      "Service-First Support",
-      "Clear communication, practical selection advice, sourcing coordination, and responsive follow-up."
+      "Suporte com foco no serviço",
+      "Comunicação clara, orientação prática de seleção, coordenação de fornecimento e acompanhamento ágil."
     ],
     [
-      "Global B2B Support",
-      "Serving mining, recycling, cement, aggregate, metallurgy, coal, and bulk material buyers worldwide."
+      "Suporte B2B global",
+      "Atendemos compradores dos setores de mineração, reciclagem, cimento, agregados, metalurgia, carvão e materiais a granel no mundo todo."
     ]
   ],
   "products": {
-    "seoTitle": "Products | Magnetic Separators and Magnetic Components",
-    "metaDescription": "Explore COWIN MAGNET magnetic separation equipment, suspended magnets, electromagnetic separators, magnetic lifting magnets, magnetic rods, and custom magnetic components.",
-    "eyebrow": "Products",
+    "seoTitle": "Produtos | Separadores e componentes magnéticos",
+    "metaDescription": "Conheça separadores magnéticos, ímãs suspensos, separadores eletromagnéticos, ímãs de elevação, barras e componentes personalizados da COWIN MAGNET.",
+    "eyebrow": "Produtos",
     "h1": "Linha de produtos industriais para separação magnética e apoio em campo",
-    "description": "Veja os produtos por categoria e envie requisitos de material, transportador, iluminação, ar comprimido ou local de trabalho.",
+    "description": "Veja os produtos por categoria e informe o material, o transportador e as condições de trabalho para receber ajuda na seleção.",
     "heroAlt": "Linha de produtos industriais COWIN MAGNET",
-    "options": "product options"
+    "options": "opções de produtos"
   },
   "productDetail": {
     "manufacturer": "Fornecedor",
-    "overview": "Product Overview",
-    "features": "Key Features",
-    "principle": "Working Principle",
-    "specifications": "Specifications",
-    "industries": "Application Industries",
-    "installation": "Installation Method",
-    "customization": "Customization Options",
+    "overview": "Visão geral do produto",
+    "features": "Principais características",
+    "principle": "Princípio de funcionamento",
+    "specifications": "Especificações",
+    "industries": "Setores de aplicação",
+    "installation": "Método de instalação",
+    "customization": "Opções de personalização",
     "faq": "FAQ",
-    "quoteTitle": "Quick Product Inquiry",
-    "quoteText": "Tell us the basic working condition.",
-    "ctaTitle": "Need a separator for a specific conveyor or material?",
-    "ctaText": "Tell us your working conditions and we will recommend a practical configuration."
+    "quoteTitle": "Consulta rápida sobre o produto",
+    "quoteText": "Informe as condições básicas de operação.",
+    "ctaTitle": "Precisa de um separador para uma correia ou material específico?",
+    "ctaText": "Descreva as condições de trabalho e recomendaremos uma configuração prática."
   },
   "applications": {
-    "seoTitle": "Applications | Magnetic Separation for Mining, Recycling and Cement",
-    "metaDescription": "COWIN MAGNET magnetic separators are used in mining, recycling, aggregate, cement, coal handling, power plants, metallurgy, and industrial bulk material processing.",
-    "eyebrow": "Applications",
-    "h1": "Magnetic separation solutions by industrial application",
-    "description": "Select your industry to review common pain points, suitable product types, and quote information needed for equipment selection.",
-    "heroAlt": "Magnetic separation application in an industrial plant",
-    "painPoints": "Common Buyer Pain Points",
-    "recommended": "Recommended Product Types",
-    "quoteTitle": "Application Quote",
-    "quoteText": "Tell us your material, belt width, capacity, and downstream equipment risk."
+    "seoTitle": "Aplicações | Separação magnética para mineração, reciclagem e cimento",
+    "metaDescription": "Separadores magnéticos COWIN MAGNET são usados em mineração, reciclagem, agregados, cimento, carvão, energia, metalurgia e processamento de materiais a granel.",
+    "eyebrow": "Aplicações",
+    "h1": "Soluções de separação magnética por aplicação industrial",
+    "description": "Escolha seu setor para analisar desafios comuns, tipos de equipamentos adequados e os dados necessários para a cotação.",
+    "heroAlt": "Aplicação de separação magnética em uma planta industrial",
+    "painPoints": "Desafios comuns dos compradores",
+    "recommended": "Tipos de equipamentos recomendados",
+    "quoteTitle": "Cotação por aplicação",
+    "quoteText": "Informe o material, largura da correia, capacidade e riscos aos equipamentos seguintes."
   },
   "about": {
     "seoTitle": "Sobre nós",
-    "metaDescription": "Learn about COWIN MAGNET, a service-first magnetic separation equipment supplier helping overseas buyers with selection, sourcing coordination, OEM/ODM communication, and delivery follow-up.",
-    "eyebrow": "About COWIN MAGNET",
-    "h1": "A service-first magnetic separation equipment supplier",
-    "heroAlt": "COWIN MAGNET service support for global buyers",
-    "profileEyebrow": "Who We Are",
-    "profileText1": "COWIN MAGNET focuses on magnetic separation equipment and industrial magnetic products for global B2B buyers. Our role is to understand the application, clarify working conditions, and help buyers match suitable equipment and supply resources.",
-    "profileText2": "Our core principle is service first: clear communication, practical selection advice, honest capability statements, and reliable follow-up before and after shipment.",
-    "expertEyebrow": "Expert Consultant",
-    "expertText": "David helps buyers clarify requirements before choosing equipment: material type, belt width, belt speed, material layer, installation height, cleaning method, and target iron removal result. The goal is not to push a model quickly, but to make the buyer’s decision safer and more practical.",
-    "description": "COWIN MAGNET is not positioned as a factory. We help overseas buyers choose suitable magnetic separation equipment, coordinate reliable supply, and make the purchasing process clearer from inquiry to delivery.",
-    "serviceEyebrow": "What We Provide",
-    "serviceTitle": "More than products: selection, sourcing, and follow-up service",
-    "serviceText": "For overseas buyers, the right supplier should reduce communication cost and help avoid unsuitable equipment choices.",
+    "metaDescription": "Conheça a COWIN MAGNET, fornecedora de equipamentos de separação magnética que apoia compradores internacionais na seleção, fornecimento, OEM/ODM e entrega.",
+    "eyebrow": "Sobre a COWIN MAGNET",
+    "h1": "Fornecedor de equipamentos de separação magnética com foco no serviço",
+    "heroAlt": "Suporte COWIN MAGNET para compradores globais",
+    "profileEyebrow": "Quem somos",
+    "profileText1": "A COWIN MAGNET trabalha com equipamentos de separação magnética e produtos magnéticos industriais para compradores B2B globais. Entendemos a aplicação e as condições de operação para ajudar a encontrar equipamentos e fontes de fornecimento adequados.",
+    "profileText2": "Nosso princípio é colocar o serviço em primeiro lugar: comunicação clara, orientação prática, descrição honesta das capacidades e acompanhamento confiável antes e depois do envio.",
+    "expertEyebrow": "Consultoria especializada",
+    "expertText": "David ajuda a esclarecer os requisitos antes da escolha: material, largura e velocidade da correia, camada de material, altura de instalação, limpeza e objetivo de remoção de ferro. O foco é apoiar uma decisão mais segura, não indicar um modelo precipitadamente.",
+    "description": "A COWIN MAGNET não se apresenta como fábrica. Ajudamos compradores internacionais a escolher equipamentos adequados, coordenar um fornecimento confiável e entender o processo de compra, da consulta à entrega.",
+    "serviceEyebrow": "O que oferecemos",
+    "serviceTitle": "Mais que produtos: seleção, fornecimento e acompanhamento",
+    "serviceText": "Para compradores internacionais, um bom fornecedor simplifica a comunicação e ajuda a evitar a escolha de equipamentos inadequados.",
     "services": [
-      "Product selection based on conveyor and material conditions",
-      "OEM/ODM requirement communication with suitable production partners",
-      "Quote preparation with clear product scope and technical details",
-      "Pre-shipment photo, video, packaging, and document follow-up",
-      "After-sales communication for installation questions and spare parts",
-      "Long-term sourcing support for magnetic separation equipment categories"
+      "Seleção de produtos conforme a correia e o material",
+      "Comunicação de requisitos OEM/ODM com parceiros de produção adequados",
+      "Preparação de cotações com escopo e detalhes técnicos claros",
+      "Acompanhamento de fotos, vídeos, embalagens e documentos antes do envio",
+      "Suporte pós-venda para instalação e peças de reposição",
+      "Apoio contínuo no fornecimento de equipamentos de separação magnética"
     ]
   },
   "contact": {
     "seoTitle": "Contato",
-    "metaDescription": "Contact COWIN MAGNET for magnetic separator selection, product inquiries, OEM/ODM customization, and global B2B quotation support.",
-    "eyebrow": "Contact",
-    "h1": "Send your magnetic separation requirement",
-    "description": "Share your product requirement, country, material, conveyor conditions, and contact details. Our sales team will contact you soon.",
-    "heroAlt": "COWIN MAGNET international sales support",
-    "infoTitle": "Contact Information",
-    "fastTip": "For faster selection, include belt width, material, belt speed, suspension height, and iron contamination level."
+    "metaDescription": "Contate a COWIN MAGNET para selecionar separadores magnéticos, consultar produtos, personalizar soluções OEM/ODM ou solicitar uma cotação.",
+    "eyebrow": "Contato",
+    "h1": "Envie seus requisitos de separação magnética",
+    "description": "Informe o produto desejado, país, material, condições da correia e dados de contato. Nossa equipe comercial responderá em breve.",
+    "heroAlt": "Suporte comercial internacional COWIN MAGNET",
+    "infoTitle": "Informações de contato",
+    "fastTip": "Para agilizar a seleção, informe largura e velocidade da correia, material, altura de suspensão e nível de contaminação ferrosa."
   },
   "requestQuote": {
     "seoTitle": "Solicitar cotação",
-    "metaDescription": "Request a custom quotation for magnetic separators, suspended magnets, self-cleaning separators, magnetic pulleys, magnetic bars, and industrial metal detection equipment.",
-    "eyebrow": "Request Quote",
-    "h1": "Get a custom magnetic separation recommendation",
-    "description": "Send your material, belt width, installation method, product requirement, and contact details. We will review the conditions and respond soon.",
-    "heroAlt": "Magnetic separator shipment and inspection",
-    "formEyebrow": "Inquiry Form",
-    "formTitle": "Tell us your working conditions",
-    "formText": "Detailed conveyor and material information helps us avoid generic recommendations."
+    "metaDescription": "Solicite cotação personalizada para separadores magnéticos, ímãs suspensos e autolimpantes, polias, barras magnéticas e detectores de metais industriais.",
+    "eyebrow": "Solicitar cotação",
+    "h1": "Receba uma recomendação de separação magnética personalizada",
+    "description": "Envie o material, largura da correia, método de instalação, produto desejado e dados de contato. Analisaremos as condições e responderemos em breve.",
+    "heroAlt": "Inspeção e envio de separador magnético",
+    "formEyebrow": "Formulário de consulta",
+    "formTitle": "Descreva suas condições de trabalho",
+    "formText": "Informações detalhadas sobre correia e material evitam recomendações genéricas."
   },
   "factory": {
     "seoTitle": "Capacidade de serviço",
-    "metaDescription": "Review COWIN MAGNET service capability, product selection support, OEM/ODM communication, inspection follow-up, and delivery coordination.",
-    "eyebrow": "Service Capability",
-    "h1": "Service capability for magnetic separation equipment buyers",
-    "description": "COWIN MAGNET is not positioned as a factory. This page summarizes selection support, supply coordination, inspection communication, and delivery follow-up for global buyers.",
-    "heroAlt": "COWIN MAGNET service capability"
+    "metaDescription": "Conheça os serviços da COWIN MAGNET: seleção de produtos, comunicação OEM/ODM, acompanhamento de inspeções e coordenação de entregas.",
+    "eyebrow": "Capacidade de atendimento",
+    "h1": "Serviços para compradores de equipamentos de separação magnética",
+    "description": "A COWIN MAGNET não se apresenta como fábrica. Esta página resume o apoio na seleção, coordenação do fornecimento, acompanhamento de inspeções e entregas.",
+    "heroAlt": "Serviços da COWIN MAGNET"
   },
   "projects": {
     "seoTitle": "Projetos e casos",
-    "metaDescription": "See how magnetic separators are selected for mining, recycling, cement, aggregate, coal handling, and bulk material conveyor applications.",
-    "eyebrow": "Projects",
-    "h1": "Application cases for industrial magnetic separation",
-    "description": "Project pages are prepared for future verified cases. Current content focuses on typical selection scenarios and quote information needed by overseas buyers.",
-    "heroAlt": "Magnetic separator application project"
+    "metaDescription": "Veja como escolher separadores magnéticos para mineração, reciclagem, cimento, agregados, carvão e transportadores de materiais a granel.",
+    "eyebrow": "Projetos",
+    "h1": "Exemplos de aplicação da separação magnética industrial",
+    "description": "As páginas de projetos estão preparadas para futuros casos verificados. O conteúdo atual aborda cenários típicos de seleção e informações necessárias para cotação.",
+    "heroAlt": "Projeto de aplicação de separador magnético"
   },
   "blog": {
-    "seoTitle": "Blog | Magnetic Separator Selection Guides",
-    "metaDescription": "Read COWIN MAGNET selection guides, comparison articles, and application solutions for magnetic separators, overband magnets, magnetic pulleys, and industrial magnets.",
+    "seoTitle": "Blog | Guias de seleção de separadores magnéticos",
+    "metaDescription": "Leia os guias da COWIN MAGNET sobre seleção, comparação e aplicação de separadores magnéticos, ímãs suspensos, polias e ímãs industriais.",
     "eyebrow": "Blog",
-    "h1": "Magnetic separator guides for industrial buyers",
-    "description": "Practical articles for procurement teams, plant engineers, distributors, and EPC buyers comparing magnetic separation equipment.",
-    "heroAlt": "Industrial magnetic separation blog visual",
-    "hubEyebrow": "SEO Knowledge Hub",
-    "hubTitle": "Selection, comparison, and application articles",
-    "hubText": "Use these guides to prepare conveyor data, compare product options, and request a more accurate magnetic separator quotation.",
-    "sidebarTitle": "Send your conveyor and material data",
-    "sidebarText": "Share belt width, material layer height, installation method, and iron contamination. Our team will suggest a practical magnetic separator configuration."
+    "h1": "Guias de separadores magnéticos para compradores industriais",
+    "description": "Artigos práticos para compradores, engenheiros de plantas, distribuidores e clientes EPC que comparam equipamentos de separação magnética.",
+    "heroAlt": "Blog sobre separação magnética industrial",
+    "hubEyebrow": "Centro de conhecimento",
+    "hubTitle": "Artigos sobre seleção, comparação e aplicações",
+    "hubText": "Use os guias para reunir dados da correia, comparar opções e solicitar uma cotação mais precisa.",
+    "sidebarTitle": "Envie dados da correia e do material",
+    "sidebarText": "Informe largura da correia, altura da camada de material, método de instalação e contaminação ferrosa. Sugeriremos uma configuração prática."
   },
   "footer": {
-    "brandText": "Industrial magnetic separation equipment for mining, recycling, cement, aggregate, coal, and bulk material handling.",
-    "products": "Products",
-    "company": "Company",
-    "quoteSupport": "Quote Support",
-    "quoteText": "Send belt width, material, installation height, and iron contamination level.",
-    "ready": "Multilingual-ready B2B website."
+    "brandText": "Equipamentos industriais de separação magnética para mineração, reciclagem, cimento, agregados, carvão e materiais a granel.",
+    "products": "Produtos",
+    "company": "Empresa",
+    "quoteSupport": "Ajuda com cotações",
+    "quoteText": "Informe largura da correia, material, altura de instalação e nível de contaminação ferrosa.",
+    "ready": "Site B2B internacional."
   }
 }

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { LocalizedApplicationDetailPage } from "@/components/LocalizedPages";
 import { applications } from "@/data/applications";
 import { getDictionary, isLocale, locales, localizedPageAlternates, type Locale } from "@/lib/i18n";
+import { getPublicUi } from "@/lib/publicUi";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
@@ -15,7 +16,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const application = applications.find((item) => item.slug === slug);
   const current = isLocale(locale) ? locale : "en";
   if (!application) return {};
-  return { title: application.seoTitle, description: application.seoDescription, alternates: localizedPageAlternates(current, `/applications/${application.slug}`) };
+  const index = applications.findIndex((item) => item.slug === slug);
+  const ui = getPublicUi(current);
+  const t = getDictionary(current);
+  return { title: current === "en" ? application.seoTitle : ui.industryMenu[index]?.[0] || application.seoTitle, description: current === "en" ? application.seoDescription : t.applications.metaDescription, alternates: localizedPageAlternates(current, `/applications/${application.slug}`) };
 }
 
 export default async function Page({ params }: PageProps) {

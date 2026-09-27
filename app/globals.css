@@ -10035,6 +10035,12 @@ body:not(:has(.admin-dashboard)):not(:has(.admin-login-page)) {
 /* Final cascade: exact desktop/mobile layout of the approved homepage reference. */
 .localized-home .industrial-hero { min-height: 620px; isolation: isolate; background: #061a35; }
 .localized-home .industrial-hero::after { background: linear-gradient(90deg, rgba(3,18,38,.94) 0%, rgba(3,18,38,.84) 46%, rgba(3,18,38,.3) 72%, rgba(3,18,38,.18) 100%); }
+[dir="rtl"] .localized-home .industrial-hero::after { background: linear-gradient(270deg, rgba(3,18,38,.94) 0%, rgba(3,18,38,.84) 46%, rgba(3,18,38,.3) 72%, rgba(3,18,38,.18) 100%); }
+[dir="rtl"] .localized-home .industrial-section-heading, [dir="rtl"] .industrial-industry-heading { text-align: right; }
+@media (min-width: 761px) {
+  [dir="rtl"] .localized-home .industrial-hero::after { background: linear-gradient(90deg, rgba(3,18,38,.94) 0%, rgba(3,18,38,.84) 46%, rgba(3,18,38,.3) 72%, rgba(3,18,38,.18) 100%); }
+  [dir="rtl"] .localized-home .industrial-hero .hero-copy { margin-inline-start: auto; margin-inline-end: 0; text-align: right; }
+}
 .localized-home .industrial-hero .hero-copy { width: min(670px,100%); padding-top: clamp(80px,8.8vw,132px); padding-bottom: 154px; }
 .localized-home .industrial-hero .hero-copy > .eyebrow { display: inline-block; margin-bottom: 17px; padding: 0; color: #d2e8fb; background: transparent; border: 0; font-size: 11px; font-weight: 700; letter-spacing: .16em; }
 .localized-home .industrial-hero .template-hero-title { max-width: 650px; margin: 0; color: #fff; font-size: clamp(43px,4.85vw,70px); font-weight: 760; line-height: .99; letter-spacing: -.06em; text-transform: uppercase; text-wrap: balance; }

@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ExternalLink, MapPin } from "lucide-react";
 import { site } from "@/data/site";
+import type { Locale } from "@/lib/i18n";
+import { getPublicUi } from "@/lib/publicUi";
 
 const googleEmbedUrl =
   "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d878.1241356264704!2d118.839750!3d28.965204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1780393502977!5m2!1sen!2sus";
@@ -11,27 +13,30 @@ type GoogleMapCardProps = {
   address?: string;
   title?: string;
   note?: string;
+  locale?: Locale;
 };
 
 export function GoogleMapCard({
   address = site.address,
-  title = "Visit COWIN MAGNET",
-  note = "Use Google Maps for route planning, nearby roads, and satellite view."
+  title,
+  note,
+  locale = "en"
 }: GoogleMapCardProps) {
+  const ui = getPublicUi(locale);
   return (
-    <section className="map-card" aria-label="Company location map">
+    <section className="map-card" aria-label={ui.mapLocation}>
       <div className="map-card-header">
         <div>
           <span className="map-kicker">
             <MapPin size={16} aria-hidden />
-            Company Location
+            {ui.mapLocation}
           </span>
-          <h2>{title}</h2>
+          <h2>{title || ui.mapTitle}</h2>
           <p>{address}</p>
-          <p className="map-note">{note}</p>
+          <p className="map-note">{note || ui.mapNote}</p>
         </div>
         <Link href={googleMapsUrl} className="map-button" target="_blank" rel="noopener noreferrer nofollow">
-          View on Google Maps
+          {ui.mapOpen}
           <ExternalLink size={16} aria-hidden />
         </Link>
       </div>

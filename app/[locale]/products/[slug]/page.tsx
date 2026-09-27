@@ -8,6 +8,9 @@ import { getDictionary, isLocale, locales, localizedPageAlternates, type Locale 
 import { getProductCategoryPage, productCategoryPages } from "@/lib/productCategories";
 import { getProductsWithCms } from "@/lib/productCms";
 import { absoluteUrl } from "@/lib/seo";
+import { productCategories } from "@/data/products";
+import { getPublicUi } from "@/lib/publicUi";
+import { getLocalizedProductSummary } from "@/lib/productLocale";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }>; searchParams?: Promise<{ page?: string }> };
 
@@ -25,29 +28,34 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const category = getProductCategoryPage(slug);
   if (category) {
     const categoryPath = `/${current}/products/${category.slug}`;
+    const categoryIndex = productCategories.indexOf(category.category);
+    const title = current === "en" ? category.category : getPublicUi(current).productCategories[categoryIndex] || category.category;
+    const description = current === "en" ? category.description : getDictionary(current).products.description;
     return {
-      title: category.category,
-      description: category.description,
+      title,
+      description,
       alternates: localizedPageAlternates(current, `/products/${category.slug}`),
       openGraph: {
-        title: `${category.category} | COWIN MAGNET`,
-        description: category.description,
+        title: `${title} | COWIN MAGNET`,
+        description,
         url: absoluteUrl(categoryPath)
       }
     };
   }
   if (!product) return {};
+  const title = current === "en" ? productSeoTitle(product) : `${product.name} | ${getDictionary(current).products.eyebrow}`;
+  const description = current === "en" ? productSeoDescription(product) : getLocalizedProductSummary(product, current);
   return {
-    title: productSeoTitle(product),
-    description: productSeoDescription(product),
+    title,
+    description,
     alternates: localizedPageAlternates(current, `/products/${product.slug}`),
     openGraph: {
-      title: productSeoTitle(product),
-      description: productSeoDescription(product),
+      title,
+      description,
       url: absoluteUrl(`/${current}/products/${product.slug}`),
       images: [product.image]
     },
-    twitter: { card: "summary_large_image", title: productSeoTitle(product), description: productSeoDescription(product), images: [product.image] }
+    twitter: { card: "summary_large_image", title, description, images: [product.image] }
   };
 }
 export default async function Page({ params, searchParams }: PageProps) {

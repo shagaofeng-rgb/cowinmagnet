@@ -1,4 +1,6 @@
 import Link from "next/link";
+import type { Locale } from "@/lib/i18n";
+import { getPublicUi } from "@/lib/publicUi";
 
 type PaginationNavProps = {
   currentPage: number;
@@ -6,6 +8,7 @@ type PaginationNavProps = {
   hrefForPage: (page: number) => string;
   label: string;
   summary?: string;
+  locale?: Locale;
 };
 
 function visiblePages(currentPage: number, totalPages: number) {
@@ -21,22 +24,23 @@ function visiblePages(currentPage: number, totalPages: number) {
   return pages;
 }
 
-export function PaginationNav({ currentPage, totalPages, hrefForPage, label, summary }: PaginationNavProps) {
+export function PaginationNav({ currentPage, totalPages, hrefForPage, label, summary, locale = "en" }: PaginationNavProps) {
   if (totalPages <= 1) return null;
+  const ui = getPublicUi(locale);
 
   return (
     <nav className="content-pagination" aria-label={label}>
-      {currentPage > 1 ? <Link href={hrefForPage(currentPage - 1)}>Previous</Link> : <span className="is-disabled" aria-disabled="true">Previous</span>}
+      {currentPage > 1 ? <Link href={hrefForPage(currentPage - 1)}>{ui.previous}</Link> : <span className="is-disabled" aria-disabled="true">{ui.previous}</span>}
       <ol>
         {visiblePages(currentPage, totalPages).map((page, index) => (
           page === "ellipsis" ? <li key={`ellipsis-${index}`}><span className="is-ellipsis" aria-hidden="true">…</span></li> : (
             <li key={page}>
-              {page === currentPage ? <span className="is-current" aria-current="page">{page}</span> : <Link href={hrefForPage(page)} aria-label={`Page ${page}`}>{page}</Link>}
+              {page === currentPage ? <span className="is-current" aria-current="page">{page}</span> : <Link href={hrefForPage(page)} aria-label={`${ui.page} ${page}`}>{page}</Link>}
             </li>
           )
         ))}
       </ol>
-      {currentPage < totalPages ? <Link href={hrefForPage(currentPage + 1)}>Next</Link> : <span className="is-disabled" aria-disabled="true">Next</span>}
+      {currentPage < totalPages ? <Link href={hrefForPage(currentPage + 1)}>{ui.next}</Link> : <span className="is-disabled" aria-disabled="true">{ui.next}</span>}
       {summary ? <p>{summary}</p> : null}
     </nav>
   );

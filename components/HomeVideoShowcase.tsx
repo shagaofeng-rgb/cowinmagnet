@@ -2,13 +2,17 @@
 
 import { PlayCircle } from "lucide-react";
 import { useRef, useState } from "react";
+import type { Locale } from "@/lib/i18n";
+import { getPublicUi } from "@/lib/publicUi";
 
 type HomeVideoShowcaseProps = {
   eyebrow: string;
   title: string;
+  locale?: Locale;
 };
 
-export function HomeVideoShowcase({ eyebrow, title }: HomeVideoShowcaseProps) {
+export function HomeVideoShowcase({ eyebrow, title, locale = "en" }: HomeVideoShowcaseProps) {
+  const ui = getPublicUi(locale);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playError, setPlayError] = useState(false);
@@ -39,7 +43,7 @@ export function HomeVideoShowcase({ eyebrow, title }: HomeVideoShowcaseProps) {
             playsInline
             preload="metadata"
             poster="/assets/magnetic-separator-banner-800.webp"
-            aria-label="COWIN MAGNET product and service showcase video"
+            aria-label={title}
             onPlay={() => { setIsPlaying(true); setPlayError(false); }}
             onPause={() => setIsPlaying(false)}
             onError={() => setPlayError(true)}
@@ -50,18 +54,19 @@ export function HomeVideoShowcase({ eyebrow, title }: HomeVideoShowcaseProps) {
               src="/videos/cowinmagnet-home-product-showcase-2026.en.vtt"
               srcLang="en"
               label="English"
-              default
+              default={locale === "en"}
             />
-            Your browser does not support the video tag.
+            {locale !== "en" ? <track kind="captions" src={`/videos/cowinmagnet-home-product-showcase-2026.${locale}.vtt`} srcLang={locale} label={locale.toUpperCase()} default /> : null}
+            {ui.videoUnsupported}
           </video>
           {!isPlaying ? (
-            <button type="button" className="video-load-button" onClick={playVideo} aria-label="Play COWIN MAGNET product showcase video">
+            <button type="button" className="video-load-button" onClick={playVideo} aria-label={ui.videoPlay}>
               <PlayCircle size={44} aria-hidden />
             </button>
           ) : null}
-          <div className="video-caption"><strong>Reliable Magnetic Separation<br />for Real-World Challenges</strong><span>0:00 / 1:13</span></div>
+          <div className="video-caption"><strong>{ui.videoCaption}</strong><span>0:00 / 1:13</span></div>
         </div>
-        {playError ? <p className="video-play-error" role="alert">The video could not start. Please use the play control again or open it in a new tab.</p> : null}
+        {playError ? <p className="video-play-error" role="alert">{ui.videoError}</p> : null}
       </div>
     </div>
   );

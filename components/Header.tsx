@@ -9,6 +9,7 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { site } from "@/data/site";
 import { categoryAnchor } from "@/lib/anchors";
 import { getDictionary, getDirection, getLocaleFromPath, localizeHref } from "@/lib/i18n";
+import { getPublicUi } from "@/lib/publicUi";
 
 // Keep the interactive header bundle independent from the full product and industry datasets.
 const productCategories = [
@@ -37,6 +38,7 @@ export function Header() {
   const pathname = usePathname();
   const locale = getLocaleFromPath(pathname);
   const t = getDictionary(locale);
+  const ui = getPublicUi(locale);
   const dir = getDirection(locale);
   const headerRef = useRef<HTMLElement>(null);
   const megaCloseTimer = useRef<number | null>(null);
@@ -117,18 +119,18 @@ export function Header() {
           </a>
         </div>
       </div>
-      <nav className="navbar" aria-label="Main navigation">
-        <Link href={localizeHref("/", locale)} className="brand" aria-label="COWIN MAGNET home">
+      <nav className="navbar" aria-label={ui.navigation}>
+        <Link href={localizeHref("/", locale)} className="brand" aria-label={`COWIN MAGNET — ${ui.home}`}>
           <Image src="/images/cowin-logo.png" width={52} height={52} alt="COWIN MAGNET logo" />
           <span>COWIN MAGNET</span>
         </Link>
         <button
           type="button"
           className="mobile-nav-toggle"
-          aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
+          aria-label={mobileOpen ? ui.closeMenu : ui.openMenu}
           aria-expanded={mobileOpen}
           aria-controls="mobile-site-navigation"
-          title={mobileOpen ? "Close navigation" : "Open navigation"}
+          title={mobileOpen ? ui.closeMenu : ui.openMenu}
           onClick={() => setMobileOpen((open) => !open)}
         >
           {mobileOpen ? <X size={22} aria-hidden /> : <Menu size={22} aria-hidden />}
@@ -151,7 +153,7 @@ export function Header() {
             <div className="mega-menu mega-products">
               <div className="mega-panel">
                 <div className="mega-intro">
-                  <span><Sparkles size={15} aria-hidden /> Product Center</span>
+                  <span><Sparkles size={15} aria-hidden /> {ui.productCenter}</span>
                   <h3>{t.products.h1}</h3>
                   <p>{t.products.description}</p>
                   <Link href={localizeHref("/products", locale)} className="mega-cta" onClick={() => setActiveMega(null)}>
@@ -159,18 +161,18 @@ export function Header() {
                   </Link>
                 </div>
                 <div className="mega-section">
-                  <h4>Categories</h4>
+                  <h4>{ui.categories}</h4>
                   <div className="mega-chip-list">
-                    {productCategories.map((category) => (
-                    <Link key={category} href={localizeHref(`/products#${categoryAnchor(category)}`, locale)} onClick={() => setActiveMega(null)}>{category}</Link>
+                    {productCategories.map((category, index) => (
+                    <Link key={category} href={`${localizeHref("/products", locale)}?category=${encodeURIComponent(categoryAnchor(category))}`} onClick={() => setActiveMega(null)}>{ui.productCategories[index]}</Link>
                     ))}
                   </div>
                 </div>
                 <div className="mega-section mega-link-grid">
-                  <h4>Popular Products</h4>
-                  {featuredProducts.map((product) => (
+                  <h4>{ui.popularProducts}</h4>
+                  {featuredProducts.map((product, index) => (
                     <Link key={product.slug} href={localizeHref(`/products/${product.slug}`, locale)} onClick={() => setActiveMega(null)}>
-                      {product.name}
+                      {ui.featuredProducts[index]}
                     </Link>
                   ))}
                 </div>
@@ -190,33 +192,33 @@ export function Header() {
               aria-haspopup="menu"
               onClick={() => activeMega === "industries" ? setActiveMega(null) : openMega("industries")}
             >
-              Industries
+              {ui.industries}
             </button>
             <div className="mega-menu mega-applications">
               <div className="mega-panel mega-panel-compact">
                 <div className="mega-intro">
-                  <span><Factory size={15} aria-hidden /> Industry Solutions</span>
-                  <h3>Industry Magnetic Separation Solutions</h3>
-                  <p>Choose your industry to review problems, recommended equipment and application scenarios.</p>
+                  <span><Factory size={15} aria-hidden /> {ui.industrySolutions}</span>
+                  <h3>{ui.industryHeadline}</h3>
+                  <p>{ui.industryDescription}</p>
                 </div>
                 <div className="mega-section mega-card-grid">
-                  {industryMenuItems.map((industry) => (
+                  {industryMenuItems.map((industry, index) => (
                     <Link key={industry.slug} href={localizeHref(`/industries/${industry.slug}`, locale)} onClick={() => setActiveMega(null)}>
-                      <strong>{industry.name}</strong>
-                      <span>{industry.summary}</span>
+                      <strong>{ui.industryMenu[index][0]}</strong>
+                      <span>{ui.industryMenu[index][1]}</span>
                     </Link>
                   ))}
                 </div>
               </div>
             </div>
           </div>
-          <Link href={localizeHref("/about", locale)}>OEM/ODM</Link>
-          <Link href={localizeHref("/about", locale)}>About Us</Link>
-          <Link href={localizeHref("/contact", locale)}>Support</Link>
-          <Link href={localizeHref("/contact", locale)}>Contact</Link>
-          <Link href={localizeHref("/search", locale)} className="nav-search-link" aria-label="Search COWIN MAGNET">
+          <Link href={localizeHref("/about", locale)}>{ui.oem}</Link>
+          <Link href={localizeHref("/about", locale)}>{ui.aboutUs}</Link>
+          <Link href={localizeHref("/contact", locale)}>{ui.support}</Link>
+          <Link href={localizeHref("/contact", locale)}>{ui.contact}</Link>
+          <Link href={localizeHref("/search", locale)} className="nav-search-link" aria-label={`${ui.search} COWIN MAGNET`}>
             <Search size={16} aria-hidden />
-            <span className="nav-search-label">Search</span>
+            <span className="nav-search-label">{ui.search}</span>
           </Link>
         </div>
         <div className="nav-actions">
@@ -228,10 +230,10 @@ export function Header() {
         {mobileOpen ? (
           <div className="mobile-site-nav" id="mobile-site-navigation">
             <Link href={localizeHref("/products", locale)} onClick={closeMobile}>{t.nav.products}</Link>
-            <Link href={localizeHref("/industries", locale)} onClick={closeMobile}>Industries</Link>
+            <Link href={localizeHref("/industries", locale)} onClick={closeMobile}>{ui.industries}</Link>
             <Link href={localizeHref("/blog", locale)} onClick={closeMobile}>{t.nav.blog}</Link>
             <Link href={localizeHref("/news", locale)} onClick={closeMobile}>{t.nav.news || "News"}</Link>
-            <Link href={localizeHref("/search", locale)} onClick={closeMobile}><Search size={16} aria-hidden /> Search</Link>
+            <Link href={localizeHref("/search", locale)} onClick={closeMobile}><Search size={16} aria-hidden /> {ui.search}</Link>
             <Link href={localizeHref("/about", locale)} onClick={closeMobile}>{t.nav.about}</Link>
             <Link href={localizeHref("/contact", locale)} onClick={closeMobile}>{t.nav.contact}</Link>
             <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow" onClick={closeMobile} data-whatsapp-placement="mobile-menu" data-whatsapp-component="site-header">

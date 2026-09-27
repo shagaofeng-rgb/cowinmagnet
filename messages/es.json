@@ -5,7 +5,7 @@
     "products": "Productos",
     "applications": "Aplicaciones",
     "blog": "Blog",
-    "news": "News",
+    "news": "Noticias",
     "about": "Nosotros",
     "contact": "Contacto",
     "factory": "Fábrica",
@@ -28,7 +28,7 @@
     "seoTitle": "Proveedor de separadores magnéticos",
     "metaDescription": "COWIN MAGNET suministra separadores magnéticos suspendidos, autolimpiantes, poleas magnéticas, barras magnéticas, rejillas magnéticas y equipos personalizados de separación magnética.",
     "heroEyebrow": "Proveedor de equipos de separación magnética",
-    "h1": "COWIN MAGNET",
+    "h1": "Separación magnética para un mañana más limpio y sólido",
     "heroText": "Separadores magnéticos industriales, imanes suspendidos, poleas magnéticas, barras magnéticas y sistemas personalizados de eliminación de hierro para compradores B2B globales.",
     "heroAlt": "Separador magnético COWIN MAGNET trabajando sobre una cinta transportadora",
     "videoEyebrow": "Video de presentación",
@@ -36,7 +36,7 @@
     "videoText": "Un breve video vertical ayuda a los compradores internacionales a entender la apariencia del producto, el estilo de comunicación y el soporte práctico antes de confirmar una cotización.",
     "categoriesEyebrow": "Categorías de productos",
     "categoriesTitle": "Categorías para separación magnética y soporte industrial en obra",
-    "categoriesText": "Comience por una categoría y envíenos material, transportador, iluminación, aire comprimido o requisitos del sitio para apoyo de selección.",
+    "categoriesText": "Comience por una categoría y envíenos los datos del material, la cinta transportadora y las condiciones del sitio para ayudarle a elegir el equipo.",
     "featuredEyebrow": "Productos destacados",
     "featuredTitle": "Productos clave para remover hierro y proteger equipos",
     "whyEyebrow": "Por qué COWIN MAGNET",
@@ -71,10 +71,10 @@
   ],
   "products": {
     "seoTitle": "Productos | Separadores magnéticos y componentes magnéticos",
-    "metaDescription": "Explore equipos de separación magnética, productos electromagnéticos, barras magnéticas, torres solares móviles y compresores portátiles de COWIN MAGNET.",
+    "metaDescription": "Explore separadores magnéticos, equipos electromagnéticos, detectores de metales, barras y rejillas magnéticas de COWIN MAGNET.",
     "eyebrow": "Productos",
     "h1": "Gama de productos industriales para separación magnética y soporte en obra",
-    "description": "Explore productos por categoría y envíe sus requisitos de material, transportador, iluminación, aire comprimido o sitio de trabajo.",
+    "description": "Explore productos por categoría y envíe los datos del material, la cinta transportadora y las condiciones de trabajo para recibir ayuda en la selección.",
     "heroAlt": "Gama de productos industriales COWIN MAGNET",
     "options": "opciones de producto"
   },
@@ -152,11 +152,11 @@
   },
   "factory": {
     "seoTitle": "Capacidad de servicio",
-    "metaDescription": "Review COWIN MAGNET service capability, product selection support, OEM/ODM communication, inspection follow-up, and delivery coordination.",
-    "eyebrow": "Service Capability",
-    "h1": "Service capability for magnetic separation equipment buyers",
-    "description": "COWIN MAGNET is not positioned as a factory. This page summarizes selection support, supply coordination, inspection communication, and delivery follow-up for global buyers.",
-    "heroAlt": "COWIN MAGNET service capability"
+    "metaDescription": "Conozca los servicios de COWIN MAGNET: selección de productos, comunicación OEM/ODM, seguimiento de inspecciones y coordinación de entregas.",
+    "eyebrow": "Capacidad de servicio",
+    "h1": "Servicios para compradores de equipos de separación magnética",
+    "description": "COWIN MAGNET no se presenta como fábrica. Esta página resume el apoyo en selección, coordinación de suministro, seguimiento de inspecciones y entregas para compradores internacionales.",
+    "heroAlt": "Servicios de COWIN MAGNET"
   },
   "projects": {
     "seoTitle": "Proyectos y casos",
