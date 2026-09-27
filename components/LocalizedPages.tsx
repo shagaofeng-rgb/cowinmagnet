@@ -65,7 +65,7 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
   return (
     <main className="localized-home">
       <section className="home-hero industrial-hero">
-        <Image src="/images/generated/home-hero-cowinmagnet.webp" fill sizes="100vw" alt={t.home.heroAlt} className="hero-banner-image" priority />
+        <Image src="/images/generated/home-hero-cowinmagnet.webp" fill sizes="100vw" alt={t.home.heroAlt} className="hero-banner-image" priority fetchPriority="high" />
         <div className="hero-copy">
           <span className="eyebrow industrial-kicker">{locale === "en" ? "Global OEM/ODM Partner" : t.home.heroEyebrow}</span>
           {locale === "en" ? <h1 className="template-hero-title">Magnetic<br />Separation<br />for a <em>Cleaner,</em><br /><em>Stronger Tomorrow</em></h1> : <h1 className="template-hero-title">{t.home.h1}</h1>}
@@ -113,7 +113,7 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
         <div className="industrial-industry-grid">
           {homeIndustryTiles.map((industry, index) => (
             <Link key={industry.image} href={localizeHref(industry.href, locale)} className={`industrial-industry-card industrial-industry-card-${industry.size}`}>
-              <Image src={industry.image} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 22vw" alt={`${ui.homeIndustries[index]} — ${t.applications.heroAlt}`} loading="lazy" />
+              <Image src={industry.image} fill sizes="(max-width: 760px) 50vw, (max-width: 1100px) 50vw, 22vw" alt={`${ui.homeIndustries[index]} — ${t.applications.heroAlt}`} loading="lazy" />
               <span>{ui.homeIndustries[index]}</span>
             </Link>
           ))}

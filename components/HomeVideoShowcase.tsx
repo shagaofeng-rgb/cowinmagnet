@@ -14,6 +14,7 @@ type HomeVideoShowcaseProps = {
 export function HomeVideoShowcase({ eyebrow, title, locale = "en" }: HomeVideoShowcaseProps) {
   const ui = getPublicUi(locale);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const hasLoadedVideo = useRef(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playError, setPlayError] = useState(false);
 
@@ -22,6 +23,13 @@ export function HomeVideoShowcase({ eyebrow, title, locale = "en" }: HomeVideoSh
     if (!video) return;
     setPlayError(false);
     try {
+      // Keep the media URL off the video element until the visitor requests playback.
+      // Browsers may download the entire MP4 even when preload is only "metadata".
+      if (!hasLoadedVideo.current) {
+        video.src = "/videos/cowinmagnet-home-product-showcase-2026.mp4";
+        video.load();
+        hasLoadedVideo.current = true;
+      }
       await video.play();
       setIsPlaying(true);
     } catch {
@@ -41,14 +49,13 @@ export function HomeVideoShowcase({ eyebrow, title, locale = "en" }: HomeVideoSh
             ref={videoRef}
             controls
             playsInline
-            preload="metadata"
+            preload="none"
             poster="/assets/magnetic-separator-banner-800.webp"
             aria-label={title}
             onPlay={() => { setIsPlaying(true); setPlayError(false); }}
             onPause={() => setIsPlaying(false)}
             onError={() => setPlayError(true)}
           >
-            <source src="/videos/cowinmagnet-home-product-showcase-2026.mp4" type="video/mp4" />
             <track
               kind="captions"
               src="/videos/cowinmagnet-home-product-showcase-2026.en.vtt"
