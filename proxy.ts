@@ -45,8 +45,16 @@ export function proxy(request: NextRequest) {
       : NextResponse.next({ headers: { "X-Robots-Tag": "noindex, follow" } });
   }
 
+  // Serve the canonical English homepage in one request for direct visitors.
+  // The /en page retains its canonical metadata, and all site links use /en.
+  if (pathname === "/") {
+    const url = request.nextUrl.clone();
+    url.pathname = `/${defaultLocale}`;
+    return NextResponse.rewrite(url);
+  }
+
   const url = request.nextUrl.clone();
-  url.pathname = pathname === "/" ? `/${defaultLocale}` : `/${defaultLocale}${pathname}`;
+  url.pathname = `/${defaultLocale}${pathname}`;
   return NextResponse.redirect(url, 308);
 }
 
