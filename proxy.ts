@@ -3,26 +3,10 @@ import type { NextRequest } from "next/server";
 import { defaultLocale, isLocale } from "@/lib/i18n";
 
 const PUBLIC_FILE = /\.(.*)$/;
-// Geo blocking is intentionally limited to public document routes. Admin, API,
-// cron, sitemap and static asset requests are handled by the allow-list below.
-// Keep China mainland public traffic blocked without interrupting operators,
-// deployment jobs, search crawlers, or required static resources.
-const blockedVisitorCountries = new Set<string>(["CN"]);
 const PRIMARY_HOST = "www.cowinmagnet.com";
-
-function getRequestCountry(request: NextRequest) {
-  return (
-    request.headers.get("x-vercel-ip-country") ||
-    request.headers.get("cf-ipcountry") ||
-    request.headers.get("cloudfront-viewer-country") ||
-    (request as NextRequest & { geo?: { country?: string } }).geo?.country ||
-    ""
-  ).toUpperCase();
-}
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const country = getRequestCountry(request);
 
   // Some publishing platforms accept only a site domain and POST their webhook payload to `/`.
   // Keep the public homepage behavior unchanged while internally routing that integration request.
@@ -49,18 +33,6 @@ export function proxy(request: NextRequest) {
     PUBLIC_FILE.test(pathname)
   ) {
     return NextResponse.next();
-  }
-
-  if (blockedVisitorCountries.has(country)) {
-    return new NextResponse("Access unavailable", {
-      status: 403,
-      headers: {
-        "X-Robots-Tag": "noindex, nofollow",
-        "Cache-Control": "no-store",
-        "Vary": "x-vercel-ip-country",
-        "X-Cowin-Geo-Block": country
-      }
-    });
   }
 
   const firstSegment = pathname.split("/").filter(Boolean)[0];

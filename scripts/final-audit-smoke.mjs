@@ -40,19 +40,6 @@ async function fetchWithTimeout(url, options = {}, timeoutMs = 45000) {
   }
 }
 
-function isExpectedGeoBlock(result) {
-  const text = String(result.text || "");
-  const geoHeader = result.headers?.get?.("x-cowin-geo-block") || "";
-  const vercelId = result.headers?.get?.("x-vercel-id") || "";
-  return (
-    result.status === 403 &&
-    (Boolean(geoHeader) ||
-      /^Access unavailable/i.test(text) ||
-      /^Forbidden/i.test(text) ||
-      /\bhnd1::/.test(vercelId))
-  );
-}
-
 function hasBasicSeo(html) {
   return {
     title: /<title[^>]*>[^<]+<\/title>/i.test(html),
@@ -98,10 +85,9 @@ async function checkPublic() {
     results.push({
       url,
       status: result.status,
-      ok: (result.ok && (!contentType.includes("text/html") || seo.canonicalMatchesPath)) || [301, 302, 307, 308].includes(result.status) || isExpectedGeoBlock(result),
+      ok: (result.ok && (!contentType.includes("text/html") || seo.canonicalMatchesPath)) || [301, 302, 307, 308].includes(result.status),
       contentType,
       seo,
-      geoBlocked: isExpectedGeoBlock(result),
       edgeId: result.headers?.get?.("x-vercel-id") || "",
       error: result.error || ""
     });
@@ -119,10 +105,9 @@ async function checkPublic() {
       results.push({
         url,
         status: result.status,
-        ok: (result.ok && (!contentType.includes("text/html") || seo.canonicalMatchesPath)) || [301, 302, 307, 308].includes(result.status) || isExpectedGeoBlock(result),
+        ok: (result.ok && (!contentType.includes("text/html") || seo.canonicalMatchesPath)) || [301, 302, 307, 308].includes(result.status),
         contentType,
         seo,
-        geoBlocked: isExpectedGeoBlock(result),
         edgeId: result.headers?.get?.("x-vercel-id") || "",
         error: result.error || "",
         source: "sitemap"
@@ -142,8 +127,7 @@ async function checkAdmin() {
   results.push({
     url: `${siteUrl}/admin/login`,
     status: loginPage.status,
-    ok: loginPage.ok || isExpectedGeoBlock(loginPage),
-    geoBlocked: isExpectedGeoBlock(loginPage),
+    ok: loginPage.ok,
     edgeId: loginPage.headers?.get?.("x-vercel-id") || "",
     hasPasswordToggle: /admin-password-field|显示密码|隐藏密码/.test(loginPage.text),
     error: loginPage.error || ""
