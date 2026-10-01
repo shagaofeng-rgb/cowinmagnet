@@ -18,6 +18,8 @@ function timeoutSignal(ms) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), ms);
   return {
+    formType: "test",
+    isTest: true,
     signal: controller.signal,
     clear: () => clearTimeout(timer)
   };
@@ -93,7 +95,13 @@ export async function GET(request) {
     });
     const text = await response.text();
     const finishedAt = new Date();
-    const ok = response.ok;
+    let delivery;
+    try {
+      delivery = JSON.parse(text);
+    } catch {
+      delivery = null;
+    }
+    const ok = response.status === 200 && delivery?.deliveryStatus === "sent";
 
     await recordSyncJobRun({
       jobName,

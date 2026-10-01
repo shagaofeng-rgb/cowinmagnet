@@ -282,16 +282,19 @@ export async function POST(request) {
     );
   }
 
-  after(async () => {
-    await recordMetaLead(payload).catch((error) => {
-      console.warn("Meta CAPI Lead recording failed", { reason: error instanceof Error ? error.name : "unknown" });
+  const isMarkedTest = payload.isTest === true && payload.formType === "test";
+  if (!isMarkedTest) {
+    after(async () => {
+      await recordMetaLead(payload).catch((error) => {
+        console.warn("Meta CAPI Lead recording failed", { reason: error instanceof Error ? error.name : "unknown" });
+      });
     });
-  });
+  }
 
   // The inquiry itself is the system of record. Record attribution before an
   // optional email notification so a temporary mail-provider issue can never
   // make a valid customer lead look like a failed form submission.
-  await recordInquiryAttribution(payload);
+  if (!isMarkedTest) await recordInquiryAttribution(payload);
 
   const toEmail = process.env.INQUIRY_TO_EMAIL || "info@cowinmagnet.com";
   const bccEmails = parseEmailList(process.env.INQUIRY_BCC_EMAILS);
@@ -329,7 +332,8 @@ export async function POST(request) {
       });
       return Response.json({
         message: "Thank you. Your inquiry has been sent successfully.",
-        inquiryId: savedInquiry?.id
+        inquiryId: savedInquiry?.id,
+        deliveryStatus: "sent"
       });
     } catch (error) {
       console.error("SMTP inquiry delivery failed", error);
