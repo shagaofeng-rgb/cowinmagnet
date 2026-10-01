@@ -316,6 +316,10 @@ export async function POST(request) {
 
       await transporter.sendMail({
         from: fromEmail,
+        // The provider validates SMTP MAIL FROM against the authenticated user.
+        // Keep the public From header at info@cowinmagnet.com while routing the
+        // envelope through the account that is authorized to send it.
+        envelope: { from: smtpUser, to: [toEmail, ...bccEmails] },
         to: [toEmail],
         bcc: bccEmails,
         replyTo: payload.email,
