@@ -70,7 +70,7 @@ function Pagination({ params, page, totalPages, total, pageSize }) {
 
 export default async function AdminInquiriesPage({ searchParams }) {
   const params = await searchParams;
-  const range = getAdminDateRange(params);
+  const range = getAdminDateRange(params, { allowAll: true, defaultPreset: "all" });
   const query = String(params?.q || "");
   const status = String(params?.status || "all");
   const country = String(params?.country || "all");
@@ -92,7 +92,7 @@ export default async function AdminInquiriesPage({ searchParams }) {
           {data.storageMode === "database" ? "数据库持久化" : "本地文件模式"}
         </div>
       </header>
-      <AdminDateRangeFilter range={range} />
+      <AdminDateRangeFilter range={range} allowAll />
 
       {params?.updated ? <div className="admin-alert success">询盘状态已更新。</div> : null}
 

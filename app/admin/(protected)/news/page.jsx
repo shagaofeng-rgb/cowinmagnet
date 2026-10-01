@@ -109,8 +109,8 @@ function formatDate(value) {
 
 export default async function AdminNewsPage({ searchParams }) {
   const params = await searchParams;
-  const range = getAdminDateRange(params);
-  const uploadedNews = await getCmsItems("news", { includeInactive: true });
+  const range = getAdminDateRange(params, { allowAll: true, defaultPreset: "all" });
+  const uploadedNews = await getCmsItems("news", { includeInactive: true, requireDatabase: true });
   const query = String(params?.q || "").trim().toLowerCase();
   const status = String(params?.status || "all");
   const category = String(params?.category || "all");
@@ -152,7 +152,7 @@ export default async function AdminNewsPage({ searchParams }) {
           {cmsStorageMode() === "database" ? "内容状态正常" : "内容暂不可用"}
         </div>
       </header>
-      <AdminDateRangeFilter range={range} />
+      <AdminDateRangeFilter range={range} allowAll />
 
       {statusMessage(params) ? <div className="admin-alert">{statusMessage(params)}</div> : null}
 

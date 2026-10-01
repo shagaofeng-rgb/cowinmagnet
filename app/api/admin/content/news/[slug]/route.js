@@ -36,7 +36,7 @@ export async function POST(request, { params }) {
   }
 
   if (["remove-image", "use-remote-image", "save-local-image"].includes(action)) {
-    const posts = await getCmsItems("news", { includeInactive: true });
+    const posts = await getCmsItems("news", { includeInactive: true, requireDatabase: true });
     const post = posts.find((item) => item.slug === slug);
     if (!post) redirect("/admin/news?error=news-not-found");
 

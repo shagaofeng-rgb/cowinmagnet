@@ -4,14 +4,15 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useTransition } from "react";
 
-const rangeOptions = [
+const defaultRangeOptions = [
   ["day", "今天"],
   ["week", "本周"],
   ["month", "本月"],
   ["custom", "自定义"]
 ];
 
-export default function AdminDateRangeFilter({ range }) {
+export default function AdminDateRangeFilter({ range, allowAll = false }) {
+  const rangeOptions = allowAll ? [["all", "全部时间"], ...defaultRangeOptions] : defaultRangeOptions;
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -51,6 +52,7 @@ export default function AdminDateRangeFilter({ range }) {
   const helperText = useMemo(() => {
     if (error) return error;
     if (isCustom) return `自定义查询最长 ${range?.maxCustomDays || 731} 天`;
+    if (range?.preset === "all") return "当前查看：全部历史记录";
     return `当前查看：${range?.label || "今日"}，${range?.startInput || "-"} 至 ${range?.endInput || "-"}`;
   }, [error, isCustom, range]);
 

@@ -26,3 +26,12 @@ test("custom admin ranges safely normalize an inverted date selection", () => {
   assert.equal(range.endInput, "2026-06-05");
   assert.equal(range.days, 1);
 });
+
+test("content management can default to all historical records without changing analytics defaults", () => {
+  const management = getAdminDateRange({}, { allowAll: true, defaultPreset: "all" });
+  const analytics = getAdminDateRange({ range: "all" });
+
+  assert.equal(management.preset, "all");
+  assert.equal(management.startDate.getTime(), 0);
+  assert.equal(analytics.preset, "day");
+});

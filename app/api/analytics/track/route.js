@@ -17,7 +17,7 @@ export async function POST(request) {
   try {
     const event = normalizeAnalyticsEvent(payload, request);
     const result = await appendAnalyticsEvent(event);
-    return Response.json({ ok: Boolean(result?.ok), eventType: event.type, storageMode: result?.storageMode || "unknown" }, { status: result?.ok ? 200 : 202 });
+    return Response.json({ ok: Boolean(result?.ok), eventType: event.type, storageMode: result?.storageMode || "unknown" }, { status: result?.ok ? 200 : 503 });
   } catch (error) {
     console.error("Analytics tracking failed", error);
     return Response.json({ ok: false }, { status: 400 });

@@ -15,8 +15,8 @@ export async function GET() {
   const [allProducts, allNews, cmsProducts, cmsNews] = await Promise.all([
     getProductsWithCms(),
     getNewsPosts(),
-    getCmsItems("product", { includeInactive: true }),
-    getCmsItems("news", { includeInactive: true })
+    getCmsItems("product", { includeInactive: true, requireDatabase: true }),
+    getCmsItems("news", { includeInactive: true, requireDatabase: true })
   ]);
 
   return Response.json({

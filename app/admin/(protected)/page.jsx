@@ -20,8 +20,8 @@ export default async function AdminOverviewPage({ searchParams }) {
     getAnalyticsSnapshot(range),
     getProductsWithCms(),
     getNewsPosts(),
-    getCmsItems("product", { includeInactive: true }),
-    getCmsItems("news", { includeInactive: true })
+    getCmsItems("product", { includeInactive: true, requireDatabase: true }),
+    getCmsItems("news", { includeInactive: true, requireDatabase: true })
   ]);
 
   return (

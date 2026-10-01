@@ -64,8 +64,8 @@ function Pagination({ params, page, totalPages, total, pageSize }) {
 
 export default async function AdminProductsPage({ searchParams }) {
   const params = await searchParams;
-  const range = getAdminDateRange(params);
-  const uploadedProducts = await getCmsItems("product", { includeInactive: true });
+  const range = getAdminDateRange(params, { allowAll: true, defaultPreset: "all" });
+  const uploadedProducts = await getCmsItems("product", { includeInactive: true, requireDatabase: true });
   const query = String(params?.q || "").trim().toLowerCase();
   const status = String(params?.status || "all");
   const pageSize = pageSizeValue(params?.pageSize);
@@ -102,7 +102,7 @@ export default async function AdminProductsPage({ searchParams }) {
           <Link href="/admin/products/research" className="admin-inline-link">Private product research</Link>
         </div>
       </header>
-      <AdminDateRangeFilter range={range} />
+      <AdminDateRangeFilter range={range} allowAll />
 
       {statusMessage(params) ? <div className="admin-alert">{statusMessage(params)}</div> : null}
 

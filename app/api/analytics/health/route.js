@@ -20,31 +20,32 @@ async function withTimeout(promise, timeoutMs) {
 export async function GET() {
   try {
     const health = await withTimeout(getAnalyticsHealth(), 3500);
+    const healthy = health.databaseStatus === "ok" || health.storageMode === "local-file";
 
     return Response.json(
       {
-        ok: true,
-        status: "ok",
+        ok: healthy,
+        status: healthy ? "ok" : "degraded",
         storageMode: health.storageMode,
         databaseStatus: health.databaseStatus,
         databaseError: health.databaseError,
         recentEventCount: health.recentEventCount,
         generatedAt: health.generatedAt
       },
-      { headers: { "Cache-Control": "private, max-age=60, stale-while-revalidate=120" } }
+      { status: healthy ? 200 : 503, headers: { "Cache-Control": "no-store" } }
     );
   } catch (error) {
     return Response.json(
       {
-        ok: true,
+        ok: false,
         status: "degraded",
         storageMode: "unknown",
         databaseStatus: "timeout",
         databaseError: "Analytics health check timed out; admin analytics can still use cached snapshots.",
-        recentEventCount: 0,
+        recentEventCount: null,
         generatedAt: new Date().toISOString()
       },
-      { headers: { "Cache-Control": "no-store" } }
+      { status: 503, headers: { "Cache-Control": "no-store" } }
     );
   }
 }
