@@ -42,10 +42,10 @@ const homeProductCards = [
 
 const homeIndustryTiles = [
   { href: "/industries/mining", image: "/images/industries/mining-scenarios/iron-ore.jpg", alt: "Iron ore mining magnetic separation application", size: "large" },
-  { href: "/industries/recycling", image: "/images/industries/recycling-scenarios/non-metal-recycling-sorting-line.jpg", alt: "Recycling magnetic separation application", size: "large" },
+  { href: "/industries/recycling", image: "/images/industries/recycling-scenarios/non-metal-recycling-sorting-line-clean-20261001.jpg", alt: "Recycling magnetic separation application", size: "large" },
   { href: "/industries/cement-aggregate", image: "/images/industries/cement-aggregate-scenarios/cement-raw-material-processing.jpg", alt: "Cement magnetic separation application", size: "small" },
   { href: "/industries", image: "/images/catalog/page-6-image-3-1349x734.jpg", alt: "Industrial bulk material handling application", size: "small" },
-  { href: "/industries/cement-aggregate", image: "/images/industries/cement-aggregate-scenarios/finished-aggregate-purification.jpg", alt: "Aggregate processing magnetic separation application", size: "small" },
+  { href: "/industries/cement-aggregate", image: "/images/industries/cement-aggregate-scenarios/finished-aggregate-purification-clean-20261001.jpg", alt: "Aggregate processing magnetic separation application", size: "small" },
   { href: "/industries", image: "/images/industries/recycling-scenarios/construction-waste-recycling-line.jpg", alt: "Industrial magnetic separation application", size: "small" }
 ];
 
@@ -65,7 +65,7 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
   return (
     <main className="localized-home">
       <section className="home-hero industrial-hero">
-        <Image src="/images/generated/home-hero-cowinmagnet.webp" fill sizes="100vw" alt={t.home.heroAlt} className="hero-banner-image" priority fetchPriority="high" />
+        <Image src="/images/generated/home-hero-cowinmagnet-clean-20261001.webp" fill sizes="100vw" alt={t.home.heroAlt} className="hero-banner-image" priority fetchPriority="high" />
         <div className="hero-copy">
           <span className="eyebrow industrial-kicker">{locale === "en" ? "Global OEM/ODM Partner" : t.home.heroEyebrow}</span>
           {locale === "en" ? <h1 className="template-hero-title">Magnetic<br />Separation<br />for a <em>Cleaner,</em><br /><em>Stronger Tomorrow</em></h1> : <h1 className="template-hero-title">{t.home.h1}</h1>}
@@ -125,7 +125,7 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
           <HomeVideoShowcase eyebrow={locale === "en" ? "Industries Video" : t.home.videoEyebrow} title={locale === "en" ? "See COWIN MAGNET in action" : t.home.videoTitle} locale={locale} />
           <article className="template-service-card">
             <div><span className="eyebrow">{ui.homeService[0]}</span><h2>{ui.homeService[1]}</h2><p>{ui.homeService[2]}</p><Link href={localizeHref("/contact", locale)} className="btn btn-secondary">{ui.homeService[3]} <ArrowRight size={16} aria-hidden /></Link></div>
-            <Image src="/images/generated/contact-support-cowinmagnet.webp" width={760} height={520} sizes="(max-width: 700px) 100vw, 32vw" alt={ui.homeService[0]} loading="lazy" />
+            <Image src="/images/generated/contact-support-cowinmagnet-clean-20261001.webp" width={760} height={520} sizes="(max-width: 700px) 100vw, 32vw" alt={ui.homeService[0]} loading="lazy" />
           </article>
         </div>
         <aside className="industrial-quote-card">
@@ -293,7 +293,7 @@ export function LocalizedAboutPage({ locale }: { locale: Locale }) {
   return (
     <>
       <JsonLd data={organizationSchema()} />
-      <PageHero eyebrow={t.about.eyebrow} title={t.about.h1} description={t.about.description} image="/images/generated/contact-support-cowinmagnet.webp" imageAlt={t.about.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/products", locale)} secondaryLabel={t.common.viewProducts} />
+      <PageHero eyebrow={t.about.eyebrow} title={t.about.h1} description={t.about.description} image="/images/generated/contact-support-cowinmagnet-clean-20261001.webp" imageAlt={t.about.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/products", locale)} secondaryLabel={t.common.viewProducts} />
       <section className="section section-split">
         <div><span className="eyebrow">{t.about.profileEyebrow}</span><h2>{site.legalName}</h2><p>{t.about.profileText1}</p><p>{t.about.profileText2}</p></div>
         <div className="value-grid">{t.advantages.slice(0, 3).map(([title, text]) => <article key={title} className="value-item"><ShieldCheck size={26} aria-hidden /><h3>{title}</h3><p>{text}</p></article>)}</div>
@@ -315,7 +315,7 @@ export function LocalizedContactPage({ locale }: { locale: Locale }) {
   const t = getDictionary(locale);
   return (
     <>
-      <PageHero eyebrow={t.contact.eyebrow} title={t.contact.h1} description={t.contact.description} image="/images/generated/contact-support-cowinmagnet.webp" imageAlt={t.contact.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} />
+      <PageHero eyebrow={t.contact.eyebrow} title={t.contact.h1} description={t.contact.description} image="/images/generated/contact-support-cowinmagnet-clean-20261001.webp" imageAlt={t.contact.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} />
       <section className="section map-section"><GoogleMapCard locale={locale} /></section>
       <section className="section contact-layout">
         <div className="contact-info"><h2>{t.contact.infoTitle}</h2><a href={`mailto:${site.email}`}><Mail size={18} aria-hidden />{site.email}</a><a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="contact-page" data-whatsapp-component="localized-contact-page"><MessageCircle size={18} aria-hidden />WhatsApp: {site.whatsapp}</a><a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="contact-phone" data-whatsapp-component="localized-contact-page"><Phone size={18} aria-hidden />{site.phone}</a><a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer nofollow"><MapPin size={18} aria-hidden />{site.address}</a><p>{t.contact.fastTip}</p></div>
@@ -340,7 +340,7 @@ export function LocalizedSimplePage({ locale, page }: { locale: Locale; page: "f
   const data = t[page];
   return (
     <>
-      <PageHero eyebrow={data.eyebrow} title={data.h1} description={data.description} image={page === "factory" ? "/images/generated/about-factory-team-cowinmagnet.webp" : "/images/generated/recycling-application-cowinmagnet.webp"} imageAlt={data.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/products", locale)} secondaryLabel={t.common.viewProducts} />
+      <PageHero eyebrow={data.eyebrow} title={data.h1} description={data.description} image={page === "factory" ? "/images/generated/about-factory-team-cowinmagnet-clean-20261001.webp" : "/images/generated/recycling-application-cowinmagnet-clean-20261001.webp"} imageAlt={data.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/products", locale)} secondaryLabel={t.common.viewProducts} />
       <section className="section">
         <div className="advantage-grid">
           {t.advantages.map(([title, text]) => <article key={title} className="advantage-item"><BadgeCheck size={26} aria-hidden /><h3>{title}</h3><p>{text}</p></article>)}
@@ -357,7 +357,7 @@ export function LocalizedBlogListPage({ locale, posts, pagination }: { locale: L
   const endItem = pagination ? Math.min(pagination.totalItems, pagination.currentPage * 9) : posts.length;
   return (
     <>
-      <PageHero eyebrow={t.blog.eyebrow} title={t.blog.h1} description={t.blog.description} image="/images/generated/recycling-application-cowinmagnet.webp" imageAlt={t.blog.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/request-quote", locale)} secondaryLabel={t.common.sendRequirements} />
+      <PageHero eyebrow={t.blog.eyebrow} title={t.blog.h1} description={t.blog.description} image="/images/generated/recycling-application-cowinmagnet-clean-20261001.webp" imageAlt={t.blog.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/request-quote", locale)} secondaryLabel={t.common.sendRequirements} />
       <section className="section blog-list-section">
         <div className="section-heading align-left"><span className="eyebrow">{t.blog.hubEyebrow}</span><h2>{t.blog.hubTitle}</h2><p>{t.blog.hubText}</p></div>
         {locale !== "en" ? <p>{ui.news[8]}</p> : null}

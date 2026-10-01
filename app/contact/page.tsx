@@ -19,7 +19,7 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Send your magnetic separation requirement"
         description="Share your product requirement, country, material, conveyor conditions, and contact details. Our sales team will contact you soon."
-        image="/images/generated/contact-support-cowinmagnet.webp"
+        image="/images/generated/contact-support-cowinmagnet-clean-20261001.webp"
       />
       <section className="section map-section">
         <GoogleMapCard title="Find COWIN MAGNET in Quzhou, China" />

@@ -52,7 +52,7 @@ export const applications: Application[] = [
     seoTitle: "Magnetic Separation Solutions for Recycling Industry",
     seoDescription:
       "Magnetic separation equipment for municipal waste, construction waste, RDF fuel, plastic recycling, scrap metal recycling, and e-waste processing lines.",
-    image: "/images/industries/recycling-industry-magnetic-separation-cover.webp",
+    image: "/images/industries/recycling-industry-magnetic-separation-cover-clean-20261001.webp",
     iconImage: "/images/industries/icons/recycling-icon.png",
     imageAlt: "Magnetic separator for recycling waste processing line",
     summary:
@@ -135,7 +135,7 @@ export const applications: Application[] = [
       "Municipal Solid Waste": "/images/industries/recycling-scenarios/municipal-solid-waste-recycling-line.jpg",
       "Construction Waste": "/images/industries/recycling-scenarios/construction-waste-recycling-line.jpg",
       "Plastic Recycling": "/images/industries/recycling-scenarios/plastic-recycling-sorting-line.jpg",
-      "Scrap Metal Recycling": "/images/industries/recycling-scenarios/non-metal-recycling-sorting-line.jpg",
+      "Scrap Metal Recycling": "/images/industries/recycling-scenarios/non-metal-recycling-sorting-line-clean-20261001.jpg",
       "Alternative Fuel Production": "/images/industries/recycling-scenarios/alternative-fuel-production-line.jpg",
       "E-Waste Recycling": "/images/industries/recycling-scenarios/e-waste-recycling-line.jpg"
     },
@@ -156,7 +156,7 @@ export const applications: Application[] = [
     seoTitle: "Magnetic Separation Solutions for Mining Industry",
     seoDescription:
       "Magnetic separation solutions for protecting crushers, improving ore purity, reducing downtime, and recovering valuable magnetic minerals.",
-    image: "/images/industries/mining-scenarios/mining-industry-magnetic-separation-cover.jpg",
+    image: "/images/industries/mining-scenarios/mining-industry-magnetic-separation-cover-clean-20261001.jpg",
     iconImage: "/images/industries/icons/mining-icon.png",
     imageAlt: "Suspended magnetic separator for mining conveyor belt",
     summary:
@@ -338,8 +338,8 @@ export const applications: Application[] = [
       "Slag and Industrial By-Product Processing"
     ],
     scenarioImages: {
-      "Crusher Protection and Iron Removal": "/images/industries/cement-aggregate-scenarios/crusher-protection-iron-removal.jpg",
-      "Finished Aggregate Purification": "/images/industries/cement-aggregate-scenarios/finished-aggregate-purification.jpg",
+      "Crusher Protection and Iron Removal": "/images/industries/cement-aggregate-scenarios/crusher-protection-iron-removal-clean-20261001.jpg",
+      "Finished Aggregate Purification": "/images/industries/cement-aggregate-scenarios/finished-aggregate-purification-clean-20261001.jpg",
       "Cement Raw Material Processing": "/images/industries/cement-aggregate-scenarios/cement-raw-material-processing.jpg",
       "Slag and Industrial By-Product Processing": "/images/industries/cement-aggregate-scenarios/slag-industrial-by-product-processing.jpg"
     },

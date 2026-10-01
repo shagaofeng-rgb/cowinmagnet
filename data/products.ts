@@ -6540,9 +6540,9 @@ export const products: Product[] = [
     "slug": "rotary-pipe-magnet",
     "name": "Rotary Pipe Magnet",
     "category": "Magnetic Components & Filters",
-    "image": "/assets/products/rotary-pipe-magnet/rotary-pipe-magnet-01.png",
+    "image": "/assets/products/rotary-pipe-magnet/rotary-pipe-magnet-01-clean-20261001.png",
     "imageGallery": [
-      "/assets/products/rotary-pipe-magnet/rotary-pipe-magnet-01.png",
+      "/assets/products/rotary-pipe-magnet/rotary-pipe-magnet-01-clean-20261001.png",
       "/assets/products/rotary-pipe-magnet/rotary-pipe-magnet-02.jpg",
       "/assets/products/rotary-pipe-magnet/rotary-pipe-magnet-03.jpg",
       "/assets/products/rotary-pipe-magnet/rotary-pipe-magnet-04.jpg",

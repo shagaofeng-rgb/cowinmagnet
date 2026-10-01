@@ -15,6 +15,11 @@ const cases = [
   ["home-1440", 1440, 1000, "/en"],
   ["products-390", 390, 844, "/en/products"],
   ["product-detail-390", 390, 844, "/en/products/wet-drum-magnetic-separator"],
+  ["rotary-product-390", 390, 844, "/en/products/rotary-pipe-magnet"],
+  ["recycling-industry-390", 390, 844, "/en/industries/recycling"],
+  ["mining-industry-390", 390, 844, "/en/industries/mining"],
+  ["aggregate-industry-390", 390, 844, "/en/industries/cement-aggregate"],
+  ["recycling-industry-1440", 1440, 1000, "/en/industries/recycling"],
   ["news-390", 390, 844, "/en/news"],
   ["quote-390", 390, 844, "/en/request-quote"],
   ["arabic-390", 390, 844, "/ar"]

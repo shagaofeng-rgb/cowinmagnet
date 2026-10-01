@@ -134,7 +134,7 @@ export const newsPosts = [
     seoDescription:
       "Industry news and Cowinmagnet viewpoint on AI metal recovery platforms and why upstream magnetic separation still matters in recycling lines.",
     href: "/news/ai-metal-recovery-platforms-recycling",
-    coverImage: "/images/industries/recycling-magnetic-separation-solution.webp",
+    coverImage: "/images/industries/recycling-magnetic-separation-solution-clean-20261001.webp",
     coverAlt: "AI metal recovery and magnetic separation in a recycling plant",
     imageCaption: "Local Cowinmagnet cover image based on AI sorting and metal recovery news.",
     sections: [
@@ -236,7 +236,7 @@ export const newsPosts = [
     seoDescription:
       "Market trend analysis on rare earth magnet recycling and what it means for permanent magnet equipment buyers.",
     href: "/news/rare-earth-magnet-recycling-supply-chain",
-    coverImage: "/images/industries/mining-industry-magnetic-separation-cover.webp",
+    coverImage: "/images/industries/mining-industry-magnetic-separation-cover-clean-20261001.webp",
     coverAlt: "Rare earth magnet recycling and permanent magnet supply chain",
     imageCaption: "Local Cowinmagnet cover image for rare earth magnet recycling news.",
     sections: [
@@ -283,7 +283,7 @@ function isRemoteImage(value = "") {
   return /^https?:\/\//i.test(String(value));
 }
 
-const LEGACY_NEWS_FALLBACK_IMAGE = "/images/generated/recycling-application-cowinmagnet.webp";
+const LEGACY_NEWS_FALLBACK_IMAGE = "/images/generated/recycling-application-cowinmagnet-clean-20261001.webp";
 
 function directLegacyImageUrl(value = "") {
   if (!String(value).startsWith("/api/news-image?")) return value;
