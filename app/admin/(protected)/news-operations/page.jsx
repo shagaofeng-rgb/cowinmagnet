@@ -39,13 +39,13 @@ export default async function NewsOperationsPage() {
         <div>
           <p className="eyebrow">新闻发布</p>
           <h1>新闻发布状态</h1>
-          <p>查看新闻内容的发布进度与近期发布记录。</p>
+          <p>自动新闻采集与发布已停用。已有新闻仍可在新闻管理中维护。</p>
         </div>
-        <div className="admin-status good">内容服务正常</div>
+        <div className="admin-status">自动发布已停用</div>
       </header>
 
       <section className="admin-grid four">
-        <article className="admin-stat"><span>今日状态</span><strong>{dashboard.publicationStatus.publishedToday ? "已发布" : "待发布"}</strong></article>
+        <article className="admin-stat"><span>自动发布</span><strong>已停用</strong></article>
         <article className="admin-stat"><span>可发布内容</span><strong>{dashboard.publicationStatus.eligibleCandidateCount}</strong></article>
         <article className="admin-stat"><span>最近发布</span><strong>{date(dashboard.publicationStatus.lastSuccessfulAt)}</strong></article>
         <article className="admin-stat"><span>当前进度</span><strong>{publicationLabel(dashboard.publicationStatus.latestRunStatus)}</strong></article>

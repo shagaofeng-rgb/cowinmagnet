@@ -20,10 +20,11 @@ async function handle(request) {
   const searchParams = new URL(request.url).searchParams;
   const isScheduledCron = Boolean(request.headers.get("x-vercel-cron")) || /vercel-cron/i.test(request.headers.get("user-agent") || "");
   const result = await runSitemapMaintenanceSafely({
-    trigger: isScheduledCron ? "daily-cron" : "manual-api",
+    trigger: isScheduledCron ? "weekly-cron" : "manual-api",
     force: flag(searchParams, "force"),
     dryRun: flag(searchParams, "dry-run") || flag(searchParams, "dryRun"),
     submit: flag(searchParams, "submit") || isScheduledCron,
+    resubmitUnchanged: isScheduledCron,
     verbose: flag(searchParams, "verbose")
   });
 

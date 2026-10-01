@@ -10,8 +10,20 @@ test("publication day follows the configured site timezone", () => {
   assert.equal(publicationDateKey(afterShanghaiMidnight, "Asia/Shanghai"), "2026-08-30");
 });
 
-test("daily retry cron runs multiple times while the publisher enforces one success per day", async () => {
+test("News automation has no scheduled triggers while Blog publishing keeps its retry cadence", async () => {
   const config = JSON.parse(await readFile(new URL("../vercel.json", import.meta.url), "utf8"));
-  const publisher = config.crons.find((cron) => cron.path === "/api/automation/news-publish");
-  assert.equal(publisher.schedule, "45 1,3,6 * * *");
+  assert.equal(config.crons.some((cron) => cron.path.startsWith("/api/automation/news-")), false);
+  assert.equal(config.crons.find((cron) => cron.path === "/api/cron/blog-publish-retry")?.schedule, "*/30 * * * *");
+  assert.equal(config.crons.find((cron) => cron.path === "/api/cron/sitemap-maintenance")?.schedule, "35 2 * * 1");
+});
+
+test("retired News endpoints cannot run discovery or publishing", async () => {
+  for (const route of ["news-discovery", "news-publish"]) {
+    const source = await readFile(new URL(`../app/api/automation/${route}/route.js`, import.meta.url), "utf8");
+    assert.match(source, /status: "paused"/);
+    assert.doesNotMatch(source, /runNews(Ingest|Publish)Cycle/);
+  }
+  const adminSource = await readFile(new URL("../app/api/admin/news-operations/route.js", import.meta.url), "utf8");
+  assert.match(adminSource, /body\.action === "discover" \|\| body\.action === "publish"/);
+  assert.doesNotMatch(adminSource, /runNews(Ingest|Publish)Cycle/);
 });

@@ -8,7 +8,7 @@ Static content dates are generated from the latest relevant Git commit by `scrip
 
 On Vercel, a writable project filesystem is not persistent. The production implementation therefore validates all XML first, then activates a new snapshot in a Neon PostgreSQL transaction. The previous snapshot remains current if validation or storage fails. Local mode writes a temporary JSON file, validates it and atomically renames it.
 
-CMS saves and status changes mark the Sitemap as dirty. The next public Sitemap request regenerates it under a job lock. A daily Vercel Cron performs a second consistency check, verifies the absolute Sitemap declaration in `robots.txt`, and records every run in `sync_job_runs` with file sizes, URL counts, skipped URLs, additions, modifications, removals and Search Console submission status. Google submission is attempted only when the sitemap manifest changed (or a privileged forced run requests it); a disabled or failed required submission is recorded as `submission_failed`, never as an ordinary success.
+CMS saves and status changes mark the Sitemap as dirty. The next public Sitemap request regenerates it under a job lock. A weekly Monday Vercel Cron performs a second consistency check, verifies the absolute Sitemap declaration in `robots.txt`, and records every run in `sync_job_runs` with file sizes, URL counts, skipped URLs, additions, modifications, removals and Search Console submission status. The scheduled run submits to Google even when the sitemap manifest is unchanged; manual submission requires a manifest change or a privileged forced run. A disabled or failed required submission is recorded as `submission_failed`, never as an ordinary success.
 
 ## Public URLs
 
@@ -38,7 +38,7 @@ npm run build
 
 ## Vercel Cron
 
-`vercel.json` schedules `/api/cron/sitemap-maintenance` at `35 2 * * *` (02:35 UTC daily; 10:35 Asia/Shanghai). Vercel authenticates the request with `Authorization: Bearer $CRON_SECRET`. Do not expose this route without authentication and do not create a second scheduler for the same job.
+`vercel.json` schedules `/api/cron/sitemap-maintenance` at `35 2 * * 1` (02:35 UTC Monday; 10:35 Monday Asia/Shanghai). Vercel authenticates the request with `Authorization: Bearer $CRON_SECRET`. Do not expose this route without authentication and do not create a second scheduler for the same job.
 
 ## Environment Variables
 

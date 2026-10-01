@@ -13,6 +13,7 @@ import {
   validateSitemapXml
 } from "../lib/sitemap/core.js";
 import { atomicWriteJson, withSitemapGenerationLock } from "../lib/sitemap/storage.js";
+import { shouldSubmitSitemap } from "../lib/sitemap/submissionPolicy.js";
 import {
   maybeSubmitSitemap,
   getSearchConsoleSitemapStatus,
@@ -139,6 +140,14 @@ test("does not call Google when submission is disabled", async () => {
   const result = await maybeSubmitSitemap({ fetchImpl: async () => assert.fail("fetch should not run") });
   assert.equal(result.attempted, false);
   assert.equal(result.reason, "disabled");
+});
+
+test("Monday scheduled maintenance submits even when the sitemap is unchanged", () => {
+  assert.equal(shouldSubmitSitemap({ submit: true, resubmitUnchanged: true }), true);
+  assert.equal(shouldSubmitSitemap({ submit: true }), false);
+  assert.equal(shouldSubmitSitemap({ submit: true, changed: true }), true);
+  assert.equal(shouldSubmitSitemap({ submit: true, resubmitUnchanged: true, dryRun: true }), false);
+  assert.equal(shouldSubmitSitemap({ submit: true, resubmitUnchanged: true, previewReadOnly: true }), false);
 });
 
 test("reads the accepted sitemap status without claiming URL indexing", async () => {
