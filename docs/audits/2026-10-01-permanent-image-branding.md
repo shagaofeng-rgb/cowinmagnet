@@ -6,6 +6,8 @@ The official transparent logo `public/images/cowin-logo.png` was composited into
 
 Original assets remain in place. Branded siblings use the `-cowin-brand-20261001` suffix, and published code/data references point to those new files. The complete source-to-output mapping, dimensions, selected corner and checksums are in `2026-10-01-branded-image-manifest.json`.
 
+Historical CMS news records can still contain their old local image paths. Rendering resolves those paths through the manifest to the permanent branded siblings, including cards, article images and social metadata, without editing the stored article or interrupting third-party publication.
+
 ## Placement
 
 - The mark uses the site's existing blue symbol on a small, translucent white plate, scaled to the image's shorter edge and inset from the border.

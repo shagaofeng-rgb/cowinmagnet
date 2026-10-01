@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { formatDisplayDate } from "@/data/contentHub";
+import { brandedImageUrl } from "@/lib/brandedImage";
 
 type TextBlock =
   | { type: "paragraph"; text: string }
@@ -24,9 +25,10 @@ function isControlledMedia(src: string) {
 }
 
 function DocumentImage({ src, alt }: { src: string; alt: string }) {
-  if (!isControlledMedia(src)) return null;
-  if (/^https?:\/\//i.test(src) || src.startsWith("/api/")) return <img src={src} alt={alt} loading="lazy" />;
-  return <Image src={src} alt={alt} width={920} height={560} />;
+  const imageSrc = brandedImageUrl(src);
+  if (!isControlledMedia(imageSrc)) return null;
+  if (/^https?:\/\//i.test(imageSrc) || imageSrc.startsWith("/api/")) return <img src={imageSrc} alt={alt} loading="lazy" />;
+  return <Image src={imageSrc} alt={alt} width={920} height={560} />;
 }
 
 function sectionId(heading: string, index: number) {

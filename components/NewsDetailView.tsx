@@ -11,6 +11,7 @@ import { absoluteUrl, breadcrumbSchema, faqSchema, organizationSchema } from "@/
 import { isLocale } from "@/lib/i18n";
 import { getPublicUi } from "@/lib/publicUi";
 import { getArticleLabels } from "@/lib/articleLocale";
+import { brandedImageUrl } from "@/lib/brandedImage";
 
 type NewsDetailViewProps = {
   post: any;
@@ -21,10 +22,11 @@ type NewsDetailViewProps = {
 };
 
 function NewsDisplayImage({ src, alt, priority = false }: { src: string; alt: string; priority?: boolean }) {
-  const controlled = src.startsWith("/") || src.startsWith("/api/") || (() => { try { return /(^|\.)cowinmagnet\.com$/i.test(new URL(src).hostname); } catch { return false; } })();
+  const imageSrc = brandedImageUrl(src);
+  const controlled = imageSrc.startsWith("/") || imageSrc.startsWith("/api/") || (() => { try { return /(^|\.)cowinmagnet\.com$/i.test(new URL(imageSrc).hostname); } catch { return false; } })();
   if (!controlled) return null;
-  if (/^https?:\/\//i.test(src) || src.startsWith("/api/")) return <img src={src} width={980} height={620} alt={alt} loading={priority ? "eager" : "lazy"} referrerPolicy="no-referrer" style={{ objectFit: "contain" }} />;
-  return <Image src={src} width={980} height={620} alt={alt} priority={priority} style={{ objectFit: "contain" }} />;
+  if (/^https?:\/\//i.test(imageSrc) || imageSrc.startsWith("/api/")) return <img src={imageSrc} width={980} height={620} alt={alt} loading={priority ? "eager" : "lazy"} referrerPolicy="no-referrer" style={{ objectFit: "contain" }} />;
+  return <Image src={imageSrc} width={980} height={620} alt={alt} priority={priority} style={{ objectFit: "contain" }} />;
 }
 
 function contentTypeLabel(type: string) {
@@ -49,7 +51,7 @@ export function NewsDetailView({ post, posts, categories, locale, visualVariant 
   const related = posts.filter((item) => item.slug !== post.slug && item.category === post.category).slice(0, 3);
   const basePath = locale ? `/${locale}` : "";
   const canonicalPath = `${basePath}/news/${post.slug}`;
-  const coverImage = document.heroImage?.assetId || post.coverImage || "";
+  const coverImage = brandedImageUrl(document.heroImage?.assetId || post.coverImage || "");
   const coverAlt = document.heroImage?.alt || post.coverAlt || document.title;
   const articleSchema = {
     "@context": "https://schema.org",
@@ -103,7 +105,7 @@ export function NewsDetailView({ post, posts, categories, locale, visualVariant 
         {previous ? <Link href={`${basePath}/news/${previous.slug}`}><ArrowLeft size={16} aria-hidden /> {ui.previous}: <span lang="en">{previous.title}</span></Link> : <span />}
         {next ? <Link href={`${basePath}/news/${next.slug}`}>{ui.next}: <span lang="en">{next.title}</span> <ArrowRight size={16} aria-hidden /></Link> : <span />}
       </div>
-      {related.length ? <div className="article-more-grid">{related.map((item) => <Link href={`${basePath}/news/${item.slug}`} className="article-more-card" key={item.slug}>{item.coverImage ? <Image src={item.coverImage} width={420} height={240} alt={item.coverAlt || item.title} /> : null}<div><DateBadge date={item.publishedAt} /><h2 lang="en">{item.title}</h2><p lang="en">{item.excerpt}</p></div></Link>)}</div> : null}
+      {related.length ? <div className="article-more-grid">{related.map((item) => <Link href={`${basePath}/news/${item.slug}`} className="article-more-card" key={item.slug}>{item.coverImage ? <Image src={brandedImageUrl(item.coverImage)} width={420} height={240} alt={item.coverAlt || item.title} /> : null}<div><DateBadge date={item.publishedAt} /><h2 lang="en">{item.title}</h2><p lang="en">{item.excerpt}</p></div></Link>)}</div> : null}
     </section>
   </div>;
 }

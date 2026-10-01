@@ -6,6 +6,7 @@ import { getArticleDocument } from "@/lib/articleDocument";
 import { assessNewsContent } from "@/lib/newsContentPolicy";
 import { absoluteUrl } from "@/lib/seo";
 import { pageTitleForTemplate } from "@/lib/seoTitle";
+import { brandedImageUrl } from "@/lib/brandedImage";
 
 type NewsPageProps = { params: Promise<{ slug: string }> };
 
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: NewsPageProps): Promise<Metad
   const sourceTitle = document.seo.metaTitle || document.title;
   const title = pageTitleForTemplate(sourceTitle);
   const description = document.seo.metaDescription || document.summary;
-  const image = document.seo.ogImageAssetId || document.heroImage?.assetId || post.coverImage;
+  const image = brandedImageUrl(document.seo.ogImageAssetId || document.heroImage?.assetId || post.coverImage || "");
   return { title, description, robots: visibility.indexable ? { index: true, follow: true } : { index: false, follow: true }, alternates: { canonical: `/news/${post.slug}` }, openGraph: { title: document.seo.ogTitle || sourceTitle, description: document.seo.ogDescription || description, url: absoluteUrl(`/news/${post.slug}`), ...(image ? { images: [absoluteUrl(image)] } : {}), type: "article" }, twitter: { title: document.seo.ogTitle || sourceTitle, description: document.seo.ogDescription || description, ...(image ? { images: [absoluteUrl(image)] } : {}) } };
 }
 

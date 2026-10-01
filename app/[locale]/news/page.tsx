@@ -8,6 +8,7 @@ import { PageHero } from "@/components/PageHero";
 import { formatDisplayDate, getNewsCategories, getNewsPosts } from "@/data/contentHub";
 import { isLocale, localizedPageAlternates, localizeHref, type Locale } from "@/lib/i18n";
 import { getPublicUi } from "@/lib/publicUi";
+import { brandedImageUrl } from "@/lib/brandedImage";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -31,10 +32,11 @@ function newsPageHref(locale: Locale, page: number, category?: string) {
 }
 
 function NewsCardImage({ src, alt }: { src: string; alt: string }) {
-  if (/^https?:\/\//i.test(src) || src.startsWith("/api/")) {
-    return <img src={src} width={760} height={460} alt={alt} loading="lazy" referrerPolicy="no-referrer" />;
+  const imageSrc = brandedImageUrl(src);
+  if (/^https?:\/\//i.test(imageSrc) || imageSrc.startsWith("/api/")) {
+    return <img src={imageSrc} width={760} height={460} alt={alt} loading="lazy" referrerPolicy="no-referrer" />;
   }
-  return <Image src={src} width={760} height={460} alt={alt} />;
+  return <Image src={imageSrc} width={760} height={460} alt={alt} />;
 }
 
 export const dynamic = "force-dynamic";
