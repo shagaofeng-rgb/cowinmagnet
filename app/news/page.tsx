@@ -61,7 +61,7 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
         eyebrow="News"
         title="News"
         description="Latest industry updates, market insights, and company perspectives."
-        image="/images/generated/recycling-application-cowinmagnet-clean-20261001.webp"
+        image="/images/generated/recycling-application-cowinmagnet-clean-20261001-cowin-brand-20261001.webp"
         imageAlt="Cowinmagnet industry news and magnetic separation market insights"
       />
 

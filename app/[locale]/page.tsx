@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: t.home.seoTitle,
       description: t.home.metaDescription,
       url: absoluteUrl(`/${current}`),
-      images: ["/images/generated/home-hero-cowinmagnet-clean-20261001.webp"]
+      images: ["/images/generated/home-hero-cowinmagnet-clean-20261001-v2-cowin-brand-20261001.webp"]
     }
   };
 }

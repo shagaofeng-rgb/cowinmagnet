@@ -24,6 +24,7 @@ const cases = [
   ["quote-390", 390, 844, "/en/request-quote"],
   ["arabic-390", 390, 844, "/ar"]
 ];
+const only = new Set((process.argv.find((arg) => arg.startsWith("--only="))?.slice(7) || "").split(",").filter(Boolean));
 
 const browser = spawn(
   chrome,
@@ -98,7 +99,7 @@ await fs.mkdir(outputDir, { recursive: true });
 const reports = [];
 
 try {
-  for (const [name, width, height, route] of cases) {
+  for (const [name, width, height, route] of cases.filter(([name]) => !only.size || only.has(name))) {
     const targetResponse = await fetch(`http://127.0.0.1:${port}/json/new?${encodeURIComponent("about:blank")}`, { method: "PUT" });
     const target = await targetResponse.json();
     const cdp = new CdpSession(target.webSocketDebuggerUrl);
@@ -140,6 +141,15 @@ try {
           width: Math.round(element.getBoundingClientRect().width)
         }));
         const navigation = performance.getEntriesByType('navigation')[0];
+        const unbrandedContentImages = [...document.images].filter((image) => !image.closest('[hidden]')).map((image) => {
+          const current = new URL(image.currentSrc || image.src, location.href);
+          const original = current.pathname === '/_next/image' ? new URL(current.searchParams.get('url') || '/', location.href) : current;
+          return original.pathname;
+        }).filter((pathname) => {
+          if (!/^\\/(?:images|assets)\\//.test(pathname)) return false;
+          if (/(?:cowin-logo|\\/icons\\/|\\/qr-|\\/logo\\.|favicon|apple-touch)/i.test(pathname)) return false;
+          return !pathname.includes('-cowin-brand-20261001');
+        }).slice(0, 20);
         return {
           url: location.href,
           title: document.title,
@@ -156,6 +166,7 @@ try {
           canonical: document.querySelector('link[rel="canonical"]')?.href || '',
           hreflangCount: document.querySelectorAll('link[rel="alternate"][hreflang]').length,
           brokenImages: [...document.images].filter((image) => image.complete && image.naturalWidth === 0).map((image) => image.currentSrc || image.src).slice(0, 20),
+          unbrandedContentImages,
           formCount: document.forms.length,
           fontStatus: document.fonts?.status || 'unknown',
           domContentLoadedMs: navigation ? Math.round(navigation.domContentLoadedEventEnd) : null,

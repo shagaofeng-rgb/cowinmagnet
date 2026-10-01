@@ -1,0 +1,1423 @@
+{
+  "generatedAt": "2026-10-01T12:50:38.324Z",
+  "logo": "/images/cowin-logo.png",
+  "entries": [
+    {
+      "source": "/assets/magnetic-separator-banner-1200.avif",
+      "branded": "/assets/magnetic-separator-banner-1200-cowin-brand-20261001.avif",
+      "width": 1200,
+      "height": 480,
+      "logoCorner": "bottomRight",
+      "sha256": "f6ef1f628a2a83394e76b923ae0b5688513829e29ac206dd37a3a38960dc22dd"
+    },
+    {
+      "source": "/assets/magnetic-separator-banner-1200.webp",
+      "branded": "/assets/magnetic-separator-banner-1200-cowin-brand-20261001.webp",
+      "width": 1200,
+      "height": 480,
+      "logoCorner": "bottomRight",
+      "sha256": "f97503521f68023d7e1d6653c170208de12ce147a8bec78369a12354f52f989d"
+    },
+    {
+      "source": "/assets/magnetic-separator-banner-1600.avif",
+      "branded": "/assets/magnetic-separator-banner-1600-cowin-brand-20261001.avif",
+      "width": 1600,
+      "height": 640,
+      "logoCorner": "bottomRight",
+      "sha256": "c33cd25d165c0d87b26378fe96502711cc67037902a64610df904112d7a872a6"
+    },
+    {
+      "source": "/assets/magnetic-separator-banner-1600.webp",
+      "branded": "/assets/magnetic-separator-banner-1600-cowin-brand-20261001.webp",
+      "width": 1600,
+      "height": 640,
+      "logoCorner": "bottomRight",
+      "sha256": "b843dbf6f58bf079941289cff858fd2eb0b82821d5b8703126622e14e7f1a020"
+    },
+    {
+      "source": "/assets/magnetic-separator-banner-480.avif",
+      "branded": "/assets/magnetic-separator-banner-480-cowin-brand-20261001.avif",
+      "width": 480,
+      "height": 192,
+      "logoCorner": "bottomRight",
+      "sha256": "51feefaa587f7a0afb32380580632873e803d9e187390a1a75d2be9269e1dbae"
+    },
+    {
+      "source": "/assets/magnetic-separator-banner-480.webp",
+      "branded": "/assets/magnetic-separator-banner-480-cowin-brand-20261001.webp",
+      "width": 480,
+      "height": 192,
+      "logoCorner": "bottomRight",
+      "sha256": "2e4cf4d0e8c8812898030eafeeca2b8c3c67a9ee2fbffd1f9bcf1a57ced62082"
+    },
+    {
+      "source": "/assets/magnetic-separator-banner-800.avif",
+      "branded": "/assets/magnetic-separator-banner-800-cowin-brand-20261001.avif",
+      "width": 800,
+      "height": 320,
+      "logoCorner": "bottomRight",
+      "sha256": "7ef1db36bf29d3e5119842ff9f82e9955242d78ad2a780ce6de4b5a16f74c491"
+    },
+    {
+      "source": "/assets/magnetic-separator-banner-800.webp",
+      "branded": "/assets/magnetic-separator-banner-800-cowin-brand-20261001.webp",
+      "width": 800,
+      "height": 320,
+      "logoCorner": "bottomRight",
+      "sha256": "3fa3a7eb7ff597679bb48cd6c641ae88a503958cf162211c03fafac54115ce7b"
+    },
+    {
+      "source": "/assets/products/automatic-cleaning-magnetic-separator.webp",
+      "branded": "/assets/products/automatic-cleaning-magnetic-separator-cowin-brand-20261001.webp",
+      "width": 750,
+      "height": 750,
+      "logoCorner": "topRight",
+      "sha256": "24dfe5d580d39a7b66e67724ac4cacccfced30c41babacbc9811d209ce0613c2"
+    },
+    {
+      "source": "/assets/products/belt-high-gradient-magnetic-separator/belt-high-gradient-magnetic-separator-01.jpg",
+      "branded": "/assets/products/belt-high-gradient-magnetic-separator/belt-high-gradient-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 800,
+      "height": 600,
+      "logoCorner": "bottomRight",
+      "sha256": "b301f4d305be19e818a5551e816c5b85851c175c68d1aab062de07bbd6e0ae45"
+    },
+    {
+      "source": "/assets/products/cbs-drawer-type-magnetic-filter/cbs-drawer-type-magnetic-filter-01.jpg",
+      "branded": "/assets/products/cbs-drawer-type-magnetic-filter/cbs-drawer-type-magnetic-filter-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "bcc9becdd8f0df24e90b1a2739c5434a359f888d31107a8cd5a2b99ba847eefa"
+    },
+    {
+      "source": "/assets/products/cbz-type-rotary-automatic-magnetic-separator/cbz-type-rotary-automatic-magnetic-separator-01.jpg",
+      "branded": "/assets/products/cbz-type-rotary-automatic-magnetic-separator/cbz-type-rotary-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "e02c9b5f62b87434b7f86ddcf5fac7caa6a991a0dfc2f39abd83d2ccc051005b"
+    },
+    {
+      "source": "/assets/products/cgb-type-rotary-semi-automatic-magnetic-separator/cgb-type-rotary-semi-automatic-magnetic-separator-01.jpg",
+      "branded": "/assets/products/cgb-type-rotary-semi-automatic-magnetic-separator/cgb-type-rotary-semi-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "4dd3d3e6f29d47dac8e9b7b53a64f99f8df4e4113672983760db93d639827e33"
+    },
+    {
+      "source": "/assets/products/cgt-type-super-strong-full-magnetic-drum/cgt-type-super-strong-full-magnetic-drum-01.jpg",
+      "branded": "/assets/products/cgt-type-super-strong-full-magnetic-drum/cgt-type-super-strong-full-magnetic-drum-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "c2be9dc051c419483308f32cc34285e91a96ce48841f20d848231fbfb84e8557"
+    },
+    {
+      "source": "/assets/products/clc-type-slot-magnetic-filter/clc-type-slot-magnetic-filter-01.jpg",
+      "branded": "/assets/products/clc-type-slot-magnetic-filter/clc-type-slot-magnetic-filter-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "fa47fa1e607a61d2bf4f414fac4270077bfabb1a9dfc121124ab5db925a5744a"
+    },
+    {
+      "source": "/assets/products/clc-type-wet-slot-magnetic-filter/clc-type-wet-slot-magnetic-filter-01.jpg",
+      "branded": "/assets/products/clc-type-wet-slot-magnetic-filter/clc-type-wet-slot-magnetic-filter-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "fa47fa1e607a61d2bf4f414fac4270077bfabb1a9dfc121124ab5db925a5744a"
+    },
+    {
+      "source": "/assets/products/clt-type-magnetic-desliming-tank/clt-type-magnetic-desliming-tank-01.jpg",
+      "branded": "/assets/products/clt-type-magnetic-desliming-tank/clt-type-magnetic-desliming-tank-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "a5bf560169927a3c28e4b9397b8e3ce0f6c401e5feea8fb18a54b8fa2ca730f6"
+    },
+    {
+      "source": "/assets/products/cqz-type-fully-automatic-online-magnetic-separation/cqz-type-fully-automatic-online-magnetic-separation-01.jpg",
+      "branded": "/assets/products/cqz-type-fully-automatic-online-magnetic-separation/cqz-type-fully-automatic-online-magnetic-separation-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "d7cbdb310bd44ba89cc420e2076a1a83be405400fa2a7040a30021379549c5cf"
+    },
+    {
+      "source": "/assets/products/cqz-type-fully-automatic-online-magnetic-separator/cqz-type-fully-automatic-online-magnetic-separator-01.jpg",
+      "branded": "/assets/products/cqz-type-fully-automatic-online-magnetic-separator/cqz-type-fully-automatic-online-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "d7cbdb310bd44ba89cc420e2076a1a83be405400fa2a7040a30021379549c5cf"
+    },
+    {
+      "source": "/assets/products/ctb-type-semi-countercurrent-wet-selection-machine/ctb-type-semi-countercurrent-wet-selection-machine-01.jpg",
+      "branded": "/assets/products/ctb-type-semi-countercurrent-wet-selection-machine/ctb-type-semi-countercurrent-wet-selection-machine-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "a6f37e448dd13381bf81204d3a0d6e5773c703e410145d45669057011a5efa5a"
+    },
+    {
+      "source": "/assets/products/ctb-wet-semi-countercurrent-magnetic-separator/ctb-wet-semi-countercurrent-magnetic-separator-01.jpg",
+      "branded": "/assets/products/ctb-wet-semi-countercurrent-magnetic-separator/ctb-wet-semi-countercurrent-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "a6f37e448dd13381bf81204d3a0d6e5773c703e410145d45669057011a5efa5a"
+    },
+    {
+      "source": "/assets/products/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator-01.jpg",
+      "branded": "/assets/products/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "cce0e5960d552716afb7a370cb845a2a52f3a7df73bd2b87a729a627be0a3a0f"
+    },
+    {
+      "source": "/assets/products/ctn-type-full-countercurrent-wet-magnetic-separator/ctn-type-full-countercurrent-wet-magnetic-separator-01.jpg",
+      "branded": "/assets/products/ctn-type-full-countercurrent-wet-magnetic-separator/ctn-type-full-countercurrent-wet-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 1535,
+      "height": 1024,
+      "logoCorner": "topRight",
+      "sha256": "39f06753884de95d02e9b008db560dc1a3b64f2dfcbb0ef1df1868b12439429e"
+    },
+    {
+      "source": "/assets/products/ctn-type-specialized-magnetic-separator-for-coal-washing/ctn-type-specialized-magnetic-separator-for-coal-washing-01.jpg",
+      "branded": "/assets/products/ctn-type-specialized-magnetic-separator-for-coal-washing/ctn-type-specialized-magnetic-separator-for-coal-washing-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topLeft",
+      "sha256": "34257640380f31ff0caf78439afd08ae70d7de42ff111448ef8afb8194624b15"
+    },
+    {
+      "source": "/assets/products/ctn-wet-full-countercurrent-magnetic-separator/ctn-wet-full-countercurrent-magnetic-separator-01.jpg",
+      "branded": "/assets/products/ctn-wet-full-countercurrent-magnetic-separator/ctn-wet-full-countercurrent-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "4fc1b249f12d1e10f50afc77dcb4af6457fbc4e442c3afe3dc431c9be7753cd1"
+    },
+    {
+      "source": "/assets/products/ctq-type-roller-automatic-magnetic-separator/ctq-type-roller-automatic-magnetic-separator-01.jpg",
+      "branded": "/assets/products/ctq-type-roller-automatic-magnetic-separator/ctq-type-roller-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "5120e4fbe07357b8bae9cbbafa9e93127b4ebb798724300dc6b8d20be8ac2e0d"
+    },
+    {
+      "source": "/assets/products/cts-type-downstream-wet-pre-selection-machine/cts-type-downstream-wet-pre-selection-machine-01.jpg",
+      "branded": "/assets/products/cts-type-downstream-wet-pre-selection-machine/cts-type-downstream-wet-pre-selection-machine-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "27bd8857eda339642a2e81b40829e46ea2386b2f19d1aa803b9dce8f1505c080"
+    },
+    {
+      "source": "/assets/products/cts-type-wet-co-current-magnetic-separator/cts-type-wet-co-current-magnetic-separator-01.jpg",
+      "branded": "/assets/products/cts-type-wet-co-current-magnetic-separator/cts-type-wet-co-current-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "27bd8857eda339642a2e81b40829e46ea2386b2f19d1aa803b9dce8f1505c080"
+    },
+    {
+      "source": "/assets/products/ctz-type-midfield-strong-semi-magnetic-drum/ctz-type-midfield-strong-semi-magnetic-drum-01.jpg",
+      "branded": "/assets/products/ctz-type-midfield-strong-semi-magnetic-drum/ctz-type-midfield-strong-semi-magnetic-drum-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "7c21e437063d023a9da08baf9bc19d8ad71e9e5897d5d2de58d3cc06fa071976"
+    },
+    {
+      "source": "/assets/products/ctzs-type-upward-suction-magnetic-separator/ctzs-type-upward-suction-magnetic-separator-01.jpg",
+      "branded": "/assets/products/ctzs-type-upward-suction-magnetic-separator/ctzs-type-upward-suction-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "a031da69535260738c825f2aceaf41106518b3ce7d2a68971049396e53b6cba1"
+    },
+    {
+      "source": "/assets/products/cxj-drum-type-automatic-magnetic-separator/cxj-drum-type-automatic-magnetic-separator-01.jpg",
+      "branded": "/assets/products/cxj-drum-type-automatic-magnetic-separator/cxj-drum-type-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "975fce5130a5aec0235ec9a57a3be0fb7b2ef0f7c3fe3939a8d2e18034c810bb"
+    },
+    {
+      "source": "/assets/products/cyg-wet-pipeline-magnetic-filter/cyg-wet-pipeline-magnetic-filter-01.jpg",
+      "branded": "/assets/products/cyg-wet-pipeline-magnetic-filter/cyg-wet-pipeline-magnetic-filter-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "0b1b003d0ce188c958447cc05fbe899a287471596e777acf9a8a1138765714f0"
+    },
+    {
+      "source": "/assets/products/dcx-wet-fully-automatic-magnetic-separator/dcx-wet-fully-automatic-magnetic-separator-01.jpg",
+      "branded": "/assets/products/dcx-wet-fully-automatic-magnetic-separator/dcx-wet-fully-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 1402,
+      "height": 1122,
+      "logoCorner": "topRight",
+      "sha256": "f8eec0df2908e05fbe79f6e6a4aca8925b75a21a7bbe5387171259106810e05b"
+    },
+    {
+      "source": "/assets/products/dcz-type-dry-fully-automatic-magnetic-separation/dcz-type-dry-fully-automatic-magnetic-separation-01.jpg",
+      "branded": "/assets/products/dcz-type-dry-fully-automatic-magnetic-separation/dcz-type-dry-fully-automatic-magnetic-separation-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "cf0a8d822d8fa746fb7ea77287ae2b9e54c0d31b329cdd65950eab458bd6d5a9"
+    },
+    {
+      "source": "/assets/products/dcz-type-dry-fully-automatic-magnetic-separator/dcz-type-dry-fully-automatic-magnetic-separator-01.jpg",
+      "branded": "/assets/products/dcz-type-dry-fully-automatic-magnetic-separator/dcz-type-dry-fully-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "cf0a8d822d8fa746fb7ea77287ae2b9e54c0d31b329cdd65950eab458bd6d5a9"
+    },
+    {
+      "source": "/assets/products/dhd-type-roller-type-automatic-magnetic-separator/dhd-type-roller-type-automatic-magnetic-separator-01.jpg",
+      "branded": "/assets/products/dhd-type-roller-type-automatic-magnetic-separator/dhd-type-roller-type-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "7f9d3ceadb91547386c05023f026880a35cca92219513b12e29ccfe0e95754c8"
+    },
+    {
+      "source": "/assets/products/dhj-type-strong-roller-automatic-magnetic-separator/dhj-type-strong-roller-automatic-magnetic-separator-01.jpg",
+      "branded": "/assets/products/dhj-type-strong-roller-automatic-magnetic-separator/dhj-type-strong-roller-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "1da35813ac117b8f6b70ee76c034e66eb5e5399ed91f5b09b254966cbdc570c5"
+    },
+    {
+      "source": "/assets/products/disc-magnetic-separator-for-tailing/disc-magnetic-separator-for-tailing-01.jpg",
+      "branded": "/assets/products/disc-magnetic-separator-for-tailing/disc-magnetic-separator-for-tailing-01-cowin-brand-20261001.jpg",
+      "width": 800,
+      "height": 600,
+      "logoCorner": "topRight",
+      "sha256": "00f0da6f154c10d0c8e4a0d94e9b30612898684a4177dc16e83dad4df61dac80"
+    },
+    {
+      "source": "/assets/products/dls-type-window-metal-detector/dls-type-window-metal-detector-01.jpg",
+      "branded": "/assets/products/dls-type-window-metal-detector/dls-type-window-metal-detector-01-cowin-brand-20261001.jpg",
+      "width": 1537,
+      "height": 1023,
+      "logoCorner": "topRight",
+      "sha256": "770ddfbbb82f9047e3573b30b8c86498b6dff28a2cca6bb6218bce9783722622"
+    },
+    {
+      "source": "/assets/products/drawer-magnet/drawer-magnet-01.png",
+      "branded": "/assets/products/drawer-magnet/drawer-magnet-01-cowin-brand-20261001.png",
+      "width": 600,
+      "height": 400,
+      "logoCorner": "topRight",
+      "sha256": "9224ff2036df62a05cf0cb27a1aacc58b4d46dbed344fbb3712e8d64408e419a"
+    },
+    {
+      "source": "/assets/products/drum-magnet/drum-magnet-01.jpg",
+      "branded": "/assets/products/drum-magnet/drum-magnet-01-cowin-brand-20261001.jpg",
+      "width": 800,
+      "height": 622,
+      "logoCorner": "topRight",
+      "sha256": "e7ec598a4bcddea13c59ffaaad8609374888e7be26544c71dd411ad5fe3af6db"
+    },
+    {
+      "source": "/assets/products/dry-drum-magnetic-separator/dry-drum-magnetic-separator-01.jpg",
+      "branded": "/assets/products/dry-drum-magnetic-separator/dry-drum-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 800,
+      "height": 600,
+      "logoCorner": "topRight",
+      "sha256": "111159965da55bf1c4ae5c2803c6af0d6410066f7f57cddbfc4ee7dd11b9009a"
+    },
+    {
+      "source": "/assets/products/eccentric-eddy-current-separator/eccentric-eddy-current-separator-01.jpg",
+      "branded": "/assets/products/eccentric-eddy-current-separator/eccentric-eddy-current-separator-01-cowin-brand-20261001.jpg",
+      "width": 760,
+      "height": 560,
+      "logoCorner": "topLeft",
+      "sha256": "fdd53dc7fe89bc44bb76c5390759dcc008924fa55461c77fa1cca08a95cac2e8"
+    },
+    {
+      "source": "/assets/products/electromagnet-separator/electromagnet-separator-01.jpg",
+      "branded": "/assets/products/electromagnet-separator/electromagnet-separator-01-cowin-brand-20261001.jpg",
+      "width": 1536,
+      "height": 1024,
+      "logoCorner": "topRight",
+      "sha256": "a235111dd110a6b1d666f703a6da95b7401b80177a6f4f923edced1b6700b905"
+    },
+    {
+      "source": "/assets/products/gjt-type-window-metal-detector/gjt-type-window-metal-detector-01.jpg",
+      "branded": "/assets/products/gjt-type-window-metal-detector/gjt-type-window-metal-detector-01-cowin-brand-20261001.jpg",
+      "width": 1537,
+      "height": 1023,
+      "logoCorner": "topRight",
+      "sha256": "632896f522648d055ddbe90894e12d9aab99e751b294c46031e422015bc28c0c"
+    },
+    {
+      "source": "/assets/products/gls-type-integral-channel-metal-separator/gls-type-integral-channel-metal-separator-01.jpg",
+      "branded": "/assets/products/gls-type-integral-channel-metal-separator/gls-type-integral-channel-metal-separator-01-cowin-brand-20261001.jpg",
+      "width": 1600,
+      "height": 959,
+      "logoCorner": "topRight",
+      "sha256": "489980c889c70c6695532f2d16fd81f54a9544391cbf41476edbf0b6780dd294"
+    },
+    {
+      "source": "/assets/products/gtc-wet-plate-magnetic-separator/gtc-wet-plate-magnetic-separator-01.jpg",
+      "branded": "/assets/products/gtc-wet-plate-magnetic-separator/gtc-wet-plate-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 1554,
+      "height": 1012,
+      "logoCorner": "topRight",
+      "sha256": "b3284aa1ac6e5f89ee40ebb0b4770e4572510c77a6542237480b492bd7af007a"
+    },
+    {
+      "source": "/assets/products/hcg-type-dry-pre-selection-machine/hcg-type-dry-pre-selection-machine-01.jpg",
+      "branded": "/assets/products/hcg-type-dry-pre-selection-machine/hcg-type-dry-pre-selection-machine-01-cowin-brand-20261001.jpg",
+      "width": 1536,
+      "height": 1024,
+      "logoCorner": "topRight",
+      "sha256": "94749daab92f72ea2102d113d259494e1eca7fe7eb9bff5f4671568c51c42ea5"
+    },
+    {
+      "source": "/assets/products/hecp-eddy-current-metal-sorting-machine/hecp-eddy-current-metal-sorting-machine-01.jpg",
+      "branded": "/assets/products/hecp-eddy-current-metal-sorting-machine/hecp-eddy-current-metal-sorting-machine-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "5cb5dfad048a75a2d83f70b544eee90249c9a14a43c6c75cc767126ccd78aebc"
+    },
+    {
+      "source": "/assets/products/hecs-type-eddy-current-metal-sorting-machine/hecs-type-eddy-current-metal-sorting-machine-01.jpg",
+      "branded": "/assets/products/hecs-type-eddy-current-metal-sorting-machine/hecs-type-eddy-current-metal-sorting-machine-01-cowin-brand-20261001.jpg",
+      "width": 1536,
+      "height": 1024,
+      "logoCorner": "topRight",
+      "sha256": "51c3c359f31730c84c51af9cfbc3cd0d249192391df96bc56bf7276fc9f6fc6e"
+    },
+    {
+      "source": "/assets/products/high-frequency-screen/high-frequency-screen-01.jpg",
+      "branded": "/assets/products/high-frequency-screen/high-frequency-screen-01-cowin-brand-20261001.jpg",
+      "width": 800,
+      "height": 600,
+      "logoCorner": "topRight",
+      "sha256": "216273aab49dbbc60f5b45f0ff4d88bf6f8e5d93f7f02f2b3dfa577318ad7968"
+    },
+    {
+      "source": "/assets/products/hjlh-type-vertical-ring-high-gradient-magnetic-separation/hjlh-type-vertical-ring-high-gradient-magnetic-separation-01.jpg",
+      "branded": "/assets/products/hjlh-type-vertical-ring-high-gradient-magnetic-separation/hjlh-type-vertical-ring-high-gradient-magnetic-separation-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "4239e7f2a2135a734e0270aaf1429cdb42db7afd9de55fba47c459e8c3673330"
+    },
+    {
+      "source": "/assets/products/hjlh-wet-vertical-ring-high-gradient-magnetic-separator/hjlh-wet-vertical-ring-high-gradient-magnetic-separator-01.jpg",
+      "branded": "/assets/products/hjlh-wet-vertical-ring-high-gradient-magnetic-separator/hjlh-wet-vertical-ring-high-gradient-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "4239e7f2a2135a734e0270aaf1429cdb42db7afd9de55fba47c459e8c3673330"
+    },
+    {
+      "source": "/assets/products/hjpc-wet-disc-magnetic-separation/hjpc-wet-disc-magnetic-separation-01.jpg",
+      "branded": "/assets/products/hjpc-wet-disc-magnetic-separation/hjpc-wet-disc-magnetic-separation-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "6511a46adbfd4d5358c01d9f9d82a4bd8c50698be534229ac3d71246a7c5d4e6"
+    },
+    {
+      "source": "/assets/products/hmdn-coal-washing-special-magnetic-separator/hmdn-coal-washing-special-magnetic-separator-01.jpg",
+      "branded": "/assets/products/hmdn-coal-washing-special-magnetic-separator/hmdn-coal-washing-special-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "a8562b42ea36d55f6daa47e82b6c873c3097436cd6c4a9a1a4b225a54b71b53f"
+    },
+    {
+      "source": "/assets/products/hump-magnet/hump-magnet-01.png",
+      "branded": "/assets/products/hump-magnet/hump-magnet-01-cowin-brand-20261001.png",
+      "width": 600,
+      "height": 400,
+      "logoCorner": "topRight",
+      "sha256": "b2b9c19df1c8e2b2e9c39313ce9c36acfc599b7d39944f09a1c944503df53b6f"
+    },
+    {
+      "source": "/assets/products/kgla-series-rectifier-control-box/kgla-series-rectifier-control-box-01.jpg",
+      "branded": "/assets/products/kgla-series-rectifier-control-box/kgla-series-rectifier-control-box-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "fe892e28ca6fa8172c8a93df41300aad51114e6235198ff8d249f9013cc884e6"
+    },
+    {
+      "source": "/assets/products/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box-01.jpg",
+      "branded": "/assets/products/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "ece965ba1f54fc96fdfe3eeaa3b92e1099e5ddca27641e7362b74144f2e1dac7"
+    },
+    {
+      "source": "/assets/products/ljk-type-magnetic-ore-special-iron-remover/ljk-type-magnetic-ore-special-iron-remover-01.jpg",
+      "branded": "/assets/products/ljk-type-magnetic-ore-special-iron-remover/ljk-type-magnetic-ore-special-iron-remover-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topLeft",
+      "sha256": "47be51c1ac0c7e75e73005c449fde57957be95c8638d83a5ec64b3eef2a3e6a6"
+    },
+    {
+      "source": "/assets/products/magnetic-grid/magnetic-grid-01.png",
+      "branded": "/assets/products/magnetic-grid/magnetic-grid-01-cowin-brand-20261001.png",
+      "width": 600,
+      "height": 400,
+      "logoCorner": "topRight",
+      "sha256": "f5748a066953b50e5330a08d1cce7d0d189a8e00225c73cc977e1eb214d94116"
+    },
+    {
+      "source": "/assets/products/magnetic-head-pulley/magnetic-head-pulley-01.jpg",
+      "branded": "/assets/products/magnetic-head-pulley/magnetic-head-pulley-01-cowin-brand-20261001.jpg",
+      "width": 800,
+      "height": 600,
+      "logoCorner": "topRight",
+      "sha256": "776cd10db8cc5728d9748c42dcaaf286ceccc4954c827bdffd3c853e804c294e"
+    },
+    {
+      "source": "/assets/products/magnetic-rod/magnetic-rod-01.png",
+      "branded": "/assets/products/magnetic-rod/magnetic-rod-01-cowin-brand-20261001.png",
+      "width": 800,
+      "height": 533,
+      "logoCorner": "topRight",
+      "sha256": "93caeace8eb1256de60e52d5e03fb54be6cba806ddced62e650044c825122e65"
+    },
+    {
+      "source": "/assets/products/magnetic-trap/magnetic-trap-01.png",
+      "branded": "/assets/products/magnetic-trap/magnetic-trap-01-cowin-brand-20261001.png",
+      "width": 600,
+      "height": 400,
+      "logoCorner": "topRight",
+      "sha256": "ad06510151cb9de7eecdedf2b6e4a07524441e42f0c78e875f6f7f46f7f2ff51"
+    },
+    {
+      "source": "/assets/products/nct-type-concentrated-magnetic-separator/nct-type-concentrated-magnetic-separator-01.jpg",
+      "branded": "/assets/products/nct-type-concentrated-magnetic-separator/nct-type-concentrated-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 1536,
+      "height": 1024,
+      "logoCorner": "topRight",
+      "sha256": "eafbbab2c5acb53ce7a9cdce621e9d2c56c5cd63407d4d54ce31d32ba030269a"
+    },
+    {
+      "source": "/assets/products/permanent-filter-bar-magnetic-rod.webp",
+      "branded": "/assets/products/permanent-filter-bar-magnetic-rod-cowin-brand-20261001.webp",
+      "width": 500,
+      "height": 500,
+      "logoCorner": "topRight",
+      "sha256": "337fde9e714d6fb461066838e92a580c068984c3c26f9178585776d9190aec8e"
+    },
+    {
+      "source": "/assets/products/permanent-overband-magnetic-separator/permanent-overband-magnetic-separator-01.jpg",
+      "branded": "/assets/products/permanent-overband-magnetic-separator/permanent-overband-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 1536,
+      "height": 1024,
+      "logoCorner": "topRight",
+      "sha256": "dccd76c527e0609e5932d8932dd96a1bc12e627da37627e04f2c7816ec2bf21d"
+    },
+    {
+      "source": "/assets/products/qcg-wet-roller-magnetic-separator/qcg-wet-roller-magnetic-separator-01.jpg",
+      "branded": "/assets/products/qcg-wet-roller-magnetic-separator/qcg-wet-roller-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "23fe6fc3177173a198c441d47c469574aac4093cf09d2adf5f6601532688da08"
+    },
+    {
+      "source": "/assets/products/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box-01.jpg",
+      "branded": "/assets/products/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "d7b15dea2c3605a074a7415d9774d8609ab433f9457df70aea7e7a905db29477"
+    },
+    {
+      "source": "/assets/products/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover-01.jpg",
+      "branded": "/assets/products/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "4202b2b2c8bf297d2c56901bd6c646b1875100c4e07bbff83d81565bf879a0ee"
+    },
+    {
+      "source": "/assets/products/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover-01.jpg",
+      "branded": "/assets/products/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "820aee22172d76e5ab884f06ec78978d83ad8e863f83bc67e6deb31dea77989f"
+    },
+    {
+      "source": "/assets/products/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover-01.jpg",
+      "branded": "/assets/products/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "50f5432db162a96d04d8b1ccf007b300d00db914b132b83d2fbcd7029de2bf72"
+    },
+    {
+      "source": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824116.gif",
+      "branded": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824116-cowin-brand-20261001.gif",
+      "width": 220,
+      "height": 201,
+      "sourceHeight": 165,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "472fc5d2003ed54d92bd23896b9d17a83a1cb3c8a91926a7da3fddde6f68def2"
+    },
+    {
+      "source": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824314.gif",
+      "branded": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824314-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 236,
+      "sourceHeight": 200,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "9a33bda20d5cd381c973b93aea4d9334b39db5a6dcb0ea37a2503b7a8c33bcc0"
+    },
+    {
+      "source": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824869.gif",
+      "branded": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824869-cowin-brand-20261001.gif",
+      "width": 236,
+      "height": 236,
+      "sourceHeight": 200,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "e860e52e467ca6b93a9d0fef89bc2cbfe9886692cb1560ea3a3f13ecbd228b48"
+    },
+    {
+      "source": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-s_20130322215922721.gif",
+      "branded": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-s_20130322215922721-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 261,
+      "sourceHeight": 225,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "1f767c3c00817fe9065b76fcc636a9754cb035a2748cc462881cb6fc00bf5040"
+    },
+    {
+      "source": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130104123550864.gif",
+      "branded": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130104123550864-cowin-brand-20261001.gif",
+      "width": 500,
+      "height": 243,
+      "sourceHeight": 207,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "97c97abee2f70a206349f97004b65ffda4a4a321b810764d65bb7e45e3f89bb4"
+    },
+    {
+      "source": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130527235935684.jpg",
+      "branded": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130527235935684-cowin-brand-20261001.jpg",
+      "width": 239,
+      "height": 202,
+      "logoCorner": "topRight",
+      "sha256": "91bebac9c1a53b6c5e01cfdaa477498dfe4985ec007d149c603eb6ab7177d744"
+    },
+    {
+      "source": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-s_20130104123824116.gif",
+      "branded": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-s_20130104123824116-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 261,
+      "sourceHeight": 225,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "538a34c231e98edbc5d965fbb2673bd3836c7f53c2e62d036172b96fd8dc93bb"
+    },
+    {
+      "source": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-s_20130322215922721.gif",
+      "branded": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-s_20130322215922721-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 261,
+      "sourceHeight": 225,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "1f767c3c00817fe9065b76fcc636a9754cb035a2748cc462881cb6fc00bf5040"
+    },
+    {
+      "source": "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-20130528000628451.jpg",
+      "branded": "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-20130528000628451-cowin-brand-20261001.jpg",
+      "width": 369,
+      "height": 163,
+      "logoCorner": "topRight",
+      "sha256": "5de7ab9a913f6db7995b915ea11d6296dd458153a541ebfe8252c3f09ea0370f"
+    },
+    {
+      "source": "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-s_20130104123824116.gif",
+      "branded": "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-s_20130104123824116-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 261,
+      "sourceHeight": 225,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "538a34c231e98edbc5d965fbb2673bd3836c7f53c2e62d036172b96fd8dc93bb"
+    },
+    {
+      "source": "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130104122226760.gif",
+      "branded": "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130104122226760-cowin-brand-20261001.gif",
+      "width": 400,
+      "height": 275,
+      "sourceHeight": 239,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "d00b73cd5dd835d78bd983c4014f3119f2720432d0ff6db2dd41a6e3564645da"
+    },
+    {
+      "source": "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130825103209634.jpg",
+      "branded": "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130825103209634-cowin-brand-20261001.jpg",
+      "width": 355,
+      "height": 217,
+      "logoCorner": "topRight",
+      "sha256": "b1f5a233b6eb5259700fc6eaeed619d07dc63f8732da6ba1860572cd69e2694a"
+    },
+    {
+      "source": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130104121634646.gif",
+      "branded": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130104121634646-cowin-brand-20261001.gif",
+      "width": 600,
+      "height": 258,
+      "sourceHeight": 222,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "bc4e4be0beb77443a04348ced9cd858399265adf8f0d7ce3204995ea63a0e338"
+    },
+    {
+      "source": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130825103008516.jpg",
+      "branded": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130825103008516-cowin-brand-20261001.jpg",
+      "width": 185,
+      "height": 197,
+      "logoCorner": "topLeft",
+      "sha256": "d366a8f586d627c8dc53103e1260f9bc680298b8b8d4254ab3a76af8d6e33613"
+    },
+    {
+      "source": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-s_20130104161615151.gif",
+      "branded": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-s_20130104161615151-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 261,
+      "sourceHeight": 225,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "b1813c7ccd919df0d29a9dbce5ac3573235e290e7b463a4d82ec66de5f26fd00"
+    },
+    {
+      "source": "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-20130528000938524.jpg",
+      "branded": "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-20130528000938524-cowin-brand-20261001.jpg",
+      "width": 260,
+      "height": 198,
+      "logoCorner": "topRight",
+      "sha256": "612838438804985b3ad382501f5ccd160b369041db3ec15d74373f925f8544ea"
+    },
+    {
+      "source": "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-s_20130104161615151.gif",
+      "branded": "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-s_20130104161615151-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 261,
+      "sourceHeight": 225,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "b1813c7ccd919df0d29a9dbce5ac3573235e290e7b463a4d82ec66de5f26fd00"
+    },
+    {
+      "source": "/assets/products/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover-01.jpg",
+      "branded": "/assets/products/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "dc7c7ee3ea8f22e56987fbc4596915120b8f6fdf4eb3fa4d3fe376c61b9be21b"
+    },
+    {
+      "source": "/assets/products/rcps-self-dumping-disc-type-permanent-magnet-iron-remover/rcps-self-dumping-disc-type-permanent-magnet-iron-remover-01.jpg",
+      "branded": "/assets/products/rcps-self-dumping-disc-type-permanent-magnet-iron-remover/rcps-self-dumping-disc-type-permanent-magnet-iron-remover-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "90e6157b31745dda2c48c38b314c7424a53d88dff6602e20eaf68947ee8b6a89"
+    },
+    {
+      "source": "/assets/products/rct-type-fully-magnetic-drum/rct-type-fully-magnetic-drum-01.jpg",
+      "branded": "/assets/products/rct-type-fully-magnetic-drum/rct-type-fully-magnetic-drum-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "55ded17322b1507b3103631deeb7705f04c779a41a3a55aa5ec02978f80fda5a"
+    },
+    {
+      "source": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714540.gif",
+      "branded": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714540-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 318,
+      "sourceHeight": 282,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "f99eadb96b554250da0b8f386d45bbad247117f756d3c668a9824156ee98d097"
+    },
+    {
+      "source": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714773.gif",
+      "branded": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714773-cowin-brand-20261001.gif",
+      "width": 260,
+      "height": 166,
+      "sourceHeight": 130,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "2ae137d7600b8ac2f4d85f7c19deeea0dc6af18efc8fc3641f08ea07ca6b2a43"
+    },
+    {
+      "source": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-2013010416271514.gif",
+      "branded": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-2013010416271514-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 237,
+      "sourceHeight": 201,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "be4f9b4d61dc75e82f3ada6d35aa2f1178ca932245fdc00b721307df04b823ce"
+    },
+    {
+      "source": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162715484.gif",
+      "branded": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162715484-cowin-brand-20261001.gif",
+      "width": 220,
+      "height": 194,
+      "sourceHeight": 158,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "3730dac0cf8a0fe3f23d3b90ac326fbec2547bbf47bf8e862cd8acdf26ae30c0"
+    },
+    {
+      "source": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-s_20130104155415539.gif",
+      "branded": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-s_20130104155415539-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 261,
+      "sourceHeight": 225,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "ba2a51ab70b32267c08040a094ddd8e47fbd3a00a81ad542035844a7e0be4152"
+    },
+    {
+      "source": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-cross-belt-installation-reference.gif",
+      "branded": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-cross-belt-installation-reference-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 256,
+      "sourceHeight": 220,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "a8f1f20928796b494e73602eacbaff3dfc95da6e5366e151322e818d5efc007c"
+    },
+    {
+      "source": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-dimensional-reference.gif",
+      "branded": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-dimensional-reference-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 216,
+      "sourceHeight": 180,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "f1abf95d95f2ee6846e97f01a8f750b4b934e329534d5e2da52352a312cff85a"
+    },
+    {
+      "source": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-inline-installation-reference.gif",
+      "branded": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-inline-installation-reference-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 217,
+      "sourceHeight": 181,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "5adf71592d48528ca9d24a4e4a3da71eece435d98fe95eb2811cc772d47d9fdc"
+    },
+    {
+      "source": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-suspended-permanent-magnet-main.jpg",
+      "branded": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-suspended-permanent-magnet-main-cowin-brand-20261001.jpg",
+      "width": 281,
+      "height": 216,
+      "logoCorner": "topRight",
+      "sha256": "f0c5f4ec607c37d110a9d5bb7d481815b885b465e7f3651f9472555e0b4eb5e5"
+    },
+    {
+      "source": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130104163512471.gif",
+      "branded": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130104163512471-cowin-brand-20261001.gif",
+      "width": 260,
+      "height": 167,
+      "sourceHeight": 131,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "505219b4bd02a11ba928fbcb004d0839adc7be20abe4cd9db39fad75c5defd29"
+    },
+    {
+      "source": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130104163512519.gif",
+      "branded": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130104163512519-cowin-brand-20261001.gif",
+      "width": 260,
+      "height": 266,
+      "sourceHeight": 230,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "ebe86418ec597da08a62b4847c41c4baf5243b81929c710594d1f40848647716"
+    },
+    {
+      "source": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-2013010416351264.gif",
+      "branded": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-2013010416351264-cowin-brand-20261001.gif",
+      "width": 260,
+      "height": 165,
+      "sourceHeight": 129,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "8b09613f0cdac1a247488e7dc8e1fe9fa50ee6fedcac063a6f60c6e22982452f"
+    },
+    {
+      "source": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-2013010416351288.gif",
+      "branded": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-2013010416351288-cowin-brand-20261001.gif",
+      "width": 260,
+      "height": 275,
+      "sourceHeight": 239,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "cc682da0d410cc06b99b3fdcad6147b2e89f6069133aa368480bd39e9a9258a4"
+    },
+    {
+      "source": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130527234013948.jpg",
+      "branded": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130527234013948-cowin-brand-20261001.jpg",
+      "width": 323,
+      "height": 202,
+      "logoCorner": "topLeft",
+      "sha256": "9cd070c254fa86dedf31bc8ddf9c379ddcdca9c21b5052a7b59cfe9231514d73"
+    },
+    {
+      "source": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-s_20130104162714773.gif",
+      "branded": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-s_20130104162714773-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 261,
+      "sourceHeight": 225,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "81162910971b1e8332281b5d368e281d71c834b8bb2bf2e8eb68c08e5e5e9abf"
+    },
+    {
+      "source": "/assets/products/rcydii-type-permanent-magnet-self-dumping-iron-remover/rcydii-type-permanent-magnet-self-dumping-iron-remover-01.jpg",
+      "branded": "/assets/products/rcydii-type-permanent-magnet-self-dumping-iron-remover/rcydii-type-permanent-magnet-self-dumping-iron-remover-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "9b24adab982bf8686b1d75e2899e32cd48a1a0218a8f198e52243cd2cde0d35e"
+    },
+    {
+      "source": "/assets/products/rcye-type-permanent-magnet-self-dumping-iron-remover/rcye-type-permanent-magnet-self-dumping-iron-remover-01.jpg",
+      "branded": "/assets/products/rcye-type-permanent-magnet-self-dumping-iron-remover/rcye-type-permanent-magnet-self-dumping-iron-remover-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "d9fcc8ba2f2e6c9800e5da3a43e575eb3154c559f71b7296854215f4b7de1ab5"
+    },
+    {
+      "source": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130527155446_34721.gif",
+      "branded": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130527155446_34721-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 315,
+      "sourceHeight": 279,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "6b0e2ffc34b06d61467bf08a2f28127823428420fa68858881a9031447b1eef8"
+    },
+    {
+      "source": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130825102859754.jpg",
+      "branded": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130825102859754-cowin-brand-20261001.jpg",
+      "width": 193,
+      "height": 175,
+      "logoCorner": "topRight",
+      "sha256": "e781f8f4ea01fad8004bfbba33cf3c03cab2868ffd0217c3ff095c6b43fda1d1"
+    },
+    {
+      "source": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130104155415539.gif",
+      "branded": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130104155415539-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 261,
+      "sourceHeight": 225,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "ba2a51ab70b32267c08040a094ddd8e47fbd3a00a81ad542035844a7e0be4152"
+    },
+    {
+      "source": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130104162714773.gif",
+      "branded": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130104162714773-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 261,
+      "sourceHeight": 225,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "81162910971b1e8332281b5d368e281d71c834b8bb2bf2e8eb68c08e5e5e9abf"
+    },
+    {
+      "source": "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-20130322215922721.gif",
+      "branded": "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-20130322215922721-cowin-brand-20261001.gif",
+      "width": 400,
+      "height": 336,
+      "sourceHeight": 300,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "6a75a3b032b890b0100bf6df505d974841c0089b57167d8e0d78fe6c46accbe5"
+    },
+    {
+      "source": "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-s_20130104123824116.gif",
+      "branded": "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-s_20130104123824116-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 261,
+      "sourceHeight": 225,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "538a34c231e98edbc5d965fbb2673bd3836c7f53c2e62d036172b96fd8dc93bb"
+    },
+    {
+      "source": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155415539.gif",
+      "branded": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155415539-cowin-brand-20261001.gif",
+      "width": 260,
+      "height": 206,
+      "sourceHeight": 170,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "4888bbb641293fe34d05585cf16afb22414d37ba691659a43a48d34eadc1d375"
+    },
+    {
+      "source": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155416137.gif",
+      "branded": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155416137-cowin-brand-20261001.gif",
+      "width": 450,
+      "height": 292,
+      "sourceHeight": 256,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "b4c4589b130ddfbdac6fdd850defc237e527213d7151dd5abec501c42a695b5c"
+    },
+    {
+      "source": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-s_20130104162714773.gif",
+      "branded": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-s_20130104162714773-cowin-brand-20261001.gif",
+      "width": 300,
+      "height": 261,
+      "sourceHeight": 225,
+      "logoCorner": "separateWhiteFooter",
+      "sha256": "81162910971b1e8332281b5d368e281d71c834b8bb2bf2e8eb68c08e5e5e9abf"
+    },
+    {
+      "source": "/assets/products/rcyz-type-pipeline-magnetic-filter/rcyz-type-pipeline-magnetic-filter-01.jpg",
+      "branded": "/assets/products/rcyz-type-pipeline-magnetic-filter/rcyz-type-pipeline-magnetic-filter-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "230dd711b3ccda2361026415547a539102d18d782f85d69c22460e33082bd7ad"
+    },
+    {
+      "source": "/assets/products/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover-01.jpg",
+      "branded": "/assets/products/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover-01-cowin-brand-20261001.jpg",
+      "width": 550,
+      "height": 330,
+      "logoCorner": "topRight",
+      "sha256": "230dd711b3ccda2361026415547a539102d18d782f85d69c22460e33082bd7ad"
+    },
+    {
+      "source": "/assets/products/rotary-pipe-magnet/rotary-pipe-magnet-01-clean-20261001.png",
+      "branded": "/assets/products/rotary-pipe-magnet/rotary-pipe-magnet-01-clean-20261001-cowin-brand-20261001.png",
+      "width": 800,
+      "height": 533,
+      "logoCorner": "topRight",
+      "sha256": "58a80f04b8b168bf1da642d87c9f204cd8381780f3f2d2754a324607005992c9"
+    },
+    {
+      "source": "/assets/products/round-electromagnetic-lifting-magnet.webp",
+      "branded": "/assets/products/round-electromagnetic-lifting-magnet-cowin-brand-20261001.webp",
+      "width": 1024,
+      "height": 1536,
+      "logoCorner": "topRight",
+      "sha256": "b3c9588a36ae13b29677e8d4933d320876676225c2c60b4112fac3c52c3af5d5"
+    },
+    {
+      "source": "/assets/products/stainless-steel-separation-conveyor/stainless-steel-separation-conveyor-01.png",
+      "branded": "/assets/products/stainless-steel-separation-conveyor/stainless-steel-separation-conveyor-01-cowin-brand-20261001.png",
+      "width": 1200,
+      "height": 1200,
+      "logoCorner": "topRight",
+      "sha256": "89a174ad8a8d9c09a00c58eb740e0c5093a96b4edb23a6ada3cbddb351e478ca"
+    },
+    {
+      "source": "/assets/products/suspended-electromagnetic-conveyor-belt-separator.webp",
+      "branded": "/assets/products/suspended-electromagnetic-conveyor-belt-separator-cowin-brand-20261001.webp",
+      "width": 1254,
+      "height": 1254,
+      "logoCorner": "topRight",
+      "sha256": "754fc9e657ec88e2d5bd9a2fe3f875ac8fe98299ece330597a65e9be2aa56319"
+    },
+    {
+      "source": "/assets/products/suspended-permanent-magnetic-separator.webp",
+      "branded": "/assets/products/suspended-permanent-magnetic-separator-cowin-brand-20261001.webp",
+      "width": 800,
+      "height": 800,
+      "logoCorner": "topRight",
+      "sha256": "aaf75c09ebd33b6576757d855956b580453cdadffd718e3596b32a58eae7068f"
+    },
+    {
+      "source": "/assets/products/wbc-semi-magnetic-tailings-recovery-machine/wbc-semi-magnetic-tailings-recovery-machine-01.jpg",
+      "branded": "/assets/products/wbc-semi-magnetic-tailings-recovery-machine/wbc-semi-magnetic-tailings-recovery-machine-01-cowin-brand-20261001.jpg",
+      "width": 1537,
+      "height": 1023,
+      "logoCorner": "topRight",
+      "sha256": "eae61356691ca4024474c21250adb786c0b8e43266473882bdba7eedb1e5db59"
+    },
+    {
+      "source": "/assets/products/wet-drum-magnetic-separator/wet-drum-magnetic-separator-01.jpg",
+      "branded": "/assets/products/wet-drum-magnetic-separator/wet-drum-magnetic-separator-01-cowin-brand-20261001.jpg",
+      "width": 800,
+      "height": 600,
+      "logoCorner": "topRight",
+      "sha256": "7cfa81e5f6f5eb67cf5e346fa1840ad5b0b661db3da9cf64a620a956d9f05954"
+    },
+    {
+      "source": "/images/catalog/page-1-image-9-2546x1532.jpg",
+      "branded": "/images/catalog/page-1-image-9-2546x1532-cowin-brand-20261001.jpg",
+      "width": 2546,
+      "height": 1532,
+      "logoCorner": "topRight",
+      "sha256": "edec3bb12860e0c222c2fce8adc33c8a3f067f327a83242fd2dffd58493377a1"
+    },
+    {
+      "source": "/images/catalog/page-3-image-9-1871x840.jpg",
+      "branded": "/images/catalog/page-3-image-9-1871x840-cowin-brand-20261001.jpg",
+      "width": 1871,
+      "height": 840,
+      "logoCorner": "bottomRight",
+      "sha256": "b00dc7ed0c5e1de8876ad8e083aeff655374976c99be86b3a73ddfa2a2e3ac67"
+    },
+    {
+      "source": "/images/catalog/page-4-image-9-1537x1023.jpg",
+      "branded": "/images/catalog/page-4-image-9-1537x1023-cowin-brand-20261001.jpg",
+      "width": 1537,
+      "height": 1023,
+      "logoCorner": "bottomRight",
+      "sha256": "313187c3a0de67d59ca08e1798b9bdaac9121dec981855b182cf11f88e654f02"
+    },
+    {
+      "source": "/images/catalog/page-6-image-3-1349x734.jpg",
+      "branded": "/images/catalog/page-6-image-3-1349x734-cowin-brand-20261001.jpg",
+      "width": 1349,
+      "height": 734,
+      "logoCorner": "bottomRight",
+      "sha256": "a1a79346400fa28acf1911fc83fb80e48888e40e3268bb1dfd3024750f78c1ef"
+    },
+    {
+      "source": "/images/generated/about-factory-team-cowinmagnet-clean-20261001.webp",
+      "branded": "/images/generated/about-factory-team-cowinmagnet-clean-20261001-cowin-brand-20261001.webp",
+      "width": 1672,
+      "height": 941,
+      "logoCorner": "bottomRight",
+      "sha256": "4125234e7918a4b9a13aa51b617b7f459e45f34f07ac06309984b6b255c9e7c8"
+    },
+    {
+      "source": "/images/generated/contact-support-cowinmagnet-clean-20261001.webp",
+      "branded": "/images/generated/contact-support-cowinmagnet-clean-20261001-cowin-brand-20261001.webp",
+      "width": 1672,
+      "height": 941,
+      "logoCorner": "topLeft",
+      "sha256": "2125de720dcc78e294829b83581a627355cf9f0bd2ed393c951ee5db549e3df7"
+    },
+    {
+      "source": "/images/generated/home-hero-cowinmagnet-clean-20261001.webp",
+      "branded": "/images/generated/home-hero-cowinmagnet-clean-20261001-v2-cowin-brand-20261001.webp",
+      "width": 1600,
+      "height": 900,
+      "logoCorner": "desktopTopRightSafeArea",
+      "sha256": "1b4947214bebba8f9aa7cb242ccd2ebb12384fb4f84c4dc10353a077325bd4bc"
+    },
+    {
+      "source": "/images/generated/home-hero-cowinmagnet-clean-20261001.webp",
+      "branded": "/images/generated/home-hero-cowinmagnet-clean-20261001-mobile-v2-cowin-brand-20261001.webp",
+      "width": 1600,
+      "height": 900,
+      "logoCorner": "mobileTopRightSafeArea",
+      "sha256": "82b93107930cc9d11383ae82f96557f5535d372461d4320787d3fb373c521663"
+    },
+    {
+      "source": "/images/generated/recycling-application-cowinmagnet-clean-20261001.webp",
+      "branded": "/images/generated/recycling-application-cowinmagnet-clean-20261001-cowin-brand-20261001.webp",
+      "width": 1672,
+      "height": 941,
+      "logoCorner": "topRight",
+      "sha256": "2e04ca420debd570ab51a3ed2a22c17e87f89f3abcee50d58b18e41c119cbd4a"
+    },
+    {
+      "source": "/images/global-customer-map-template.jpg",
+      "branded": "/images/global-customer-map-template-cowin-brand-20261001.jpg",
+      "width": 800,
+      "height": 440,
+      "logoCorner": "bottomLeft",
+      "sha256": "5f5bb5e71f53a1587d7146eab5c55b26bec7a883bf0d0b71c3abe1f3b9876bbe"
+    },
+    {
+      "source": "/images/industries/cement-aggregate-industry-magnetic-separation-cover.webp",
+      "branded": "/images/industries/cement-aggregate-industry-magnetic-separation-cover-cowin-brand-20261001.webp",
+      "width": 914,
+      "height": 386,
+      "logoCorner": "topRight",
+      "sha256": "9a1e44904dc416b43c44d32d3667d549c11cc667eaa89ea76858afe4f5ed1397"
+    },
+    {
+      "source": "/images/industries/cement-aggregate-magnetic-separation.webp",
+      "branded": "/images/industries/cement-aggregate-magnetic-separation-cowin-brand-20261001.webp",
+      "width": 1024,
+      "height": 768,
+      "logoCorner": "topRight",
+      "sha256": "f5ff8eaf26f6b65f79777f1b775e8725c8dd4686c176bb3f3b01b671efcb7942"
+    },
+    {
+      "source": "/images/industries/cement-aggregate-scenarios/cement-raw-material-processing.jpg",
+      "branded": "/images/industries/cement-aggregate-scenarios/cement-raw-material-processing-cowin-brand-20261001.jpg",
+      "width": 575,
+      "height": 400,
+      "logoCorner": "topRight",
+      "sha256": "b47aabe4e8ce3ed7a9b080f7703a8b60f477720d25c2e77df1334fec65816021"
+    },
+    {
+      "source": "/images/industries/cement-aggregate-scenarios/crusher-protection-iron-removal-clean-20261001.jpg",
+      "branded": "/images/industries/cement-aggregate-scenarios/crusher-protection-iron-removal-clean-20261001-cowin-brand-20261001.jpg",
+      "width": 900,
+      "height": 600,
+      "logoCorner": "topRight",
+      "sha256": "5ebaf657e277db3b15463c2699ba7f973bc2491d68c30dc5c6442eb4a2bbed7f"
+    },
+    {
+      "source": "/images/industries/cement-aggregate-scenarios/finished-aggregate-purification-clean-20261001.jpg",
+      "branded": "/images/industries/cement-aggregate-scenarios/finished-aggregate-purification-clean-20261001-cowin-brand-20261001.jpg",
+      "width": 554,
+      "height": 554,
+      "logoCorner": "topLeft",
+      "sha256": "a5446d620345d96cb4e53a5e0e214e190b802b001091ad0e25caa84aab581fa2"
+    },
+    {
+      "source": "/images/industries/cement-aggregate-scenarios/slag-industrial-by-product-processing.jpg",
+      "branded": "/images/industries/cement-aggregate-scenarios/slag-industrial-by-product-processing-cowin-brand-20261001.jpg",
+      "width": 575,
+      "height": 400,
+      "logoCorner": "bottomLeft",
+      "sha256": "14733327395878e0529c41f8a543681ce374357f47a86b846f0f2d40de827f24"
+    },
+    {
+      "source": "/images/industries/food-industry-magnetic-separation-cover.webp",
+      "branded": "/images/industries/food-industry-magnetic-separation-cover-cowin-brand-20261001.webp",
+      "width": 914,
+      "height": 386,
+      "logoCorner": "topLeft",
+      "sha256": "49f72aa3c9fd7efdb5db5035961b205dfdc9a074ba7c92ab49e3b6ec14d0c4b0"
+    },
+    {
+      "source": "/images/industries/food-scenarios/beans-nuts-magnetic-bar-separator.jpg",
+      "branded": "/images/industries/food-scenarios/beans-nuts-magnetic-bar-separator-cowin-brand-20261001.jpg",
+      "width": 1400,
+      "height": 1120,
+      "logoCorner": "bottomLeft",
+      "sha256": "ecbfdc034ddebd670b75a35a8a9f903fdc2930e4f4a3d3341494e7ced0ca2f67"
+    },
+    {
+      "source": "/images/industries/food-scenarios/coffee-beans-tea-magnetic-grid.jpg",
+      "branded": "/images/industries/food-scenarios/coffee-beans-tea-magnetic-grid-cowin-brand-20261001.jpg",
+      "width": 397,
+      "height": 269,
+      "logoCorner": "bottomLeft",
+      "sha256": "f406498469ee61a4f1c00b7e2363ed2d8f499a73044aa675c6a9008accfe5a0a"
+    },
+    {
+      "source": "/images/industries/food-scenarios/feed-magnetic-drum-separator.jpg",
+      "branded": "/images/industries/food-scenarios/feed-magnetic-drum-separator-cowin-brand-20261001.jpg",
+      "width": 1400,
+      "height": 1120,
+      "logoCorner": "bottomRight",
+      "sha256": "f78280e45c0de9d8bc4a77fdcfd91b74ce638663d2a6be0c2f3a5c2373f91b19"
+    },
+    {
+      "source": "/images/industries/food-scenarios/food-additives-starch-magnetic-roller.jpg",
+      "branded": "/images/industries/food-scenarios/food-additives-starch-magnetic-roller-cowin-brand-20261001.jpg",
+      "width": 386,
+      "height": 268,
+      "logoCorner": "bottomLeft",
+      "sha256": "61d6cdc7d8068eff1db87fbed63e06393a0cc74b6c3159207ad0245daed779bf"
+    },
+    {
+      "source": "/images/industries/food-scenarios/rice-wheat-corn-food-processing-line.jpg",
+      "branded": "/images/industries/food-scenarios/rice-wheat-corn-food-processing-line-cowin-brand-20261001.jpg",
+      "width": 1400,
+      "height": 933,
+      "logoCorner": "bottomRight",
+      "sha256": "4b41d7592b4ba3538c04090885c0bfd4a4071d1cfb41bce5e5a5cd13aed1837f"
+    },
+    {
+      "source": "/images/industries/food-scenarios/spices-pipeline-magnetic-separator.jpg",
+      "branded": "/images/industries/food-scenarios/spices-pipeline-magnetic-separator-cowin-brand-20261001.jpg",
+      "width": 441,
+      "height": 264,
+      "logoCorner": "bottomRight",
+      "sha256": "8b51cc0e776d159e540436c44d62b2d2ad3b8d8c9a0da4b92007d9b628a6c189"
+    },
+    {
+      "source": "/images/industries/food-scenarios/sugar-flour-milk-powder-pipeline-magnetic-separator.jpg",
+      "branded": "/images/industries/food-scenarios/sugar-flour-milk-powder-pipeline-magnetic-separator-cowin-brand-20261001.jpg",
+      "width": 1400,
+      "height": 1120,
+      "logoCorner": "bottomRight",
+      "sha256": "9b7a5693f93d0d2f21df993c8a48a3595908e285577093cfda9d1fed4a698db9"
+    },
+    {
+      "source": "/images/industries/mining-industry-magnetic-separation-cover-clean-20261001.webp",
+      "branded": "/images/industries/mining-industry-magnetic-separation-cover-clean-20261001-cowin-brand-20261001.webp",
+      "width": 1672,
+      "height": 708,
+      "logoCorner": "topLeft",
+      "sha256": "8e3f14b25938a69688a80bfd47d07512a7aa10fe2dc65a39074362141ccdd970"
+    },
+    {
+      "source": "/images/industries/mining-magnetic-separator-conveyor.webp",
+      "branded": "/images/industries/mining-magnetic-separator-conveyor-cowin-brand-20261001.webp",
+      "width": 1254,
+      "height": 1254,
+      "logoCorner": "bottomRight",
+      "sha256": "7e61d62422cc863a0b0846a0959eb6eeea5cc7d3e8e0d12b64abc49b7c0fb2cc"
+    },
+    {
+      "source": "/images/industries/mining-scenarios/chrome-ore.jpg",
+      "branded": "/images/industries/mining-scenarios/chrome-ore-cowin-brand-20261001.jpg",
+      "width": 1200,
+      "height": 797,
+      "logoCorner": "topLeft",
+      "sha256": "365fec2d5738f22fd1624bb072b24a3327f22b77a6fba9a9721726f62dfe70fc"
+    },
+    {
+      "source": "/images/industries/mining-scenarios/coal.jpg",
+      "branded": "/images/industries/mining-scenarios/coal-cowin-brand-20261001.jpg",
+      "width": 1289,
+      "height": 860,
+      "logoCorner": "bottomRight",
+      "sha256": "9aedd63b773c592ee6a805fa5da357bc487dbebf1ce28e1a9933361b0c99c832"
+    },
+    {
+      "source": "/images/industries/mining-scenarios/copper-ore.jpg",
+      "branded": "/images/industries/mining-scenarios/copper-ore-cowin-brand-20261001.jpg",
+      "width": 1000,
+      "height": 717,
+      "logoCorner": "bottomRight",
+      "sha256": "5d9620e7b64d71edd5a9df1a847d9796827d607bcb3aa5e5feb67de75bbabefb"
+    },
+    {
+      "source": "/images/industries/mining-scenarios/feldspar.jpg",
+      "branded": "/images/industries/mining-scenarios/feldspar-cowin-brand-20261001.jpg",
+      "width": 610,
+      "height": 492,
+      "logoCorner": "bottomRight",
+      "sha256": "414acecf92e67ce4eeffbb1342b34b5886e233ffdb83aaaaad79173b00842de8"
+    },
+    {
+      "source": "/images/industries/mining-scenarios/gold-ore.jpg",
+      "branded": "/images/industries/mining-scenarios/gold-ore-cowin-brand-20261001.jpg",
+      "width": 800,
+      "height": 600,
+      "logoCorner": "topLeft",
+      "sha256": "2e47f2482e6b6c047c1664c9cfd632abc3e948fee99099e5b5bd0607bd884b5d"
+    },
+    {
+      "source": "/images/industries/mining-scenarios/hematite.jpg",
+      "branded": "/images/industries/mining-scenarios/hematite-cowin-brand-20261001.jpg",
+      "width": 1290,
+      "height": 860,
+      "logoCorner": "bottomRight",
+      "sha256": "0131369c1476c4c1dddac538e9a4a728c3156e32089bb6ec2e381484f45cdf4b"
+    },
+    {
+      "source": "/images/industries/mining-scenarios/iron-ore.jpg",
+      "branded": "/images/industries/mining-scenarios/iron-ore-cowin-brand-20261001.jpg",
+      "width": 400,
+      "height": 333,
+      "logoCorner": "bottomRight",
+      "sha256": "2f87ca989e7c62f380204f20bb7d5738c2e5dba24d895c06d1291b426ec56e72"
+    },
+    {
+      "source": "/images/industries/mining-scenarios/limestone.jpg",
+      "branded": "/images/industries/mining-scenarios/limestone-cowin-brand-20261001.jpg",
+      "width": 1400,
+      "height": 1070,
+      "logoCorner": "bottomRight",
+      "sha256": "e27951d5944a16f91bb8069ecf20c1f45248ad846918bbf34f8e03f6180a69ae"
+    },
+    {
+      "source": "/images/industries/mining-scenarios/magnetite.jpg",
+      "branded": "/images/industries/mining-scenarios/magnetite-cowin-brand-20261001.jpg",
+      "width": 1000,
+      "height": 771,
+      "logoCorner": "bottomRight",
+      "sha256": "99b703e55c1e4c7397a4dbef40b009da1b3588a5fe2b94ef4c36d83edb329a01"
+    },
+    {
+      "source": "/images/industries/mining-scenarios/manganese-ore.jpg",
+      "branded": "/images/industries/mining-scenarios/manganese-ore-cowin-brand-20261001.jpg",
+      "width": 1400,
+      "height": 933,
+      "logoCorner": "topLeft",
+      "sha256": "2daca6d43223c531d3aa6e4914c63722540da145c4abf863a1aeb75433f9636b"
+    },
+    {
+      "source": "/images/industries/mining-scenarios/mining-industry-magnetic-separation-cover-clean-20261001.jpg",
+      "branded": "/images/industries/mining-scenarios/mining-industry-magnetic-separation-cover-clean-20261001-cowin-brand-20261001.jpg",
+      "width": 1672,
+      "height": 941,
+      "logoCorner": "topRight",
+      "sha256": "a278e4a930cb1a8b65ac4f29a091c47425b0f8506170a34b5c1cefe992fd202b"
+    },
+    {
+      "source": "/images/industries/mining-scenarios/nickel-ore.jpg",
+      "branded": "/images/industries/mining-scenarios/nickel-ore-cowin-brand-20261001.jpg",
+      "width": 1291,
+      "height": 860,
+      "logoCorner": "bottomRight",
+      "sha256": "77781cb2a3a7f4550718c8db4850976ddec011d860a5cdef401d73955cb36646"
+    },
+    {
+      "source": "/images/industries/mining-scenarios/quartz-sand.jpg",
+      "branded": "/images/industries/mining-scenarios/quartz-sand-cowin-brand-20261001.jpg",
+      "width": 541,
+      "height": 354,
+      "logoCorner": "bottomRight",
+      "sha256": "e42487a6036ead0163d0d7f020d0c835c0d16a3a90f90f9ae62c1d7701c6e1e1"
+    },
+    {
+      "source": "/images/industries/recycling-industry-magnetic-separation-cover-clean-20261001.webp",
+      "branded": "/images/industries/recycling-industry-magnetic-separation-cover-clean-20261001-cowin-brand-20261001.webp",
+      "width": 1536,
+      "height": 1024,
+      "logoCorner": "bottomRight",
+      "sha256": "571507af719a092fa4dd4ddc4c1e725874e6427ce88c440552489be8690e5599"
+    },
+    {
+      "source": "/images/industries/recycling-magnetic-separation-solution-clean-20261001.webp",
+      "branded": "/images/industries/recycling-magnetic-separation-solution-clean-20261001-cowin-brand-20261001.webp",
+      "width": 1024,
+      "height": 576,
+      "logoCorner": "topRight",
+      "sha256": "f7457473ebc4652a92e17e27754b3830eaeac16fd2a7aaac796d9eaae1f7b58a"
+    },
+    {
+      "source": "/images/industries/recycling-scenarios/alternative-fuel-production-line.jpg",
+      "branded": "/images/industries/recycling-scenarios/alternative-fuel-production-line-cowin-brand-20261001.jpg",
+      "width": 1600,
+      "height": 1600,
+      "logoCorner": "topRight",
+      "sha256": "cb6cdee72a745447311bc9ac0527500d9f37b8f30b110ac256ac32f6da414eed"
+    },
+    {
+      "source": "/images/industries/recycling-scenarios/construction-waste-recycling-line.jpg",
+      "branded": "/images/industries/recycling-scenarios/construction-waste-recycling-line-cowin-brand-20261001.jpg",
+      "width": 676,
+      "height": 450,
+      "logoCorner": "topRight",
+      "sha256": "83c1aa2f078bf13bdffbc45bc3bccae308716ba8954a1933333085f800b55cae"
+    },
+    {
+      "source": "/images/industries/recycling-scenarios/e-waste-recycling-line.jpg",
+      "branded": "/images/industries/recycling-scenarios/e-waste-recycling-line-cowin-brand-20261001.jpg",
+      "width": 1600,
+      "height": 1067,
+      "logoCorner": "bottomRight",
+      "sha256": "368a3b362e9381e4fff48551560f66ee390998a8d68adc99224e0abc0090306b"
+    },
+    {
+      "source": "/images/industries/recycling-scenarios/municipal-solid-waste-recycling-line.jpg",
+      "branded": "/images/industries/recycling-scenarios/municipal-solid-waste-recycling-line-cowin-brand-20261001.jpg",
+      "width": 1600,
+      "height": 900,
+      "logoCorner": "topRight",
+      "sha256": "f22b489479af8332454d3a61ff0bac400fd8b5a116dbb21aa9f734bda2a7ba4d"
+    },
+    {
+      "source": "/images/industries/recycling-scenarios/non-metal-recycling-sorting-line-clean-20261001.jpg",
+      "branded": "/images/industries/recycling-scenarios/non-metal-recycling-sorting-line-clean-20261001-cowin-brand-20261001.jpg",
+      "width": 1000,
+      "height": 667,
+      "logoCorner": "bottomLeft",
+      "sha256": "3b8b0c2effcc860065ac052f110bbdb00285d1b2346a4b64832dbcc4912b8a86"
+    },
+    {
+      "source": "/images/industries/recycling-scenarios/plastic-recycling-sorting-line.jpg",
+      "branded": "/images/industries/recycling-scenarios/plastic-recycling-sorting-line-cowin-brand-20261001.jpg",
+      "width": 1600,
+      "height": 1600,
+      "logoCorner": "bottomLeft",
+      "sha256": "0627d504f8556aaa34437689840a4b959f3de1d2d9424aaa61c2bcacdafb367d"
+    }
+  ]
+}

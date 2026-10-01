@@ -43,15 +43,15 @@ export const products: Product[] = [
     "slug": "rcyd-type-permanent-magnet-self-dumping-iron-remover",
     "name": "RCYD Self-Dumping Permanent Magnetic Iron Remover",
     "category": "Suspended & Self-Unloading Iron Removers",
-    "image": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130527234013948.jpg",
+    "image": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130527234013948-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130527234013948.jpg",
-      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-2013010416351264.gif",
-      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130104163512471.gif",
-      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-2013010416351288.gif",
-      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130104163512519.gif",
+      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130527234013948-cowin-brand-20261001.jpg",
+      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-2013010416351264-cowin-brand-20261001.gif",
+      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130104163512471-cowin-brand-20261001.gif",
+      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-2013010416351288-cowin-brand-20261001.gif",
+      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130104163512519-cowin-brand-20261001.gif",
       "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-s_20130825103056345.jpg",
-      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-s_20130104162714773.gif",
+      "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-s_20130104162714773-cowin-brand-20261001.gif",
       "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-s_2013052723244980.jpg",
       "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/rcyd-type-permanent-magnet-self-dumping-iron-remover-01.jpg",
       "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/rcyd-type-permanent-magnet-self-dumping-iron-remover-02.png",
@@ -299,27 +299,27 @@ export const products: Product[] = [
     },
     "engineeringDiagrams": [
       {
-        "src": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-2013010416351264.gif",
+        "src": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-2013010416351264-cowin-brand-20261001.gif",
         "alt": "RCYD Self-Dumping Permanent Magnetic Iron Remover technical reference drawing 1",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130104163512471.gif",
+        "src": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130104163512471-cowin-brand-20261001.gif",
         "alt": "RCYD Self-Dumping Permanent Magnetic Iron Remover technical reference drawing 2",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-2013010416351288.gif",
+        "src": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-2013010416351288-cowin-brand-20261001.gif",
         "alt": "RCYD Self-Dumping Permanent Magnetic Iron Remover technical reference drawing 3",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130104163512519.gif",
+        "src": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130104163512519-cowin-brand-20261001.gif",
         "alt": "RCYD Self-Dumping Permanent Magnetic Iron Remover technical reference drawing 4",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-s_20130104162714773.gif",
+        "src": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-s_20130104162714773-cowin-brand-20261001.gif",
         "alt": "RCYD Self-Dumping Permanent Magnetic Iron Remover technical reference drawing 5",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       }
@@ -329,10 +329,10 @@ export const products: Product[] = [
     "slug": "rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover",
     "name": "RCDD Self-Cooling Self-Dumping Electromagnetic Iron Remover",
     "category": "Suspended & Self-Unloading Iron Removers",
-    "image": "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130825103209634.jpg",
+    "image": "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130825103209634-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130825103209634.jpg",
-      "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130104122226760.gif",
+      "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130825103209634-cowin-brand-20261001.jpg",
+      "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130104122226760-cowin-brand-20261001.gif",
       "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-s_20130825103008516.jpg",
       "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-s_20130528000938524.jpg",
       "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-s_20130528000628451.jpg",
@@ -564,7 +564,7 @@ export const products: Product[] = [
     },
     "engineeringDiagrams": [
       {
-        "src": "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130104122226760.gif",
+        "src": "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130104122226760-cowin-brand-20261001.gif",
         "alt": "RCDD Self-Cooling Self-Dumping Electromagnetic Iron Remover technical reference drawing 1",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       }
@@ -574,9 +574,9 @@ export const products: Product[] = [
     "slug": "rcyb-type-permanent-magnet-manual-iron-remover",
     "name": "RCYB Suspended Permanent Magnetic Iron Remover",
     "category": "Suspended & Self-Unloading Iron Removers",
-    "image": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-suspended-permanent-magnet-main.jpg",
+    "image": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-suspended-permanent-magnet-main-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-suspended-permanent-magnet-main.jpg",
+      "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-suspended-permanent-magnet-main-cowin-brand-20261001.jpg",
       "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/rcyb-type-permanent-magnet-manual-iron-remover-01.jpg",
       "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/rcyb-type-permanent-magnet-manual-iron-remover-02.png",
       "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/rcyb-type-permanent-magnet-manual-iron-remover-03.png",
@@ -798,17 +798,17 @@ export const products: Product[] = [
     },
     "engineeringDiagrams": [
       {
-        "src": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-dimensional-reference.gif",
+        "src": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-dimensional-reference-cowin-brand-20261001.gif",
         "alt": "RCYB suspended permanent magnetic iron remover dimensional reference drawing",
         "caption": "Dimensional reference for preliminary configuration."
       },
       {
-        "src": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-inline-installation-reference.gif",
+        "src": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-inline-installation-reference-cowin-brand-20261001.gif",
         "alt": "RCYB suspended permanent magnetic iron remover inline installation reference drawing",
         "caption": "Inline installation reference. Confirm clearance and material trajectory for the final layout."
       },
       {
-        "src": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-cross-belt-installation-reference.gif",
+        "src": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-cross-belt-installation-reference-cowin-brand-20261001.gif",
         "alt": "RCYB suspended permanent magnetic iron remover cross-belt installation reference drawing",
         "caption": "Cross-belt installation reference. Final mounting is reviewed against the conveyor layout."
       }
@@ -818,13 +818,13 @@ export const products: Product[] = [
     "slug": "rcdb-type-self-cooling-plate-electromagnetic-iron-remover",
     "name": "RCDB Self-Cooling Plate Electromagnetic Iron Remover",
     "category": "Suspended & Self-Unloading Iron Removers",
-    "image": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130527235935684.jpg",
+    "image": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130527235935684-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130527235935684.jpg",
+      "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130527235935684-cowin-brand-20261001.jpg",
       "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130527160023_97967.jpg",
-      "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130104123550864.gif",
-      "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-s_20130322215922721.gif",
-      "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-s_20130104123824116.gif",
+      "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130104123550864-cowin-brand-20261001.gif",
+      "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-s_20130322215922721-cowin-brand-20261001.gif",
+      "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-s_20130104123824116-cowin-brand-20261001.gif",
       "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/rcdb-type-self-cooling-plate-electromagnetic-iron-remover-01.jpg",
       "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/rcdb-type-self-cooling-plate-electromagnetic-iron-remover-02.png",
       "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/rcdb-type-self-cooling-plate-electromagnetic-iron-remover-05.png",
@@ -1063,17 +1063,17 @@ export const products: Product[] = [
     },
     "engineeringDiagrams": [
       {
-        "src": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130104123550864.gif",
+        "src": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130104123550864-cowin-brand-20261001.gif",
         "alt": "RCDB Self-Cooling Plate Electromagnetic Iron Remover technical reference drawing 1",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-s_20130322215922721.gif",
+        "src": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-s_20130322215922721-cowin-brand-20261001.gif",
         "alt": "RCDB Self-Cooling Plate Electromagnetic Iron Remover technical reference drawing 2",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-s_20130104123824116.gif",
+        "src": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-s_20130104123824116-cowin-brand-20261001.gif",
         "alt": "RCDB Self-Cooling Plate Electromagnetic Iron Remover technical reference drawing 3",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       }
@@ -1083,9 +1083,9 @@ export const products: Product[] = [
     "slug": "belt-high-gradient-magnetic-separator",
     "name": "Belt High Gradient Magnetic Separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/belt-high-gradient-magnetic-separator/belt-high-gradient-magnetic-separator-01.jpg",
+    "image": "/assets/products/belt-high-gradient-magnetic-separator/belt-high-gradient-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/belt-high-gradient-magnetic-separator/belt-high-gradient-magnetic-separator-01.jpg",
+      "/assets/products/belt-high-gradient-magnetic-separator/belt-high-gradient-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/belt-high-gradient-magnetic-separator/belt-high-gradient-magnetic-separator-02.jpg",
       "/assets/products/belt-high-gradient-magnetic-separator/belt-high-gradient-magnetic-separator-09.jpg",
       "/assets/products/belt-high-gradient-magnetic-separator/belt-high-gradient-magnetic-separator-06.jpg",
@@ -1126,9 +1126,9 @@ export const products: Product[] = [
     "slug": "disc-magnetic-separator-for-tailing",
     "name": "Disc Magnetic Separator for Tailing",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/disc-magnetic-separator-for-tailing/disc-magnetic-separator-for-tailing-01.jpg",
+    "image": "/assets/products/disc-magnetic-separator-for-tailing/disc-magnetic-separator-for-tailing-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/disc-magnetic-separator-for-tailing/disc-magnetic-separator-for-tailing-01.jpg",
+      "/assets/products/disc-magnetic-separator-for-tailing/disc-magnetic-separator-for-tailing-01-cowin-brand-20261001.jpg",
       "/assets/products/disc-magnetic-separator-for-tailing/disc-magnetic-separator-for-tailing-02.jpg",
       "/assets/products/disc-magnetic-separator-for-tailing/disc-magnetic-separator-for-tailing-03.jpg",
       "/assets/products/disc-magnetic-separator-for-tailing/disc-magnetic-separator-for-tailing-04.jpg",
@@ -1168,9 +1168,9 @@ export const products: Product[] = [
     "slug": "dry-drum-magnetic-separator",
     "name": "Dry Drum Magnetic Separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/dry-drum-magnetic-separator/dry-drum-magnetic-separator-01.jpg",
+    "image": "/assets/products/dry-drum-magnetic-separator/dry-drum-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/dry-drum-magnetic-separator/dry-drum-magnetic-separator-01.jpg",
+      "/assets/products/dry-drum-magnetic-separator/dry-drum-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/dry-drum-magnetic-separator/dry-drum-magnetic-separator-02.jpg",
       "/assets/products/dry-drum-magnetic-separator/dry-drum-magnetic-separator-04.jpg",
       "/assets/products/dry-drum-magnetic-separator/dry-drum-magnetic-separator-03.jpg",
@@ -1223,9 +1223,9 @@ export const products: Product[] = [
     "slug": "wet-drum-magnetic-separator",
     "name": "Wet Drum Magnetic Separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/wet-drum-magnetic-separator/wet-drum-magnetic-separator-01.jpg",
+    "image": "/assets/products/wet-drum-magnetic-separator/wet-drum-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/wet-drum-magnetic-separator/wet-drum-magnetic-separator-01.jpg",
+      "/assets/products/wet-drum-magnetic-separator/wet-drum-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/wet-drum-magnetic-separator/wet-drum-magnetic-separator-02.jpg",
       "/assets/products/wet-drum-magnetic-separator/wet-drum-magnetic-separator-03.jpg",
       "/assets/products/wet-drum-magnetic-separator/wet-drum-magnetic-separator-04.jpg",
@@ -1295,9 +1295,9 @@ export const products: Product[] = [
     "slug": "cbz-type-rotary-automatic-magnetic-separator",
     "name": "CBZ type rotary automatic magnetic separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/cbz-type-rotary-automatic-magnetic-separator/cbz-type-rotary-automatic-magnetic-separator-01.jpg",
+    "image": "/assets/products/cbz-type-rotary-automatic-magnetic-separator/cbz-type-rotary-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/cbz-type-rotary-automatic-magnetic-separator/cbz-type-rotary-automatic-magnetic-separator-01.jpg",
+      "/assets/products/cbz-type-rotary-automatic-magnetic-separator/cbz-type-rotary-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/cbz-type-rotary-automatic-magnetic-separator/cbz-type-rotary-automatic-magnetic-separator-02.png",
       "/assets/products/cbz-type-rotary-automatic-magnetic-separator/cbz-type-rotary-automatic-magnetic-separator-03.png",
       "/assets/products/cbz-type-rotary-automatic-magnetic-separator/cbz-type-rotary-automatic-magnetic-separator-06.png",
@@ -1380,9 +1380,9 @@ export const products: Product[] = [
     "slug": "cgb-type-rotary-semi-automatic-magnetic-separator",
     "name": "CGB type rotary semi-automatic magnetic separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/cgb-type-rotary-semi-automatic-magnetic-separator/cgb-type-rotary-semi-automatic-magnetic-separator-01.jpg",
+    "image": "/assets/products/cgb-type-rotary-semi-automatic-magnetic-separator/cgb-type-rotary-semi-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/cgb-type-rotary-semi-automatic-magnetic-separator/cgb-type-rotary-semi-automatic-magnetic-separator-01.jpg",
+      "/assets/products/cgb-type-rotary-semi-automatic-magnetic-separator/cgb-type-rotary-semi-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/cgb-type-rotary-semi-automatic-magnetic-separator/cgb-type-rotary-semi-automatic-magnetic-separator-02.png",
       "/assets/products/cgb-type-rotary-semi-automatic-magnetic-separator/cgb-type-rotary-semi-automatic-magnetic-separator-03.png",
       "/assets/products/cgb-type-rotary-semi-automatic-magnetic-separator/cgb-type-rotary-semi-automatic-magnetic-separator-07.png",
@@ -1450,9 +1450,9 @@ export const products: Product[] = [
     "slug": "cqz-type-fully-automatic-online-magnetic-separator",
     "name": "CQZ type fully automatic online magnetic separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/cqz-type-fully-automatic-online-magnetic-separator/cqz-type-fully-automatic-online-magnetic-separator-01.jpg",
+    "image": "/assets/products/cqz-type-fully-automatic-online-magnetic-separator/cqz-type-fully-automatic-online-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/cqz-type-fully-automatic-online-magnetic-separator/cqz-type-fully-automatic-online-magnetic-separator-01.jpg",
+      "/assets/products/cqz-type-fully-automatic-online-magnetic-separator/cqz-type-fully-automatic-online-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/cqz-type-fully-automatic-online-magnetic-separator/cqz-type-fully-automatic-online-magnetic-separator-02.png",
       "/assets/products/cqz-type-fully-automatic-online-magnetic-separator/cqz-type-fully-automatic-online-magnetic-separator-03.png",
       "/assets/products/cqz-type-fully-automatic-online-magnetic-separator/cqz-type-fully-automatic-online-magnetic-separator-05.png",
@@ -1502,9 +1502,9 @@ export const products: Product[] = [
     "slug": "ctn-wet-full-countercurrent-magnetic-separator",
     "name": "CTN wet full countercurrent magnetic separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/ctn-wet-full-countercurrent-magnetic-separator/ctn-wet-full-countercurrent-magnetic-separator-01.jpg",
+    "image": "/assets/products/ctn-wet-full-countercurrent-magnetic-separator/ctn-wet-full-countercurrent-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/ctn-wet-full-countercurrent-magnetic-separator/ctn-wet-full-countercurrent-magnetic-separator-01.jpg",
+      "/assets/products/ctn-wet-full-countercurrent-magnetic-separator/ctn-wet-full-countercurrent-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/ctn-wet-full-countercurrent-magnetic-separator/ctn-wet-full-countercurrent-magnetic-separator-02.png",
       "/assets/products/ctn-wet-full-countercurrent-magnetic-separator/ctn-wet-full-countercurrent-magnetic-separator-04.png",
       "/assets/products/ctn-wet-full-countercurrent-magnetic-separator/ctn-wet-full-countercurrent-magnetic-separator-06.png",
@@ -1552,9 +1552,9 @@ export const products: Product[] = [
     "slug": "cts-type-wet-co-current-magnetic-separator",
     "name": "CTS type wet co current magnetic separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/cts-type-wet-co-current-magnetic-separator/cts-type-wet-co-current-magnetic-separator-01.jpg",
+    "image": "/assets/products/cts-type-wet-co-current-magnetic-separator/cts-type-wet-co-current-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/cts-type-wet-co-current-magnetic-separator/cts-type-wet-co-current-magnetic-separator-01.jpg",
+      "/assets/products/cts-type-wet-co-current-magnetic-separator/cts-type-wet-co-current-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/cts-type-wet-co-current-magnetic-separator/cts-type-wet-co-current-magnetic-separator-02.png",
       "/assets/products/cts-type-wet-co-current-magnetic-separator/cts-type-wet-co-current-magnetic-separator-06.png",
       "/assets/products/cts-type-wet-co-current-magnetic-separator/cts-type-wet-co-current-magnetic-separator-08.jpg",
@@ -1606,9 +1606,9 @@ export const products: Product[] = [
     "slug": "cxj-drum-type-automatic-magnetic-separator",
     "name": "CXJ drum type automatic magnetic separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/cxj-drum-type-automatic-magnetic-separator/cxj-drum-type-automatic-magnetic-separator-01.jpg",
+    "image": "/assets/products/cxj-drum-type-automatic-magnetic-separator/cxj-drum-type-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/cxj-drum-type-automatic-magnetic-separator/cxj-drum-type-automatic-magnetic-separator-01.jpg",
+      "/assets/products/cxj-drum-type-automatic-magnetic-separator/cxj-drum-type-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/cxj-drum-type-automatic-magnetic-separator/cxj-drum-type-automatic-magnetic-separator-02.png",
       "/assets/products/cxj-drum-type-automatic-magnetic-separator/cxj-drum-type-automatic-magnetic-separator-03.png",
       "/assets/products/cxj-drum-type-automatic-magnetic-separator/cxj-drum-type-automatic-magnetic-separator-04.png",
@@ -1661,9 +1661,9 @@ export const products: Product[] = [
     "slug": "dcz-type-dry-fully-automatic-magnetic-separator",
     "name": "DCZ type dry fully automatic magnetic separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/dcz-type-dry-fully-automatic-magnetic-separator/dcz-type-dry-fully-automatic-magnetic-separator-01.jpg",
+    "image": "/assets/products/dcz-type-dry-fully-automatic-magnetic-separator/dcz-type-dry-fully-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/dcz-type-dry-fully-automatic-magnetic-separator/dcz-type-dry-fully-automatic-magnetic-separator-01.jpg",
+      "/assets/products/dcz-type-dry-fully-automatic-magnetic-separator/dcz-type-dry-fully-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/dcz-type-dry-fully-automatic-magnetic-separator/dcz-type-dry-fully-automatic-magnetic-separator-02.png",
       "/assets/products/dcz-type-dry-fully-automatic-magnetic-separator/dcz-type-dry-fully-automatic-magnetic-separator-03.png",
       "/assets/products/dcz-type-dry-fully-automatic-magnetic-separator/dcz-type-dry-fully-automatic-magnetic-separator-06.png",
@@ -1717,9 +1717,9 @@ export const products: Product[] = [
     "slug": "gls-type-integral-channel-metal-separator",
     "name": "GLS type integral channel metal separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/gls-type-integral-channel-metal-separator/gls-type-integral-channel-metal-separator-01.jpg",
+    "image": "/assets/products/gls-type-integral-channel-metal-separator/gls-type-integral-channel-metal-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/gls-type-integral-channel-metal-separator/gls-type-integral-channel-metal-separator-01.jpg",
+      "/assets/products/gls-type-integral-channel-metal-separator/gls-type-integral-channel-metal-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/gls-type-integral-channel-metal-separator/gls-type-integral-channel-metal-separator-02.png",
       "/assets/products/gls-type-integral-channel-metal-separator/gls-type-integral-channel-metal-separator-04.png",
       "/assets/products/gls-type-integral-channel-metal-separator/gls-type-integral-channel-metal-separator-05.png",
@@ -1780,9 +1780,9 @@ export const products: Product[] = [
     "slug": "cgt-type-super-strong-full-magnetic-drum",
     "name": "CGT type super strong full magnetic drum",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/cgt-type-super-strong-full-magnetic-drum/cgt-type-super-strong-full-magnetic-drum-01.jpg",
+    "image": "/assets/products/cgt-type-super-strong-full-magnetic-drum/cgt-type-super-strong-full-magnetic-drum-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/cgt-type-super-strong-full-magnetic-drum/cgt-type-super-strong-full-magnetic-drum-01.jpg",
+      "/assets/products/cgt-type-super-strong-full-magnetic-drum/cgt-type-super-strong-full-magnetic-drum-01-cowin-brand-20261001.jpg",
       "/assets/products/cgt-type-super-strong-full-magnetic-drum/cgt-type-super-strong-full-magnetic-drum-02.png",
       "/assets/products/cgt-type-super-strong-full-magnetic-drum/cgt-type-super-strong-full-magnetic-drum-03.png",
       "/assets/products/cgt-type-super-strong-full-magnetic-drum/cgt-type-super-strong-full-magnetic-drum-04.png",
@@ -1840,9 +1840,9 @@ export const products: Product[] = [
     "slug": "ctz-type-midfield-strong-semi-magnetic-drum",
     "name": "CTZ type midfield strong semi magnetic drum",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/ctz-type-midfield-strong-semi-magnetic-drum/ctz-type-midfield-strong-semi-magnetic-drum-01.jpg",
+    "image": "/assets/products/ctz-type-midfield-strong-semi-magnetic-drum/ctz-type-midfield-strong-semi-magnetic-drum-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/ctz-type-midfield-strong-semi-magnetic-drum/ctz-type-midfield-strong-semi-magnetic-drum-01.jpg",
+      "/assets/products/ctz-type-midfield-strong-semi-magnetic-drum/ctz-type-midfield-strong-semi-magnetic-drum-01-cowin-brand-20261001.jpg",
       "/assets/products/ctz-type-midfield-strong-semi-magnetic-drum/ctz-type-midfield-strong-semi-magnetic-drum-03.png",
       "/assets/products/ctz-type-midfield-strong-semi-magnetic-drum/ctz-type-midfield-strong-semi-magnetic-drum-04.png",
       "/assets/products/ctz-type-midfield-strong-semi-magnetic-drum/ctz-type-midfield-strong-semi-magnetic-drum-06.png",
@@ -1910,14 +1910,14 @@ export const products: Product[] = [
     "slug": "rcda-type-air-cooled-electromagnetic-iron-remover",
     "name": "RCDA Air-Cooled Suspended Electromagnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824116.gif",
+    "image": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824116-cowin-brand-20261001.gif",
     "imageGallery": [
-      "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824116.gif",
-      "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824869.gif",
-      "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824314.gif",
+      "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824116-cowin-brand-20261001.gif",
+      "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824869-cowin-brand-20261001.gif",
+      "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824314-cowin-brand-20261001.gif",
       "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-s_2013032221485321.jpg",
       "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-s_20130528000628451.jpg",
-      "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-s_20130322215922721.gif",
+      "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-s_20130322215922721-cowin-brand-20261001.gif",
       "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-s_20130527235935684.jpg",
       "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/rcda-type-air-cooled-electromagnetic-iron-remover-01.jpg",
       "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/rcda-type-air-cooled-electromagnetic-iron-remover-02.png",
@@ -2184,22 +2184,22 @@ export const products: Product[] = [
     },
     "engineeringDiagrams": [
       {
-        "src": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824116.gif",
+        "src": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824116-cowin-brand-20261001.gif",
         "alt": "RCDA Air-Cooled Suspended Electromagnetic Iron Remover technical reference drawing 1",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824869.gif",
+        "src": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824869-cowin-brand-20261001.gif",
         "alt": "RCDA Air-Cooled Suspended Electromagnetic Iron Remover technical reference drawing 2",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824314.gif",
+        "src": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824314-cowin-brand-20261001.gif",
         "alt": "RCDA Air-Cooled Suspended Electromagnetic Iron Remover technical reference drawing 3",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-s_20130322215922721.gif",
+        "src": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-s_20130322215922721-cowin-brand-20261001.gif",
         "alt": "RCDA Air-Cooled Suspended Electromagnetic Iron Remover technical reference drawing 4",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       }
@@ -2209,13 +2209,13 @@ export const products: Product[] = [
     "slug": "rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover",
     "name": "RCDC Air-Cooled Self-Dumping Electromagnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-20130528000628451.jpg",
+    "image": "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-20130528000628451-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-20130528000628451.jpg",
+      "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-20130528000628451-cowin-brand-20261001.jpg",
       "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-s_20130825103209634.jpg",
       "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-s_20130825103008516.jpg",
       "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-s_2013032221485321.jpg",
-      "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-s_20130104123824116.gif",
+      "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-s_20130104123824116-cowin-brand-20261001.gif",
       "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover-01.jpg",
       "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover-02.png",
       "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover-03.png",
@@ -2467,7 +2467,7 @@ export const products: Product[] = [
     },
     "engineeringDiagrams": [
       {
-        "src": "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-s_20130104123824116.gif",
+        "src": "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-s_20130104123824116-cowin-brand-20261001.gif",
         "alt": "RCDC Air-Cooled Self-Dumping Electromagnetic Iron Remover technical reference drawing 1",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       }
@@ -2477,12 +2477,12 @@ export const products: Product[] = [
     "slug": "rcde-type-oil-cooled-electromagnetic-iron-remover",
     "name": "RCDE Oil-Cooled Electromagnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130825103008516.jpg",
+    "image": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130825103008516-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130825103008516.jpg",
-      "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130104121634646.gif",
+      "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130825103008516-cowin-brand-20261001.jpg",
+      "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130104121634646-cowin-brand-20261001.gif",
       "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-s_20130528000938524.jpg",
-      "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-s_20130104161615151.gif",
+      "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-s_20130104161615151-cowin-brand-20261001.gif",
       "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-s_20130825103209634.jpg",
       "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-s_20130528000628451.jpg",
       "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/rcde-type-oil-cooled-electromagnetic-iron-remover-01.jpg",
@@ -2767,12 +2767,12 @@ export const products: Product[] = [
     },
     "engineeringDiagrams": [
       {
-        "src": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130104121634646.gif",
+        "src": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130104121634646-cowin-brand-20261001.gif",
         "alt": "RCDE Oil-Cooled Electromagnetic Iron Remover technical reference drawing 1",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-s_20130104161615151.gif",
+        "src": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-s_20130104161615151-cowin-brand-20261001.gif",
         "alt": "RCDE Oil-Cooled Electromagnetic Iron Remover technical reference drawing 2",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       }
@@ -2782,10 +2782,10 @@ export const products: Product[] = [
     "slug": "rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover",
     "name": "RCDF Oil-Cooled Self-Dumping Electromagnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-20130528000938524.jpg",
+    "image": "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-20130528000938524-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-20130528000938524.jpg",
-      "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-s_20130104161615151.gif",
+      "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-20130528000938524-cowin-brand-20261001.jpg",
+      "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-s_20130104161615151-cowin-brand-20261001.gif",
       "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-s_20130825103008516.jpg",
       "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-s_20130825103209634.jpg",
       "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-s_20130528000628451.jpg",
@@ -3023,7 +3023,7 @@ export const products: Product[] = [
     },
     "engineeringDiagrams": [
       {
-        "src": "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-s_20130104161615151.gif",
+        "src": "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-s_20130104161615151-cowin-brand-20261001.gif",
         "alt": "RCDF Oil-Cooled Self-Dumping Electromagnetic Iron Remover technical reference drawing 1",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       }
@@ -3033,9 +3033,9 @@ export const products: Product[] = [
     "slug": "rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover",
     "name": "RCDFJ type forced oil circulation self dumping electromagnetic iron remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover-01.jpg",
+    "image": "/assets/products/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover-01.jpg",
+      "/assets/products/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover-01-cowin-brand-20261001.jpg",
       "/assets/products/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover-02.png",
       "/assets/products/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover-03.png",
       "/assets/products/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover/rcdfj-type-forced-oil-circulation-self-dumping-electromagnetic-iron-remover-04.png",
@@ -3078,9 +3078,9 @@ export const products: Product[] = [
     "slug": "rcps-self-dumping-disc-type-permanent-magnet-iron-remover",
     "name": "RCPS self dumping disc type permanent magnet iron remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcps-self-dumping-disc-type-permanent-magnet-iron-remover/rcps-self-dumping-disc-type-permanent-magnet-iron-remover-01.jpg",
+    "image": "/assets/products/rcps-self-dumping-disc-type-permanent-magnet-iron-remover/rcps-self-dumping-disc-type-permanent-magnet-iron-remover-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rcps-self-dumping-disc-type-permanent-magnet-iron-remover/rcps-self-dumping-disc-type-permanent-magnet-iron-remover-01.jpg",
+      "/assets/products/rcps-self-dumping-disc-type-permanent-magnet-iron-remover/rcps-self-dumping-disc-type-permanent-magnet-iron-remover-01-cowin-brand-20261001.jpg",
       "/assets/products/rcps-self-dumping-disc-type-permanent-magnet-iron-remover/rcps-self-dumping-disc-type-permanent-magnet-iron-remover-02.png",
       "/assets/products/rcps-self-dumping-disc-type-permanent-magnet-iron-remover/rcps-self-dumping-disc-type-permanent-magnet-iron-remover-05.png",
       "/assets/products/rcps-self-dumping-disc-type-permanent-magnet-iron-remover/rcps-self-dumping-disc-type-permanent-magnet-iron-remover-03.png",
@@ -3122,9 +3122,9 @@ export const products: Product[] = [
     "slug": "rct-type-fully-magnetic-drum",
     "name": "RCT type fully magnetic drum",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rct-type-fully-magnetic-drum/rct-type-fully-magnetic-drum-01.jpg",
+    "image": "/assets/products/rct-type-fully-magnetic-drum/rct-type-fully-magnetic-drum-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rct-type-fully-magnetic-drum/rct-type-fully-magnetic-drum-01.jpg",
+      "/assets/products/rct-type-fully-magnetic-drum/rct-type-fully-magnetic-drum-01-cowin-brand-20261001.jpg",
       "/assets/products/rct-type-fully-magnetic-drum/rct-type-fully-magnetic-drum-02.png",
       "/assets/products/rct-type-fully-magnetic-drum/rct-type-fully-magnetic-drum-06.png",
       "/assets/products/rct-type-fully-magnetic-drum/rct-type-fully-magnetic-drum-03.png",
@@ -3188,14 +3188,14 @@ export const products: Product[] = [
     "slug": "rcya-type-inclined-pipeline-permanent-magnet-iron-remover",
     "name": "RCYA Inclined Pipeline Permanent Magnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714773.gif",
+    "image": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714773-cowin-brand-20261001.gif",
     "imageGallery": [
-      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714773.gif",
-      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714540.gif",
-      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162715484.gif",
-      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-2013010416271514.gif",
+      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714773-cowin-brand-20261001.gif",
+      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714540-cowin-brand-20261001.gif",
+      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162715484-cowin-brand-20261001.gif",
+      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-2013010416271514-cowin-brand-20261001.gif",
       "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-s_20130527235730314.jpg",
-      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-s_20130104155415539.gif",
+      "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-s_20130104155415539-cowin-brand-20261001.gif",
       "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-s_20130825103056345.jpg",
       "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-s_20130527234013948.jpg",
       "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/rcya-type-inclined-pipeline-permanent-magnet-iron-remover-01.jpg",
@@ -3395,27 +3395,27 @@ export const products: Product[] = [
     },
     "engineeringDiagrams": [
       {
-        "src": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714773.gif",
+        "src": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714773-cowin-brand-20261001.gif",
         "alt": "RCYA Inclined Pipeline Permanent Magnetic Iron Remover technical reference drawing 1",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714540.gif",
+        "src": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714540-cowin-brand-20261001.gif",
         "alt": "RCYA Inclined Pipeline Permanent Magnetic Iron Remover technical reference drawing 2",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162715484.gif",
+        "src": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162715484-cowin-brand-20261001.gif",
         "alt": "RCYA Inclined Pipeline Permanent Magnetic Iron Remover technical reference drawing 3",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-2013010416271514.gif",
+        "src": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-2013010416271514-cowin-brand-20261001.gif",
         "alt": "RCYA Inclined Pipeline Permanent Magnetic Iron Remover technical reference drawing 4",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-s_20130104155415539.gif",
+        "src": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-s_20130104155415539-cowin-brand-20261001.gif",
         "alt": "RCYA Inclined Pipeline Permanent Magnetic Iron Remover technical reference drawing 5",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       }
@@ -3425,9 +3425,9 @@ export const products: Product[] = [
     "slug": "rcydii-type-permanent-magnet-self-dumping-iron-remover",
     "name": "RCYDII type permanent magnet self dumping iron remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcydii-type-permanent-magnet-self-dumping-iron-remover/rcydii-type-permanent-magnet-self-dumping-iron-remover-01.jpg",
+    "image": "/assets/products/rcydii-type-permanent-magnet-self-dumping-iron-remover/rcydii-type-permanent-magnet-self-dumping-iron-remover-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rcydii-type-permanent-magnet-self-dumping-iron-remover/rcydii-type-permanent-magnet-self-dumping-iron-remover-01.jpg",
+      "/assets/products/rcydii-type-permanent-magnet-self-dumping-iron-remover/rcydii-type-permanent-magnet-self-dumping-iron-remover-01-cowin-brand-20261001.jpg",
       "/assets/products/rcydii-type-permanent-magnet-self-dumping-iron-remover/rcydii-type-permanent-magnet-self-dumping-iron-remover-02.png",
       "/assets/products/rcydii-type-permanent-magnet-self-dumping-iron-remover/rcydii-type-permanent-magnet-self-dumping-iron-remover-03.png",
       "/assets/products/rcydii-type-permanent-magnet-self-dumping-iron-remover/rcydii-type-permanent-magnet-self-dumping-iron-remover-07.png",
@@ -3472,9 +3472,9 @@ export const products: Product[] = [
     "slug": "rcye-type-permanent-magnet-self-dumping-iron-remover",
     "name": "RCYE type permanent magnet self dumping iron remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcye-type-permanent-magnet-self-dumping-iron-remover/rcye-type-permanent-magnet-self-dumping-iron-remover-01.jpg",
+    "image": "/assets/products/rcye-type-permanent-magnet-self-dumping-iron-remover/rcye-type-permanent-magnet-self-dumping-iron-remover-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rcye-type-permanent-magnet-self-dumping-iron-remover/rcye-type-permanent-magnet-self-dumping-iron-remover-01.jpg",
+      "/assets/products/rcye-type-permanent-magnet-self-dumping-iron-remover/rcye-type-permanent-magnet-self-dumping-iron-remover-01-cowin-brand-20261001.jpg",
       "/assets/products/rcye-type-permanent-magnet-self-dumping-iron-remover/rcye-type-permanent-magnet-self-dumping-iron-remover-02.png",
       "/assets/products/rcye-type-permanent-magnet-self-dumping-iron-remover/rcye-type-permanent-magnet-self-dumping-iron-remover-03.png",
       "/assets/products/rcye-type-permanent-magnet-self-dumping-iron-remover/rcye-type-permanent-magnet-self-dumping-iron-remover-06.png",
@@ -3511,13 +3511,13 @@ export const products: Product[] = [
     "slug": "rcyf-type-vertical-pipeline-permanent-magnet-iron-remover",
     "name": "RCYF Vertical Pipeline Permanent Magnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130825102859754.jpg",
+    "image": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130825102859754-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130825102859754.jpg",
-      "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130527155446_34721.gif",
-      "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130104155415539.gif",
+      "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130825102859754-cowin-brand-20261001.jpg",
+      "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130527155446_34721-cowin-brand-20261001.gif",
+      "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130104155415539-cowin-brand-20261001.gif",
       "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130527235730314.jpg",
-      "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130104162714773.gif",
+      "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130104162714773-cowin-brand-20261001.gif",
       "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130825103056345.jpg",
       "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover-01.jpg",
       "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover-02.png",
@@ -3656,17 +3656,17 @@ export const products: Product[] = [
     },
     "engineeringDiagrams": [
       {
-        "src": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130527155446_34721.gif",
+        "src": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130527155446_34721-cowin-brand-20261001.gif",
         "alt": "RCYF Vertical Pipeline Permanent Magnetic Iron Remover technical reference drawing 1",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130104155415539.gif",
+        "src": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130104155415539-cowin-brand-20261001.gif",
         "alt": "RCYF Vertical Pipeline Permanent Magnetic Iron Remover technical reference drawing 2",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130104162714773.gif",
+        "src": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-s_20130104162714773-cowin-brand-20261001.gif",
         "alt": "RCYF Vertical Pipeline Permanent Magnetic Iron Remover technical reference drawing 3",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       }
@@ -3676,10 +3676,10 @@ export const products: Product[] = [
     "slug": "rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover",
     "name": "RCYG Pipeline Self-Dumping Permanent Magnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-20130322215922721.gif",
+    "image": "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-20130322215922721-cowin-brand-20261001.gif",
     "imageGallery": [
-      "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-20130322215922721.gif",
-      "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-s_20130104123824116.gif",
+      "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-20130322215922721-cowin-brand-20261001.gif",
+      "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-s_20130104123824116-cowin-brand-20261001.gif",
       "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-s_2013032221485321.jpg",
       "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-s_20130527235935684.jpg",
       "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover-01.jpg",
@@ -3817,12 +3817,12 @@ export const products: Product[] = [
     },
     "engineeringDiagrams": [
       {
-        "src": "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-20130322215922721.gif",
+        "src": "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-20130322215922721-cowin-brand-20261001.gif",
         "alt": "RCYG Pipeline Self-Dumping Permanent Magnetic Iron Remover technical reference drawing 1",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-s_20130104123824116.gif",
+        "src": "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-s_20130104123824116-cowin-brand-20261001.gif",
         "alt": "RCYG Pipeline Self-Dumping Permanent Magnetic Iron Remover technical reference drawing 2",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       }
@@ -3832,13 +3832,13 @@ export const products: Product[] = [
     "slug": "rcyp-type-permanent-magnet-manual-self-dumping-iron-remover",
     "name": "RCYP Manual-Cleaning Permanent Magnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155415539.gif",
+    "image": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155415539-cowin-brand-20261001.gif",
     "imageGallery": [
-      "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155415539.gif",
-      "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155416137.gif",
+      "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155415539-cowin-brand-20261001.gif",
+      "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155416137-cowin-brand-20261001.gif",
       "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-s_20130825102859754.jpg",
       "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-s_20130527235730314.jpg",
-      "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-s_20130104162714773.gif",
+      "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-s_20130104162714773-cowin-brand-20261001.gif",
       "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-s_20130825103056345.jpg",
       "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover-01.jpg",
       "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover-02.png",
@@ -4003,17 +4003,17 @@ export const products: Product[] = [
     },
     "engineeringDiagrams": [
       {
-        "src": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155415539.gif",
+        "src": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155415539-cowin-brand-20261001.gif",
         "alt": "RCYP Manual-Cleaning Permanent Magnetic Iron Remover technical reference drawing 1",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155416137.gif",
+        "src": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155416137-cowin-brand-20261001.gif",
         "alt": "RCYP Manual-Cleaning Permanent Magnetic Iron Remover technical reference drawing 2",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       },
       {
-        "src": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-s_20130104162714773.gif",
+        "src": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-s_20130104162714773-cowin-brand-20261001.gif",
         "alt": "RCYP Manual-Cleaning Permanent Magnetic Iron Remover technical reference drawing 3",
         "caption": "Technical reference drawing. Confirm final dimensions and installation details for the selected configuration."
       }
@@ -4023,9 +4023,9 @@ export const products: Product[] = [
     "slug": "rcyz-type-vertical-pipeline-permanent-magnet-iron-remover",
     "name": "RCYZ type vertical pipeline permanent magnet iron remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover-01.jpg",
+    "image": "/assets/products/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover-01.jpg",
+      "/assets/products/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover-01-cowin-brand-20261001.jpg",
       "/assets/products/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover-02.png",
       "/assets/products/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover-03.png",
       "/assets/products/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover/rcyz-type-vertical-pipeline-permanent-magnet-iron-remover-04.png",
@@ -4071,9 +4071,9 @@ export const products: Product[] = [
     "slug": "cqz-type-fully-automatic-online-magnetic-separation",
     "name": "CQZ type fully automatic online magnetic separation",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/cqz-type-fully-automatic-online-magnetic-separation/cqz-type-fully-automatic-online-magnetic-separation-01.jpg",
+    "image": "/assets/products/cqz-type-fully-automatic-online-magnetic-separation/cqz-type-fully-automatic-online-magnetic-separation-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/cqz-type-fully-automatic-online-magnetic-separation/cqz-type-fully-automatic-online-magnetic-separation-01.jpg",
+      "/assets/products/cqz-type-fully-automatic-online-magnetic-separation/cqz-type-fully-automatic-online-magnetic-separation-01-cowin-brand-20261001.jpg",
       "/assets/products/cqz-type-fully-automatic-online-magnetic-separation/cqz-type-fully-automatic-online-magnetic-separation-02.png",
       "/assets/products/cqz-type-fully-automatic-online-magnetic-separation/cqz-type-fully-automatic-online-magnetic-separation-03.png",
       "/assets/products/cqz-type-fully-automatic-online-magnetic-separation/cqz-type-fully-automatic-online-magnetic-separation-05.png",
@@ -4123,9 +4123,9 @@ export const products: Product[] = [
     "slug": "ctb-wet-semi-countercurrent-magnetic-separator",
     "name": "CTB wet semi countercurrent magnetic separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/ctb-wet-semi-countercurrent-magnetic-separator/ctb-wet-semi-countercurrent-magnetic-separator-01.jpg",
+    "image": "/assets/products/ctb-wet-semi-countercurrent-magnetic-separator/ctb-wet-semi-countercurrent-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/ctb-wet-semi-countercurrent-magnetic-separator/ctb-wet-semi-countercurrent-magnetic-separator-01.jpg",
+      "/assets/products/ctb-wet-semi-countercurrent-magnetic-separator/ctb-wet-semi-countercurrent-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/ctb-wet-semi-countercurrent-magnetic-separator/ctb-wet-semi-countercurrent-magnetic-separator-02.png",
       "/assets/products/ctb-wet-semi-countercurrent-magnetic-separator/ctb-wet-semi-countercurrent-magnetic-separator-05.png",
       "/assets/products/ctb-wet-semi-countercurrent-magnetic-separator/ctb-wet-semi-countercurrent-magnetic-separator-03.png",
@@ -4168,9 +4168,9 @@ export const products: Product[] = [
     "slug": "dcx-wet-fully-automatic-magnetic-separator",
     "name": "DCX wet fully automatic magnetic separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/dcx-wet-fully-automatic-magnetic-separator/dcx-wet-fully-automatic-magnetic-separator-01.jpg",
+    "image": "/assets/products/dcx-wet-fully-automatic-magnetic-separator/dcx-wet-fully-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/dcx-wet-fully-automatic-magnetic-separator/dcx-wet-fully-automatic-magnetic-separator-01.jpg",
+      "/assets/products/dcx-wet-fully-automatic-magnetic-separator/dcx-wet-fully-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/dcx-wet-fully-automatic-magnetic-separator/dcx-wet-fully-automatic-magnetic-separator-02.png",
       "/assets/products/dcx-wet-fully-automatic-magnetic-separator/dcx-wet-fully-automatic-magnetic-separator-03.png",
       "/assets/products/dcx-wet-fully-automatic-magnetic-separator/dcx-wet-fully-automatic-magnetic-separator-06.png",
@@ -4217,9 +4217,9 @@ export const products: Product[] = [
     "slug": "dcz-type-dry-fully-automatic-magnetic-separation",
     "name": "DCZ type dry fully automatic magnetic separation",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/dcz-type-dry-fully-automatic-magnetic-separation/dcz-type-dry-fully-automatic-magnetic-separation-01.jpg",
+    "image": "/assets/products/dcz-type-dry-fully-automatic-magnetic-separation/dcz-type-dry-fully-automatic-magnetic-separation-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/dcz-type-dry-fully-automatic-magnetic-separation/dcz-type-dry-fully-automatic-magnetic-separation-01.jpg",
+      "/assets/products/dcz-type-dry-fully-automatic-magnetic-separation/dcz-type-dry-fully-automatic-magnetic-separation-01-cowin-brand-20261001.jpg",
       "/assets/products/dcz-type-dry-fully-automatic-magnetic-separation/dcz-type-dry-fully-automatic-magnetic-separation-02.png",
       "/assets/products/dcz-type-dry-fully-automatic-magnetic-separation/dcz-type-dry-fully-automatic-magnetic-separation-06.png",
       "/assets/products/dcz-type-dry-fully-automatic-magnetic-separation/dcz-type-dry-fully-automatic-magnetic-separation-03.png",
@@ -4276,9 +4276,9 @@ export const products: Product[] = [
     "slug": "gtc-wet-plate-magnetic-separator",
     "name": "GTC wet plate magnetic separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/gtc-wet-plate-magnetic-separator/gtc-wet-plate-magnetic-separator-01.jpg",
+    "image": "/assets/products/gtc-wet-plate-magnetic-separator/gtc-wet-plate-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/gtc-wet-plate-magnetic-separator/gtc-wet-plate-magnetic-separator-01.jpg",
+      "/assets/products/gtc-wet-plate-magnetic-separator/gtc-wet-plate-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/gtc-wet-plate-magnetic-separator/gtc-wet-plate-magnetic-separator-04.png",
       "/assets/products/gtc-wet-plate-magnetic-separator/gtc-wet-plate-magnetic-separator-02.png",
       "/assets/products/gtc-wet-plate-magnetic-separator/gtc-wet-plate-magnetic-separator-03.png",
@@ -4323,9 +4323,9 @@ export const products: Product[] = [
     "slug": "hjlh-wet-vertical-ring-high-gradient-magnetic-separator",
     "name": "HJLH wet vertical ring high gradient magnetic separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/hjlh-wet-vertical-ring-high-gradient-magnetic-separator/hjlh-wet-vertical-ring-high-gradient-magnetic-separator-01.jpg",
+    "image": "/assets/products/hjlh-wet-vertical-ring-high-gradient-magnetic-separator/hjlh-wet-vertical-ring-high-gradient-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/hjlh-wet-vertical-ring-high-gradient-magnetic-separator/hjlh-wet-vertical-ring-high-gradient-magnetic-separator-01.jpg",
+      "/assets/products/hjlh-wet-vertical-ring-high-gradient-magnetic-separator/hjlh-wet-vertical-ring-high-gradient-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/hjlh-wet-vertical-ring-high-gradient-magnetic-separator/hjlh-wet-vertical-ring-high-gradient-magnetic-separator-02.png",
       "/assets/products/hjlh-wet-vertical-ring-high-gradient-magnetic-separator/hjlh-wet-vertical-ring-high-gradient-magnetic-separator-05.png",
       "/assets/products/hjlh-wet-vertical-ring-high-gradient-magnetic-separator/hjlh-wet-vertical-ring-high-gradient-magnetic-separator-03.png",
@@ -4372,9 +4372,9 @@ export const products: Product[] = [
     "slug": "hjpc-wet-disc-magnetic-separation",
     "name": "HJPC wet disc magnetic separation",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/hjpc-wet-disc-magnetic-separation/hjpc-wet-disc-magnetic-separation-01.jpg",
+    "image": "/assets/products/hjpc-wet-disc-magnetic-separation/hjpc-wet-disc-magnetic-separation-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/hjpc-wet-disc-magnetic-separation/hjpc-wet-disc-magnetic-separation-01.jpg",
+      "/assets/products/hjpc-wet-disc-magnetic-separation/hjpc-wet-disc-magnetic-separation-01-cowin-brand-20261001.jpg",
       "/assets/products/hjpc-wet-disc-magnetic-separation/hjpc-wet-disc-magnetic-separation-02.png",
       "/assets/products/hjpc-wet-disc-magnetic-separation/hjpc-wet-disc-magnetic-separation-05.png",
       "/assets/products/hjpc-wet-disc-magnetic-separation/hjpc-wet-disc-magnetic-separation-04.png",
@@ -4423,9 +4423,9 @@ export const products: Product[] = [
     "slug": "clt-type-magnetic-desliming-tank",
     "name": "CLT type magnetic desliming tank",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/clt-type-magnetic-desliming-tank/clt-type-magnetic-desliming-tank-01.jpg",
+    "image": "/assets/products/clt-type-magnetic-desliming-tank/clt-type-magnetic-desliming-tank-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/clt-type-magnetic-desliming-tank/clt-type-magnetic-desliming-tank-01.jpg",
+      "/assets/products/clt-type-magnetic-desliming-tank/clt-type-magnetic-desliming-tank-01-cowin-brand-20261001.jpg",
       "/assets/products/clt-type-magnetic-desliming-tank/clt-type-magnetic-desliming-tank-02.png",
       "/assets/products/clt-type-magnetic-desliming-tank/clt-type-magnetic-desliming-tank-04.png",
       "/assets/products/clt-type-magnetic-desliming-tank/clt-type-magnetic-desliming-tank-05.png",
@@ -4471,9 +4471,9 @@ export const products: Product[] = [
     "slug": "ctb-type-semi-countercurrent-wet-selection-machine",
     "name": "CTB type semi countercurrent wet selection machine",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/ctb-type-semi-countercurrent-wet-selection-machine/ctb-type-semi-countercurrent-wet-selection-machine-01.jpg",
+    "image": "/assets/products/ctb-type-semi-countercurrent-wet-selection-machine/ctb-type-semi-countercurrent-wet-selection-machine-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/ctb-type-semi-countercurrent-wet-selection-machine/ctb-type-semi-countercurrent-wet-selection-machine-01.jpg",
+      "/assets/products/ctb-type-semi-countercurrent-wet-selection-machine/ctb-type-semi-countercurrent-wet-selection-machine-01-cowin-brand-20261001.jpg",
       "/assets/products/ctb-type-semi-countercurrent-wet-selection-machine/ctb-type-semi-countercurrent-wet-selection-machine-02.png",
       "/assets/products/ctb-type-semi-countercurrent-wet-selection-machine/ctb-type-semi-countercurrent-wet-selection-machine-03.png",
       "/assets/products/ctb-type-semi-countercurrent-wet-selection-machine/ctb-type-semi-countercurrent-wet-selection-machine-06.png",
@@ -4517,9 +4517,9 @@ export const products: Product[] = [
     "slug": "ctdg-type-permanent-magnet-bulk-dry-magnetic-separator",
     "name": "CTDG type permanent magnet bulk dry magnetic separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator-01.jpg",
+    "image": "/assets/products/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator-01.jpg",
+      "/assets/products/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator-02.png",
       "/assets/products/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator-06.png",
       "/assets/products/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator/ctdg-type-permanent-magnet-bulk-dry-magnetic-separator-04.png",
@@ -4562,9 +4562,9 @@ export const products: Product[] = [
     "slug": "ctn-type-full-countercurrent-wet-magnetic-separator",
     "name": "CTN type full countercurrent wet magnetic separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/ctn-type-full-countercurrent-wet-magnetic-separator/ctn-type-full-countercurrent-wet-magnetic-separator-01.jpg",
+    "image": "/assets/products/ctn-type-full-countercurrent-wet-magnetic-separator/ctn-type-full-countercurrent-wet-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/ctn-type-full-countercurrent-wet-magnetic-separator/ctn-type-full-countercurrent-wet-magnetic-separator-01.jpg",
+      "/assets/products/ctn-type-full-countercurrent-wet-magnetic-separator/ctn-type-full-countercurrent-wet-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/ctn-type-full-countercurrent-wet-magnetic-separator/ctn-type-full-countercurrent-wet-magnetic-separator-02.png",
       "/assets/products/ctn-type-full-countercurrent-wet-magnetic-separator/ctn-type-full-countercurrent-wet-magnetic-separator-04.png",
       "/assets/products/ctn-type-full-countercurrent-wet-magnetic-separator/ctn-type-full-countercurrent-wet-magnetic-separator-06.png",
@@ -4606,9 +4606,9 @@ export const products: Product[] = [
     "slug": "cts-type-downstream-wet-pre-selection-machine",
     "name": "CTS type downstream wet pre selection machine",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/cts-type-downstream-wet-pre-selection-machine/cts-type-downstream-wet-pre-selection-machine-01.jpg",
+    "image": "/assets/products/cts-type-downstream-wet-pre-selection-machine/cts-type-downstream-wet-pre-selection-machine-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/cts-type-downstream-wet-pre-selection-machine/cts-type-downstream-wet-pre-selection-machine-01.jpg",
+      "/assets/products/cts-type-downstream-wet-pre-selection-machine/cts-type-downstream-wet-pre-selection-machine-01-cowin-brand-20261001.jpg",
       "/assets/products/cts-type-downstream-wet-pre-selection-machine/cts-type-downstream-wet-pre-selection-machine-02.png",
       "/assets/products/cts-type-downstream-wet-pre-selection-machine/cts-type-downstream-wet-pre-selection-machine-03.png",
       "/assets/products/cts-type-downstream-wet-pre-selection-machine/cts-type-downstream-wet-pre-selection-machine-06.png",
@@ -4650,9 +4650,9 @@ export const products: Product[] = [
     "slug": "ctzs-type-upward-suction-magnetic-separator",
     "name": "CTZS type upward suction magnetic separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/ctzs-type-upward-suction-magnetic-separator/ctzs-type-upward-suction-magnetic-separator-01.jpg",
+    "image": "/assets/products/ctzs-type-upward-suction-magnetic-separator/ctzs-type-upward-suction-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/ctzs-type-upward-suction-magnetic-separator/ctzs-type-upward-suction-magnetic-separator-01.jpg",
+      "/assets/products/ctzs-type-upward-suction-magnetic-separator/ctzs-type-upward-suction-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/ctzs-type-upward-suction-magnetic-separator/ctzs-type-upward-suction-magnetic-separator-02.png",
       "/assets/products/ctzs-type-upward-suction-magnetic-separator/ctzs-type-upward-suction-magnetic-separator-06.png",
       "/assets/products/ctzs-type-upward-suction-magnetic-separator/ctzs-type-upward-suction-magnetic-separator-04.png",
@@ -4691,9 +4691,9 @@ export const products: Product[] = [
     "slug": "hcg-type-dry-pre-selection-machine",
     "name": "HCG type dry pre selection machine",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/hcg-type-dry-pre-selection-machine/hcg-type-dry-pre-selection-machine-01.jpg",
+    "image": "/assets/products/hcg-type-dry-pre-selection-machine/hcg-type-dry-pre-selection-machine-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/hcg-type-dry-pre-selection-machine/hcg-type-dry-pre-selection-machine-01.jpg",
+      "/assets/products/hcg-type-dry-pre-selection-machine/hcg-type-dry-pre-selection-machine-01-cowin-brand-20261001.jpg",
       "/assets/products/hcg-type-dry-pre-selection-machine/hcg-type-dry-pre-selection-machine-05.png",
       "/assets/products/hcg-type-dry-pre-selection-machine/hcg-type-dry-pre-selection-machine-02.png",
       "/assets/products/hcg-type-dry-pre-selection-machine/hcg-type-dry-pre-selection-machine-07.jpg",
@@ -4741,9 +4741,9 @@ export const products: Product[] = [
     "slug": "hjlh-type-vertical-ring-high-gradient-magnetic-separation",
     "name": "HJLH type vertical ring high gradient magnetic separation",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/hjlh-type-vertical-ring-high-gradient-magnetic-separation/hjlh-type-vertical-ring-high-gradient-magnetic-separation-01.jpg",
+    "image": "/assets/products/hjlh-type-vertical-ring-high-gradient-magnetic-separation/hjlh-type-vertical-ring-high-gradient-magnetic-separation-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/hjlh-type-vertical-ring-high-gradient-magnetic-separation/hjlh-type-vertical-ring-high-gradient-magnetic-separation-01.jpg",
+      "/assets/products/hjlh-type-vertical-ring-high-gradient-magnetic-separation/hjlh-type-vertical-ring-high-gradient-magnetic-separation-01-cowin-brand-20261001.jpg",
       "/assets/products/hjlh-type-vertical-ring-high-gradient-magnetic-separation/hjlh-type-vertical-ring-high-gradient-magnetic-separation-02.png",
       "/assets/products/hjlh-type-vertical-ring-high-gradient-magnetic-separation/hjlh-type-vertical-ring-high-gradient-magnetic-separation-05.png",
       "/assets/products/hjlh-type-vertical-ring-high-gradient-magnetic-separation/hjlh-type-vertical-ring-high-gradient-magnetic-separation-04.png",
@@ -4790,9 +4790,9 @@ export const products: Product[] = [
     "slug": "ljk-type-magnetic-ore-special-iron-remover",
     "name": "LJK type magnetic ore special iron remover",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/ljk-type-magnetic-ore-special-iron-remover/ljk-type-magnetic-ore-special-iron-remover-01.jpg",
+    "image": "/assets/products/ljk-type-magnetic-ore-special-iron-remover/ljk-type-magnetic-ore-special-iron-remover-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/ljk-type-magnetic-ore-special-iron-remover/ljk-type-magnetic-ore-special-iron-remover-01.jpg",
+      "/assets/products/ljk-type-magnetic-ore-special-iron-remover/ljk-type-magnetic-ore-special-iron-remover-01-cowin-brand-20261001.jpg",
       "/assets/products/ljk-type-magnetic-ore-special-iron-remover/ljk-type-magnetic-ore-special-iron-remover-02.png",
       "/assets/products/ljk-type-magnetic-ore-special-iron-remover/ljk-type-magnetic-ore-special-iron-remover-05.png",
       "/assets/products/ljk-type-magnetic-ore-special-iron-remover/ljk-type-magnetic-ore-special-iron-remover-04.png",
@@ -4830,9 +4830,9 @@ export const products: Product[] = [
     "slug": "nct-type-concentrated-magnetic-separator",
     "name": "NCT type concentrated magnetic separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/nct-type-concentrated-magnetic-separator/nct-type-concentrated-magnetic-separator-01.jpg",
+    "image": "/assets/products/nct-type-concentrated-magnetic-separator/nct-type-concentrated-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/nct-type-concentrated-magnetic-separator/nct-type-concentrated-magnetic-separator-01.jpg",
+      "/assets/products/nct-type-concentrated-magnetic-separator/nct-type-concentrated-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/nct-type-concentrated-magnetic-separator/nct-type-concentrated-magnetic-separator-02.png",
       "/assets/products/nct-type-concentrated-magnetic-separator/nct-type-concentrated-magnetic-separator-06.png",
       "/assets/products/nct-type-concentrated-magnetic-separator/nct-type-concentrated-magnetic-separator-08.jpg",
@@ -4875,9 +4875,9 @@ export const products: Product[] = [
     "slug": "wbc-semi-magnetic-tailings-recovery-machine",
     "name": "WBC semi magnetic tailings recovery machine",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/wbc-semi-magnetic-tailings-recovery-machine/wbc-semi-magnetic-tailings-recovery-machine-01.jpg",
+    "image": "/assets/products/wbc-semi-magnetic-tailings-recovery-machine/wbc-semi-magnetic-tailings-recovery-machine-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/wbc-semi-magnetic-tailings-recovery-machine/wbc-semi-magnetic-tailings-recovery-machine-01.jpg",
+      "/assets/products/wbc-semi-magnetic-tailings-recovery-machine/wbc-semi-magnetic-tailings-recovery-machine-01-cowin-brand-20261001.jpg",
       "/assets/products/wbc-semi-magnetic-tailings-recovery-machine/wbc-semi-magnetic-tailings-recovery-machine-06.png",
       "/assets/products/wbc-semi-magnetic-tailings-recovery-machine/wbc-semi-magnetic-tailings-recovery-machine-02.png",
       "/assets/products/wbc-semi-magnetic-tailings-recovery-machine/wbc-semi-magnetic-tailings-recovery-machine-04.png",
@@ -4919,9 +4919,9 @@ export const products: Product[] = [
     "slug": "ctn-type-specialized-magnetic-separator-for-coal-washing",
     "name": "CTN type specialized magnetic separator for coal washing",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/ctn-type-specialized-magnetic-separator-for-coal-washing/ctn-type-specialized-magnetic-separator-for-coal-washing-01.jpg",
+    "image": "/assets/products/ctn-type-specialized-magnetic-separator-for-coal-washing/ctn-type-specialized-magnetic-separator-for-coal-washing-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/ctn-type-specialized-magnetic-separator-for-coal-washing/ctn-type-specialized-magnetic-separator-for-coal-washing-01.jpg",
+      "/assets/products/ctn-type-specialized-magnetic-separator-for-coal-washing/ctn-type-specialized-magnetic-separator-for-coal-washing-01-cowin-brand-20261001.jpg",
       "/assets/products/ctn-type-specialized-magnetic-separator-for-coal-washing/ctn-type-specialized-magnetic-separator-for-coal-washing-02.png",
       "/assets/products/ctn-type-specialized-magnetic-separator-for-coal-washing/ctn-type-specialized-magnetic-separator-for-coal-washing-06.png",
       "/assets/products/ctn-type-specialized-magnetic-separator-for-coal-washing/ctn-type-specialized-magnetic-separator-for-coal-washing-03.png",
@@ -4970,9 +4970,9 @@ export const products: Product[] = [
     "slug": "hmdn-coal-washing-special-magnetic-separator",
     "name": "HMDN coal washing special magnetic separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/hmdn-coal-washing-special-magnetic-separator/hmdn-coal-washing-special-magnetic-separator-01.jpg",
+    "image": "/assets/products/hmdn-coal-washing-special-magnetic-separator/hmdn-coal-washing-special-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/hmdn-coal-washing-special-magnetic-separator/hmdn-coal-washing-special-magnetic-separator-01.jpg",
+      "/assets/products/hmdn-coal-washing-special-magnetic-separator/hmdn-coal-washing-special-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/hmdn-coal-washing-special-magnetic-separator/hmdn-coal-washing-special-magnetic-separator-02.png",
       "/assets/products/hmdn-coal-washing-special-magnetic-separator/hmdn-coal-washing-special-magnetic-separator-03.png",
       "/assets/products/hmdn-coal-washing-special-magnetic-separator/hmdn-coal-washing-special-magnetic-separator-05.jpg",
@@ -5016,9 +5016,9 @@ export const products: Product[] = [
     "slug": "suspended-permanent-magnetic-separator",
     "name": "Suspended Permanent Magnetic Separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/suspended-permanent-magnetic-separator.webp",
+    "image": "/assets/products/suspended-permanent-magnetic-separator-cowin-brand-20261001.webp",
     "imageGallery": [
-      "/assets/products/suspended-permanent-magnetic-separator.webp"
+      "/assets/products/suspended-permanent-magnetic-separator-cowin-brand-20261001.webp"
     ],
     "summary": "A suspended permanent magnet for reliable tramp iron capture where manual or periodic cleaning is acceptable.",
     "keywords": [
@@ -5070,9 +5070,9 @@ export const products: Product[] = [
     "slug": "suspended-electromagnetic-conveyor-belt-separator",
     "name": "Suspended Electromagnetic Conveyor Belt Separator",
     "category": "Magnetic Separation Equipment",
-    "image": "/assets/products/suspended-electromagnetic-conveyor-belt-separator.webp",
+    "image": "/assets/products/suspended-electromagnetic-conveyor-belt-separator-cowin-brand-20261001.webp",
     "imageGallery": [
-      "/assets/products/suspended-electromagnetic-conveyor-belt-separator.webp"
+      "/assets/products/suspended-electromagnetic-conveyor-belt-separator-cowin-brand-20261001.webp"
     ],
     "summary": "An electromagnetic conveyor belt separator for working conditions that require adjustable and powerful magnetic force.",
     "keywords": [
@@ -5124,9 +5124,9 @@ export const products: Product[] = [
     "slug": "dls-type-window-metal-detector",
     "name": "DLS type window metal detector",
     "category": "Metal Detection & Recycling Sorting",
-    "image": "/assets/products/dls-type-window-metal-detector/dls-type-window-metal-detector-01.jpg",
+    "image": "/assets/products/dls-type-window-metal-detector/dls-type-window-metal-detector-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/dls-type-window-metal-detector/dls-type-window-metal-detector-01.jpg",
+      "/assets/products/dls-type-window-metal-detector/dls-type-window-metal-detector-01-cowin-brand-20261001.jpg",
       "/assets/products/dls-type-window-metal-detector/dls-type-window-metal-detector-02.png",
       "/assets/products/dls-type-window-metal-detector/dls-type-window-metal-detector-06.png",
       "/assets/products/dls-type-window-metal-detector/dls-type-window-metal-detector-03.png",
@@ -5191,9 +5191,9 @@ export const products: Product[] = [
     "slug": "gjt-type-window-metal-detector",
     "name": "GJT type window metal detector",
     "category": "Metal Detection & Recycling Sorting",
-    "image": "/assets/products/gjt-type-window-metal-detector/gjt-type-window-metal-detector-01.jpg",
+    "image": "/assets/products/gjt-type-window-metal-detector/gjt-type-window-metal-detector-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/gjt-type-window-metal-detector/gjt-type-window-metal-detector-01.jpg",
+      "/assets/products/gjt-type-window-metal-detector/gjt-type-window-metal-detector-01-cowin-brand-20261001.jpg",
       "/assets/products/gjt-type-window-metal-detector/gjt-type-window-metal-detector-07.jpg",
       "/assets/products/gjt-type-window-metal-detector/gjt-type-window-metal-detector-08.jpg",
       "/assets/products/gjt-type-window-metal-detector/gjt-type-window-metal-detector-02.png",
@@ -5246,9 +5246,9 @@ export const products: Product[] = [
     "slug": "hecp-eddy-current-metal-sorting-machine",
     "name": "HECP eddy current metal sorting machine",
     "category": "Metal Detection & Recycling Sorting",
-    "image": "/assets/products/hecp-eddy-current-metal-sorting-machine/hecp-eddy-current-metal-sorting-machine-01.jpg",
+    "image": "/assets/products/hecp-eddy-current-metal-sorting-machine/hecp-eddy-current-metal-sorting-machine-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/hecp-eddy-current-metal-sorting-machine/hecp-eddy-current-metal-sorting-machine-01.jpg",
+      "/assets/products/hecp-eddy-current-metal-sorting-machine/hecp-eddy-current-metal-sorting-machine-01-cowin-brand-20261001.jpg",
       "/assets/products/hecp-eddy-current-metal-sorting-machine/hecp-eddy-current-metal-sorting-machine-02.png",
       "/assets/products/hecp-eddy-current-metal-sorting-machine/hecp-eddy-current-metal-sorting-machine-03.png",
       "/assets/products/hecp-eddy-current-metal-sorting-machine/hecp-eddy-current-metal-sorting-machine-04.png",
@@ -5310,9 +5310,9 @@ export const products: Product[] = [
     "slug": "hecs-type-eddy-current-metal-sorting-machine",
     "name": "HECS type eddy current metal sorting machine",
     "category": "Metal Detection & Recycling Sorting",
-    "image": "/assets/products/hecs-type-eddy-current-metal-sorting-machine/hecs-type-eddy-current-metal-sorting-machine-01.jpg",
+    "image": "/assets/products/hecs-type-eddy-current-metal-sorting-machine/hecs-type-eddy-current-metal-sorting-machine-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/hecs-type-eddy-current-metal-sorting-machine/hecs-type-eddy-current-metal-sorting-machine-01.jpg",
+      "/assets/products/hecs-type-eddy-current-metal-sorting-machine/hecs-type-eddy-current-metal-sorting-machine-01-cowin-brand-20261001.jpg",
       "/assets/products/hecs-type-eddy-current-metal-sorting-machine/hecs-type-eddy-current-metal-sorting-machine-02.png",
       "/assets/products/hecs-type-eddy-current-metal-sorting-machine/hecs-type-eddy-current-metal-sorting-machine-04.png",
       "/assets/products/hecs-type-eddy-current-metal-sorting-machine/hecs-type-eddy-current-metal-sorting-machine-06.png",
@@ -5360,9 +5360,9 @@ export const products: Product[] = [
     "slug": "drum-magnet",
     "name": "Drum Magnet",
     "category": "Metal Detection & Recycling Sorting",
-    "image": "/assets/products/drum-magnet/drum-magnet-01.jpg",
+    "image": "/assets/products/drum-magnet/drum-magnet-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/drum-magnet/drum-magnet-01.jpg",
+      "/assets/products/drum-magnet/drum-magnet-01-cowin-brand-20261001.jpg",
       "/assets/products/drum-magnet/drum-magnet-02.jpg",
       "/assets/products/drum-magnet/drum-magnet-03.jpg",
       "/assets/products/drum-magnet/drum-magnet-04.jpg",
@@ -5421,9 +5421,9 @@ export const products: Product[] = [
     "slug": "eccentric-eddy-current-separator",
     "name": "Eccentric Eddy Current Separator",
     "category": "Metal Detection & Recycling Sorting",
-    "image": "/assets/products/eccentric-eddy-current-separator/eccentric-eddy-current-separator-01.jpg",
+    "image": "/assets/products/eccentric-eddy-current-separator/eccentric-eddy-current-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/eccentric-eddy-current-separator/eccentric-eddy-current-separator-01.jpg",
+      "/assets/products/eccentric-eddy-current-separator/eccentric-eddy-current-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/eccentric-eddy-current-separator/eccentric-eddy-current-separator-02.jpg",
       "/assets/products/eccentric-eddy-current-separator/eccentric-eddy-current-separator-03.jpg",
       "/assets/products/eccentric-eddy-current-separator/eccentric-eddy-current-separator-04.jpg",
@@ -5527,9 +5527,9 @@ export const products: Product[] = [
     "slug": "electromagnet-separator",
     "name": "Electromagnet Separator",
     "category": "Metal Detection & Recycling Sorting",
-    "image": "/assets/products/electromagnet-separator/electromagnet-separator-01.jpg",
+    "image": "/assets/products/electromagnet-separator/electromagnet-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/electromagnet-separator/electromagnet-separator-01.jpg",
+      "/assets/products/electromagnet-separator/electromagnet-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/electromagnet-separator/electromagnet-separator-02.jpg",
       "/assets/products/electromagnet-separator/electromagnet-separator-05.jpg",
       "/assets/products/electromagnet-separator/electromagnet-separator-04.jpg",
@@ -5598,9 +5598,9 @@ export const products: Product[] = [
     "slug": "magnetic-head-pulley",
     "name": "Magnetic Head Pulley",
     "category": "Metal Detection & Recycling Sorting",
-    "image": "/assets/products/magnetic-head-pulley/magnetic-head-pulley-01.jpg",
+    "image": "/assets/products/magnetic-head-pulley/magnetic-head-pulley-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/magnetic-head-pulley/magnetic-head-pulley-01.jpg",
+      "/assets/products/magnetic-head-pulley/magnetic-head-pulley-01-cowin-brand-20261001.jpg",
       "/assets/products/magnetic-head-pulley/magnetic-head-pulley-03.jpg",
       "/assets/products/magnetic-head-pulley/magnetic-head-pulley-04.jpg",
       "/assets/products/magnetic-head-pulley/magnetic-head-pulley-02.jpg",
@@ -5646,9 +5646,9 @@ export const products: Product[] = [
     "slug": "permanent-overband-magnetic-separator",
     "name": "Permanent Overband Magnetic Separator",
     "category": "Metal Detection & Recycling Sorting",
-    "image": "/assets/products/permanent-overband-magnetic-separator/permanent-overband-magnetic-separator-01.jpg",
+    "image": "/assets/products/permanent-overband-magnetic-separator/permanent-overband-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/permanent-overband-magnetic-separator/permanent-overband-magnetic-separator-01.jpg",
+      "/assets/products/permanent-overband-magnetic-separator/permanent-overband-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/permanent-overband-magnetic-separator/permanent-overband-magnetic-separator-03.jpg",
       "/assets/products/permanent-overband-magnetic-separator/permanent-overband-magnetic-separator-02.jpg",
       "/assets/products/permanent-overband-magnetic-separator/permanent-overband-magnetic-separator-04.jpg",
@@ -5734,9 +5734,9 @@ export const products: Product[] = [
     "slug": "stainless-steel-separation-conveyor",
     "name": "Stainless Steel Separation Conveyor",
     "category": "Metal Detection & Recycling Sorting",
-    "image": "/assets/products/stainless-steel-separation-conveyor/stainless-steel-separation-conveyor-01.png",
+    "image": "/assets/products/stainless-steel-separation-conveyor/stainless-steel-separation-conveyor-01-cowin-brand-20261001.png",
     "imageGallery": [
-      "/assets/products/stainless-steel-separation-conveyor/stainless-steel-separation-conveyor-01.png",
+      "/assets/products/stainless-steel-separation-conveyor/stainless-steel-separation-conveyor-01-cowin-brand-20261001.png",
       "/assets/products/stainless-steel-separation-conveyor/stainless-steel-separation-conveyor-03.jpg",
       "/assets/products/stainless-steel-separation-conveyor/stainless-steel-separation-conveyor-02.png",
       "/assets/products/stainless-steel-separation-conveyor/stainless-steel-separation-conveyor-04.jpg",
@@ -5814,9 +5814,9 @@ export const products: Product[] = [
     "slug": "cbs-drawer-type-magnetic-filter",
     "name": "CBS drawer type magnetic filter",
     "category": "Magnetic Components & Filters",
-    "image": "/assets/products/cbs-drawer-type-magnetic-filter/cbs-drawer-type-magnetic-filter-01.jpg",
+    "image": "/assets/products/cbs-drawer-type-magnetic-filter/cbs-drawer-type-magnetic-filter-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/cbs-drawer-type-magnetic-filter/cbs-drawer-type-magnetic-filter-01.jpg",
+      "/assets/products/cbs-drawer-type-magnetic-filter/cbs-drawer-type-magnetic-filter-01-cowin-brand-20261001.jpg",
       "/assets/products/cbs-drawer-type-magnetic-filter/cbs-drawer-type-magnetic-filter-02.png",
       "/assets/products/cbs-drawer-type-magnetic-filter/cbs-drawer-type-magnetic-filter-07.png",
       "/assets/products/cbs-drawer-type-magnetic-filter/cbs-drawer-type-magnetic-filter-03.png",
@@ -5892,9 +5892,9 @@ export const products: Product[] = [
     "slug": "clc-type-wet-slot-magnetic-filter",
     "name": "CLC type wet slot magnetic filter",
     "category": "Magnetic Components & Filters",
-    "image": "/assets/products/clc-type-wet-slot-magnetic-filter/clc-type-wet-slot-magnetic-filter-01.jpg",
+    "image": "/assets/products/clc-type-wet-slot-magnetic-filter/clc-type-wet-slot-magnetic-filter-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/clc-type-wet-slot-magnetic-filter/clc-type-wet-slot-magnetic-filter-01.jpg",
+      "/assets/products/clc-type-wet-slot-magnetic-filter/clc-type-wet-slot-magnetic-filter-01-cowin-brand-20261001.jpg",
       "/assets/products/clc-type-wet-slot-magnetic-filter/clc-type-wet-slot-magnetic-filter-02.png",
       "/assets/products/clc-type-wet-slot-magnetic-filter/clc-type-wet-slot-magnetic-filter-04.png",
       "/assets/products/clc-type-wet-slot-magnetic-filter/clc-type-wet-slot-magnetic-filter-03.png",
@@ -5947,9 +5947,9 @@ export const products: Product[] = [
     "slug": "ctq-type-roller-automatic-magnetic-separator",
     "name": "CTQ type roller automatic magnetic separator",
     "category": "Magnetic Components & Filters",
-    "image": "/assets/products/ctq-type-roller-automatic-magnetic-separator/ctq-type-roller-automatic-magnetic-separator-01.jpg",
+    "image": "/assets/products/ctq-type-roller-automatic-magnetic-separator/ctq-type-roller-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/ctq-type-roller-automatic-magnetic-separator/ctq-type-roller-automatic-magnetic-separator-01.jpg",
+      "/assets/products/ctq-type-roller-automatic-magnetic-separator/ctq-type-roller-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/ctq-type-roller-automatic-magnetic-separator/ctq-type-roller-automatic-magnetic-separator-02.png",
       "/assets/products/ctq-type-roller-automatic-magnetic-separator/ctq-type-roller-automatic-magnetic-separator-06.png",
       "/assets/products/ctq-type-roller-automatic-magnetic-separator/ctq-type-roller-automatic-magnetic-separator-04.png",
@@ -5994,9 +5994,9 @@ export const products: Product[] = [
     "slug": "cyg-wet-pipeline-magnetic-filter",
     "name": "CYG wet pipeline magnetic filter",
     "category": "Magnetic Components & Filters",
-    "image": "/assets/products/cyg-wet-pipeline-magnetic-filter/cyg-wet-pipeline-magnetic-filter-01.jpg",
+    "image": "/assets/products/cyg-wet-pipeline-magnetic-filter/cyg-wet-pipeline-magnetic-filter-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/cyg-wet-pipeline-magnetic-filter/cyg-wet-pipeline-magnetic-filter-01.jpg",
+      "/assets/products/cyg-wet-pipeline-magnetic-filter/cyg-wet-pipeline-magnetic-filter-01-cowin-brand-20261001.jpg",
       "/assets/products/cyg-wet-pipeline-magnetic-filter/cyg-wet-pipeline-magnetic-filter-02.png",
       "/assets/products/cyg-wet-pipeline-magnetic-filter/cyg-wet-pipeline-magnetic-filter-03.png",
       "/assets/products/cyg-wet-pipeline-magnetic-filter/cyg-wet-pipeline-magnetic-filter-07.png",
@@ -6069,9 +6069,9 @@ export const products: Product[] = [
     "slug": "rcyz-type-pipeline-magnetic-filter",
     "name": "RCYZ type pipeline magnetic filter",
     "category": "Magnetic Components & Filters",
-    "image": "/assets/products/rcyz-type-pipeline-magnetic-filter/rcyz-type-pipeline-magnetic-filter-01.jpg",
+    "image": "/assets/products/rcyz-type-pipeline-magnetic-filter/rcyz-type-pipeline-magnetic-filter-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rcyz-type-pipeline-magnetic-filter/rcyz-type-pipeline-magnetic-filter-01.jpg",
+      "/assets/products/rcyz-type-pipeline-magnetic-filter/rcyz-type-pipeline-magnetic-filter-01-cowin-brand-20261001.jpg",
       "/assets/products/rcyz-type-pipeline-magnetic-filter/rcyz-type-pipeline-magnetic-filter-02.png",
       "/assets/products/rcyz-type-pipeline-magnetic-filter/rcyz-type-pipeline-magnetic-filter-06.png",
       "/assets/products/rcyz-type-pipeline-magnetic-filter/rcyz-type-pipeline-magnetic-filter-03.png",
@@ -6117,9 +6117,9 @@ export const products: Product[] = [
     "slug": "clc-type-slot-magnetic-filter",
     "name": "CLC type slot magnetic filter",
     "category": "Magnetic Components & Filters",
-    "image": "/assets/products/clc-type-slot-magnetic-filter/clc-type-slot-magnetic-filter-01.jpg",
+    "image": "/assets/products/clc-type-slot-magnetic-filter/clc-type-slot-magnetic-filter-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/clc-type-slot-magnetic-filter/clc-type-slot-magnetic-filter-01.jpg",
+      "/assets/products/clc-type-slot-magnetic-filter/clc-type-slot-magnetic-filter-01-cowin-brand-20261001.jpg",
       "/assets/products/clc-type-slot-magnetic-filter/clc-type-slot-magnetic-filter-02.png",
       "/assets/products/clc-type-slot-magnetic-filter/clc-type-slot-magnetic-filter-03.png",
       "/assets/products/clc-type-slot-magnetic-filter/clc-type-slot-magnetic-filter-05.png",
@@ -6173,9 +6173,9 @@ export const products: Product[] = [
     "slug": "dhd-type-roller-type-automatic-magnetic-separator",
     "name": "DHD type roller type automatic magnetic separator",
     "category": "Magnetic Components & Filters",
-    "image": "/assets/products/dhd-type-roller-type-automatic-magnetic-separator/dhd-type-roller-type-automatic-magnetic-separator-01.jpg",
+    "image": "/assets/products/dhd-type-roller-type-automatic-magnetic-separator/dhd-type-roller-type-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/dhd-type-roller-type-automatic-magnetic-separator/dhd-type-roller-type-automatic-magnetic-separator-01.jpg",
+      "/assets/products/dhd-type-roller-type-automatic-magnetic-separator/dhd-type-roller-type-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/dhd-type-roller-type-automatic-magnetic-separator/dhd-type-roller-type-automatic-magnetic-separator-04.png",
       "/assets/products/dhd-type-roller-type-automatic-magnetic-separator/dhd-type-roller-type-automatic-magnetic-separator-06.png",
       "/assets/products/dhd-type-roller-type-automatic-magnetic-separator/dhd-type-roller-type-automatic-magnetic-separator-02.png",
@@ -6219,9 +6219,9 @@ export const products: Product[] = [
     "slug": "dhj-type-strong-roller-automatic-magnetic-separator",
     "name": "DHJ type strong roller automatic magnetic separator",
     "category": "Magnetic Components & Filters",
-    "image": "/assets/products/dhj-type-strong-roller-automatic-magnetic-separator/dhj-type-strong-roller-automatic-magnetic-separator-01.jpg",
+    "image": "/assets/products/dhj-type-strong-roller-automatic-magnetic-separator/dhj-type-strong-roller-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/dhj-type-strong-roller-automatic-magnetic-separator/dhj-type-strong-roller-automatic-magnetic-separator-01.jpg",
+      "/assets/products/dhj-type-strong-roller-automatic-magnetic-separator/dhj-type-strong-roller-automatic-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/dhj-type-strong-roller-automatic-magnetic-separator/dhj-type-strong-roller-automatic-magnetic-separator-02.png",
       "/assets/products/dhj-type-strong-roller-automatic-magnetic-separator/dhj-type-strong-roller-automatic-magnetic-separator-03.png",
       "/assets/products/dhj-type-strong-roller-automatic-magnetic-separator/dhj-type-strong-roller-automatic-magnetic-separator-06.png",
@@ -6268,9 +6268,9 @@ export const products: Product[] = [
     "slug": "qcg-wet-roller-magnetic-separator",
     "name": "QCG wet roller magnetic separator",
     "category": "Magnetic Components & Filters",
-    "image": "/assets/products/qcg-wet-roller-magnetic-separator/qcg-wet-roller-magnetic-separator-01.jpg",
+    "image": "/assets/products/qcg-wet-roller-magnetic-separator/qcg-wet-roller-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/qcg-wet-roller-magnetic-separator/qcg-wet-roller-magnetic-separator-01.jpg",
+      "/assets/products/qcg-wet-roller-magnetic-separator/qcg-wet-roller-magnetic-separator-01-cowin-brand-20261001.jpg",
       "/assets/products/qcg-wet-roller-magnetic-separator/qcg-wet-roller-magnetic-separator-04.png",
       "/assets/products/qcg-wet-roller-magnetic-separator/qcg-wet-roller-magnetic-separator-02.png",
       "/assets/products/qcg-wet-roller-magnetic-separator/qcg-wet-roller-magnetic-separator-09.jpg",
@@ -6317,9 +6317,9 @@ export const products: Product[] = [
     "slug": "drawer-magnet",
     "name": "Drawer Magnet",
     "category": "Magnetic Components & Filters",
-    "image": "/assets/products/drawer-magnet/drawer-magnet-01.png",
+    "image": "/assets/products/drawer-magnet/drawer-magnet-01-cowin-brand-20261001.png",
     "imageGallery": [
-      "/assets/products/drawer-magnet/drawer-magnet-01.png",
+      "/assets/products/drawer-magnet/drawer-magnet-01-cowin-brand-20261001.png",
       "/assets/products/drawer-magnet/drawer-magnet-02.jpg",
       "/assets/products/drawer-magnet/drawer-magnet-04.jpg",
       "/assets/products/drawer-magnet/drawer-magnet-03.jpg",
@@ -6373,9 +6373,9 @@ export const products: Product[] = [
     "slug": "hump-magnet",
     "name": "Hump Magnet",
     "category": "Magnetic Components & Filters",
-    "image": "/assets/products/hump-magnet/hump-magnet-01.png",
+    "image": "/assets/products/hump-magnet/hump-magnet-01-cowin-brand-20261001.png",
     "imageGallery": [
-      "/assets/products/hump-magnet/hump-magnet-01.png",
+      "/assets/products/hump-magnet/hump-magnet-01-cowin-brand-20261001.png",
       "/assets/products/hump-magnet/hump-magnet-02.jpg",
       "/assets/products/hump-magnet/hump-magnet-03.jpg",
       "/assets/products/hump-magnet/hump-magnet-04.jpg",
@@ -6413,9 +6413,9 @@ export const products: Product[] = [
     "slug": "magnetic-grid",
     "name": "Magnetic Grid",
     "category": "Magnetic Components & Filters",
-    "image": "/assets/products/magnetic-grid/magnetic-grid-01.png",
+    "image": "/assets/products/magnetic-grid/magnetic-grid-01-cowin-brand-20261001.png",
     "imageGallery": [
-      "/assets/products/magnetic-grid/magnetic-grid-01.png",
+      "/assets/products/magnetic-grid/magnetic-grid-01-cowin-brand-20261001.png",
       "/assets/products/magnetic-grid/magnetic-grid-02.jpg",
       "/assets/products/magnetic-grid/magnetic-grid-03.jpg",
       "/assets/products/magnetic-grid/magnetic-grid-04.jpg",
@@ -6453,9 +6453,9 @@ export const products: Product[] = [
     "slug": "magnetic-rod",
     "name": "Magnetic Rod",
     "category": "Magnetic Components & Filters",
-    "image": "/assets/products/magnetic-rod/magnetic-rod-01.png",
+    "image": "/assets/products/magnetic-rod/magnetic-rod-01-cowin-brand-20261001.png",
     "imageGallery": [
-      "/assets/products/magnetic-rod/magnetic-rod-01.png",
+      "/assets/products/magnetic-rod/magnetic-rod-01-cowin-brand-20261001.png",
       "/assets/products/magnetic-rod/magnetic-rod-02.jpg",
       "/assets/products/magnetic-rod/magnetic-rod-08.png",
       "/assets/products/magnetic-rod/magnetic-rod-03.jpg",
@@ -6493,9 +6493,9 @@ export const products: Product[] = [
     "slug": "magnetic-trap",
     "name": "Magnetic Trap",
     "category": "Magnetic Components & Filters",
-    "image": "/assets/products/magnetic-trap/magnetic-trap-01.png",
+    "image": "/assets/products/magnetic-trap/magnetic-trap-01-cowin-brand-20261001.png",
     "imageGallery": [
-      "/assets/products/magnetic-trap/magnetic-trap-01.png",
+      "/assets/products/magnetic-trap/magnetic-trap-01-cowin-brand-20261001.png",
       "/assets/products/magnetic-trap/magnetic-trap-02.jpg",
       "/assets/products/magnetic-trap/magnetic-trap-08.png",
       "/assets/products/magnetic-trap/magnetic-trap-04.jpg",
@@ -6540,9 +6540,9 @@ export const products: Product[] = [
     "slug": "rotary-pipe-magnet",
     "name": "Rotary Pipe Magnet",
     "category": "Magnetic Components & Filters",
-    "image": "/assets/products/rotary-pipe-magnet/rotary-pipe-magnet-01-clean-20261001.png",
+    "image": "/assets/products/rotary-pipe-magnet/rotary-pipe-magnet-01-clean-20261001-cowin-brand-20261001.png",
     "imageGallery": [
-      "/assets/products/rotary-pipe-magnet/rotary-pipe-magnet-01-clean-20261001.png",
+      "/assets/products/rotary-pipe-magnet/rotary-pipe-magnet-01-clean-20261001-cowin-brand-20261001.png",
       "/assets/products/rotary-pipe-magnet/rotary-pipe-magnet-02.jpg",
       "/assets/products/rotary-pipe-magnet/rotary-pipe-magnet-03.jpg",
       "/assets/products/rotary-pipe-magnet/rotary-pipe-magnet-04.jpg",
@@ -6584,9 +6584,9 @@ export const products: Product[] = [
     "slug": "permanent-filter-bar-magnetic-neodymium-rod",
     "name": "Strong 6000-16000 Gauss Iron Absorbing Permanent Filter Bar Magnetic Neodymium Rod",
     "category": "Magnetic Components & Filters",
-    "image": "/assets/products/permanent-filter-bar-magnetic-rod.webp",
+    "image": "/assets/products/permanent-filter-bar-magnetic-rod-cowin-brand-20261001.webp",
     "imageGallery": [
-      "/assets/products/permanent-filter-bar-magnetic-rod.webp"
+      "/assets/products/permanent-filter-bar-magnetic-rod-cowin-brand-20261001.webp"
     ],
     "summary": "High-gauss magnetic rods used to capture fine ferrous contamination in material flow and filtration systems.",
     "keywords": [
@@ -6641,9 +6641,9 @@ export const products: Product[] = [
     "slug": "high-frequency-screen",
     "name": "High Frequency Screen",
     "category": "Industry Application Equipment",
-    "image": "/assets/products/high-frequency-screen/high-frequency-screen-01.jpg",
+    "image": "/assets/products/high-frequency-screen/high-frequency-screen-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/high-frequency-screen/high-frequency-screen-01.jpg",
+      "/assets/products/high-frequency-screen/high-frequency-screen-01-cowin-brand-20261001.jpg",
       "/assets/products/high-frequency-screen/high-frequency-screen-03.jpg",
       "/assets/products/high-frequency-screen/high-frequency-screen-02.jpg",
       "/assets/products/high-frequency-screen/high-frequency-screen-04.jpg",
@@ -6684,9 +6684,9 @@ export const products: Product[] = [
     "slug": "kgla-series-rectifier-control-box",
     "name": "KGLA series rectifier control box",
     "category": "Industry Application Equipment",
-    "image": "/assets/products/kgla-series-rectifier-control-box/kgla-series-rectifier-control-box-01.jpg",
+    "image": "/assets/products/kgla-series-rectifier-control-box/kgla-series-rectifier-control-box-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/kgla-series-rectifier-control-box/kgla-series-rectifier-control-box-01.jpg",
+      "/assets/products/kgla-series-rectifier-control-box/kgla-series-rectifier-control-box-01-cowin-brand-20261001.jpg",
       "/assets/products/kgla-series-rectifier-control-box/kgla-series-rectifier-control-box-02.png",
       "/assets/products/kgla-series-rectifier-control-box/kgla-series-rectifier-control-box-05.png",
       "/assets/products/kgla-series-rectifier-control-box/kgla-series-rectifier-control-box-03.png",
@@ -6722,9 +6722,9 @@ export const products: Product[] = [
     "slug": "kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box",
     "name": "KXB mining explosion-proof electromagnetic iron remover control box",
     "category": "Industry Application Equipment",
-    "image": "/assets/products/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box-01.jpg",
+    "image": "/assets/products/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box-01.jpg",
+      "/assets/products/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box-01-cowin-brand-20261001.jpg",
       "/assets/products/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box-02.png",
       "/assets/products/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box-03.png",
       "/assets/products/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box/kxb-mining-explosion-proof-electromagnetic-iron-remover-control-box-04.png",
@@ -6768,9 +6768,9 @@ export const products: Product[] = [
     "slug": "qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box",
     "name": "QJZ mining explosion-proof permanent magnet iron remover control box",
     "category": "Industry Application Equipment",
-    "image": "/assets/products/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box-01.jpg",
+    "image": "/assets/products/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box-01.jpg",
+      "/assets/products/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box-01-cowin-brand-20261001.jpg",
       "/assets/products/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box-02.png",
       "/assets/products/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box-03.png",
       "/assets/products/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box/qjz-mining-explosion-proof-permanent-magnet-iron-remover-control-box-05.png",
@@ -6802,9 +6802,9 @@ export const products: Product[] = [
     "slug": "rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover",
     "name": "RBCDB explosion-proof disc type electromagnetic iron remover",
     "category": "Industry Application Equipment",
-    "image": "/assets/products/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover-01.jpg",
+    "image": "/assets/products/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover-01.jpg",
+      "/assets/products/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover-01-cowin-brand-20261001.jpg",
       "/assets/products/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover-02.png",
       "/assets/products/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover-03.png",
       "/assets/products/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover/rbcdb-explosion-proof-disc-type-electromagnetic-iron-remover-04.png",
@@ -6849,9 +6849,9 @@ export const products: Product[] = [
     "slug": "rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover",
     "name": "RBCDD explosion-proof electromagnetic self dumping iron remover",
     "category": "Industry Application Equipment",
-    "image": "/assets/products/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover-01.jpg",
+    "image": "/assets/products/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover-01.jpg",
+      "/assets/products/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover-01-cowin-brand-20261001.jpg",
       "/assets/products/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover-02.png",
       "/assets/products/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover-03.png",
       "/assets/products/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover/rbcdd-explosion-proof-electromagnetic-self-dumping-iron-remover-06.png",
@@ -6899,9 +6899,9 @@ export const products: Product[] = [
     "slug": "rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover",
     "name": "RBCYD explosion-proof permanent magnet self dumping iron remover",
     "category": "Industry Application Equipment",
-    "image": "/assets/products/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover-01.jpg",
+    "image": "/assets/products/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover-01-cowin-brand-20261001.jpg",
     "imageGallery": [
-      "/assets/products/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover-01.jpg",
+      "/assets/products/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover-01-cowin-brand-20261001.jpg",
       "/assets/products/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover-02.png",
       "/assets/products/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover-04.png",
       "/assets/products/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover/rbcyd-explosion-proof-permanent-magnet-self-dumping-iron-remover-03.png",
@@ -6948,9 +6948,9 @@ export const products: Product[] = [
     "slug": "round-electromagnetic-lifting-magnet",
     "name": "Round Electromagnetic Lifting Magnet",
     "category": "Industry Application Equipment",
-    "image": "/assets/products/round-electromagnetic-lifting-magnet.webp",
+    "image": "/assets/products/round-electromagnetic-lifting-magnet-cowin-brand-20261001.webp",
     "imageGallery": [
-      "/assets/products/round-electromagnetic-lifting-magnet.webp"
+      "/assets/products/round-electromagnetic-lifting-magnet-cowin-brand-20261001.webp"
     ],
     "summary": "A round lifting electromagnet for handling ferrous metal materials in industrial loading and unloading scenarios.",
     "keywords": [

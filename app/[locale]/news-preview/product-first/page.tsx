@@ -17,17 +17,17 @@ type PreviewPageProps = {
 
 const previewMedia: Record<string, { assetId: string; alt: string; caption: string }> = {
   "permanent-overband-aggregate": {
-    assetId: "/assets/products/permanent-overband-magnetic-separator/permanent-overband-magnetic-separator-01.jpg",
+    assetId: "/assets/products/permanent-overband-magnetic-separator/permanent-overband-magnetic-separator-01-cowin-brand-20261001.jpg",
     alt: "COWIN MAGNET permanent overband magnetic separator for conveyor tramp iron removal",
     caption: "Permanent Overband Magnetic Separator"
   },
   "wet-drum-mineral-processing": {
-    assetId: "/assets/products/wet-drum-magnetic-separator/wet-drum-magnetic-separator-01.jpg",
+    assetId: "/assets/products/wet-drum-magnetic-separator/wet-drum-magnetic-separator-01-cowin-brand-20261001.jpg",
     alt: "COWIN MAGNET wet drum magnetic separator for mineral slurry processing",
     caption: "Wet Drum Magnetic Separator"
   },
   "drawer-magnet-powder-handling": {
-    assetId: "/assets/products/drawer-magnet/drawer-magnet-01.png",
+    assetId: "/assets/products/drawer-magnet/drawer-magnet-01-cowin-brand-20261001.png",
     alt: "COWIN MAGNET drawer magnet for dry gravity-fed material streams",
     caption: "Drawer Magnet"
   }

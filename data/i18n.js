@@ -45,7 +45,7 @@ export function localizedAlternates(path = "/") {
 }
 
 export function createSeoMetadata(locale, path, seo) {
-  const ogImage = absoluteUrl("/assets/magnetic-separator-banner-1200.webp");
+  const ogImage = absoluteUrl("/assets/magnetic-separator-banner-1200-cowin-brand-20261001.webp");
 
   return {
     title: seo.title,

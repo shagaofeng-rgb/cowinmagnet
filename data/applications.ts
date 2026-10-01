@@ -52,7 +52,7 @@ export const applications: Application[] = [
     seoTitle: "Magnetic Separation Solutions for Recycling Industry",
     seoDescription:
       "Magnetic separation equipment for municipal waste, construction waste, RDF fuel, plastic recycling, scrap metal recycling, and e-waste processing lines.",
-    image: "/images/industries/recycling-industry-magnetic-separation-cover-clean-20261001.webp",
+    image: "/images/industries/recycling-industry-magnetic-separation-cover-clean-20261001-cowin-brand-20261001.webp",
     iconImage: "/images/industries/icons/recycling-icon.png",
     imageAlt: "Magnetic separator for recycling waste processing line",
     summary:
@@ -132,12 +132,12 @@ export const applications: Application[] = [
       "E-Waste Recycling"
     ],
     scenarioImages: {
-      "Municipal Solid Waste": "/images/industries/recycling-scenarios/municipal-solid-waste-recycling-line.jpg",
-      "Construction Waste": "/images/industries/recycling-scenarios/construction-waste-recycling-line.jpg",
-      "Plastic Recycling": "/images/industries/recycling-scenarios/plastic-recycling-sorting-line.jpg",
-      "Scrap Metal Recycling": "/images/industries/recycling-scenarios/non-metal-recycling-sorting-line-clean-20261001.jpg",
-      "Alternative Fuel Production": "/images/industries/recycling-scenarios/alternative-fuel-production-line.jpg",
-      "E-Waste Recycling": "/images/industries/recycling-scenarios/e-waste-recycling-line.jpg"
+      "Municipal Solid Waste": "/images/industries/recycling-scenarios/municipal-solid-waste-recycling-line-cowin-brand-20261001.jpg",
+      "Construction Waste": "/images/industries/recycling-scenarios/construction-waste-recycling-line-cowin-brand-20261001.jpg",
+      "Plastic Recycling": "/images/industries/recycling-scenarios/plastic-recycling-sorting-line-cowin-brand-20261001.jpg",
+      "Scrap Metal Recycling": "/images/industries/recycling-scenarios/non-metal-recycling-sorting-line-clean-20261001-cowin-brand-20261001.jpg",
+      "Alternative Fuel Production": "/images/industries/recycling-scenarios/alternative-fuel-production-line-cowin-brand-20261001.jpg",
+      "E-Waste Recycling": "/images/industries/recycling-scenarios/e-waste-recycling-line-cowin-brand-20261001.jpg"
     },
     faqs: [
       {
@@ -156,7 +156,7 @@ export const applications: Application[] = [
     seoTitle: "Magnetic Separation Solutions for Mining Industry",
     seoDescription:
       "Magnetic separation solutions for protecting crushers, improving ore purity, reducing downtime, and recovering valuable magnetic minerals.",
-    image: "/images/industries/mining-scenarios/mining-industry-magnetic-separation-cover-clean-20261001.jpg",
+    image: "/images/industries/mining-scenarios/mining-industry-magnetic-separation-cover-clean-20261001-cowin-brand-20261001.jpg",
     iconImage: "/images/industries/icons/mining-icon.png",
     imageAlt: "Suspended magnetic separator for mining conveyor belt",
     summary:
@@ -237,18 +237,18 @@ export const applications: Application[] = [
       "Nickel Ore"
     ],
     scenarioImages: {
-      "Iron Ore": "/images/industries/mining-scenarios/iron-ore.jpg",
-      "Magnetite": "/images/industries/mining-scenarios/magnetite.jpg",
-      "Hematite": "/images/industries/mining-scenarios/hematite.jpg",
-      "Gold Ore": "/images/industries/mining-scenarios/gold-ore.jpg",
-      "Copper Ore": "/images/industries/mining-scenarios/copper-ore.jpg",
-      "Chrome Ore": "/images/industries/mining-scenarios/chrome-ore.jpg",
-      "Manganese Ore": "/images/industries/mining-scenarios/manganese-ore.jpg",
-      "Limestone": "/images/industries/mining-scenarios/limestone.jpg",
-      "Quartz Sand": "/images/industries/mining-scenarios/quartz-sand.jpg",
-      "Feldspar": "/images/industries/mining-scenarios/feldspar.jpg",
-      "Coal": "/images/industries/mining-scenarios/coal.jpg",
-      "Nickel Ore": "/images/industries/mining-scenarios/nickel-ore.jpg"
+      "Iron Ore": "/images/industries/mining-scenarios/iron-ore-cowin-brand-20261001.jpg",
+      "Magnetite": "/images/industries/mining-scenarios/magnetite-cowin-brand-20261001.jpg",
+      "Hematite": "/images/industries/mining-scenarios/hematite-cowin-brand-20261001.jpg",
+      "Gold Ore": "/images/industries/mining-scenarios/gold-ore-cowin-brand-20261001.jpg",
+      "Copper Ore": "/images/industries/mining-scenarios/copper-ore-cowin-brand-20261001.jpg",
+      "Chrome Ore": "/images/industries/mining-scenarios/chrome-ore-cowin-brand-20261001.jpg",
+      "Manganese Ore": "/images/industries/mining-scenarios/manganese-ore-cowin-brand-20261001.jpg",
+      "Limestone": "/images/industries/mining-scenarios/limestone-cowin-brand-20261001.jpg",
+      "Quartz Sand": "/images/industries/mining-scenarios/quartz-sand-cowin-brand-20261001.jpg",
+      "Feldspar": "/images/industries/mining-scenarios/feldspar-cowin-brand-20261001.jpg",
+      "Coal": "/images/industries/mining-scenarios/coal-cowin-brand-20261001.jpg",
+      "Nickel Ore": "/images/industries/mining-scenarios/nickel-ore-cowin-brand-20261001.jpg"
     },
     faqs: [
       {
@@ -267,7 +267,7 @@ export const applications: Application[] = [
     seoTitle: "Magnetic Separation Solutions for Cement and Aggregate Industry",
     seoDescription:
       "Magnetic separators for cement raw materials, limestone, sand, gravel, aggregate, slag, and industrial by-product processing lines.",
-    image: "/images/industries/cement-aggregate-industry-magnetic-separation-cover.webp",
+    image: "/images/industries/cement-aggregate-industry-magnetic-separation-cover-cowin-brand-20261001.webp",
     iconImage: "/images/industries/icons/cement-aggregate-icon.png",
     imageAlt: "Magnetic separation equipment for cement and aggregate industry",
     summary:
@@ -338,10 +338,10 @@ export const applications: Application[] = [
       "Slag and Industrial By-Product Processing"
     ],
     scenarioImages: {
-      "Crusher Protection and Iron Removal": "/images/industries/cement-aggregate-scenarios/crusher-protection-iron-removal-clean-20261001.jpg",
-      "Finished Aggregate Purification": "/images/industries/cement-aggregate-scenarios/finished-aggregate-purification-clean-20261001.jpg",
-      "Cement Raw Material Processing": "/images/industries/cement-aggregate-scenarios/cement-raw-material-processing.jpg",
-      "Slag and Industrial By-Product Processing": "/images/industries/cement-aggregate-scenarios/slag-industrial-by-product-processing.jpg"
+      "Crusher Protection and Iron Removal": "/images/industries/cement-aggregate-scenarios/crusher-protection-iron-removal-clean-20261001-cowin-brand-20261001.jpg",
+      "Finished Aggregate Purification": "/images/industries/cement-aggregate-scenarios/finished-aggregate-purification-clean-20261001-cowin-brand-20261001.jpg",
+      "Cement Raw Material Processing": "/images/industries/cement-aggregate-scenarios/cement-raw-material-processing-cowin-brand-20261001.jpg",
+      "Slag and Industrial By-Product Processing": "/images/industries/cement-aggregate-scenarios/slag-industrial-by-product-processing-cowin-brand-20261001.jpg"
     },
     faqs: [
       {
@@ -360,7 +360,7 @@ export const applications: Application[] = [
     seoTitle: "Magnetic Separation Solutions for Food Processing Industry",
     seoDescription:
       "Food-grade magnetic separation equipment for rice, grain, flour, sugar, milk powder, nuts, beans, spices, coffee, tea, starch, and feed processing lines.",
-    image: "/images/industries/food-industry-magnetic-separation-cover.webp",
+    image: "/images/industries/food-industry-magnetic-separation-cover-cowin-brand-20261001.webp",
     iconImage: "/images/industries/icons/food-processing-icon.png",
     imageAlt: "Food-grade magnetic separation solution for grain and powder processing",
     summary:
@@ -434,13 +434,13 @@ export const applications: Application[] = [
       "Food Additives and Starch"
     ],
     scenarioImages: {
-      "Rice, Wheat and Corn": "/images/industries/food-scenarios/rice-wheat-corn-food-processing-line.jpg",
-      "Beans and Nuts": "/images/industries/food-scenarios/beans-nuts-magnetic-bar-separator.jpg",
-      "Sugar, Flour and Milk Powder": "/images/industries/food-scenarios/sugar-flour-milk-powder-pipeline-magnetic-separator.jpg",
-      "Coffee Beans and Tea": "/images/industries/food-scenarios/coffee-beans-tea-magnetic-grid.jpg",
-      "Spices": "/images/industries/food-scenarios/spices-pipeline-magnetic-separator.jpg",
-      "Feed": "/images/industries/food-scenarios/feed-magnetic-drum-separator.jpg",
-      "Food Additives and Starch": "/images/industries/food-scenarios/food-additives-starch-magnetic-roller.jpg"
+      "Rice, Wheat and Corn": "/images/industries/food-scenarios/rice-wheat-corn-food-processing-line-cowin-brand-20261001.jpg",
+      "Beans and Nuts": "/images/industries/food-scenarios/beans-nuts-magnetic-bar-separator-cowin-brand-20261001.jpg",
+      "Sugar, Flour and Milk Powder": "/images/industries/food-scenarios/sugar-flour-milk-powder-pipeline-magnetic-separator-cowin-brand-20261001.jpg",
+      "Coffee Beans and Tea": "/images/industries/food-scenarios/coffee-beans-tea-magnetic-grid-cowin-brand-20261001.jpg",
+      "Spices": "/images/industries/food-scenarios/spices-pipeline-magnetic-separator-cowin-brand-20261001.jpg",
+      "Feed": "/images/industries/food-scenarios/feed-magnetic-drum-separator-cowin-brand-20261001.jpg",
+      "Food Additives and Starch": "/images/industries/food-scenarios/food-additives-starch-magnetic-roller-cowin-brand-20261001.jpg"
     },
     table: {
       title: "Food Processing Applications and Recommended Equipment",

@@ -1334,7 +1334,7 @@ p {
   color: var(--white);
   background:
     linear-gradient(135deg, rgba(11, 92, 173, 0.95), rgba(15, 23, 42, 0.96)),
-    url("/images/catalog/page-3-image-9-1871x840.jpg");
+    url("/images/catalog/page-3-image-9-1871x840-cowin-brand-20261001.jpg");
   background-size: cover;
   background-position: center;
   border-radius: 12px;
@@ -1499,6 +1499,14 @@ p {
   background:
     linear-gradient(90deg, rgba(15, 23, 42, 0.84) 0%, rgba(15, 23, 42, 0.64) 38%, rgba(15, 23, 42, 0.18) 68%, rgba(15, 23, 42, 0.04) 100%),
     linear-gradient(0deg, rgba(15, 23, 42, 0.38), rgba(15, 23, 42, 0.02) 44%);
+}
+
+.hero-picture {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  overflow: hidden;
 }
 
 .hero-banner-image {

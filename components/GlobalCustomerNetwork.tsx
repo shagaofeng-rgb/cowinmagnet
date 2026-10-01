@@ -71,7 +71,7 @@ export function GlobalCustomerNetwork({ categories }: GlobalCustomerNetworkProps
           </div>
           <div className="network-map-stage">
             <Image
-              src="/images/global-customer-map-template.jpg"
+              src="/images/global-customer-map-template-cowin-brand-20261001.jpg"
               alt="World map template for Cowinmagnet customer distribution"
               width={1000}
               height={560}

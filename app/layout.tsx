@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     url: site.url,
     title: "COWIN MAGNET | Magnetic Separator Supplier",
     description: site.description,
-    images: ["/images/catalog/page-1-image-9-2546x1532.jpg"]
+    images: ["/images/catalog/page-1-image-9-2546x1532-cowin-brand-20261001.jpg"]
   },
   icons: {
     icon: [

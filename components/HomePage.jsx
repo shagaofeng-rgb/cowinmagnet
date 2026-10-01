@@ -124,7 +124,7 @@ export default function HomePage({ locale = "en" }) {
         </div>
         <aside className="bunting-hero-panel" aria-label="Fast equipment selection routes">
           <ResponsiveImage
-            src="/assets/products/automatic-cleaning-magnetic-separator.webp"
+            src="/assets/products/automatic-cleaning-magnetic-separator-cowin-brand-20261001.webp"
             alt="Self-cleaning magnetic separator for conveyor belt iron removal"
             width={900}
             height={640}
@@ -246,7 +246,7 @@ export default function HomePage({ locale = "en" }) {
       <section className="bunting-section bunting-test-section">
         <figure>
           <ResponsiveImage
-            src="/assets/products/suspended-electromagnetic-conveyor-belt-separator.webp"
+            src="/assets/products/suspended-electromagnetic-conveyor-belt-separator-cowin-brand-20261001.webp"
             alt="Electromagnetic separator product inspection and selection support"
             width={900}
             height={640}

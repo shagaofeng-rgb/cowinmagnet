@@ -10,7 +10,8 @@ test("product media resolver only selects a same-product owned image and records
   assert.match(source, /ownership: "owned"/);
   assert.match(source, /missing_owned_product_image/);
   assert.match(source, /capturedAt/);
-  assert.match(source, /automatic-cleaning-magnetic-separator\.webp/);
+  assert.match(source, /automatic-cleaning-magnetic-separator/);
+  assert.match(source, /cowin-brand/);
   assert.match(source, /return ""/);
 });
 

@@ -6,7 +6,7 @@
   "category": "industry-news",
   "categoryTitle": "Industry News",
   "categoryDescription": "Industry news references with Cowinmagnet original analysis and buyer-focused magnetic separation viewpoints.",
-  "coverImage": "/images/industries/mining-scenarios/chrome-ore.jpg",
+  "coverImage": "/images/industries/mining-scenarios/chrome-ore-cowin-brand-20261001.jpg",
   "coverAlt": "magnetic separation equipment used around mining conveyors and mineral processing related to cover.",
   "imageCaption": "This company-library image is matched to mining for the cover section, helping connect the news topic with real industrial magnetic separation applications.",
   "imageSourceName": "Cowinmagnet",
@@ -14,7 +14,7 @@
   "imageLicenseNote": "Image source: Cowinmagnet company image library.",
   "bodyImages": [
     {
-      "imageUrl": "/images/industries/mining-scenarios/manganese-ore.jpg",
+      "imageUrl": "/images/industries/mining-scenarios/manganese-ore-cowin-brand-20261001.jpg",
       "imageType": "inline",
       "displayOrder": 1,
       "relatedSection": "Introduction",
@@ -29,7 +29,7 @@
       "imageSeoFileName": "mining-introduction.jpg"
     },
     {
-      "imageUrl": "/images/industries/mining-scenarios/nickel-ore.jpg",
+      "imageUrl": "/images/industries/mining-scenarios/nickel-ore-cowin-brand-20261001.jpg",
       "imageType": "inline",
       "displayOrder": 2,
       "relatedSection": "News Background",
@@ -44,7 +44,7 @@
       "imageSeoFileName": "mining-news-background.jpg"
     },
     {
-      "imageUrl": "/images/industries/mining-magnetic-separator-conveyor.webp",
+      "imageUrl": "/images/industries/mining-magnetic-separator-conveyor-cowin-brand-20261001.webp",
       "imageType": "inline",
       "displayOrder": 3,
       "relatedSection": "Brand/Product Connection",
@@ -59,7 +59,7 @@
       "imageSeoFileName": "mining-brand-product-connection.webp"
     },
     {
-      "imageUrl": "/images/industries/mining-scenarios/coal.jpg",
+      "imageUrl": "/images/industries/mining-scenarios/coal-cowin-brand-20261001.jpg",
       "imageType": "inline",
       "displayOrder": 4,
       "relatedSection": "Industry Perspective",
@@ -74,7 +74,7 @@
       "imageSeoFileName": "mining-industry-perspective.jpg"
     },
     {
-      "imageUrl": "/images/industries/mining-scenarios/copper-ore.jpg",
+      "imageUrl": "/images/industries/mining-scenarios/copper-ore-cowin-brand-20261001.jpg",
       "imageType": "inline",
       "displayOrder": 5,
       "relatedSection": "Practical Implications for Buyers",

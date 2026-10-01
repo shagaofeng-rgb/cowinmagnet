@@ -27,7 +27,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
         eyebrow="Products"
         title="Industrial product range for magnetic separation and site support"
         description="Browse magnetic separator options by category, then send your material, conveyor width, installation height, contamination level, and target application for selection support."
-        image="/images/catalog/page-3-image-9-1871x840.jpg"
+        image="/images/catalog/page-3-image-9-1871x840-cowin-brand-20261001.jpg"
         secondaryHref="/request-quote"
         secondaryLabel="Request Selection Support"
       />

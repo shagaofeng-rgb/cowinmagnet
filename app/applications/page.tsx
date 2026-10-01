@@ -19,7 +19,7 @@ export default function ApplicationsPage() {
         eyebrow="Applications"
         title="Magnetic separation solutions by industrial application"
         description="Select your industry to review common pain points, suitable product types, and quote information needed for equipment selection."
-        image="/images/catalog/page-6-image-3-1349x734.jpg"
+        image="/images/catalog/page-6-image-3-1349x734-cowin-brand-20261001.jpg"
       />
       <section className="section">
         <div className="application-grid">

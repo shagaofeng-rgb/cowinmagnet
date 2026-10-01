@@ -50,7 +50,7 @@ export function HomeVideoShowcase({ eyebrow, title, locale = "en" }: HomeVideoSh
             controls
             playsInline
             preload="none"
-            poster="/assets/magnetic-separator-banner-800.webp"
+            poster="/assets/magnetic-separator-banner-800-cowin-brand-20261001.webp"
             aria-label={title}
             onPlay={() => { setIsPlaying(true); setPlayError(false); }}
             onPause={() => setIsPlaying(false)}

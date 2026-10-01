@@ -59,7 +59,7 @@ export default async function LocalizedSearchPage({ params, searchParams }: Page
         eyebrow={ui.search}
         title={ui.searchUi[0]}
         description={ui.searchUi[1]}
-        image="/images/generated/contact-support-cowinmagnet-clean-20261001.webp"
+        image="/images/generated/contact-support-cowinmagnet-clean-20261001-cowin-brand-20261001.webp"
         imageAlt={ui.searchUi[0]}
         secondaryHref={localizeHref("/request-quote", current)}
         secondaryLabel={ui.catalogHelp}

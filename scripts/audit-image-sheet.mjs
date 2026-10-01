@@ -19,13 +19,17 @@ for (const directory of additionalDirectories) {
   }
 }
 
-const images = [...new Set([...primaryProducts, ...additional])].sort();
+const manifestFile = process.argv.find((arg) => arg.startsWith("--manifest="))?.slice(11);
+const images = manifestFile
+  ? (JSON.parse(await fs.readFile(path.resolve(manifestFile), "utf8")).entries || []).map((entry) => entry.branded)
+  : [...new Set([...primaryProducts, ...additional])].sort();
 const cellWidth = 190;
 const cellHeight = 152;
 const columns = 7;
 const rows = 8;
 const pageSize = columns * rows;
-const outputDir = process.argv[2] || "/tmp";
+const outputDir = process.argv.find((arg) => arg.startsWith("--out="))?.slice(6) || "/tmp";
+await fs.mkdir(outputDir, { recursive: true });
 const manifest = [];
 for (let start = 0; start < images.length; start += pageSize) {
   const page = Math.floor(start / pageSize) + 1;

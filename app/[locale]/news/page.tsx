@@ -73,7 +73,7 @@ export default async function LocalizedNewsPage({ params, searchParams }: PagePr
         eyebrow={ui.news[0]}
         title={ui.news[0]}
         description={ui.news[3]}
-        image="/images/generated/recycling-application-cowinmagnet-clean-20261001.webp"
+        image="/images/generated/recycling-application-cowinmagnet-clean-20261001-cowin-brand-20261001.webp"
         imageAlt={ui.news[1]}
       />
 

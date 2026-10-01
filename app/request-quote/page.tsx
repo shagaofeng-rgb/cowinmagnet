@@ -16,7 +16,7 @@ export default function RequestQuotePage() {
         eyebrow="Request Quote"
         title="Get a custom magnetic separation recommendation"
         description="Send your material, belt width, installation method, product requirement, and contact details. We will review the conditions and respond soon."
-        image="/images/catalog/page-4-image-9-1537x1023.jpg"
+        image="/images/catalog/page-4-image-9-1537x1023-cowin-brand-20261001.jpg"
         secondaryHref="/products"
         secondaryLabel="View Products"
       />
