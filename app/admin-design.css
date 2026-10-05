@@ -73,6 +73,9 @@
 }
 .admin-page { min-width: 0; }
 .admin-page-head { align-items: flex-end; gap: 24px; margin-bottom: 24px; padding-bottom: 0; border: 0; }
+.admin-page-head > div:first-child { min-width: 0; }
+.admin-overview .admin-page-head > div:first-child { flex: 1 1 auto; }
+.admin-overview .admin-page-head .admin-date-filter { flex: 0 0 auto; }
 .admin-page-head .eyebrow { margin-bottom: 6px; color: #647da2; font-size: 14px; font-weight: 700; }
 .admin-page-head h1 { margin: 0 0 10px; color: #0f2850; font-size: clamp(30px, 3.1vw, 44px); font-weight: 750; line-height: 1.15; letter-spacing: -.04em; }
 .admin-page-head p { max-width: 750px; margin: 0; color: #617899; font-size: 15px; font-weight: 500; line-height: 1.5; }
@@ -172,6 +175,14 @@
 .admin-overview-core .admin-panel h2 { margin: 4px 0 15px; }
 .admin-overview-recent { margin-bottom: 17px; }
 .admin-overview-recent .admin-panel-headline h2 { margin-bottom: 15px; }
+.admin-overview-recent .admin-table { width: 100%; min-width: 760px; table-layout: fixed; }
+.admin-overview-recent .admin-table th:nth-child(1) { width: 153px; }
+.admin-overview-recent .admin-table th:nth-child(2) { width: 93px; }
+.admin-overview-recent .admin-table th:nth-child(3) { width: 108px; }
+.admin-overview-recent .admin-table th:nth-child(5) { width: 72px; }
+.admin-overview-recent .admin-table th:nth-child(6) { width: 88px; }
+.admin-overview-recent .admin-table td { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.admin-overview-recent .admin-table td:nth-child(4) { max-width: 0; }
 .admin-overview-details { margin-bottom: 25px; }
 .admin-overview-details > summary { width: fit-content; margin: 0 0 18px; padding: 8px 12px; color: #2463c8; border: 1px solid #cbd7e8; border-radius: 6px; background: #fff; font-weight: 700; cursor: pointer; }
 .admin-overview-details:not([open]) > summary { margin-bottom: 0; }
