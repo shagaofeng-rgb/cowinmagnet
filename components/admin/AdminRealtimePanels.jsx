@@ -194,6 +194,13 @@ function displayText(value) {
   return text || "-";
 }
 
+function displayShare(count, total) {
+  if (!total) return "—";
+  const percent = (Number(count || 0) / total) * 100;
+  if (percent > 0 && percent < 0.1) return "<0.1%";
+  return `${percent.toFixed(1)}%`;
+}
+
 function displayCountryRows(rows) {
   return list(rows).map((row) => ({
     ...row,
@@ -202,7 +209,7 @@ function displayCountryRows(rows) {
 }
 
 function customerNumber(value) {
-  return `C${String(value || 0).padStart(5, "0")}`;
+  return value ? `C${String(value).padStart(5, "0")}` : "-";
 }
 
 function customerType(item) {
@@ -307,7 +314,7 @@ export function AdminOverviewRealtime({ initialData, contentStats }) {
                 <thead><tr><th>来源渠道</th><th>访问次数</th><th>占比</th></tr></thead>
                 <tbody>{channels.map((row, index) => {
                   const count = Number(row.value || row.count || row.pv || 0);
-                  return <tr key={`${row.label || row.title || "channel"}-${index}`}><td>{displayAdminLabel(row.label || row.title || row.channel)}</td><td>{count.toLocaleString()}</td><td>{channelTotal ? `${Math.round((count / channelTotal) * 100)}%` : "—"}</td></tr>;
+                  return <tr key={`${row.label || row.title || "channel"}-${index}`}><td>{displayAdminLabel(row.label || row.title || row.channel)}</td><td>{count.toLocaleString()}</td><td>{displayShare(count, channelTotal)}</td></tr>;
                 })}</tbody>
               </table>
             </div>
