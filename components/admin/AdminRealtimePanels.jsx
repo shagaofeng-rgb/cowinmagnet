@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { BarList, CsvExportButton, MetricCard, TrendChart } from "@/components/admin/AdminWidgets";
 
@@ -277,45 +278,66 @@ export function AdminOverviewRealtime({ initialData, contentStats }) {
   const { data, state } = useLiveAnalytics(initialData);
   const liveContentStats = useLiveContentStats(contentStats);
   const { overview = {}, traffic = {}, pages = [], searchConsole = {}, storageMode } = data;
+  const recentVisitors = list(data.customerProfiles?.length ? data.customerProfiles : data.visitors).slice(0, 5);
+  const channels = list(traffic.channels);
+  const channelTotal = Number(overview.pageViews || 0);
 
   return (
     <>
       <LiveSyncNote state={state} />
       <DataAvailability storageMode={storageMode} />
 
-      <section className="admin-grid four">
+      <section className="admin-grid four admin-overview-metrics">
         <MetricCard label="页面浏览量" value={Number(overview.pageViews || 0).toLocaleString()} note="PV" />
         <MetricCard label="独立访客" value={Number(overview.uniqueVisitors || 0).toLocaleString()} note="UV" />
         <MetricCard label="访问会话" value={Number(overview.sessions || 0).toLocaleString()} note="有效访问" />
         <MetricCard label="询盘提交" value={Number(overview.inquiries || 0).toLocaleString()} note="表单提交事件" />
       </section>
 
-      <section className="admin-grid four">
-        <MetricCard label="前台产品" value={Number(liveContentStats.products || 0).toLocaleString()} note="已发布内容" />
-        <MetricCard label="Blog 文章" value={Number(liveContentStats.blogPosts || 0).toLocaleString()} note="静态专业文章" />
-        <MetricCard label="新闻文章" value={Number(liveContentStats.newsPosts || 0).toLocaleString()} note="已发布内容" />
-        <MetricCard label="应用场景" value={Number(liveContentStats.applications || 0).toLocaleString()} note="静态应用库" />
-      </section>
-
-      <section className="admin-panel">
-        <p className="eyebrow">内容状态</p>
-        <h2>网站内容已同步</h2>
-        <p className="admin-muted">已发布的产品和新闻会在网站前台保持同步展示。</p>
-      </section>
-
-      <section className="admin-grid two">
+      <section className="admin-grid two admin-overview-core">
         <article className="admin-panel">
-          <p className="eyebrow">流量趋势</p>
-          <h2>每日 PV / UV</h2>
+          <h2>访问趋势</h2>
           <TrendChart rows={list(traffic.series)} />
         </article>
         <article className="admin-panel">
-          <p className="eyebrow">来源渠道</p>
-          <h2>客户从哪里来</h2>
-          <BarList rows={list(traffic.channels)} />
+          <div className="admin-panel-headline"><h2>流量来源</h2><Link href="/admin/analytics" className="admin-inline-link">查看全部</Link></div>
+          {channels.length ? (
+            <div className="admin-table-wrap">
+              <table className="admin-table admin-source-table">
+                <thead><tr><th>来源渠道</th><th>访问次数</th><th>占比</th></tr></thead>
+                <tbody>{channels.map((row, index) => {
+                  const count = Number(row.value || row.count || row.pv || 0);
+                  return <tr key={`${row.label || row.title || "channel"}-${index}`}><td>{displayText(row.label || row.title || row.channel)}</td><td>{count.toLocaleString()}</td><td>{channelTotal ? `${Math.round((count / channelTotal) * 100)}%` : "—"}</td></tr>;
+                })}</tbody>
+              </table>
+            </div>
+          ) : <div className="admin-empty compact">当前时间范围内暂无来源数据。</div>}
         </article>
       </section>
 
+      <section className="admin-panel admin-overview-recent">
+        <div className="admin-panel-headline"><h2>最近访客</h2><Link href="/admin/visitors" className="admin-inline-link">查看全部</Link></div>
+        {recentVisitors.length ? <div className="admin-table-wrap"><table className="admin-table">
+          <thead><tr><th>访问时间</th><th>客户编号</th><th>来源渠道</th><th>访问页面</th><th>地区</th><th>详情</th></tr></thead>
+          <tbody>{recentVisitors.map((visitor, index) => <tr key={`${visitor.visitorId || "visitor"}-${index}`}>
+            <td>{formatBeijingDateTime(visitor.lastSeenAt || visitor.timestamp)}</td>
+            <td>{customerNumber(visitor.customerNumber)}</td>
+            <td>{displayText(visitor.channel)}</td>
+            <td>{displayText(visitor.latestPage || visitor.page)}</td>
+            <td>{displayCountry(visitor.country)}</td>
+            <td>{visitor.visitorId ? <Link href={`/admin/visitors/${encodeURIComponent(visitor.visitorId)}`} className="admin-inline-link">访问详情</Link> : "—"}</td>
+          </tr>)}</tbody>
+        </table></div> : <div className="admin-empty compact">当前时间范围内暂无访客记录。</div>}
+      </section>
+
+      <details className="admin-overview-details">
+        <summary>更多运营数据</summary>
+        <section className="admin-grid four">
+          <MetricCard label="前台产品" value={Number(liveContentStats.products || 0).toLocaleString()} note="已发布内容" />
+          <MetricCard label="Blog 文章" value={Number(liveContentStats.blogPosts || 0).toLocaleString()} note="静态专业文章" />
+          <MetricCard label="新闻文章" value={Number(liveContentStats.newsPosts || 0).toLocaleString()} note="已发布内容" />
+          <MetricCard label="应用场景" value={Number(liveContentStats.applications || 0).toLocaleString()} note="静态应用库" />
+        </section>
       <section className="admin-grid two">
         <article className="admin-panel">
           <p className="eyebrow">来源平台</p>
@@ -357,6 +379,7 @@ export function AdminOverviewRealtime({ initialData, contentStats }) {
           {!searchConsole.configured ? <p className="admin-muted">搜索数据正在准备中。</p> : null}
         </article>
       </section>
+      </details>
     </>
   );
 }

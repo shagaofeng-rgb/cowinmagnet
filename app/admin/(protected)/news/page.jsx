@@ -2,6 +2,7 @@ import Link from "next/link";
 import { newsCategories } from "@/data/contentHub";
 import { cmsStorageMode, getCmsItems } from "@/lib/cmsStore";
 import AdminDateRangeFilter from "@/components/admin/AdminDateRangeFilter";
+import AdminEditorDrawer from "@/components/admin/AdminEditorDrawer";
 import { getAdminDateRange } from "@/lib/adminDateRange";
 
 export const dynamic = "force-dynamic";
@@ -156,9 +157,7 @@ export default async function AdminNewsPage({ searchParams }) {
 
       {statusMessage(params) ? <div className="admin-alert">{statusMessage(params)}</div> : null}
 
-      <section className="admin-panel">
-        <p className="eyebrow">创建 / 覆盖 News</p>
-        <h2>新增新闻内容</h2>
+      <AdminEditorDrawer title="新增新闻">
         <p className="admin-muted">
           如果填写已存在的 Slug，系统会覆盖该新闻内容，可作为编辑使用。未选择发布时间时，默认使用创建当天。
         </p>
@@ -245,7 +244,7 @@ export default async function AdminNewsPage({ searchParams }) {
           </label>
           <button className="admin-submit-button admin-cms-span-2" type="submit">保存 News</button>
         </form>
-      </section>
+      </AdminEditorDrawer>
 
       <section className="admin-panel">
         <div className="admin-panel-headline">

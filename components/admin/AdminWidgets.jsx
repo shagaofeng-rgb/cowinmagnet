@@ -1,14 +1,33 @@
 ﻿"use client";
 
+import { Activity, Box, Clock3, Eye, FileText, Globe2, MessageCircle, MousePointer2, Newspaper, Search, Users } from "lucide-react";
+
+const metricIcons = {
+  页面浏览量: Eye,
+  独立访客: Users,
+  访问会话: MessageCircle,
+  询盘提交: FileText,
+  前台产品: Box,
+  "Blog 文章": Newspaper,
+  新闻文章: Newspaper,
+  应用场景: Globe2,
+  平均停留: Clock3,
+  点击量: MousePointer2,
+  曝光量: Eye,
+  点击率: Activity,
+  排名位置: Search
+};
+
 export function MetricCard({ label, value, note }) {
+  const Icon = metricIcons[label] || Activity;
   return (
     <article className="admin-metric-card">
+      <span className="admin-metric-icon"><Icon size={22} strokeWidth={1.9} aria-hidden="true" /></span>
       <div>
         <span>{label}</span>
         <strong>{value}</strong>
         {note ? <small>{note}</small> : null}
       </div>
-      <i aria-hidden="true" />
     </article>
   );
 }
@@ -109,8 +128,8 @@ export function TrendChart({ rows = [] }) {
           return (
             <div className="admin-trend-day" key={row.date} title={`${row.date}: ${pv} PV / ${uv} UV`}>
               <div className="admin-trend-bars">
-                <span className="pv" style={{ height: `${Math.max(8, (pv / max) * 100)}%` }} />
-                <span className="uv" style={{ height: `${Math.max(8, (uv / max) * 100)}%` }} />
+                <span className="pv" style={{ height: `${pv ? Math.max(8, (pv / max) * 100) : 0}%` }} />
+                <span className="uv" style={{ height: `${uv ? Math.max(8, (uv / max) * 100) : 0}%` }} />
               </div>
               <strong>{pv}</strong>
               <small>{String(row.date || "").slice(5)}</small>

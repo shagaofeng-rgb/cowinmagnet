@@ -2,6 +2,7 @@ import Link from "next/link";
 import { productCategories } from "@/data/productCatalog";
 import { cmsStorageMode, getCmsItems } from "@/lib/cmsStore";
 import AdminDateRangeFilter from "@/components/admin/AdminDateRangeFilter";
+import AdminEditorDrawer from "@/components/admin/AdminEditorDrawer";
 import { getAdminDateRange } from "@/lib/adminDateRange";
 
 export const dynamic = "force-dynamic";
@@ -106,9 +107,7 @@ export default async function AdminProductsPage({ searchParams }) {
 
       {statusMessage(params) ? <div className="admin-alert">{statusMessage(params)}</div> : null}
 
-      <section className="admin-panel">
-        <p className="eyebrow">上传产品</p>
-        <h2>新增产品页面</h2>
+      <AdminEditorDrawer title="新增产品">
         <form className="admin-cms-form admin-cms-form-wide" action="/api/admin/content/products" method="post" encType="multipart/form-data">
           <label>
             产品标题 *
@@ -170,7 +169,7 @@ export default async function AdminProductsPage({ searchParams }) {
           </label>
           <button className="admin-submit-button admin-cms-span-2" type="submit">保存并上架产品</button>
         </form>
-      </section>
+      </AdminEditorDrawer>
 
       <section className="admin-panel">
         <div className="admin-panel-headline">

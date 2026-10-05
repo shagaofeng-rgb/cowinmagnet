@@ -25,12 +25,12 @@ export default async function AdminOverviewPage({ searchParams }) {
   ]);
 
   return (
-    <div className="admin-page">
+    <div className="admin-page admin-overview">
       <header className="admin-page-head">
         <div>
           <p className="eyebrow">数据总览</p>
-          <h1>网站数据总览</h1>
-          <p>集中查看 B2B 访客行为、询盘信号、SEO 搜索表现、页面转化和前台内容同步状态。</p>
+          <h1>分析画布</h1>
+          <p>从流量趋势、来源渠道到用户行为，全面洞察网站表现，助力市场策略优化。</p>
         </div>
         <AdminDateRangeFilter key={rangeKey} range={range} />
       </header>

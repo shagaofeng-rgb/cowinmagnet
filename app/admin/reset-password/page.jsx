@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -20,8 +21,8 @@ export default async function ResetPasswordPage({ searchParams }) {
     <main className="admin-login-page">
       <section className="admin-login-card">
         <Link className="admin-login-brand" href="/admin/login">
-          <span>CY</span>
-          <strong>Cowinmagnet</strong>
+          <Image src="/images/cowin-logo.png" alt="COWIN MAGNET" width={42} height={42} />
+          <strong>COWIN MAGNET</strong>
         </Link>
         <p className="eyebrow">后台账号安全</p>
         <h1>重置密码</h1>

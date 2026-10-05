@@ -9,6 +9,7 @@ import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
 import { organizationSchema } from "@/lib/seo";
 import { site } from "@/data/site";
 import "./globals.css";
+import "./admin-design.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
