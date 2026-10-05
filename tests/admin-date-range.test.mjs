@@ -1,6 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { getAdminDateRange } from "../lib/adminDateRange.js";
+import { beijingDateKeys, getAdminDateRange } from "../lib/adminDateRange.js";
+
+test("Beijing day series does not include the previous UTC date", () => {
+  assert.deepEqual(
+    beijingDateKeys(new Date("2026-10-04T16:00:00.000Z"), new Date("2026-10-05T15:59:59.999Z")),
+    ["2026-10-05"]
+  );
+});
 
 test("custom admin ranges retain the submitted Beijing calendar dates", () => {
   const range = getAdminDateRange({

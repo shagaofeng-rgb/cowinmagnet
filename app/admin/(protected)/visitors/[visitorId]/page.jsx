@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { readAnalyticsVisitorJourney } from "@/lib/analyticsStore";
+import { displayAdminLabel } from "@/lib/adminDisplayLabels";
 
 export const dynamic = "force-dynamic";
 
@@ -50,7 +51,7 @@ export default async function VisitorDetailPage({ params }) {
         <article className="admin-stat"><span>访问事件</span><strong>{events.length}</strong></article>
         <article className="admin-stat"><span>会话数</span><strong>{sessions.size}</strong></article>
         <article className="admin-stat"><span>浏览页面</span><strong>{pages.size}</strong></article>
-        <article className="admin-stat"><span>最近来源</span><strong>{latest?.channel || "-"}</strong></article>
+        <article className="admin-stat"><span>最近来源</span><strong>{displayAdminLabel(latest?.channel)}</strong></article>
       </section>
 
       <section className="admin-panel">
@@ -58,7 +59,7 @@ export default async function VisitorDetailPage({ params }) {
           <div><p className="eyebrow">路径时间线</p><h2>全部可用访问记录</h2></div>
           <span className="admin-result-count">{events.length} 条</span>
         </div>
-        {events.length ? <div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>时间</th><th>行为</th><th>当前页面</th><th>上一页</th><th>来源</th><th>国家</th><th>设备</th></tr></thead><tbody>{events.map((event, index) => <tr key={`${event.timestamp}-${event.type}-${index}`}><td>{formatTime(event.timestamp)}</td><td>{eventLabel(event)}</td><td>{event.pageTitle || event.page || "-"}</td><td>{event.previousPage || "直接进入"}</td><td>{event.channel || "-"}</td><td>{event.country || "-"}</td><td>{event.device || "-"}</td></tr>)}</tbody></table></div> : <div className="admin-empty">该客户在当前存储中暂无可用访问路径。</div>}
+        {events.length ? <div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>时间</th><th>行为</th><th>当前页面</th><th>上一页</th><th>来源</th><th>国家</th><th>设备</th></tr></thead><tbody>{events.map((event, index) => <tr key={`${event.timestamp}-${event.type}-${index}`}><td>{formatTime(event.timestamp)}</td><td>{eventLabel(event)}</td><td>{event.pageTitle || event.page || "-"}</td><td>{event.previousPage || "直接进入"}</td><td>{displayAdminLabel(event.channel)}</td><td>{event.country || "-"}</td><td>{displayAdminLabel(event.device)}</td></tr>)}</tbody></table></div> : <div className="admin-empty">该客户在当前存储中暂无可用访问路径。</div>}
       </section>
     </div>
   );

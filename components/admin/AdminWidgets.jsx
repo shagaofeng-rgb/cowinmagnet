@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { Activity, Box, Clock3, Eye, FileText, Globe2, MessageCircle, MousePointer2, Newspaper, Search, Users } from "lucide-react";
+import { displayAdminLabel } from "@/lib/adminDisplayLabels";
 
 const metricIcons = {
   页面浏览量: Eye,
@@ -42,7 +43,7 @@ function localizeLabel(label) {
   };
   if (/^(AI Search|AI Search Index)$/i.test(String(label))) return "推荐来源";
   if (/^(ChatGPT|Perplexity|Claude|Gemini|Microsoft Copilot|Phind|You\.com)$/i.test(String(label))) return "推荐来源";
-  return labels[label] || label;
+  return labels[label] || displayAdminLabel(label);
 }
 
 function numericValue(row) {
@@ -96,7 +97,7 @@ export function BarList({ rows = [], label = "value" }) {
               <strong>{Number(value).toLocaleString()}</strong>
             </div>
             <div className="admin-bar-track">
-              <i style={{ width: `${Math.max(5, (value / max) * 100)}%` }} aria-label={`${label}: ${value}`} />
+              <i style={{ width: `${value ? Math.max(5, (value / max) * 100) : 0}%` }} aria-label={`${label}: ${value}`} />
             </div>
             <small>{percent}%</small>
           </div>
@@ -141,6 +142,43 @@ export function TrendChart({ rows = [] }) {
         <span><i className="pv" />PV</span>
         <span><i className="uv" />UV</span>
       </div>
+    </div>
+  );
+}
+
+export function LineTrendChart({ rows = [] }) {
+  if (!rows.length) return <div className="admin-empty compact">暂无趋势数据。</div>;
+
+  const width = 700;
+  const height = 230;
+  const top = 12;
+  const bottom = 205;
+  const max = Math.max(1, ...rows.map((row) => Math.max(Number(row.pv || 0), Number(row.uv || 0))));
+  const x = (index) => rows.length === 1 ? width / 2 : (index / (rows.length - 1)) * width;
+  const y = (value) => bottom - (Number(value || 0) / max) * (bottom - top);
+  const points = (key) => rows.map((row, index) => `${x(index)},${y(row[key])}`).join(" ");
+  const labelStep = rows.length >= 20 ? 3 : rows.length >= 10 ? 2 : 1;
+
+  return (
+    <div className="admin-line-trend">
+      <div className="admin-line-chart" role="img" aria-label={`页面浏览量及独立访客趋势，${rows.length} 个时间点`}>
+        <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" aria-hidden="true">
+          {[0, 1, 2, 3, 4].map((step) => (
+            <line key={step} x1="0" x2={width} y1={bottom - step * (bottom - top) / 4} y2={bottom - step * (bottom - top) / 4} className="admin-line-grid" />
+          ))}
+          <polyline points={points("pv")} className="admin-line-pv" />
+          <polyline points={points("uv")} className="admin-line-uv" />
+          {rows.map((row, index) => (
+            <circle key={`${row.date}-${index}`} cx={x(index)} cy={y(row.pv)} r="3" className="admin-line-point">
+              <title>{`${row.date}：${row.pv || 0} PV，${row.uv || 0} UV`}</title>
+            </circle>
+          ))}
+        </svg>
+      </div>
+      <div className="admin-line-axis" aria-hidden="true">
+        {rows.filter((_, index) => index % labelStep === 0 || index === rows.length - 1).map((row, index) => <span key={`${row.date}-${index}`}>{row.date}</span>)}
+      </div>
+      <div className="admin-line-legend"><span><i className="pv" />页面浏览量</span><span><i className="uv" />独立访客</span></div>
     </div>
   );
 }

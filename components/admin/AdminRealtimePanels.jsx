@@ -3,7 +3,8 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { BarList, CsvExportButton, MetricCard, TrendChart } from "@/components/admin/AdminWidgets";
+import { BarList, CsvExportButton, LineTrendChart, MetricCard, TrendChart } from "@/components/admin/AdminWidgets";
+import { displayAdminLabel } from "@/lib/adminDisplayLabels";
 
 const refreshMs = 30 * 60 * 1000;
 const defaultPageSize = 20;
@@ -21,6 +22,7 @@ const countryNameZh = {
   ES: "西班牙",
   PT: "葡萄牙",
   RU: "俄罗斯",
+  RS: "塞尔维亚",
   AE: "阿联酋",
   SA: "沙特阿拉伯",
   IN: "印度",
@@ -78,7 +80,11 @@ function useLiveAnalytics(initialData) {
   const searchParams = useSearchParams();
   const search = searchParams.toString();
   const [data, setData] = useState(initialData);
-  const [state, setState] = useState({ loading: false, error: "", syncedAt: "" });
+  const [state, setState] = useState({
+    loading: false,
+    error: "",
+    syncedAt: initialData?.generatedAt ? formatBeijingDateTime(initialData.generatedAt) : ""
+  });
 
   useEffect(() => {
     let active = true;
@@ -94,13 +100,7 @@ function useLiveAnalytics(initialData) {
         setState({
           loading: false,
           error: "",
-          syncedAt: new Date().toLocaleTimeString("zh-CN", {
-            timeZone: "Asia/Shanghai",
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-            hour12: false
-          })
+          syncedAt: formatBeijingDateTime(nextData.generatedAt || new Date())
         });
       } catch {
         if (!active) return;
@@ -297,7 +297,7 @@ export function AdminOverviewRealtime({ initialData, contentStats }) {
       <section className="admin-grid two admin-overview-core">
         <article className="admin-panel">
           <h2>访问趋势</h2>
-          <TrendChart rows={list(traffic.series)} />
+          <LineTrendChart rows={Number(data.rangeDays) === 1 ? list(traffic.hourlySeries) : list(traffic.series)} />
         </article>
         <article className="admin-panel">
           <div className="admin-panel-headline"><h2>流量来源</h2><Link href="/admin/analytics" className="admin-inline-link">查看全部</Link></div>
@@ -307,7 +307,7 @@ export function AdminOverviewRealtime({ initialData, contentStats }) {
                 <thead><tr><th>来源渠道</th><th>访问次数</th><th>占比</th></tr></thead>
                 <tbody>{channels.map((row, index) => {
                   const count = Number(row.value || row.count || row.pv || 0);
-                  return <tr key={`${row.label || row.title || "channel"}-${index}`}><td>{displayText(row.label || row.title || row.channel)}</td><td>{count.toLocaleString()}</td><td>{channelTotal ? `${Math.round((count / channelTotal) * 100)}%` : "—"}</td></tr>;
+                  return <tr key={`${row.label || row.title || "channel"}-${index}`}><td>{displayAdminLabel(row.label || row.title || row.channel)}</td><td>{count.toLocaleString()}</td><td>{channelTotal ? `${Math.round((count / channelTotal) * 100)}%` : "—"}</td></tr>;
                 })}</tbody>
               </table>
             </div>
@@ -322,7 +322,7 @@ export function AdminOverviewRealtime({ initialData, contentStats }) {
           <tbody>{recentVisitors.map((visitor, index) => <tr key={`${visitor.visitorId || "visitor"}-${index}`}>
             <td>{formatBeijingDateTime(visitor.lastSeenAt || visitor.timestamp)}</td>
             <td>{customerNumber(visitor.customerNumber)}</td>
-            <td>{displayText(visitor.channel)}</td>
+            <td>{displayAdminLabel(visitor.channel)}</td>
             <td>{displayText(visitor.latestPage || visitor.page)}</td>
             <td>{displayCountry(visitor.country)}</td>
             <td>{visitor.visitorId ? <Link href={`/admin/visitors/${encodeURIComponent(visitor.visitorId)}`} className="admin-inline-link">访问详情</Link> : "—"}</td>
@@ -422,7 +422,7 @@ export function AdminTrafficRealtime({ initialData }) {
               {sessionRows.map((row, index) => (
                 <tr key={`${row.source}-${row.medium}-${row.campaign}-${index}`}>
                   <td>{displayText(row.source)}</td>
-                  <td>{displayText(row.channel || row.medium)}</td>
+                  <td>{displayAdminLabel(row.channel || row.medium)}</td>
                   <td>{displayText(row.platform)}</td>
                   <td>{displayText(row.campaign || "-")}</td>
                   <td>{row.visitors}</td>
@@ -583,7 +583,7 @@ export function AdminVisitorsRealtime({ initialData }) {
                       <td>{customerNumber(visitor.customerNumber)}</td>
                       <td>{displayCountry(visitor.country)}</td>
                       <td>{displayText(visitor.device)}</td>
-                      <td>{displayText(visitor.channel)}</td>
+                      <td>{displayAdminLabel(visitor.channel)}</td>
                       <td>{visitor.visitCount || 1}</td>
                       <td>{visitor.sessionCount || 1}</td>
                       <td>{visitor.pageCount || 1}</td>
@@ -769,7 +769,7 @@ export function AdminPagesRealtime({ initialData }) {
                       <td>{visitDay(item)}</td>
                       <td>{item.pageTitle}</td>
                       <td>{item.previousPage}</td>
-                      <td>{displayText(item.channel)}</td>
+                      <td>{displayAdminLabel(item.channel)}</td>
                       <td>{displayText(item.sourcePlatform)}</td>
                       <td>{displayCountry(item.country)}</td>
                       <td>{displayText(item.device)}</td>

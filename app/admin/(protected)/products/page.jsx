@@ -96,11 +96,11 @@ export default async function AdminProductsPage({ searchParams }) {
         <div>
           <p className="eyebrow">产品管理</p>
           <h1>上传产品与管理上架状态</h1>
-          <p>这里专门管理产品。新增产品后会进入产品中心和产品详情页；下架后前台隐藏，删除后后台也不保留。</p>
+          <p>这里管理后台上传的产品。上架后会进入前台产品中心；下架或归档后前台隐藏，历史记录仍保留。</p>
         </div>
         <div className={cmsStorageMode() === "database" ? "admin-status good" : "admin-status"}>
           {cmsStorageMode() === "database" ? "内容状态正常" : "内容暂不可用"}
-          <Link href="/admin/products/research" className="admin-inline-link">Private product research</Link>
+          <Link href="/admin/products/research" className="admin-inline-link">产品资料</Link>
         </div>
       </header>
       <AdminDateRangeFilter range={range} allowAll />

@@ -181,12 +181,29 @@
 .admin-trend-legend span { padding: 4px 7px; color: #567092; border: 0; border-radius: 4px; background: #f4f8fd; }
 .admin-trend-bars .pv { background: #2465cb; }
 .admin-trend-bars .uv { background: #61a9e9; }
+.admin-trend-bars span { min-height: 0; }
 .admin-trend-day strong { color: #1a355b; }
 .admin-trend-day small { color: #788ea9; }
 .admin-bar-row-head span,
 .admin-bar-row-head strong { color: #234164; }
 .admin-bar-track { background: #edf3fa; }
 .admin-bar-track i { background: #2465cb; }
+
+.admin-line-trend { width: 100%; }
+.admin-line-chart { width: 100%; height: 230px; overflow: hidden; }
+.admin-line-chart svg { display: block; width: 100%; height: 100%; }
+.admin-line-grid { stroke: #e1eaf4; stroke-width: 1; }
+.admin-line-pv,
+.admin-line-uv { fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 3; vector-effect: non-scaling-stroke; }
+.admin-line-pv { stroke: #2465cb; }
+.admin-line-uv { stroke: #61a9e9; }
+.admin-line-point { fill: #2465cb; }
+.admin-line-axis { display: flex; justify-content: space-between; gap: 6px; margin-top: 4px; color: #748aa7; font-size: 10px; white-space: nowrap; }
+.admin-line-legend { display: flex; justify-content: flex-end; gap: 18px; margin-top: 13px; color: #526f91; font-size: 11px; }
+.admin-line-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.admin-line-legend i { width: 11px; height: 3px; border-radius: 2px; }
+.admin-line-legend .pv { background: #2465cb; }
+.admin-line-legend .uv { background: #61a9e9; }
 
 .admin-table-wrap { max-width: 100%; overflow-x: auto; }
 .admin-table { min-width: 660px; color: #193052; font-size: 13px; }

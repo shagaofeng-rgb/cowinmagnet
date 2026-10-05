@@ -103,6 +103,10 @@ export default function AdminDateRangeFilter({ range, allowAll = false }) {
     setPreset(value);
     setError("");
     if (value === "custom") return;
+    if (value === range?.preset) {
+      window.location.reload();
+      return;
+    }
     goToPreset(value);
   }
 
@@ -184,9 +188,9 @@ export default function AdminDateRangeFilter({ range, allowAll = false }) {
           </button>
         </div>
       ) : null}
-      <button className="admin-date-submit" type="submit" disabled={isPending}>
-        {isPending ? "更新中..." : isCustom ? "应用时间" : "更新数据"}
-      </button>
+      {isCustom ? <button className="admin-date-submit" type="submit" disabled={isPending}>
+        {isPending ? "更新中..." : "应用时间"}
+      </button> : null}
     </form>
   );
 }
