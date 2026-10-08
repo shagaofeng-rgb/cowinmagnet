@@ -4,6 +4,12 @@ import { readAnalyticsVisitorJourney } from "@/lib/analyticsStore";
 import { displayAdminLabel } from "@/lib/adminDisplayLabels";
 
 export const dynamic = "force-dynamic";
+const PAGE_SIZE = 20;
+
+function pageNumber(value) {
+  const number = Number(value);
+  return Number.isSafeInteger(number) && number > 0 ? number : 1;
+}
 
 function formatTime(value) {
   if (!value) return "-";
@@ -25,8 +31,9 @@ function eventLabel(event) {
   return "浏览页面";
 }
 
-export default async function VisitorDetailPage({ params }) {
+export default async function VisitorDetailPage({ params, searchParams }) {
   const { visitorId } = await params;
+  const query = await searchParams;
   const id = String(visitorId || "").trim();
   if (!id || id.length > 80) notFound();
   const journey = await readAnalyticsVisitorJourney({ visitorId: id });
@@ -34,6 +41,9 @@ export default async function VisitorDetailPage({ params }) {
   const pages = new Set(events.map((event) => event.page).filter(Boolean));
   const sessions = new Set(events.map((event) => event.sessionId).filter(Boolean));
   const latest = events[0];
+  const totalPages = Math.max(1, Math.ceil(events.length / PAGE_SIZE));
+  const page = Math.min(pageNumber(query?.page), totalPages);
+  const pageEvents = events.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (
     <div className="admin-page">
@@ -59,7 +69,15 @@ export default async function VisitorDetailPage({ params }) {
           <div><p className="eyebrow">路径时间线</p><h2>全部可用访问记录</h2></div>
           <span className="admin-result-count">{events.length} 条</span>
         </div>
-        {events.length ? <div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>时间</th><th>行为</th><th>当前页面</th><th>上一页</th><th>来源</th><th>国家</th><th>设备</th></tr></thead><tbody>{events.map((event, index) => <tr key={`${event.timestamp}-${event.type}-${index}`}><td>{formatTime(event.timestamp)}</td><td>{eventLabel(event)}</td><td>{event.pageTitle || event.page || "-"}</td><td>{event.previousPage || "直接进入"}</td><td>{displayAdminLabel(event.channel)}</td><td>{event.country || "-"}</td><td>{displayAdminLabel(event.device)}</td></tr>)}</tbody></table></div> : <div className="admin-empty">该客户在当前存储中暂无可用访问路径。</div>}
+        {events.length ? <>
+          <div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>时间</th><th>行为</th><th>当前页面</th><th>上一页</th><th>来源</th><th>国家</th><th>设备</th></tr></thead><tbody>{pageEvents.map((event, index) => <tr key={`${event.timestamp}-${event.type}-${(page - 1) * PAGE_SIZE + index}`}><td>{formatTime(event.timestamp)}</td><td>{eventLabel(event)}</td><td>{event.pageTitle || event.page || "-"}</td><td>{event.previousPage || "直接进入"}</td><td>{displayAdminLabel(event.channel)}</td><td>{event.country || "-"}</td><td>{displayAdminLabel(event.device)}</td></tr>)}</tbody></table></div>
+          <nav className="admin-pagination" aria-label="访问路径分页">
+            <span>共 {events.length} 条，每页 {PAGE_SIZE} 条</span>
+            {page > 1 ? <Link href={`?page=${page - 1}`}>上一页</Link> : <span>上一页</span>}
+            <span>第 {page} / {totalPages} 页</span>
+            {page < totalPages ? <Link href={`?page=${page + 1}`}>下一页</Link> : <span>下一页</span>}
+          </nav>
+        </> : <div className="admin-empty">该客户暂无可用访问路径。</div>}
       </section>
     </div>
   );

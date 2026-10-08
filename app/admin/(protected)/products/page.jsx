@@ -11,8 +11,8 @@ export const metadata = {
 };
 
 function statusMessage(searchParams) {
-  if (searchParams?.saved === "draft") return "Product saved as a draft. Complete the private supplier review before publishing it.";
-  if (searchParams?.error === "product-review-required") return "Publishing is blocked until a private supplier confirmation and published research review are recorded.";
+  if (searchParams?.saved === "draft") return "产品已保存为草稿。完成供应商资料确认后即可发布。";
+  if (searchParams?.error === "product-review-required") return "请先完成供应商确认与产品资料审核，再发布产品。";
   if (searchParams?.saved === "product") return "产品已保存并上架，前台产品中心会自动读取。";
   if (searchParams?.status === "offline") return "产品已下架，前台不再显示。";
   if (searchParams?.status === "publish") return "产品已重新上架。";

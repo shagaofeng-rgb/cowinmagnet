@@ -75,7 +75,14 @@ function detailsFromPayload(inquiry) {
   return fields.filter(([, value]) => text(value) !== "-");
 }
 
-function VisitorHistory({ visitorHistory }) {
+const HISTORY_PAGE_SIZE = 20;
+
+function pageNumber(value) {
+  const number = Number(value);
+  return Number.isSafeInteger(number) && number > 0 ? number : 1;
+}
+
+function VisitorHistory({ visitorHistory, events }) {
   if (visitorHistory.matchMethod === "unavailable") {
     return (
       <div className="admin-history-empty">
@@ -94,7 +101,7 @@ function VisitorHistory({ visitorHistory }) {
 
   return (
     <div className="admin-visitor-history">
-      {visitorHistory.events.map((event, index) => {
+      {events.map((event, index) => {
         const eventTouch = event.attribution?.sessionTouch || event.attribution?.lastTouch || {};
         const context = [event.channel || eventTouch.channel, event.country, event.device, event.browser]
           .filter(Boolean)
@@ -130,6 +137,9 @@ export default async function AdminInquiryDetailPage({ params, searchParams }) {
   const attribution = inquiry.attribution || {};
   const sourcePath = safeSitePath(inquiry.sourcePath);
   const pageUrl = safeSiteUrl(inquiry.pageUrl);
+  const historyTotalPages = Math.max(1, Math.ceil(visitorHistory.events.length / HISTORY_PAGE_SIZE));
+  const historyPage = Math.min(pageNumber(query?.historyPage), historyTotalPages);
+  const historyEvents = visitorHistory.events.slice((historyPage - 1) * HISTORY_PAGE_SIZE, historyPage * HISTORY_PAGE_SIZE);
 
   return (
     <div className="admin-page admin-inquiry-detail-page">
@@ -201,7 +211,7 @@ export default async function AdminInquiryDetailPage({ params, searchParams }) {
             <div><dt>首次来源</dt><dd>{touchSummary(attribution.firstTouch)}</dd></div>
             <div><dt>最近来源</dt><dd>{touchSummary(attribution.lastTouch)}</dd></div>
             <div><dt>本次会话</dt><dd>{touchSummary(attribution.sessionTouch)}</dd></div>
-            <div><dt>记录方式</dt><dd>{detail.storageMode === "database" ? "数据库持久化" : "本地文件模式"}</dd></div>
+            <div><dt>记录状态</dt><dd>{detail.storageMode === "database" ? "已保存" : "暂不可用"}</dd></div>
           </dl>
         </aside>
       </div>
@@ -209,13 +219,19 @@ export default async function AdminInquiryDetailPage({ params, searchParams }) {
       <section className="admin-panel admin-detail-section admin-detail-history-section">
         <div className="admin-panel-headline">
           <div>
-            <p className="eyebrow">真实分析事件</p>
+            <p className="eyebrow">访问行为</p>
             <h2>客户访客浏览记录</h2>
             <p>显示提交前 90 天至提交后 30 天内，由同一访客或同一会话标识直接关联的事件；不通过 IP、邮箱或推测方式合并客户。</p>
           </div>
           <span className="admin-result-count">{visitorHistory.events.length} 条事件</span>
         </div>
-        <VisitorHistory visitorHistory={visitorHistory} />
+        <VisitorHistory visitorHistory={visitorHistory} events={historyEvents} />
+        {visitorHistory.events.length > HISTORY_PAGE_SIZE ? <nav className="admin-pagination" aria-label="客户访问记录分页">
+          <span>共 {visitorHistory.events.length} 条，每页 {HISTORY_PAGE_SIZE} 条</span>
+          {historyPage > 1 ? <Link href={`?historyPage=${historyPage - 1}`}>上一页</Link> : <span>上一页</span>}
+          <span>第 {historyPage} / {historyTotalPages} 页</span>
+          {historyPage < historyTotalPages ? <Link href={`?historyPage=${historyPage + 1}`}>下一页</Link> : <span>下一页</span>}
+        </nav> : null}
       </section>
     </div>
   );

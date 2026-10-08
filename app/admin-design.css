@@ -147,6 +147,22 @@
   background: #fff;
   box-shadow: 0 2px 10px rgba(17, 52, 95, .02);
 }
+.admin-stat {
+  display: grid;
+  align-content: start;
+  gap: 7px;
+  min-width: 0;
+  min-height: 116px;
+  padding: 18px 20px;
+  color: #193052;
+  border: 1px solid #dce5f1;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(17, 52, 95, .02);
+}
+.admin-stat span { color: #617899; font-size: 13px; font-weight: 700; }
+.admin-stat strong { color: #10264a; font-size: clamp(22px, 2.2vw, 30px); line-height: 1.2; overflow-wrap: anywhere; }
+.admin-stat small { color: #7890ad; font-size: 12px; }
 .admin-panel { padding: 17px 16px 13px; margin-bottom: 17px; }
 .admin-panel h2 { color: #142b50; font-size: 17px; font-weight: 720; line-height: 1.3; }
 .admin-panel .eyebrow { color: #6580a4; font-size: 12px; }
@@ -223,6 +239,9 @@
 .admin-table tbody tr:last-child td { border-bottom: 0; }
 .admin-table tbody tr:hover td { background: #f6f9fe; }
 .admin-table a { color: #1b69d1; }
+.admin-link-chip-list a { color: #2463c8; border-color: #d3e3f6; background: #f4f8fd; }
+.admin-check-list { color: #405a7a; }
+.admin-note-box { color: #405a7a; border-color: #d3e3f6; background: #f4f8fd; }
 .admin-source-table { min-width: 0; }
 .admin-pagination { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 13px; color: #7186a4; font-size: 12px; }
 .admin-pagination button,

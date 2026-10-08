@@ -24,7 +24,12 @@ const links = [
 export default function AdminShell({ children, email }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const rangeQuery = searchParams.toString();
+  const sharedRange = new URLSearchParams();
+  for (const key of ["range", "start", "end"]) {
+    const value = searchParams.get(key);
+    if (value) sharedRange.set(key, value);
+  }
+  const rangeQuery = sharedRange.toString();
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {

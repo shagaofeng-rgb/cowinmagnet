@@ -86,10 +86,10 @@ export default async function AdminInquiriesPage({ searchParams }) {
         <div>
           <p className="eyebrow">客户表单</p>
           <h1>询盘与客户线索管理</h1>
-          <p>网站表单提交会先写入持久化数据库，再发送邮件通知。邮件失败也不会丢失客户线索。</p>
+          <p>查看网站表单提交的客户线索、跟进状态和访问记录。</p>
         </div>
         <div className={data.storageMode === "database" ? "admin-status good" : "admin-status"}>
-          {data.storageMode === "database" ? "数据库持久化" : "本地文件模式"}
+          {data.storageMode === "database" ? "数据同步正常" : "数据暂不可用"}
         </div>
       </header>
       <AdminDateRangeFilter range={range} allowAll />
