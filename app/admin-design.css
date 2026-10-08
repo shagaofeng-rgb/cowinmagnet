@@ -175,6 +175,16 @@
 .admin-grid { gap: 17px; margin-bottom: 17px; }
 .admin-grid.two { grid-template-columns: minmax(0, 1.6fr) minmax(340px, 1fr); }
 .admin-grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.admin-breakdown-grid { align-items: start; }
+.admin-header-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.admin-header-link { display: inline-flex; align-items: center; min-height: 32px; padding: 6px 11px; color: #1b69d1; border: 1px solid #d3e3f6; border-radius: 6px; background: #fff; font-size: 12px; font-weight: 700; text-decoration: none; }
+.admin-header-link:hover { background: #eef5ff; }
+.admin-content-tabs { display: flex; gap: 4px; width: fit-content; max-width: 100%; margin: 0 0 17px; padding: 4px; border: 1px solid #dce5f1; border-radius: 8px; background: #f1f5fa; }
+.admin-content-tabs a { padding: 8px 15px; color: #527093; border-radius: 5px; font-size: 13px; font-weight: 700; text-decoration: none; }
+.admin-content-tabs a[aria-current="page"] { color: #fff; background: #2465cc; }
+.admin-content-tabs a:not([aria-current]):hover { color: #2465cc; background: #fff; }
+.admin-news-page .admin-row-actions { flex-wrap: nowrap; gap: 5px; }
+.admin-news-page .admin-row-actions button { min-height: 32px; padding: 5px 8px; font-size: 12px; white-space: nowrap; }
 .admin-grid > .admin-panel { margin-bottom: 0; min-width: 0; }
 .admin-metric-card { display: flex; align-items: flex-start; gap: 16px; min-height: 112px; padding: 19px; }
 .admin-metric-card::before,

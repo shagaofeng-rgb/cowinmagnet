@@ -411,7 +411,7 @@ export function AdminTrafficRealtime({ initialData }) {
         <h2>每日浏览量变化</h2>
         <TrendChart rows={list(traffic.series)} />
       </section>
-      <section className="admin-grid four">
+      <section className="admin-grid four admin-breakdown-grid">
         <article className="admin-panel"><p className="eyebrow">获客来源</p><h2>渠道分布</h2><BarList rows={list(traffic.channels)} /></article>
         <article className="admin-panel"><p className="eyebrow">来源平台</p><h2>搜索 / 社媒 / 推荐 / 直接访问</h2><BarList rows={list(traffic.sourcePlatforms)} /></article>
         <article className="admin-panel"><p className="eyebrow">目标市场</p><h2>国家 / 地区</h2><BarList rows={displayCountryRows(traffic.countries)} /></article>
@@ -419,11 +419,11 @@ export function AdminTrafficRealtime({ initialData }) {
       </section>
       <section className="admin-panel">
         <p className="eyebrow">营销归因</p>
-        <h2>Session Source Acquisition</h2>
+        <h2>会话来源分析</h2>
         <div className="admin-table-wrap">
           <table className="admin-table">
             <thead>
-              <tr><th>Source</th><th>Channel</th><th>Platform</th><th>Campaign</th><th>Visitors</th><th>Sessions</th><th>PV</th><th>Leads</th><th>CVR</th><th>Landing Page</th></tr>
+              <tr><th>来源</th><th>渠道</th><th>平台</th><th>活动</th><th>访客</th><th>会话</th><th>浏览量</th><th>线索</th><th>转化率</th><th>落地页</th></tr>
             </thead>
             <tbody>
               {sessionRows.map((row, index) => (
@@ -445,12 +445,12 @@ export function AdminTrafficRealtime({ initialData }) {
         </div>
       </section>
       <section className="admin-panel">
-        <p className="eyebrow">Campaign</p>
-        <h2>UTM Campaign 表现</h2>
+        <p className="eyebrow">营销活动</p>
+        <h2>UTM 活动表现</h2>
         <div className="admin-table-wrap">
           <table className="admin-table">
             <thead>
-              <tr><th>Campaign</th><th>Source</th><th>Medium</th><th>Visitors</th><th>Sessions</th><th>PV</th><th>Leads</th><th>CVR</th></tr>
+              <tr><th>活动</th><th>来源</th><th>媒介</th><th>访客</th><th>会话</th><th>浏览量</th><th>线索</th><th>转化率</th></tr>
             </thead>
             <tbody>
               {campaignRows.length ? campaignRows.map((row, index) => (
@@ -465,7 +465,7 @@ export function AdminTrafficRealtime({ initialData }) {
                   <td>{row.conversionRate}%</td>
                 </tr>
               )) : (
-                <tr><td colSpan="8">当前时间范围内暂无 UTM Campaign 数据。</td></tr>
+                <tr><td colSpan="8">当前时间范围内暂无 UTM 活动数据。</td></tr>
               )}
             </tbody>
           </table>

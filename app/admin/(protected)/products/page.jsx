@@ -98,9 +98,11 @@ export default async function AdminProductsPage({ searchParams }) {
           <h1>上传产品与管理上架状态</h1>
           <p>这里管理后台上传的产品。上架后会进入前台产品中心；下架或归档后前台隐藏，历史记录仍保留。</p>
         </div>
-        <div className={cmsStorageMode() === "database" ? "admin-status good" : "admin-status"}>
-          {cmsStorageMode() === "database" ? "内容状态正常" : "内容暂不可用"}
-          <Link href="/admin/products/research" className="admin-inline-link">产品资料</Link>
+        <div className="admin-header-actions">
+          <span className={cmsStorageMode() === "database" ? "admin-status good" : "admin-status"}>
+            {cmsStorageMode() === "database" ? "内容状态正常" : "内容暂不可用"}
+          </span>
+          <Link href="/admin/products/research" className="admin-header-link">产品资料</Link>
         </div>
       </header>
       <AdminDateRangeFilter range={range} allowAll />

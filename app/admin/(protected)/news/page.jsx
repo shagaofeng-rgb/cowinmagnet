@@ -28,8 +28,8 @@ function StatusBadge({ status }) {
 const pageSizeOptions = [10, 20, 50, 100];
 
 function pageSizeValue(value) {
-  const size = Number(value || 20);
-  return pageSizeOptions.includes(size) ? size : 20;
+  const size = Number(value || 10);
+  return pageSizeOptions.includes(size) ? size : 10;
 }
 
 function pageValue(value) {
@@ -117,6 +117,7 @@ export default async function AdminNewsPage({ searchParams }) {
   const query = String(params?.q || "").trim().toLowerCase();
   const status = String(params?.status || "all");
   const category = String(params?.category || "all");
+  const view = params?.view === "images" ? "images" : "list";
   const pageSize = pageSizeValue(params?.pageSize);
   const page = pageValue(params?.page);
 
@@ -139,10 +140,10 @@ export default async function AdminNewsPage({ searchParams }) {
   const totalPages = Math.max(1, Math.ceil(filteredNews.length / pageSize));
   const safePage = Math.min(page, totalPages);
   const pageNews = filteredNews.slice((safePage - 1) * pageSize, safePage * pageSize);
-  const filterParams = { q: params?.q || "", status, category, pageSize, range: range.preset, start: range.preset === "custom" ? range.startInput : "", end: range.preset === "custom" ? range.endInput : "" };
+  const filterParams = { q: params?.q || "", status, category, view, pageSize, range: range.preset, start: range.preset === "custom" ? range.startInput : "", end: range.preset === "custom" ? range.endInput : "" };
 
   return (
-    <div className="admin-page">
+    <div className="admin-page admin-news-page">
       <header className="admin-page-head">
         <div>
           <p className="eyebrow">新闻管理</p>
@@ -248,7 +249,12 @@ export default async function AdminNewsPage({ searchParams }) {
         </form>
       </AdminEditorDrawer>
 
-      <section className="admin-panel">
+      <nav className="admin-content-tabs" aria-label="新闻管理分类">
+        <Link href={queryString(filterParams, { view: "list", page: 1 })} aria-current={view === "list" ? "page" : undefined}>新闻列表</Link>
+        <Link href={queryString(filterParams, { view: "images", page: 1 })} aria-current={view === "images" ? "page" : undefined}>图片管理</Link>
+      </nav>
+
+      {view === "list" ? <section className="admin-panel">
         <div className="admin-panel-headline">
           <div>
             <p className="eyebrow">新闻列表</p>
@@ -273,6 +279,7 @@ export default async function AdminNewsPage({ searchParams }) {
             ))}
           </select>
           <input type="hidden" name="page" value="1" />
+          <input type="hidden" name="view" value={view} />
           <button type="submit">查询</button>
         </form>
 
@@ -297,7 +304,6 @@ export default async function AdminNewsPage({ searchParams }) {
                       <td><StatusBadge status={post.status} /></td>
                       <td>
                         {post.title}
-                        <ImageStatus post={post} />
                       </td>
                       <td>{post.categoryTitle || post.category}</td>
                       <td>{formatDate(post.publishedAt)}</td>
@@ -331,9 +337,9 @@ export default async function AdminNewsPage({ searchParams }) {
         ) : (
           <div className="admin-empty">当前筛选条件下没有新闻。</div>
         )}
-      </section>
+      </section> : null}
 
-      <section className="admin-panel">
+      {view === "images" ? <section className="admin-panel">
         <div className="admin-panel-headline">
           <div>
             <p className="eyebrow">新闻图片</p>
@@ -342,8 +348,25 @@ export default async function AdminNewsPage({ searchParams }) {
           </div>
         </div>
 
+        <form id="news-filter-form" className="admin-filter-bar" method="get">
+          <input name="q" defaultValue={params?.q || ""} placeholder="搜索标题、摘要、作者、来源" />
+          <select name="status" defaultValue={status}>
+            <option value="all">全部状态</option>
+            <option value="published">已发布</option>
+            <option value="draft">草稿</option>
+            <option value="archived">已归档</option>
+          </select>
+          <select name="category" defaultValue={category}>
+            <option value="all">全部分类</option>
+            {newsCategories.map((item) => <option value={item.slug} key={item.slug}>{item.title}</option>)}
+          </select>
+          <input type="hidden" name="view" value={view} />
+          <input type="hidden" name="page" value="1" />
+          <button type="submit">查询</button>
+        </form>
+
         {pageNews.length ? (
-          <div className="admin-table-wrap">
+          <><div className="admin-table-wrap">
             <table className="admin-table">
               <thead>
                 <tr>
@@ -387,10 +410,11 @@ export default async function AdminNewsPage({ searchParams }) {
               </tbody>
             </table>
           </div>
+          <Pagination params={filterParams} page={safePage} totalPages={totalPages} total={filteredNews.length} pageSize={pageSize} /></>
         ) : (
           <div className="admin-empty">暂无需要管理的新闻图片。</div>
         )}
-      </section>
+      </section> : null}
 
     </div>
   );

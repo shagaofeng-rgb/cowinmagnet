@@ -59,7 +59,7 @@ export default async function SearchConsolePage({ searchParams }) {
                 </tr>
               </thead>
               <tbody>
-                {data.queries.map((row) => (
+                {data.queries.length ? data.queries.map((row) => (
                   <tr key={row.query}>
                     <td>{row.query}</td>
                     <td>{row.clicks}</td>
@@ -67,7 +67,7 @@ export default async function SearchConsolePage({ searchParams }) {
                     <td>{row.ctr}%</td>
                     <td>{row.position}</td>
                   </tr>
-                ))}
+                )) : <tr><td colSpan="5">当前时间范围内暂无搜索词数据。</td></tr>}
               </tbody>
             </table>
           </div>
