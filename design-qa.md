@@ -1,38 +1,35 @@
-**Findings**
+# Homepage option 2 visual QA — 2026-10-09
 
-- No actionable P0, P1, or P2 fidelity differences remain in the approved homepage composition.
-- [P3] The source mockup uses illustrative photography while the implementation uses the site's real product, factory, and service imagery. The layout, crop treatment, contrast, and information hierarchy follow the source; using the real images preserves truthful product representation.
+## Source and output
 
-**Comparison evidence**
+- Approved source: `docs/home-option2/approved-reference.webp` (946 × 1663 px).
+- Desktop: `docs/home-option2/desktop-full.webp` (1440 × 3353 CSS-pixel capture, device scale 1).
+- Side-by-side source/render comparison: `docs/home-option2/desktop-comparison.webp` (source left, implementation right, both normalized to 945 px wide and cropped to the reference height).
+- Mobile: `docs/home-option2/mobile-390.webp` and `docs/home-option2/mobile-430.webp` (390 × 844 and 430 × 844 viewports, device scale 1, full-page captures).
 
-- Source visual truth: `/Users/apple/.codex/generated_images/01a0527b-3836-7bd3-98dd-ecfc9aada1ed/exec-dc9b4434-2f19-4367-ab0c-d2d519d15d88.png` (835 × 1884 px).
-- Rendered implementation: production browser capture of `https://www.cowinmagnet.com/en?release=5315d90`, captured in the Codex in-app browser at 1280 × 720 CSS px, device scale factor 1. The browser capture was viewed directly in the QA run; the different viewport is noted rather than treated as a pixel-for-pixel density comparison.
-- State: English homepage, desktop navigation, video initially paused; a second browser state clicked the custom video play affordance and confirmed that it disappeared while native video controls remained, indicating successful playback.
-- Full-view comparison: verified the source order and proportions of the compact dual-bar header, two-column hero, four proof points, six-card product strip, dark industry mosaic, left video/service stack, and right quote form.
-- Focused comparison: verified hero typography wrapping (`STRONGER TOMORROW` remains a single visual line), the navigation labels/order, and the playable video state.
+## Comparison and iterations
 
-**Required fidelity surfaces**
+1. The first implementation retained the old dark full-bleed hero, six compact cards, and a dark industry section. These were replaced with the approved white/image split hero, three equal large product cards, six-tile pale-blue industry block, and video/form split.
+2. The first local capture showed the hero title overlapping too much of the image and the home form placing name/company on separate lines. The title scale and grid selectors were corrected. The top utility strip was hidden on the homepage to match the single white reference header.
+3. A side-by-side comparison showed the branded machine too far right and the industry heading breaking into three lines. The hero image focal point was shifted to the right edge of its source crop, bringing the machine left in the viewport, and the heading scale was reduced to restore the two-line composition.
+4. The generated hero and three missing industry scenes are generic illustrative imagery; actual product photos, official logo, product links, navigation, video, and inquiry endpoint remain the site's existing assets/functions. The three new industry files carry a permanently composited copy of the official logo. No unverified numeric product claims were copied from the concept image.
 
-- Fonts and typography: compact sans-serif hierarchy, uppercase hero lettering, blue emphasis, small uppercase eyebrows, and the source line breaks are matched.
-- Spacing and layout rhythm: fixed-width product cards, industry tile mosaic, two-column video/form section, compact header, and mobile stack rules match the source structure.
-- Colors and visual tokens: navy header/industry panels, white surfaces, industrial blue primary actions, pale-blue inquiry card, and dark hero image overlay are aligned.
-- Image quality and asset fidelity: real COWIN MAGNET product and team images are used at responsive crop sizes; no placeholder image, synthetic CSS art, or false product imagery replaces the site assets.
-- Copy and content: source-style labels and calls to action are implemented while retaining functional site products, routes, inquiry submission, and footer access to Blog/News.
+## Generated scene prompts and saved assets
 
-**Comparison history**
+- Power generation: realistic wide documentary photograph of an industrial power plant with coal-handling conveyors and steel silos, daylight, no text or other logos. Saved as `public/images/generated/home-industry-power-20261009-cowin-brand.webp`.
+- Cement: realistic cement plant exterior with silver silos, bulk conveyors, daytime sky, no text or other logos. Saved as `public/images/generated/home-industry-cement-20261009-cowin-brand.webp`.
+- Aggregates: realistic quarry aggregate stockpile with elevated conveyor, bright overcast sky, no text or other logos. Saved as `public/images/generated/home-industry-aggregates-20261009-cowin-brand.webp`.
+- All three were generated with the built-in image-generation tool, then converted and marked with the existing official logo using deterministic image composition. The approved branded hero asset was reused from the selected design iteration and saved as `public/images/generated/home-hero-option-two-branded-20261009.webp`.
 
-1. Initial implementation: hero heading wrapped `STRONGER` and `TOMORROW` separately at desktop width. Fixed by tightening the desktop display scale and applying the selector at the same specificity as the inherited hero rule.
-2. Post-fix browser evidence: `STRONGER TOMORROW` renders on one visual line; calls to action remain above the proof-point strip; navigation matches the approved labels. No P0/P1/P2 findings remain.
+## Functional and responsive checks
 
-**Implementation checklist**
+- English desktop and 390/430 px mobile views: no horizontal overflow or broken images.
+- Arabic mobile: RTL content direction, visible text, and no horizontal overflow.
+- Product category tab changed from All Products to Magnetic Pulleys and showed only the pulley card.
+- Video play control loaded the actual MP4, reached ready state 4, and advanced beyond 3 seconds without console errors.
+- Home inquiry form retains six required inputs and the existing `/api/inquiry` submission action; no test inquiry was submitted to avoid creating customer/test data.
+- TypeScript and production build passed. Full automated suite: 106 passed, 0 failed. Lint: 0 errors, 4 pre-existing warnings outside the edited homepage.
 
-- [x] Rebuild the selected homepage section structure and responsive grids.
-- [x] Preserve product links, industry links, inquiry submission, and mobile navigation.
-- [x] Load the MP4 source immediately, request metadata, and call `video.play()` from the custom play action.
-- [x] Verify production build, browser layout, and video interaction.
+## Final result
 
-**Follow-up polish**
-
-- [P3] Replace individual supporting photos only when production-approved, equivalent real photographs are available; do not use generated product imagery.
-
-final result: passed
+passed

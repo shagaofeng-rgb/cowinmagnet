@@ -12,6 +12,6 @@ test("homepage video is requested only after the visitor clicks play", () => {
 });
 
 test("homepage prioritizes the hero and sizes mobile industry tiles for two columns", () => {
-  assert.match(homepage, /className="hero-banner-image" priority fetchPriority="high"/);
-  assert.match(homepage, /sizes="\(max-width: 760px\) 50vw, \(max-width: 1100px\) 50vw, 22vw"/);
+  assert.match(homepage, /home-hero-option-two-branded-20261009\.webp" fill sizes="\(max-width: 760px\) 100vw, 62vw" alt=\{t\.home\.heroAlt\} priority fetchPriority="high"/);
+  assert.match(homepage, /sizes="\(max-width: 760px\) 46vw, 20vw"/);
 });

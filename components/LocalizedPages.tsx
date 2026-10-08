@@ -5,6 +5,7 @@ import { GoogleMapCard } from "@/components/GoogleMapCard";
 import { BlogImage } from "@/components/BlogImage";
 import { GlobalCustomerNetwork } from "@/components/GlobalCustomerNetwork";
 import { HomeVideoShowcase } from "@/components/HomeVideoShowcase";
+import { HomeProductShowcase } from "@/components/HomeProductShowcase";
 import { JsonLd } from "@/components/JsonLd";
 import { DateBadge } from "@/components/DateBadge";
 import { LocalizedProductCard } from "@/components/LocalizedProductCard";
@@ -41,12 +42,12 @@ const homeProductCards = [
 ];
 
 const homeIndustryTiles = [
-  { href: "/industries/mining", image: "/images/industries/mining-scenarios/iron-ore-cowin-brand-20261001.jpg", alt: "Iron ore mining magnetic separation application", size: "large" },
-  { href: "/industries/recycling", image: "/images/industries/recycling-scenarios/non-metal-recycling-sorting-line-clean-20261001-cowin-brand-20261001.jpg", alt: "Recycling magnetic separation application", size: "large" },
-  { href: "/industries/cement-aggregate", image: "/images/industries/cement-aggregate-scenarios/cement-raw-material-processing-cowin-brand-20261001.jpg", alt: "Cement magnetic separation application", size: "small" },
-  { href: "/industries", image: "/images/catalog/page-6-image-3-1349x734-cowin-brand-20261001.jpg", alt: "Industrial bulk material handling application", size: "small" },
-  { href: "/industries/cement-aggregate", image: "/images/industries/cement-aggregate-scenarios/finished-aggregate-purification-clean-20261001-cowin-brand-20261001.jpg", alt: "Aggregate processing magnetic separation application", size: "small" },
-  { href: "/industries", image: "/images/industries/recycling-scenarios/construction-waste-recycling-line-cowin-brand-20261001.jpg", alt: "Industrial magnetic separation application", size: "small" }
+  { href: "/industries/mining", image: "/images/industries/mining-industry-magnetic-separation-cover-clean-20261001-cowin-brand-20261001.webp", alt: "Mining material conveyor" },
+  { href: "/industries/recycling", image: "/images/industries/recycling-industry-magnetic-separation-cover-clean-20261001-cowin-brand-20261001.webp", alt: "Recycling sorting line" },
+  { href: "/industries/cement-aggregate", image: "/images/generated/home-industry-cement-20261009-cowin-brand.webp", alt: "Illustration of cement plant bulk material handling" },
+  { href: "/industries", image: "/images/generated/home-industry-power-20261009-cowin-brand.webp", alt: "Illustration of power generation material handling" },
+  { href: "/industries/cement-aggregate", image: "/images/generated/home-industry-aggregates-20261009-cowin-brand.webp", alt: "Illustration of aggregate processing stockpile" },
+  { href: "/industries", image: "/images/industries/recycling-scenarios/construction-waste-recycling-line-cowin-brand-20261001.jpg", alt: "Industrial material handling conveyor" }
 ];
 
 export function LocalizedHomePage({ locale }: { locale: Locale }) {
@@ -56,86 +57,64 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
     const product = products.find((item) => item.slug === card.slug);
     return product ? [{ ...card, product, cardIndex }] : [];
   });
-  const categoryCards = productCategories.map((category) => ({
-    title: category,
-    count: products.filter((product) => product.category === category).length,
-    href: `${localizeHref("/products", locale)}?category=${encodeURIComponent(categoryAnchor(category))}`
-  }));
-
   return (
-    <main className="localized-home">
-      <section className="home-hero industrial-hero">
-        <picture className="hero-picture">
-          <source media="(max-width: 900px)" srcSet="/images/generated/home-hero-cowinmagnet-clean-20261001-mobile-v2-cowin-brand-20261001.webp" />
-          <Image src="/images/generated/home-hero-cowinmagnet-clean-20261001-v2-cowin-brand-20261001.webp" fill sizes="100vw" alt={t.home.heroAlt} className="hero-banner-image" priority fetchPriority="high" />
-        </picture>
-        <div className="hero-copy">
-          <span className="eyebrow industrial-kicker">{locale === "en" ? "Global OEM/ODM Partner" : t.home.heroEyebrow}</span>
-          {locale === "en" ? <h1 className="template-hero-title">Magnetic<br />Separation<br />for a <em>Cleaner,</em><br /><em>Stronger Tomorrow</em></h1> : <h1 className="template-hero-title">{t.home.h1}</h1>}
+    <main className="localized-home home-option-two">
+      <section className="home2-hero" aria-labelledby="home2-title">
+        <div className="home2-hero-copy">
+          <span className="home2-eyebrow">{locale === "en" ? "Global OEM/ODM Partner" : t.home.heroEyebrow}</span>
+          {locale === "en" ? <h1 id="home2-title"><span>Magnetic</span><span>Separation for a</span><span className="home2-accent">Cleaner,</span><span className="home2-accent home2-overlap">Stronger Tomorrow</span></h1> : <h1 id="home2-title">{t.home.h1}</h1>}
           <p>{t.home.heroText}</p>
-          <div className="hero-actions">
-            <Link href={localizeHref("/request-quote", locale)} className="btn btn-primary">{t.common.getQuote}</Link>
-            <Link href={localizeHref("/products", locale)} className="btn btn-secondary">{locale === "en" ? "Explore Products" : t.common.viewProducts}</Link>
+          <div className="home2-actions">
+            <Link href={localizeHref("/products", locale)} className="home2-button home2-button-primary">{locale === "en" ? "Explore Products" : t.common.viewProducts} <ArrowRight size={18} aria-hidden="true" /></Link>
+            <Link href={localizeHref("/request-quote", locale)} className="home2-button home2-button-outline">{t.common.getQuote}</Link>
           </div>
         </div>
-        <p className="industrial-hero-slogan" aria-hidden="true">{ui.homeSlogan[0]}<br />{ui.homeSlogan[1]}<br /><strong>{ui.homeSlogan[2]}</strong></p>
-        <div className="industrial-hero-proof" aria-label={t.home.whyTitle}>
-          {[Globe2, Settings, ShieldCheck, Headphones].map((Icon, index) => <article key={index}><Icon size={26} aria-hidden /><strong>{ui.homeProof[index]}</strong></article>)}
+        <div className="home2-hero-art">
+          <Image src="/images/generated/home-hero-option-two-branded-20261009.webp" fill sizes="(max-width: 760px) 100vw, 62vw" alt={t.home.heroAlt} priority fetchPriority="high" />
+          <p className="home2-metal-slogan" aria-hidden="true">{ui.homeSlogan[0]}<br />{ui.homeSlogan[1]}<br />{ui.homeSlogan[2]}</p>
+          <p className="home2-hero-signature" aria-hidden="true"><strong>COWIN MAGNET</strong><span>MAGNETIC SOLUTIONS<br />FOR A BRIGHTER INDUSTRY</span></p>
+        </div>
+        <div className="home2-hero-proof" aria-label={t.home.whyTitle}>
+          {[Settings, BadgeCheck, ShieldCheck, Headphones].map((Icon, index) => <div key={index}><Icon size={25} aria-hidden="true" /><span>{ui.homeProof[index]}</span></div>)}
         </div>
       </section>
 
-      <section className="section industrial-products-section" aria-labelledby="industrial-products-title">
-        <div className="section-heading industrial-section-heading">
-          <span className="eyebrow">{t.home.featuredEyebrow}</span>
-          <h2 id="industrial-products-title">{locale === "en" ? "Find the right magnetic separator" : t.home.featuredTitle}</h2>
-          <div><p>{locale === "en" ? "A complete range of magnetic separation equipment for different industries and applications." : t.home.applicationText}</p><Link href={localizeHref("/products", locale)} className="text-link">{locale === "en" ? "View All Products" : t.common.viewProducts} <ArrowRight size={16} aria-hidden /></Link></div>
-        </div>
-        <nav className="industrial-category-nav" aria-label={ui.categories}>
-          <Link href={localizeHref("/products", locale)} className="is-active">{ui.homeCategories[0]}</Link>
-          <Link href={categoryCards[0]?.href || localizeHref("/products", locale)}>{ui.homeCategories[1]}</Link>
-          <Link href={localizeHref("/products/magnetic-head-pulley", locale)}>{ui.homeCategories[2]}</Link>
-          <Link href={categoryCards[1]?.href || localizeHref("/products", locale)}>{ui.homeCategories[3]}</Link>
-          <Link href={categoryCards[3]?.href || localizeHref("/products", locale)}>{ui.homeCategories[4]}</Link>
-          <Link href={localizeHref("/request-quote", locale)}>{ui.homeCategories[5]}</Link>
-        </nav>
-        <div className="template-product-grid">
-          {featured.map(({ product, cardIndex }) => <article className="template-product-card" key={product.slug}>
-            <Link href={localizeHref(`/products/${product.slug}`, locale)} className="template-product-image"><Image src={product.image} width={400} height={300} sizes="(max-width: 700px) 82vw, (max-width: 1100px) 30vw, 16vw" alt={ui.homeCards[cardIndex][0]} loading="lazy" /></Link>
-            <div><h3><Link href={localizeHref(`/products/${product.slug}`, locale)}>{ui.homeCards[cardIndex][0]}</Link></h3><p>{ui.homeCards[cardIndex][1]}</p><Link href={localizeHref(`/products/${product.slug}`, locale)} className="text-link">{locale === "en" ? "View Products" : t.common.viewProduct} <ArrowRight size={14} aria-hidden /></Link></div>
-          </article>)}
+      <section className="home2-products" aria-labelledby="home2-products-title">
+        <div className="home2-container">
+          <div className="home2-section-head">
+            <div><span className="home2-eyebrow">{locale === "en" ? "Our Products" : t.home.featuredEyebrow}</span><h2 id="home2-products-title">{locale === "en" ? <>Explore Our Magnetic<br />Separation Equipment</> : t.home.featuredTitle}</h2></div>
+            <p>{locale === "en" ? "A complete range of magnetic separation equipment for different industries and applications." : t.home.applicationText}</p>
+          </div>
+          <HomeProductShowcase locale={locale} cards={featured.map(({ product, cardIndex }) => ({ slug: product.slug, image: product.image, title: ui.homeCards[cardIndex][0], summary: ui.homeCards[cardIndex][1] }))} />
         </div>
       </section>
 
-      <section className="industrial-industry-section" aria-labelledby="industrial-industry-title">
-        <div className="industrial-industry-heading">
-          <span className="eyebrow">{t.home.applicationEyebrow}</span>
-          <h2 id="industrial-industry-title">{locale === "en" ? "Proven in real-world industries" : t.home.applicationTitle}</h2>
-          <p>{t.home.applicationText}</p>
-          <Link href={localizeHref("/industries", locale)} className="btn btn-secondary">{locale === "en" ? "Explore by Industry" : t.common.viewSolution} <ArrowRight size={16} aria-hidden /></Link>
-        </div>
-        <div className="industrial-industry-grid">
-          {homeIndustryTiles.map((industry, index) => (
-            <Link key={industry.image} href={localizeHref(industry.href, locale)} className={`industrial-industry-card industrial-industry-card-${industry.size}`}>
-              <Image src={industry.image} fill sizes="(max-width: 760px) 50vw, (max-width: 1100px) 50vw, 22vw" alt={`${ui.homeIndustries[index]} — ${t.applications.heroAlt}`} loading="lazy" />
+      <section className="home2-industries" aria-labelledby="home2-industry-title">
+        <div className="home2-container home2-industry-layout">
+          <div className="home2-industry-copy">
+            <span className="home2-eyebrow">{locale === "en" ? "Industries We Serve" : t.home.applicationEyebrow}</span>
+            <h2 id="home2-industry-title">{locale === "en" ? <>Proven in<br />real-world industries</> : t.home.applicationTitle}</h2>
+            <p>{t.home.applicationText}</p>
+            <Link href={localizeHref("/industries", locale)} className="home2-button home2-button-outline">{locale === "en" ? "Explore by Industry" : t.common.viewSolution} <ArrowRight size={18} aria-hidden="true" /></Link>
+          </div>
+          <div className="home2-industry-grid">
+            {homeIndustryTiles.map((industry, index) => <Link key={industry.image} href={localizeHref(industry.href, locale)} className="home2-industry-tile">
+              <Image src={industry.image} fill sizes="(max-width: 760px) 46vw, 20vw" alt={industry.alt} loading="lazy" />
               <span>{ui.homeIndustries[index]}</span>
-            </Link>
-          ))}
+            </Link>)}
+          </div>
         </div>
       </section>
 
-      <section className="section industrial-video-quote" aria-labelledby="industrial-video-title">
-        <div className="industrial-video-stack">
-          <HomeVideoShowcase eyebrow={locale === "en" ? "Industries Video" : t.home.videoEyebrow} title={locale === "en" ? "See COWIN MAGNET in action" : t.home.videoTitle} locale={locale} />
-          <article className="template-service-card">
-            <div><span className="eyebrow">{ui.homeService[0]}</span><h2>{ui.homeService[1]}</h2><p>{ui.homeService[2]}</p><Link href={localizeHref("/contact", locale)} className="btn btn-secondary">{ui.homeService[3]} <ArrowRight size={16} aria-hidden /></Link></div>
-            <Image src="/images/generated/contact-support-cowinmagnet-clean-20261001-cowin-brand-20261001.webp" width={760} height={520} sizes="(max-width: 700px) 100vw, 32vw" alt={ui.homeService[0]} loading="lazy" />
-          </article>
+      <section className="home2-video-quote" aria-label={t.home.videoTitle}>
+        <div className="home2-container home2-video-layout">
+          <HomeVideoShowcase eyebrow={locale === "en" ? "Cowin Magnet in Action" : t.home.videoEyebrow} title={locale === "en" ? "See our magnetic solutions in action" : t.home.videoTitle} locale={locale} />
+          <aside className="home2-quote-card">
+            <span className="home2-eyebrow">{locale === "en" ? "Get a Quote" : t.home.quoteEyebrow}</span>
+            <h2>{locale === "en" ? "Tell us about your project" : t.home.quoteTitle}</h2>
+            <QuoteForm compact variant="home" />
+          </aside>
         </div>
-        <aside className="industrial-quote-card">
-          <span className="eyebrow">{locale === "en" ? "Get a Quote" : t.home.quoteEyebrow}</span>
-          <h2 id="industrial-video-title">{locale === "en" ? "Tell us about your project" : t.home.quoteTitle}</h2>
-          <QuoteForm compact variant="home" />
-        </aside>
       </section>
     </main>
   );
