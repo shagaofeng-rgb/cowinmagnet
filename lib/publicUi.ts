@@ -29,7 +29,7 @@ const copy = {
     barsGrates: "Magnetic Bars & Grates", customizedSolution: "Customized Solution",
     homeSlogan: ["Metal", "out.", "Purity in."],
     homeProof: ["OEM/ODM for global buyers", "Reliable industrial solutions", "Focused on separation challenges", "Responsive support worldwide"],
-    homeCategories: ["All Products", "Suspended Magnets", "Magnetic Pulleys", "Magnetic Separators", "Magnetic Bars", "Customized Solutions"],
+    homeCategories: ["All Products", "Suspended Magnets", "Pulleys & Drums", "Magnetic Separators", "Components & Filters", "Metal Detection & Recycling", "Industrial Equipment", "Other Products", "Customized Solutions"],
     homeCards: [
       ["Suspended Permanent Magnet", "Captures tramp iron above a conveyor; periodic cleaning is required."],
       ["Magnetic Head Pulley", "Separates ferrous material at the conveyor discharge."],
@@ -74,7 +74,7 @@ const copy = {
     barsGrates: "Barras y rejillas magnéticas", customizedSolution: "Solución personalizada",
     homeSlogan: ["Fuera", "el metal.", "Más pureza."],
     homeProof: ["OEM/ODM para compradores globales", "Soluciones industriales fiables", "Atención a sus retos de separación", "Asistencia ágil en todo el mundo"],
-    homeCategories: ["Todos los productos", "Imanes suspendidos", "Poleas magnéticas", "Separadores magnéticos", "Barras magnéticas", "Soluciones a medida"],
+    homeCategories: ["Todos los productos", "Imanes suspendidos", "Poleas y tambores", "Separadores magnéticos", "Componentes y filtros", "Detección y reciclaje", "Equipos industriales", "Otros productos", "Soluciones a medida"],
     homeCards: [
       ["Imán permanente suspendido", "Captura hierro contaminante sobre una cinta; requiere limpieza periódica."],
       ["Polea magnética de cabeza", "Separa materiales ferrosos en la descarga de la cinta."],
@@ -119,7 +119,7 @@ const copy = {
     barsGrates: "Магнитные стержни и решетки", customizedSolution: "Индивидуальное решение",
     homeSlogan: ["Металл", "удален.", "Чистота выше."],
     homeProof: ["OEM/ODM для международных покупателей", "Надежные промышленные решения", "Внимание к задачам сепарации", "Оперативная поддержка по всему миру"],
-    homeCategories: ["Все продукты", "Подвесные магниты", "Магнитные шкивы", "Магнитные сепараторы", "Магнитные стержни", "Индивидуальные решения"],
+    homeCategories: ["Все продукты", "Подвесные магниты", "Шкивы и барабаны", "Магнитные сепараторы", "Компоненты и фильтры", "Детекция и переработка", "Промышленное оборудование", "Другие продукты", "Индивидуальные решения"],
     homeCards: [
       ["Подвесной постоянный магнит", "Улавливает железные включения над конвейером; требует периодической очистки."],
       ["Головной магнитный барабан", "Отделяет железные материалы на выходе конвейера."],
@@ -164,7 +164,7 @@ const copy = {
     barsGrates: "قضبان وشبكات مغناطيسية", customizedSolution: "حل مخصص",
     homeSlogan: ["إزالة", "المعادن.", "نقاء أعلى."],
     homeProof: ["خدمات OEM/ODM للمشترين حول العالم", "حلول صناعية موثوقة", "نهتم بتحديات الفصل لديك", "دعم سريع في مختلف أنحاء العالم"],
-    homeCategories: ["كل المنتجات", "مغناطيسات معلقة", "بكرات مغناطيسية", "فواصل مغناطيسية", "قضبان مغناطيسية", "حلول مخصصة"],
+    homeCategories: ["كل المنتجات", "مغناطيسات معلقة", "بكرات وأسطوانات", "فواصل مغناطيسية", "مكونات ومرشحات", "كشف المعادن وإعادة التدوير", "معدات صناعية", "منتجات أخرى", "حلول مخصصة"],
     homeCards: [
       ["مغناطيس دائم معلّق", "يلتقط الحديد الدخيل فوق السير؛ ويتطلب تنظيفًا دوريًا."],
       ["بكرة رأس مغناطيسية", "تفصل المواد الحديدية عند مخرج السير الناقل."],
@@ -209,7 +209,7 @@ const copy = {
     barsGrates: "Barres et grilles magnétiques", customizedSolution: "Solution sur mesure",
     homeSlogan: ["Métaux", "retirés.", "Pureté accrue."],
     homeProof: ["OEM/ODM pour acheteurs internationaux", "Solutions industrielles fiables", "Vos défis de séparation au cœur du projet", "Assistance réactive dans le monde entier"],
-    homeCategories: ["Tous les produits", "Aimants suspendus", "Poulies magnétiques", "Séparateurs magnétiques", "Barres magnétiques", "Solutions sur mesure"],
+    homeCategories: ["Tous les produits", "Aimants suspendus", "Poulies et tambours", "Séparateurs magnétiques", "Composants et filtres", "Détection et recyclage", "Équipements industriels", "Autres produits", "Solutions sur mesure"],
     homeCards: [
       ["Aimant permanent suspendu", "Capte les morceaux de fer au-dessus d'un convoyeur ; nécessite un nettoyage périodique."],
       ["Poulie magnétique de tête", "Sépare les matières ferreuses à la sortie du convoyeur."],
@@ -254,7 +254,7 @@ const copy = {
     barsGrates: "Barras e grades magnéticas", customizedSolution: "Solução personalizada",
     homeSlogan: ["Metal", "removido.", "Mais pureza."],
     homeProof: ["OEM/ODM para compradores globais", "Soluções industriais confiáveis", "Foco nos seus desafios de separação", "Suporte ágil em todo o mundo"],
-    homeCategories: ["Todos os produtos", "Ímãs suspensos", "Polias magnéticas", "Separadores magnéticos", "Barras magnéticas", "Soluções personalizadas"],
+    homeCategories: ["Todos os produtos", "Ímãs suspensos", "Polias e tambores", "Separadores magnéticos", "Componentes e filtros", "Detecção e reciclagem", "Equipamentos industriais", "Outros produtos", "Soluções personalizadas"],
     homeCards: [
       ["Ímã permanente suspenso", "Captura ferro contaminante acima da correia; requer limpeza periódica."],
       ["Polia magnética de cabeça", "Separa materiais ferrosos na descarga do transportador."],

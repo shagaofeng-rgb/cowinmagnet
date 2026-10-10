@@ -18,12 +18,15 @@ import { RelatedInternalLinks } from "@/components/RelatedInternalLinks";
 import { applications, type Application } from "@/data/applications";
 import type { BlogPost } from "@/data/blogs";
 import { productCategories, products, type Product } from "@/data/products";
+import { getProductDisplayName } from "@/data/productDetailProfiles";
 import { categoryAnchor } from "@/lib/anchors";
 import { site } from "@/data/site";
 import { absoluteUrl, breadcrumbSchema, faqSchema, organizationSchema } from "@/lib/seo";
 import type { Locale } from "@/lib/i18n";
 import { getDictionary, localizeHref } from "@/lib/i18n";
 import { getPublicUi } from "@/lib/publicUi";
+import { getHomeProductFamily } from "@/lib/homeProductTaxonomy";
+import { getLocalizedProductSummary } from "@/lib/productLocale";
 import { getArticleLabels } from "@/lib/articleLocale";
 import { getOriginalContentLabels } from "@/lib/contentOriginalLocale";
 import { getStaticInternalLinkSuggestions } from "@/lib/linkStrategy";
@@ -53,9 +56,21 @@ const homeIndustryTiles = [
 export function LocalizedHomePage({ locale }: { locale: Locale }) {
   const t = getDictionary(locale);
   const ui = getPublicUi(locale);
-  const featured = homeProductCards.flatMap((card, cardIndex) => {
-    const product = products.find((item) => item.slug === card.slug);
-    return product ? [{ ...card, product, cardIndex }] : [];
+  const featuredSlugs = homeProductCards.map((card) => card.slug);
+  const orderedProducts = [
+    ...featuredSlugs.flatMap((slug) => products.find((product) => product.slug === slug) || []),
+    ...products.filter((product) => !featuredSlugs.includes(product.slug))
+  ];
+  const homeCards = orderedProducts.map((product) => {
+    const featuredIndex = featuredSlugs.indexOf(product.slug);
+    return {
+      slug: product.slug,
+      image: product.image,
+      title: featuredIndex >= 0 ? ui.homeCards[featuredIndex][0] : getProductDisplayName(product),
+      summary: featuredIndex >= 0 ? ui.homeCards[featuredIndex][1] : getLocalizedProductSummary(product, locale),
+      family: getHomeProductFamily(product),
+      featuredIndex
+    };
   });
   return (
     <main className="localized-home home-option-two">
@@ -85,7 +100,7 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
             <div><span className="home2-eyebrow">{locale === "en" ? "Our Products" : t.home.featuredEyebrow}</span><h2 id="home2-products-title">{locale === "en" ? <>Explore Our Magnetic<br />Separation Equipment</> : t.home.featuredTitle}</h2></div>
             <p>{locale === "en" ? "A complete range of magnetic separation equipment for different industries and applications." : t.home.applicationText}</p>
           </div>
-          <HomeProductShowcase locale={locale} cards={featured.map(({ product, cardIndex }) => ({ slug: product.slug, image: product.image, title: ui.homeCards[cardIndex][0], summary: ui.homeCards[cardIndex][1] }))} />
+          <HomeProductShowcase locale={locale} cards={homeCards} />
         </div>
       </section>
 

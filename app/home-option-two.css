@@ -4,7 +4,7 @@
 .home-option-two .home2-container { width: min(100% - 112px, 1324px); margin-inline: auto; }
 .home-option-two .home2-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 53px; padding: 0 30px; color: #0a2850; border: 1px solid #246bc1; border-radius: 2px; font-size: 14px; font-weight: 750; text-align: center; text-decoration: none; transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease; }
 .home-option-two .home2-button:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(16,99,194,.18); }
-.home-option-two .home2-button:focus-visible, .home-option-two .home2-tabs :focus-visible, .home-option-two .home2-product-card a:focus-visible, .home-option-two .home2-industry-tile:focus-visible { outline: 3px solid #7db9ff; outline-offset: 3px; }
+.home-option-two .home2-button:focus-visible, .home-option-two .home2-tabs :focus-visible, .home-option-two .home2-product-card a:focus-visible, .home-option-two .home2-product-pagination :focus-visible, .home-option-two .home2-industry-tile:focus-visible { outline: 3px solid #7db9ff; outline-offset: 3px; }
 .home-option-two .home2-button-primary { color: #fff; background: #146dd0; border-color: #146dd0; }
 .home-option-two .home2-button-primary:hover { background: #0859b5; }
 .home-option-two .home2-button-outline { background: #fff; }
@@ -37,8 +37,9 @@
 .home-option-two .home2-section-head .home2-eyebrow { margin-bottom: 8px; }
 .home-option-two .home2-section-head h2 { margin: 0; color: #123257; font-size: clamp(37px,3.55vw,53px); font-weight: 780; line-height: 1.03; letter-spacing: -.05em; }
 .home-option-two .home2-section-head > p { width: min(365px,32%); margin: 0 0 22px; color: #607995; font-size: 14px; line-height: 1.55; text-align: right; }
-.home-option-two .home2-tabs { display: flex; align-items: stretch; justify-content: space-between; gap: 8px; overflow-x: auto; margin: 0 0 25px; border-bottom: 1px solid #d9e6f1; scrollbar-width: thin; }
+.home-option-two .home2-tabs { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0 8px; margin: 0 0 25px; border-bottom: 1px solid #d9e6f1; }
 .home-option-two .home2-tabs button, .home-option-two .home2-tabs a { flex: 0 0 auto; min-height: 47px; padding: 11px 24px 13px; color: #506c88; background: transparent; border: 0; border-bottom: 3px solid transparent; border-radius: 0; cursor: pointer; font: inherit; font-size: 13px; font-weight: 660; text-decoration: none; transition: color .2s ease,border-color .2s ease; }
+.home-option-two .home2-tabs small { margin-inline-start: 5px; color: #8199b0; font-size: 11px; font-weight: 650; }
 .home-option-two .home2-tabs :is(button,a):hover, .home-option-two .home2-tabs button.is-active { color: #126ed0; border-bottom-color: #1677da; }
 .home-option-two .home2-product-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 27px; animation: home2-fade-in .25s ease both; }
 .home-option-two .home2-product-card { display: flex; flex-direction: column; min-width: 0; min-height: 529px; overflow: hidden; background: #fff; border: 1px solid #dbe7f1; transition: border-color .22s ease,box-shadow .22s ease,transform .22s ease; }
@@ -56,6 +57,15 @@
 .home-option-two .home2-product-facts dd { margin: 0; color: #667f97; }
 .home-option-two .home2-card-link { display: inline-flex; align-items: center; gap: 14px; width: fit-content; margin-top: auto; color: #1068c9; font-size: 14px; font-weight: 800; text-decoration: none; }
 .home-option-two .home2-card-link:hover { text-decoration: underline; }
+.home-option-two .home2-product-pagination { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 23px; color: #58718a; font-size: 13px; }
+.home-option-two .home2-product-pagination p { margin: 0; }
+.home-option-two .home2-product-pagination-controls { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+.home-option-two .home2-page-select { display: inline-flex; align-items: center; gap: 5px; }
+.home-option-two .home2-page-select select { min-height: 34px; padding: 5px 7px; color: #254968; background: #fff; border: 1px solid #c8dded; border-radius: 2px; font: inherit; }
+.home-option-two .home2-product-pagination-controls button { min-height: 34px; padding: 6px 11px; color: #126ed0; background: #fff; border: 1px solid #c8dded; border-radius: 2px; cursor: pointer; font: inherit; font-weight: 700; }
+.home-option-two .home2-product-pagination-controls button:disabled { color: #9aabba; background: #f4f8fb; cursor: not-allowed; }
+.home-option-two .home2-product-pagination > a { display: inline-flex; align-items: center; gap: 6px; color: #126ed0; font-weight: 750; text-decoration: none; white-space: nowrap; }
+.home-option-two .home2-product-pagination > a:hover { text-decoration: underline; }
 
 .home-option-two .home2-industries { padding: 40px 0 42px; background: linear-gradient(110deg,#edf8ff,#eaf5fc 60%,#f5fbff); }
 .home-option-two .home2-industry-layout { display: grid; grid-template-columns: minmax(260px,30%) 1fr; gap: 30px; align-items: center; }
@@ -127,11 +137,13 @@ body:has(.home-option-two) .topbar { display: none; }
   .home-option-two .home2-section-head { display: block; }
   .home-option-two .home2-section-head h2 { font-size: clamp(34px,8vw,45px); }
   .home-option-two .home2-section-head > p { width: 100%; margin: 16px 0 0; text-align: left; }
-  .home-option-two .home2-tabs { margin-right: -18px; padding-right: 18px; }
+  .home-option-two .home2-tabs { flex-wrap: nowrap; gap: 8px; overflow-x: auto; margin-inline-end: -18px; padding-inline-end: 90px; scroll-padding-inline-end: 90px; scrollbar-width: thin; }
   .home-option-two .home2-product-grid { grid-template-columns: 1fr; gap: 16px; }
   .home-option-two .home2-product-card { min-height: 0; }
   .home-option-two .home2-product-image { height: 250px; }
   .home-option-two .home2-product-body { min-height: 255px; padding: 12px 18px 21px; }
+  .home-option-two .home2-product-pagination { flex-wrap: wrap; gap: 12px; }
+  .home-option-two .home2-product-pagination-controls { order: 3; justify-content: space-between; width: 100%; }
   .home-option-two .home2-industries { padding: 44px 0; }
   .home-option-two .home2-industry-layout { display: block; }
   .home-option-two .home2-industry-copy { margin-bottom: 28px; }
