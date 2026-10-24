@@ -18,7 +18,6 @@ import { RelatedInternalLinks } from "@/components/RelatedInternalLinks";
 import { applications, type Application } from "@/data/applications";
 import type { BlogPost } from "@/data/blogs";
 import { productCategories, products, type Product } from "@/data/products";
-import { getProductDisplayName } from "@/data/productDetailProfiles";
 import { categoryAnchor } from "@/lib/anchors";
 import { site } from "@/data/site";
 import { absoluteUrl, breadcrumbSchema, faqSchema, organizationSchema } from "@/lib/seo";
@@ -27,6 +26,7 @@ import { getDictionary, localizeHref } from "@/lib/i18n";
 import { getPublicUi } from "@/lib/publicUi";
 import { getHomeProductFamily } from "@/lib/homeProductTaxonomy";
 import { getLocalizedProductSummary } from "@/lib/productLocale";
+import { getLocalizedProductTitle } from "@/lib/productLocalizedTitle";
 import { getArticleLabels } from "@/lib/articleLocale";
 import { getOriginalContentLabels } from "@/lib/contentOriginalLocale";
 import { getStaticInternalLinkSuggestions } from "@/lib/linkStrategy";
@@ -66,7 +66,7 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
     return {
       slug: product.slug,
       image: product.image,
-      title: featuredIndex >= 0 ? ui.homeCards[featuredIndex][0] : getProductDisplayName(product),
+      title: featuredIndex >= 0 ? ui.homeCards[featuredIndex][0] : getLocalizedProductTitle(product, locale),
       summary: featuredIndex >= 0 ? ui.homeCards[featuredIndex][1] : getLocalizedProductSummary(product, locale),
       family: getHomeProductFamily(product),
       featuredIndex
@@ -97,8 +97,8 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
       <section className="home2-products" aria-labelledby="home2-products-title">
         <div className="home2-container">
           <div className="home2-section-head">
-            <div><span className="home2-eyebrow">{locale === "en" ? "Our Products" : t.home.featuredEyebrow}</span><h2 id="home2-products-title">{locale === "en" ? <>Explore Our Magnetic<br />Separation Equipment</> : t.home.featuredTitle}</h2></div>
-            <p>{locale === "en" ? "A complete range of magnetic separation equipment for different industries and applications." : t.home.applicationText}</p>
+            <div><span className="home2-eyebrow">{locale === "en" ? "Our Products" : t.home.featuredEyebrow}</span><h2 id="home2-products-title">{locale === "en" ? <>Explore Our Magnetic<br />Separation Equipment</> : ui.homeProductRangeTitle}</h2></div>
+            <p>{ui.homeProductRangeText}</p>
           </div>
           <HomeProductShowcase locale={locale} cards={homeCards} />
         </div>
@@ -108,13 +108,13 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
         <div className="home2-container home2-industry-layout">
           <div className="home2-industry-copy">
             <span className="home2-eyebrow">{locale === "en" ? "Industries We Serve" : t.home.applicationEyebrow}</span>
-            <h2 id="home2-industry-title">{locale === "en" ? <>Proven in<br />real-world industries</> : t.home.applicationTitle}</h2>
-            <p>{t.home.applicationText}</p>
+            <h2 id="home2-industry-title">{locale === "en" ? <>Proven in<br />real-world industries</> : ui.homeIndustryTitle}</h2>
+            <p>{ui.homeIndustryText}</p>
             <Link href={localizeHref("/industries", locale)} className="home2-button home2-button-outline">{locale === "en" ? "Explore by Industry" : t.common.viewSolution} <ArrowRight size={18} aria-hidden="true" /></Link>
           </div>
           <div className="home2-industry-grid">
             {homeIndustryTiles.map((industry, index) => <Link key={industry.image} href={localizeHref(industry.href, locale)} className="home2-industry-tile">
-              <Image src={industry.image} fill sizes="(max-width: 760px) 46vw, 20vw" alt={industry.alt} loading="lazy" />
+              <Image src={industry.image} fill sizes="(max-width: 760px) 46vw, 20vw" alt="" loading="lazy" />
               <span>{ui.homeIndustries[index]}</span>
             </Link>)}
           </div>

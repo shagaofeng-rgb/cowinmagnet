@@ -21,4 +21,6 @@ test("Blog webhook retries are bounded and avoid duplicate publication", () => {
   assert.match(store, /status = 'published'/);
   assert.match(retryRoute, /claimDueBlogWebhookJobs/);
   assert.match(retryRoute, /getLegacyExternalBlogDrafts/);
+  assert.match(store, /status = 'processing'[\s\S]*INTERVAL '15 minutes'/);
+  assert.match(store, /withDatabaseRetry\(\(\) => db\.query/);
 });

@@ -17,6 +17,15 @@ const statusLabels = {
   archived: "已归档"
 };
 
+const notificationLabels = {
+  sent: "已通知 info@cowinmagnet.com",
+  pending: "已保存，等待通知",
+  retry: "通知待重试",
+  sending: "正在发送通知",
+  failed: "通知发送失败",
+  "not-tracked": "历史记录未记录通知状态"
+};
+
 const eventLabels = {
   page_view: "浏览页面",
   session_end: "结束浏览",
@@ -165,6 +174,8 @@ export default async function AdminInquiryDetailPage({ params, searchParams }) {
       </header>
 
       {query?.updated ? <div className="admin-alert success">询盘状态已更新。</div> : null}
+      {query?.notification === "queued" ? <div className="admin-alert success">已加入邮件通知重试队列。</div> : null}
+      {query?.notification === "unchanged" ? <div className="admin-alert warning">当前通知状态无需手动重试。</div> : null}
 
       <div className="admin-detail-layout">
         <section className="admin-panel admin-detail-section">
@@ -183,7 +194,16 @@ export default async function AdminInquiryDetailPage({ params, searchParams }) {
             <div><span>电话 / WhatsApp</span><strong>{text(inquiry.phone)}</strong></div>
             <div><span>国家 / 地区</span><strong>{text(inquiry.country)}</strong></div>
             <div><span>来源渠道</span><strong>{text(inquiry.channel)}</strong></div>
+            <div><span>邮箱通知</span><strong>{notificationLabels[inquiry.notificationStatus] || "待核实"}</strong></div>
+            <div><span>通知时间</span><strong>{formatDateTime(inquiry.notificationDeliveredAt)}</strong></div>
           </div>
+
+          {["failed", "retry"].includes(inquiry.notificationStatus) ? (
+            <form action={`/api/admin/inquiries/${encodeURIComponent(inquiry.id)}`} method="post">
+              <input type="hidden" name="action" value="retry_notification" />
+              <button type="submit">重新发送邮箱通知</button>
+            </form>
+          ) : null}
 
           {payloadDetails.length ? (
             <>

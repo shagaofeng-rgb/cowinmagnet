@@ -1,6 +1,6 @@
 # SEO Remediation Baseline
 
-Generated: 2026-08-08T08:51:04.471Z
+Generated: 2026-10-24T08:29:40.286Z
 
 - Repository baseline recorded before remediation in .backups/seo-remediation-20260806-204147.
 - News records discovered: 7.

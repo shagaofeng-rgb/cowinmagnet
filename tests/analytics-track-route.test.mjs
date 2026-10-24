@@ -16,3 +16,12 @@ test("analytics health does not report database outages as healthy zero traffic"
   assert.match(source, /recentEventCount: null/);
   assert.doesNotMatch(source, /ok: true,[\s\S]*status: "degraded"/);
 });
+
+test("marked visual audits and known operator browsers are excluded from customer analytics", async () => {
+  const store = await readFile(new URL("../lib/analyticsStore.js", import.meta.url), "utf8");
+  const visualAudit = await readFile(new URL("../scripts/visual-qa-capture.mjs", import.meta.url), "utf8");
+  assert.match(store, /ANALYTICS_EXCLUDED_VISITOR_IDS/);
+  assert.match(store, /excludedVisitorIds\(\)\.has\(String\(event\.visitorId\)\)/);
+  assert.match(store, /ANALYTICS_QUALITY_VERSION = "customer-events-v5"/);
+  assert.match(visualAudit, /auditUrl\.searchParams\.set\("utm_source", "automation"\)/);
+});

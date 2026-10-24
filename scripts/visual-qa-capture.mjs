@@ -11,6 +11,7 @@ const userDataDir = await fs.mkdtemp(path.join(os.tmpdir(), "cowin-visual-qa-"))
 const cases = [
   ["home-320", 320, 800, "/en"],
   ["home-390", 390, 844, "/en"],
+  ["home-430", 430, 932, "/en"],
   ["home-768", 768, 1024, "/en"],
   ["home-1440", 1440, 1000, "/en"],
   ["products-390", 390, 844, "/en/products"],
@@ -46,7 +47,7 @@ const browser = spawn(
 
 async function waitForActivePort() {
   const file = path.join(userDataDir, "DevToolsActivePort");
-  for (let attempt = 0; attempt < 100; attempt += 1) {
+  for (let attempt = 0; attempt < 400; attempt += 1) {
     try {
       const [port] = (await fs.readFile(file, "utf8")).split(/\r?\n/);
       if (port) return Number(port);
@@ -119,7 +120,10 @@ try {
         userAgent: "Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 Chrome/140.0.0.0 Mobile Safari/537.36"
       });
     }
-    await cdp.send("Page.navigate", { url: `${baseUrl}${route}` });
+    // Explicitly mark visual audits so their visits never enter customer analytics.
+    const auditUrl = new URL(route, baseUrl);
+    auditUrl.searchParams.set("utm_source", "automation");
+    await cdp.send("Page.navigate", { url: auditUrl.toString() });
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
     const evaluation = await cdp.send("Runtime.evaluate", {
@@ -148,7 +152,7 @@ try {
         }).filter((pathname) => {
           if (!/^\\/(?:images|assets)\\//.test(pathname)) return false;
           if (/(?:cowin-logo|\\/icons\\/|\\/qr-|\\/logo\\.|favicon|apple-touch)/i.test(pathname)) return false;
-          return !pathname.includes('-cowin-brand-20261001');
+          return !/(?:-cowin-brand(?:-20261001)?\\.|-branded-)/i.test(pathname);
         }).slice(0, 20);
         return {
           url: location.href,

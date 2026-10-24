@@ -22,6 +22,14 @@ const statusLabels = {
 };
 
 const pageSizeOptions = [10, 20, 50, 100];
+const notificationLabels = {
+  sent: "已通知邮箱",
+  pending: "待发送",
+  retry: "等待重试",
+  sending: "发送中",
+  failed: "发送失败",
+  "not-tracked": "历史记录"
+};
 
 function formatDateTime(value) {
   if (!value) return "-";
@@ -131,6 +139,7 @@ export default async function AdminInquiriesPage({ searchParams }) {
                   <tr>
                     <th>提交时间</th>
                     <th>状态</th>
+                    <th>邮箱通知</th>
                     <th>客户</th>
                     <th>联系方式</th>
                     <th>国家</th>
@@ -144,6 +153,7 @@ export default async function AdminInquiriesPage({ searchParams }) {
                     <tr key={item.id}>
                       <td>{formatDateTime(item.submittedAt)}</td>
                       <td><span className={`admin-customer-tag ${item.status === "new" ? "new" : "returning"}`}>{statusLabels[item.status] || item.status}</span></td>
+                      <td>{notificationLabels[item.notificationStatus] || "待核实"}</td>
                       <td>
                         <a className="admin-inquiry-link" href={`/admin/inquiries/${encodeURIComponent(item.id)}`}>
                           <strong>{text(item.name)}</strong>

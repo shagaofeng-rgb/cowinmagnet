@@ -5,7 +5,7 @@
   "crons": [
     {
       "path": "/api/cron/analytics-sync",
-      "schedule": "*/30 * * * *"
+      "schedule": "*/10 * * * *"
     },
     {
       "path": "/api/cron/sitemap-maintenance",
@@ -13,6 +13,10 @@
     },
     {
       "path": "/api/cron/blog-publish-retry",
+      "schedule": "*/30 * * * *"
+    },
+    {
+      "path": "/api/cron/inquiry-notification-retry",
       "schedule": "*/30 * * * *"
     },
     {

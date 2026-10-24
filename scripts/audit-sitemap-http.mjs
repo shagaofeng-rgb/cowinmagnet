@@ -37,22 +37,32 @@ async function collectUrls(url) {
 
 async function inspectUrl(url) {
   const targetUrl = requestUrl(url);
-  try {
-    const response = await fetch(targetUrl, {
-      method: "GET",
-      redirect: "manual",
-      headers: { Range: "bytes=0-0", "User-Agent": "Cowinmagnet-Sitemap-Audit/1.0" },
-      signal: AbortSignal.timeout(timeoutMs)
-    });
-    return {
-      url,
-      requestUrl: targetUrl,
-      status: response.status,
-      location: response.headers.get("location") || "",
-      robots: response.headers.get("x-robots-tag") || ""
-    };
-  } catch (error) {
-    return { url, requestUrl: targetUrl, status: 0, error: String(error?.name || error?.message || "request-failed") };
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      const response = await fetch(targetUrl, {
+        method: "GET",
+        redirect: "manual",
+        headers: { "User-Agent": "Cowinmagnet-Sitemap-Audit/1.0" },
+        signal: AbortSignal.timeout(timeoutMs)
+      });
+      await response.body?.cancel();
+      if (attempt < 2 && (response.status === 429 || response.status >= 500)) {
+        await new Promise((resolve) => setTimeout(resolve, 250 * (attempt + 1)));
+        continue;
+      }
+      return {
+        url,
+        requestUrl: targetUrl,
+        status: response.status,
+        location: response.headers.get("location") || "",
+        robots: response.headers.get("x-robots-tag") || ""
+      };
+    } catch (error) {
+      if (attempt === 2) {
+        return { url, requestUrl: targetUrl, status: 0, error: String(error?.name || error?.message || "request-failed") };
+      }
+      await new Promise((resolve) => setTimeout(resolve, 250 * (attempt + 1)));
+    }
   }
 }
 

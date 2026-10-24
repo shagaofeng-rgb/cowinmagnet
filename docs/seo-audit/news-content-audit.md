@@ -1,19 +1,19 @@
 # News Content Audit
 
-Generated: 2026-08-08T08:51:04.469Z
+Generated: 2026-10-24T08:29:40.282Z
 
 - Total News records reviewed: 7
-- Marked noindex and excluded from listings/sitemaps: 3
-- Eligible to remain indexable: 4
+- Marked noindex and excluded from listings/sitemaps: 7
+- Eligible to remain indexable: 0
 
 This report is generated from existing CMS and legacy content records. No records were deleted.
 
 ## Current publishing controls
 
-- The daily discovery task records candidate sources and planned topics only.
-- The 48-hour publishing task can publish only when `NEWS_AUTOMATION_PRODUCTION_ENABLED=true`, source, duplicate, quality and public frontend verification checks all pass.
-- A failed source, quality or post-publication health check is saved as `needs_review` or reverted to `draft`; it is not kept publicly indexable.
-- Blog has no automatic publishing task. Manual CMS publishing remains available.
+- The 12-hour ingest task only records site-scoped candidates and audit logs. It cannot compose, write CMS content or publish.
+- The 48-hour publisher can run only when `NEWS_AUTOMATION_PRODUCTION_ENABLED=true`. It must pass source, duplicate, content and public frontend verification before it records success.
+- A failed source, quality or post-publication health check is saved as `retry_pending` or reverted to `draft`; it is not kept publicly indexable.
+- Blog automation is isolated from News automation.
 
 ## Review rules
 

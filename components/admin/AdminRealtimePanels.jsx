@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { BarList, CsvExportButton, LineTrendChart, MetricCard, TrendChart } from "@/components/admin/AdminWidgets";
 import { displayAdminLabel } from "@/lib/adminDisplayLabels";
 
-const refreshMs = 30 * 60 * 1000;
+const refreshMs = 10 * 60 * 1000;
 const defaultPageSize = 20;
 const pageSizeOptions = [10, 20, 50, 100];
 const countryNameZh = {
@@ -83,7 +83,8 @@ function useLiveAnalytics(initialData) {
   const [state, setState] = useState({
     loading: false,
     error: "",
-    syncedAt: initialData?.generatedAt ? formatBeijingDateTime(initialData.generatedAt) : ""
+    syncedAt: initialData?.generatedAt ? formatBeijingDateTime(initialData.generatedAt) : "",
+    stale: initialData?.cache?.status === "persistent-stale"
   });
 
   useEffect(() => {
@@ -100,7 +101,8 @@ function useLiveAnalytics(initialData) {
         setState({
           loading: false,
           error: "",
-          syncedAt: formatBeijingDateTime(nextData.generatedAt || new Date())
+          syncedAt: nextData.generatedAt ? formatBeijingDateTime(nextData.generatedAt) : "",
+          stale: nextData.cache?.status === "persistent-stale"
         });
       } catch {
         if (!active) return;
@@ -148,14 +150,22 @@ function useLiveContentStats(initialStats) {
 
 function LiveSyncNote({ state }) {
   return (
-    <div className={`admin-live-note ${state.error ? "error" : ""}`}>
-      <span>{state.loading ? "正在更新数据..." : "数据已更新"}</span>
+    <div className={`admin-live-note ${state.error || state.stale ? "error" : ""}`}>
+      <span>{state.loading ? "正在更新数据..." : state.stale ? "数据更新延迟" : "数据已更新"}</span>
       <small>
         {state.error ||
-          `最近更新：${state.syncedAt || "初始化中"}（北京时间）`}
+          `数据生成时间：${state.syncedAt || "暂不可用"}（北京时间）${state.stale ? "；正在等待下一次同步" : ""}`}
       </small>
     </div>
   );
+}
+
+function contentMetric(value) {
+  return value == null ? "—" : Number(value).toLocaleString();
+}
+
+function analyticsMetric(value, available, suffix = "") {
+  return available ? `${Number(value || 0).toLocaleString()}${suffix}` : "—";
 }
 
 function DataAvailability({ storageMode }) {
@@ -288,6 +298,7 @@ export function AdminOverviewRealtime({ initialData, contentStats }) {
   const recentVisitors = list(data.customerProfiles?.length ? data.customerProfiles : data.visitors).slice(0, 5);
   const channels = list(traffic.channels);
   const channelTotal = Number(overview.pageViews || 0);
+  const analyticsAvailable = storageMode === "database";
 
   return (
     <>
@@ -295,10 +306,10 @@ export function AdminOverviewRealtime({ initialData, contentStats }) {
       <DataAvailability storageMode={storageMode} />
 
       <section className="admin-grid four admin-overview-metrics">
-        <MetricCard label="页面浏览量" value={Number(overview.pageViews || 0).toLocaleString()} note="PV" />
-        <MetricCard label="独立访客" value={Number(overview.uniqueVisitors || 0).toLocaleString()} note="UV" />
-        <MetricCard label="访问会话" value={Number(overview.sessions || 0).toLocaleString()} note="有效访问" />
-        <MetricCard label="询盘提交" value={Number(overview.inquiries || 0).toLocaleString()} note="表单提交事件" />
+        <MetricCard label="页面浏览量" value={analyticsMetric(overview.pageViews, analyticsAvailable)} note="PV" />
+        <MetricCard label="独立访客" value={analyticsMetric(overview.uniqueVisitors, analyticsAvailable)} note="UV" />
+        <MetricCard label="访问会话" value={analyticsMetric(overview.sessions, analyticsAvailable)} note="有效访问" />
+        <MetricCard label="询盘提交" value={analyticsMetric(overview.inquiries, analyticsAvailable)} note="表单提交事件" />
       </section>
 
       <section className="admin-grid two admin-overview-core">
@@ -340,9 +351,9 @@ export function AdminOverviewRealtime({ initialData, contentStats }) {
       <details className="admin-overview-details">
         <summary>更多运营数据</summary>
         <section className="admin-grid four">
-          <MetricCard label="前台产品" value={Number(liveContentStats.products || 0).toLocaleString()} note="已发布内容" />
+          <MetricCard label="前台产品" value={contentMetric(liveContentStats.products)} note="已发布内容" />
           <MetricCard label="Blog 文章" value={Number(liveContentStats.blogPosts || 0).toLocaleString()} note="静态专业文章" />
-          <MetricCard label="新闻文章" value={Number(liveContentStats.newsPosts || 0).toLocaleString()} note="已发布内容" />
+          <MetricCard label="新闻文章" value={contentMetric(liveContentStats.newsPosts)} note="已发布内容" />
           <MetricCard label="应用场景" value={Number(liveContentStats.applications || 0).toLocaleString()} note="静态应用库" />
         </section>
       <section className="admin-grid two">
@@ -378,10 +389,10 @@ export function AdminOverviewRealtime({ initialData, contentStats }) {
           <p className="eyebrow">SEO 快照</p>
           <h2>Google Search Console</h2>
           <div className="admin-mini-metrics">
-            <MetricCard label="点击量" value={searchConsole.overview?.clicks || 0} note="GSC" />
-            <MetricCard label="曝光量" value={searchConsole.overview?.impressions || 0} note="GSC" />
-            <MetricCard label="点击率" value={`${searchConsole.overview?.ctr || 0}%`} note="平均值" />
-            <MetricCard label="排名位置" value={searchConsole.overview?.position || 0} note="平均值" />
+            <MetricCard label="点击量" value={analyticsMetric(searchConsole.overview?.clicks, searchConsole.configured)} note="GSC" />
+            <MetricCard label="曝光量" value={analyticsMetric(searchConsole.overview?.impressions, searchConsole.configured)} note="GSC" />
+            <MetricCard label="点击率" value={analyticsMetric(searchConsole.overview?.ctr, searchConsole.configured, "%")} note="平均值" />
+            <MetricCard label="排名位置" value={analyticsMetric(searchConsole.overview?.position, searchConsole.configured)} note="平均值" />
           </div>
           {!searchConsole.configured ? <p className="admin-muted">搜索数据正在准备中。</p> : null}
         </article>
@@ -393,18 +404,20 @@ export function AdminOverviewRealtime({ initialData, contentStats }) {
 
 export function AdminTrafficRealtime({ initialData }) {
   const { data, state } = useLiveAnalytics(initialData);
-  const { overview = {}, traffic = {}, acquisition = {} } = data;
+  const { overview = {}, traffic = {}, acquisition = {}, storageMode } = data;
+  const analyticsAvailable = storageMode === "database";
   const sessionRows = list(acquisition.session).slice(0, 12);
   const campaignRows = list(acquisition.campaigns).slice(0, 12);
 
   return (
     <>
       <LiveSyncNote state={state} />
+      <DataAvailability storageMode={storageMode} />
       <section className="admin-grid four">
-        <MetricCard label="平均停留" value={`${overview.avgDuration || 0}s`} note="页面参与度" />
-        <MetricCard label="跳出率" value={`${overview.bounceRate || 0}%`} note="估算值" />
-        <MetricCard label="国家地区" value={list(traffic.countries).length} note="活跃市场" />
-        <MetricCard label="设备类型" value={list(traffic.devices).length} note="访问设备" />
+        <MetricCard label="平均停留" value={analyticsMetric(overview.avgDuration, analyticsAvailable, "s")} note="页面参与度" />
+        <MetricCard label="跳出率" value={analyticsMetric(overview.bounceRate, analyticsAvailable, "%")} note="估算值" />
+        <MetricCard label="国家地区" value={analyticsMetric(list(traffic.countries).length, analyticsAvailable)} note="活跃市场" />
+        <MetricCard label="设备类型" value={analyticsMetric(list(traffic.devices).length, analyticsAvailable)} note="访问设备" />
       </section>
       <section className="admin-panel">
         <p className="eyebrow">每日趋势</p>

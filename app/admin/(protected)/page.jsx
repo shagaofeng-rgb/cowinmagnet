@@ -16,13 +16,24 @@ export const metadata = {
 export default async function AdminOverviewPage({ searchParams }) {
   const range = getAdminDateRange(await searchParams);
   const rangeKey = `${range.preset}:${range.startInput}:${range.endInput}`;
-  const [data, allProducts, allNews, cmsProducts, cmsNews] = await Promise.all([
+  const [analyticsResult, productsResult, newsResult, cmsProductsResult, cmsNewsResult] = await Promise.allSettled([
     getAnalyticsSnapshot(range),
     getProductsWithCms(),
     getNewsPosts(),
     getCmsItems("product", { includeInactive: true, requireDatabase: true }),
     getCmsItems("news", { includeInactive: true, requireDatabase: true })
   ]);
+  const data = analyticsResult.status === "fulfilled"
+    ? analyticsResult.value
+    : { storageMode: "unavailable", generatedAt: null };
+  const contentAvailable = cmsProductsResult.status === "fulfilled" && cmsNewsResult.status === "fulfilled";
+  if (analyticsResult.status === "rejected" || !contentAvailable) {
+    console.error("Admin overview data dependency failed", {
+      analytics: analyticsResult.status,
+      cmsProducts: cmsProductsResult.status,
+      cmsNews: cmsNewsResult.status
+    });
+  }
 
   return (
     <div className="admin-page admin-overview">
@@ -39,12 +50,12 @@ export default async function AdminOverviewPage({ searchParams }) {
         key={rangeKey}
         initialData={data}
         contentStats={{
-          products: allProducts.length,
+          products: contentAvailable && productsResult.status === "fulfilled" ? productsResult.value.length : null,
           blogPosts: blogPosts.length,
-          newsPosts: allNews.length,
+          newsPosts: contentAvailable && newsResult.status === "fulfilled" ? newsResult.value.length : null,
           applications: applications.length,
-          cmsProducts: cmsProducts.length,
-          cmsNews: cmsNews.length,
+          cmsProducts: cmsProductsResult.status === "fulfilled" ? cmsProductsResult.value.length : null,
+          cmsNews: cmsNewsResult.status === "fulfilled" ? cmsNewsResult.value.length : null,
           cmsStorageMode: cmsStorageMode()
         }}
       />

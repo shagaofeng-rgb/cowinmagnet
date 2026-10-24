@@ -15,6 +15,7 @@ import { localizeHref, type Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/i18n";
 import { getPublicUi } from "@/lib/publicUi";
 import { getLocalizedProductSummary } from "@/lib/productLocale";
+import { getLocalizedProductTitle } from "@/lib/productLocalizedTitle";
 import { getOriginalContentLabels } from "@/lib/contentOriginalLocale";
 
 type ProductDetailExperienceProps = {
@@ -88,7 +89,7 @@ function SelectionChecklist({ items }: { items: string[] }) {
 
 export function ProductDetailExperience({ product, locale }: ProductDetailExperienceProps) {
   const profile = getProductDetailProfile(product);
-  const displayName = getProductDisplayName(product);
+  const displayName = getLocalizedProductTitle(product, locale || "en");
   const pagePath = routeFor(locale, `/products/${product.slug}`);
   const quotePath = `${routeFor(locale, "/request-quote")}?product=${encodeURIComponent(product.name)}&family=${encodeURIComponent(profile.family)}`;
   const models = modelDesignations(product);
@@ -146,7 +147,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
       <MetaProductView name={displayName} category={product.category} slug={product.slug} />
       <main className="product-detail-experience">
         <nav className="product-breadcrumb" aria-label={t.nav.products}>
-          {localizedBreadcrumbs.map((item, index) => <span key={item.path}>{index === localizedBreadcrumbs.length - 1 ? <span aria-current="page" lang="en">{item.name}</span> : <Link href={item.path}>{item.name}</Link>}{index < localizedBreadcrumbs.length - 1 ? <i aria-hidden>/</i> : null}</span>)}
+          {localizedBreadcrumbs.map((item, index) => <span key={item.path}>{index === localizedBreadcrumbs.length - 1 ? <span aria-current="page">{item.name}</span> : <Link href={item.path}>{item.name}</Link>}{index < localizedBreadcrumbs.length - 1 ? <i aria-hidden>/</i> : null}</span>)}
         </nav>
         <section className="product-detail-hero">
           <div className="product-media-panel">
@@ -157,7 +158,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
           <div className="product-hero-copy">
             <div className="product-hero-meta"><span>{localizedCategory}</span>{models.length ? <span>{ui.productModel}: {models.join(" / ")}</span> : null}</div>
-            <h1 lang="en">{displayName}</h1>
+            <h1>{displayName}</h1>
             <p>{summary}</p>
             <div className="product-hero-actions">
               <Link className="btn btn-primary" href={quotePath}>{t.common.getQuote} <ArrowRight size={17} aria-hidden /></Link>
@@ -174,11 +175,11 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </aside>
           <div className="product-detail-content">
             <ProductDetailSectionTabs />
-            <section data-product-panel="overview" className="product-detail-section product-overview-section"><div className="product-detail-section-heading"><span className="eyebrow">{t.productDetail.overview}</span><h2 lang="en">{displayName}</h2></div><div className="product-prose"><p>{summary}</p><p>{original.product} <Link href={`/en/products/${product.slug}`} hrefLang="en">{original.link}</Link></p></div></section>
+            <section data-product-panel="overview" className="product-detail-section product-overview-section"><div className="product-detail-section-heading"><span className="eyebrow">{t.productDetail.overview}</span><h2>{displayName}</h2></div><div className="product-prose"><p>{summary}</p><p>{original.product} <Link href={`/en/products/${product.slug}`} hrefLang="en">{original.link}</Link></p></div></section>
             <section data-product-panel="selection" hidden className="product-detail-section product-selection-section"><div className="product-selection-copy"><span className="eyebrow">{ui.productTabs[1]}</span><h2>{t.productDetail.ctaTitle}</h2><p>{ui.productInstruction}</p></div><div className="product-selection-cta"><p>{t.productDetail.ctaText}</p><Link className="btn btn-primary" href={quotePath}>{t.common.getQuote} <ArrowRight size={17} aria-hidden /></Link></div></section>
             <section data-product-panel="applications" hidden className="product-detail-section product-materials-section"><div className="product-detail-section-heading"><span className="eyebrow">{ui.productTabs[2]}</span><h2>{t.productDetail.industries}</h2></div><div className="product-industry-links">{profile.industrySlugs.map((slug) => { const index = industrySlugs.indexOf(slug); return <Link href={routeFor(locale, industryRoute(slug))} key={slug}><span>{index >= 0 ? ui.industryMenu[index][0] : slug}</span><ArrowRight size={16} aria-hidden /></Link>; })}</div></section>
             <section data-product-panel="technical" hidden className="product-detail-section product-specification-section"><div className="product-detail-section-heading"><span className="eyebrow">{ui.productTabs[3]}</span><h2>{t.productDetail.specifications}</h2><p>{ui.technicalNotice}</p></div>{models.length ? <div className="product-specification-table" role="table" aria-label={t.productDetail.specifications}><div role="row"><span>{ui.productModel}</span><strong>{models.join(" / ")}</strong></div></div> : null}</section>
-            <section data-product-panel="support" hidden className="product-final-cta" aria-labelledby="product-final-cta-title"><div className="product-final-media"><Image src={product.image} alt={displayName} width={660} height={440} sizes="(max-width: 900px) 100vw, 46vw" /></div><div className="product-final-form"><span className="eyebrow">{t.productDetail.quoteTitle}</span><h2 id="product-final-cta-title">{t.productDetail.ctaTitle}</h2><p>{t.productDetail.ctaText}</p><QuoteForm compact productContext={{ name: product.name, model: models.join(" / "), family: profile.family }} /></div></section>
+            <section data-product-panel="support" hidden className="product-final-cta" aria-labelledby="product-final-cta-title"><div className="product-final-media"><Image src={product.image} alt={displayName} width={660} height={440} sizes="(max-width: 900px) 100vw, 46vw" /></div><div className="product-final-form"><span className="eyebrow">{t.productDetail.quoteTitle}</span><h2 id="product-final-cta-title">{t.productDetail.ctaTitle}</h2><p>{t.productDetail.ctaText}</p><QuoteForm compact productContext={{ name: displayName, model: models.join(" / "), family: profile.family }} /></div></section>
           </div>
         </div>
       </main>

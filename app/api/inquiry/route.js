@@ -1,9 +1,10 @@
-import nodemailer from "nodemailer";
 import { after } from "next/server";
 import { appendConversionAttribution } from "@/lib/analyticsDatabase";
-import { saveInquirySubmission } from "@/lib/inquiryStore";
+import { recordInquiryNotificationResult, saveInquirySubmission } from "@/lib/inquiryStore";
+import { sendInquiryNotification } from "@/lib/inquiryNotification";
 import { buildMetaUserData, sendMetaCapiEvent } from "@/lib/metaConversions";
 import { safeSiteUrl } from "@/lib/siteUrlSafety";
+import { isCronAuthorized } from "@/lib/cronAuth";
 
 export const runtime = "nodejs";
 
@@ -15,13 +16,6 @@ const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
 const RATE_LIMIT_MAX = 5;
 const inquiryRateLimit = globalThis.__cowinInquiryRateLimit || new Map();
 globalThis.__cowinInquiryRateLimit = inquiryRateLimit;
-
-function parseEmailList(value) {
-  return String(value || "")
-    .split(",")
-    .map((email) => email.trim())
-    .filter(Boolean);
-}
 
 function validate(payload) {
   const errors = {};
@@ -250,9 +244,13 @@ export async function POST(request) {
     return Response.json({ message: "Request is too large." }, { status: 413 });
   }
 
+  // A public caller cannot hide a genuine inquiry by declaring it a test.
+  const isMarkedTest = payload.isTest === true && payload.formType === "test" && isCronAuthorized(request);
   const ip = clientIp(request);
   payload = {
     ...payload,
+    formType: isMarkedTest ? "test" : "inquiry",
+    isTest: isMarkedTest,
     clientIp: ip,
     userAgent: request.headers.get("user-agent") || "-",
     submittedAt: new Date().toISOString()
@@ -282,7 +280,6 @@ export async function POST(request) {
     );
   }
 
-  const isMarkedTest = payload.isTest === true && payload.formType === "test";
   if (!isMarkedTest) {
     after(async () => {
       await recordMetaLead(payload).catch((error) => {
@@ -296,61 +293,32 @@ export async function POST(request) {
   // make a valid customer lead look like a failed form submission.
   if (!isMarkedTest) await recordInquiryAttribution(payload);
 
-  const toEmail = process.env.INQUIRY_TO_EMAIL || "info@cowinmagnet.com";
-  const bccEmails = parseEmailList(process.env.INQUIRY_BCC_EMAILS);
-  const fromEmail = process.env.INQUIRY_FROM_EMAIL || "Cowinmagnet Website <info@cowinmagnet.com>";
-  const smtpHost = process.env.SMTP_HOST;
-  const smtpPort = Number(process.env.SMTP_PORT || 465);
-  const smtpUser = process.env.SMTP_USER;
-  const smtpPass = process.env.SMTP_PASSWORD || process.env.SMTP_PASS;
-  const smtpSecure = process.env.SMTP_SECURE !== "false";
+  const emailPayload = { ...payload, inquiryId: savedInquiry.id };
+  const delivery = await sendInquiryNotification(emailPayload, {
+    text: inquiryText(emailPayload),
+    html: inquiryHtml(emailPayload)
+  });
+  const outcome = await recordInquiryNotificationResult(savedInquiry.id, {
+    sent: delivery.sent,
+    reason: delivery.reason,
+    attempt: 1
+  }).catch((error) => {
+    console.error("Inquiry notification state update failed", { inquiryId: savedInquiry.id, reason: error?.name || "unknown" });
+    return null;
+  });
 
-  if (smtpHost && smtpUser && smtpPass && toEmail) {
-    try {
-      const transporter = nodemailer.createTransport({
-        host: smtpHost,
-        port: smtpPort,
-        secure: smtpSecure,
-        auth: {
-          user: smtpUser,
-          pass: smtpPass
-        }
-      });
-
-      await transporter.sendMail({
-        from: fromEmail,
-        // The provider validates SMTP MAIL FROM against the authenticated user.
-        // Keep the public From header at info@cowinmagnet.com while routing the
-        // envelope through the account that is authorized to send it.
-        envelope: { from: smtpUser, to: [toEmail, ...bccEmails] },
-        to: [toEmail],
-        bcc: bccEmails,
-        replyTo: payload.email,
-        subject: `New inquiry from ${payload.name} - Cowinmagnet`,
-        text: inquiryText(payload),
-        html: inquiryHtml(payload)
-      });
-      return Response.json({
-        message: "Thank you. Your inquiry has been sent successfully.",
-        inquiryId: savedInquiry?.id,
-        deliveryStatus: "sent"
-      });
-    } catch (error) {
-      console.error("SMTP inquiry delivery failed", error);
-      return Response.json(
-        {
-          message: "Thank you. Your inquiry has been received and our sales team will contact you soon.",
-          inquiryId: savedInquiry?.id,
-          deliveryStatus: "recorded"
-        },
-        { status: 202 }
-      );
-    }
+  if (delivery.sent) {
+    return Response.json({
+      message: "Thank you. Your inquiry has been sent successfully.",
+      inquiryId: savedInquiry.id,
+      deliveryStatus: "sent"
+    });
   }
 
-  console.info(`Inquiry received without SMTP delivery: ${payload.email} from ${payload.country || "-"} via ${payload.sourcePath || "-"}`);
   return Response.json({
-    message: "Thank you. Your inquiry has been received. Email delivery is not configured on this environment.",
-    inquiryId: savedInquiry?.id
-  });
+    message: "Your inquiry has been recorded. Email notification is pending; our team can still see your request.",
+    inquiryId: savedInquiry.id,
+    deliveryStatus: "recorded",
+    notificationStatus: outcome?.status || "pending"
+  }, { status: 202 });
 }

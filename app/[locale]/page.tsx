@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { LocalizedHomePage } from "@/components/LocalizedPages";
 import { getDictionary, isLocale, localizedPageAlternates, type Locale } from "@/lib/i18n";
 import { absoluteUrl } from "@/lib/seo";
+import "../home-option-two.css";
 
 type PageProps = { params: Promise<{ locale: string }> };
 

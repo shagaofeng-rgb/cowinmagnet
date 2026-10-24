@@ -18,8 +18,6 @@ function timeoutSignal(ms) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), ms);
   return {
-    formType: "test",
-    isTest: true,
     signal: controller.signal,
     clear: () => clearTimeout(timer)
   };
@@ -28,6 +26,8 @@ function timeoutSignal(ms) {
 function testPayload() {
   const now = new Date().toISOString();
   return {
+    formType: "test",
+    isTest: true,
     name: "Cowinmagnet Monthly Form Test",
     email: "monthly-form-test@cowinmagnet.com",
     phone: "+1 555 0100",
@@ -88,6 +88,7 @@ export async function GET(request) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        ...(process.env.CRON_SECRET ? { Authorization: `Bearer ${process.env.CRON_SECRET}` } : {}),
         "User-Agent": "Cowinmagnet-Monthly-Inquiry-Test/1.0"
       },
       body: JSON.stringify(testPayload()),

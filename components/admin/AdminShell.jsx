@@ -52,7 +52,7 @@ export default function AdminShell({ children, email }) {
       >
         <Menu size={22} /> <span>COWIN MAGNET</span>
       </button>
-      {menuOpen ? <button type="button" className="admin-sidebar-backdrop" aria-label="关闭后台导航" onClick={() => setMenuOpen(false)} /> : null}
+      {menuOpen ? <button type="button" className="admin-sidebar-backdrop" aria-label="点击遮罩关闭后台导航" onClick={() => setMenuOpen(false)} /> : null}
       <aside className={`admin-sidebar ${menuOpen ? "is-open" : ""}`}>
         <Link className="admin-logo" href="/admin">
           <Image src="/images/cowin-logo.png" alt="COWIN MAGNET" width={50} height={50} priority />

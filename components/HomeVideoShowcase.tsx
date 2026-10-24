@@ -50,7 +50,7 @@ export function HomeVideoShowcase({ eyebrow, title, locale = "en" }: HomeVideoSh
             controls
             playsInline
             preload="none"
-            poster="/images/generated/home-hero-option-two-branded-20261009.webp"
+            poster="/images/generated/home-video-poster-850.webp"
             aria-label={title}
             onPlay={() => { setIsPlaying(true); setPlayError(false); }}
             onPause={() => setIsPlaying(false)}

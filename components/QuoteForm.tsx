@@ -24,7 +24,7 @@ type QuoteFormProps = {
 export function QuoteForm({ compact = false, defaultProduct = "", productContext, variant = "default" }: QuoteFormProps) {
   const locale = getLocaleFromPath(usePathname());
   const ui = getPublicUi(locale);
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "recorded" | "error">("idle");
   const isHomeForm = variant === "home";
 
   async function submit(formData: FormData) {
@@ -60,6 +60,7 @@ export function QuoteForm({ compact = false, defaultProduct = "", productContext
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       });
+      const result = await response.json().catch(() => null);
 
       const tracker = (window as typeof window & { __cowinTrackEvent?: (type: string, extra?: Record<string, unknown>) => void }).__cowinTrackEvent;
       if (response.ok && tracker) {
@@ -71,7 +72,7 @@ export function QuoteForm({ compact = false, defaultProduct = "", productContext
           content_category: "B2B inquiry"
         }, { eventId: metaEventId, sendServer: false });
       }
-      setStatus(response.ok ? "success" : "error");
+      setStatus(response.ok ? (result?.deliveryStatus === "sent" ? "success" : "recorded") : "error");
     } catch {
       setStatus("error");
     }
@@ -201,6 +202,9 @@ export function QuoteForm({ compact = false, defaultProduct = "", productContext
       </button>
       {status === "success" && (
         <p className="form-success" role="status" aria-live="polite">{ui.success}</p>
+      )}
+      {status === "recorded" && (
+        <p className="form-success" role="status" aria-live="polite">{ui.recorded}</p>
       )}
       {status === "error" && (
         <p className="form-error" role="alert">{ui.error}</p>
