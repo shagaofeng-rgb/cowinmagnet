@@ -114,7 +114,7 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
           </div>
           <div className="home2-industry-grid">
             {homeIndustryTiles.map((industry, index) => <Link key={industry.image} href={localizeHref(industry.href, locale)} className="home2-industry-tile">
-              <Image src={industry.image} fill sizes="(max-width: 760px) 46vw, 20vw" alt="" loading="lazy" />
+              <Image src={industry.image} fill sizes="(max-width: 760px) 46vw, 20vw" alt={industry.alt} loading="lazy" />
               <span>{ui.homeIndustries[index]}</span>
             </Link>)}
           </div>
