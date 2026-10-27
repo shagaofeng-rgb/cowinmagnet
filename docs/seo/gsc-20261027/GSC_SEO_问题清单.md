@@ -31,3 +31,9 @@
 附件中的 Google 邮件提到“已发现但未收录”验证通过（759，两个属性可能重叠）、规范替代页、Google 选择其他 canonical、`noindex`、404、跳转和产品摘要。邮件未附全部受影响 URL。**验证通过不等于已收录**；当前只能证明仓库/生产 URL 的技术状态，不能认定 GSC 的历史清单都已清零。站点所有者需在可访问的 GSC 属性中导出各原因的示例 URL，尤其是历史 404、重复规范页与产品摘要页，再与本清单逐条对照。
 
 Google 规则依据：[Product 摘要必要字段](https://developers.google.com/search/docs/appearance/structured-data/product-snippet)、[canonical 信号一致性](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls)、[Sitemap 中列首选标准 URL](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)。
+
+## 上线后处理结果
+
+2026-10-27 生产版本 `6320f3e5becfac4fda6737b47d7396bf20262ae5` 的同法复查覆盖 213 个 URL；上述 **3 类可修问题均已解决**，审计 `issueCounts` 为空。具体 URL 与字段见 [GSC_SEO_URL_检查结果.csv](./GSC_SEO_URL_检查结果.csv) 和 [after.json](./after.json)。Sitemap 从 175 条增加到 176 条，新增项仅为 `/en/editorial-policy`；全量 176 条均返回 200，未见意外 `noindex`、重定向或失效链接。
+
+基线中的 `noindex`、308 和 404 是 3 类正常状态，仍按原意保留。**GSC 历史问题条目是否已经在 Google 平台关闭，仍待具有属性权限的站点所有者核对**；线上技术复查不能代替 Google 的重新抓取与验证。
