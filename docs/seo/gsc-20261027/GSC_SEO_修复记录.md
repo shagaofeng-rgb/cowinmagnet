@@ -22,7 +22,7 @@
 | 已链接、可收录但漏入 Sitemap | 1 个 | 0 |
 | Sitemap URL | 175 | 176 |
 | Sitemap 中 HTTP/索引指令异常 | 0 | 0 |
-| 构建环境抬高静态页 `lastmod` | 编辑政策页线上为 2026-10-05，真实内容日期为 2026-09-27 | 待最终生产复核 |
+| 构建环境抬高静态页 `lastmod` | 编辑政策页线上为 2026-10-05，真实内容日期为 2026-09-27 | 最终生产 Sitemap 为 2026-09-27 |
 
 上述前三行可能涉及同一页面，不能相加为独立 URL 数。生产部署为 Vercel `dpl_C8Kq2Qi5JD4LPDPkWUG3SJcXEJvx`，对应 Git 提交 `6320f3e5becfac4fda6737b47d7396bf20262ae5`；`cowinmagnet.com` 与 `www.cowinmagnet.com` 均已指向该部署。
 
