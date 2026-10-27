@@ -17,6 +17,7 @@ import { getPublicUi } from "@/lib/publicUi";
 import { getLocalizedProductSummary } from "@/lib/productLocale";
 import { getLocalizedProductTitle } from "@/lib/productLocalizedTitle";
 import { getOriginalContentLabels } from "@/lib/contentOriginalLocale";
+import { productPageSchema } from "@/lib/productPageSchema";
 
 type ProductDetailExperienceProps = {
   product: Product;
@@ -104,18 +105,12 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
     count: products.filter((item) => item.category === category.category).length
   }));
   const shareMessage = encodeURIComponent(`Hello COWIN MAGNET, I am reviewing ${displayName}. Product page: ${absoluteUrl(pagePath)}. Please help with configuration.`);
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
+  const pageSchema = productPageSchema({
     name: displayName,
-    image: gallery.map((image) => absoluteUrl(image)),
     description: productSeoDescription(product),
-    brand: { "@type": "Brand", name: site.name },
-    seller: { "@type": "Organization", name: site.legalName },
-    category: product.category,
-    url: absoluteUrl(pagePath),
-    ...(models.length ? { additionalProperty: models.map((model) => ({ "@type": "PropertyValue", name: "Model designation", value: model })) } : {})
-  };
+    imageUrls: gallery.map((image) => absoluteUrl(image)),
+    url: absoluteUrl(pagePath)
+  });
   const breadcrumbs = [
     { name: "Home", path: locale ? `/${locale}` : "/" },
     { name: "Products", path: routeFor(locale, "/products") },
@@ -142,7 +137,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
     const industrySlugs = ["recycling", "mining", "cement-aggregate", "food-processing"];
 
     return <>
-      <JsonLd data={{ ...productSchema, description: summary, category: localizedCategory }} />
+      <JsonLd data={productPageSchema({ name: displayName, description: summary, imageUrls: gallery.map((image) => absoluteUrl(image)), url: absoluteUrl(pagePath) })} />
       <JsonLd data={breadcrumbSchema(localizedBreadcrumbs)} />
       <MetaProductView name={displayName} category={product.category} slug={product.slug} />
       <main className="product-detail-experience">
@@ -189,7 +184,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
 
   return (
     <>
-      <JsonLd data={productSchema} />
+      <JsonLd data={pageSchema} />
       <JsonLd data={breadcrumbSchema(breadcrumbs)} />
       <JsonLd data={faqSchema(profile.faqs)} />
       <MetaProductView name={displayName} category={product.category} slug={product.slug} />

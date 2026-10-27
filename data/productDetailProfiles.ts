@@ -1,4 +1,5 @@
 import type { Product } from "@/data/products";
+import { productMetaDescription } from "@/lib/productMetaDescription";
 
 export type ProductFamily =
   | "suspended"
@@ -524,6 +525,5 @@ export function productSeoTitle(product: Product) {
 
 export function productSeoDescription(product: Product) {
   const profile = getProductDetailProfile(product);
-  const description = `${getProductDisplayName(product)} for ${profile.primaryIndustry}. Share material and operating conditions with COWIN MAGNET for configuration support.`;
-  return description.length <= 160 ? description : `${description.slice(0, 157).replace(/\s+\S*$/, "").trim()}...`;
+  return productMetaDescription(getProductDisplayName(product), profile.primaryIndustry);
 }

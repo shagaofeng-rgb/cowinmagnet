@@ -10,6 +10,7 @@ const groups = {
   // Keep lastmod tied to content records rather than template/component releases.
   // Template edits can affect hundreds of routes without changing page content.
   pages: ["data/site.ts", "messages"],
+  legal: ["lib/legalLocale.ts", "app/[locale]/editorial-policy/page.tsx"],
   products: ["data/products.ts", "data/productDetailProfiles.ts", "lib/productCms.js"],
   categories: ["data/applications.ts", "components/ApplicationsPageContent.jsx"],
   posts: ["data/blogs.ts", "data/contentHub.js", "data/generatedNews.js", "content/blog"]
