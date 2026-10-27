@@ -9,6 +9,7 @@
 | `lib/sitemap/source.js` | 将英文编辑政策页加入 Sitemap，其他非英文/待审核内容仍按原规则排除。 |
 | `lib/sitemap/service.js` | 提升策略版本，使线上存储的旧 Sitemap 快照在部署后重建。 |
 | `scripts/build-sitemap-static-dates.mjs`、`data/sitemapStaticDates.json` | 单独记录编辑政策文档的真实 Git 更新时间，不按构建日伪造 `lastmod`。 |
+| 同上、`lib/sitemap/service.js` | 避免 Vercel 不完整 Git 历史抬高静态页 `lastmod`；使用已核实且随源码提交的日期，并提升快照策略版本刷新生产 Sitemap。 |
 | `scripts/gsc-seo-audit.mjs`、`tests/product-page-schema.test.mjs`、`tests/product-meta-description.test.mjs` | 增加可复现的逐 URL 审计与回归测试。 |
 
 ## 生产前后对比
@@ -21,6 +22,7 @@
 | 已链接、可收录但漏入 Sitemap | 1 个 | 0 |
 | Sitemap URL | 175 | 176 |
 | Sitemap 中 HTTP/索引指令异常 | 0 | 0 |
+| 构建环境抬高静态页 `lastmod` | 编辑政策页线上为 2026-10-05，真实内容日期为 2026-09-27 | 待最终生产复核 |
 
 上述前三行可能涉及同一页面，不能相加为独立 URL 数。生产部署为 Vercel `dpl_C8Kq2Qi5JD4LPDPkWUG3SJcXEJvx`，对应 Git 提交 `6320f3e5becfac4fda6737b47d7396bf20262ae5`；`cowinmagnet.com` 与 `www.cowinmagnet.com` 均已指向该部署。
 

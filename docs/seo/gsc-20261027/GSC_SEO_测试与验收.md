@@ -23,6 +23,7 @@
 - 独立 Chrome/CDP 生产视觉抽查：英文首页 390px/1440px、英文产品详情 390px、阿拉伯语首页 390px。4 页的整页宽度均等于视口；破图、控制台报错、失败请求均为 0；3 个移动页面的导航抽屉能打开并关闭。截图与机器报告保存在本机 `/tmp/cowin-gsc-seo-20261027-visual-production/`。
 - 生产监控检查 36 页：P0 为 0，P1 为 1（根路径一次 5249ms 慢响应），P2 为 4（旧路径 5–7 秒响应），P3 为 5（个别图片/脚本加载慢）；这是性能观察，不是可收录性或状态码失败。监控自带 Playwright 视觉子任务未启用，故另用上述 Chrome/CDP 抽查。
 - 代表性产品页线上 HTML 的 JSON-LD 可解析，`ItemPage`/`Thing` 与 Breadcrumb/FAQ 等页面内容一致；无缺少真实报价或评论的 `Product` 富媒体声明。Google Rich Results Test 页面可打开，但本次测试动作未返回报告，故不声称 Google 外部测试通过或产品富媒体资格。该类定制产品无公开固定报价/可核实评论，产品富媒体结果不适用。
+- 追加发现 Vercel 构建日志把编辑政策页 `lastmod` 抬高至 2026-10-05；本地完整 Git 历史显示内容更新日为 2026-09-27。已修正生产构建逻辑，`VERCEL=1 node scripts/build-sitemap-static-dates.mjs` 输出已核实日期；最终部署的 Sitemap 日期仍需再次核对。
 - 未发送真实询盘或伪装客户信息；`tests/smtp-envelope.test.mjs` 等已有表单通知测试通过，生产抽查确认询盘入口可访问。邮件投递与后台收件的端到端状态不在本次无测试数据验收结论中。
 
 ## GSC 与提交状态

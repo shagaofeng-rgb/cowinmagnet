@@ -21,6 +21,11 @@ function gitOutput(args) {
 }
 
 function groupDate(paths, fallback = "") {
+  // Vercel builds may have a partial or synthetic Git history. Its most recent
+  // commit for a content path can be newer than the content edit itself. Use
+  // the verified dates committed with the source instead of inventing a newer
+  // lastmod during production builds.
+  if (process.env.VERCEL === "1" || process.env.VERCEL_ENV) return fallback;
   try {
     const dirty = gitOutput(["status", "--porcelain", "--", ...paths]);
     // A local build must never refresh all lastmod values merely because the
