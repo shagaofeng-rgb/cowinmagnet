@@ -136,7 +136,7 @@ export default function ProductsCatalogClient({ categories, locale = "en", label
                 </ul>
                 <div className="catalog-card-actions">
                   <Link href={withLocale(locale, `/products/${product.slug}`)}>View Details</Link>
-                  <Link href={withLocale(locale, `/inquiry?product=${product.slug}`)}>Request Quote</Link>
+                  <Link href={withLocale(locale, `/request-quote?product=${product.slug}`)}>Request Quote</Link>
                   <button type="button" onClick={() => window.dispatchEvent(new CustomEvent("cowin:add-quote-product", { detail: product.slug }))}>
                     Add to Quote List
                   </button>

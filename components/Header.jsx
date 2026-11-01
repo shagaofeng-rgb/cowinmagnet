@@ -11,7 +11,7 @@ const solutionsLinks = [
   ["/factory", "Sourcing & Quality Control", "Supplier coordination, inspection and export preparation"],
   ["/contact", "OEM/ODM Coordination", "Logo, color, size, magnetic strength and packaging coordination"],
   ["/contact", "Export Project Support", "Documents, packaging confirmation and logistics communication"],
-  ["/inquiry", "Equipment Selection Support", "Send material and conveyor details for model matching"],
+  ["/request-quote", "Equipment Selection Support", "Send material and conveyor details for model matching"],
   ["/applications", "Installation Guidance", "Cross belt, inline, overhead and head pulley layouts"]
 ];
 
@@ -120,7 +120,7 @@ export default async function Header({ locale = "en" }) {
 
       <div className="header-actions">
         <LanguageSwitcher locale={locale} />
-        <Link className="header-cta" href={withLocale(locale, "/inquiry")}>
+        <Link className="header-cta" href={withLocale(locale, "/request-quote")}>
           {nav.quote}
         </Link>
       </div>

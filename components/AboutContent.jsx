@@ -181,7 +181,7 @@ export default function AboutContent({ locale = "en" }) {
           <p className="eyebrow">Our Promise</p>
           <h2>Realistic, responsible and service-oriented.</h2>
           <p>{aboutContent.finalCta.text}</p>
-          <Link className="button primary" href={withLocale(locale, "/inquiry")}>
+          <Link className="button primary" href={withLocale(locale, "/request-quote")}>
             {aboutContent.finalCta.title}
           </Link>
         </div>

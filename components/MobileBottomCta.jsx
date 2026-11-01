@@ -48,7 +48,7 @@ export default function MobileBottomCta({ locale = "en" }) {
       <a href={socialLinks.whatsapp} target="_blank" rel="noopener noreferrer nofollow">
         WhatsApp
       </a>
-      <Link href={withLocale(locale, "/inquiry")}>
+      <Link href={withLocale(locale, "/request-quote")}>
         Request Quote{count ? ` (${count})` : ""}
       </Link>
     </div>

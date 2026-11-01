@@ -102,7 +102,7 @@ export default function ApplicationsPageContent({ locale = "en" }) {
           equipment protection needs.
         </p>
         <div className="hero-actions">
-          <Link className="button primary" href={withLocale(locale, "/inquiry")}>Send Application Details</Link>
+          <Link className="button primary" href={withLocale(locale, "/request-quote")}>Send Application Details</Link>
           <Link className="button ghost" href={withLocale(locale, "/products")}>View Products</Link>
         </div>
       </section>
@@ -132,7 +132,7 @@ export default function ApplicationsPageContent({ locale = "en" }) {
               <div>
                 <h3>Selection notes</h3>
                 <p>{item.notes}</p>
-                <Link href={withLocale(locale, `/inquiry?application=${item.id}`)}>Send Application Details</Link>
+                <Link href={withLocale(locale, `/request-quote?application=${item.id}`)}>Send Application Details</Link>
               </div>
             </div>
           </article>
@@ -148,7 +148,7 @@ export default function ApplicationsPageContent({ locale = "en" }) {
             inspection support and export communication.
           </p>
         </div>
-        <Link className="button primary" href={withLocale(locale, "/inquiry")}>Request Recommendation</Link>
+        <Link className="button primary" href={withLocale(locale, "/request-quote")}>Request Recommendation</Link>
       </section>
     </main>
   );

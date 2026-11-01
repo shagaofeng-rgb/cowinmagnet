@@ -10,7 +10,7 @@ const footerProductGroups = [
     items: [
       { label: "Suspended Permanent Magnetic Separator", href: "/products/suspended-permanent-magnetic-separator" },
       { label: "Self-Cleaning Permanent Magnetic Separator", href: "/products/permanent-overband-magnetic-separator" },
-      { label: "Permanent Magnetic Drum", href: "/products/permanent-magnetic-drum" },
+      { label: "Dry Drum Magnetic Separator", href: "/products/dry-drum-magnetic-separator" },
       { label: "Permanent Magnetic Roller / Pulley", href: "/products/permanent-magnetic-pulley" },
       { label: "Pipeline Magnetic Separator", href: "/products/pipeline-permanent-magnetic-separator" }
     ]
@@ -80,7 +80,7 @@ export default function Footer({ locale = "en" }) {
 
         <div className="footer-action">
           <span>{footer.ready}</span>
-          <Link className="button primary" href={withLocale(locale, "/inquiry")}>
+          <Link className="button primary" href={withLocale(locale, "/request-quote")}>
             {footer.cta}
           </Link>
         </div>

@@ -39,7 +39,7 @@ const panels = {
       { href: "/factory", label: "Sourcing & Quality Control", meta: "Inspection and supplier coordination" },
       { href: "/contact", label: "OEM/ODM Coordination", meta: "Logo, color, size and packaging" },
       { href: "/contact", label: "Export Project Support", meta: "Documents and logistics communication" },
-      { href: "/inquiry", label: "Equipment Selection Support", meta: "Send working condition details" }
+      { href: "/request-quote", label: "Equipment Selection Support", meta: "Send working condition details" }
     ]
   },
   resources: {
@@ -53,7 +53,7 @@ const panels = {
     title: "Contact",
     intro: "Choose a direct contact page or send conveyor details for model selection.",
     links: [
-      { href: "/inquiry", label: "Inquiry", meta: "Send product requirements" },
+      { href: "/request-quote", label: "Inquiry", meta: "Send product requirements" },
       { href: "/contact", label: "Contact Us", meta: "Phone, email and office location" }
     ]
   }
@@ -149,7 +149,7 @@ export default function MobileNav({ locale = "en", nav = {}, productCategories: 
                 <b aria-hidden="true">&gt;</b>
               </button>
             ))}
-            <Link className="mobile-menu-primary-link" href={withLocale(locale, "/inquiry")} onClick={closeMenu}>
+            <Link className="mobile-menu-primary-link" href={withLocale(locale, "/request-quote")} onClick={closeMenu}>
               {nav.quote || "Send Conveyor Details"}
             </Link>
           </div>

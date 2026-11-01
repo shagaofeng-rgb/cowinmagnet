@@ -32,7 +32,7 @@ const productEntryCards = [
   {
     title: "Selection & Export Support",
     text: "Send material and conveyor data. Cowinmagnet helps match equipment, coordinate QC and prepare export details.",
-    href: "/inquiry",
+    href: "/request-quote",
     label: "Buyer support"
   }
 ];
@@ -69,7 +69,7 @@ const featuredSlugs = [
   "suspended-permanent-magnetic-separator",
   "suspended-electromagnetic-separator",
   "self-cleaning-electromagnetic-separator",
-  "permanent-magnetic-drum",
+  "dry-drum-magnetic-separator",
   "permanent-magnetic-pulley",
   "magnetic-bar-magnetic-rod",
   "eddy-current-separator"
@@ -114,7 +114,7 @@ export default function HomePage({ locale = "en" }) {
             coordinate customization, review inspection details and prepare export communication.
           </p>
           <div className="hero-actions">
-            <Link className="button primary" href={withLocale(locale, "/inquiry")}>
+            <Link className="button primary" href={withLocale(locale, "/request-quote")}>
               Send Requirements
             </Link>
             <Link className="button ghost" href={withLocale(locale, "/products")}>
@@ -263,7 +263,7 @@ export default function HomePage({ locale = "en" }) {
           <ul>
             {selectionData.map((item) => <li key={item}>{item}</li>)}
           </ul>
-          <Link className="button primary" href={withLocale(locale, "/inquiry")}>
+          <Link className="button primary" href={withLocale(locale, "/request-quote")}>
             Send Working Conditions
           </Link>
         </div>
@@ -277,7 +277,7 @@ export default function HomePage({ locale = "en" }) {
           help organize the next step for model selection and quotation communication.
         </p>
         <div className="hero-actions">
-          <Link className="button primary" href={withLocale(locale, "/inquiry")}>Request Recommendation</Link>
+          <Link className="button primary" href={withLocale(locale, "/request-quote")}>Request Recommendation</Link>
           <Link className="button ghost bunting-light-button" href={withLocale(locale, "/contact")}>Contact Us</Link>
         </div>
       </section>

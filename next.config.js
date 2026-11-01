@@ -17,6 +17,41 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/inquiry",
+        destination: "/en/request-quote",
+        permanent: true
+      },
+      {
+        source: "/:locale(en|es|ru|ar|fr|pt)/inquiry",
+        destination: "/:locale/request-quote",
+        permanent: true
+      },
+      {
+        source: "/:locale(en|es|ru|ar|fr|pt)/products/permanent-magnetic-drum",
+        destination: "/:locale/products/dry-drum-magnetic-separator",
+        permanent: true
+      },
+      {
+        source: "/:locale(en|es|ru|ar|fr|pt)/products/dry-magnetic-separator",
+        destination: "/:locale/products/dry-drum-magnetic-separator",
+        permanent: true
+      },
+      {
+        source: "/:locale(en|es|ru|ar|fr|pt)/products/air-cooled-electromagnetic-separator",
+        destination: "/:locale/products/rcda-type-air-cooled-electromagnetic-iron-remover",
+        permanent: true
+      },
+      {
+        source: "/:locale(en|es|ru|ar|fr|pt)/products/magnetic-grid-magnetic-grate",
+        destination: "/:locale/products/magnetic-grid",
+        permanent: true
+      },
+      {
+        source: "/:locale(en|es|ru|ar|fr|pt)/products/eddy-current-separator",
+        destination: "/:locale/products/eccentric-eddy-current-separator",
+        permanent: true
+      },
+      {
         // Historical automation configuration exposed this filename. The
         // current segmented sitemap contains the canonical Blog URLs.
         source: "/blog-sitemap.xml",
@@ -136,16 +171,6 @@ const nextConfig = {
       {
         source: "/products/automatic-cleaning-magnetic-separators-for-iron-scrap-waste",
         destination: "/en/products/rcyd-type-permanent-magnet-self-dumping-iron-remover",
-        permanent: true
-      },
-      {
-        source: "/:locale(en|es|ru|ar|fr|pt)/blog/magnetic-separator-for-waste-recycling-lines",
-        destination: "/:locale/news/magnetic-separator-for-waste-recycling-lines",
-        permanent: true
-      },
-      {
-        source: "/blog/magnetic-separator-for-waste-recycling-lines",
-        destination: "/en/news/magnetic-separator-for-waste-recycling-lines",
         permanent: true
       }
     ];
