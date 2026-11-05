@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { InnerPage } from "@/components/InnerPage";
@@ -10,8 +11,6 @@ import { getDictionary, isLocale, localizedPageAlternates, type Locale } from "@
 
 type PageProps = { params: Promise<{ locale: string }>; searchParams?: Promise<{ category?: string; page?: string; family?: string; q?: string; application?: string; installation?: string }> };
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
@@ -21,9 +20,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function Page({ params, searchParams }: PageProps) {
+  await connection();
   const { locale } = await params;
   const query = await searchParams;
-  const [productList, categoryList] = await Promise.all([getProductsWithCms(), getProductCategoryNamesWithCms()]);
+  const productList = await getProductsWithCms();
+  const categoryList = await getProductCategoryNamesWithCms(productList);
   const current = (isLocale(locale) ? locale : "en") as Locale;
   const t = getDictionary(current);
   const ui = getPublicUi(current);

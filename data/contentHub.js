@@ -1,4 +1,4 @@
-import { getCmsItems } from "../lib/cmsStore.js";
+import { getPublicCmsItems } from "../lib/cmsStore.js";
 import { generatedNewsPosts as legacyNewsPosts } from "./generatedNews.js";
 import { isNewsVisibleInListings } from "../lib/newsContentPolicy.js";
 
@@ -355,7 +355,7 @@ async function getLegacyNewsPosts() {
 }
 
 export async function getAllNewsPosts() {
-  const [uploadedNews, legacyNews] = await Promise.all([getCmsItems("news"), getLegacyNewsPosts()]);
+  const [uploadedNews, legacyNews] = await Promise.all([getPublicCmsItems("news"), getLegacyNewsPosts()]);
   const merged = [
     ...uploadedNews.map((post) => {
       const directCoverImage = directLegacyImageUrl(post.coverImage || "");
@@ -392,7 +392,7 @@ export async function getNewsPost(slug) {
 }
 
 export async function getNewsCategories() {
-  const [uploadedNews, legacyNews] = await Promise.all([getCmsItems("news"), getLegacyNewsPosts()]);
+  const [uploadedNews, legacyNews] = await Promise.all([getPublicCmsItems("news"), getLegacyNewsPosts()]);
   const map = new Map(newsCategories.map((category) => [category.slug, category]));
 
   [...uploadedNews, ...legacyNews].forEach((post) => {

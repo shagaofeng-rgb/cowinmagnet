@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NewsDetailView } from "@/components/NewsDetailView";
@@ -10,11 +11,10 @@ import { pageTitleForTemplate } from "@/lib/seoTitle";
 import { brandedImageUrl } from "@/lib/brandedImage";
 
 type NewsPageProps = { params: Promise<{ locale: string; slug: string }> };
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 export function generateStaticParams() { return locales.flatMap((locale) => newsPosts.map((post) => ({ locale, slug: post.slug }))); }
 
 export async function generateMetadata({ params }: NewsPageProps): Promise<Metadata> {
+  await connection();
   const { locale: rawLocale, slug } = await params;
   const locale = isLocale(rawLocale) ? rawLocale : "en";
   const post = await getNewsPost(slug);
@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: NewsPageProps): Promise<Metad
 }
 
 export default async function LocalizedNewsDetailPage({ params }: NewsPageProps) {
+  await connection();
   const { locale: rawLocale, slug } = await params;
   if (!isLocale(rawLocale)) notFound();
   const locale: Locale = rawLocale;

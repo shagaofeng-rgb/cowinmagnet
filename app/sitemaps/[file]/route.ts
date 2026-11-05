@@ -1,9 +1,8 @@
+import { connection } from "next/server";
 import crypto from "node:crypto";
 import { getRenderableSitemapSnapshot } from "@/lib/sitemap/service";
 
 export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 
 export async function GET(request: Request, { params }: { params: Promise<{ file: string }> }) {
   const { file } = await params;
@@ -11,6 +10,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ file
     return new Response("Not found", { status: 404, headers: { "Cache-Control": "no-store" } });
   }
 
+  await connection();
   const snapshot = await getRenderableSitemapSnapshot();
   const sitemapFile = snapshot.files.find((item: { name: string }) => item.name === file);
   if (!sitemapFile) {

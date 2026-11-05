@@ -1,8 +1,7 @@
+import { connection } from "next/server";
 import { getRenderableSitemapSnapshot } from "@/lib/sitemap/service";
 
 export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 
 function xmlResponse(request: Request, xml: string, etagValue: string, lastModified: string) {
   const etag = `"${etagValue}"`;
@@ -20,6 +19,7 @@ function xmlResponse(request: Request, xml: string, etagValue: string, lastModif
 }
 
 export async function GET(request: Request) {
+  await connection();
   const snapshot = await getRenderableSitemapSnapshot();
   return xmlResponse(request, snapshot.indexXml, snapshot.manifestHash, snapshot.generatedAt);
 }

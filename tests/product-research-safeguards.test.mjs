@@ -26,7 +26,8 @@ test("private research migration keeps sources and technical facts outside the p
   assert.match(migration, /confirmed_facts JSONB/);
   assert.match(cmsStore, /privateProductFields/);
   assert.match(researchStore, /getConfirmedProductFactsMap/);
-  assert.match(researchStore, /product_id = ANY/);
+  assert.match(researchStore, /SELECT product_id, confirmed_facts\s+FROM product_research_cards\s+WHERE public_content_status = 'published'/);
+  assert.match(researchStore, /supplier_confirmation->>'confirmed'\)::boolean, false\) = true/);
 });
 
 test("public product component contains no editorial workflow labels", () => {

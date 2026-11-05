@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { InnerAction, InnerPage } from "@/components/InnerPage";
@@ -29,8 +30,6 @@ function newsPageHref(locale: Locale, page: number, category?: string) {
   return query ? `${base}?${query}` : base;
 }
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
@@ -44,6 +43,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function LocalizedNewsPage({ params, searchParams }: PageProps) {
+  await connection();
   const { locale } = await params;
   const query = await searchParams;
   const current = (isLocale(locale) ? locale : "en") as Locale;

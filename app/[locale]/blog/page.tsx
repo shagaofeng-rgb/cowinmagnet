@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 import type { Metadata } from "next";
 import { LocalizedBlogListPage } from "@/components/LocalizedPages";
 import { getPublicBlogPostsWithCms } from "@/lib/blogCms";
@@ -11,10 +12,9 @@ function safePage(value?: string) {
   return Number.isFinite(page) && page > 0 ? Math.floor(page) : 1;
 }
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  await connection();
   const { locale } = await params;
   const current = isLocale(locale) ? locale : "en";
   const t = getDictionary(current);
@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function Page({ params, searchParams }: PageProps) {
+  await connection();
   const { locale } = await params;
   const query = await searchParams;
   const posts = await getPublicBlogPostsWithCms();

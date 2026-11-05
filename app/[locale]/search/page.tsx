@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Headphones, Search } from "lucide-react";
@@ -14,8 +15,6 @@ type PageProps = { params: Promise<{ locale: string }>; searchParams?: Promise<{
 const PER_PAGE = 10;
 const kinds = ["products", "industries", "articles"] as const;
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
@@ -25,6 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function LocalizedSearchPage({ params, searchParams }: PageProps) {
+  await connection();
   const { locale } = await params;
   const current = isLocale(locale) ? locale : "en";
   const t = getDictionary(current);

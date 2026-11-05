@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ProductDetailExperience, productSeoDescription, productSeoTitle } from "@/components/ProductDetailExperience";
@@ -14,14 +15,13 @@ import { getLocalizedProductSummary } from "@/lib/productLocale";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }>; searchParams?: Promise<{ page?: string; family?: string }> };
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 
 export function generateStaticParams() {
   return locales.flatMap((locale) => [...products.map((product) => ({ locale, slug: product.slug })), ...productCategoryPages.map((category) => ({ locale, slug: category.slug }))]);
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  await connection();
   const { locale, slug } = await params;
   const product = await getProductBySlugWithCms(slug);
   const current = isLocale(locale) ? locale : "en";
@@ -59,6 +59,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 export default async function Page({ params, searchParams }: PageProps) {
+  await connection();
   const { locale, slug } = await params;
   const query = await searchParams;
   const product = await getProductBySlugWithCms(slug);
