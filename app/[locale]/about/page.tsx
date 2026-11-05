@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { LocalizedAboutPage } from "@/components/LocalizedPages";
+import { LocalizedAboutPage } from "@/components/InnerCompanyPages";
 import { getDictionary, isLocale, localizedPageAlternates, type Locale } from "@/lib/i18n";
 
 type PageProps = { params: Promise<{ locale: string }> };

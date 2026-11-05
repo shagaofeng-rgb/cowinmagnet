@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ExternalLink, MessageCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, MessageCircle, Settings2, Workflow, ClipboardList } from "lucide-react";
 import { JsonLd } from "@/components/JsonLd";
 import { QuoteForm } from "@/components/QuoteForm";
 import { MetaProductView } from "@/components/MetaProductView";
+import { ProductImageViewer } from "@/components/ProductImageViewer";
 import { ProductDetailSectionTabs } from "@/components/ProductDetailPanels";
 import { products, type Product } from "@/data/products";
 import { site } from "@/data/site";
@@ -64,7 +65,7 @@ function relatedProducts(product: Product) {
   const family = getProductFamily(product);
   const sameFamily = products.filter((item) => item.slug !== product.slug && getProductFamily(item) === family);
   const sameCategory = products.filter((item) => item.slug !== product.slug && item.category === product.category && !sameFamily.some((match) => match.slug === item.slug));
-  return [...sameFamily, ...sameCategory].slice(0, 5);
+  return [...sameFamily, ...sameCategory].slice(0, 3);
 }
 
 function ProductProcess({ steps }: { steps: string[] }) {
@@ -90,6 +91,7 @@ function SelectionChecklist({ items }: { items: string[] }) {
 
 export function ProductDetailExperience({ product, locale }: ProductDetailExperienceProps) {
   const profile = getProductDetailProfile(product);
+  const productUi = getPublicUi(locale || "en");
   const displayName = getLocalizedProductTitle(product, locale || "en");
   const pagePath = routeFor(locale, `/products/${product.slug}`);
   const quotePath = `${routeFor(locale, "/request-quote")}?product=${encodeURIComponent(product.name)}&family=${encodeURIComponent(profile.family)}`;
@@ -140,17 +142,12 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
       <JsonLd data={productPageSchema({ name: displayName, description: summary, imageUrls: gallery.map((image) => absoluteUrl(image)), url: absoluteUrl(pagePath) })} />
       <JsonLd data={breadcrumbSchema(localizedBreadcrumbs)} />
       <MetaProductView name={displayName} category={product.category} slug={product.slug} />
-      <main className="product-detail-experience">
+      <div className="inner-page product-detail-experience">
         <nav className="product-breadcrumb" aria-label={t.nav.products}>
           {localizedBreadcrumbs.map((item, index) => <span key={item.path}>{index === localizedBreadcrumbs.length - 1 ? <span aria-current="page">{item.name}</span> : <Link href={item.path}>{item.name}</Link>}{index < localizedBreadcrumbs.length - 1 ? <i aria-hidden>/</i> : null}</span>)}
         </nav>
         <section className="product-detail-hero">
-          <div className="product-media-panel">
-            <a href={product.image} className="product-primary-image" target="_blank" rel="noopener noreferrer" aria-label={`${ui.openImage}: ${displayName}`}>
-              <Image src={product.image} alt={displayName} width={920} height={680} priority sizes="(max-width: 920px) 100vw, 52vw" />
-              <span>{ui.openImage} <ExternalLink size={15} aria-hidden /></span>
-            </a>
-          </div>
+          <ProductImageViewer src={product.image} title={displayName} openLabel={ui.openImage} closeLabel={ui.closeMenu} />
           <div className="product-hero-copy">
             <div className="product-hero-meta"><span>{localizedCategory}</span>{models.length ? <span>{ui.productModel}: {models.join(" / ")}</span> : null}</div>
             <h1>{displayName}</h1>
@@ -162,12 +159,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
         </section>
         <div className="product-detail-workspace">
-          <aside className="product-detail-catalog" aria-label={ui.catalog}>
-            <div className="product-detail-catalog-head"><span>{ui.catalog}</span><h2>{t.products.h1}</h2></div>
-            <nav><Link href={routeFor(locale, "/products")} className="product-detail-catalog-all">{ui.allProducts}</Link>
-              {productCategories.map((category, index) => <Link href={routeFor(locale, `/products/${category.slug}`)} className={category.category === product.category ? "is-active" : ""} key={category.slug}><span>{ui.productCategories[index]}</span><small>{category.count}</small></Link>)}
-            </nav>
-          </aside>
+
           <div className="product-detail-content">
             <ProductDetailSectionTabs />
             <section data-product-panel="overview" className="product-detail-section product-overview-section"><div className="product-detail-section-heading"><span className="eyebrow">{t.productDetail.overview}</span><h2>{displayName}</h2></div><div className="product-prose"><p>{summary}</p><p>{original.product} <Link href={`/en/products/${product.slug}`} hrefLang="en">{original.link}</Link></p></div></section>
@@ -177,7 +169,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
             <section data-product-panel="support" hidden className="product-final-cta" aria-labelledby="product-final-cta-title"><div className="product-final-media"><Image src={product.image} alt={displayName} width={660} height={440} sizes="(max-width: 900px) 100vw, 46vw" /></div><div className="product-final-form"><span className="eyebrow">{t.productDetail.quoteTitle}</span><h2 id="product-final-cta-title">{t.productDetail.ctaTitle}</h2><p>{t.productDetail.ctaText}</p><QuoteForm compact productContext={{ name: displayName, model: models.join(" / "), family: profile.family }} /></div></section>
           </div>
         </div>
-      </main>
+      </div>
       <div className="product-mobile-actions" aria-label={t.common.contactSales}><Link href={quotePath}>{t.common.getQuote}</Link><a href={`https://wa.me/${site.whatsapp}?text=${localizedShareMessage}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="product-final-cta" data-whatsapp-component="product-detail" data-whatsapp-product-slug={product.slug} data-whatsapp-product-name={displayName}>WhatsApp</a></div>
     </>;
   }
@@ -189,7 +181,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
       <JsonLd data={faqSchema(profile.faqs)} />
       <MetaProductView name={displayName} category={product.category} slug={product.slug} />
 
-      <main className="product-detail-experience">
+      <div className="inner-page product-detail-experience">
         <nav className="product-breadcrumb" aria-label="Breadcrumb">
           {breadcrumbs.map((item, index) => (
             <span key={item.path}>
@@ -200,65 +192,27 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
         </nav>
 
         <section className="product-detail-hero">
-          <div className="product-media-panel">
-            <a href={product.image} className="product-primary-image" target="_blank" rel="noopener noreferrer" aria-label={`Open full-size image of ${displayName}`}>
-              <Image src={product.image} alt={displayName} width={920} height={680} priority sizes="(max-width: 920px) 100vw, 52vw" />
-              <span>Open image <ExternalLink size={15} aria-hidden /></span>
-            </a>
-            {gallery.length > 1 ? (
-              <div className="product-gallery" aria-label="Product image gallery">
-                {gallery.slice(0, 6).map((image, index) => (
-                  <a href={image} target="_blank" rel="noopener noreferrer" key={image} aria-label={`Open product image ${index + 1} of ${gallery.length}`}>
-                    <Image src={image} alt={`${product.name} view ${index + 1}`} width={140} height={104} sizes="96px" />
-                  </a>
-                ))}
-              </div>
-            ) : null}
-          </div>
-
+          <ProductImageViewer src={product.image} title={displayName} openLabel={productUi.openImage} closeLabel={productUi.closeMenu} />
           <div className="product-hero-copy">
             <div className="product-hero-meta">
-              <span>{product.category}</span>
+              <Link href={routeFor(locale, `/products/${productCategories.find((category) => category.category === product.category)?.slug || ""}`)}>{product.category}</Link>
               {models.length ? <span>Model: {models.join(" / ")}</span> : null}
             </div>
             <h1>{displayName}</h1>
-            <p>{profile.overview[0]}</p>
-            <ul className="product-key-points" aria-label="Core product considerations">
-              {profile.whyPoints.slice(0, 4).map((item) => <li key={item.title}><CheckCircle2 size={18} aria-hidden />{item.title}</li>)}
-            </ul>
+            <p>{profile.overview[0].split(/(?<=\.)\s+/).slice(0, 2).join(" ")}</p>
+            <dl className="product-quick-facts">
+              {profile.quickFacts.slice(0, 3).map((fact) => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
+            </dl>
             <div className="product-hero-actions">
               <Link className="btn btn-primary" href={quotePath}>Request a Quote <ArrowRight size={17} aria-hidden /></Link>
               <a className="btn btn-secondary" href={`https://wa.me/${site.whatsapp}?text=${shareMessage}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="product-hero" data-whatsapp-component="product-detail" data-whatsapp-product-slug={product.slug} data-whatsapp-product-name={displayName}><MessageCircle size={17} aria-hidden /> WhatsApp</a>
             </div>
-            <dl className="product-quick-facts">
-              {profile.quickFacts.map((fact) => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
-            </dl>
+
           </div>
         </section>
 
         <div className="product-detail-workspace">
-          <aside className="product-detail-catalog" aria-label="Product category navigation">
-            <div className="product-detail-catalog-head">
-              <span>Product catalogue</span>
-              <h2>Browse by equipment group</h2>
-            </div>
-            <nav>
-              <Link href={routeFor(locale, "/products")} className="product-detail-catalog-all">All products</Link>
-              {productCategories.map((category) => {
-                const active = category.category === product.category;
-                return (
-                  <Link
-                    href={routeFor(locale, `/products/${category.slug}`)}
-                    className={active ? "is-active" : ""}
-                    key={category.slug}
-                  >
-                    <span>{category.category}</span>
-                    <small>{category.count}</small>
-                  </Link>
-                );
-              })}
-            </nav>
-          </aside>
+
 
           <div className="product-detail-content">
             <ProductDetailSectionTabs />
@@ -266,11 +220,13 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
         <section id="overview" data-product-panel="overview" className="product-detail-section product-overview-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Product role</span>
-            <h2>Overview and how it fits the process</h2>
+            <h2>Overview</h2>
           </div>
-          <div className="product-prose">
-            {profile.overview.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          <div className="inner-product-overview">
+            <div className="product-prose">{profile.overview.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
+            <div className="inner-process-band"><h3><Workflow size={19} aria-hidden /> How it fits your process</h3><ProductProcess steps={profile.processSteps} /></div>
           </div>
+          <div className="inner-guide-grid inner-product-guides"><article><div className="inner-icon"><Settings2 size={22} aria-hidden /></div><div><h3>Configuration review</h3><p>{profile.configurationOptions[0]}</p><a className="text-link" href={`${pagePath}?section=selection`}>Selection and installation</a></div></article><article><div className="inner-icon"><ClipboardList size={22} aria-hidden /></div><div><h3>Technical information</h3><p>{productUi.technicalNotice}</p><a className="text-link" href={`${pagePath}?section=technical`}>Review technical data</a></div></article></div>
         </section>
 
         <section id="selection" data-product-panel="selection" hidden className="product-detail-section product-configuration-section">
@@ -299,7 +255,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
         </section>
 
         {product.engineeringDiagrams?.length ? (
-          <section data-product-panel="applications" hidden className="product-detail-section product-engineering-diagrams">
+          <section data-product-panel="selection" hidden className="product-detail-section product-engineering-diagrams">
             <div className="product-detail-section-heading">
               <span className="eyebrow">Engineering reference</span>
               <h2>Installation and dimensional reference</h2>
@@ -383,7 +339,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
         </section>
 
-        <section data-product-panel="applications" hidden className="product-detail-section product-related-section">
+        <section className="product-detail-section product-related-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Process equipment</span>
             <h2>Related products for the same process line</h2>
@@ -415,13 +371,13 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           <div className="product-final-form">
             <span className="eyebrow">Request a quote</span>
             <h2 id="product-final-cta-title">Share the operating conditions for {displayName}</h2>
-            <p>Your inquiry is tagged with this product page, product family, language, referrer and campaign data for the COWIN MAGNET team.</p>
+            <p>Share your material, throughput and installation details so we can review the right configuration.</p>
             <QuoteForm compact productContext={{ name: product.name, model: models.join(" / "), family: profile.family, selectionFields: profile.selectionFields }} />
           </div>
         </section>
           </div>
         </div>
-      </main>
+      </div>
       <div className="product-mobile-actions" aria-label="Product contact actions">
         <Link href={quotePath}>Request a Quote</Link>
         <a href={`https://wa.me/${site.whatsapp}?text=${shareMessage}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="product-final-cta" data-whatsapp-component="product-detail" data-whatsapp-product-slug={product.slug} data-whatsapp-product-name={displayName}>WhatsApp</a>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, CalendarDays } from "lucide-react";
+import { InnerPage } from "@/components/InnerPage";
 import { ArticleDocument } from "@/components/ArticleDocument";
 import { DateBadge } from "@/components/DateBadge";
 import { JsonLd } from "@/components/JsonLd";
@@ -18,7 +19,7 @@ type NewsDetailViewProps = {
   posts: any[];
   categories: Array<{ slug: string; title: string }>;
   locale?: string;
-  visualVariant?: "product-first";
+  visualVariant?: "product-first" | "interior";
 };
 
 function NewsDisplayImage({ src, alt, priority = false }: { src: string; alt: string; priority?: boolean }) {
@@ -69,8 +70,10 @@ export function NewsDetailView({ post, posts, categories, locale, visualVariant 
   };
 
   const previewVariant = visualVariant === "product-first";
+  const redesigned = visualVariant === "interior";
+  const cover = coverImage ? <div className="blog-hero-image"><NewsDisplayImage src={coverImage} alt={coverAlt} priority />{document.heroImage?.caption || post.imageCaption ? <p className="news-image-caption" lang="en">{document.heroImage?.caption || post.imageCaption}</p> : null}</div> : null;
 
-  return <div className={previewVariant ? "product-first-news-preview" : undefined}>
+  const body = <div className={previewVariant ? "product-first-news-preview" : undefined}>
     <JsonLd data={articleSchema} />
     <JsonLd data={organizationSchema()} />
     {document.faq.length ? <JsonLd data={faqSchema(document.faq)} /> : null}
@@ -90,15 +93,15 @@ export function NewsDetailView({ post, posts, categories, locale, visualVariant 
           <span>{labels.by} <Link href={`${basePath}/editorial-policy`} lang="en">{document.author.name}</Link></span>
         </div>
       </div>
-      {coverImage ? <div className="blog-hero-image"><NewsDisplayImage src={coverImage} alt={coverAlt} priority />{document.heroImage?.caption || post.imageCaption ? <p className="news-image-caption" lang="en">{document.heroImage?.caption || post.imageCaption}</p> : null}</div> : null}
+      {!redesigned ? cover : null}
     </section>
-    <section className={`section blog-detail-layout${previewVariant ? " product-first-reading-layout" : ""}`}>
-      {previewVariant ? <aside className="product-first-reading-rail" aria-label={labels.contents}>
+    <section className={redesigned ? "inner-container inner-article-layout inner-article-layout--news" : `section blog-detail-layout${previewVariant ? " product-first-reading-layout" : ""}`}>
+      {previewVariant || redesigned ? <aside className={redesigned ? "inner-article-rail" : "product-first-reading-rail"} aria-label={labels.contents}>
         <p>{labels.inGuide}</p>
         <nav lang="en">{document.sections.slice(0, 7).map((section: any, index: number) => <a href={`#${navigationId(section.heading, index)}`} key={section.heading}>{section.heading}</a>)}</nav>
         <a className="product-first-rail-link" href={document.cta.href} lang="en">{document.cta.label}</a>
       </aside> : null}
-      <article className="blog-article news-article" lang="en"><ArticleDocument document={document} /></article>
+      <article className="blog-article news-article" lang="en">{redesigned ? cover : null}<ArticleDocument document={document} /></article>
     </section>
     <section className="section article-nav-section">
       <div className="article-prev-next">
@@ -108,4 +111,5 @@ export function NewsDetailView({ post, posts, categories, locale, visualVariant 
       {related.length ? <div className="article-more-grid">{related.map((item) => <Link href={`${basePath}/news/${item.slug}`} className="article-more-card" key={item.slug}>{item.coverImage ? <Image src={brandedImageUrl(item.coverImage)} width={420} height={240} alt={item.coverAlt || item.title} /> : null}<div><DateBadge date={item.publishedAt} /><h2 lang="en">{item.title}</h2><p lang="en">{item.excerpt}</p></div></Link>)}</div> : null}
     </section>
   </div>;
+  return redesigned ? <InnerPage locale={currentLocale} title={document.title} parent={{ label: ui.news[0], href: "/news" }} variant="news-detail">{body}</InnerPage> : body;
 }

@@ -1,15 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, CheckCircle2, Globe2, Headphones, Mail, MapPin, MessageCircle, Phone, Settings, ShieldCheck, Truck, Wrench } from "lucide-react";
+import { ArrowRight, BadgeCheck, CheckCircle2, ClipboardCheck, Factory, Globe2, Magnet, Recycle, Wheat, Workflow, Headphones, Mail, MapPin, MessageCircle, Phone, Settings, ShieldCheck, Truck, Wrench } from "lucide-react";
 import { GoogleMapCard } from "@/components/GoogleMapCard";
 import { BlogImage } from "@/components/BlogImage";
 import { GlobalCustomerNetwork } from "@/components/GlobalCustomerNetwork";
 import { HomeVideoShowcase } from "@/components/HomeVideoShowcase";
 import { HomeProductShowcase } from "@/components/HomeProductShowcase";
+import { InnerAction, InnerPage } from "@/components/InnerPage";
+import { catalogLabels } from "@/lib/interiorLocale";
 import { JsonLd } from "@/components/JsonLd";
-import { DateBadge } from "@/components/DateBadge";
 import { LocalizedProductCard } from "@/components/LocalizedProductCard";
-import { MarkdownContent } from "@/components/MarkdownContent";
+import { InnerArticleCard } from "@/components/InnerArticleCard";
+import { MarkdownContent, markdownHeadings } from "@/components/MarkdownContent";
 import { PageHero } from "@/components/PageHero";
 import { PaginationNav } from "@/components/PaginationNav";
 import { QuoteForm } from "@/components/QuoteForm";
@@ -188,101 +190,80 @@ export function LocalizedApplicationsPage({ locale }: { locale: Locale }) {
   );
 }
 
+const industryIcons = [Recycle, Magnet, Factory, Wheat];
+const industryHeadlines: Record<string, string> = {
+  recycling: "Recover metal. Protect your recycling line.",
+  mining: "Protect your process. Review mineral separation.",
+  "cement-aggregate": "Remove tramp iron before it interrupts your line.",
+  food: "Control ferrous contamination in flowing materials."
+};
+
 export function LocalizedIndustriesPage({ locale }: { locale: Locale }) {
   const t = getDictionary(locale);
   const ui = getPublicUi(locale);
-  return (
-    <>
-      <PageHero
-        eyebrow={ui.industrySolutions}
-        title={ui.industryHeadline}
-        description={t.applications.description}
-        image="/images/catalog/page-6-image-3-1349x734-cowin-brand-20261001.jpg"
-        imageAlt={t.applications.heroAlt}
-        primaryHref={localizeHref("/request-quote", locale)}
-        primaryLabel={t.common.getQuote}
-        secondaryHref={localizeHref("/contact", locale)}
-        secondaryLabel={ui.contact}
-      />
-      <section className="section">
-        <div className="application-grid">
-          {applications.map((application, index) => (
-            <article key={application.industrySlug} className="application-card">
-              <Image src={application.image} width={620} height={390} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 31vw" alt={`${ui.industryMenu[index]?.[0] || application.pageTitle} ${t.applications.heroAlt}`} />
-              <div>
-                <h2>{ui.industryMenu[index]?.[0] || application.pageTitle}</h2>
-                <p>{ui.industryMenu[index]?.[1] || application.summary}</p>
-                <Link href={localizeHref(`/industries/${application.industrySlug}`, locale)} className="text-link">
-                  {t.common.viewSolution} <ArrowRight size={16} aria-hidden />
-                </Link>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-    </>
-  );
+  const labels = catalogLabels[locale];
+  return <InnerPage locale={locale} title={ui.industries} variant="industries">
+    <PageHero eyebrow={ui.industrySolutions} title={locale === "en" ? "Magnetic solutions for your industry" : ui.industryHeadline} description={ui.industryDescription} image={applications[0].image} imageAlt={applications[0].imageAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/contact", locale)} secondaryLabel={ui.contact} />
+    <div className="inner-container inner-stack">
+      <section><h2>{ui.industrySolutions}</h2><div className="inner-industry-grid">
+        {applications.map((application, index) => {
+          const Icon = industryIcons[index];
+          const name = ui.industryMenu[index]?.[0] || application.name;
+          return <article key={application.industrySlug}>
+            <Link className="inner-industry-image" href={localizeHref(`/industries/${application.industrySlug}`, locale)} aria-label={name}><Image src={application.image} width={520} height={350} sizes="(max-width: 760px) 40vw, 24vw" alt={name} /></Link>
+            <div><div className="inner-icon"><Icon size={23} aria-hidden /></div><h3>{name}</h3><p>{ui.industryMenu[index]?.[1] || application.summary}</p><Link href={localizeHref(`/industries/${application.industrySlug}`, locale)} className="text-link">{t.common.viewSolution}<ArrowRight size={16} aria-hidden /></Link></div>
+          </article>;
+        })}
+      </div></section>
+      <section className="inner-process-band"><h2>{labels.selection}</h2><p>{ui.productInstruction}</p><div className="inner-steps">
+        {[[ClipboardCheck, ui.material], [Workflow, ui.installation], [Settings, labels.operation], [Headphones, ui.support]].map(([icon, label], index) => {
+          const Icon = icon as typeof ClipboardCheck;
+          return <article key={String(label)}><Icon size={22} aria-hidden /><span>{String(index + 1).padStart(2, "0")}</span><p>{String(label)}</p></article>;
+        })}
+      </div></section>
+      <InnerAction locale={locale} />
+    </div>
+  </InnerPage>;
 }
 
 export function LocalizedApplicationDetailPage({ locale, application }: { locale: Locale; application: Application }) {
   const t = getDictionary(locale);
   const ui = getPublicUi(locale);
-  const related = products.filter((product) => application.recommendedProducts.includes(product.name));
+  const labels = catalogLabels[locale];
+  const english = locale === "en";
+  const related = application.recommendedProducts.flatMap((name) => products.find((product) => product.name === name) || []).slice(0, 4);
   const industryIndex = applications.findIndex((item) => item.industrySlug === application.industrySlug);
   const industryName = ui.industryMenu[industryIndex]?.[0] || application.name;
   const industrySummary = ui.industryMenu[industryIndex]?.[1] || application.summary;
   const original = getOriginalContentLabels(locale);
-
-  if (locale !== "en") {
-    return <>
-      <section className="detail-hero">
-        <div><span className="eyebrow">{ui.industrySolutions}</span><h1>{industryName}</h1><p>{industrySummary}</p><p>{t.applications.description}</p><div className="hero-actions"><Link href={localizeHref("/request-quote", locale)} className="btn btn-primary">{t.common.getQuote}</Link><Link href={localizeHref("/contact", locale)} className="btn btn-secondary">{ui.contact}</Link></div></div>
-        <div className="detail-image"><Image src={application.image} width={820} height={560} sizes="(max-width: 900px) 100vw, 52vw" alt={`${industryName} — ${t.applications.heroAlt}`} priority /></div>
+  return <InnerPage locale={locale} title={industryName} parent={{ label: ui.industries, href: "/industries" }} variant="industry">
+    {english && application.faqs?.length ? <JsonLd data={faqSchema(application.faqs)} /> : null}
+    <PageHero eyebrow={industryName} title={english ? industryHeadlines[application.industrySlug] || application.pageTitle : industryName} description={english ? application.summary : industrySummary} image={application.image} imageAlt={english ? application.imageAlt : industryName} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/contact", locale)} secondaryLabel={ui.contact} />
+    <div className="inner-container inner-stack">
+      {english ? <>
+        <section className="inner-guide-grid inner-industry-points" aria-label={t.applications.painPoints}>
+          {application.solutionPairs.slice(0, 3).map((item, index) => {
+            const Icon = [Magnet, Settings, ShieldCheck][index];
+            return <article key={item.issue}><div className="inner-icon"><Icon size={23} aria-hidden /></div><div><h3>{item.issue}</h3><p>{item.solution}</p></div></article>;
+          })}
+        </section>
+        <section className="inner-process-band"><h2>{labels.process}</h2>{application.secondaryDescription ? <p>{application.secondaryDescription}</p> : null}
+          <IndustryEquipmentGrid items={application.equipment.slice(0, 4)} />
+        </section>
+      </> : null}
+      <section><h2>{t.applications.recommended}</h2><div className="product-grid inner-category-grid">{related.map((product) => <LocalizedProductCard key={product.slug} product={product} locale={locale} />)}</div></section>
+      {english ? <>
+        <section><h2>Application scenarios</h2><IndustryScenarioGrid application={application} /></section>
+        <details className="inner-detail-disclosure"><summary>{t.applications.painPoints}</summary><FeatureList items={application.painPoints} /><IndustrySolutionGrid items={application.solutionPairs} /></details>
+        {application.table ? <details className="inner-detail-disclosure"><summary>{application.table.title}</summary><IndustryTable table={application.table} /></details> : null}
+      </> : <p>{original.industry} <Link className="text-link" href={`/en/industries/${application.industrySlug}`} hrefLang="en">{original.link}</Link></p>}
+      <section className="inner-contact-layout">
+        <div className="inner-process-band"><h2>{t.productDetail.ctaTitle}</h2><p>{t.applications.quoteText}</p><ul>{[ui.material, ui.beltWidth, ui.installation].map((item) => <li key={item}><CheckCircle2 size={18} aria-hidden />{item}</li>)}</ul></div>
+        <div className="inner-form-panel"><h2>{t.applications.quoteTitle}</h2><QuoteForm compact /></div>
       </section>
-      <section className="section detail-layout">
-        <article className="detail-main">
-          <ContentBlock title={t.applications.recommended}><p>{industrySummary}</p><div className="related-products">{related.map((product) => <Link href={localizeHref(`/products/${product.slug}`, locale)} key={product.slug} lang="en">{product.name}</Link>)}</div><p>{original.industry} <Link href={`/en/industries/${application.industrySlug}`} hrefLang="en">{original.link}</Link></p></ContentBlock>
-          <ContentBlock title={t.productDetail.ctaTitle}><p>{t.applications.quoteText}</p></ContentBlock>
-        </article>
-        <aside className="quote-panel"><h2>{t.applications.quoteTitle}</h2><p>{t.applications.quoteText}</p><QuoteForm compact /></aside>
-      </section>
-    </>;
-  }
-  return (
-    <>
-      {application.faqs?.length ? <JsonLd data={faqSchema(application.faqs)} /> : null}
-      <section className="detail-hero">
-        <div>
-          <span className="eyebrow">{t.applications.eyebrow}</span>
-          <h1>{application.pageTitle}</h1>
-          <p>{application.summary}</p>
-          {application.secondaryDescription ? <p>{application.secondaryDescription}</p> : null}
-          <div className="hero-actions"><Link href={localizeHref("/request-quote", locale)} className="btn btn-primary">Get a Quote</Link><Link href={localizeHref("/contact", locale)} className="btn btn-secondary">Contact Us</Link></div>
-        </div>
-        <div className="detail-image"><Image src={application.image} width={820} height={560} sizes="(max-width: 900px) 100vw, 52vw" alt={application.imageAlt} priority /></div>
-      </section>
-      <section className="section detail-layout">
-        <article className="detail-main">
-          <ContentBlock title={t.applications.painPoints}><FeatureList items={application.painPoints} /></ContentBlock>
-          <ContentBlock title="Problems We Solve"><IndustrySolutionGrid items={application.solutionPairs} /></ContentBlock>
-          <ContentBlock title="Recommended Equipment"><IndustryEquipmentGrid items={application.equipment} /></ContentBlock>
-          <ContentBlock title="Application Scenarios"><IndustryScenarioGrid application={application} /></ContentBlock>
-          {application.table ? <ContentBlock title={application.table.title}><IndustryTable table={application.table} /></ContentBlock> : null}
-          <ContentBlock title={t.applications.recommended}><div className="related-products">{related.map((product) => <Link href={localizeHref(`/products/${product.slug}`, locale)} key={product.slug}>{product.name}</Link>)}</div></ContentBlock>
-          <ContentBlock title={t.productDetail.faq}><FaqList faqs={application.faqs} /></ContentBlock>
-        </article>
-        <aside className="quote-panel"><h2>{t.applications.quoteTitle}</h2><p>{t.applications.quoteText}</p><QuoteForm compact /></aside>
-      </section>
-      <section className="section industry-bottom-cta">
-        <div>
-          <span className="eyebrow">Selection Support</span>
-          <h2>Need a Magnetic Separation Solution for Your Production Line?</h2>
-          <p>Tell us your material type, belt width, installation height, and processing capacity. Our team will help you choose the right magnetic separator.</p>
-        </div>
-        <div className="hero-actions"><Link href={localizeHref("/request-quote", locale)} className="btn btn-primary">Get a Quote</Link><Link href={localizeHref("/contact", locale)} className="btn btn-secondary">Contact Us</Link></div>
-      </section>
-    </>
-  );
+      {english && application.faqs.length ? <section><h2>{t.productDetail.faq}</h2><FaqList faqs={application.faqs} /></section> : null}
+    </div>
+  </InnerPage>;
 }
 
 export function LocalizedAboutPage({ locale }: { locale: Locale }) {
@@ -347,23 +328,31 @@ export function LocalizedSimplePage({ locale, page }: { locale: Locale; page: "f
   );
 }
 
-export function LocalizedBlogListPage({ locale, posts, pagination }: { locale: Locale; posts: BlogPost[]; pagination?: { currentPage: number; totalPages: number; totalItems: number } }) {
+export function LocalizedBlogListPage({ locale, posts, categories = [], selectedCategory, pagination }: { locale: Locale; posts: BlogPost[]; categories?: string[]; selectedCategory?: string; pagination?: { currentPage: number; totalPages: number; totalItems: number } }) {
   const t = getDictionary(locale);
   const ui = getPublicUi(locale);
-  const startItem = pagination && pagination.totalItems ? (pagination.currentPage - 1) * 9 + 1 : 0;
-  const endItem = pagination ? Math.min(pagination.totalItems, pagination.currentPage * 9) : posts.length;
-  return (
-    <>
-      <PageHero eyebrow={t.blog.eyebrow} title={t.blog.h1} description={t.blog.description} image="/images/generated/recycling-application-cowinmagnet-clean-20261001-cowin-brand-20261001.webp" imageAlt={t.blog.heroAlt} primaryHref={localizeHref("/request-quote", locale)} primaryLabel={t.common.getQuote} secondaryHref={localizeHref("/request-quote", locale)} secondaryLabel={t.common.sendRequirements} />
-      <section className="section blog-list-section">
-        <div className="section-heading align-left"><span className="eyebrow">{t.blog.hubEyebrow}</span><h2>{t.blog.hubTitle}</h2><p>{t.blog.hubText}</p></div>
-        {locale !== "en" ? <p>{ui.news[8]}</p> : null}
-        {pagination ? <div className="catalog-list-summary"><p>{startItem}–{endItem} / {pagination.totalItems}</p></div> : null}
-        <div className="blog-grid">{posts.map((post) => <article className="blog-card" key={post.slug}><Link href={localizeHref(`/blog/${post.slug}`, locale)} className="blog-card-image"><DateBadge date={post.publishedAt} /><BlogImage src={post.image} width={760} height={460} alt={post.title} /></Link><div className="blog-card-body"><div className="blog-card-meta"><span lang="en">{post.category}</span><span>{post.readingTime} {t.common.minRead}</span></div><h3 lang="en"><Link href={localizeHref(`/blog/${post.slug}`, locale)}>{post.title}</Link></h3><p lang="en">{post.excerpt}</p><Link href={localizeHref(`/blog/${post.slug}`, locale)} className="text-link">{t.common.readArticle} <ArrowRight size={16} aria-hidden /></Link></div></article>)}</div>
-        {pagination ? <PaginationNav currentPage={pagination.currentPage} totalPages={pagination.totalPages} hrefForPage={(page) => page > 1 ? `${localizeHref("/blog", locale)}?page=${page}` : localizeHref("/blog", locale)} label={t.nav.blog} summary={`${ui.page} ${pagination.currentPage} / ${pagination.totalPages}`} locale={locale} /> : null}
+  const labels = getArticleLabels(locale);
+  const featured = pagination?.currentPage === 1 ? posts[0] : undefined;
+  const pageHref = (page: number, category = selectedCategory) => {
+    const params = new URLSearchParams();
+    if (category) params.set("category", category);
+    if (page > 1) params.set("page", String(page));
+    return `${localizeHref("/blog", locale)}${params.size ? `?${params}` : ""}`;
+  };
+  const card = (post: BlogPost, lead = false) => <InnerArticleCard key={post.slug} href={localizeHref(`/blog/${post.slug}`, locale)} title={post.title} category={post.category} excerpt={post.excerpt} image={post.image} date={post.publishedAt} action={t.common.readArticle} featured={lead} />;
+  return <InnerPage locale={locale} title={t.nav.blog} variant="blog">
+    <PageHero eyebrow={labels.technicalGuides} title={locale === "en" ? "Practical insights for better separation" : t.blog.h1} description={t.blog.description} image={products.find((item) => item.slug === "suspended-permanent-magnetic-separator")?.image} imageAlt={t.products.heroAlt} mediaStyle="equipment" primaryHref="" compact />
+    <div className="inner-container inner-stack">
+      {locale !== "en" ? <p>{ui.news[8]}</p> : null}
+      {featured ? <section aria-label={labels.recommended}>{card(featured, true)}</section> : null}
+      {categories.length > 1 ? <nav className="inner-pills" aria-label={ui.categories}><Link href={localizeHref("/blog", locale)} aria-current={!selectedCategory ? "true" : undefined}>{catalogLabels[locale].allResults}</Link>{categories.map((category) => <Link lang="en" href={pageHref(1, category)} key={category} aria-current={category === selectedCategory ? "true" : undefined}>{category}</Link>)}</nav> : null}
+      <section><div className="inner-results-heading"><h2>{t.blog.hubTitle}</h2>{pagination ? <p>{pagination.totalItems ? (pagination.currentPage - 1) * 9 + 1 : 0}–{Math.min(pagination.totalItems, pagination.currentPage * 9)} / {pagination.totalItems}</p> : null}</div>
+        <div className="blog-grid">{(featured ? posts.slice(1) : posts).map((post) => card(post))}</div>
+        {pagination ? <PaginationNav currentPage={pagination.currentPage} totalPages={pagination.totalPages} hrefForPage={pageHref} label={t.nav.blog} summary={`${ui.page} ${pagination.currentPage} / ${pagination.totalPages}`} locale={locale} /> : null}
       </section>
-    </>
-  );
+      <InnerAction locale={locale} />
+    </div>
+  </InnerPage>;
 }
 
 export function LocalizedBlogDetailPage({ locale, post }: { locale: Locale; post: BlogPost }) {
@@ -373,14 +362,22 @@ export function LocalizedBlogDetailPage({ locale, post }: { locale: Locale; post
   const indexable = isIndexableBlog(post);
   const relatedInternalLinks = indexable ? getStaticInternalLinkSuggestions({ type: "blog", slug: post.slug, limit: 5 }) : [];
   const publicContent = stripLegacyEditorialSections(post.content);
+  const headings = markdownHeadings(publicContent);
   return (
-    <>
+    <InnerPage locale={locale} title={post.title} parent={{ label: t.nav.blog, href: "/blog" }} variant="blog-detail">
       <JsonLd data={{ "@context": "https://schema.org", "@type": "Article", headline: post.title, description: post.metaDescription, image: absoluteUrl(post.image), datePublished: post.publishedAt, dateModified: post.updatedAt, author: { "@type": "Organization", name: site.name }, publisher: { "@type": "Organization", name: site.name, logo: { "@type": "ImageObject", url: absoluteUrl("/images/cowin-logo.png") } } }} />
-      {locale !== "en" ? <p className="section">{ui.news[8]}</p> : null}
+      {locale !== "en" ? <p className="inner-container inner-original-note">{ui.news[8]}</p> : null}
       <section className="blog-hero"><div className="blog-hero-copy"><span className="eyebrow" lang="en">{post.category}</span><h1 lang="en">{post.h1}</h1><p lang="en">{post.excerpt}</p><div className="blog-meta"><span>{t.common.updated} {new Intl.DateTimeFormat(locale, { month: "short", day: "2-digit", year: "numeric" }).format(new Date(`${post.updatedAt}T00:00:00Z`))}</span><span>{post.readingTime} {t.common.minRead}</span></div></div><div className="blog-hero-image"><BlogImage src={post.image} width={980} height={620} alt={post.title} priority /></div></section>
-      <section className="section blog-detail-layout"><article className="blog-article" lang="en"><MarkdownContent content={publicContent} /></article><aside className="blog-sidebar"><div className="blog-quote-card"><span className="eyebrow">{t.footer.quoteSupport}</span><h2>{t.blog.sidebarTitle}</h2><p>{t.blog.sidebarText}</p></div><div className="quote-form-shell blog-form-shell"><h3>{t.common.requestSelectionSupport}</h3><p>{t.productDetail.quoteText}</p><QuoteForm compact /></div></aside></section>
+      <div className="inner-container inner-article-layout">
+        <aside className="inner-article-rail">
+          {headings.length ? <nav aria-label={articleLabels.contents}><strong>{articleLabels.contents}</strong><ol>{headings.map((heading) => <li key={heading.id} lang="en"><a href={`#${heading.id}`}>{heading.label}</a></li>)}</ol></nav> : null}
+          <Link className="btn btn-primary" href={localizeHref("/request-quote", locale)}>{t.common.requestSelectionSupport}</Link>
+        </aside>
+        <article className="blog-article" lang="en"><MarkdownContent content={publicContent} /></article>
+      </div>
+      <div className="inner-container"><InnerAction locale={locale} /></div>
       {relatedInternalLinks.length ? <RelatedInternalLinks locale={locale} eyebrow={articleLabels.recommended} title={articleLabels.related} links={relatedInternalLinks} /> : null}
-    </>
+    </InnerPage>
   );
 }
 

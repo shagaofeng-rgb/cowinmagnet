@@ -37,19 +37,8 @@ export function Footer() {
     ui.rollersBars
   ];
 
-  return (
-    <footer className="footer" dir={dir}>
-      <div className="footer-cta">
-        <div>
-          <span className="eyebrow">{t.footer.quoteSupport}</span>
-          <h2>{ui.footerHelp}</h2>
-          <p>{t.footer.quoteText}</p>
-        </div>
-        <Link href={localizeHref("/request-quote", locale)} className="btn btn-primary">
-          {t.common.getQuote} <ArrowRight size={17} aria-hidden />
-        </Link>
-      </div>
-
+  const isInterior = /^\/(en|es|fr|pt|ru|ar)\/(products|industries|about|factory|projects|blog|news|contact|request-quote|search|privacy-policy|terms|editorial-policy)(?:\/|$)/.test(pathname);
+  const grid = (
       <div className="footer-grid">
         <div className="footer-brand">
           <Link href={localizeHref("/", locale)} className="footer-brand-mark" aria-label={`COWIN MAGNET — ${ui.home}`}>
@@ -131,6 +120,36 @@ export function Footer() {
           </div>
         </div>
       </div>
+  );
+
+  if (isInterior) {
+    return <footer className="footer inner-footer" dir={dir}>
+      <div className="inner-footer-bar">
+        <Link href={localizeHref("/", locale)} className="footer-brand-mark" aria-label={`COWIN MAGNET — ${ui.home}`}><Image src="/images/cowin-logo.png" width={32} height={32} alt="COWIN MAGNET logo" /><strong>COWIN MAGNET</strong></Link>
+        <a href={`mailto:${site.email}`}><Mail size={17} aria-hidden /><span>{site.email}</span></a>
+        <a href={whatsappChatUrl} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="footer-phone" data-whatsapp-component="site-footer"><Phone size={17} aria-hidden /><bdi>{site.phone}</bdi></a>
+        <a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer nofollow"><MapPin size={17} aria-hidden /><span>{ui.mapLocation}</span></a>
+      </div>
+      <details className="inner-footer-expand"><summary>{ui.navigationLinks} · {ui.connect}</summary>{grid}
+        <div className="footer-bottom"><span>&copy; {new Date().getFullYear()} {site.legalName}</span><a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer nofollow">{site.address}</a></div>
+      </details>
+    </footer>;
+  }
+
+  return (
+    <footer className="footer" dir={dir}>
+      <div className="footer-cta">
+        <div>
+          <span className="eyebrow">{t.footer.quoteSupport}</span>
+          <h2>{ui.footerHelp}</h2>
+          <p>{t.footer.quoteText}</p>
+        </div>
+        <Link href={localizeHref("/request-quote", locale)} className="btn btn-primary">
+          {t.common.getQuote} <ArrowRight size={17} aria-hidden />
+        </Link>
+      </div>
+
+      {grid}
       <div className="footer-bottom">
         <span>&copy; {new Date().getFullYear()} {site.legalName}</span>
         <a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer nofollow">{site.address}</a>

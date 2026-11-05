@@ -1,57 +1,59 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
+import { BookOpen, ClipboardList, FileQuestion, Settings2, Workflow } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { getLocaleFromPath } from "@/lib/i18n";
 import { getPublicUi } from "@/lib/publicUi";
 
 const sections = [
-  ["overview", "Overview"],
-  ["selection", "Selection"],
-  ["applications", "Applications"],
-  ["technical", "Technical data"],
-  ["support", "FAQ & quote"]
+  ["overview", BookOpen],
+  ["selection", Settings2],
+  ["applications", Workflow],
+  ["technical", ClipboardList],
+  ["support", FileQuestion]
 ] as const;
-
 type SectionId = (typeof sections)[number][0];
-
-function isSectionId(value: string | null): value is SectionId {
-  return sections.some(([id]) => id === value);
-}
+const panelEvent = "cowin-product-section";
 
 function readSectionFromUrl(): SectionId {
   const requested = new URLSearchParams(window.location.search).get("section");
-  return isSectionId(requested) ? requested : "overview";
+  return sections.find(([id]) => id === requested)?.[0] || "overview";
 }
 
 function subscribeToHistory(callback: () => void) {
   window.addEventListener("popstate", callback);
-  return () => window.removeEventListener("popstate", callback);
+  window.addEventListener(panelEvent, callback);
+  return () => {
+    window.removeEventListener("popstate", callback);
+    window.removeEventListener(panelEvent, callback);
+  };
 }
 
 export function ProductDetailSectionTabs() {
-  const locale = getLocaleFromPath(usePathname());
-  const ui = getPublicUi(locale);
-  const urlSection = useSyncExternalStore(subscribeToHistory, readSectionFromUrl, () => "overview");
-  const [selectedId, setSelectedId] = useState<SectionId | null>(null);
-  const activeId = selectedId || urlSection;
+  const pathname = usePathname();
+  const ui = getPublicUi(getLocaleFromPath(pathname));
+  const activeId = useSyncExternalStore(subscribeToHistory, readSectionFromUrl, () => "overview");
+  const controls = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    document.querySelectorAll<HTMLElement>("[data-product-panel]").forEach((element) => {
+    const workspace = controls.current?.closest(".product-detail-workspace");
+    workspace?.querySelectorAll<HTMLElement>("[data-product-panel]").forEach((element) => {
       element.hidden = element.dataset.productPanel !== activeId;
     });
-  }, [activeId]);
+  }, [activeId, pathname]);
 
   function activate(id: SectionId) {
-    setSelectedId(id);
     const url = new URL(window.location.href);
-    url.searchParams.set("section", id);
-    window.history.replaceState({}, "", url);
+    if (id === activeId) return;
+    if (id === "overview") url.searchParams.delete("section");
+    else url.searchParams.set("section", id);
+    url.hash = "";
+    window.history.pushState(null, "", url);
+    window.dispatchEvent(new Event(panelEvent));
   }
 
-  return (
-    <nav className="product-section-tabs" aria-label={ui.productCenter}>
-      {sections.map(([id], index) => <button type="button" aria-pressed={activeId === id} className={activeId === id ? "is-active" : ""} onClick={() => activate(id)} key={id}>{id === "support" && locale !== "en" ? ui.submit : ui.productTabs[index]}</button>)}
-    </nav>
-  );
+  return <nav ref={controls} className="product-section-tabs" aria-label={ui.productCenter}>
+    {sections.map(([id, Icon], index) => <button type="button" aria-pressed={activeId === id} className={activeId === id ? "is-active" : ""} onClick={() => activate(id)} key={id}><Icon size={17} aria-hidden />{ui.productTabs[index]}</button>)}
+  </nav>;
 }

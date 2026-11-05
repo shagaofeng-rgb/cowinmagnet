@@ -12,7 +12,7 @@ import { productCategories } from "@/data/products";
 import { getPublicUi } from "@/lib/publicUi";
 import { getLocalizedProductSummary } from "@/lib/productLocale";
 
-type PageProps = { params: Promise<{ locale: string; slug: string }>; searchParams?: Promise<{ page?: string }> };
+type PageProps = { params: Promise<{ locale: string; slug: string }>; searchParams?: Promise<{ page?: string; family?: string }> };
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -66,7 +66,7 @@ export default async function Page({ params, searchParams }: PageProps) {
   if (!isLocale(locale)) notFound();
   if (category) {
     const catalogue = await getProductsWithCms();
-    return <ProductCategoryPage locale={locale as Locale} category={category} products={catalogue.filter((item) => item.category === category.category)} requestedPage={query?.page} />;
+    return <ProductCategoryPage locale={locale as Locale} category={category} products={catalogue.filter((item) => item.category === category.category)} requestedPage={query?.page} requestedFamily={query?.family} />;
   }
   if (!product) notFound();
   return <ProductDetailExperience locale={locale as Locale} product={product} />;

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { LocalizedSimplePage } from "@/components/LocalizedPages";
+import { LocalizedProjectsPage } from "@/components/InnerCompanyPages";
 import { getDictionary, isLocale, localizedPageAlternates, type Locale } from "@/lib/i18n";
 
-type PageProps = { params: Promise<{ locale: string }> };
+type PageProps = { params: Promise<{ locale: string }>; searchParams?: Promise<{ page?: string; industry?: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
@@ -11,7 +11,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return { title: t.projects.seoTitle, description: t.projects.metaDescription, alternates: localizedPageAlternates(current, "/projects") };
 }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params, searchParams }: PageProps) {
   const { locale } = await params;
-  return <LocalizedSimplePage locale={(isLocale(locale) ? locale : "en") as Locale} page="projects" />;
+  const query = await searchParams;
+  return <LocalizedProjectsPage locale={(isLocale(locale) ? locale : "en") as Locale} requestedPage={query?.page} industry={query?.industry} />;
 }

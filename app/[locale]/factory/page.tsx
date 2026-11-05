@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { LocalizedSimplePage } from "@/components/LocalizedPages";
+import { LocalizedSupplyPage } from "@/components/InnerCompanyPages";
 import { getDictionary, isLocale, localizedPageAlternates, type Locale } from "@/lib/i18n";
 
 type PageProps = { params: Promise<{ locale: string }> };
@@ -13,5 +13,5 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function Page({ params }: PageProps) {
   const { locale } = await params;
-  return <LocalizedSimplePage locale={(isLocale(locale) ? locale : "en") as Locale} page="factory" />;
+  return <LocalizedSupplyPage locale={(isLocale(locale) ? locale : "en") as Locale} />;
 }

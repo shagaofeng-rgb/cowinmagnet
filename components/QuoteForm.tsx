@@ -1,13 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Send } from "lucide-react";
 import { getClientTrackingIdentity } from "@/lib/clientTrackingIdentity";
-import { getLocaleFromPath } from "@/lib/i18n";
+import { getLocaleFromPath, localizeHref } from "@/lib/i18n";
 import { getPublicUi } from "@/lib/publicUi";
 
-type ProductInquiryContext = {
+import { catalogLabels } from "@/lib/interiorLocale";
+
+export type ProductInquiryContext = {
   name: string;
   model?: string;
   family?: string;
@@ -18,7 +21,7 @@ type QuoteFormProps = {
   compact?: boolean;
   defaultProduct?: string;
   productContext?: ProductInquiryContext;
-  variant?: "default" | "home";
+  variant?: "default" | "home" | "project" | "contact";
 };
 
 export function QuoteForm({ compact = false, defaultProduct = "", productContext, variant = "default" }: QuoteFormProps) {
@@ -26,6 +29,10 @@ export function QuoteForm({ compact = false, defaultProduct = "", productContext
   const ui = getPublicUi(locale);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "recorded" | "error">("idle");
   const isHomeForm = variant === "home";
+  const isProject = variant === "project";
+  const isContact = variant === "contact";
+  const isInterior = isProject || isContact;
+  const labels = catalogLabels[locale];
 
   async function submit(formData: FormData) {
     setStatus("submitting");
@@ -40,7 +47,7 @@ export function QuoteForm({ compact = false, defaultProduct = "", productContext
         .filter(([key, value]) => key.startsWith("selection") && value)
         .map(([key, value]) => `${key.replace(/^selection/, "")}: ${value}`)
         .join(" | ");
-      payload.consent = "true";
+      payload.consent = isInterior ? payload.consent : "true";
       payload.sourcePath = window.location.pathname;
       payload.pageUrl = window.location.href;
       payload.sourceLanguage = document.documentElement.lang || window.location.pathname.split("/").filter(Boolean)[0] || "en";
@@ -79,7 +86,7 @@ export function QuoteForm({ compact = false, defaultProduct = "", productContext
   }
 
   return (
-    <form action={submit} className={`quote-form ${compact ? "quote-form-compact" : ""} ${isHomeForm ? "quote-form-home" : ""}`}>
+    <form action={submit} className={`quote-form ${compact ? "quote-form-compact" : ""} ${isHomeForm ? "quote-form-home" : ""} ${isInterior ? "inner-quote-form" : ""}`}>
       {productContext ? (
         <>
           <input type="hidden" name="productName" value={productContext.name} />
@@ -127,6 +134,30 @@ export function QuoteForm({ compact = false, defaultProduct = "", productContext
               {ui.project}
               <textarea name="message" required placeholder={ui.projectHint} rows={4} />
             </label>
+          </>
+        ) : isInterior ? (
+          <>
+            <fieldset><legend>{isProject ? <span className="inner-step-number" aria-hidden>1</span> : null}{labels.contact}</legend><div className="inner-field-grid">
+              <label>{ui.name} *<input name="name" required autoComplete="name" placeholder={ui.yourName} /></label>
+              <label>{ui.company}<input name="company" autoComplete="organization" placeholder={ui.yourCompany} /></label>
+              <label>{ui.email} *<input name="email" type="email" autoComplete="email" required placeholder="name@company.com" /></label>
+              <label>{ui.phone} *<input name="phone" type="tel" autoComplete="tel" required placeholder="+1 555 000 0000" /></label>
+              {isProject ? <label>{ui.country} *<input name="country" required autoComplete="country-name" placeholder={ui.countryHint} /></label> : null}
+            </div></fieldset>
+            <fieldset><legend>{isProject ? <span className="inner-step-number" aria-hidden>2</span> : null}{isProject ? labels.application : labels.message}</legend><div className="inner-field-grid">
+              {isProject ? <><label>{ui.industry}<input name="industry" placeholder={ui.industry} /></label><label>{ui.material}<input name="material" placeholder={ui.material} /></label></> : null}
+              <label className="field-wide">{productContext ? ui.selectedProduct : ui.productInterest}
+                {productContext ? <input value={productContext.name} readOnly aria-readonly="true" /> : <input name="requiredProduct" defaultValue={defaultProduct} placeholder={ui.productInterestHint} />}
+              </label>
+              {!isProject ? <label className="field-wide">{ui.requirements} *<textarea name="message" required maxLength={3000} rows={4} placeholder={ui.requirementsHint} /></label> : null}
+            </div></fieldset>
+            {isProject ? <fieldset><legend><span className="inner-step-number" aria-hidden>3</span>{labels.operation}</legend><div className="inner-field-grid">
+              <label>{ui.beltWidth}<input name="beltWidth" placeholder="800 mm" /></label>
+              <label>{ui.installation}<input name="installation" placeholder={ui.installation} /></label>
+              <label className="field-wide">{ui.requirements} *<textarea name="message" required maxLength={3000} rows={4} placeholder={ui.requirementsHint} /></label>
+              <label className="field-wide">{ui.attachment}<input name="attachmentNote" placeholder={ui.attachmentHint} /></label>
+            </div></fieldset> : null}
+            <div className="inner-form-consent"><label><input type="checkbox" name="consent" value="true" required /> <span>{labels.consent} *</span></label><Link href={localizeHref("/privacy-policy", locale)} target="_blank" rel="noopener noreferrer">{ui.privacy}</Link></div>
           </>
         ) : (
           <>

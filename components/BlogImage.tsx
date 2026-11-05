@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ResponsiveArticleImage } from "@/components/ResponsiveArticleImage";
 import { brandedImageUrl } from "@/lib/brandedImage";
 
 const BLOG_IMAGE_FALLBACK = "/images/generated/recycling-application-cowinmagnet-clean-20261001-cowin-brand-20261001.webp";
@@ -29,5 +29,5 @@ export function BlogImage({ src, width, height, alt, priority = false }: BlogIma
     ? BLOG_IMAGE_FALLBACK
     : brandedImageUrl(directSource);
 
-  return <Image src={imageSource} width={width} height={height} alt={alt} priority={priority} sizes="(max-width: 760px) 92vw, (max-width: 1180px) 44vw, 760px" style={{ objectFit: "cover" }} />;
+  return <ResponsiveArticleImage key={imageSource} src={imageSource || BLOG_IMAGE_FALLBACK} fallback={BLOG_IMAGE_FALLBACK} width={width} height={height} alt={alt} priority={priority} sizes="(max-width: 760px) 92vw, (max-width: 1180px) 44vw, 760px" />;
 }

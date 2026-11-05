@@ -3,7 +3,7 @@ import { LocalizedBlogListPage } from "@/components/LocalizedPages";
 import { getPublicBlogPostsWithCms } from "@/lib/blogCms";
 import { getDictionary, isLocale, localizedPageAlternates, type Locale } from "@/lib/i18n";
 
-type PageProps = { params: Promise<{ locale: string }>; searchParams?: Promise<{ page?: string }> };
+type PageProps = { params: Promise<{ locale: string }>; searchParams?: Promise<{ page?: string; category?: string }> };
 const POSTS_PER_PAGE = 9;
 
 function safePage(value?: string) {
@@ -32,8 +32,11 @@ export default async function Page({ params, searchParams }: PageProps) {
   const query = await searchParams;
   const posts = await getPublicBlogPostsWithCms();
   const current = (isLocale(locale) ? locale : "en") as Locale;
-  const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
+  const categories = [...new Set(posts.map((post) => post.category))];
+  const selected = categories.find((category) => category === query?.category);
+  const filtered = selected ? posts.filter((post) => post.category === selected) : posts;
+  const totalPages = Math.max(1, Math.ceil(filtered.length / POSTS_PER_PAGE));
   const currentPage = Math.min(safePage(query?.page), totalPages);
-  const pagePosts = posts.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE);
-  return <LocalizedBlogListPage locale={current} posts={pagePosts} pagination={{ currentPage, totalPages, totalItems: posts.length }} />;
+  const pagePosts = filtered.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE);
+  return <LocalizedBlogListPage locale={current} posts={pagePosts} categories={categories} selectedCategory={selected} pagination={{ currentPage, totalPages, totalItems: filtered.length }} />;
 }

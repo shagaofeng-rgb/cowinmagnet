@@ -50,6 +50,13 @@ function renderTable(lines: string[], key: string) {
   );
 }
 
+export function markdownHeadings(content: string) {
+  return sanitizeArticleContent(content).split("\n").map((line, index) => {
+    const match = line.trim().match(/^## (.+)$/);
+    return match ? [{ id: `guide-section-${index + 1}`, label: match[1].replaceAll("**", "") }] : [];
+  }).flat();
+}
+
 export function MarkdownContent({ content, className = "" }: MarkdownContentProps) {
   const blocks: ReactNode[] = [];
   const lines = sanitizeArticleContent(content).split("\n");
@@ -102,7 +109,7 @@ export function MarkdownContent({ content, className = "" }: MarkdownContentProp
     flushTable();
   };
 
-  lines.forEach((rawLine) => {
+  lines.forEach((rawLine, index) => {
     const line = rawLine.trim();
 
     if (!line) {
@@ -142,7 +149,7 @@ export function MarkdownContent({ content, className = "" }: MarkdownContentProp
 
     if (line.startsWith("## ")) {
       flushAll();
-      blocks.push(<h2 key={`h2-${blocks.length}`}>{renderInline(line.slice(3))}</h2>);
+      blocks.push(<h2 id={`guide-section-${index + 1}`} key={`h2-${blocks.length}`}>{renderInline(line.slice(3))}</h2>);
       return;
     }
 
