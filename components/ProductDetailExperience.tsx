@@ -9,7 +9,7 @@ import { ProductDetailSectionTabs } from "@/components/ProductDetailPanels";
 import { products, type Product } from "@/data/products";
 import { site } from "@/data/site";
 import { getProductDetailProfile, getProductDisplayName, getProductFamily, productSeoDescription, productSeoTitle } from "@/data/productDetailProfiles";
-import { cleanProductSpecs } from "@/lib/productDisplay";
+import { cleanProductSpecs, getProductInquiryModel } from "@/lib/productDisplay";
 import { productCategoryPages } from "@/lib/productCategories";
 import { absoluteUrl, breadcrumbSchema, faqSchema } from "@/lib/seo";
 import { localizeHref, type Locale } from "@/lib/i18n";
@@ -94,8 +94,9 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
   const productUi = getPublicUi(locale || "en");
   const displayName = getLocalizedProductTitle(product, locale || "en");
   const pagePath = routeFor(locale, `/products/${product.slug}`);
-  const quotePath = `${routeFor(locale, "/request-quote")}?product=${encodeURIComponent(product.name)}&family=${encodeURIComponent(profile.family)}`;
+  const quotePath = `${routeFor(locale, "/request-quote")}?product=${encodeURIComponent(product.slug)}&family=${encodeURIComponent(profile.family)}`;
   const models = modelDesignations(product);
+  const inquiryModel = getProductInquiryModel(product);
   const specs = technicalRows(product, profile.technicalFields);
   const hasSpecificationTable = hasModelSpecificationTable(product);
   // Legacy gallery imports may contain a third-party logo, QR code or unrelated visual.
@@ -166,7 +167,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
             <section data-product-panel="selection" hidden className="product-detail-section product-selection-section"><div className="product-selection-copy"><span className="eyebrow">{ui.productTabs[1]}</span><h2>{t.productDetail.ctaTitle}</h2><p>{ui.productInstruction}</p></div><div className="product-selection-cta"><p>{t.productDetail.ctaText}</p><Link className="btn btn-primary" href={quotePath}>{t.common.getQuote} <ArrowRight size={17} aria-hidden /></Link></div></section>
             <section data-product-panel="applications" hidden className="product-detail-section product-materials-section"><div className="product-detail-section-heading"><span className="eyebrow">{ui.productTabs[2]}</span><h2>{t.productDetail.industries}</h2></div><div className="product-industry-links">{profile.industrySlugs.map((slug) => { const index = industrySlugs.indexOf(slug); return <Link href={routeFor(locale, industryRoute(slug))} key={slug}><span>{index >= 0 ? ui.industryMenu[index][0] : slug}</span><ArrowRight size={16} aria-hidden /></Link>; })}</div></section>
             <section data-product-panel="technical" hidden className="product-detail-section product-specification-section"><div className="product-detail-section-heading"><span className="eyebrow">{ui.productTabs[3]}</span><h2>{t.productDetail.specifications}</h2><p>{ui.technicalNotice}</p></div>{models.length ? <div className="product-specification-table" role="table" aria-label={t.productDetail.specifications}><div role="row"><span>{ui.productModel}</span><strong>{models.join(" / ")}</strong></div></div> : null}</section>
-            <section data-product-panel="support" hidden className="product-final-cta" aria-labelledby="product-final-cta-title"><div className="product-final-media"><Image src={product.image} alt={displayName} width={660} height={440} sizes="(max-width: 900px) 100vw, 46vw" /></div><div className="product-final-form"><span className="eyebrow">{t.productDetail.quoteTitle}</span><h2 id="product-final-cta-title">{t.productDetail.ctaTitle}</h2><p>{t.productDetail.ctaText}</p><QuoteForm compact productContext={{ name: displayName, model: models.join(" / "), family: profile.family }} /></div></section>
+            <section data-product-panel="support" hidden className="product-final-cta" aria-labelledby="product-final-cta-title"><div className="product-final-media"><Image src={product.image} alt={displayName} width={660} height={440} sizes="(max-width: 900px) 100vw, 46vw" /></div><div className="product-final-form"><span className="eyebrow">{t.productDetail.quoteTitle}</span><h2 id="product-final-cta-title">{t.productDetail.ctaTitle}</h2><p>{t.productDetail.ctaText}</p><QuoteForm compact productContext={{ name: displayName, model: inquiryModel, family: profile.family }} /></div></section>
           </div>
         </div>
       </div>
@@ -372,7 +373,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
             <span className="eyebrow">Request a quote</span>
             <h2 id="product-final-cta-title">Share the operating conditions for {displayName}</h2>
             <p>Share your material, throughput and installation details so we can review the right configuration.</p>
-            <QuoteForm compact productContext={{ name: product.name, model: models.join(" / "), family: profile.family, selectionFields: profile.selectionFields }} />
+            <QuoteForm compact productContext={{ name: product.name, model: inquiryModel, family: profile.family, selectionFields: profile.selectionFields }} />
           </div>
         </section>
           </div>

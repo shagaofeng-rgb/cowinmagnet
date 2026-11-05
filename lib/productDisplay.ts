@@ -46,3 +46,10 @@ export function cleanProductSpecs(specs: Product["specs"]) {
     return label && value && !INVALID_SPEC_VALUES.has(value.trim());
   });
 }
+
+export function getProductInquiryModel(product: Pick<Product, "specs" | "inquiryModel">) {
+  const confirmedModels = cleanProductSpecs(product.specs)
+    .filter(({ label }) => /^(model(?: (?:number|no\.?))?|型号)$/i.test(label.trim()))
+    .map(({ value }) => value.trim());
+  return [...new Set(confirmedModels)].join(" / ") || cleanProductText(product.inquiryModel);
+}
