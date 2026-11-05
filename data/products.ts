@@ -9,7 +9,7 @@ export type Product = {
   features: string[];
   principle: string;
   specs: { label: string; value: string }[];
-  /** Model or series explicitly identified in the published product name. */
+  /** Model or series reference verified against the product name or catalogue. */
   inquiryModel?: string;
   /** Model-level values from a verified product record. Keep this separate from summary facts. */
   specificationTable?: {
@@ -1229,6 +1229,7 @@ export const products: Product[] = [
     "slug": "wet-drum-magnetic-separator",
     "name": "Wet Drum Magnetic Separator",
     "category": "Magnetic Separation Equipment",
+    "inquiryModel": "CTB / CTS / CTN",
     "image": "/assets/products/wet-drum-magnetic-separator/wet-drum-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
       "/assets/products/wet-drum-magnetic-separator/wet-drum-magnetic-separator-01-cowin-brand-20261001.jpg",
@@ -5066,6 +5067,7 @@ export const products: Product[] = [
     "slug": "suspended-permanent-magnetic-separator",
     "name": "Suspended Permanent Magnetic Separator",
     "category": "Magnetic Separation Equipment",
+    "inquiryModel": "RCYB / RCYP",
     "image": "/assets/products/suspended-permanent-magnetic-separator-cowin-brand-20261001.webp",
     "imageGallery": [
       "/assets/products/suspended-permanent-magnetic-separator-cowin-brand-20261001.webp"
@@ -5120,6 +5122,7 @@ export const products: Product[] = [
     "slug": "suspended-electromagnetic-conveyor-belt-separator",
     "name": "Suspended Electromagnetic Conveyor Belt Separator",
     "category": "Magnetic Separation Equipment",
+    "inquiryModel": "RCDD / RCDC / RCDF",
     "image": "/assets/products/suspended-electromagnetic-conveyor-belt-separator-cowin-brand-20261001.webp",
     "imageGallery": [
       "/assets/products/suspended-electromagnetic-conveyor-belt-separator-cowin-brand-20261001.webp"
@@ -5700,6 +5703,7 @@ export const products: Product[] = [
     "slug": "permanent-overband-magnetic-separator",
     "name": "Permanent Overband Magnetic Separator",
     "category": "Metal Detection & Recycling Sorting",
+    "inquiryModel": "RCYC(D) (self-cleaning series)",
     "image": "/assets/products/permanent-overband-magnetic-separator/permanent-overband-magnetic-separator-01-cowin-brand-20261001.jpg",
     "imageGallery": [
       "/assets/products/permanent-overband-magnetic-separator/permanent-overband-magnetic-separator-01-cowin-brand-20261001.jpg",

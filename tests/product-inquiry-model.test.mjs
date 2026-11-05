@@ -7,7 +7,11 @@ test("catalogue inquiry models survive when a product has no approved technical 
   const expected = new Map([
     ["rcyd-type-permanent-magnet-self-dumping-iron-remover", "RCYD"],
     ["rcydii-type-permanent-magnet-self-dumping-iron-remover", "RCYDII"],
-    ["gls-type-integral-channel-metal-separator", "GLS"]
+    ["gls-type-integral-channel-metal-separator", "GLS"],
+    ["wet-drum-magnetic-separator", "CTB / CTS / CTN"],
+    ["suspended-permanent-magnetic-separator", "RCYB / RCYP"],
+    ["suspended-electromagnetic-conveyor-belt-separator", "RCDD / RCDC / RCDF"],
+    ["permanent-overband-magnetic-separator", "RCYC(D) (self-cleaning series)"]
   ]);
   for (const [slug, model] of expected) {
     const product = products.find((item) => item.slug === slug);
