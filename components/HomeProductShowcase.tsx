@@ -4,8 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import type { Locale } from "@/lib/i18n";
-import { localizeHref } from "@/lib/i18n";
+import { getDictionary, localizeHref, type Locale } from "@/lib/i18n";
 import { getPublicUi } from "@/lib/publicUi";
 import { homeProductFamilies, type HomeProductFamily } from "@/lib/homeProductTaxonomy";
 
@@ -25,6 +24,7 @@ export function HomeProductShowcase({ locale, cards }: { locale: Locale; cards: 
   const [active, setActive] = useState<HomeProductFamily | "all">("all");
   const [page, setPage] = useState(1);
   const ui = getPublicUi(locale);
+  const { viewProduct } = getDictionary(locale).common;
   const cardFacts = facts[locale];
   const categories = homeProductFamilies.filter((family) => cards.some((card) => card.family === family));
   const filtered = active === "all" ? cards : cards.filter((card) => card.family === active);
@@ -42,34 +42,66 @@ export function HomeProductShowcase({ locale, cards }: { locale: Locale; cards: 
   }
 
   return (
-    <>
-      <div className="home2-tabs" role="tablist" aria-label={ui.categories}>
-        <button type="button" role="tab" aria-selected={active === "all"} className={active === "all" ? "is-active" : ""} onClick={() => selectCategory("all")}>{ui.homeCategories[0]} <small>{cards.length}</small></button>
-        {categories.map((family) => <button key={family} type="button" role="tab" aria-selected={active === family} className={active === family ? "is-active" : ""} onClick={() => selectCategory(family)}>{categoryLabel(family)} <small>{cards.filter((card) => card.family === family).length}</small></button>)}
-        <Link href={localizeHref("/request-quote", locale)}>{ui.homeCategories[8]}</Link>
-      </div>
-      <div className="home2-product-grid" role="tabpanel" aria-label={selectedLabel} key={`${active}-${currentPage}`}>
-        {visible.map((card) => <article className="home2-product-card" key={card.slug}>
-          <Link href={localizeHref(`/products/${card.slug}`, locale)} className="home2-product-image" aria-label={card.title}>
-            <Image src={card.image} fill sizes="(max-width: 700px) 90vw, (max-width: 1050px) 45vw, 30vw" alt={card.title} loading="lazy" />
-          </Link>
-          <div className="home2-product-body">
-            <h3><Link href={localizeHref(`/products/${card.slug}`, locale)}>{card.title}</Link></h3>
-            <p>{card.summary}</p>
-            {card.featuredIndex >= 0 && card.featuredIndex < 3 ? <dl className="home2-product-facts">{cardFacts.labels.map((label, factIndex) => <div key={label}><dt>{label}</dt><dd>{cardFacts.values[card.featuredIndex][factIndex]}</dd></div>)}</dl> : null}
-            <Link href={localizeHref(`/products/${card.slug}`, locale)} className="home2-card-link">{locale === "en" ? "View Products" : ui.allProducts} <ArrowRight size={16} aria-hidden="true" /></Link>
-          </div>
-        </article>)}
-      </div>
-      <div className="home2-product-pagination" aria-label={`${ui.catalog} ${selectedLabel}`}>
-        <p>{ui.catalogCount.replace("{start}", String(start)).replace("{end}", String(end)).replace("{total}", String(filtered.length))}</p>
-        <div className="home2-product-pagination-controls">
-          <button type="button" onClick={() => setPage((value) => Math.max(1, value - 1))} disabled={currentPage === 1}>{ui.previous}</button>
-          <label className="home2-page-select"><span>{ui.page}</span><select value={currentPage} onChange={(event) => setPage(Number(event.target.value))} aria-label={`${ui.page} ${selectedLabel}`}>{Array.from({ length: totalPages }, (_, index) => <option key={index + 1} value={index + 1}>{index + 1}</option>)}</select><span>/ {totalPages}</span></label>
-          <button type="button" onClick={() => setPage((value) => Math.min(totalPages, value + 1))} disabled={currentPage === totalPages}>{ui.next}</button>
+    <div className="home2-catalog-layout">
+      <aside className="home2-catalog-filter">
+        <h3 className="home2-filter-label">{ui.categories}</h3>
+        <div className="home2-tabs" role="group" aria-label={ui.categories}>
+          <button type="button" aria-pressed={active === "all"} className={active === "all" ? "is-active" : ""} onClick={() => selectCategory("all")}>
+            <span>{ui.homeCategories[0]}</span> <small>{cards.length}</small>
+          </button>
+          {categories.map((family) => (
+            <button key={family} type="button" aria-pressed={active === family} className={active === family ? "is-active" : ""} onClick={() => selectCategory(family)}>
+              <span>{categoryLabel(family)}</span> <small>{cards.filter((card) => card.family === family).length}</small>
+            </button>
+          ))}
         </div>
-        <Link href={localizeHref("/products", locale)}>{ui.catalog} <ArrowRight size={16} aria-hidden="true" /></Link>
+      </aside>
+      <div className="home2-product-results">
+        <div className="home2-product-grid" key={`${active}-${currentPage}`}>
+          {visible.map((card) => {
+            const href = localizeHref(`/products/${card.slug}`, locale);
+
+            return (
+              <article className="home2-product-card" key={card.slug}>
+                <Link href={href} className="home2-product-image" aria-label={card.title}>
+                  <Image src={card.image} fill sizes="(max-width: 760px) 32vw, (max-width: 1020px) 30vw, 355px" alt={card.title} loading="lazy" />
+                </Link>
+                <div className="home2-product-body">
+                  <span className="home2-card-tag">{categoryLabel(card.family)}</span>
+                  <h3><Link href={href}>{card.title}</Link></h3>
+                  <p>{card.summary}</p>
+                  {card.featuredIndex >= 0 && card.featuredIndex < 3 ? (
+                    <dl className="home2-product-facts">
+                      {cardFacts.labels.map((label, factIndex) => (
+                        <div key={label}>
+                          <dt>{label}</dt>
+                          <dd>{cardFacts.values[card.featuredIndex][factIndex]}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  ) : null}
+                  <Link href={href} className="home2-card-link">{viewProduct} <ArrowRight size={16} aria-hidden="true" /></Link>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+        <div className="home2-product-pagination" role="group" aria-label={`${ui.catalog} ${selectedLabel}`}>
+          <p aria-live="polite" aria-atomic="true">{ui.catalogCount.replace("{start}", String(start)).replace("{end}", String(end)).replace("{total}", String(filtered.length))}</p>
+          <div className="home2-product-pagination-controls">
+            <button type="button" onClick={() => setPage((value) => Math.max(1, value - 1))} disabled={currentPage === 1}>{ui.previous}</button>
+            <label className="home2-page-select">
+              <span>{ui.page}</span>
+              <select value={currentPage} onChange={(event) => setPage(Number(event.target.value))} aria-label={`${ui.page} ${selectedLabel}`}>
+                {Array.from({ length: totalPages }, (_, index) => <option key={index + 1} value={index + 1}>{index + 1}</option>)}
+              </select>
+              <span>/ {totalPages}</span>
+            </label>
+            <button type="button" onClick={() => setPage((value) => Math.min(totalPages, value + 1))} disabled={currentPage === totalPages}>{ui.next}</button>
+          </div>
+          <Link href={localizeHref("/products", locale)}>{ui.catalog} <ArrowRight size={16} aria-hidden="true" /></Link>
+        </div>
       </div>
-    </>
+    </div>
   );
 }

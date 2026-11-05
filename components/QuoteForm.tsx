@@ -104,23 +104,23 @@ export function QuoteForm({ compact = false, defaultProduct = "", productContext
           <>
             <input type="hidden" name="country" value="Not provided" readOnly />
             <label className="field-wide">
-              {ui.name} <span aria-hidden="true">*</span>
-              <input name="name" required placeholder={ui.yourName} />
+              <span>{ui.name} <span aria-hidden="true">*</span></span>
+              <input name="name" autoComplete="name" required placeholder={ui.yourName} />
             </label>
             <label className="field-wide">
-              {ui.company} <span aria-hidden="true">*</span>
-              <input name="company" required placeholder={ui.yourCompany} />
+              <span>{ui.company} <span aria-hidden="true">*</span></span>
+              <input name="company" autoComplete="organization" required placeholder={ui.yourCompany} />
             </label>
             <label>
-              {ui.email} <span aria-hidden="true">*</span>
-              <input name="email" type="email" required placeholder="name@company.com" />
+              <span>{ui.email} <span aria-hidden="true">*</span></span>
+              <input name="email" type="email" autoComplete="email" required placeholder="name@company.com" />
             </label>
             <label>
-              {ui.phone}
-              <input name="phone" required placeholder="+1 555 000 0000" />
+              <span>{ui.phone} <span aria-hidden="true">*</span></span>
+              <input name="phone" type="tel" autoComplete="tel" required placeholder="+1 555 000 0000" />
             </label>
             <label className="field-wide">
-              {ui.selectProduct} <span aria-hidden="true">*</span>
+              <span>{ui.selectProduct} <span aria-hidden="true">*</span></span>
               <select name="requiredProduct" defaultValue={defaultProduct} required>
                 <option value="" disabled>{ui.selectProductHint}</option>
                 <option value="Suspended Magnets">{ui.suspendedMagnets}</option>
@@ -131,7 +131,7 @@ export function QuoteForm({ compact = false, defaultProduct = "", productContext
               </select>
             </label>
             <label className="field-wide">
-              {ui.project}
+              <span>{ui.project} <span aria-hidden="true">*</span></span>
               <textarea name="message" required placeholder={ui.projectHint} rows={4} />
             </label>
           </>

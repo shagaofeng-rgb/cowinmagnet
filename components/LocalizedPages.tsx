@@ -46,14 +46,8 @@ const homeProductCards = [
   { slug: "suspended-electromagnetic-conveyor-belt-separator" }
 ];
 
-const homeIndustryTiles = [
-  { href: "/industries/mining", image: "/images/industries/mining-industry-magnetic-separation-cover-clean-20261001-cowin-brand-20261001.webp", alt: "Mining material conveyor" },
-  { href: "/industries/recycling", image: "/images/industries/recycling-industry-magnetic-separation-cover-clean-20261001-cowin-brand-20261001.webp", alt: "Recycling sorting line" },
-  { href: "/industries/cement-aggregate", image: "/images/generated/home-industry-cement-20261009-cowin-brand.webp", alt: "Illustration of cement plant bulk material handling" },
-  { href: "/industries", image: "/images/generated/home-industry-power-20261009-cowin-brand.webp", alt: "Illustration of power generation material handling" },
-  { href: "/industries/cement-aggregate", image: "/images/generated/home-industry-aggregates-20261009-cowin-brand.webp", alt: "Illustration of aggregate processing stockpile" },
-  { href: "/industries", image: "/images/industries/recycling-scenarios/construction-waste-recycling-line-cowin-brand-20261001.jpg", alt: "Industrial material handling conveyor" }
-];
+const homeIndustryOrder = ["mining", "recycling", "cement-aggregate", "food"];
+const homeHeroImage = "/images/generated/home-hero-option-two-branded-20261009.webp";
 
 export function LocalizedHomePage({ locale }: { locale: Locale }) {
   const t = getDictionary(locale);
@@ -75,31 +69,44 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
     };
   });
   return (
-    <main className="localized-home home-option-two">
+    <div className="localized-home home-option-two">
       <section className="home2-hero" aria-labelledby="home2-title">
-        <div className="home2-hero-copy">
-          <span className="home2-eyebrow">{locale === "en" ? "Global OEM/ODM Partner" : t.home.heroEyebrow}</span>
-          {locale === "en" ? <h1 id="home2-title"><span>Magnetic</span><span>Separation for a</span><span className="home2-accent">Cleaner,</span><span className="home2-accent home2-overlap">Stronger Tomorrow</span></h1> : <h1 id="home2-title">{t.home.h1}</h1>}
-          <p>{t.home.heroText}</p>
-          <div className="home2-actions">
-            <Link href={localizeHref("/products", locale)} className="home2-button home2-button-primary">{locale === "en" ? "Explore Products" : t.common.viewProducts} <ArrowRight size={18} aria-hidden="true" /></Link>
-            <Link href={localizeHref("/request-quote", locale)} className="home2-button home2-button-outline">{t.common.getQuote}</Link>
+        <div className="home2-container">
+          <div className="home2-hero-panel">
+            <div className="home2-hero-copy">
+              <span className="home2-eyebrow">{locale === "en" ? "Global OEM/ODM partner" : t.home.heroEyebrow}</span>
+              <h1 id="home2-title">
+                {locale === "en" ? <>Magnetic separation{" "}<span>Built for your line.</span></> : t.home.h1}
+              </h1>
+              <p>{t.home.heroText}</p>
+              <div className="home2-actions">
+                <Link href={localizeHref("/request-quote", locale)} className="home2-button home2-button-primary">
+                  {t.common.getQuote} <ArrowRight size={17} aria-hidden="true" />
+                </Link>
+                <a href="#home-equipment" className="home2-text-link">
+                  {locale === "en" ? "Browse products" : t.common.viewProducts} <ArrowRight size={16} aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+            <div className="home2-hero-art">
+              <Image src={homeHeroImage} fill sizes="(max-width: 860px) 92vw, (max-width: 1440px) 54vw, 735px" alt={t.home.heroAlt} priority fetchPriority="high" />
+            </div>
           </div>
-        </div>
-        <div className="home2-hero-art">
-          <Image src="/images/generated/home-hero-option-two-branded-20261009.webp" fill sizes="(max-width: 760px) 100vw, 62vw" alt={t.home.heroAlt} priority fetchPriority="high" />
-          <p className="home2-metal-slogan" aria-hidden="true">{ui.homeSlogan[0]}<br />{ui.homeSlogan[1]}<br />{ui.homeSlogan[2]}</p>
-          <p className="home2-hero-signature" aria-hidden="true"><strong>COWIN MAGNET</strong><span>MAGNETIC SOLUTIONS<br />FOR A BRIGHTER INDUSTRY</span></p>
-        </div>
-        <div className="home2-hero-proof" aria-label={t.home.whyTitle}>
-          {[Settings, BadgeCheck, ShieldCheck, Headphones].map((Icon, index) => <div key={index}><Icon size={25} aria-hidden="true" /><span>{ui.homeProof[index]}</span></div>)}
+          <ul className="home2-hero-proof" aria-label={t.home.whyTitle}>
+            {[Settings, BadgeCheck, ShieldCheck, Headphones].map((Icon, index) => (
+              <li key={ui.homeProof[index]}><Icon size={22} aria-hidden="true" /><span>{ui.homeProof[index]}</span></li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <section className="home2-products" aria-labelledby="home2-products-title">
+      <section id="home-equipment" className="home2-products" aria-labelledby="home2-products-title">
         <div className="home2-container">
           <div className="home2-section-head">
-            <div><span className="home2-eyebrow">{locale === "en" ? "Our Products" : t.home.featuredEyebrow}</span><h2 id="home2-products-title">{locale === "en" ? <>Explore Our Magnetic<br />Separation Equipment</> : ui.homeProductRangeTitle}</h2></div>
+            <div>
+              <span className="home2-eyebrow">{locale === "en" ? "Equipment catalogue" : t.home.featuredEyebrow}</span>
+              <h2 id="home2-products-title">{locale === "en" ? "Find the right equipment" : ui.homeProductRangeTitle}</h2>
+            </div>
             <p>{ui.homeProductRangeText}</p>
           </div>
           <HomeProductShowcase locale={locale} cards={homeCards} />
@@ -109,31 +116,40 @@ export function LocalizedHomePage({ locale }: { locale: Locale }) {
       <section className="home2-industries" aria-labelledby="home2-industry-title">
         <div className="home2-container home2-industry-layout">
           <div className="home2-industry-copy">
-            <span className="home2-eyebrow">{locale === "en" ? "Industries We Serve" : t.home.applicationEyebrow}</span>
-            <h2 id="home2-industry-title">{locale === "en" ? <>Proven in<br />real-world industries</> : ui.homeIndustryTitle}</h2>
-            <p>{ui.homeIndustryText}</p>
-            <Link href={localizeHref("/industries", locale)} className="home2-button home2-button-outline">{locale === "en" ? "Explore by Industry" : t.common.viewSolution} <ArrowRight size={18} aria-hidden="true" /></Link>
+            <span className="home2-eyebrow">{locale === "en" ? "Industry applications" : t.home.applicationEyebrow}</span>
+            <h2 id="home2-industry-title">{locale === "en" ? "Separation in practice" : ui.homeIndustryTitle}</h2>
+            <p>{ui.industryDescription}</p>
+            <Link href={localizeHref("/industries", locale)} className="home2-text-link">
+              {locale === "en" ? "See all industries" : t.common.viewSolution} <ArrowRight size={17} aria-hidden="true" />
+            </Link>
           </div>
           <div className="home2-industry-grid">
-            {homeIndustryTiles.map((industry, index) => <Link key={industry.image} href={localizeHref(industry.href, locale)} className="home2-industry-tile">
-              <Image src={industry.image} fill sizes="(max-width: 760px) 46vw, 20vw" alt={industry.alt} loading="lazy" />
-              <span>{ui.homeIndustries[index]}</span>
-            </Link>)}
+            {homeIndustryOrder.map((slug) => {
+              const index = applications.findIndex((application) => application.industrySlug === slug);
+              const industry = applications[index];
+              const name = ui.industryMenu[index]?.[0] || industry.name;
+              return (
+                <Link key={slug} href={localizeHref(`/industries/${slug}`, locale)} className="home2-industry-tile">
+                  <Image src={industry.image} fill sizes="(max-width: 760px) 46vw, (max-width: 860px) 45vw, 30vw" alt="" loading="lazy" />
+                  <span>{name}<ArrowRight size={17} aria-hidden="true" /></span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section className="home2-video-quote" aria-label={t.home.videoTitle}>
+      <section className="home2-video-quote" aria-labelledby="home2-quote-title">
         <div className="home2-container home2-video-layout">
-          <HomeVideoShowcase eyebrow={locale === "en" ? "Cowin Magnet in Action" : t.home.videoEyebrow} title={locale === "en" ? "See our magnetic solutions in action" : t.home.videoTitle} locale={locale} />
-          <aside className="home2-quote-card">
-            <span className="home2-eyebrow">{locale === "en" ? "Get a Quote" : t.home.quoteEyebrow}</span>
-            <h2>{locale === "en" ? "Tell us about your project" : t.home.quoteTitle}</h2>
+          <HomeVideoShowcase eyebrow={locale === "en" ? "Product showcase" : t.home.videoEyebrow} title={locale === "en" ? "See the equipment in action" : t.home.videoTitle} locale={locale} />
+          <div className="home2-quote-card">
+            <span className="home2-eyebrow">{locale === "en" ? "Project inquiry" : t.home.quoteEyebrow}</span>
+            <h2 id="home2-quote-title">{locale === "en" ? "Tell us about your project" : t.home.quoteTitle}</h2>
             <QuoteForm compact variant="home" />
-          </aside>
+          </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 
