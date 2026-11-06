@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { defaultLocale, isLocale } from "@/lib/i18n";
+import { defaultLocale, isLocale, stripLocale } from "@/lib/i18n";
+import { localesForIndexablePath } from "@/lib/localeIndexing";
 
 const PUBLIC_FILE = /\.(.*)$/;
 const PRIMARY_HOST = "www.cowinmagnet.com";
@@ -37,10 +38,7 @@ export function proxy(request: NextRequest) {
 
   const firstSegment = pathname.split("/").filter(Boolean)[0];
   if (isLocale(firstSegment)) {
-    // Only English has been editorially verified site-wide. Other locales stay
-    // accessible for users, but are not offered to crawlers as full locales
-    // until their main content is actually translated and reviewed.
-    return firstSegment === defaultLocale
+    return localesForIndexablePath(stripLocale(pathname)).includes(firstSegment)
       ? NextResponse.next()
       : NextResponse.next({ headers: { "X-Robots-Tag": "noindex, follow" } });
   }

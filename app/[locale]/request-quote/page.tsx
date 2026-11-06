@@ -21,12 +21,16 @@ export default async function Page({ params, searchParams }: PageProps) {
   const query = await searchParams;
   const name = typeof query?.product === "string" ? query.product.trim().slice(0, 180) : "";
   const productBySlug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name) ? await getProductBySlugWithCms(name) : undefined;
-  const product = productBySlug || (name ? (await getProductsWithCms()).find((item) => item.name === name || item.slug === name || getLocalizedProductTitle(item, current) === name) : undefined);
+  const legacyMatch = !productBySlug && name
+    ? (await getProductsWithCms({ includeConfirmedFacts: false })).find((item) => item.name === name || getLocalizedProductTitle(item, current) === name)
+    : undefined;
+  const product = productBySlug || (legacyMatch ? await getProductBySlugWithCms(legacyMatch.slug) : undefined);
+  const title = product ? getLocalizedProductTitle(product, current) : "";
   const selected = product ? {
-    title: getLocalizedProductTitle(product, current),
+    title,
     image: product.image,
     context: {
-      name: product.name,
+      name: title,
       family: getProductDetailProfile(product).family,
       model: getProductInquiryModel(product)
     }

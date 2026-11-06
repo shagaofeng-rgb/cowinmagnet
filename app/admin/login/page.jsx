@@ -22,7 +22,7 @@ export default async function AdminLoginPage({ searchParams }) {
   const configured = await isAdminAuthConfigured();
 
   return (
-    <main className="admin-login-page">
+    <div className="admin-login-page">
       <section className="admin-login-card">
         <Link className="admin-login-brand" href="/en">
           <Image src="/images/cowin-logo.png" alt="COWIN MAGNET" width={42} height={42} />
@@ -58,6 +58,6 @@ export default async function AdminLoginPage({ searchParams }) {
           忘记密码？
         </Link>
       </section>
-    </main>
+    </div>
   );
 }

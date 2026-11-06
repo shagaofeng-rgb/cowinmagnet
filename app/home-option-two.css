@@ -275,16 +275,6 @@
 .home-option-two .home2-quote-card .quote-form textarea { min-height: 86px; }
 .home-option-two .home2-quote-card .quote-form .btn-primary { width: 100%; min-height: 48px; color: #fff; border-radius: 6px; background: var(--home-accent); box-shadow: none; }
 
-body:has(.home-option-two) .topbar { display: none; }
-body:has(.home-option-two) .mobile-site-actions .language-menu { right: auto; left: auto; inset-inline: 0 auto; }
-
-@media (min-width: 901px) {
-  body:has(.home-option-two) .navbar { min-height: 72px; }
-  body:has(.home-option-two) .nav-item.has-mega { position: static; }
-  body:has(.home-option-two) .mega-menu { position: absolute; top: 100%; visibility: hidden; }
-  body:has(.home-option-two) .mega-open .mega-menu { visibility: visible; }
-}
-
 @media (max-width: 1020px) {
   .home-option-two .home2-container { width: calc(100% - 48px); }
   .home-option-two .home2-catalog-layout { grid-template-columns: minmax(0, 1fr); gap: 15px; }

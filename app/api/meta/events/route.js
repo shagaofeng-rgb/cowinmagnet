@@ -1,5 +1,6 @@
 import { buildMetaUserData, sendMetaCapiEvent } from "@/lib/metaConversions";
 import { safeSiteUrl } from "@/lib/siteUrlSafety";
+import { hasMarketingConsent } from "@/lib/marketingConsent";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -36,6 +37,9 @@ function text(value, max = 200) {
 }
 
 export async function POST(request) {
+  if (!hasMarketingConsent(request.headers.get("cookie") || "")) {
+    return Response.json({ ok: true, skipped: true }, { status: 202 });
+  }
   const contentLength = Number(request.headers.get("content-length") || 0);
   if (Number.isFinite(contentLength) && contentLength > MAX_REQUEST_BYTES) {
     return Response.json({ ok: false, error: "request-too-large" }, { status: 413 });

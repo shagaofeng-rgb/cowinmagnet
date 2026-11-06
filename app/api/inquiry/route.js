@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { after } from "next/server";
 import { appendConversionAttribution } from "@/lib/analyticsDatabase";
 import { recordInquiryNotificationResult, saveInquirySubmission } from "@/lib/inquiryStore";
@@ -5,6 +6,7 @@ import { sendInquiryNotification } from "@/lib/inquiryNotification";
 import { buildMetaUserData, sendMetaCapiEvent } from "@/lib/metaConversions";
 import { safeSiteUrl } from "@/lib/siteUrlSafety";
 import { isCronAuthorized } from "@/lib/cronAuth";
+import { hasMarketingConsent } from "@/lib/marketingConsent";
 
 export const runtime = "nodejs";
 
@@ -19,15 +21,15 @@ globalThis.__cowinInquiryRateLimit = inquiryRateLimit;
 
 function validate(payload) {
   const errors = {};
-  if (!payload || typeof payload !== "object") errors.form = "Invalid inquiry payload.";
-  if (!payload.name?.trim()) errors.name = "Name is required.";
-  if (!payload.email?.trim()) errors.email = "Email is required.";
-  else if (!emailPattern.test(payload.email.trim())) errors.email = "Email format is invalid.";
-  if (!payload.phone?.trim()) errors.phone = "Phone is required.";
-  else if (!phonePattern.test(payload.phone.trim())) errors.phone = "Phone format is invalid.";
-  if (!payload.message?.trim()) errors.message = "Message is required.";
-  if (payload.website?.trim()) errors.website = "Spam submission blocked.";
-  if (!payload.consent) errors.consent = "Business inquiry confirmation is required.";
+  const text = (key) => typeof payload[key] === "string" ? payload[key].trim() : "";
+  if (!text("name")) errors.name = "Name is required.";
+  if (!text("email")) errors.email = "Email is required.";
+  else if (!emailPattern.test(text("email"))) errors.email = "Email format is invalid.";
+  if (!text("phone")) errors.phone = "Phone is required.";
+  else if (!phonePattern.test(text("phone"))) errors.phone = "Phone format is invalid.";
+  if (!text("message")) errors.message = "Message is required.";
+  if (payload.website && (typeof payload.website !== "string" || payload.website.trim())) errors.website = "Spam submission blocked.";
+  if (payload.consent !== true && payload.consent !== "true") errors.consent = "Business inquiry confirmation is required.";
   for (const [key, value] of Object.entries(payload)) {
     if (typeof value === "string" && value.length > MAX_TEXT_LENGTH) {
       errors[key] = "This field is too long.";
@@ -251,6 +253,8 @@ export async function POST(request) {
     ...payload,
     formType: isMarkedTest ? "test" : "inquiry",
     isTest: isMarkedTest,
+    inquiryId: undefined,
+    status: undefined,
     clientIp: ip,
     userAgent: request.headers.get("user-agent") || "-",
     submittedAt: new Date().toISOString()
@@ -261,7 +265,8 @@ export async function POST(request) {
     return Response.json({ message: "Please complete the required fields.", errors }, { status: 400 });
   }
 
-  const rateLimitKey = `${ip}:${String(payload.email || "").trim().toLowerCase()}`;
+  const email = payload.email.trim().toLowerCase();
+  const rateLimitKey = `${ip}:${email}`;
   if (!checkRateLimit(rateLimitKey)) {
     return Response.json(
       { message: "Too many submissions. Please wait a few minutes and try again." },
@@ -269,9 +274,18 @@ export async function POST(request) {
     );
   }
 
+  // Scope the browser's retry key to this sender and keep record identifiers
+  // under server control. The primary key makes retries safe across instances.
+  const retryKey = typeof payload.submissionKey === "string" && /^[a-f0-9-]{36}$/i.test(payload.submissionKey)
+    ? payload.submissionKey.toLowerCase()
+    : "";
+  const id = retryKey
+    ? `inq-${createHash("sha256").update(JSON.stringify([email, retryKey, isMarkedTest])).digest("hex").slice(0, 36)}`
+    : undefined;
+
   let savedInquiry;
   try {
-    savedInquiry = await saveInquirySubmission(payload);
+    savedInquiry = await saveInquirySubmission(payload, id);
   } catch (error) {
     console.error("Inquiry database write failed", error);
     return Response.json(
@@ -280,7 +294,15 @@ export async function POST(request) {
     );
   }
 
-  if (!isMarkedTest) {
+  if (savedInquiry.duplicate) {
+    return Response.json({
+      inquiryId: savedInquiry.id,
+      deliveryStatus: "recorded",
+      duplicate: true
+    }, { status: 202 });
+  }
+
+  if (!isMarkedTest && hasMarketingConsent(request.headers.get("cookie") || "")) {
     after(async () => {
       await recordMetaLead(payload).catch((error) => {
         console.warn("Meta CAPI Lead recording failed", { reason: error instanceof Error ? error.name : "unknown" });
@@ -297,7 +319,7 @@ export async function POST(request) {
   const delivery = await sendInquiryNotification(emailPayload, {
     text: inquiryText(emailPayload),
     html: inquiryHtml(emailPayload)
-  });
+  }).catch(() => ({ sent: false, reason: "smtp-delivery-failed" }));
   const outcome = await recordInquiryNotificationResult(savedInquiry.id, {
     sent: delivery.sent,
     reason: delivery.reason,

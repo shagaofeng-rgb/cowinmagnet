@@ -70,7 +70,7 @@ export default function AdminDateRangeFilter({ range, allowAll = false }) {
   function validateCustomRange() {
     if (!start || !end) return "请选择开始日期和结束日期";
     if (start > end) return "结束日期不能早于开始日期";
-    if (range?.endInput && end > range.endInput) return "结束日期不能晚于今天";
+    if (range?.todayInput && end > range.todayInput) return "结束日期不能晚于今天";
     return "";
   }
 

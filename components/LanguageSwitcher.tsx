@@ -9,7 +9,7 @@ import { getLocaleFromPath, languageLabels, localePath, locales, stripLocale } f
 import { persistLocalePreference } from "@/lib/clientLocalePreference";
 import { getPublicUi } from "@/lib/publicUi";
 
-export function LanguageSwitcher() {
+export function LanguageSwitcher({ onSelect }: { onSelect?: () => void }) {
   const pathname = usePathname();
   const router = useRouter();
   const currentLocale = getLocaleFromPath(pathname);
@@ -17,6 +17,7 @@ export function LanguageSwitcher() {
   const cleanPath = stripLocale(pathname || "/");
   const menuId = useId();
   const switcherRef = useRef<HTMLDivElement>(null);
+  const trigger = useRef<HTMLButtonElement>(null);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -27,7 +28,11 @@ export function LanguageSwitcher() {
     }
 
     function closeOnEscape(event: KeyboardEvent) {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape" && switcherRef.current?.contains(event.target as Node)) {
+        event.preventDefault();
+        setOpen(false);
+        trigger.current?.focus();
+      }
     }
 
     document.addEventListener("pointerdown", closeOnOutsidePointer);
@@ -41,6 +46,7 @@ export function LanguageSwitcher() {
   function rememberLocale(locale: string) {
     persistLocalePreference(locale);
     setOpen(false);
+    onSelect?.();
   }
 
   return (
@@ -50,6 +56,7 @@ export function LanguageSwitcher() {
     >
       <button
         className="language-trigger"
+        ref={trigger}
         type="button"
         aria-label={ui.chooseLanguage}
         aria-expanded={open}
@@ -59,7 +66,7 @@ export function LanguageSwitcher() {
         <Globe2 size={16} aria-hidden />
         <span>{currentLocale.toUpperCase()}</span>
       </button>
-      <div className="language-menu" id={menuId} role="menu" aria-label={ui.chooseLanguage}>
+      <div className="language-menu" id={menuId} inert={!open}>
         {locales.map((locale) => (
           <Link
             key={locale}
@@ -74,7 +81,7 @@ export function LanguageSwitcher() {
                 router.push(`${localePath(locale, cleanPath)}${suffix}`);
               }
             }}
-            role="menuitem"
+            aria-current={locale === currentLocale ? "true" : undefined}
           >
             <span>{locale.toUpperCase()}</span>
             {languageLabels[locale]}

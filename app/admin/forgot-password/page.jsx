@@ -12,7 +12,7 @@ export default async function ForgotPasswordPage({ searchParams }) {
   const sent = params?.sent === "1";
 
   return (
-    <main className="admin-login-page">
+    <div className="admin-login-page">
       <section className="admin-login-card">
         <Link className="admin-login-brand" href="/admin/login">
           <Image src="/images/cowin-logo.png" alt="COWIN MAGNET" width={42} height={42} />
@@ -42,6 +42,6 @@ export default async function ForgotPasswordPage({ searchParams }) {
           返回登录
         </Link>
       </section>
-    </main>
+    </div>
   );
 }

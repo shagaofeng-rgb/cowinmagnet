@@ -6,8 +6,10 @@ import { usePathname } from "next/navigation";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import BrandIcon from "@/components/BrandIcon";
 import { site } from "@/data/site";
+import { homeProductFamilies } from "@/lib/homeProductTaxonomy";
 import { getDictionary, getDirection, getLocaleFromPath, localizeHref } from "@/lib/i18n";
 import { getPublicUi } from "@/lib/publicUi";
+import { getMarketingCopy, marketingPreferenceEvent } from "@/lib/marketingConsent";
 
 const whatsappChatUrl = `https://wa.me/${site.whatsapp}`;
 const whatsappQrUrl = "/images/qr-whatsapp-cowinmagnet.png";
@@ -31,13 +33,6 @@ export function Footer() {
     { label: ui.privacy, href: "/privacy-policy" },
     { label: ui.terms, href: "/terms" }
   ];
-  const productLinks = [
-    ui.permanentSeries,
-    ui.electromagneticSeries,
-    ui.rollersBars
-  ];
-
-  const isInterior = /^\/(en|es|fr|pt|ru|ar)\/(products|industries|about|factory|projects|blog|news|contact|request-quote|search|privacy-policy|terms|editorial-policy)(?:\/|$)/.test(pathname);
   const grid = (
       <div className="footer-grid">
         <div className="footer-brand">
@@ -67,9 +62,9 @@ export function Footer() {
         <div className="footer-links">
           <h3>{t.nav.products}</h3>
           <ul>
-            {productLinks.map((item) => (
-              <li key={item}>
-                <Link href={localizeHref("/products", locale)}>{item}</Link>
+            {homeProductFamilies.map((family, index) => family === "other" ? null : (
+              <li key={family}>
+                <Link href={`${localizeHref("/products", locale)}?family=${family}`}>{ui.homeCategories[index + 1]}</Link>
               </li>
             ))}
           </ul>
@@ -83,7 +78,7 @@ export function Footer() {
           </a>
           <a href={whatsappChatUrl} target="_blank" rel="noopener noreferrer nofollow" className="footer-contact-line" data-whatsapp-placement="footer-phone" data-whatsapp-component="site-footer">
             <Phone size={19} aria-hidden />
-            <span>{site.whatsapp}</span>
+            <bdi>{site.phone}</bdi>
           </a>
           <a href={`mailto:${site.email}`} className="footer-contact-line">
             <Mail size={19} aria-hidden />
@@ -122,20 +117,6 @@ export function Footer() {
       </div>
   );
 
-  if (isInterior) {
-    return <footer className="footer inner-footer" dir={dir}>
-      <div className="inner-footer-bar">
-        <Link href={localizeHref("/", locale)} className="footer-brand-mark" aria-label={`COWIN MAGNET — ${ui.home}`}><Image src="/images/cowin-logo.png" width={32} height={32} alt="COWIN MAGNET logo" /><strong>COWIN MAGNET</strong></Link>
-        <a href={`mailto:${site.email}`}><Mail size={17} aria-hidden /><span>{site.email}</span></a>
-        <a href={whatsappChatUrl} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="footer-phone" data-whatsapp-component="site-footer"><Phone size={17} aria-hidden /><bdi>{site.phone}</bdi></a>
-        <a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer nofollow"><MapPin size={17} aria-hidden /><span>{ui.mapLocation}</span></a>
-      </div>
-      <details className="inner-footer-expand"><summary>{ui.navigationLinks} · {ui.connect}</summary>{grid}
-        <div className="footer-bottom"><span>&copy; {new Date().getFullYear()} {site.legalName}</span><a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer nofollow">{site.address}</a></div>
-      </details>
-    </footer>;
-  }
-
   return (
     <footer className="footer" dir={dir}>
       <div className="footer-cta">
@@ -153,6 +134,9 @@ export function Footer() {
       <div className="footer-bottom">
         <span>&copy; {new Date().getFullYear()} {site.legalName}</span>
         <a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer nofollow">{site.address}</a>
+        {/^\d+$/.test(process.env.NEXT_PUBLIC_META_PIXEL_ID || "") && (
+          <button type="button" className="footer-preference-button" onClick={() => window.dispatchEvent(new Event(marketingPreferenceEvent))}>{getMarketingCopy(locale)[0]}</button>
+        )}
       </div>
     </footer>
   );

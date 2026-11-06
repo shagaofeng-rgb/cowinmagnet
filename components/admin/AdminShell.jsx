@@ -23,6 +23,8 @@ const links = [
 
 export default function AdminShell({ children, email }) {
   const pathname = usePathname();
+  const currentPath = pathname === "/admin/dashboard" ? "/admin" : pathname;
+  const isActive = (href) => currentPath === href || (href !== "/admin" && currentPath.startsWith(`${href}/`));
   const searchParams = useSearchParams();
   const sharedRange = new URLSearchParams();
   for (const key of ["range", "start", "end"]) {
@@ -31,6 +33,7 @@ export default function AdminShell({ children, email }) {
   }
   const rangeQuery = sharedRange.toString();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
 
   useEffect(() => {
     if (!menuOpen) return undefined;
@@ -48,12 +51,13 @@ export default function AdminShell({ children, email }) {
         className="admin-mobile-menu"
         aria-label="打开后台导航"
         aria-expanded={menuOpen}
+        aria-controls="admin-sidebar"
         onClick={() => setMenuOpen(true)}
       >
         <Menu size={22} /> <span>COWIN MAGNET</span>
       </button>
       {menuOpen ? <button type="button" className="admin-sidebar-backdrop" aria-label="点击遮罩关闭后台导航" onClick={() => setMenuOpen(false)} /> : null}
-      <aside className={`admin-sidebar ${menuOpen ? "is-open" : ""}`}>
+      <aside id="admin-sidebar" className={`admin-sidebar ${menuOpen ? "is-open" : ""}`}>
         <Link className="admin-logo" href="/admin">
           <Image src="/images/cowin-logo.png" alt="COWIN MAGNET" width={50} height={50} priority />
           <span><strong>COWIN MAGNET</strong><small>管理后台</small></span>
@@ -62,7 +66,8 @@ export default function AdminShell({ children, email }) {
         <nav aria-label="后台主导航">
           {links.slice(0, -1).map((link) => (
             <Link
-              className={pathname === link.href || (link.href !== "/admin" && pathname.startsWith(`${link.href}/`)) ? "is-active" : ""}
+              aria-current={isActive(link.href) ? "location" : undefined}
+              className={isActive(link.href) ? "is-active" : ""}
               href={rangeQuery ? `${link.href}?${rangeQuery}` : link.href}
               key={link.href}
               onClick={() => setMenuOpen(false)}
@@ -76,9 +81,9 @@ export default function AdminShell({ children, email }) {
           <Link className={pathname === "/admin/settings" ? "is-active" : ""} href="/admin/settings" onClick={() => setMenuOpen(false)}>
             <Settings2 size={20} strokeWidth={1.8} aria-hidden="true" /><span>系统设置</span>
           </Link>
-          <details className="admin-account-menu">
+          <details className="admin-account-menu" onToggle={(event) => setAccountOpen(event.currentTarget.open)}>
             <summary>账户与数据状态</summary>
-            <AdminLiveStatus />
+            {accountOpen ? <AdminLiveStatus key={rangeQuery} rangeQuery={rangeQuery} /> : null}
             <small>当前账号</small>
             <span>{email}</span>
             <form action="/api/admin/logout" method="post">
@@ -87,7 +92,7 @@ export default function AdminShell({ children, email }) {
           </details>
         </div>
       </aside>
-      <main className="admin-main">{children}</main>
+      <div className="admin-main">{children}</div>
     </div>
   );
 }

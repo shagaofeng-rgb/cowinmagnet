@@ -4,22 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { ArrowRight, Factory, Mail, Menu, MessageCircle, Search, Sparkles, X } from "lucide-react";
+import { ArrowRight, Factory, Menu, MessageCircle, Search, Sparkles, X } from "lucide-react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { site } from "@/data/site";
-import { categoryAnchor } from "@/lib/anchors";
-import { getDictionary, getDirection, getLocaleFromPath, localizeHref } from "@/lib/i18n";
+import { homeProductFamilies } from "@/lib/homeProductTaxonomy";
+import { getDictionary, getDirection, getLocaleFromPath, localizeHref, stripLocale } from "@/lib/i18n";
 import { getPublicUi } from "@/lib/publicUi";
 
 // Keep the interactive header bundle independent from the full product and industry datasets.
-const productCategories = [
-  "Suspended & Self-Unloading Iron Removers",
-  "Magnetic Separation Equipment",
-  "Metal Detection & Recycling Sorting",
-  "Magnetic Components & Filters",
-  "Industry Application Equipment"
-];
-
 const featuredProducts = [
   { slug: "suspended-permanent-magnetic-separator", name: "Suspended Permanent Magnetic Separator" },
   { slug: "suspended-electromagnetic-conveyor-belt-separator", name: "Suspended Electromagnetic Conveyor Belt Separator" },
@@ -41,6 +33,15 @@ export function Header() {
   const ui = getPublicUi(locale);
   const dir = getDirection(locale);
   const headerRef = useRef<HTMLElement>(null);
+  const mobileToggle = useRef<HTMLButtonElement>(null);
+  const pagePath = stripLocale(pathname);
+  const isCurrent = (path: string) => pagePath === path || pagePath.startsWith(`${path}/`);
+  const pageLinks = [
+    ["/about", ui.aboutUs],
+    ["/blog", t.nav.blog],
+    ["/news", t.nav.news],
+    ["/contact", ui.contact]
+  ] as const;
   const megaCloseTimer = useRef<number | null>(null);
   const [activeMega, setActiveMega] = useState<"products" | "industries" | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -87,11 +88,19 @@ export function Header() {
 
   useEffect(() => {
     function closeMobileMenu(event: PointerEvent) {
-      if (headerRef.current && !headerRef.current.contains(event.target as Node)) setMobileOpen(false);
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setMobileOpen(false);
+        setActiveMega(null);
+      }
     }
 
     function handleEscape(event: KeyboardEvent) {
-      if (event.key === "Escape") setMobileOpen(false);
+      if (event.key !== "Escape" || event.defaultPrevented) return;
+      if (mobileOpen) mobileToggle.current?.focus();
+      if (activeMega) headerRef.current?.querySelector<HTMLElement>(".mega-open .nav-trigger")?.focus();
+      clearMegaCloseTimer();
+      setMobileOpen(false);
+      setActiveMega(null);
     }
 
     document.addEventListener("pointerdown", closeMobileMenu);
@@ -100,25 +109,16 @@ export function Header() {
       document.removeEventListener("pointerdown", closeMobileMenu);
       document.removeEventListener("keydown", handleEscape);
     };
-  }, []);
+  }, [activeMega, mobileOpen]);
+
+  useEffect(() => {
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   const closeMobile = () => setMobileOpen(false);
 
   return (
     <header className="site-header" dir={dir} key={pathname} ref={headerRef}>
-      <div className="topbar">
-        <span>{t.topbar}</span>
-        <div className="topbar-links">
-          <a href={`mailto:${site.email}`}>
-            <Mail size={15} aria-hidden />
-            {site.email}
-          </a>
-          <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="header" data-whatsapp-component="site-header">
-            <MessageCircle size={15} aria-hidden />
-            WhatsApp
-          </a>
-        </div>
-      </div>
       <nav className="navbar" aria-label={ui.navigation}>
         <Link href={localizeHref("/", locale)} className="brand" aria-label={`COWIN MAGNET — ${ui.home}`}>
           <Image src="/images/cowin-logo.png" width={52} height={52} alt="COWIN MAGNET logo" />
@@ -127,6 +127,7 @@ export function Header() {
         <button
           type="button"
           className="mobile-nav-toggle"
+          ref={mobileToggle}
           aria-label={mobileOpen ? ui.closeMenu : ui.openMenu}
           aria-expanded={mobileOpen}
           aria-controls="mobile-site-navigation"
@@ -141,16 +142,19 @@ export function Header() {
             onMouseEnter={() => openMega("products")}
             onMouseLeave={scheduleMegaClose}
             onFocusCapture={() => openMega("products")}
+            onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setActiveMega(null); }}
           >
             <Link
               href={localizeHref("/products", locale)}
               className="nav-trigger"
               aria-expanded={activeMega === "products"}
-              aria-haspopup="menu"
+              aria-controls="site-product-menu"
+              aria-current={isCurrent("/products") ? "location" : undefined}
+              onClick={() => setActiveMega(null)}
             >
               {t.nav.products}
             </Link>
-            <div className="mega-menu mega-products">
+            <div className="mega-menu mega-products" id="site-product-menu" inert={activeMega !== "products"}>
               <div className="mega-panel">
                 <div className="mega-intro">
                   <span><Sparkles size={15} aria-hidden /> {ui.productCenter}</span>
@@ -163,8 +167,8 @@ export function Header() {
                 <div className="mega-section">
                   <h4>{ui.categories}</h4>
                   <div className="mega-chip-list">
-                    {productCategories.map((category, index) => (
-                    <Link key={category} href={`${localizeHref("/products", locale)}?category=${encodeURIComponent(categoryAnchor(category))}`} onClick={() => setActiveMega(null)}>{ui.productCategories[index]}</Link>
+                    {homeProductFamilies.map((family, index) => family === "other" ? null : (
+                      <Link key={family} href={`${localizeHref("/products", locale)}?family=${family}`} onClick={() => setActiveMega(null)}>{ui.homeCategories[index + 1]}</Link>
                     ))}
                   </div>
                 </div>
@@ -183,23 +187,27 @@ export function Header() {
             className={`nav-item has-mega${activeMega === "industries" ? " mega-open" : ""}`}
             onMouseEnter={() => openMega("industries")}
             onMouseLeave={scheduleMegaClose}
-            onFocusCapture={() => openMega("industries")}
+            onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setActiveMega(null); }}
           >
             <button
               type="button"
               className="nav-trigger nav-trigger-button"
               aria-expanded={activeMega === "industries"}
-              aria-haspopup="menu"
+              aria-controls="site-industry-menu"
+              aria-current={isCurrent("/industries") ? "location" : undefined}
               onClick={() => activeMega === "industries" ? setActiveMega(null) : openMega("industries")}
             >
               {ui.industries}
             </button>
-            <div className="mega-menu mega-applications">
+            <div className="mega-menu mega-applications" id="site-industry-menu" inert={activeMega !== "industries"}>
               <div className="mega-panel mega-panel-compact">
                 <div className="mega-intro">
                   <span><Factory size={15} aria-hidden /> {ui.industrySolutions}</span>
                   <h3>{ui.industryHeadline}</h3>
                   <p>{ui.industryDescription}</p>
+                  <Link href={localizeHref("/industries", locale)} className="mega-cta" onClick={() => setActiveMega(null)}>
+                    {t.common.viewSolution} <ArrowRight size={15} aria-hidden />
+                  </Link>
                 </div>
                 <div className="mega-section mega-card-grid">
                   {industryMenuItems.map((industry, index) => (
@@ -212,10 +220,9 @@ export function Header() {
               </div>
             </div>
           </div>
-          <Link href={localizeHref("/about", locale)}>{ui.oem}</Link>
-          <Link href={localizeHref("/about", locale)}>{ui.aboutUs}</Link>
-          <Link href={localizeHref("/contact", locale)}>{ui.support}</Link>
-          <Link href={localizeHref("/contact", locale)}>{ui.contact}</Link>
+          {pageLinks.map(([path, label]) => (
+            <Link key={path} href={localizeHref(path, locale)} aria-current={isCurrent(path) ? "location" : undefined}>{label}</Link>
+          ))}
           <Link href={localizeHref("/search", locale)} className="nav-search-link" aria-label={`${ui.search} COWIN MAGNET`}>
             <Search size={16} aria-hidden />
             <span className="nav-search-label">{ui.search}</span>
@@ -229,18 +236,15 @@ export function Header() {
         </div>
         {mobileOpen ? (
           <div className="mobile-site-nav" id="mobile-site-navigation">
-            <Link href={localizeHref("/products", locale)} onClick={closeMobile}>{t.nav.products}</Link>
-            <Link href={localizeHref("/industries", locale)} onClick={closeMobile}>{ui.industries}</Link>
-            <Link href={localizeHref("/blog", locale)} onClick={closeMobile}>{t.nav.blog}</Link>
-            <Link href={localizeHref("/news", locale)} onClick={closeMobile}>{t.nav.news || "News"}</Link>
+            {([["/products", t.nav.products], ["/industries", ui.industries], ...pageLinks] as const).map(([path, label]) => (
+              <Link key={path} href={localizeHref(path, locale)} aria-current={isCurrent(path) ? "location" : undefined} onClick={closeMobile}>{label}</Link>
+            ))}
             <Link href={localizeHref("/search", locale)} onClick={closeMobile}><Search size={16} aria-hidden /> {ui.search}</Link>
-            <Link href={localizeHref("/about", locale)} onClick={closeMobile}>{t.nav.about}</Link>
-            <Link href={localizeHref("/contact", locale)} onClick={closeMobile}>{t.nav.contact}</Link>
             <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer nofollow" onClick={closeMobile} data-whatsapp-placement="mobile-menu" data-whatsapp-component="site-header">
               <MessageCircle size={16} aria-hidden /> WhatsApp
             </a>
             <div className="mobile-site-actions">
-              <LanguageSwitcher />
+              <LanguageSwitcher onSelect={closeMobile} />
               <Link href={localizeHref("/request-quote", locale)} className="btn btn-primary" onClick={closeMobile}>
                 {t.common.getQuote}
               </Link>

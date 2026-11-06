@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { LocalizedHomePage } from "@/components/LocalizedPages";
-import { getDictionary, isLocale, localizedPageAlternates, type Locale } from "@/lib/i18n";
+import { getDictionary, isLocale, localizedPageAlternates, localizedPageRobots, type Locale } from "@/lib/i18n";
 import { absoluteUrl } from "@/lib/seo";
 import "../home-option-two.css";
 
@@ -13,6 +13,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: t.home.seoTitle,
     description: t.home.metaDescription,
+    robots: localizedPageRobots(current, "/"),
     alternates: localizedPageAlternates(current, "/"),
     openGraph: {
       title: t.home.seoTitle,

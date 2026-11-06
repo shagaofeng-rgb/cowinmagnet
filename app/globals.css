@@ -7132,7 +7132,7 @@ textarea:focus {
 }
 
 .product-section-nav a,
-.product-section-tabs button {
+.product-section-tabs a {
   flex: 1 0 auto;
   min-height: 42px;
   padding: 11px 15px;
@@ -7149,9 +7149,9 @@ textarea:focus {
 
 .product-section-nav a:hover,
 .product-section-nav a:focus-visible,
-.product-section-tabs button:hover,
-.product-section-tabs button:focus-visible,
-.product-section-tabs button.is-active {
+.product-section-tabs a:hover,
+.product-section-tabs a:focus-visible,
+.product-section-tabs a.is-active {
   color: #0a5fae;
   background: #eef6fc;
   outline: none;
@@ -7790,7 +7790,7 @@ textarea:focus {
   }
 
   .product-section-nav a,
-  .product-section-tabs button {
+  .product-section-tabs a {
     min-height: 40px;
     padding: 10px 12px;
     font-size: 13px;
@@ -8428,42 +8428,42 @@ textarea:focus {
     font-size: 11px;
   }
 
-  body:has(.localized-home) .navbar {
+  .site-header .navbar {
     min-height: 60px;
     gap: 18px;
     padding-block: 8px;
   }
 
-  body:has(.localized-home) .brand {
+  .site-header .brand {
     gap: 8px;
     font-size: 14px;
   }
 
-  body:has(.localized-home) .brand img {
+  .site-header .brand img {
     width: 40px;
     height: 40px;
   }
 
-  body:has(.localized-home) .nav-links {
+  .site-header .nav-links {
     gap: 0;
     font-size: 12px;
   }
 
-  body:has(.localized-home) .nav-links > a,
-  body:has(.localized-home) .nav-trigger {
+  .site-header .nav-links > a,
+  .site-header .nav-trigger {
     min-height: 34px;
     padding: 7px 11px;
   }
 
-  body:has(.localized-home) .nav-search-label {
+  .site-header .nav-search-label {
     display: none;
   }
 
-  body:has(.localized-home) .nav-actions {
+  .site-header .nav-actions {
     gap: 8px;
   }
 
-  body:has(.localized-home) .nav-actions .btn {
+  .site-header .nav-actions .btn {
     min-height: 36px;
     padding-inline: 15px;
     font-size: 12px;
@@ -8489,4 +8489,76 @@ textarea:focus {
   body:has(.whatsapp-float) {
     padding-bottom: calc(76px + env(safe-area-inset-bottom));
   }
+}
+
+/* The public navigation uses the same dimensions on every page. */
+.site-header :is(.nav-links a, .nav-trigger, .mobile-site-nav > a)[aria-current] {
+  color: #14599f;
+  background: #ebf3fb;
+}
+
+@media (min-width: 901px) {
+  .site-header .navbar { min-height: 72px; }
+  .site-header .nav-item.has-mega { position: static; }
+  .site-header .mega-menu { position: absolute; top: 100%; visibility: hidden; }
+  .site-header .mega-open .mega-menu { visibility: visible; }
+}
+@media (min-width: 901px) and (max-width: 1140px) {
+  .site-header .navbar { gap: 10px; padding-inline: 22px; }
+  .site-header .nav-links { gap: 2px; font-size: .85rem; }
+  .site-header :is(.nav-links > a, .nav-trigger) { padding-inline: 6px; }
+}
+@media (max-width: 900px) {
+  .mobile-site-nav { max-height: calc(100dvh - 74px); overflow-y: auto; }
+  .mobile-site-actions { flex-wrap: wrap; }
+  .mobile-site-actions .language-menu {
+    position: static;
+    display: none;
+    transform: none;
+  }
+  .mobile-site-actions .language-switcher.is-open .language-menu { display: grid; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header *, .site-header *::before, .site-header *::after { transition-duration: 0s !important; }
+}
+
+.marketing-preferences {
+  position: fixed;
+  inset-block-end: max(14px, env(safe-area-inset-bottom));
+  inset-inline-start: max(14px, env(safe-area-inset-left));
+  width: min(330px, calc(100% - 88px));
+  z-index: 65;
+  padding: 13px;
+  color: #10233d;
+  background: #fff;
+  border: 1px solid #c7d8e8;
+  border-radius: 7px;
+  box-shadow: 0 10px 32px #10233d30;
+  font-size: .86rem;
+}
+.marketing-preferences p { margin: 5px 0 8px; }
+.marketing-preferences p a { color: #14599f; text-decoration: underline; }
+.marketing-preferences div { display: flex; gap: 7px; flex-wrap: wrap; }
+.marketing-preferences button {
+  min-height: 38px;
+  padding: 5px 12px;
+  background: #f3f8fd;
+  color: #103d70;
+  border: 1px solid #b8cde0;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.footer-preference-button {
+  padding: 0;
+  color: inherit;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-decoration: underline;
+  text-align: start;
+  cursor: pointer;
+}
+@media (max-width: 760px) {
+  body:has(.product-detail-experience) .marketing-preferences { inset-block-end: calc(72px + env(safe-area-inset-bottom)); }
 }

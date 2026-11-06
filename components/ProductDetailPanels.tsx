@@ -5,20 +5,13 @@ import { BookOpen, ClipboardList, FileQuestion, Settings2, Workflow } from "luci
 import { usePathname } from "next/navigation";
 import { getLocaleFromPath } from "@/lib/i18n";
 import { getPublicUi } from "@/lib/publicUi";
+import { getProductSection, productSections, type ProductSection } from "@/lib/productSections";
 
-const sections = [
-  ["overview", BookOpen],
-  ["selection", Settings2],
-  ["applications", Workflow],
-  ["technical", ClipboardList],
-  ["support", FileQuestion]
-] as const;
-type SectionId = (typeof sections)[number][0];
+const icons = [BookOpen, Settings2, Workflow, ClipboardList, FileQuestion];
 const panelEvent = "cowin-product-section";
 
-function readSectionFromUrl(): SectionId {
-  const requested = new URLSearchParams(window.location.search).get("section");
-  return sections.find(([id]) => id === requested)?.[0] || "overview";
+function readSectionFromUrl() {
+  return getProductSection(new URLSearchParams(window.location.search).get("section"));
 }
 
 function subscribeToHistory(callback: () => void) {
@@ -30,10 +23,10 @@ function subscribeToHistory(callback: () => void) {
   };
 }
 
-export function ProductDetailSectionTabs() {
+export function ProductDetailSectionTabs({ initialSection }: { initialSection: ProductSection }) {
   const pathname = usePathname();
   const ui = getPublicUi(getLocaleFromPath(pathname));
-  const activeId = useSyncExternalStore(subscribeToHistory, readSectionFromUrl, () => "overview");
+  const activeId = useSyncExternalStore(subscribeToHistory, readSectionFromUrl, () => initialSection);
   const controls = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -43,7 +36,7 @@ export function ProductDetailSectionTabs() {
     });
   }, [activeId, pathname]);
 
-  function activate(id: SectionId) {
+  function activate(id: ProductSection) {
     const url = new URL(window.location.href);
     if (id === activeId) return;
     if (id === "overview") url.searchParams.delete("section");
@@ -53,7 +46,25 @@ export function ProductDetailSectionTabs() {
     window.dispatchEvent(new Event(panelEvent));
   }
 
-  return <nav ref={controls} className="product-section-tabs" aria-label={ui.productCenter}>
-    {sections.map(([id, Icon], index) => <button type="button" aria-pressed={activeId === id} className={activeId === id ? "is-active" : ""} onClick={() => activate(id)} key={id}><Icon size={17} aria-hidden />{ui.productTabs[index]}</button>)}
+  return <nav ref={controls} id="product-sections" className="product-section-tabs" aria-label={ui.productCenter}>
+    {productSections.map((id, index) => {
+      const Icon = icons[index];
+      return (
+        <a
+          key={id}
+          href={id === "overview" ? pathname : `${pathname}?section=${id}#product-sections`}
+          aria-current={activeId === id ? "location" : undefined}
+          className={activeId === id ? "is-active" : ""}
+          onClick={(event) => {
+            if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+            event.preventDefault();
+            activate(id);
+          }}
+        >
+          <Icon size={17} aria-hidden />
+          {ui.productTabs[index]}
+        </a>
+      );
+    })}
   </nav>;
 }

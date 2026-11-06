@@ -9,11 +9,13 @@ import { getDictionary, isLocale, locales, localizedPageAlternates, type Locale 
 import { getProductCategoryPage, productCategoryPages } from "@/lib/productCategories";
 import { getProductsWithCms } from "@/lib/productCms";
 import { absoluteUrl } from "@/lib/seo";
+import { getProductSection } from "@/lib/productSections";
+import { getLocalizedProductTitle } from "@/lib/productLocalizedTitle";
 import { productCategories } from "@/data/products";
 import { getPublicUi } from "@/lib/publicUi";
 import { getLocalizedProductSummary } from "@/lib/productLocale";
 
-type PageProps = { params: Promise<{ locale: string; slug: string }>; searchParams?: Promise<{ page?: string; family?: string }> };
+type PageProps = { params: Promise<{ locale: string; slug: string }>; searchParams?: Promise<{ page?: string; family?: string; section?: string }> };
 
 
 export function generateStaticParams() {
@@ -43,7 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
   if (!product) return {};
-  const title = current === "en" ? productSeoTitle(product) : `${product.name} | ${getDictionary(current).products.eyebrow}`;
+  const title = current === "en" ? productSeoTitle(product) : `${getLocalizedProductTitle(product, current)} | ${getDictionary(current).products.eyebrow}`;
   const description = current === "en" ? productSeoDescription(product) : getLocalizedProductSummary(product, current);
   return {
     title,
@@ -70,5 +72,5 @@ export default async function Page({ params, searchParams }: PageProps) {
     return <ProductCategoryPage locale={locale as Locale} category={category} products={catalogue.filter((item) => item.category === category.category)} requestedPage={query?.page} requestedFamily={query?.family} />;
   }
   if (!product) notFound();
-  return <ProductDetailExperience locale={locale as Locale} product={product} />;
+  return <ProductDetailExperience locale={locale as Locale} product={product} initialSection={getProductSection(query?.section)} />;
 }

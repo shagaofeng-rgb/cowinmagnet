@@ -4,5 +4,5 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET(request) {
-  return analyticsResponse((snapshot) => snapshot.overview, request);
+  return analyticsResponse((snapshot) => ({ ...snapshot.overview, generatedAt: snapshot.generatedAt, storageMode: snapshot.storageMode }), request);
 }

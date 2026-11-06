@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Send } from "lucide-react";
@@ -28,16 +28,27 @@ export function QuoteForm({ compact = false, defaultProduct = "", productContext
   const locale = getLocaleFromPath(usePathname());
   const ui = getPublicUi(locale);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "recorded" | "error">("idle");
+  const inFlight = useRef(false);
+  const previousAttempt = useRef<{ fields: string; key: string } | null>(null);
   const isHomeForm = variant === "home";
   const isProject = variant === "project";
   const isContact = variant === "contact";
   const isInterior = isProject || isContact;
   const labels = catalogLabels[locale];
 
-  async function submit(formData: FormData) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (inFlight.current) return;
+    inFlight.current = true;
+    const form = event.currentTarget;
     setStatus("submitting");
     try {
-      const payload: Record<string, unknown> = Object.fromEntries(formData.entries());
+      const payload: Record<string, unknown> = Object.fromEntries(new FormData(form));
+      const fields = JSON.stringify(payload);
+      if (previousAttempt.current?.fields !== fields) {
+        previousAttempt.current = { fields, key: window.crypto.randomUUID() };
+      }
+      payload.submissionKey = previousAttempt.current.key;
       payload.phone = payload.phone || payload.whatsapp || "";
       payload.productRequirement = payload.productRequirement || payload.requiredProduct || payload.productName || "";
       payload.materialType = payload.material || "";
@@ -70,23 +81,29 @@ export function QuoteForm({ compact = false, defaultProduct = "", productContext
       const result = await response.json().catch(() => null);
 
       const tracker = (window as typeof window & { __cowinTrackEvent?: (type: string, extra?: Record<string, unknown>) => void }).__cowinTrackEvent;
-      if (response.ok && tracker) {
+      if (response.ok && !result?.duplicate && tracker) {
         tracker("submit_inquiry", { page: window.location.pathname, attribution: payload.attribution });
       }
       if (response.ok) {
-        window.__cowinMetaTrack?.("Lead", {
-          content_name: String(payload.productRequirement || "Website inquiry"),
-          content_category: "B2B inquiry"
-        }, { eventId: metaEventId, sendServer: false });
+        if (!result?.duplicate) {
+          window.__cowinMetaTrack?.("Lead", {
+            content_name: String(payload.productRequirement || "Website inquiry"),
+            content_category: "B2B inquiry"
+          }, { eventId: metaEventId, sendServer: false });
+        }
+        form.reset();
+        previousAttempt.current = null;
       }
       setStatus(response.ok ? (result?.deliveryStatus === "sent" ? "success" : "recorded") : "error");
     } catch {
       setStatus("error");
+    } finally {
+      inFlight.current = false;
     }
   }
 
   return (
-    <form action={submit} className={`quote-form ${compact ? "quote-form-compact" : ""} ${isHomeForm ? "quote-form-home" : ""} ${isInterior ? "inner-quote-form" : ""}`}>
+    <form method="post" onSubmit={submit} className={`quote-form ${compact ? "quote-form-compact" : ""} ${isHomeForm ? "quote-form-home" : ""} ${isInterior ? "inner-quote-form" : ""}`}>
       {productContext ? (
         <>
           <input type="hidden" name="productName" value={productContext.name} />

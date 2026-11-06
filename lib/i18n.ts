@@ -4,8 +4,9 @@ import ru from "@/messages/ru.json";
 import ar from "@/messages/ar.json";
 import fr from "@/messages/fr.json";
 import pt from "@/messages/pt.json";
+import { localesForIndexablePath, publicLocales } from "@/lib/localeIndexing";
 
-export const locales = ["en", "es", "ru", "ar", "fr", "pt"] as const;
+export const locales = publicLocales;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "en";
 export const rtlLocales: Locale[] = ["ar"];
@@ -66,30 +67,23 @@ export function localizeHref(path: string, locale: Locale) {
 }
 
 export function localizedAlternates(path: string) {
-  return {
-    canonical: absoluteLocalizedUrl(defaultLocale, path),
-    languages: {
-      en: absoluteLocalizedUrl(defaultLocale, path),
-      "x-default": absoluteLocalizedUrl(defaultLocale, path)
-    }
-  };
+  return localizedPageAlternates(defaultLocale, path);
 }
 
 export function localizedPageAlternates(locale: Locale, path: string) {
-  // Non-English routes remain available to visitors but are intentionally
-  // noindex until their full body content has passed editorial review. Do not
-  // advertise a noindex route as an hreflang alternate of the English URL.
-  if (locale !== defaultLocale) {
-    return {
-      canonical: absoluteLocalizedUrl(locale, path)
-    };
-  }
+  const canonical = absoluteLocalizedUrl(locale, path);
+  const indexableLocales = localesForIndexablePath(path) as readonly Locale[];
+  if (!indexableLocales.includes(locale)) return { canonical };
 
   return {
-    canonical: absoluteLocalizedUrl(defaultLocale, path),
-    languages: {
-      en: absoluteLocalizedUrl(defaultLocale, path),
-      "x-default": absoluteLocalizedUrl(defaultLocale, path)
-    }
+    canonical,
+    languages: Object.fromEntries([
+      ...indexableLocales.map((language) => [language, absoluteLocalizedUrl(language, path)]),
+      ["x-default", absoluteLocalizedUrl(defaultLocale, path)]
+    ])
   };
+}
+
+export function localizedPageRobots(locale: Locale, path: string) {
+  return { index: localesForIndexablePath(path).includes(locale), follow: true };
 }

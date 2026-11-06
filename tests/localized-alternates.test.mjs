@@ -1,14 +1,27 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
 import test from "node:test";
+import { localesForIndexablePath, publicLocales } from "../lib/localeIndexing.js";
+import { canonicalEntries } from "../lib/sitemap/core.js";
 
-test("noindex locale metadata does not advertise an hreflang relationship", async () => {
-  const source = await readFile(new URL("../lib/i18n.ts", import.meta.url), "utf8");
+const site = "https://www.cowinmagnet.com";
 
-  assert.match(source, /if \(locale !== defaultLocale\)/);
-  assert.match(source, /canonical: absoluteLocalizedUrl\(locale, path\)/);
-  assert.match(source, /canonical: absoluteLocalizedUrl\(defaultLocale, path\)/);
-  const noindexBranch = source.match(/if \(locale !== defaultLocale\) \{([\s\S]*?)\n  \}\n\n  return/);
-  assert.ok(noindexBranch, "the noindex locale branch must remain explicit");
-  assert.doesNotMatch(noindexBranch[1], /languages:/, "non-English noindex metadata must not emit hreflang alternates");
+test("reviewed translations have reciprocal, self-referencing sitemap alternates", () => {
+  for (const path of ["/", "/about", "/contact"]) {
+    const entries = canonicalEntries(path, "2026-11-06", site, localesForIndexablePath(path));
+    assert.equal(entries.length, publicLocales.length);
+    for (const entry of entries) {
+      const byLanguage = Object.fromEntries(entry.alternates.map(({ hreflang, href }) => [hreflang, href]));
+      assert.deepEqual(Object.keys(byLanguage), [...publicLocales, "x-default"]);
+      assert.ok(Object.values(byLanguage).includes(entry.loc));
+      assert.equal(byLanguage["x-default"], entries[0].loc);
+    }
+  }
+});
+
+test("technical profiles and articles awaiting review stay English-only in the sitemap", () => {
+  for (const path of ["/products/rcyd", "/blog/example", "/news/example"]) {
+    const [entry, second] = canonicalEntries(path, "2026-11-06", site, localesForIndexablePath(path));
+    assert.equal(second, undefined);
+    assert.deepEqual(entry.alternates.map(({ hreflang }) => hreflang), ["en", "x-default"]);
+  }
 });

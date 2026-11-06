@@ -19,10 +19,12 @@ import { getLocalizedProductSummary } from "@/lib/productLocale";
 import { getLocalizedProductTitle } from "@/lib/productLocalizedTitle";
 import { getOriginalContentLabels } from "@/lib/contentOriginalLocale";
 import { productPageSchema } from "@/lib/productPageSchema";
+import type { ProductSection } from "@/lib/productSections";
 
 type ProductDetailExperienceProps = {
   product: Product;
   locale?: Locale;
+  initialSection?: ProductSection;
 };
 
 const industryLabels: Record<string, string> = {
@@ -89,7 +91,7 @@ function SelectionChecklist({ items }: { items: string[] }) {
   );
 }
 
-export function ProductDetailExperience({ product, locale }: ProductDetailExperienceProps) {
+export function ProductDetailExperience({ product, locale, initialSection = "overview" }: ProductDetailExperienceProps) {
   const profile = getProductDetailProfile(product);
   const productUi = getPublicUi(locale || "en");
   const displayName = getLocalizedProductTitle(product, locale || "en");
@@ -153,6 +155,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
             <div className="product-hero-meta"><span>{localizedCategory}</span>{models.length ? <span>{ui.productModel}: {models.join(" / ")}</span> : null}</div>
             <h1>{displayName}</h1>
             <p>{summary}</p>
+            <a className="text-link product-spec-link" href={`${pagePath}?section=technical#product-sections`}>{ui.productTabs[3]} <ArrowRight size={16} aria-hidden /></a>
             <div className="product-hero-actions">
               <Link className="btn btn-primary" href={quotePath}>{t.common.getQuote} <ArrowRight size={17} aria-hidden /></Link>
               <a className="btn btn-secondary" href={`https://wa.me/${site.whatsapp}?text=${localizedShareMessage}`} target="_blank" rel="noopener noreferrer nofollow" data-whatsapp-placement="product-hero" data-whatsapp-component="product-detail" data-whatsapp-product-slug={product.slug} data-whatsapp-product-name={displayName}><MessageCircle size={17} aria-hidden /> WhatsApp</a>
@@ -162,12 +165,12 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
         <div className="product-detail-workspace">
 
           <div className="product-detail-content">
-            <ProductDetailSectionTabs />
-            <section data-product-panel="overview" className="product-detail-section product-overview-section"><div className="product-detail-section-heading"><span className="eyebrow">{t.productDetail.overview}</span><h2>{displayName}</h2></div><div className="product-prose"><p>{summary}</p><p>{original.product} <Link href={`/en/products/${product.slug}`} hrefLang="en">{original.link}</Link></p></div></section>
-            <section data-product-panel="selection" hidden className="product-detail-section product-selection-section"><div className="product-selection-copy"><span className="eyebrow">{ui.productTabs[1]}</span><h2>{t.productDetail.ctaTitle}</h2><p>{ui.productInstruction}</p></div><div className="product-selection-cta"><p>{t.productDetail.ctaText}</p><Link className="btn btn-primary" href={quotePath}>{t.common.getQuote} <ArrowRight size={17} aria-hidden /></Link></div></section>
-            <section data-product-panel="applications" hidden className="product-detail-section product-materials-section"><div className="product-detail-section-heading"><span className="eyebrow">{ui.productTabs[2]}</span><h2>{t.productDetail.industries}</h2></div><div className="product-industry-links">{profile.industrySlugs.map((slug) => { const index = industrySlugs.indexOf(slug); return <Link href={routeFor(locale, industryRoute(slug))} key={slug}><span>{index >= 0 ? ui.industryMenu[index][0] : slug}</span><ArrowRight size={16} aria-hidden /></Link>; })}</div></section>
-            <section data-product-panel="technical" hidden className="product-detail-section product-specification-section"><div className="product-detail-section-heading"><span className="eyebrow">{ui.productTabs[3]}</span><h2>{t.productDetail.specifications}</h2><p>{ui.technicalNotice}</p></div>{models.length ? <div className="product-specification-table" role="table" aria-label={t.productDetail.specifications}><div role="row"><span>{ui.productModel}</span><strong>{models.join(" / ")}</strong></div></div> : null}</section>
-            <section data-product-panel="support" hidden className="product-final-cta" aria-labelledby="product-final-cta-title"><div className="product-final-media"><Image src={product.image} alt={displayName} width={660} height={440} sizes="(max-width: 900px) 100vw, 46vw" /></div><div className="product-final-form"><span className="eyebrow">{t.productDetail.quoteTitle}</span><h2 id="product-final-cta-title">{t.productDetail.ctaTitle}</h2><p>{t.productDetail.ctaText}</p><QuoteForm compact productContext={{ name: displayName, model: inquiryModel, family: profile.family }} /></div></section>
+            <ProductDetailSectionTabs initialSection={initialSection} />
+            <section data-product-panel="overview" hidden={initialSection !== "overview"} className="product-detail-section product-overview-section"><div className="product-detail-section-heading"><span className="eyebrow">{t.productDetail.overview}</span><h2>{displayName}</h2></div><div className="product-prose"><p>{summary}</p><p>{original.product} <Link href={`/en/products/${product.slug}`} hrefLang="en">{original.link}</Link></p></div></section>
+            <section data-product-panel="selection" hidden={initialSection !== "selection"} className="product-detail-section product-selection-section"><div className="product-selection-copy"><span className="eyebrow">{ui.productTabs[1]}</span><h2>{t.productDetail.ctaTitle}</h2><p>{ui.productInstruction}</p></div><div className="product-selection-cta"><p>{t.productDetail.ctaText}</p><Link className="btn btn-primary" href={quotePath}>{t.common.getQuote} <ArrowRight size={17} aria-hidden /></Link></div></section>
+            <section data-product-panel="applications" hidden={initialSection !== "applications"} className="product-detail-section product-materials-section"><div className="product-detail-section-heading"><span className="eyebrow">{ui.productTabs[2]}</span><h2>{t.productDetail.industries}</h2></div><div className="product-industry-links">{profile.industrySlugs.map((slug) => { const index = industrySlugs.indexOf(slug); return <Link href={routeFor(locale, industryRoute(slug))} key={slug}><span>{index >= 0 ? ui.industryMenu[index][0] : slug}</span><ArrowRight size={16} aria-hidden /></Link>; })}</div></section>
+            <section data-product-panel="technical" hidden={initialSection !== "technical"} className="product-detail-section product-specification-section"><div className="product-detail-section-heading"><span className="eyebrow">{ui.productTabs[3]}</span><h2>{t.productDetail.specifications}</h2><p>{ui.technicalNotice}</p></div>{models.length ? <div className="product-specification-table" role="table" aria-label={t.productDetail.specifications}><div role="row"><span>{ui.productModel}</span><strong>{models.join(" / ")}</strong></div></div> : null}</section>
+            <section data-product-panel="support" hidden={initialSection !== "support"} className="product-final-cta" aria-labelledby="product-final-cta-title"><div className="product-final-media"><Image src={product.image} alt={displayName} width={660} height={440} sizes="(max-width: 900px) 100vw, 46vw" /></div><div className="product-final-form"><span className="eyebrow">{t.productDetail.quoteTitle}</span><h2 id="product-final-cta-title">{t.productDetail.ctaTitle}</h2><p>{t.productDetail.ctaText}</p><QuoteForm compact productContext={{ name: displayName, model: inquiryModel, family: profile.family }} /></div></section>
           </div>
         </div>
       </div>
@@ -200,7 +203,8 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
               {models.length ? <span>Model: {models.join(" / ")}</span> : null}
             </div>
             <h1>{displayName}</h1>
-            <p>{profile.overview[0].split(/(?<=\.)\s+/).slice(0, 2).join(" ")}</p>
+            <p>{profile.overview[0].split(/(?<=\.)\s+/)[0]}</p>
+            <a className="text-link product-spec-link" href={`${pagePath}?section=technical#product-sections`}>{productUi.productTabs[3]} <ArrowRight size={16} aria-hidden /></a>
             <dl className="product-quick-facts">
               {profile.quickFacts.slice(0, 3).map((fact) => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
             </dl>
@@ -216,9 +220,9 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
 
 
           <div className="product-detail-content">
-            <ProductDetailSectionTabs />
+            <ProductDetailSectionTabs initialSection={initialSection} />
 
-        <section id="overview" data-product-panel="overview" className="product-detail-section product-overview-section">
+        <section id="overview" data-product-panel="overview" hidden={initialSection !== "overview"} className="product-detail-section product-overview-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Product role</span>
             <h2>Overview</h2>
@@ -230,7 +234,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           <div className="inner-guide-grid inner-product-guides"><article><div className="inner-icon"><Settings2 size={22} aria-hidden /></div><div><h3>Configuration review</h3><p>{profile.configurationOptions[0]}</p><a className="text-link" href={`${pagePath}?section=selection`}>Selection and installation</a></div></article><article><div className="inner-icon"><ClipboardList size={22} aria-hidden /></div><div><h3>Technical information</h3><p>{productUi.technicalNotice}</p><a className="text-link" href={`${pagePath}?section=technical`}>Review technical data</a></div></article></div>
         </section>
 
-        <section id="selection" data-product-panel="selection" hidden className="product-detail-section product-configuration-section">
+        <section id="selection" data-product-panel="selection" hidden={initialSection !== "selection"} className="product-detail-section product-configuration-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Selection logic</span>
             <h2>Why this configuration needs site information</h2>
@@ -246,7 +250,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
         </section>
 
-        <section data-product-panel="applications" hidden className="product-detail-section product-process-section">
+        <section data-product-panel="applications" hidden={initialSection !== "applications"} className="product-detail-section product-process-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Process position</span>
             <h2>Where it fits in a typical material flow</h2>
@@ -256,7 +260,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
         </section>
 
         {product.engineeringDiagrams?.length ? (
-          <section data-product-panel="selection" hidden className="product-detail-section product-engineering-diagrams">
+          <section data-product-panel="selection" hidden={initialSection !== "selection"} className="product-detail-section product-engineering-diagrams">
             <div className="product-detail-section-heading">
               <span className="eyebrow">Engineering reference</span>
               <h2>Installation and dimensional reference</h2>
@@ -273,7 +277,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </section>
         ) : null}
 
-        <section id="applications" data-product-panel="applications" hidden className="product-detail-section product-materials-section">
+        <section id="applications" data-product-panel="applications" hidden={initialSection !== "applications"} className="product-detail-section product-materials-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Applications</span>
             <h2>Typical materials and industry contexts</h2>
@@ -292,7 +296,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
         </section>
 
-        <section id="technical-data" data-product-panel="technical" hidden className="product-detail-section product-specification-section">
+        <section id="technical-data" data-product-panel="technical" hidden={initialSection !== "technical"} className="product-detail-section product-specification-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Technical information</span>
             <h2>Technical specifications and confirmation basis</h2>
@@ -314,7 +318,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           )}
         </section>
 
-        <section data-product-panel="selection" hidden className="product-detail-section product-options-section">
+        <section data-product-panel="selection" hidden={initialSection !== "selection"} className="product-detail-section product-options-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Configuration</span>
             <h2>Configuration points to review</h2>
@@ -324,7 +328,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
         </section>
 
-        <section data-product-panel="selection" hidden className="product-detail-section product-selection-section">
+        <section data-product-panel="selection" hidden={initialSection !== "selection"} className="product-detail-section product-selection-section">
           <div className="product-selection-copy">
             <span className="eyebrow">Selection checklist</span>
             <h2>What to send for an initial configuration review</h2>
@@ -357,7 +361,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
         </section>
 
-        <section data-product-panel="support" hidden className="product-detail-section product-faq-section">
+        <section data-product-panel="support" hidden={initialSection !== "support"} className="product-detail-section product-faq-section">
           <div className="product-detail-section-heading">
             <span className="eyebrow">Product FAQ</span>
             <h2>Questions to resolve before ordering</h2>
@@ -367,7 +371,7 @@ export function ProductDetailExperience({ product, locale }: ProductDetailExperi
           </div>
         </section>
 
-        <section data-product-panel="support" hidden className="product-final-cta" aria-labelledby="product-final-cta-title">
+        <section data-product-panel="support" hidden={initialSection !== "support"} className="product-final-cta" aria-labelledby="product-final-cta-title">
           <div className="product-final-media"><Image src={product.image} alt={`${displayName} inquiry support`} width={660} height={440} sizes="(max-width: 900px) 100vw, 46vw" /></div>
           <div className="product-final-form">
             <span className="eyebrow">Request a quote</span>

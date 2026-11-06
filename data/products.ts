@@ -46,7 +46,7 @@ export const products: Product[] = [
     "name": "RCYD Self-Dumping Permanent Magnetic Iron Remover",
     "category": "Suspended & Self-Unloading Iron Removers",
     "inquiryModel": "RCYD",
-    "image": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130527234013948-cowin-brand-20261001.jpg",
+    "image": "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/rcyd-equipment-cowin-brand.webp",
     "imageGallery": [
       "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-20130527234013948-cowin-brand-20261001.jpg",
       "/assets/products/rcyd-type-permanent-magnet-self-dumping-iron-remover/legacy-import/xintuo-39-2013010416351264-cowin-brand-20261001.gif",
@@ -333,7 +333,7 @@ export const products: Product[] = [
     "name": "RCDD Self-Cooling Self-Dumping Electromagnetic Iron Remover",
     "category": "Suspended & Self-Unloading Iron Removers",
     "inquiryModel": "RCDD",
-    "image": "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130825103209634-cowin-brand-20261001.jpg",
+    "image": "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/rcdd-equipment-cowin-brand.webp",
     "imageGallery": [
       "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130825103209634-cowin-brand-20261001.jpg",
       "/assets/products/rcdd-type-self-cooling-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-43-20130104122226760-cowin-brand-20261001.gif",
@@ -579,7 +579,7 @@ export const products: Product[] = [
     "name": "RCYB Suspended Permanent Magnetic Iron Remover",
     "category": "Suspended & Self-Unloading Iron Removers",
     "inquiryModel": "RCYB",
-    "image": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-suspended-permanent-magnet-main-cowin-brand-20261001.jpg",
+    "image": "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/rcyb-equipment-cowin-brand.webp",
     "imageGallery": [
       "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/legacy-import/rcyb-suspended-permanent-magnet-main-cowin-brand-20261001.jpg",
       "/assets/products/rcyb-type-permanent-magnet-manual-iron-remover/rcyb-type-permanent-magnet-manual-iron-remover-01.jpg",
@@ -824,7 +824,7 @@ export const products: Product[] = [
     "name": "RCDB Self-Cooling Plate Electromagnetic Iron Remover",
     "category": "Suspended & Self-Unloading Iron Removers",
     "inquiryModel": "RCDB",
-    "image": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130527235935684-cowin-brand-20261001.jpg",
+    "image": "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/rcdb-equipment-cowin-brand.webp",
     "imageGallery": [
       "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130527235935684-cowin-brand-20261001.jpg",
       "/assets/products/rcdb-type-self-cooling-plate-electromagnetic-iron-remover/legacy-import/xintuo-48-20130527160023_97967.jpg",
@@ -1928,7 +1928,7 @@ export const products: Product[] = [
     "name": "RCDA Air-Cooled Suspended Electromagnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
     "inquiryModel": "RCDA",
-    "image": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824116-cowin-brand-20261001.gif",
+    "image": "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/rcda-equipment-cowin-brand.webp",
     "imageGallery": [
       "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824116-cowin-brand-20261001.gif",
       "/assets/products/rcda-type-air-cooled-electromagnetic-iron-remover/legacy-import/xintuo-46-20130104123824869-cowin-brand-20261001.gif",
@@ -2228,7 +2228,7 @@ export const products: Product[] = [
     "name": "RCDC Air-Cooled Self-Dumping Electromagnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
     "inquiryModel": "RCDC",
-    "image": "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-20130528000628451-cowin-brand-20261001.jpg",
+    "image": "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/rcdc-equipment-cowin-brand.webp",
     "imageGallery": [
       "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-20130528000628451-cowin-brand-20261001.jpg",
       "/assets/products/rcdc-type-air-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-44-s_20130825103209634.jpg",
@@ -2497,7 +2497,7 @@ export const products: Product[] = [
     "name": "RCDE Oil-Cooled Electromagnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
     "inquiryModel": "RCDE",
-    "image": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130825103008516-cowin-brand-20261001.jpg",
+    "image": "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/rcde-equipment-cowin-brand.webp",
     "imageGallery": [
       "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130825103008516-cowin-brand-20261001.jpg",
       "/assets/products/rcde-type-oil-cooled-electromagnetic-iron-remover/legacy-import/xintuo-42-20130104121634646-cowin-brand-20261001.gif",
@@ -2803,7 +2803,7 @@ export const products: Product[] = [
     "name": "RCDF Oil-Cooled Self-Dumping Electromagnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
     "inquiryModel": "RCDF",
-    "image": "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-20130528000938524-cowin-brand-20261001.jpg",
+    "image": "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/rcdf-equipment-cowin-brand.webp",
     "imageGallery": [
       "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-20130528000938524-cowin-brand-20261001.jpg",
       "/assets/products/rcdf-oil-cooled-self-dumping-electromagnetic-iron-remover/legacy-import/xintuo-41-s_20130104161615151-cowin-brand-20261001.gif",
@@ -3213,7 +3213,7 @@ export const products: Product[] = [
     "name": "RCYA Inclined Pipeline Permanent Magnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
     "inquiryModel": "RCYA",
-    "image": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714773-cowin-brand-20261001.gif",
+    "image": "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/rcya-equipment-cowin-brand.webp",
     "imageGallery": [
       "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714773-cowin-brand-20261001.gif",
       "/assets/products/rcya-type-inclined-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-37-20130104162714540-cowin-brand-20261001.gif",
@@ -3539,7 +3539,7 @@ export const products: Product[] = [
     "name": "RCYF Vertical Pipeline Permanent Magnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
     "inquiryModel": "RCYF",
-    "image": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130825102859754-cowin-brand-20261001.jpg",
+    "image": "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/rcyf-equipment-cowin-brand.webp",
     "imageGallery": [
       "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130825102859754-cowin-brand-20261001.jpg",
       "/assets/products/rcyf-type-vertical-pipeline-permanent-magnet-iron-remover/legacy-import/xintuo-33-20130527155446_34721-cowin-brand-20261001.gif",
@@ -3705,7 +3705,7 @@ export const products: Product[] = [
     "name": "RCYG Pipeline Self-Dumping Permanent Magnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
     "inquiryModel": "RCYG",
-    "image": "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-20130322215922721-cowin-brand-20261001.gif",
+    "image": "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/rcyg-equipment-cowin-brand.webp",
     "imageGallery": [
       "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-20130322215922721-cowin-brand-20261001.gif",
       "/assets/products/rcyg-type-pipeline-self-dumping-permanent-magnet-iron-remover/legacy-import/xintuo-47-s_20130104123824116-cowin-brand-20261001.gif",
@@ -3862,7 +3862,7 @@ export const products: Product[] = [
     "name": "RCYP Manual-Cleaning Permanent Magnetic Iron Remover",
     "category": "Magnetic Separation Equipment",
     "inquiryModel": "RCYP",
-    "image": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155415539-cowin-brand-20261001.gif",
+    "image": "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/rcyp-equipment-cowin-brand.webp",
     "imageGallery": [
       "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155415539-cowin-brand-20261001.gif",
       "/assets/products/rcyp-type-permanent-magnet-manual-self-dumping-iron-remover/legacy-import/xintuo-34-20130104155416137-cowin-brand-20261001.gif",

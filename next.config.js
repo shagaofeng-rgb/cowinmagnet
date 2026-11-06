@@ -59,6 +59,26 @@ const nextConfig = {
         permanent: true
       },
       {
+        source: "/product/ElectromagneticSeries",
+        destination: "/en/products?q=electromagnetic",
+        permanent: true
+      },
+      {
+        source: "/en/product/ElectromagneticSeries",
+        destination: "/en/products?q=electromagnetic",
+        permanent: true
+      },
+      {
+        source: "/blog/magnetic-separator-for-waste-recycling-lines",
+        destination: "/en/blog/magnetic-separator-for-recycling-selection-and-application-guidelines",
+        permanent: true
+      },
+      {
+        source: "/:locale(en|es|ru|ar|fr|pt)/blog/magnetic-separator-for-waste-recycling-lines",
+        destination: "/:locale/blog/magnetic-separator-for-recycling-selection-and-application-guidelines",
+        permanent: true
+      },
+      {
         source: "/:locale(en|es|ru|ar|fr|pt)/blog-sitemap.xml",
         destination: "/sitemap.xml",
         permanent: true
@@ -177,6 +197,10 @@ const nextConfig = {
   },
   async headers() {
     return [
+      {
+        source: "/admin/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }]
+      },
       {
         source: "/videos/cowinmagnet-home-product-showcase-2026.mp4",
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }]

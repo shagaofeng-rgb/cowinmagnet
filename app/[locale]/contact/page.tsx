@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { LocalizedContactPage } from "@/components/InnerCompanyPages";
-import { getDictionary, isLocale, localizedPageAlternates, type Locale } from "@/lib/i18n";
+import { getDictionary, isLocale, localizedPageAlternates, localizedPageRobots, type Locale } from "@/lib/i18n";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -8,7 +8,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const current = isLocale(locale) ? locale : "en";
   const t = getDictionary(current);
-  return { title: t.contact.seoTitle, description: t.contact.metaDescription, alternates: localizedPageAlternates(current, "/contact") };
+  return { title: t.contact.seoTitle, description: t.contact.metaDescription, robots: localizedPageRobots(current, "/contact"), alternates: localizedPageAlternates(current, "/contact") };
 }
 
 export default async function Page({ params }: PageProps) {
